@@ -16,9 +16,16 @@ services:
       timeout: 5s
       retries: 10
 
+  # Optionnel : uniquement necessaire si AI_BACKEND=ollama (backend IA 100%
+  # local). Par defaut le projet utilise Gemini (API distante) car
+  # l'hebergement local demande plus de ressources machine que disponible
+  # pour l'instant - voir apps/api/src/modules/ai/README.md. Ce service ne
+  # demarre pas automatiquement avec `docker compose up` ; lancez-le a la
+  # demande avec `docker compose --profile ollama up`.
   ollama:
     image: ollama/ollama:latest
     restart: unless-stopped
+    profiles: ["ollama"]
     ports:
       - "11434:11434"
     volumes:
@@ -34,8 +41,6 @@ services:
     depends_on:
       postgres:
         condition: service_healthy
-      ollama:
-        condition: service_started
     environment:
       NODE_ENV: production
       API_PORT: 3000
@@ -43,10 +48,14 @@ services:
       WEB_URL: http://localhost:5173
       JWT_ACCESS_SECRET: ${JWT_ACCESS_SECRET:-change-me-access-secret}
       JWT_REFRESH_SECRET: ${JWT_REFRESH_SECRET:-change-me-refresh-secret}
+      AI_BACKEND: ${AI_BACKEND:-gemini}
+      AI_EMBEDDING_DIM: ${AI_EMBEDDING_DIM:-768}
+      GEMINI_API_KEY: ${GEMINI_API_KEY:-}
+      GEMINI_LLM_MODEL: ${GEMINI_LLM_MODEL:-gemini-2.5-flash}
+      GEMINI_EMBEDDING_MODEL: ${GEMINI_EMBEDDING_MODEL:-gemini-embedding-001}
       OLLAMA_URL: http://ollama:11434
       OLLAMA_LLM_MODEL: ${OLLAMA_LLM_MODEL:-qwen2.5:3b}
       OLLAMA_EMBEDDING_MODEL: ${OLLAMA_EMBEDDING_MODEL:-nomic-embed-text}
-      AI_EMBEDDING_DIM: ${AI_EMBEDDING_DIM:-768}
     ports:
       - "3000:3000"
 

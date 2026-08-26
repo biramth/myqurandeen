@@ -17,7 +17,8 @@
     "groupLearn": "Belajar",
     "groupAdmin": "Admin",
     "menu": "Menu",
-    "admin": "Admin"
+    "admin": "Admin",
+    "assistant": "Asisten AI"
   },
   "home": {
     "title": "Apa yang ingin Anda pelajari?",
@@ -238,5 +239,17 @@
     "assignToMe": "Tugaskan ke saya",
     "active": "Aktif",
     "inactive": "Nonaktif"
+  },
+  "assistant": {
+    "title": "Asisten AI",
+    "subtitle": "Ajukan pertanyaan, dapatkan jawaban berdasarkan sumber yang sudah diverifikasi di platform.",
+    "disclaimer": "Jawaban dihasilkan dari konten yang sudah bersumber di Qurandeen. Selalu periksa sumber yang dikutip di bawah.",
+    "notReady": "Asisten belum tersedia saat ini (indeks atau model belum siap).",
+    "placeholder": "Ajukan pertanyaan Anda...",
+    "ask": "Tanya",
+    "thinking": "Mencari...",
+    "error": "Tidak dapat memperoleh jawaban saat ini.",
+    "sources": "Sumber",
+    "empty": "Ajukan pertanyaan untuk memulai."
   }
 }

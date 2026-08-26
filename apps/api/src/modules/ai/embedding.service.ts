@@ -1,6 +1,6 @@
 import { Inject, Injectable, Logger } from "@nestjs/common";
 import { ConfigService } from "@nestjs/config";
-import { eq } from "drizzle-orm";
+import { and, eq } from "drizzle-orm";
 import { DRIZZLE } from "../../database/database.constants";
 import type { Database } from "../../database/database.module";
 import { aiEmbeddings } from "../../database/schema";
@@ -21,6 +21,8 @@ import {
   fiqhPositions,
   fiqhTopics,
   authors,
+  translations,
+  verseTranslations,
 } from "../../database/schema";
 import type { AiProvider } from "./ai-provider.interface";
 
@@ -161,7 +163,33 @@ export class EmbeddingService {
     return { count };
   }
 
+  /**
+   * Trouve une traduction avec une couverture complete pour la langue
+   * demandee (la table `translations` est partagee avec d'autres contenus
+   * et contient des lignes sans aucun verset traduit). Retombe sur l'anglais
+   * si la langue preferee n'est pas disponible.
+   */
+  private async findVerseTranslationId(preferredLanguage: string): Promise<string | null> {
+    for (const language of [preferredLanguage, "en"]) {
+      const [row] = await this.db
+        .select({ id: translations.id })
+        .from(translations)
+        .innerJoin(verseTranslations, eq(verseTranslations.translationId, translations.id))
+        .where(eq(translations.language, language))
+        .groupBy(translations.id)
+        .limit(1);
+      if (row) return row.id;
+    }
+    return null;
+  }
+
   private async indexVerses(): Promise<number> {
+    // Sans traduction, le seul contenu embarque dans le contexte RAG est le
+    // texte arabe brut : le LLM doit alors inventer sa propre traduction
+    // pour repondre en francais, ce qui produit des reponses fausses. On
+    // embarque donc systematiquement une traduction verifiee du site.
+    const translationId = await this.findVerseTranslationId("fr");
+
     const rows = await this.db
       .select({
         verseId: quranVerses.id,
@@ -170,20 +198,31 @@ export class EmbeddingService {
         surahNameAr: quranSurahs.nameArabic,
         surahNameTransliterated: quranSurahs.nameTransliterated,
         numberInSurah: quranVerses.numberInSurah,
+        translationText: verseTranslations.text,
       })
       .from(quranVerses)
-      .innerJoin(quranSurahs, eq(quranSurahs.id, quranVerses.surahId));
+      .innerJoin(quranSurahs, eq(quranSurahs.id, quranVerses.surahId))
+      .leftJoin(
+        verseTranslations,
+        and(
+          eq(verseTranslations.verseId, quranVerses.id),
+          eq(verseTranslations.translationId, translationId ?? "00000000-0000-0000-0000-000000000000"),
+        ),
+      );
 
     const chunks: { contentId: string; text: string; context: string; meta: string }[] = [];
 
     for (const row of rows) {
       const context = `Sourate ${row.surahNumber} (${row.surahNameTransliterated} / ${row.surahNameAr}), verset ${row.numberInSurah}`;
       const meta = JSON.stringify({ surahNumber: row.surahNumber, verseNumber: row.numberInSurah, surahName: row.surahNameTransliterated });
+      const fullText = row.translationText
+        ? `${row.translationText}\n\n[Arabe] ${row.textArabic}`
+        : row.textArabic;
 
-      if (row.textArabic.length <= CHUNK_MAX_CHARS) {
-        chunks.push({ contentId: row.verseId, text: row.textArabic, context, meta });
+      if (fullText.length <= CHUNK_MAX_CHARS) {
+        chunks.push({ contentId: row.verseId, text: fullText, context, meta });
       } else {
-        for (const chunk of this.splitText(row.textArabic)) {
+        for (const chunk of this.splitText(fullText)) {
           chunks.push({ contentId: row.verseId, text: chunk, context, meta });
         }
       }

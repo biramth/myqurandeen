@@ -17,7 +17,8 @@
     "groupLearn": "Öğren",
     "groupAdmin": "Yönetim",
     "menu": "Menü",
-    "admin": "Yönetim"
+    "admin": "Yönetim",
+    "assistant": "Yapay Zeka Asistanı"
   },
   "home": {
     "title": "Ne calismak istersiniz?",
@@ -238,5 +239,17 @@
     "assignToMe": "Bana ata",
     "active": "Aktif",
     "inactive": "Pasif"
+  },
+  "assistant": {
+    "title": "Yapay Zeka Asistanı",
+    "subtitle": "Bir soru sorun, platformun zaten doğrulanmış kaynaklarına dayanan bir yanıt alın.",
+    "disclaimer": "Yanıtlar Qurandeen'de zaten kaynaklandırılmış içerikten üretilir. Aşağıdaki kaynakları her zaman kontrol edin.",
+    "notReady": "Asistan şu anda kullanılamıyor (dizin veya model hazır değil).",
+    "placeholder": "Sorunuzu yazın...",
+    "ask": "Sor",
+    "thinking": "Aranıyor...",
+    "error": "Şu anda bir yanıt alınamadı.",
+    "sources": "Kaynaklar",
+    "empty": "Başlamak için bir soru sorun."
   }
 }

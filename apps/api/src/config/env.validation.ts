@@ -10,11 +10,24 @@ export const envSchema = z.object({
   JWT_ACCESS_TTL: z.string().default("15m"),
   JWT_REFRESH_TTL: z.string().default("30d"),
 
-  // IA / RAG (Ollama)
+  // IA / RAG : AI_BACKEND choisit le provider actif ("AI_PROVIDER" designe
+  // deja, en interne, le token d'injection NestJS - nom volontairement
+  // different pour ne pas les confondre). "gemini" (API distante, gratuite
+  // en usage modere) est le defaut actuel car l'hebergement local d'Ollama
+  // demande plus de ressources que disponible pour l'instant. "ollama"
+  // reste disponible pour revenir a un backend 100% local plus tard.
+  AI_BACKEND: z.enum(["gemini", "ollama"]).default("gemini"),
+  AI_EMBEDDING_DIM: z.coerce.number().int().positive().default(768),
+
+  // Gemini (API distante)
+  GEMINI_API_KEY: z.string().optional(),
+  GEMINI_LLM_MODEL: z.string().default("gemini-2.5-flash"),
+  GEMINI_EMBEDDING_MODEL: z.string().default("gemini-embedding-001"),
+
+  // Ollama (local, optionnel)
   OLLAMA_URL: z.string().url().default("http://localhost:11434"),
   OLLAMA_LLM_MODEL: z.string().default("qwen2.5:3b"),
   OLLAMA_EMBEDDING_MODEL: z.string().default("nomic-embed-text"),
-  AI_EMBEDDING_DIM: z.coerce.number().int().positive().default(768),
 });
 
 export type EnvConfig = z.infer<typeof envSchema>;
