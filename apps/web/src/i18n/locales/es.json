@@ -8,14 +8,21 @@
     "home": "Inicio",
     "search": "Buscar",
     "profile": "Perfil",
-    "login": "Iniciar sesion",
+    "login": "Iniciar sesión",
     "darkMode": "Activar modo oscuro",
     "lightMode": "Activar modo claro",
-    "language": "Idioma"
+    "language": "Idioma",
+    "groupTexts": "Textos",
+    "groupKnowledge": "Conocimiento",
+    "groupLearn": "Aprender",
+    "groupAdmin": "Administración",
+    "menu": "Menú",
+    "admin": "Administración",
+    "assistant": "Asistente IA"
   },
   "home": {
     "title": "¿Que deseas estudiar?",
-    "subtitle": "Biblioteca digital abierta sobre el Coran, el hadiz, el fiqh y la historia del Islam - fuentes verificables, sin inteligencia artificial.",
+    "subtitle": "Biblioteca digital abierta sobre el Coran, el hadiz, el fiqh y la historia del Islam - fuentes verificables.",
     "searchPlaceholder": "Buscar un versiculo, un hadiz, un concepto...",
     "searchButton": "Buscar",
     "categories": {
@@ -56,7 +63,7 @@
     },
     "register": {
       "title": "Crear una cuenta",
-      "subtitle": "Gratis, sin publicidad, sin IA.",
+      "subtitle": "Gratis, sin publicidad.",
       "displayName": "Nombre visible",
       "email": "Correo electronico",
       "password": "Contraseña",
@@ -207,5 +214,42 @@
     "loading": "Cargando...",
     "showTranslation": "Mostrar traduccion",
     "hideTranslation": "Ocultar traduccion"
+  },
+  "library": {
+    "title": "Biblioteca",
+    "subtitle": "Obras de referencia clasicas, de dominio publico, con autor y categoria.",
+    "error": "No se pudieron cargar las obras.",
+    "empty": "Aun no hay obras disponibles.",
+    "other": "Otros",
+    "publicDomain": "Dominio publico",
+    "errorDetail": "No se pudo cargar esta obra.",
+    "about": "Sobre el autor",
+    "readExternal": "Consultar una edicion externa",
+    "noExternalLink": "Aun no hay ninguna edicion externa verificada para esta obra."
+  },
+  "admin": {
+    "title": "Administración",
+    "reports": "Reportes",
+    "users": "Usuarios",
+    "error": "No se pudieron cargar los datos.",
+    "noReports": "Aún no hay reportes.",
+    "reportedBy": "Reportado por",
+    "anonymous": "Anónimo",
+    "assignedTo": "Asignado a",
+    "assignToMe": "Asignarme",
+    "active": "Activo",
+    "inactive": "Inactivo"
+  },
+  "assistant": {
+    "title": "Asistente IA",
+    "subtitle": "Haz una pregunta y obtén una respuesta basada en las fuentes ya verificadas de la plataforma.",
+    "disclaimer": "Las respuestas se generan a partir de contenido ya documentado en Qurandeen. Verifica siempre las fuentes citadas abajo.",
+    "notReady": "El asistente no está disponible en este momento (índice o modelo no listo).",
+    "placeholder": "Escribe tu pregunta...",
+    "ask": "Preguntar",
+    "thinking": "Buscando...",
+    "error": "No se pudo obtener una respuesta en este momento.",
+    "sources": "Fuentes",
+    "empty": "Haz una pregunta para empezar."
   }
 }

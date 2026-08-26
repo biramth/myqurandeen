@@ -1,10 +1,9 @@
-import { Link, Navigate, useParams } from "react-router-dom";
+import { Navigate, Link, useParams } from "react-router-dom";
 import { useQuery } from "@tanstack/react-query";
 import { useTranslation } from "react-i18next";
-import { ArrowLeft } from "lucide-react";
-import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Skeleton } from "@/components/ui/skeleton";
+import { Breadcrumbs } from "@/components/shared/Breadcrumbs";
 import { scholarsApi } from "@/features/scholars/api";
 
 export function ScholarPage() {
@@ -21,12 +20,12 @@ export function ScholarPage() {
 
   return (
     <div className="mx-auto max-w-2xl px-4 py-8">
-      <Button variant="ghost" size="sm" asChild className="mb-4 -ml-2">
-        <Link to="/scholars">
-          <ArrowLeft className="h-4 w-4" />
-          {t("scholars.backToList")}
-        </Link>
-      </Button>
+      <Breadcrumbs
+        items={[
+          { label: t("scholars.title"), href: "/scholars" },
+          ...(data ? [{ label: data.name }] : []),
+        ]}
+      />
 
       {isError && <p className="text-sm text-destructive">{t("scholars.errorDetail")}</p>}
       {isLoading && <Skeleton className="h-64 w-full" />}

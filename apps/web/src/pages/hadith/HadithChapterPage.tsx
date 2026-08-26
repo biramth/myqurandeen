@@ -1,12 +1,13 @@
 import * as React from "react";
-import { Link, Navigate, useParams } from "react-router-dom";
+import { Navigate, useParams } from "react-router-dom";
 import { useQuery } from "@tanstack/react-query";
 import { useTranslation } from "react-i18next";
-import { ArrowLeft, ChevronLeft, ChevronRight } from "lucide-react";
+import { ChevronLeft, ChevronRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Separator } from "@/components/ui/separator";
 import { Skeleton } from "@/components/ui/skeleton";
+import { Breadcrumbs } from "@/components/shared/Breadcrumbs";
 import { hadithApi } from "@/features/hadith/api";
 
 export function HadithChapterPage() {
@@ -19,6 +20,12 @@ export function HadithChapterPage() {
     queryKey: ["hadith", "book", slug, bookNumber, page],
     queryFn: () => hadithApi.getBookHadiths(slug!, bookNumber, page),
     enabled: Boolean(slug) && Number.isInteger(bookNumber),
+  });
+
+  const { data: collection } = useQuery({
+    queryKey: ["hadith", "collection", slug],
+    queryFn: () => hadithApi.getCollection(slug!),
+    enabled: Boolean(slug),
   });
 
   const { data: editions } = useQuery({
@@ -48,12 +55,13 @@ export function HadithChapterPage() {
 
   return (
     <div className="mx-auto max-w-3xl px-4 py-8">
-      <Button variant="ghost" size="sm" asChild className="mb-4 -ml-2">
-        <Link to={`/hadith/${slug}`}>
-          <ArrowLeft className="h-4 w-4" />
-          {t("hadith.backToChapters")}
-        </Link>
-      </Button>
+      <Breadcrumbs
+        items={[
+          { label: t("hadith.title"), href: "/hadith" },
+          ...(collection ? [{ label: collection.name, href: `/hadith/${slug}` }] : []),
+          ...(data ? [{ label: `${data.book.number}. ${data.book.title}` }] : []),
+        ]}
+      />
 
       {isError && <p className="text-sm text-destructive">{t("hadith.errorChapter")}</p>}
       {isLoading && <Skeleton className="h-64 w-full" />}

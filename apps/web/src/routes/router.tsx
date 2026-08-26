@@ -1,11 +1,7 @@
 import * as React from "react";
 import { Routes, Route } from "react-router-dom";
 import { useTranslation } from "react-i18next";
-import {
-  Library,
-  ShieldCheck,
-  type LucideIcon,
-} from "lucide-react";
+import type { LucideIcon } from "lucide-react";
 import { AppLayout } from "@/components/layout/AppLayout";
 import { ComingSoonPage } from "@/pages/ComingSoonPage";
 
@@ -79,6 +75,12 @@ const LearningLessonPage = React.lazy(() =>
 const LearningQuizPage = React.lazy(() =>
   import("@/pages/learning/LearningQuizPage").then((m) => ({ default: m.LearningQuizPage })),
 );
+const LibraryPage = React.lazy(() => import("@/pages/library/LibraryPage").then((m) => ({ default: m.LibraryPage })));
+const BookPage = React.lazy(() => import("@/pages/library/BookPage").then((m) => ({ default: m.BookPage })));
+const AdminPage = React.lazy(() => import("@/pages/admin/AdminPage").then((m) => ({ default: m.AdminPage })));
+const AssistantPage = React.lazy(() =>
+  import("@/pages/ai/AssistantPage").then((m) => ({ default: m.AssistantPage })),
+);
 const SearchPage = React.lazy(() => import("@/pages/SearchPage").then((m) => ({ default: m.SearchPage })));
 const LoginPage = React.lazy(() => import("@/pages/auth/LoginPage").then((m) => ({ default: m.LoginPage })));
 const RegisterPage = React.lazy(() =>
@@ -91,10 +93,7 @@ function PageFallback() {
   return <div className="px-4 py-16 text-center text-sm text-muted-foreground">{t("common.loading")}</div>;
 }
 
-const COMING_SOON_ROUTES: { path: string; key: string; icon?: LucideIcon }[] = [
-  { path: "/library/*", key: "library", icon: Library },
-  { path: "/admin/*", key: "admin", icon: ShieldCheck },
-];
+const COMING_SOON_ROUTES: { path: string; key: string; icon?: LucideIcon }[] = [];
 
 function ComingSoonRoute({ i18nKey, icon }: { i18nKey: string; icon?: LucideIcon }) {
   const { t } = useTranslation();
@@ -141,6 +140,13 @@ export function AppRouter() {
           <Route path="/learn/:slug" element={<LearningPathPage />} />
           <Route path="/learn/:slug/quiz" element={<LearningQuizPage />} />
           <Route path="/learn/:slug/lessons/:order" element={<LearningLessonPage />} />
+
+          <Route path="/library" element={<LibraryPage />} />
+          <Route path="/library/:slug" element={<BookPage />} />
+
+          <Route path="/admin" element={<AdminPage />} />
+
+          <Route path="/assistant" element={<AssistantPage />} />
 
           <Route path="/search" element={<SearchPage />} />
 

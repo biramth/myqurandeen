@@ -31,8 +31,7 @@ import { UserDataModule } from "./modules/user-data/user-data.module";
 import { ReportsModule } from "./modules/reports/reports.module";
 import { AdminModule } from "./modules/admin/admin.module";
 import { AuditLogModule } from "./modules/audit-log/audit-log.module";
-// Le module IA n'existe pas dans le MVP : voir src/modules/ai/README.md.
-// Il n'est deliberement pas importe ici.
+import { AiModule } from "./modules/ai/ai.module";
 
 @Module({
   imports: [
@@ -72,6 +71,7 @@ import { AuditLogModule } from "./modules/audit-log/audit-log.module";
     ReportsModule,
     AdminModule,
     AuditLogModule,
+    AiModule,
   ],
   providers: [
     { provide: APP_FILTER, useClass: HttpExceptionFilter },

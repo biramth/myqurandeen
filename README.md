@@ -4,11 +4,12 @@ Plateforme web **open-source et gratuite** pour l'etude et la decouverte de
 l'Islam : Coran, traductions, tafsirs, hadiths, vie du Prophete ﷺ, histoire
 islamique, ecoles juridiques, theologie, savants, bibliotheque et concepts.
 
-Pensee comme une bibliotheque numerique moderne — pas un chatbot, pas un
-assistant IA. **Aucune IA, aucun LLM, aucune API payante n'est utilisee dans
-cette version.** L'architecture est concue pour permettre d'ajouter un module
-IA optionnel plus tard sans reecrire l'application (voir
-[apps/api/src/modules/ai/README.md](apps/api/src/modules/ai/README.md)).
+Pensee d'abord comme une bibliotheque numerique moderne a sources
+verifiables. Un module IA optionnel (RAG local via Ollama + pgvector, voir
+[apps/api/src/modules/ai/README.md](apps/api/src/modules/ai/README.md))
+s'appuie exclusivement sur ce contenu deja source : il ne repond qu'a partir
+des extraits retrouves dans la base, cite systematiquement ses sources, et
+n'invente jamais de contenu religieux. Aucune API payante n'est utilisee.
 
 ## Principe fondamental : sources verifiables
 

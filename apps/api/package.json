@@ -24,7 +24,8 @@
     "db:seed:concepts": "tsx src/database/seed/run-concepts-seed.ts",
     "db:seed:scholars": "tsx src/database/seed/run-scholars-seed.ts",
     "db:seed:learning": "tsx src/database/seed/run-learning-seed.ts",
-    "db:seed:quiz": "tsx src/database/seed/run-quiz-seed.ts"
+    "db:seed:quiz": "tsx src/database/seed/run-quiz-seed.ts",
+    "db:seed:library": "tsx src/database/seed/run-library-seed.ts"
   },
   "dependencies": {
     "@nestjs/common": "^11.0.1",

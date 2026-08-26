@@ -1,5 +1,9 @@
 import { Module } from "@nestjs/common";
+import { LibraryController } from "./library.controller";
+import { LibraryService } from "./library.service";
 
-/** Squelette : bibliotheque numerique, logique ajoutee en Phase 8. */
-@Module({})
+@Module({
+  controllers: [LibraryController],
+  providers: [LibraryService],
+})
 export class LibraryModule {}

@@ -1,6 +1,6 @@
 services:
   postgres:
-    image: postgres:16-alpine
+    image: pgvector/pgvector:pg16
     restart: unless-stopped
     environment:
       POSTGRES_USER: qurandeen
@@ -16,6 +16,16 @@ services:
       timeout: 5s
       retries: 10
 
+  ollama:
+    image: ollama/ollama:latest
+    restart: unless-stopped
+    ports:
+      - "11434:11434"
+    volumes:
+      - qurandeen_ollama_data:/root/.ollama
+      - ./apps/api/ollama-entrypoint.sh:/ollama-entrypoint.sh
+    entrypoint: ["/bin/sh", "/ollama-entrypoint.sh"]
+
   api:
     build:
       context: .
@@ -24,6 +34,8 @@ services:
     depends_on:
       postgres:
         condition: service_healthy
+      ollama:
+        condition: service_started
     environment:
       NODE_ENV: production
       API_PORT: 3000
@@ -31,6 +43,10 @@ services:
       WEB_URL: http://localhost:5173
       JWT_ACCESS_SECRET: ${JWT_ACCESS_SECRET:-change-me-access-secret}
       JWT_REFRESH_SECRET: ${JWT_REFRESH_SECRET:-change-me-refresh-secret}
+      OLLAMA_URL: http://ollama:11434
+      OLLAMA_LLM_MODEL: ${OLLAMA_LLM_MODEL:-qwen2.5:3b}
+      OLLAMA_EMBEDDING_MODEL: ${OLLAMA_EMBEDDING_MODEL:-nomic-embed-text}
+      AI_EMBEDDING_DIM: ${AI_EMBEDDING_DIM:-768}
     ports:
       - "3000:3000"
 
@@ -48,3 +64,4 @@ services:
 
 volumes:
   qurandeen_postgres_data:
+  qurandeen_ollama_data:

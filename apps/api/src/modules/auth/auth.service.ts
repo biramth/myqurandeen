@@ -29,8 +29,8 @@ export class AuthService {
 
   async register(dto: RegisterDto): Promise<{ user: ReturnType<UsersService["toPublicProfile"]>; tokens: AuthTokens }> {
     const user = await this.usersService.createUser(dto);
-    const tokens = await this.issueTokens(user.id, user.email, user.roleId);
-    return { user: this.usersService.toPublicProfile(user), tokens };
+    const { tokens, roleName } = await this.issueTokens(user.id, user.email, user.roleId);
+    return { user: this.usersService.toPublicProfile(user, roleName), tokens };
   }
 
   async login(dto: LoginDto): Promise<{ user: ReturnType<UsersService["toPublicProfile"]>; tokens: AuthTokens }> {
@@ -44,8 +44,8 @@ export class AuthService {
       throw new UnauthorizedException("Identifiants invalides");
     }
 
-    const tokens = await this.issueTokens(user.id, user.email, user.roleId);
-    return { user: this.usersService.toPublicProfile(user), tokens };
+    const { tokens, roleName } = await this.issueTokens(user.id, user.email, user.roleId);
+    return { user: this.usersService.toPublicProfile(user, roleName), tokens };
   }
 
   async refresh(refreshToken: string): Promise<AuthTokens> {
@@ -63,10 +63,15 @@ export class AuthService {
       throw new UnauthorizedException("Compte introuvable ou desactive");
     }
 
-    return this.issueTokens(user.id, user.email, user.roleId);
+    const { tokens } = await this.issueTokens(user.id, user.email, user.roleId);
+    return tokens;
   }
 
-  private async issueTokens(userId: string, email: string, roleId: string): Promise<AuthTokens> {
+  private async issueTokens(
+    userId: string,
+    email: string,
+    roleId: string,
+  ): Promise<{ tokens: AuthTokens; roleName: RoleName }> {
     const roleWithPermissions = await this.rbacService.getRoleWithPermissions(roleId);
     if (!roleWithPermissions) {
       throw new UnauthorizedException("Role introuvable pour cet utilisateur");
@@ -91,6 +96,6 @@ export class AuthService {
       expiresIn: (process.env.JWT_REFRESH_TTL ?? "30d") as StringValue,
     });
 
-    return { accessToken, refreshToken };
+    return { tokens: { accessToken, refreshToken }, roleName: roleWithPermissions.roleName };
   }
 }

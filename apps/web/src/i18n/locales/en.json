@@ -11,11 +11,18 @@
     "login": "Log in",
     "darkMode": "Switch to dark mode",
     "lightMode": "Switch to light mode",
-    "language": "Language"
+    "language": "Language",
+    "groupTexts": "Texts",
+    "groupKnowledge": "Knowledge",
+    "groupLearn": "Learn",
+    "groupAdmin": "Admin",
+    "menu": "Menu",
+    "admin": "Admin",
+    "assistant": "AI Assistant"
   },
   "home": {
     "title": "What would you like to study?",
-    "subtitle": "An open digital library on the Quran, hadith, fiqh, and Islamic history - verifiable sources, no artificial intelligence.",
+    "subtitle": "An open digital library on the Quran, hadith, fiqh, and Islamic history - verifiable sources.",
     "searchPlaceholder": "Search a verse, a hadith, a concept...",
     "searchButton": "Search",
     "categories": {
@@ -56,7 +63,7 @@
     },
     "register": {
       "title": "Create an account",
-      "subtitle": "Free, no ads, no AI.",
+      "subtitle": "Free, no ads.",
       "displayName": "Display name",
       "email": "Email",
       "password": "Password",
@@ -207,5 +214,42 @@
     "loading": "Loading...",
     "showTranslation": "Show translation",
     "hideTranslation": "Hide translation"
+  },
+  "library": {
+    "title": "Library",
+    "subtitle": "Classical reference works, public domain, with author and category.",
+    "error": "Unable to load the books.",
+    "empty": "No books available yet.",
+    "other": "Other",
+    "publicDomain": "Public domain",
+    "errorDetail": "Unable to load this book.",
+    "about": "About the author",
+    "readExternal": "Read an external edition",
+    "noExternalLink": "No verified external edition is referenced for this book yet."
+  },
+  "admin": {
+    "title": "Administration",
+    "reports": "Reports",
+    "users": "Users",
+    "error": "Unable to load the data.",
+    "noReports": "No reports yet.",
+    "reportedBy": "Reported by",
+    "anonymous": "Anonymous",
+    "assignedTo": "Assigned to",
+    "assignToMe": "Assign to me",
+    "active": "Active",
+    "inactive": "Inactive"
+  },
+  "assistant": {
+    "title": "AI Assistant",
+    "subtitle": "Ask a question, get an answer grounded in the platform's already-verified sources.",
+    "disclaimer": "Answers are generated from content already sourced on Qurandeen. Always check the cited sources below.",
+    "notReady": "The assistant isn't available right now (index or model not ready).",
+    "placeholder": "Ask your question...",
+    "ask": "Ask",
+    "thinking": "Searching...",
+    "error": "Couldn't get an answer right now.",
+    "sources": "Sources",
+    "empty": "Ask a question to get started."
   }
 }

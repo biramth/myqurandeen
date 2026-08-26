@@ -1,10 +1,9 @@
-import { Link, Navigate, useParams } from "react-router-dom";
+import { Navigate, useParams } from "react-router-dom";
 import { useQuery } from "@tanstack/react-query";
 import { useTranslation } from "react-i18next";
-import { ArrowLeft } from "lucide-react";
-import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Skeleton } from "@/components/ui/skeleton";
+import { Breadcrumbs } from "@/components/shared/Breadcrumbs";
 import { historyApi } from "@/features/history/api";
 
 export function HistoryEventPage() {
@@ -21,12 +20,13 @@ export function HistoryEventPage() {
 
   return (
     <div className="mx-auto max-w-2xl px-4 py-8">
-      <Button variant="ghost" size="sm" asChild className="mb-4 -ml-2">
-        <Link to={data?.period ? `/history/${data.period.slug}` : "/history"}>
-          <ArrowLeft className="h-4 w-4" />
-          {t("history.back")}
-        </Link>
-      </Button>
+      <Breadcrumbs
+        items={[
+          { label: t("history.title"), href: "/history" },
+          ...(data?.period ? [{ label: data.period.name, href: `/history/${data.period.slug}` }] : []),
+          ...(data ? [{ label: data.event.title }] : []),
+        ]}
+      />
 
       {isError && <p className="text-sm text-destructive">{t("history.errorEvent")}</p>}
       {isLoading && <Skeleton className="h-48 w-full" />}

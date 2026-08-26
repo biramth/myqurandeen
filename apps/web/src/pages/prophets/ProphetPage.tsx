@@ -1,9 +1,8 @@
-import { Link, Navigate, useParams } from "react-router-dom";
+import { Navigate, useParams } from "react-router-dom";
 import { useQuery } from "@tanstack/react-query";
 import { useTranslation } from "react-i18next";
-import { ArrowLeft } from "lucide-react";
-import { Button } from "@/components/ui/button";
 import { Skeleton } from "@/components/ui/skeleton";
+import { Breadcrumbs } from "@/components/shared/Breadcrumbs";
 import { prophetsApi } from "@/features/prophets/api";
 
 export function ProphetPage() {
@@ -20,12 +19,9 @@ export function ProphetPage() {
 
   return (
     <div className="mx-auto max-w-2xl px-4 py-8">
-      <Button variant="ghost" size="sm" asChild className="mb-4 -ml-2">
-        <Link to="/prophets">
-          <ArrowLeft className="h-4 w-4" />
-          {t("prophets.backToList")}
-        </Link>
-      </Button>
+      <Breadcrumbs
+        items={[{ label: t("prophets.title"), href: "/prophets" }, ...(data ? [{ label: data.name }] : [])]}
+      />
 
       {isError && <p className="text-sm text-destructive">{t("prophets.errorDetail")}</p>}
       {isLoading && <Skeleton className="h-64 w-full" />}

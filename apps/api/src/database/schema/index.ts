@@ -10,3 +10,4 @@ export * from "./learning";
 export * from "./user-data";
 export * from "./moderation";
 export * from "./prophets";
+export * from "./ai-embeddings";

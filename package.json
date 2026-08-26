@@ -27,7 +27,8 @@
     "db:seed:concepts": "npm run db:seed:concepts -w apps/api",
     "db:seed:scholars": "npm run db:seed:scholars -w apps/api",
     "db:seed:learning": "npm run db:seed:learning -w apps/api",
-    "db:seed:quiz": "npm run db:seed:quiz -w apps/api"
+    "db:seed:quiz": "npm run db:seed:quiz -w apps/api",
+    "db:seed:library": "npm run db:seed:library -w apps/api"
   },
   "devDependencies": {
     "concurrently": "^9.0.1"

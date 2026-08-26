@@ -1,32 +1,46 @@
-# Module IA (inerte, hors MVP)
+# Module IA — RAG Local (Ollama + pgvector)
 
-Ce dossier documente le contrat d'extension pour une future version avec IA.
-**Aucun code ici n'est importe dans `app.module.ts`.** Ce module n'existe pas
-dans le MVP : pas de chatbot, pas de RAG, pas d'appel a une API LLM payante.
+Module d'IA integré utilisant **Ollama** (LLM local gratuit) et **pgvector**
+(recherche vectorielle dans PostgreSQL) pour du RAG (Retrieval-Augmented Generation)
+sur le contenu islamique de la base de données.
 
-## Pourquoi ce dossier existe deja
+## Architecture
 
-Pour que l'ajout d'une IA plus tard n'oblige pas a reecrire l'application :
-le reste du code (modules de contenu, systeme de sources, RBAC) est concu
-pour etre consomme par un futur `AiModule` sans modification.
+```
+AiModule
+├── ai.controller.ts        → Endpoints API (query, search, index, health, stats)
+├── rag.service.ts           → Orchestration RAG (query + search semantique)
+├── embedding.service.ts     → Indexation (chunking + generation embeddings)
+├── ollama.provider.ts       → Client HTTP pour Ollama (LLM + embeddings)
+├── ai-provider.interface.ts → Interface abstraite (remplacable)
+└── ai.module.ts             → Module NestJS
+```
 
-## Contrat prevu pour une version future
+## Prerequis
 
-- `AiModule` serait importe explicitement dans `app.module.ts` (opt-in).
-- Il consommerait les services de domaine existants (`QuranService`,
-  `HadithService`, etc.) en lecture seule - jamais l'inverse : les modules
-  de contenu ne doivent jamais dependre du module IA.
-- Toute reponse generee devrait citer les sources structurees existantes
-  (`sources`, `authors`, `books`) plutot que d'inventer du contenu.
-- Le provider LLM (local ou API) serait injecte via une interface
-  (`AiProvider`) definie ici, pour rester remplacable.
-- Fonctionnalites envisagees : questions sur les sources deja en base,
-  explication de versets a partir des tafsirs existants, comparaison
-  d'ecoles a partir des positions deja structurees, recherche semantique,
-  resumes, parcours personnalises.
+1. **Ollama** tourne en local (ou via Docker Compose)
+2. Le modele d'embeddings est telecharge : `ollama pull nomic-embed-text`
+3. Le modele LLM est telecharge : `ollama pull llama3.1:8b`
+4. L'extension **pgvector** est activee sur PostgreSQL
 
-## Regle absolue
+## Endpoints API
 
-Si ce module est active un jour, il ne doit jamais devenir une source de
-verite religieuse : il doit toujours s'appuyer sur le contenu deja sourcee
-dans la base, jamais generer une affirmation religieuse non tracable.
+| Methode | Route | Description |
+|---------|-------|-------------|
+| `GET` | `/ai/health` | Verifie Ollama + nb d'embeddings |
+| `GET` | `/ai/stats` | Statistiques de l'index |
+| `POST` | `/ai/query` | Question RAG (reponse + sources) |
+| `POST` | `/ai/search` | Recherche semantique (sans LLM) |
+| `POST` | `/ai/index` | Indexer tout le contenu |
+| `POST` | `/ai/index/:type` | Indexer un type specifique |
+
+## Types de contenu indexables
+
+`verse` | `hadith` | `tafsir` | `concept` | `scholar` | `prophet` | `event` | `school` | `fiqh_position`
+
+## Regles absolues
+
+- Ce module ne JAMAIS etre une source de verite religieuse.
+- Il s'appuie TOUJOURS sur le contenu deja source dans la base.
+- Toute reponse cite les sources (verset, hadith, auteur, ouvrage).
+- Le provider LLM est injecte via `AI_PROVIDER` et peut etre remplace.

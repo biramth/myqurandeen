@@ -36,4 +36,8 @@ export class RbacService {
   async findRoleByName(name: RoleName) {
     return this.db.query.roles.findFirst({ where: eq(roles.name, name) });
   }
+
+  async listRoles() {
+    return this.db.select().from(roles);
+  }
 }

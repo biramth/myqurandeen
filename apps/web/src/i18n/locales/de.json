@@ -11,11 +11,18 @@
     "login": "Anmelden",
     "darkMode": "Dunklen Modus aktivieren",
     "lightMode": "Hellen Modus aktivieren",
-    "language": "Sprache"
+    "language": "Sprache",
+    "groupTexts": "Texte",
+    "groupKnowledge": "Wissen",
+    "groupLearn": "Lernen",
+    "groupAdmin": "Verwaltung",
+    "menu": "Menü",
+    "admin": "Verwaltung",
+    "assistant": "KI-Assistent"
   },
   "home": {
     "title": "Was mochten Sie studieren?",
-    "subtitle": "Offene digitale Bibliothek zu Koran, Hadith, Fiqh und islamischer Geschichte - uberprufbare Quellen, ohne kunstliche Intelligenz.",
+    "subtitle": "Offene digitale Bibliothek zu Koran, Hadith, Fiqh und islamischer Geschichte - uberprufbare Quellen.",
     "searchPlaceholder": "Einen Vers, einen Hadith, einen Begriff suchen...",
     "searchButton": "Suchen",
     "categories": {
@@ -56,7 +63,7 @@
     },
     "register": {
       "title": "Konto erstellen",
-      "subtitle": "Kostenlos, werbefrei, ohne KI.",
+      "subtitle": "Kostenlos, werbefrei.",
       "displayName": "Anzeigename",
       "email": "E-Mail",
       "password": "Passwort",
@@ -207,5 +214,42 @@
     "loading": "Wird geladen...",
     "showTranslation": "Ubersetzung anzeigen",
     "hideTranslation": "Ubersetzung ausblenden"
+  },
+  "library": {
+    "title": "Bibliothek",
+    "subtitle": "Klassische Referenzwerke, gemeinfrei, mit Autor und Kategorie.",
+    "error": "Die Werke konnten nicht geladen werden.",
+    "empty": "Noch keine Werke verfügbar.",
+    "other": "Sonstiges",
+    "publicDomain": "Gemeinfrei",
+    "errorDetail": "Dieses Werk konnte nicht geladen werden.",
+    "about": "Über den Autor",
+    "readExternal": "Externe Ausgabe lesen",
+    "noExternalLink": "Für dieses Werk ist noch keine geprüfte externe Ausgabe verlinkt."
+  },
+  "admin": {
+    "title": "Verwaltung",
+    "reports": "Meldungen",
+    "users": "Benutzer",
+    "error": "Die Daten konnten nicht geladen werden.",
+    "noReports": "Noch keine Meldungen.",
+    "reportedBy": "Gemeldet von",
+    "anonymous": "Anonym",
+    "assignedTo": "Zugewiesen an",
+    "assignToMe": "Mir zuweisen",
+    "active": "Aktiv",
+    "inactive": "Inaktiv"
+  },
+  "assistant": {
+    "title": "KI-Assistent",
+    "subtitle": "Stellen Sie eine Frage und erhalten Sie eine Antwort, die auf den bereits verifizierten Quellen der Plattform basiert.",
+    "disclaimer": "Antworten werden aus bereits belegten Inhalten auf Qurandeen generiert. Überprüfen Sie immer die unten angegebenen Quellen.",
+    "notReady": "Der Assistent ist derzeit nicht verfügbar (Index oder Modell nicht bereit).",
+    "placeholder": "Stellen Sie Ihre Frage...",
+    "ask": "Fragen",
+    "thinking": "Suche läuft...",
+    "error": "Momentan konnte keine Antwort ermittelt werden.",
+    "sources": "Quellen",
+    "empty": "Stellen Sie eine Frage, um zu beginnen."
   }
 }

@@ -4,6 +4,8 @@ export interface AuthUser {
   displayName: string;
   locale: string;
   memberSince: string;
+  /** True si l'utilisateur a un role permettant d'acceder au tableau de bord d'administration. */
+  isStaff?: boolean;
 }
 
 export interface AuthResponse {

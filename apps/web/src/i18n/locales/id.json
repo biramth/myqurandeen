@@ -11,11 +11,17 @@
     "login": "Masuk",
     "darkMode": "Aktifkan mode gelap",
     "lightMode": "Aktifkan mode terang",
-    "language": "Bahasa"
+    "language": "Bahasa",
+    "groupTexts": "Teks",
+    "groupKnowledge": "Pengetahuan",
+    "groupLearn": "Belajar",
+    "groupAdmin": "Admin",
+    "menu": "Menu",
+    "admin": "Admin"
   },
   "home": {
     "title": "Apa yang ingin Anda pelajari?",
-    "subtitle": "Perpustakaan digital terbuka tentang Al-Quran, hadis, fikih, dan sejarah Islam - sumber yang dapat diverifikasi, tanpa kecerdasan buatan.",
+    "subtitle": "Perpustakaan digital terbuka tentang Al-Quran, hadis, fikih, dan sejarah Islam - sumber yang dapat diverifikasi.",
     "searchPlaceholder": "Cari ayat, hadis, atau konsep...",
     "searchButton": "Cari",
     "categories": {
@@ -56,7 +62,7 @@
     },
     "register": {
       "title": "Buat akun",
-      "subtitle": "Gratis, tanpa iklan, tanpa AI.",
+      "subtitle": "Gratis, tanpa iklan.",
       "displayName": "Nama tampilan",
       "email": "Email",
       "password": "Kata sandi",
@@ -207,5 +213,30 @@
     "loading": "Memuat...",
     "showTranslation": "Tampilkan terjemahan",
     "hideTranslation": "Sembunyikan terjemahan"
+  },
+  "library": {
+    "title": "Perpustakaan",
+    "subtitle": "Karya referensi klasik, domain publik, dengan penulis dan kategori.",
+    "error": "Buku tidak dapat dimuat.",
+    "empty": "Belum ada buku yang tersedia.",
+    "other": "Lainnya",
+    "publicDomain": "Domain publik",
+    "errorDetail": "Buku ini tidak dapat dimuat.",
+    "about": "Tentang penulis",
+    "readExternal": "Baca edisi eksternal",
+    "noExternalLink": "Belum ada edisi eksternal terverifikasi untuk buku ini."
+  },
+  "admin": {
+    "title": "Administrasi",
+    "reports": "Laporan",
+    "users": "Pengguna",
+    "error": "Data tidak dapat dimuat.",
+    "noReports": "Belum ada laporan.",
+    "reportedBy": "Dilaporkan oleh",
+    "anonymous": "Anonim",
+    "assignedTo": "Ditugaskan ke",
+    "assignToMe": "Tugaskan ke saya",
+    "active": "Aktif",
+    "inactive": "Nonaktif"
   }
 }

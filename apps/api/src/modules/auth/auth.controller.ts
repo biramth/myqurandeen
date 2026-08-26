@@ -71,6 +71,6 @@ export class AuthController {
     if (!user) {
       throw new UnauthorizedException("Utilisateur introuvable");
     }
-    return this.usersService.toPublicProfile(user);
+    return this.usersService.toPublicProfile(user, currentUser.roleName);
   }
 }

@@ -1,10 +1,9 @@
-import { Link, Navigate, useParams } from "react-router-dom";
+import { Navigate, useParams } from "react-router-dom";
 import { useQuery } from "@tanstack/react-query";
 import { useTranslation } from "react-i18next";
-import { ArrowLeft } from "lucide-react";
-import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Skeleton } from "@/components/ui/skeleton";
+import { Breadcrumbs } from "@/components/shared/Breadcrumbs";
 import { quranApi } from "@/features/quran/api";
 
 export function VersePage() {
@@ -25,12 +24,13 @@ export function VersePage() {
 
   return (
     <div className="mx-auto max-w-2xl px-4 py-8">
-      <Button variant="ghost" size="sm" asChild className="mb-4 -ml-2">
-        <Link to={`/quran/${surahNumber}`}>
-          <ArrowLeft className="h-4 w-4" />
-          {t("quran.backToSurah")}
-        </Link>
-      </Button>
+      <Breadcrumbs
+        items={[
+          { label: t("quran.title"), href: "/quran" },
+          ...(data ? [{ label: data.surah.nameTransliterated, href: `/quran/${surahNumber}` }] : []),
+          ...(data ? [{ label: `${t("quran.verses")} ${data.verse.numberInSurah}` }] : []),
+        ]}
+      />
 
       {isError && <p className="text-sm text-destructive">{t("quran.errorVerse")}</p>}
       {isLoading && <Skeleton className="h-64 w-full" />}

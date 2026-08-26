@@ -9,6 +9,12 @@ export const envSchema = z.object({
   JWT_REFRESH_SECRET: z.string().min(16, "JWT_REFRESH_SECRET doit faire au moins 16 caracteres"),
   JWT_ACCESS_TTL: z.string().default("15m"),
   JWT_REFRESH_TTL: z.string().default("30d"),
+
+  // IA / RAG (Ollama)
+  OLLAMA_URL: z.string().url().default("http://localhost:11434"),
+  OLLAMA_LLM_MODEL: z.string().default("qwen2.5:3b"),
+  OLLAMA_EMBEDDING_MODEL: z.string().default("nomic-embed-text"),
+  AI_EMBEDDING_DIM: z.coerce.number().int().positive().default(768),
 });
 
 export type EnvConfig = z.infer<typeof envSchema>;

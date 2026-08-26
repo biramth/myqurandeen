@@ -2,8 +2,10 @@
 
 Merci de l'interet porte a ce projet. Qurandeen est une bibliotheque
 numerique open-source sur l'Islam : Coran, hadith, tafsir, fiqh, histoire,
-savants, concepts, parcours d'apprentissage. **Sans IA**, avec des sources
-verifiables pour tout contenu religieux.
+savants, concepts, parcours d'apprentissage, avec des sources verifiables
+pour tout contenu religieux. Un module IA optionnel (RAG local) existe et
+reste soumis a la meme regle : il ne repond qu'a partir de contenu deja
+source dans la base, jamais par invention.
 
 ## Principe fondamental : sources verifiables
 

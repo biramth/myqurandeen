@@ -1,10 +1,10 @@
-import { Link, Navigate, useParams } from "react-router-dom";
+import { Navigate, useParams } from "react-router-dom";
 import { useQuery } from "@tanstack/react-query";
 import { useTranslation } from "react-i18next";
-import { ArrowLeft, HelpCircle } from "lucide-react";
-import { Button } from "@/components/ui/button";
+import { HelpCircle } from "lucide-react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Skeleton } from "@/components/ui/skeleton";
+import { Breadcrumbs } from "@/components/shared/Breadcrumbs";
 import { schoolsApi } from "@/features/schools/api";
 
 export function FiqhTopicPage() {
@@ -21,12 +21,12 @@ export function FiqhTopicPage() {
 
   return (
     <div className="mx-auto max-w-2xl px-4 py-8">
-      <Button variant="ghost" size="sm" asChild className="mb-4 -ml-2">
-        <Link to="/fiqh">
-          <ArrowLeft className="h-4 w-4" />
-          {t("schools.comparatorTitle")}
-        </Link>
-      </Button>
+      <Breadcrumbs
+        items={[
+          { label: t("schools.comparatorTitle"), href: "/fiqh" },
+          ...(data ? [{ label: data.topic.title }] : []),
+        ]}
+      />
 
       {isError && <p className="text-sm text-destructive">{t("schools.errorDetail")}</p>}
       {isLoading && <Skeleton className="h-64 w-full" />}

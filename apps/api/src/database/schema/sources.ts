@@ -34,6 +34,7 @@ export const bookCategories = pgTable("book_categories", {
 export const books = pgTable("books", {
   id: id(),
   title: varchar("title", { length: 300 }).notNull(),
+  slug: varchar("slug", { length: 300 }).notNull().unique(),
   authorId: uuid("author_id").references(() => authors.id, { onDelete: "set null" }),
   description: text("description"),
   language: varchar("language", { length: 8 }),

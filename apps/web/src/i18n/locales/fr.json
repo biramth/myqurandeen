@@ -11,11 +11,18 @@
     "login": "Connexion",
     "darkMode": "Activer le mode sombre",
     "lightMode": "Activer le mode clair",
-    "language": "Langue"
+    "language": "Langue",
+    "groupTexts": "Textes",
+    "groupKnowledge": "Connaissances",
+    "groupLearn": "Apprendre",
+    "groupAdmin": "Administration",
+    "menu": "Menu",
+    "admin": "Administration",
+    "assistant": "Assistant IA"
   },
   "home": {
     "title": "Que souhaitez-vous étudier ?",
-    "subtitle": "Bibliothèque numérique ouverte sur le Coran, le hadith, le fiqh et l'histoire de l'Islam - sources vérifiables, sans intelligence artificielle.",
+    "subtitle": "Bibliothèque numérique ouverte sur le Coran, le hadith, le fiqh et l'histoire de l'Islam - sources vérifiables.",
     "searchPlaceholder": "Rechercher un verset, un hadith, un concept...",
     "searchButton": "Rechercher",
     "categories": {
@@ -56,7 +63,7 @@
     },
     "register": {
       "title": "Créer un compte",
-      "subtitle": "Gratuit, sans publicité, sans IA.",
+      "subtitle": "Gratuit, sans publicité.",
       "displayName": "Nom affiché",
       "email": "Email",
       "password": "Mot de passe",
@@ -315,7 +322,7 @@
     "related": "Concepts liés"
   },
   "tafsir": {
-    "éditions": "éditions disponibles",
+    "editions": "éditions disponibles",
     "error": "Impossible de charger les tafsirs.",
     "readHint": "Ouvrez un verset du Coran pour lire son tafsir."
   },
@@ -323,5 +330,42 @@
     "loading": "Chargement...",
     "showTranslation": "Afficher la traduction",
     "hideTranslation": "Masquer la traduction"
+  },
+  "library": {
+    "title": "Bibliothèque",
+    "subtitle": "Ouvrages de référence classiques, domaine public, avec auteur et catégorie.",
+    "error": "Impossible de charger les ouvrages.",
+    "empty": "Aucun ouvrage disponible pour le moment.",
+    "other": "Autres",
+    "publicDomain": "Domaine public",
+    "errorDetail": "Impossible de charger cet ouvrage.",
+    "about": "À propos de l'auteur",
+    "readExternal": "Consulter une édition externe",
+    "noExternalLink": "Aucune édition externe vérifiée n'est encore référencée pour cet ouvrage."
+  },
+  "admin": {
+    "title": "Administration",
+    "reports": "Signalements",
+    "users": "Utilisateurs",
+    "error": "Impossible de charger les données.",
+    "noReports": "Aucun signalement pour le moment.",
+    "reportedBy": "Signalé par",
+    "anonymous": "Anonyme",
+    "assignedTo": "Assigné à",
+    "assignToMe": "S'assigner",
+    "active": "Actif",
+    "inactive": "Inactif"
+  },
+  "assistant": {
+    "title": "Assistant IA",
+    "subtitle": "Posez une question, obtenez une réponse fondée sur les sources déjà vérifiées de la plateforme.",
+    "disclaimer": "Les réponses sont générées à partir du contenu déjà sourcé sur Qurandeen. Vérifiez toujours les sources citées ci-dessous.",
+    "notReady": "L'assistant n'est pas disponible pour le moment (index ou modèle non prêt).",
+    "placeholder": "Posez votre question...",
+    "ask": "Demander",
+    "thinking": "Recherche en cours...",
+    "error": "Impossible d'obtenir une réponse pour le moment.",
+    "sources": "Sources",
+    "empty": "Posez une question pour commencer."
   }
 }
