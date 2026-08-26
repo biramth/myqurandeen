@@ -1,0 +1,211 @@
+{
+  "nav": {
+    "quran": "Coran",
+    "hadith": "Hadiz",
+    "fiqh": "Fiqh",
+    "history": "Historia",
+    "library": "Biblioteca",
+    "home": "Inicio",
+    "search": "Buscar",
+    "profile": "Perfil",
+    "login": "Iniciar sesion",
+    "darkMode": "Activar modo oscuro",
+    "lightMode": "Activar modo claro",
+    "language": "Idioma"
+  },
+  "home": {
+    "title": "¿Que deseas estudiar?",
+    "subtitle": "Biblioteca digital abierta sobre el Coran, el hadiz, el fiqh y la historia del Islam - fuentes verificables, sin inteligencia artificial.",
+    "searchPlaceholder": "Buscar un versiculo, un hadiz, un concepto...",
+    "searchButton": "Buscar",
+    "categories": {
+      "quran": { "label": "Coran", "description": "Texto, traducciones, tafsir" },
+      "hadith": { "label": "Hadiz", "description": "Colecciones y autenticidad" },
+      "tafsir": { "label": "Tafsir", "description": "Exegesis versiculo por versiculo" },
+      "fiqh": { "label": "Fiqh", "description": "Escuelas y comparador" },
+      "prophet": { "label": "Vida del Profeta ﷺ", "description": "Cronologia documentada" },
+      "prophets": { "label": "Profetas", "description": "Adan, Abraham, Moises, Jesus..." },
+      "history": { "label": "Historia", "description": "Dinastias y periodos" },
+      "scholars": { "label": "Sabios", "description": "Biografias y obras" },
+      "library": { "label": "Biblioteca", "description": "Obras de referencia" },
+      "learning": { "label": "Itinerarios", "description": "Aprendizaje guiado" },
+      "concepts": { "label": "Conceptos", "description": "Tawhid, Salah, Zakat..." }
+    }
+  },
+  "comingSoon": {
+    "notFound": { "title": "Pagina no encontrada", "description": "Esta pagina no existe (todavia)." },
+    "tafsir": { "title": "Tafsir", "description": "La biblioteca de tafsires llegara en la Fase 5 del desarrollo." },
+    "schools": { "title": "Escuelas y fiqh", "description": "El comparador de escuelas juridicas llegara en la Fase 7 del desarrollo." },
+    "history": { "title": "Historia del Islam", "description": "La cronologia interactiva (incluida la vida del Profeta ﷺ) llegara en la Fase 6 del desarrollo." },
+    "scholars": { "title": "Sabios", "description": "La base de datos de sabios llegara en la Fase 8 del desarrollo." },
+    "library": { "title": "Biblioteca", "description": "La biblioteca digital llegara en la Fase 8 del desarrollo." },
+    "learning": { "title": "Itinerarios de aprendizaje", "description": "Los itinerarios guiados llegaran en la Fase 10 del desarrollo." },
+    "search": { "title": "Busqueda avanzada", "description": "El motor de busqueda transversal llegara en la Fase 9 del desarrollo." },
+    "admin": { "title": "Administracion", "description": "El panel de administracion llegara en la Fase 11 del desarrollo." }
+  },
+  "auth": {
+    "login": {
+      "title": "Iniciar sesion",
+      "subtitle": "Accede a tus favoritos, notas e itinerarios de aprendizaje.",
+      "email": "Correo electronico",
+      "password": "Contraseña",
+      "submit": "Iniciar sesion",
+      "submitting": "Iniciando sesion...",
+      "noAccount": "¿Aun no tienes cuenta?",
+      "createAccount": "Crear una cuenta"
+    },
+    "register": {
+      "title": "Crear una cuenta",
+      "subtitle": "Gratis, sin publicidad, sin IA.",
+      "displayName": "Nombre visible",
+      "email": "Correo electronico",
+      "password": "Contraseña",
+      "submit": "Crear mi cuenta",
+      "submitting": "Creando...",
+      "haveAccount": "¿Ya tienes una cuenta?",
+      "login": "Iniciar sesion"
+    }
+  },
+  "profile": {
+    "loading": "Cargando...",
+    "memberSince": "Miembro desde el {{date}}.",
+    "comingSoonNote": "Favoritos, notas, colecciones y progreso de itinerarios llegaran en las proximas fases de desarrollo.",
+    "logout": "Cerrar sesion"
+  },
+  "quran": {
+    "title": "El Coran",
+    "subtitle": "114 suras, texto arabe y traducciones.",
+    "errorList": "No se pudieron cargar las suras en este momento.",
+    "emptyList": "Ninguna sura importada todavia. Consulta CONTRIBUTING.md para lanzar la importacion.",
+    "verses": "versiculos",
+    "mecca": "Mecana",
+    "medina": "Medinesa",
+    "backToList": "Todas las suras",
+    "copy": "Copiar",
+    "copied": "Copiado",
+    "compare": "Comparar todas las traducciones",
+    "errorSurah": "No se pudo cargar esta sura.",
+    "backToSurah": "Volver a la sura",
+    "errorVerse": "No se pudo cargar este versiculo.",
+    "comparisonTitle": "Comparacion de traducciones",
+    "noTranslation": "Ninguna traduccion importada para este versiculo todavia.",
+    "tafsirTitle": "Tafsir",
+    "noTafsir": "Ningun tafsir importado para este versiculo todavia."
+  },
+  "hadith": {
+    "title": "Hadiz",
+    "subtitle": "Las seis colecciones canonicas (Kutub al-Sitta).",
+    "errorCollections": "No se pudieron cargar las colecciones.",
+    "backToCollections": "Todas las colecciones",
+    "errorCollection": "No se pudo cargar esta coleccion.",
+    "compiledBy": "Compilado por {{name}}",
+    "chapters": "Capitulos",
+    "backToChapters": "Volver a los capitulos",
+    "errorChapter": "No se pudo cargar este capitulo.",
+    "previous": "Anterior",
+    "next": "Siguiente",
+    "page": "Pagina {{n}}",
+    "back": "Volver",
+    "errorHadith": "No se pudo cargar este hadiz.",
+    "authenticity": "Autenticidad",
+    "otherTranslations": "Otras traducciones",
+    "hadithLabel": "Hadiz"
+  },
+  "history": {
+    "title": "Historia del Islam",
+    "subtitle": "Cronologia documentada, desde la vida del Profeta ﷺ hasta las grandes dinastias.",
+    "errorList": "No se pudieron cargar los periodos.",
+    "backToList": "Todos los periodos",
+    "errorPeriod": "No se pudo cargar este periodo.",
+    "events": "Eventos",
+    "errorEvent": "No se pudo cargar este evento.",
+    "sources": "Fuentes",
+    "back": "Volver"
+  },
+  "prophets": {
+    "title": "Profetas",
+    "subtitle": "Los profetas reconocidos por el Islam, desde la perspectiva islamica.",
+    "error": "No se pudieron cargar los profetas.",
+    "errorDetail": "No se pudo cargar esta pagina.",
+    "backToList": "Todos los profetas",
+    "era": "Epoca",
+    "peopleAddressed": "Pueblo",
+    "quranicMentions": "Menciones coranicas"
+  },
+  "schools": {
+    "title": "Escuelas y fiqh",
+    "subtitle": "Escuelas juridicas y corrientes teologicas.",
+    "error": "No se pudieron cargar los datos.",
+    "errorDetail": "No se pudo cargar esta pagina.",
+    "backToList": "Todas las escuelas",
+    "fiqhSchools": "Escuelas juridicas (fiqh)",
+    "theologicalSchools": "Corrientes teologicas",
+    "theological": "Teologia",
+    "comparatorTitle": "Comparador de posiciones",
+    "comparatorSubtitle": "Compara las posiciones de las escuelas sobre temas de fiqh.",
+    "history": "Historia",
+    "principles": "Principios y metodo",
+    "sourcesUsed": "Fuentes utilizadas",
+    "whyDivergence": "¿Por que existe una divergencia?"
+  },
+  "search": {
+    "title": "Busqueda",
+    "error": "La busqueda fallo.",
+    "noResults": "No se encontraron resultados."
+  },
+  "learning": {
+    "title": "Itinerarios de aprendizaje",
+    "subtitle": "Itinerarios guiados, de principiante a avanzado.",
+    "error": "No se pudieron cargar los itinerarios.",
+    "errorPath": "No se pudo cargar este itinerario.",
+    "backToList": "Todos los itinerarios",
+    "beginner": "Principiante",
+    "intermediate": "Intermedio",
+    "advanced": "Avanzado",
+    "loginToTrack": "Inicia sesion para seguir tu progreso.",
+    "markComplete": "Marcar como completado",
+    "markIncomplete": "Marcar como incompleto",
+    "keyTakeaways": "Puntos clave",
+    "references": "Referencias",
+    "progress": "Progreso",
+    "finalQuiz": "Examen final",
+    "backToCourse": "Volver al curso",
+    "errorLesson": "Lección no encontrada.",
+    "lessonProgress": "Lección {{current}} de {{total}}",
+    "lessonQuiz": "Cuestionario de la lección",
+    "previousLesson": "Lección anterior",
+    "nextLesson": "Lección siguiente",
+    "quizScore": "Puntuación: {{score}} / {{total}}",
+    "quizRetry": "Intentar de nuevo",
+    "errorQuiz": "No se pudo cargar el cuestionario.",
+    "noQuiz": "Aún no hay cuestionario disponible para este itinerario."
+  },
+  "scholars": {
+    "title": "Sabios",
+    "subtitle": "Biografias y obras de las grandes figuras del Islam.",
+    "error": "No se pudieron cargar los sabios.",
+    "errorDetail": "No se pudo cargar esta pagina.",
+    "backToList": "Todos los sabios",
+    "schools": "Escuela"
+  },
+  "concepts": {
+    "title": "Conceptos islamicos",
+    "subtitle": "Enciclopedia de terminos y nociones fundamentales.",
+    "error": "No se pudieron cargar los conceptos.",
+    "errorDetail": "No se pudo cargar este concepto.",
+    "backToList": "Todos los conceptos",
+    "origin": "Origen",
+    "explanation": "Explicacion",
+    "related": "Conceptos relacionados"
+  },
+  "tafsir": {
+    "editions": "ediciones disponibles",
+    "error": "No se pudieron cargar los tafsires.",
+    "readHint": "Abre un versiculo del Coran para leer su tafsir."
+  },
+  "common": {
+    "loading": "Cargando...",
+    "showTranslation": "Mostrar traduccion",
+    "hideTranslation": "Ocultar traduccion"
+  }
+}

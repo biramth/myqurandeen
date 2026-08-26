@@ -1,0 +1,211 @@
+{
+  "nav": {
+    "quran": "Quran",
+    "hadith": "Hadith",
+    "fiqh": "Fiqh",
+    "history": "History",
+    "library": "Library",
+    "home": "Home",
+    "search": "Search",
+    "profile": "Profile",
+    "login": "Log in",
+    "darkMode": "Switch to dark mode",
+    "lightMode": "Switch to light mode",
+    "language": "Language"
+  },
+  "home": {
+    "title": "What would you like to study?",
+    "subtitle": "An open digital library on the Quran, hadith, fiqh, and Islamic history - verifiable sources, no artificial intelligence.",
+    "searchPlaceholder": "Search a verse, a hadith, a concept...",
+    "searchButton": "Search",
+    "categories": {
+      "quran": { "label": "Quran", "description": "Text, translations, tafsir" },
+      "hadith": { "label": "Hadith", "description": "Collections and authenticity" },
+      "tafsir": { "label": "Tafsir", "description": "Verse-by-verse exegesis" },
+      "fiqh": { "label": "Fiqh", "description": "Schools and comparator" },
+      "prophet": { "label": "Life of the Prophet ﷺ", "description": "Sourced timeline" },
+      "prophets": { "label": "Prophets", "description": "Adam, Abraham, Moses, Jesus..." },
+      "history": { "label": "History", "description": "Dynasties and periods" },
+      "scholars": { "label": "Scholars", "description": "Biographies and works" },
+      "library": { "label": "Library", "description": "Reference works" },
+      "learning": { "label": "Learning paths", "description": "Guided learning" },
+      "concepts": { "label": "Concepts", "description": "Tawhid, Salah, Zakat..." }
+    }
+  },
+  "comingSoon": {
+    "notFound": { "title": "Page not found", "description": "This page does not exist (yet)." },
+    "tafsir": { "title": "Tafsir", "description": "The tafsir library is arriving in Phase 5 of development." },
+    "schools": { "title": "Schools and fiqh", "description": "The legal schools comparator is arriving in Phase 7 of development." },
+    "history": { "title": "History of Islam", "description": "The interactive timeline (including the life of the Prophet ﷺ) is arriving in Phase 6 of development." },
+    "scholars": { "title": "Scholars", "description": "The scholars database is arriving in Phase 8 of development." },
+    "library": { "title": "Library", "description": "The digital library is arriving in Phase 8 of development." },
+    "learning": { "title": "Learning paths", "description": "Guided learning paths are arriving in Phase 10 of development." },
+    "search": { "title": "Advanced search", "description": "The cross-content search engine is arriving in Phase 9 of development." },
+    "admin": { "title": "Administration", "description": "The admin dashboard is arriving in Phase 11 of development." }
+  },
+  "auth": {
+    "login": {
+      "title": "Log in",
+      "subtitle": "Access your favorites, notes, and learning paths.",
+      "email": "Email",
+      "password": "Password",
+      "submit": "Log in",
+      "submitting": "Logging in...",
+      "noAccount": "No account yet?",
+      "createAccount": "Create an account"
+    },
+    "register": {
+      "title": "Create an account",
+      "subtitle": "Free, no ads, no AI.",
+      "displayName": "Display name",
+      "email": "Email",
+      "password": "Password",
+      "submit": "Create my account",
+      "submitting": "Creating...",
+      "haveAccount": "Already have an account?",
+      "login": "Log in"
+    }
+  },
+  "profile": {
+    "loading": "Loading...",
+    "memberSince": "Member since {{date}}.",
+    "comingSoonNote": "Favorites, notes, collections, and learning progress will arrive in upcoming development phases.",
+    "logout": "Log out"
+  },
+  "quran": {
+    "title": "The Quran",
+    "subtitle": "114 surahs, Arabic text and translations.",
+    "errorList": "Unable to load the surahs right now.",
+    "emptyList": "No surah imported yet. See CONTRIBUTING.md to run the import.",
+    "verses": "verses",
+    "mecca": "Meccan",
+    "medina": "Medinan",
+    "backToList": "All surahs",
+    "copy": "Copy",
+    "copied": "Copied",
+    "compare": "Compare all translations",
+    "errorSurah": "Unable to load this surah.",
+    "backToSurah": "Back to the surah",
+    "errorVerse": "Unable to load this verse.",
+    "comparisonTitle": "Translation comparison",
+    "noTranslation": "No translation imported for this verse yet.",
+    "tafsirTitle": "Tafsir",
+    "noTafsir": "No tafsir imported for this verse yet."
+  },
+  "hadith": {
+    "title": "Hadith",
+    "subtitle": "The six canonical collections (Kutub al-Sittah).",
+    "errorCollections": "Unable to load the collections.",
+    "backToCollections": "All collections",
+    "errorCollection": "Unable to load this collection.",
+    "compiledBy": "Compiled by {{name}}",
+    "chapters": "Chapters",
+    "backToChapters": "Back to chapters",
+    "errorChapter": "Unable to load this chapter.",
+    "previous": "Previous",
+    "next": "Next",
+    "page": "Page {{n}}",
+    "back": "Back",
+    "errorHadith": "Unable to load this hadith.",
+    "authenticity": "Authenticity",
+    "otherTranslations": "Other translations",
+    "hadithLabel": "Hadith"
+  },
+  "history": {
+    "title": "History of Islam",
+    "subtitle": "Sourced timeline, from the life of the Prophet ﷺ to the great dynasties.",
+    "errorList": "Unable to load the periods.",
+    "backToList": "All periods",
+    "errorPeriod": "Unable to load this period.",
+    "events": "Events",
+    "errorEvent": "Unable to load this event.",
+    "sources": "Sources",
+    "back": "Back"
+  },
+  "prophets": {
+    "title": "Prophets",
+    "subtitle": "The prophets recognized by Islam, from an Islamic perspective.",
+    "error": "Unable to load the prophets.",
+    "errorDetail": "Unable to load this page.",
+    "backToList": "All prophets",
+    "era": "Era",
+    "peopleAddressed": "People",
+    "quranicMentions": "Quranic mentions"
+  },
+  "schools": {
+    "title": "Schools and fiqh",
+    "subtitle": "Legal schools and theological currents.",
+    "error": "Unable to load the data.",
+    "errorDetail": "Unable to load this page.",
+    "backToList": "All schools",
+    "fiqhSchools": "Legal schools (fiqh)",
+    "theologicalSchools": "Theological currents",
+    "theological": "Theology",
+    "comparatorTitle": "Position comparator",
+    "comparatorSubtitle": "Compare school positions on fiqh topics.",
+    "history": "History",
+    "principles": "Principles and method",
+    "sourcesUsed": "Sources used",
+    "whyDivergence": "Why does a divergence exist?"
+  },
+  "search": {
+    "title": "Search",
+    "error": "The search failed.",
+    "noResults": "No results found."
+  },
+  "learning": {
+    "title": "Learning paths",
+    "subtitle": "Guided paths, from beginner to advanced.",
+    "error": "Unable to load the paths.",
+    "errorPath": "Unable to load this path.",
+    "backToList": "All paths",
+    "beginner": "Beginner",
+    "intermediate": "Intermediate",
+    "advanced": "Advanced",
+    "loginToTrack": "Log in to track your progress.",
+    "markComplete": "Mark as complete",
+    "markIncomplete": "Mark as incomplete",
+    "keyTakeaways": "Key takeaways",
+    "references": "References",
+    "progress": "Progress",
+    "finalQuiz": "Final quiz",
+    "backToCourse": "Back to course",
+    "errorLesson": "Lesson not found.",
+    "lessonProgress": "Lesson {{current}} of {{total}}",
+    "lessonQuiz": "Lesson quiz",
+    "previousLesson": "Previous lesson",
+    "nextLesson": "Next lesson",
+    "quizScore": "Score: {{score}} / {{total}}",
+    "quizRetry": "Try again",
+    "errorQuiz": "Couldn't load the quiz.",
+    "noQuiz": "No quiz available for this path yet."
+  },
+  "scholars": {
+    "title": "Scholars",
+    "subtitle": "Biographies and works of major figures of Islam.",
+    "error": "Unable to load the scholars.",
+    "errorDetail": "Unable to load this page.",
+    "backToList": "All scholars",
+    "schools": "School"
+  },
+  "concepts": {
+    "title": "Islamic concepts",
+    "subtitle": "Encyclopedia of fundamental terms and notions.",
+    "error": "Unable to load the concepts.",
+    "errorDetail": "Unable to load this concept.",
+    "backToList": "All concepts",
+    "origin": "Origin",
+    "explanation": "Explanation",
+    "related": "Related concepts"
+  },
+  "tafsir": {
+    "editions": "editions available",
+    "error": "Unable to load the tafsirs.",
+    "readHint": "Open a Quran verse to read its tafsir."
+  },
+  "common": {
+    "loading": "Loading...",
+    "showTranslation": "Show translation",
+    "hideTranslation": "Hide translation"
+  }
+}

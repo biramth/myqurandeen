@@ -1,0 +1,51 @@
+name: CI
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    services:
+      postgres:
+        image: postgres:16-alpine
+        env:
+          POSTGRES_USER: qurandeen
+          POSTGRES_PASSWORD: qurandeen
+          POSTGRES_DB: qurandeen
+        ports:
+          - 5432:5432
+        options: >-
+          --health-cmd "pg_isready -U qurandeen"
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
+    env:
+      DATABASE_URL: postgres://qurandeen:qurandeen@localhost:5432/qurandeen
+      JWT_ACCESS_SECRET: ci-access-secret
+      JWT_REFRESH_SECRET: ci-refresh-secret
+      NODE_ENV: test
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Lint
+        run: npm run lint
+
+      - name: Type check
+        run: npm run typecheck
+
+      - name: Run database migrations
+        run: npm run db:migrate
+
+      - name: Build
+        run: npm run build

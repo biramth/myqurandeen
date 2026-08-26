@@ -1,0 +1,1 @@
+ALTER TABLE "hadith_grades" ADD CONSTRAINT "hadith_grades_hadith_grader_uidx" UNIQUE("hadith_id","grader_name");

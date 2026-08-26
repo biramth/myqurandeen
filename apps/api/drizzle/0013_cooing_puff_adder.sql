@@ -1,0 +1,1 @@
+ALTER TABLE "learning_lessons" DROP COLUMN IF EXISTS "external_url";

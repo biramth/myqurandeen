@@ -1,0 +1,1 @@
+ALTER TABLE "fiqh_positions" ADD CONSTRAINT "fiqh_positions_topic_school_uidx" UNIQUE("fiqh_topic_id","school_id");

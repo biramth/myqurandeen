@@ -1,0 +1,38 @@
+{
+  "name": "qurandeen",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Plateforme open-source d'etude et de decouverte de l'Islam (Coran, hadith, tafsir, fiqh, histoire, savants, concepts) - sans IA, sources verifiables.",
+  "license": "MIT",
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "scripts": {
+    "postinstall": "npm run build -w packages/shared",
+    "dev": "concurrently -n api,web -c blue,green \"npm run start:dev -w apps/api\" \"npm run dev -w apps/web\"",
+    "build": "npm run build -w packages/shared && npm run build -w apps/api && npm run build -w apps/web",
+    "lint": "npm run lint -w apps/api && npm run lint -w apps/web",
+    "typecheck": "npm run typecheck -w apps/api && npm run typecheck -w apps/web",
+    "test": "npm run test -w apps/api --if-present",
+    "db:generate": "npm run db:generate -w apps/api",
+    "db:migrate": "npm run db:migrate -w apps/api",
+    "db:seed": "npm run db:seed -w apps/api",
+    "db:seed:quran": "npm run db:seed:quran -w apps/api",
+    "db:seed:hadith": "npm run db:seed:hadith -w apps/api",
+    "db:seed:tafsir": "npm run db:seed:tafsir -w apps/api",
+    "db:seed:history": "npm run db:seed:history -w apps/api",
+    "db:seed:schools": "npm run db:seed:schools -w apps/api",
+    "db:seed:prophets": "npm run db:seed:prophets -w apps/api",
+    "db:seed:concepts": "npm run db:seed:concepts -w apps/api",
+    "db:seed:scholars": "npm run db:seed:scholars -w apps/api",
+    "db:seed:learning": "npm run db:seed:learning -w apps/api",
+    "db:seed:quiz": "npm run db:seed:quiz -w apps/api"
+  },
+  "devDependencies": {
+    "concurrently": "^9.0.1"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}

@@ -1,0 +1,50 @@
+services:
+  postgres:
+    image: postgres:16-alpine
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: qurandeen
+      POSTGRES_PASSWORD: qurandeen
+      POSTGRES_DB: qurandeen
+    ports:
+      - "5432:5432"
+    volumes:
+      - qurandeen_postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U qurandeen"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+
+  api:
+    build:
+      context: .
+      dockerfile: apps/api/Dockerfile
+    restart: unless-stopped
+    depends_on:
+      postgres:
+        condition: service_healthy
+    environment:
+      NODE_ENV: production
+      API_PORT: 3000
+      DATABASE_URL: postgres://qurandeen:qurandeen@postgres:5432/qurandeen
+      WEB_URL: http://localhost:5173
+      JWT_ACCESS_SECRET: ${JWT_ACCESS_SECRET:-change-me-access-secret}
+      JWT_REFRESH_SECRET: ${JWT_REFRESH_SECRET:-change-me-refresh-secret}
+    ports:
+      - "3000:3000"
+
+  web:
+    build:
+      context: .
+      dockerfile: apps/web/Dockerfile
+      args:
+        VITE_API_URL: http://localhost:3000
+    restart: unless-stopped
+    depends_on:
+      - api
+    ports:
+      - "5173:80"
+
+volumes:
+  qurandeen_postgres_data:

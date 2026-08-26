@@ -1,0 +1,1 @@
+ALTER TABLE "hadiths" DROP CONSTRAINT "hadiths_book_number_uidx";

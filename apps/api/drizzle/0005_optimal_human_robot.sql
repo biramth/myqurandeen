@@ -1,0 +1,1 @@
+ALTER TABLE "hadiths" ADD COLUMN "sort_order" double precision NOT NULL DEFAULT 0;

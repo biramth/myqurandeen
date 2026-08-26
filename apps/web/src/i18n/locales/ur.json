@@ -1,0 +1,211 @@
+{
+  "nav": {
+    "quran": "قرآن",
+    "hadith": "حدیث",
+    "fiqh": "فقہ",
+    "history": "تاریخ",
+    "library": "کتب خانہ",
+    "home": "ہوم",
+    "search": "تلاش",
+    "profile": "پروفائل",
+    "login": "لاگ ان",
+    "darkMode": "ڈارک موڈ فعال کریں",
+    "lightMode": "لائٹ موڈ فعال کریں",
+    "language": "زبان"
+  },
+  "home": {
+    "title": "آپ کیا مطالعہ کرنا چاہتے ہیں؟",
+    "subtitle": "قرآن، حدیث، فقہ اور اسلامی تاریخ پر مبنی ایک کھلا ڈیجیٹل کتب خانہ - قابل تصدیق مآخذ، بغیر مصنوعی ذہانت کے۔",
+    "searchPlaceholder": "کوئی آیت، حدیث یا اصطلاح تلاش کریں...",
+    "searchButton": "تلاش کریں",
+    "categories": {
+      "quran": { "label": "قرآن", "description": "متن، تراجم، تفسیر" },
+      "hadith": { "label": "حدیث", "description": "مجموعے اور صحت" },
+      "tafsir": { "label": "تفسیر", "description": "آیت بہ آیت تفسیر" },
+      "fiqh": { "label": "فقہ", "description": "مذاہب اور موازنہ" },
+      "prophet": { "label": "سیرت النبی ﷺ", "description": "مستند تاریخ وار ترتیب" },
+      "prophets": { "label": "انبیاء", "description": "آدم، ابراہیم، موسی، عیسی..." },
+      "history": { "label": "تاریخ", "description": "خاندان اور ادوار" },
+      "scholars": { "label": "علماء", "description": "سوانح اور تصانیف" },
+      "library": { "label": "کتب خانہ", "description": "حوالہ جاتی کتب" },
+      "learning": { "label": "تعلیمی راستے", "description": "راہنمائی شدہ تعلیم" },
+      "concepts": { "label": "تصورات", "description": "توحید، صلاۃ، زکاۃ..." }
+    }
+  },
+  "comingSoon": {
+    "notFound": { "title": "صفحہ نہیں ملا", "description": "یہ صفحہ (ابھی تک) موجود نہیں ہے۔" },
+    "tafsir": { "title": "تفسیر", "description": "تفسیر کا کتب خانہ ترقی کے مرحلہ 5 میں آ رہا ہے۔" },
+    "schools": { "title": "مذاہب اور فقہ", "description": "فقہی مذاہب کا موازنہ ترقی کے مرحلہ 7 میں آ رہا ہے۔" },
+    "history": { "title": "اسلامی تاریخ", "description": "انٹرایکٹو تاریخ وار ترتیب (بشمول سیرت النبی ﷺ) ترقی کے مرحلہ 6 میں آ رہی ہے۔" },
+    "scholars": { "title": "علماء", "description": "علماء کا ڈیٹا بیس ترقی کے مرحلہ 8 میں آ رہا ہے۔" },
+    "library": { "title": "کتب خانہ", "description": "ڈیجیٹل کتب خانہ ترقی کے مرحلہ 8 میں آ رہا ہے۔" },
+    "learning": { "title": "تعلیمی راستے", "description": "راہنمائی شدہ تعلیمی راستے ترقی کے مرحلہ 10 میں آ رہے ہیں۔" },
+    "search": { "title": "جدید تلاش", "description": "مکمل تلاش کا نظام ترقی کے مرحلہ 9 میں آ رہا ہے۔" },
+    "admin": { "title": "انتظامیہ", "description": "انتظامی ڈیش بورڈ ترقی کے مرحلہ 11 میں آ رہا ہے۔" }
+  },
+  "auth": {
+    "login": {
+      "title": "لاگ ان",
+      "subtitle": "اپنے پسندیدہ، نوٹس اور تعلیمی راستوں تک رسائی حاصل کریں۔",
+      "email": "ای میل",
+      "password": "پاس ورڈ",
+      "submit": "لاگ ان کریں",
+      "submitting": "لاگ ان ہو رہا ہے...",
+      "noAccount": "ابھی تک اکاؤنٹ نہیں ہے؟",
+      "createAccount": "اکاؤنٹ بنائیں"
+    },
+    "register": {
+      "title": "اکاؤنٹ بنائیں",
+      "subtitle": "مفت، بغیر اشتہار، بغیر مصنوعی ذہانت کے۔",
+      "displayName": "ظاہری نام",
+      "email": "ای میل",
+      "password": "پاس ورڈ",
+      "submit": "میرا اکاؤنٹ بنائیں",
+      "submitting": "بن رہا ہے...",
+      "haveAccount": "پہلے سے اکاؤنٹ ہے؟",
+      "login": "لاگ ان کریں"
+    }
+  },
+  "profile": {
+    "loading": "لوڈ ہو رہا ہے...",
+    "memberSince": "{{date}} سے رکن ہیں۔",
+    "comingSoonNote": "پسندیدہ، نوٹس، مجموعے اور تعلیمی پیش رفت آئندہ مراحل میں شامل کی جائے گی۔",
+    "logout": "لاگ آؤٹ"
+  },
+  "quran": {
+    "title": "قرآن",
+    "subtitle": "114 سورتیں، عربی متن اور تراجم۔",
+    "errorList": "اس وقت سورتیں لوڈ نہیں ہو سکیں۔",
+    "emptyList": "ابھی تک کوئی سورت درآمد نہیں کی گئی۔ درآمد شروع کرنے کے لیے CONTRIBUTING.md دیکھیں۔",
+    "verses": "آیات",
+    "mecca": "مکی",
+    "medina": "مدنی",
+    "backToList": "تمام سورتیں",
+    "copy": "کاپی کریں",
+    "copied": "کاپی ہو گیا",
+    "compare": "تمام تراجم کا موازنہ کریں",
+    "errorSurah": "یہ سورت لوڈ نہیں ہو سکی۔",
+    "backToSurah": "سورت پر واپس جائیں",
+    "errorVerse": "یہ آیت لوڈ نہیں ہو سکی۔",
+    "comparisonTitle": "تراجم کا موازنہ",
+    "noTranslation": "اس آیت کے لیے ابھی تک کوئی ترجمہ درآمد نہیں کیا گیا۔",
+    "tafsirTitle": "تفسیر",
+    "noTafsir": "اس آیت کے لیے ابھی تک کوئی تفسیر درآمد نہیں کی گئی۔"
+  },
+  "hadith": {
+    "title": "حدیث",
+    "subtitle": "چھ بنیادی مجموعے (کتب ستہ)۔",
+    "errorCollections": "مجموعے لوڈ نہیں ہو سکے۔",
+    "backToCollections": "تمام مجموعے",
+    "errorCollection": "یہ مجموعہ لوڈ نہیں ہو سکا۔",
+    "compiledBy": "مرتب کردہ: {{name}}",
+    "chapters": "ابواب",
+    "backToChapters": "ابواب پر واپس جائیں",
+    "errorChapter": "یہ باب لوڈ نہیں ہو سکا۔",
+    "previous": "پچھلا",
+    "next": "اگلا",
+    "page": "صفحہ {{n}}",
+    "back": "واپس",
+    "errorHadith": "یہ حدیث لوڈ نہیں ہو سکی۔",
+    "authenticity": "صحت",
+    "otherTranslations": "دیگر تراجم",
+    "hadithLabel": "حدیث"
+  },
+  "history": {
+    "title": "اسلامی تاریخ",
+    "subtitle": "سیرت النبی ﷺ سے لے کر بڑی سلطنتوں تک، مستند تاریخ وار ترتیب۔",
+    "errorList": "ادوار لوڈ نہیں ہو سکے۔",
+    "backToList": "تمام ادوار",
+    "errorPeriod": "یہ دور لوڈ نہیں ہو سکا۔",
+    "events": "واقعات",
+    "errorEvent": "یہ واقعہ لوڈ نہیں ہو سکا۔",
+    "sources": "مآخذ",
+    "back": "واپس"
+  },
+  "prophets": {
+    "title": "انبیاء",
+    "subtitle": "اسلام میں تسلیم شدہ انبیاء، اسلامی نقطہ نظر سے۔",
+    "error": "انبیاء لوڈ نہیں ہو سکے۔",
+    "errorDetail": "یہ صفحہ لوڈ نہیں ہو سکا۔",
+    "backToList": "تمام انبیاء",
+    "era": "دور",
+    "peopleAddressed": "قوم",
+    "quranicMentions": "قرآنی ذکر"
+  },
+  "schools": {
+    "title": "مذاہب اور فقہ",
+    "subtitle": "فقہی مذاہب اور عقائدی مکاتب فکر۔",
+    "error": "ڈیٹا لوڈ نہیں ہو سکا۔",
+    "errorDetail": "یہ صفحہ لوڈ نہیں ہو سکا۔",
+    "backToList": "تمام مذاہب",
+    "fiqhSchools": "فقہی مذاہب",
+    "theologicalSchools": "عقائدی مکاتب فکر",
+    "theological": "عقیدہ",
+    "comparatorTitle": "موازنہ کا آلہ",
+    "comparatorSubtitle": "فقہی موضوعات پر مذاہب کے مؤقف کا موازنہ کریں۔",
+    "history": "تاریخ",
+    "principles": "اصول و طریقہ کار",
+    "sourcesUsed": "استعمال شدہ مآخذ",
+    "whyDivergence": "اختلاف کیوں پایا جاتا ہے؟"
+  },
+  "search": {
+    "title": "تلاش",
+    "error": "تلاش ناکام ہو گئی۔",
+    "noResults": "کوئی نتیجہ نہیں ملا۔"
+  },
+  "learning": {
+    "title": "تعلیمی راستے",
+    "subtitle": "ابتدائی سے اعلی سطح تک راہنمائی شدہ راستے۔",
+    "error": "راستے لوڈ نہیں ہو سکے۔",
+    "errorPath": "یہ راستہ لوڈ نہیں ہو سکا۔",
+    "backToList": "تمام راستے",
+    "beginner": "ابتدائی",
+    "intermediate": "درمیانی",
+    "advanced": "اعلی",
+    "loginToTrack": "اپنی پیش رفت دیکھنے کے لیے لاگ ان کریں۔",
+    "markComplete": "مکمل کے طور پر نشان زد کریں",
+    "markIncomplete": "نامکمل کے طور پر نشان زد کریں",
+    "keyTakeaways": "اہم نکات",
+    "references": "حوالہ جات",
+    "progress": "پیش رفت",
+    "finalQuiz": "حتمی کوئز",
+    "backToCourse": "کورس پر واپس جائیں",
+    "errorLesson": "سبق نہیں ملا۔",
+    "lessonProgress": "سبق {{current}} از {{total}}",
+    "lessonQuiz": "سبق کا کوئز",
+    "previousLesson": "پچھلا سبق",
+    "nextLesson": "اگلا سبق",
+    "quizScore": "اسکور: {{score}} / {{total}}",
+    "quizRetry": "دوبارہ کوشش کریں",
+    "errorQuiz": "کوئز لوڈ نہیں ہو سکا۔",
+    "noQuiz": "اس راستے کے لیے ابھی کوئی کوئز دستیاب نہیں ہے۔"
+  },
+  "scholars": {
+    "title": "علماء",
+    "subtitle": "اسلام کی عظیم شخصیات کی سوانح اور تصانیف۔",
+    "error": "علماء لوڈ نہیں ہو سکے۔",
+    "errorDetail": "یہ صفحہ لوڈ نہیں ہو سکا۔",
+    "backToList": "تمام علماء",
+    "schools": "مذہب"
+  },
+  "concepts": {
+    "title": "اسلامی تصورات",
+    "subtitle": "بنیادی اصطلاحات اور تصورات کا انسائیکلوپیڈیا۔",
+    "error": "تصورات لوڈ نہیں ہو سکے۔",
+    "errorDetail": "یہ تصور لوڈ نہیں ہو سکا۔",
+    "backToList": "تمام تصورات",
+    "origin": "ماخذ",
+    "explanation": "وضاحت",
+    "related": "متعلقہ تصورات"
+  },
+  "tafsir": {
+    "editions": "دستیاب نسخے",
+    "error": "تفاسیر لوڈ نہیں ہو سکیں۔",
+    "readHint": "تفسیر پڑھنے کے لیے قرآن کی کوئی آیت کھولیں۔"
+  },
+  "common": {
+    "loading": "لوڈ ہو رہا ہے...",
+    "showTranslation": "ترجمہ دکھائیں",
+    "hideTranslation": "ترجمہ چھپائیں"
+  }
+}

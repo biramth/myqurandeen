@@ -1,0 +1,79 @@
+import { Link, Navigate, useParams } from "react-router-dom";
+import { useQuery } from "@tanstack/react-query";
+import { useTranslation } from "react-i18next";
+import { ArrowLeft } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { Badge } from "@/components/ui/badge";
+import { Skeleton } from "@/components/ui/skeleton";
+import { scholarsApi } from "@/features/scholars/api";
+
+export function ScholarPage() {
+  const { slug } = useParams<{ slug: string }>();
+  const { t } = useTranslation();
+
+  const { data, isLoading, isError } = useQuery({
+    queryKey: ["scholars", "detail", slug],
+    queryFn: () => scholarsApi.getScholar(slug!),
+    enabled: Boolean(slug),
+  });
+
+  if (!slug) return <Navigate to="/scholars" replace />;
+
+  return (
+    <div className="mx-auto max-w-2xl px-4 py-8">
+      <Button variant="ghost" size="sm" asChild className="mb-4 -ml-2">
+        <Link to="/scholars">
+          <ArrowLeft className="h-4 w-4" />
+          {t("scholars.backToList")}
+        </Link>
+      </Button>
+
+      {isError && <p className="text-sm text-destructive">{t("scholars.errorDetail")}</p>}
+      {isLoading && <Skeleton className="h-64 w-full" />}
+
+      {data && (
+        <>
+          <div className="mb-2 flex items-center justify-between gap-3">
+            <h1 className="text-xl font-semibold">{data.name}</h1>
+            {data.nameArabic && (
+              <span dir="rtl" className="font-arabic text-2xl">
+                {data.nameArabic}
+              </span>
+            )}
+          </div>
+          <p className="mb-4 text-sm text-muted-foreground">
+            {data.bornYear ?? "?"} - {data.diedYear ?? "?"}
+            {data.place ? ` - ${data.place}` : ""}
+          </p>
+
+          {data.expertise && data.expertise.length > 0 && (
+            <div className="mb-4 flex flex-wrap gap-2">
+              {data.expertise.map((e) => (
+                <Badge key={e} variant="secondary">
+                  {e}
+                </Badge>
+              ))}
+            </div>
+          )}
+
+          {data.bio && <p className="mb-6 text-sm leading-relaxed">{data.bio}</p>}
+
+          {data.schools.length > 0 && (
+            <section>
+              <h2 className="mb-2 text-sm font-semibold uppercase tracking-wide text-muted-foreground">
+                {t("scholars.schools")}
+              </h2>
+              <div className="flex flex-wrap gap-2">
+                {data.schools.map((school) => (
+                  <Link key={school.id} to={`/schools/${school.slug}`}>
+                    <Badge>{school.name}</Badge>
+                  </Link>
+                ))}
+              </div>
+            </section>
+          )}
+        </>
+      )}
+    </div>
+  );
+}

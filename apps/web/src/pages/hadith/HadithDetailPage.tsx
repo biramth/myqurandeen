@@ -1,0 +1,88 @@
+import { Link, Navigate, useParams } from "react-router-dom";
+import { useQuery } from "@tanstack/react-query";
+import { useTranslation } from "react-i18next";
+import { ArrowLeft } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { Badge } from "@/components/ui/badge";
+import { Skeleton } from "@/components/ui/skeleton";
+import { hadithApi } from "@/features/hadith/api";
+
+export function HadithDetailPage() {
+  const { collection: slug, number } = useParams<{ collection: string; number: string }>();
+  const { t } = useTranslation();
+
+  const { data, isLoading, isError } = useQuery({
+    queryKey: ["hadith", "detail", slug, number],
+    queryFn: () => hadithApi.getHadith(slug!, number!),
+    enabled: Boolean(slug) && Boolean(number),
+  });
+
+  if (!slug || !number) return <Navigate to="/hadith" replace />;
+
+  return (
+    <div className="mx-auto max-w-2xl px-4 py-8">
+      <Button variant="ghost" size="sm" asChild className="mb-4 -ml-2">
+        <Link to={data?.book ? `/hadith/${slug}/book/${data.book.number}` : `/hadith/${slug}`}>
+          <ArrowLeft className="h-4 w-4" />
+          {t("hadith.back")}
+        </Link>
+      </Button>
+
+      {isError && <p className="text-sm text-destructive">{t("hadith.errorHadith")}</p>}
+      {isLoading && <Skeleton className="h-64 w-full" />}
+
+      {data && (
+        <>
+          <p className="mb-1 text-sm text-muted-foreground">
+            {data.collection.name}
+            {data.book && ` - ${data.book.title}`}
+          </p>
+          <h1 className="mb-4 text-lg font-semibold">
+            {t("hadith.hadithLabel")} {data.hadith.number}
+          </h1>
+
+          {data.hadith.textArabic && (
+            <p
+              dir="rtl"
+              lang="ar"
+              className="mb-4 rounded-lg border bg-reading p-5 font-arabic text-xl leading-loose text-reading-foreground"
+            >
+              {data.hadith.textArabic}
+            </p>
+          )}
+
+          <p className="rounded-lg border p-5 text-sm leading-relaxed">{data.hadith.textTranslation}</p>
+
+          {data.translations.length > 0 && (
+            <div className="mt-6 space-y-3">
+              <h2 className="text-sm font-semibold uppercase tracking-wide text-muted-foreground">
+                {t("hadith.otherTranslations")}
+              </h2>
+              {data.translations.map((t2) => (
+                <div key={t2.translationId} className="rounded-lg border p-4">
+                  <p className="mb-1 text-xs font-medium text-muted-foreground">{t2.translationName}</p>
+                  <p className="text-sm leading-relaxed">{t2.text}</p>
+                </div>
+              ))}
+            </div>
+          )}
+
+          {data.grades.length > 0 && (
+            <div className="mt-6">
+              <h2 className="mb-2 text-sm font-semibold uppercase tracking-wide text-muted-foreground">
+                {t("hadith.authenticity")}
+              </h2>
+              <div className="flex flex-wrap gap-2">
+                {data.grades.map((g) => (
+                  <Badge key={g.graderName} variant="secondary">
+                    {g.graderName} : {g.grade}
+                  </Badge>
+                ))}
+              </div>
+            </div>
+          )}
+        </>
+      )}
+    </div>
+  );
+}

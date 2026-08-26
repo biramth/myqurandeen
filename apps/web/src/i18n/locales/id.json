@@ -1,0 +1,211 @@
+{
+  "nav": {
+    "quran": "Al-Quran",
+    "hadith": "Hadis",
+    "fiqh": "Fikih",
+    "history": "Sejarah",
+    "library": "Perpustakaan",
+    "home": "Beranda",
+    "search": "Cari",
+    "profile": "Profil",
+    "login": "Masuk",
+    "darkMode": "Aktifkan mode gelap",
+    "lightMode": "Aktifkan mode terang",
+    "language": "Bahasa"
+  },
+  "home": {
+    "title": "Apa yang ingin Anda pelajari?",
+    "subtitle": "Perpustakaan digital terbuka tentang Al-Quran, hadis, fikih, dan sejarah Islam - sumber yang dapat diverifikasi, tanpa kecerdasan buatan.",
+    "searchPlaceholder": "Cari ayat, hadis, atau konsep...",
+    "searchButton": "Cari",
+    "categories": {
+      "quran": { "label": "Al-Quran", "description": "Teks, terjemahan, tafsir" },
+      "hadith": { "label": "Hadis", "description": "Koleksi dan keotentikan" },
+      "tafsir": { "label": "Tafsir", "description": "Tafsir ayat per ayat" },
+      "fiqh": { "label": "Fikih", "description": "Mazhab dan pembanding" },
+      "prophet": { "label": "Kehidupan Nabi ﷺ", "description": "Garis waktu bersumber" },
+      "prophets": { "label": "Para Nabi", "description": "Adam, Ibrahim, Musa, Isa..." },
+      "history": { "label": "Sejarah", "description": "Dinasti dan periode" },
+      "scholars": { "label": "Ulama", "description": "Biografi dan karya" },
+      "library": { "label": "Perpustakaan", "description": "Karya referensi" },
+      "learning": { "label": "Jalur belajar", "description": "Pembelajaran terbimbing" },
+      "concepts": { "label": "Konsep", "description": "Tauhid, Salat, Zakat..." }
+    }
+  },
+  "comingSoon": {
+    "notFound": { "title": "Halaman tidak ditemukan", "description": "Halaman ini belum ada." },
+    "tafsir": { "title": "Tafsir", "description": "Perpustakaan tafsir akan hadir pada Fase 5 pengembangan." },
+    "schools": { "title": "Mazhab dan fikih", "description": "Pembanding mazhab fikih akan hadir pada Fase 7 pengembangan." },
+    "history": { "title": "Sejarah Islam", "description": "Garis waktu interaktif (termasuk kehidupan Nabi ﷺ) akan hadir pada Fase 6 pengembangan." },
+    "scholars": { "title": "Ulama", "description": "Basis data ulama akan hadir pada Fase 8 pengembangan." },
+    "library": { "title": "Perpustakaan", "description": "Perpustakaan digital akan hadir pada Fase 8 pengembangan." },
+    "learning": { "title": "Jalur belajar", "description": "Jalur belajar terbimbing akan hadir pada Fase 10 pengembangan." },
+    "search": { "title": "Pencarian lanjutan", "description": "Mesin pencari lintas konten akan hadir pada Fase 9 pengembangan." },
+    "admin": { "title": "Administrasi", "description": "Dasbor admin akan hadir pada Fase 11 pengembangan." }
+  },
+  "auth": {
+    "login": {
+      "title": "Masuk",
+      "subtitle": "Akses favorit, catatan, dan jalur belajar Anda.",
+      "email": "Email",
+      "password": "Kata sandi",
+      "submit": "Masuk",
+      "submitting": "Sedang masuk...",
+      "noAccount": "Belum punya akun?",
+      "createAccount": "Buat akun"
+    },
+    "register": {
+      "title": "Buat akun",
+      "subtitle": "Gratis, tanpa iklan, tanpa AI.",
+      "displayName": "Nama tampilan",
+      "email": "Email",
+      "password": "Kata sandi",
+      "submit": "Buat akun saya",
+      "submitting": "Membuat...",
+      "haveAccount": "Sudah punya akun?",
+      "login": "Masuk"
+    }
+  },
+  "profile": {
+    "loading": "Memuat...",
+    "memberSince": "Anggota sejak {{date}}.",
+    "comingSoonNote": "Favorit, catatan, koleksi, dan progres belajar akan hadir pada fase pengembangan berikutnya.",
+    "logout": "Keluar"
+  },
+  "quran": {
+    "title": "Al-Quran",
+    "subtitle": "114 surah, teks Arab dan terjemahan.",
+    "errorList": "Surah tidak dapat dimuat saat ini.",
+    "emptyList": "Belum ada surah yang diimpor. Lihat CONTRIBUTING.md untuk menjalankan impor.",
+    "verses": "ayat",
+    "mecca": "Makkiyah",
+    "medina": "Madaniyah",
+    "backToList": "Semua surah",
+    "copy": "Salin",
+    "copied": "Disalin",
+    "compare": "Bandingkan semua terjemahan",
+    "errorSurah": "Surah ini tidak dapat dimuat.",
+    "backToSurah": "Kembali ke surah",
+    "errorVerse": "Ayat ini tidak dapat dimuat.",
+    "comparisonTitle": "Perbandingan terjemahan",
+    "noTranslation": "Belum ada terjemahan yang diimpor untuk ayat ini.",
+    "tafsirTitle": "Tafsir",
+    "noTafsir": "Belum ada tafsir yang diimpor untuk ayat ini."
+  },
+  "hadith": {
+    "title": "Hadis",
+    "subtitle": "Enam koleksi kanonik (Kutubus Sittah).",
+    "errorCollections": "Koleksi tidak dapat dimuat.",
+    "backToCollections": "Semua koleksi",
+    "errorCollection": "Koleksi ini tidak dapat dimuat.",
+    "compiledBy": "Disusun oleh {{name}}",
+    "chapters": "Bab",
+    "backToChapters": "Kembali ke bab",
+    "errorChapter": "Bab ini tidak dapat dimuat.",
+    "previous": "Sebelumnya",
+    "next": "Berikutnya",
+    "page": "Halaman {{n}}",
+    "back": "Kembali",
+    "errorHadith": "Hadis ini tidak dapat dimuat.",
+    "authenticity": "Keotentikan",
+    "otherTranslations": "Terjemahan lain",
+    "hadithLabel": "Hadis"
+  },
+  "history": {
+    "title": "Sejarah Islam",
+    "subtitle": "Garis waktu bersumber, dari kehidupan Nabi ﷺ hingga dinasti-dinasti besar.",
+    "errorList": "Periode tidak dapat dimuat.",
+    "backToList": "Semua periode",
+    "errorPeriod": "Periode ini tidak dapat dimuat.",
+    "events": "Peristiwa",
+    "errorEvent": "Peristiwa ini tidak dapat dimuat.",
+    "sources": "Sumber",
+    "back": "Kembali"
+  },
+  "prophets": {
+    "title": "Para Nabi",
+    "subtitle": "Para nabi yang diakui oleh Islam, dari sudut pandang Islam.",
+    "error": "Para nabi tidak dapat dimuat.",
+    "errorDetail": "Halaman ini tidak dapat dimuat.",
+    "backToList": "Semua nabi",
+    "era": "Masa",
+    "peopleAddressed": "Kaum",
+    "quranicMentions": "Penyebutan dalam Al-Quran"
+  },
+  "schools": {
+    "title": "Mazhab dan fikih",
+    "subtitle": "Mazhab fikih dan aliran teologi.",
+    "error": "Data tidak dapat dimuat.",
+    "errorDetail": "Halaman ini tidak dapat dimuat.",
+    "backToList": "Semua mazhab",
+    "fiqhSchools": "Mazhab fikih",
+    "theologicalSchools": "Aliran teologi",
+    "theological": "Teologi",
+    "comparatorTitle": "Pembanding posisi",
+    "comparatorSubtitle": "Bandingkan posisi mazhab pada berbagai topik fikih.",
+    "history": "Sejarah",
+    "principles": "Prinsip dan metode",
+    "sourcesUsed": "Sumber yang digunakan",
+    "whyDivergence": "Mengapa ada perbedaan pendapat?"
+  },
+  "search": {
+    "title": "Pencarian",
+    "error": "Pencarian gagal.",
+    "noResults": "Tidak ada hasil ditemukan."
+  },
+  "learning": {
+    "title": "Jalur belajar",
+    "subtitle": "Jalur terbimbing, dari pemula hingga mahir.",
+    "error": "Jalur tidak dapat dimuat.",
+    "errorPath": "Jalur ini tidak dapat dimuat.",
+    "backToList": "Semua jalur",
+    "beginner": "Pemula",
+    "intermediate": "Menengah",
+    "advanced": "Mahir",
+    "loginToTrack": "Masuk untuk melacak progres Anda.",
+    "markComplete": "Tandai selesai",
+    "markIncomplete": "Tandai belum selesai",
+    "keyTakeaways": "Poin-poin penting",
+    "references": "Referensi",
+    "progress": "Progres",
+    "finalQuiz": "Kuis akhir",
+    "backToCourse": "Kembali ke kursus",
+    "errorLesson": "Pelajaran tidak ditemukan.",
+    "lessonProgress": "Pelajaran {{current}} dari {{total}}",
+    "lessonQuiz": "Kuis pelajaran",
+    "previousLesson": "Pelajaran sebelumnya",
+    "nextLesson": "Pelajaran berikutnya",
+    "quizScore": "Skor: {{score}} / {{total}}",
+    "quizRetry": "Coba lagi",
+    "errorQuiz": "Kuis tidak dapat dimuat.",
+    "noQuiz": "Belum ada kuis untuk jalur ini."
+  },
+  "scholars": {
+    "title": "Ulama",
+    "subtitle": "Biografi dan karya tokoh-tokoh besar Islam.",
+    "error": "Ulama tidak dapat dimuat.",
+    "errorDetail": "Halaman ini tidak dapat dimuat.",
+    "backToList": "Semua ulama",
+    "schools": "Mazhab"
+  },
+  "concepts": {
+    "title": "Konsep Islam",
+    "subtitle": "Ensiklopedia istilah dan konsep dasar.",
+    "error": "Konsep tidak dapat dimuat.",
+    "errorDetail": "Konsep ini tidak dapat dimuat.",
+    "backToList": "Semua konsep",
+    "origin": "Asal usul",
+    "explanation": "Penjelasan",
+    "related": "Konsep terkait"
+  },
+  "tafsir": {
+    "editions": "edisi tersedia",
+    "error": "Tafsir tidak dapat dimuat.",
+    "readHint": "Buka sebuah ayat Al-Quran untuk membaca tafsirnya."
+  },
+  "common": {
+    "loading": "Memuat...",
+    "showTranslation": "Tampilkan terjemahan",
+    "hideTranslation": "Sembunyikan terjemahan"
+  }
+}

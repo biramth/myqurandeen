@@ -1,0 +1,211 @@
+{
+  "nav": {
+    "quran": "Kuran",
+    "hadith": "Hadis",
+    "fiqh": "Fikih",
+    "history": "Tarih",
+    "library": "Kutuphane",
+    "home": "Anasayfa",
+    "search": "Ara",
+    "profile": "Profil",
+    "login": "Giris yap",
+    "darkMode": "Karanlik modu ac",
+    "lightMode": "Aydinlik modu ac",
+    "language": "Dil"
+  },
+  "home": {
+    "title": "Ne calismak istersiniz?",
+    "subtitle": "Kuran, hadis, fikih ve Islam tarihi uzerine acik dijital kutuphane - dogrulanabilir kaynaklar, yapay zeka yok.",
+    "searchPlaceholder": "Bir ayet, hadis veya kavram arayin...",
+    "searchButton": "Ara",
+    "categories": {
+      "quran": { "label": "Kuran", "description": "Metin, cevirileri, tefsir" },
+      "hadith": { "label": "Hadis", "description": "Koleksiyonlar ve sihhat" },
+      "tafsir": { "label": "Tefsir", "description": "Ayet ayet tefsir" },
+      "fiqh": { "label": "Fikih", "description": "Mezhepler ve karsilastirma" },
+      "prophet": { "label": "Peygamberin ﷺ Hayati", "description": "Kaynakli kronoloji" },
+      "prophets": { "label": "Peygamberler", "description": "Adem, Ibrahim, Musa, Isa..." },
+      "history": { "label": "Tarih", "description": "Hanedanlar ve donemler" },
+      "scholars": { "label": "Alimler", "description": "Biyografiler ve eserler" },
+      "library": { "label": "Kutuphane", "description": "Referans eserler" },
+      "learning": { "label": "Egitim yollari", "description": "Rehberli ogrenim" },
+      "concepts": { "label": "Kavramlar", "description": "Tevhid, Salat, Zekat..." }
+    }
+  },
+  "comingSoon": {
+    "notFound": { "title": "Sayfa bulunamadi", "description": "Bu sayfa (henuz) mevcut degil." },
+    "tafsir": { "title": "Tefsir", "description": "Tefsir kutuphanesi gelistirmenin 5. asamasinda geliyor." },
+    "schools": { "title": "Mezhepler ve fikih", "description": "Fikih mezhepleri karsilastirici gelistirmenin 7. asamasinda geliyor." },
+    "history": { "title": "Islam tarihi", "description": "Interaktif kronoloji (Peygamberin ﷺ hayati dahil) gelistirmenin 6. asamasinda geliyor." },
+    "scholars": { "title": "Alimler", "description": "Alimler veritabani gelistirmenin 8. asamasinda geliyor." },
+    "library": { "title": "Kutuphane", "description": "Dijital kutuphane gelistirmenin 8. asamasinda geliyor." },
+    "learning": { "title": "Egitim yollari", "description": "Rehberli egitim yollari gelistirmenin 10. asamasinda geliyor." },
+    "search": { "title": "Gelismis arama", "description": "Kapsamli arama motoru gelistirmenin 9. asamasinda geliyor." },
+    "admin": { "title": "Yonetim", "description": "Yonetim paneli gelistirmenin 11. asamasinda geliyor." }
+  },
+  "auth": {
+    "login": {
+      "title": "Giris yap",
+      "subtitle": "Favorilerinize, notlariniza ve egitim yollariniza erisin.",
+      "email": "E-posta",
+      "password": "Sifre",
+      "submit": "Giris yap",
+      "submitting": "Giris yapiliyor...",
+      "noAccount": "Henuz hesabiniz yok mu?",
+      "createAccount": "Hesap olustur"
+    },
+    "register": {
+      "title": "Hesap olustur",
+      "subtitle": "Ucretsiz, reklamsiz, yapay zekasiz.",
+      "displayName": "Goruntulenecek ad",
+      "email": "E-posta",
+      "password": "Sifre",
+      "submit": "Hesabimi olustur",
+      "submitting": "Olusturuluyor...",
+      "haveAccount": "Zaten hesabiniz var mi?",
+      "login": "Giris yap"
+    }
+  },
+  "profile": {
+    "loading": "Yukleniyor...",
+    "memberSince": "{{date}} tarihinden beri uye.",
+    "comingSoonNote": "Favoriler, notlar, koleksiyonlar ve egitim ilerlemesi sonraki gelistirme asamalarinda gelecek.",
+    "logout": "Cikis yap"
+  },
+  "quran": {
+    "title": "Kuran",
+    "subtitle": "114 sure, Arapca metin ve cevirileri.",
+    "errorList": "Sureler su anda yuklenemiyor.",
+    "emptyList": "Henuz sure aktarilmadi. Ice aktarmayi baslatmak icin CONTRIBUTING.md dosyasina bakin.",
+    "verses": "ayet",
+    "mecca": "Mekki",
+    "medina": "Medeni",
+    "backToList": "Tum sureler",
+    "copy": "Kopyala",
+    "copied": "Kopyalandi",
+    "compare": "Tum cevirileri karsilastir",
+    "errorSurah": "Bu sure yuklenemedi.",
+    "backToSurah": "Sureye don",
+    "errorVerse": "Bu ayet yuklenemedi.",
+    "comparisonTitle": "Ceviri karsilastirmasi",
+    "noTranslation": "Bu ayet icin henuz ceviri aktarilmadi.",
+    "tafsirTitle": "Tefsir",
+    "noTafsir": "Bu ayet icin henuz tefsir aktarilmadi."
+  },
+  "hadith": {
+    "title": "Hadis",
+    "subtitle": "Alti temel hadis koleksiyonu (Kutub-i Sitte).",
+    "errorCollections": "Koleksiyonlar yuklenemedi.",
+    "backToCollections": "Tum koleksiyonlar",
+    "errorCollection": "Bu koleksiyon yuklenemedi.",
+    "compiledBy": "{{name}} tarafindan derlendi",
+    "chapters": "Bolumler",
+    "backToChapters": "Bolumlere don",
+    "errorChapter": "Bu bolum yuklenemedi.",
+    "previous": "Onceki",
+    "next": "Sonraki",
+    "page": "Sayfa {{n}}",
+    "back": "Geri",
+    "errorHadith": "Bu hadis yuklenemedi.",
+    "authenticity": "Sihhat",
+    "otherTranslations": "Diger ceviriler",
+    "hadithLabel": "Hadis"
+  },
+  "history": {
+    "title": "Islam tarihi",
+    "subtitle": "Peygamberin ﷺ hayatindan buyuk hanedanlara kadar kaynakli kronoloji.",
+    "errorList": "Donemler yuklenemedi.",
+    "backToList": "Tum donemler",
+    "errorPeriod": "Bu donem yuklenemedi.",
+    "events": "Olaylar",
+    "errorEvent": "Bu olay yuklenemedi.",
+    "sources": "Kaynaklar",
+    "back": "Geri"
+  },
+  "prophets": {
+    "title": "Peygamberler",
+    "subtitle": "Islam tarafindan tanınan peygamberler, Islami bakis acisiyla.",
+    "error": "Peygamberler yuklenemedi.",
+    "errorDetail": "Bu sayfa yuklenemedi.",
+    "backToList": "Tum peygamberler",
+    "era": "Donem",
+    "peopleAddressed": "Kavim",
+    "quranicMentions": "Kuran'da gecisi"
+  },
+  "schools": {
+    "title": "Mezhepler ve fikih",
+    "subtitle": "Fikih mezhepleri ve itikadi ekoller.",
+    "error": "Veriler yuklenemedi.",
+    "errorDetail": "Bu sayfa yuklenemedi.",
+    "backToList": "Tum mezhepler",
+    "fiqhSchools": "Fikih mezhepleri",
+    "theologicalSchools": "Itikadi ekoller",
+    "theological": "Kelam",
+    "comparatorTitle": "Karsilastirma araci",
+    "comparatorSubtitle": "Fikih konularinda mezheplerin goruslerini karsilastirin.",
+    "history": "Tarih",
+    "principles": "Ilkeler ve yontem",
+    "sourcesUsed": "Kullanilan kaynaklar",
+    "whyDivergence": "Neden bir goru ayriligi var?"
+  },
+  "search": {
+    "title": "Arama",
+    "error": "Arama basarisiz oldu.",
+    "noResults": "Sonuc bulunamadi."
+  },
+  "learning": {
+    "title": "Egitim yollari",
+    "subtitle": "Baslangictan ileri seviyeye rehberli yollar.",
+    "error": "Yollar yuklenemedi.",
+    "errorPath": "Bu yol yuklenemedi.",
+    "backToList": "Tum yollar",
+    "beginner": "Baslangic",
+    "intermediate": "Orta",
+    "advanced": "Ileri",
+    "loginToTrack": "Ilerlemenizi takip etmek icin giris yapin.",
+    "markComplete": "Tamamlandi olarak isaretle",
+    "markIncomplete": "Tamamlanmadi olarak isaretle",
+    "keyTakeaways": "Onemli noktalar",
+    "references": "Kaynaklar",
+    "progress": "İlerleme",
+    "finalQuiz": "Final sınavı",
+    "backToCourse": "Kursa dön",
+    "errorLesson": "Ders bulunamadı.",
+    "lessonProgress": "Ders {{current}} / {{total}}",
+    "lessonQuiz": "Ders sınavı",
+    "previousLesson": "Önceki ders",
+    "nextLesson": "Sonraki ders",
+    "quizScore": "Puan: {{score}} / {{total}}",
+    "quizRetry": "Tekrar dene",
+    "errorQuiz": "Sınav yüklenemedi.",
+    "noQuiz": "Bu parkur için henüz sınav yok."
+  },
+  "scholars": {
+    "title": "Alimler",
+    "subtitle": "Islam'in buyuk simalarinin biyografileri ve eserleri.",
+    "error": "Alimler yuklenemedi.",
+    "errorDetail": "Bu sayfa yuklenemedi.",
+    "backToList": "Tum alimler",
+    "schools": "Mezhep"
+  },
+  "concepts": {
+    "title": "Islami kavramlar",
+    "subtitle": "Temel terim ve kavramlar ansiklopedisi.",
+    "error": "Kavramlar yuklenemedi.",
+    "errorDetail": "Bu kavram yuklenemedi.",
+    "backToList": "Tum kavramlar",
+    "origin": "Koken",
+    "explanation": "Aciklama",
+    "related": "Ilgili kavramlar"
+  },
+  "tafsir": {
+    "editions": "mevcut baski",
+    "error": "Tefsirler yuklenemedi.",
+    "readHint": "Tefsirini okumak icin bir Kuran ayeti acin."
+  },
+  "common": {
+    "loading": "Yukleniyor...",
+    "showTranslation": "Ceviriyi goster",
+    "hideTranslation": "Ceviriyi gizle"
+  }
+}
