@@ -6,9 +6,11 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Skeleton } from "@/components/ui/skeleton";
 import { schoolsApi } from "@/features/schools/api";
+import { useDocumentTitle } from "@/hooks/useDocumentTitle";
 
 export function SchoolsPage() {
   const { t } = useTranslation();
+  useDocumentTitle(t("schools.title"));
   const { data: schools, isLoading, isError } = useQuery({
     queryKey: ["schools"],
     queryFn: schoolsApi.listSchools,

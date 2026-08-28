@@ -4,7 +4,9 @@ import { useTranslation } from "react-i18next";
 import { Badge } from "@/components/ui/badge";
 import { Skeleton } from "@/components/ui/skeleton";
 import { Breadcrumbs } from "@/components/shared/Breadcrumbs";
+import { ContentUserActions } from "@/components/shared/ContentUserActions";
 import { scholarsApi } from "@/features/scholars/api";
+import { useDocumentTitle } from "@/hooks/useDocumentTitle";
 
 export function ScholarPage() {
   const { slug } = useParams<{ slug: string }>();
@@ -15,6 +17,7 @@ export function ScholarPage() {
     queryFn: () => scholarsApi.getScholar(slug!),
     enabled: Boolean(slug),
   });
+  useDocumentTitle(data?.name);
 
   if (!slug) return <Navigate to="/scholars" replace />;
 
@@ -55,7 +58,9 @@ export function ScholarPage() {
             </div>
           )}
 
-          {data.bio && <p className="mb-6 text-sm leading-relaxed">{data.bio}</p>}
+          {data.bio && <p className="mb-4 text-sm leading-relaxed">{data.bio}</p>}
+
+          <ContentUserActions targetType="scholar" targetId={data.id} className="mb-6" />
 
           {data.schools.length > 0 && (
             <section>

@@ -5,6 +5,7 @@ import { Separator } from "@/components/ui/separator";
 import { Skeleton } from "@/components/ui/skeleton";
 import { Breadcrumbs } from "@/components/shared/Breadcrumbs";
 import { historyApi } from "@/features/history/api";
+import { useDocumentTitle } from "@/hooks/useDocumentTitle";
 
 export function HistoryPeriodPage() {
   const { period: slug } = useParams<{ period: string }>();
@@ -15,6 +16,7 @@ export function HistoryPeriodPage() {
     queryFn: () => historyApi.getPeriod(slug!),
     enabled: Boolean(slug),
   });
+  useDocumentTitle(data?.name);
 
   if (!slug) return <Navigate to="/history" replace />;
 

@@ -4,7 +4,9 @@ import { useTranslation } from "react-i18next";
 import { Badge } from "@/components/ui/badge";
 import { Skeleton } from "@/components/ui/skeleton";
 import { Breadcrumbs } from "@/components/shared/Breadcrumbs";
+import { ContentUserActions } from "@/components/shared/ContentUserActions";
 import { historyApi } from "@/features/history/api";
+import { useDocumentTitle } from "@/hooks/useDocumentTitle";
 
 export function HistoryEventPage() {
   const { slug } = useParams<{ slug: string }>();
@@ -15,6 +17,7 @@ export function HistoryEventPage() {
     queryFn: () => historyApi.getEvent(slug!),
     enabled: Boolean(slug),
   });
+  useDocumentTitle(data?.event.title);
 
   if (!slug) return <Navigate to="/history" replace />;
 
@@ -39,6 +42,8 @@ export function HistoryEventPage() {
             {data.event.dateApprox && <Badge variant="secondary">{data.event.dateApprox}</Badge>}
           </div>
           <p className="text-sm leading-relaxed">{data.event.description}</p>
+
+          <ContentUserActions targetType="event" targetId={data.event.id} className="mt-4" />
 
           {data.sources.length > 0 && (
             <div className="mt-6">

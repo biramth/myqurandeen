@@ -18,7 +18,9 @@
     "groupAdmin": "Verwaltung",
     "menu": "Menü",
     "admin": "Verwaltung",
-    "assistant": "KI-Assistent"
+    "assistant": "KI-Assistent",
+    "sidebarLabel": "Hauptnavigation",
+    "bottomNavLabel": "Mobile Navigation"
   },
   "home": {
     "title": "Was mochten Sie studieren?",
@@ -51,6 +53,8 @@
     "admin": { "title": "Verwaltung", "description": "Das Admin-Dashboard kommt in Phase 11 der Entwicklung." }
   },
   "auth": {
+    "showPassword": "Passwort anzeigen",
+    "hidePassword": "Passwort verbergen",
     "login": {
       "title": "Anmelden",
       "subtitle": "Zugriff auf Ihre Favoriten, Notizen und Lernpfade.",
@@ -76,8 +80,55 @@
   "profile": {
     "loading": "Wird geladen...",
     "memberSince": "Mitglied seit {{date}}.",
-    "comingSoonNote": "Favoriten, Notizen, Sammlungen und Lernfortschritt folgen in kommenden Entwicklungsphasen.",
-    "logout": "Abmelden"
+    "logout": "Abmelden",
+    "tabs": { "bookmarks": "Lesezeichen", "notes": "Notizen", "collections": "Sammlungen" }
+  },
+  "bookmark": {
+    "add": "Zu Lesezeichen hinzufügen",
+    "remove": "Aus Lesezeichen entfernen",
+    "added": "Zu Lesezeichen hinzugefügt",
+    "removed": "Aus Lesezeichen entfernt"
+  },
+  "bookmarks": {
+    "empty": "Noch keine Lesezeichen.",
+    "remove": "Entfernen"
+  },
+  "notes": {
+    "title": "Notizen",
+    "empty": "Noch keine Notizen.",
+    "placeholder": "Notiz schreiben...",
+    "save": "Speichern",
+    "delete": "Löschen",
+    "saved": "Notiz gespeichert",
+    "deleted": "Notiz gelöscht"
+  },
+  "collections": {
+    "empty": "Noch keine Sammlungen.",
+    "emptyItems": "Keine Elemente in dieser Sammlung.",
+    "create": "Erstellen",
+    "namePlaceholder": "Name der Sammlung",
+    "itemCount_one": "{{count}} Element",
+    "itemCount_other": "{{count}} Elemente",
+    "delete": "Löschen",
+    "removeItem": "Entfernen",
+    "back": "Zurück zu den Sammlungen",
+    "addToCollection": "Zu einer Sammlung hinzufügen",
+    "created": "Sammlung erstellt",
+    "deleted": "Sammlung gelöscht",
+    "itemAdded": "Zur Sammlung hinzugefügt",
+    "itemAlready": "Bereits in dieser Sammlung",
+    "itemRemoved": "Aus der Sammlung entfernt"
+  },
+  "targetTypes": {
+    "verse": "Vers",
+    "hadith": "Hadith",
+    "tafsir_entry": "Tafsir",
+    "concept": "Konzept",
+    "book": "Buch",
+    "scholar": "Gelehrter",
+    "event": "Ereignis",
+    "fiqh_topic": "Fiqh-Thema",
+    "lesson": "Lektion"
   },
   "quran": {
     "title": "Der Koran",
@@ -213,7 +264,8 @@
   "common": {
     "loading": "Wird geladen...",
     "showTranslation": "Ubersetzung anzeigen",
-    "hideTranslation": "Ubersetzung ausblenden"
+    "hideTranslation": "Ubersetzung ausblenden",
+    "error": "Ein Fehler ist aufgetreten. Bitte versuchen Sie es erneut."
   },
   "library": {
     "title": "Bibliothek",
@@ -238,18 +290,26 @@
     "assignedTo": "Zugewiesen an",
     "assignToMe": "Mir zuweisen",
     "active": "Aktiv",
-    "inactive": "Inaktiv"
+    "inactive": "Inaktiv",
+    "auditLog": "Audit-Protokoll",
+    "noAuditEntries": "Noch keine Protokolleinträge.",
+    "roleUpdated": "Rolle aktualisiert",
+    "statusUpdated": "Status aktualisiert",
+    "userUpdated": "Benutzer aktualisiert",
+    "assigned": "Meldung zugewiesen"
   },
   "assistant": {
     "title": "KI-Assistent",
     "subtitle": "Stellen Sie eine Frage und erhalten Sie eine Antwort, die auf den bereits verifizierten Quellen der Plattform basiert.",
-    "disclaimer": "Antworten werden aus bereits belegten Inhalten auf Qurandeen generiert. Überprüfen Sie immer die unten angegebenen Quellen.",
+    "disclaimer": "Antworten werden aus bereits belegten Inhalten auf myQurandeen generiert. Überprüfen Sie immer die unten angegebenen Quellen.",
     "notReady": "Der Assistent ist derzeit nicht verfügbar (Index oder Modell nicht bereit).",
     "placeholder": "Stellen Sie Ihre Frage...",
     "ask": "Fragen",
     "thinking": "Suche läuft...",
     "error": "Momentan konnte keine Antwort ermittelt werden.",
     "sources": "Quellen",
-    "empty": "Stellen Sie eine Frage, um zu beginnen."
+    "empty": "Stellen Sie eine Frage, um zu beginnen.",
+    "loginRequired": "Melden Sie sich an, um dem Assistenten eine Frage zu stellen.",
+    "logIn": "Anmelden"
   }
 }

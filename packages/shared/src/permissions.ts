@@ -17,6 +17,7 @@ export const PERMISSIONS = {
   REPORT_ASSIGN: "report:assign",
   REPORT_RESOLVE: "report:resolve",
   AUDIT_LOG_READ: "audit_log:read",
+  AI_INDEX_MANAGE: "ai:index",
 } as const satisfies Record<string, PermissionKey>;
 
 export type PermissionValue = (typeof PERMISSIONS)[keyof typeof PERMISSIONS];
@@ -48,6 +49,7 @@ export const DEFAULT_ROLE_PERMISSIONS: Record<RoleName, PermissionValue[]> = {
     PERMISSIONS.REPORT_ASSIGN,
     PERMISSIONS.REPORT_RESOLVE,
     PERMISSIONS.AUDIT_LOG_READ,
+    PERMISSIONS.AI_INDEX_MANAGE,
   ],
   SUPER_ADMIN: [
     PERMISSIONS.USER_MANAGE,
@@ -59,5 +61,6 @@ export const DEFAULT_ROLE_PERMISSIONS: Record<RoleName, PermissionValue[]> = {
     PERMISSIONS.REPORT_ASSIGN,
     PERMISSIONS.REPORT_RESOLVE,
     PERMISSIONS.AUDIT_LOG_READ,
+    PERMISSIONS.AI_INDEX_MANAGE,
   ],
 };

@@ -18,7 +18,9 @@
     "groupAdmin": "Administration",
     "menu": "Menu",
     "admin": "Administration",
-    "assistant": "Assistant IA"
+    "assistant": "Assistant IA",
+    "sidebarLabel": "Navigation principale",
+    "bottomNavLabel": "Navigation mobile"
   },
   "home": {
     "title": "Que souhaitez-vous étudier ?",
@@ -51,9 +53,11 @@
     "admin": { "title": "Administration", "description": "Le tableau de bord d'administration arrive en Phase 11 du développement." }
   },
   "auth": {
+    "showPassword": "Afficher le mot de passe",
+    "hidePassword": "Masquer le mot de passe",
     "login": {
       "title": "Connexion",
-      "subtitle": "Accédez a vos favoris, notes et parcours d'apprentissage.",
+      "subtitle": "Accédez à vos favoris, notes et parcours d'apprentissage.",
       "email": "Email",
       "password": "Mot de passe",
       "submit": "Se connecter",
@@ -76,8 +80,55 @@
   "profile": {
     "loading": "Chargement...",
     "memberSince": "Membre depuis le {{date}}.",
-    "comingSoonNote": "Favoris, notes, collections et progression des parcours arriveront au fil des prochaines phases de développement.",
-    "logout": "Se déconnecter"
+    "logout": "Se déconnecter",
+    "tabs": { "bookmarks": "Favoris", "notes": "Notes", "collections": "Collections" }
+  },
+  "bookmark": {
+    "add": "Ajouter aux favoris",
+    "remove": "Retirer des favoris",
+    "added": "Ajouté aux favoris",
+    "removed": "Retiré des favoris"
+  },
+  "bookmarks": {
+    "empty": "Aucun favori pour le moment.",
+    "remove": "Retirer"
+  },
+  "notes": {
+    "title": "Notes",
+    "empty": "Aucune note pour le moment.",
+    "placeholder": "Écrivez une note...",
+    "save": "Enregistrer",
+    "delete": "Supprimer",
+    "saved": "Note enregistrée",
+    "deleted": "Note supprimée"
+  },
+  "collections": {
+    "empty": "Aucune collection pour le moment.",
+    "emptyItems": "Aucun élément dans cette collection.",
+    "create": "Créer",
+    "namePlaceholder": "Nom de la collection",
+    "itemCount_one": "{{count}} élément",
+    "itemCount_other": "{{count}} éléments",
+    "delete": "Supprimer",
+    "removeItem": "Retirer",
+    "back": "Retour aux collections",
+    "addToCollection": "Ajouter à une collection",
+    "created": "Collection créée",
+    "deleted": "Collection supprimée",
+    "itemAdded": "Ajouté à la collection",
+    "itemAlready": "Déjà dans cette collection",
+    "itemRemoved": "Retiré de la collection"
+  },
+  "targetTypes": {
+    "verse": "Verset",
+    "hadith": "Hadith",
+    "tafsir_entry": "Tafsir",
+    "concept": "Concept",
+    "book": "Livre",
+    "scholar": "Savant",
+    "event": "Événement",
+    "fiqh_topic": "Sujet de fiqh",
+    "lesson": "Leçon"
   },
   "quran": {
     "title": "Le Coran",
@@ -278,7 +329,7 @@
   },
   "learning": {
     "title": "Parcours d'apprentissage",
-    "subtitle": "Des parcours guidés, du débutant à l'avance.",
+    "subtitle": "Des parcours guidés, du débutant à l'avancé.",
     "error": "Impossible de charger les parcours.",
     "errorPath": "Impossible de charger ce parcours.",
     "backToList": "Tous les parcours",
@@ -329,7 +380,8 @@
   "common": {
     "loading": "Chargement...",
     "showTranslation": "Afficher la traduction",
-    "hideTranslation": "Masquer la traduction"
+    "hideTranslation": "Masquer la traduction",
+    "error": "Une erreur est survenue. Réessayez."
   },
   "library": {
     "title": "Bibliothèque",
@@ -354,18 +406,26 @@
     "assignedTo": "Assigné à",
     "assignToMe": "S'assigner",
     "active": "Actif",
-    "inactive": "Inactif"
+    "inactive": "Inactif",
+    "auditLog": "Journal d'audit",
+    "noAuditEntries": "Aucune entrée dans le journal pour le moment.",
+    "roleUpdated": "Rôle mis à jour",
+    "statusUpdated": "Statut mis à jour",
+    "userUpdated": "Utilisateur mis à jour",
+    "assigned": "Signalement assigné"
   },
   "assistant": {
     "title": "Assistant IA",
     "subtitle": "Posez une question, obtenez une réponse fondée sur les sources déjà vérifiées de la plateforme.",
-    "disclaimer": "Les réponses sont générées à partir du contenu déjà sourcé sur Qurandeen. Vérifiez toujours les sources citées ci-dessous.",
+    "disclaimer": "Les réponses sont générées à partir du contenu déjà sourcé sur myQurandeen. Vérifiez toujours les sources citées ci-dessous.",
     "notReady": "L'assistant n'est pas disponible pour le moment (index ou modèle non prêt).",
     "placeholder": "Posez votre question...",
     "ask": "Demander",
     "thinking": "Recherche en cours...",
     "error": "Impossible d'obtenir une réponse pour le moment.",
     "sources": "Sources",
-    "empty": "Posez une question pour commencer."
+    "empty": "Posez une question pour commencer.",
+    "loginRequired": "Connectez-vous pour poser une question à l'assistant.",
+    "logIn": "Se connecter"
   }
 }

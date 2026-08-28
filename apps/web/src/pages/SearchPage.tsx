@@ -8,6 +8,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Skeleton } from "@/components/ui/skeleton";
 import { searchApi } from "@/features/search/api";
+import { useDocumentTitle } from "@/hooks/useDocumentTitle";
 
 function ResultSection({
   title,
@@ -32,6 +33,7 @@ export function SearchPage() {
   const [searchParams, setSearchParams] = useSearchParams();
   const initialQuery = searchParams.get("q") ?? "";
   const [inputValue, setInputValue] = React.useState(initialQuery);
+  useDocumentTitle(t("search.title"));
 
   const { data, isFetching, isError } = useQuery({
     queryKey: ["search", initialQuery],

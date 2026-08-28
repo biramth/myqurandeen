@@ -1,12 +1,12 @@
 const LANGUAGE_LABELS: Record<string, string> = {
   ar: "Arabe",
   en: "Anglais",
-  fr: "Francais",
+  fr: "Français",
   es: "Espagnol",
   de: "Allemand",
   tr: "Turc",
   ur: "Ourdou",
-  id: "Indonesien",
+  id: "Indonésien",
   ru: "Russe",
 };
 

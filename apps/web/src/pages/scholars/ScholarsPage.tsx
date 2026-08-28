@@ -5,9 +5,11 @@ import { GraduationCap } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Skeleton } from "@/components/ui/skeleton";
 import { scholarsApi } from "@/features/scholars/api";
+import { useDocumentTitle } from "@/hooks/useDocumentTitle";
 
 export function ScholarsPage() {
   const { t } = useTranslation();
+  useDocumentTitle(t("scholars.title"));
   const { data: scholars, isLoading, isError } = useQuery({
     queryKey: ["scholars"],
     queryFn: scholarsApi.listScholars,

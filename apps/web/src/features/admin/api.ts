@@ -1,5 +1,5 @@
 import { apiClient } from "@/lib/api-client";
-import type { AdminReport, AdminRole, AdminUser, ReportHistoryEntry, ReportStatus } from "./types";
+import type { AdminReport, AdminRole, AdminUser, AuditLogEntry, ReportHistoryEntry, ReportStatus } from "./types";
 
 export const adminApi = {
   listReports: () => apiClient.get<AdminReport[]>("/admin/reports"),
@@ -14,4 +14,6 @@ export const adminApi = {
   updateUserRole: (id: string, roleId: string) => apiClient.patch<AdminUser>(`/admin/users/${id}/role`, { roleId }),
   updateUserActive: (id: string, isActive: boolean) =>
     apiClient.patch<AdminUser>(`/admin/users/${id}/active`, { isActive }),
+
+  listAuditLog: () => apiClient.get<AuditLogEntry[]>("/admin/audit-log?limit=100"),
 };

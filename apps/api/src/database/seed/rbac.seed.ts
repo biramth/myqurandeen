@@ -3,29 +3,30 @@ import type { Database } from "../database.module";
 import { permissions, rolePermissions, roles } from "../schema";
 
 const ROLE_DESCRIPTIONS: Record<(typeof ROLE_NAMES)[number], string> = {
-  SUPER_ADMIN: "Acces complet, y compris gestion des roles et permissions.",
+  SUPER_ADMIN: "Accès complet, y compris gestion des rôles et permissions.",
   ADMIN: "Gestion des utilisateurs et de l'ensemble du contenu.",
-  EDITOR: "Cree et modifie le contenu editorial.",
-  REVIEWER: "Valide et publie le contenu propose.",
-  MODERATOR: "Gere les signalements des utilisateurs.",
+  EDITOR: "Crée et modifie le contenu éditorial.",
+  REVIEWER: "Valide et publie le contenu proposé.",
+  MODERATOR: "Gère les signalements des utilisateurs.",
   USER: "Lecture, favoris, notes et progression personnelles.",
 };
 
 const PERMISSION_DESCRIPTIONS: Partial<Record<PermissionValue, string>> = {
-  "user:manage": "Creer, modifier, desactiver des comptes utilisateurs.",
-  "role:manage": "Modifier les roles et les permissions associees.",
-  "content:create": "Creer du contenu editorial (brouillon).",
-  "content:edit": "Modifier du contenu editorial existant.",
-  "content:publish": "Publier ou depublier du contenu editorial.",
+  "user:manage": "Créer, modifier, désactiver des comptes utilisateurs.",
+  "role:manage": "Modifier les rôles et les permissions associées.",
+  "content:create": "Créer du contenu éditorial (brouillon).",
+  "content:edit": "Modifier du contenu éditorial existant.",
+  "content:publish": "Publier ou dépublier du contenu éditorial.",
   "report:view": "Consulter les signalements.",
-  "report:assign": "Assigner un signalement a un moderateur.",
-  "report:resolve": "Cloturer un signalement (workflow de moderation).",
+  "report:assign": "Assigner un signalement à un modérateur.",
+  "report:resolve": "Clôturer un signalement (workflow de modération).",
   "audit_log:read": "Consulter le journal d'audit.",
+  "ai:index": "Déclencher la (re)indexation du contenu pour l'assistant IA (opération coûteuse en quota).",
 };
 
 /**
- * Seed idempotent des roles et permissions RBAC (aucune donnee religieuse).
- * Peut etre relance sans dupliquer les lignes (upsert par cle unique).
+ * Seed idempotent des rôles et permissions RBAC (aucune donnée religieuse).
+ * Peut être relancé sans dupliquer les lignes (upsert par clé unique).
  */
 export async function seedRbac(db: Database): Promise<void> {
   const allPermissionKeys = Array.from(new Set(Object.values(DEFAULT_ROLE_PERMISSIONS).flat()));

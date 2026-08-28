@@ -18,7 +18,9 @@
     "groupAdmin": "Admin",
     "menu": "Menu",
     "admin": "Admin",
-    "assistant": "AI Assistant"
+    "assistant": "AI Assistant",
+    "sidebarLabel": "Main navigation",
+    "bottomNavLabel": "Mobile navigation"
   },
   "home": {
     "title": "What would you like to study?",
@@ -51,6 +53,8 @@
     "admin": { "title": "Administration", "description": "The admin dashboard is arriving in Phase 11 of development." }
   },
   "auth": {
+    "showPassword": "Show password",
+    "hidePassword": "Hide password",
     "login": {
       "title": "Log in",
       "subtitle": "Access your favorites, notes, and learning paths.",
@@ -76,8 +80,55 @@
   "profile": {
     "loading": "Loading...",
     "memberSince": "Member since {{date}}.",
-    "comingSoonNote": "Favorites, notes, collections, and learning progress will arrive in upcoming development phases.",
-    "logout": "Log out"
+    "logout": "Log out",
+    "tabs": { "bookmarks": "Bookmarks", "notes": "Notes", "collections": "Collections" }
+  },
+  "bookmark": {
+    "add": "Add to bookmarks",
+    "remove": "Remove from bookmarks",
+    "added": "Added to bookmarks",
+    "removed": "Removed from bookmarks"
+  },
+  "bookmarks": {
+    "empty": "No bookmarks yet.",
+    "remove": "Remove"
+  },
+  "notes": {
+    "title": "Notes",
+    "empty": "No notes yet.",
+    "placeholder": "Write a note...",
+    "save": "Save",
+    "delete": "Delete",
+    "saved": "Note saved",
+    "deleted": "Note deleted"
+  },
+  "collections": {
+    "empty": "No collections yet.",
+    "emptyItems": "No items in this collection.",
+    "create": "Create",
+    "namePlaceholder": "Collection name",
+    "itemCount_one": "{{count}} item",
+    "itemCount_other": "{{count}} items",
+    "delete": "Delete",
+    "removeItem": "Remove",
+    "back": "Back to collections",
+    "addToCollection": "Add to a collection",
+    "created": "Collection created",
+    "deleted": "Collection deleted",
+    "itemAdded": "Added to collection",
+    "itemAlready": "Already in this collection",
+    "itemRemoved": "Removed from collection"
+  },
+  "targetTypes": {
+    "verse": "Verse",
+    "hadith": "Hadith",
+    "tafsir_entry": "Tafsir",
+    "concept": "Concept",
+    "book": "Book",
+    "scholar": "Scholar",
+    "event": "Event",
+    "fiqh_topic": "Fiqh topic",
+    "lesson": "Lesson"
   },
   "quran": {
     "title": "The Quran",
@@ -213,7 +264,8 @@
   "common": {
     "loading": "Loading...",
     "showTranslation": "Show translation",
-    "hideTranslation": "Hide translation"
+    "hideTranslation": "Hide translation",
+    "error": "Something went wrong. Please try again."
   },
   "library": {
     "title": "Library",
@@ -238,18 +290,26 @@
     "assignedTo": "Assigned to",
     "assignToMe": "Assign to me",
     "active": "Active",
-    "inactive": "Inactive"
+    "inactive": "Inactive",
+    "auditLog": "Audit log",
+    "noAuditEntries": "No audit entries yet.",
+    "roleUpdated": "Role updated",
+    "statusUpdated": "Status updated",
+    "userUpdated": "User updated",
+    "assigned": "Report assigned"
   },
   "assistant": {
     "title": "AI Assistant",
     "subtitle": "Ask a question, get an answer grounded in the platform's already-verified sources.",
-    "disclaimer": "Answers are generated from content already sourced on Qurandeen. Always check the cited sources below.",
+    "disclaimer": "Answers are generated from content already sourced on myQurandeen. Always check the cited sources below.",
     "notReady": "The assistant isn't available right now (index or model not ready).",
     "placeholder": "Ask your question...",
     "ask": "Ask",
     "thinking": "Searching...",
     "error": "Couldn't get an answer right now.",
     "sources": "Sources",
-    "empty": "Ask a question to get started."
+    "empty": "Ask a question to get started.",
+    "loginRequired": "Log in to ask the assistant a question.",
+    "logIn": "Log in"
   }
 }

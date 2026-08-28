@@ -6,9 +6,11 @@ import { Badge } from "@/components/ui/badge";
 import { Skeleton } from "@/components/ui/skeleton";
 import { tafsirApi } from "@/features/tafsir/api";
 import { languageLabel } from "@/lib/languages";
+import { useDocumentTitle } from "@/hooks/useDocumentTitle";
 
 export function TafsirWorksPage() {
   const { t } = useTranslation();
+  useDocumentTitle(t("comingSoon.tafsir.title"));
   const { data: works, isLoading, isError } = useQuery({
     queryKey: ["tafsir", "works"],
     queryFn: tafsirApi.listWorks,

@@ -5,6 +5,7 @@ import { Badge } from "@/components/ui/badge";
 import { Skeleton } from "@/components/ui/skeleton";
 import { Breadcrumbs } from "@/components/shared/Breadcrumbs";
 import { schoolsApi } from "@/features/schools/api";
+import { useDocumentTitle } from "@/hooks/useDocumentTitle";
 
 export function SchoolPage() {
   const { slug } = useParams<{ slug: string }>();
@@ -15,6 +16,7 @@ export function SchoolPage() {
     queryFn: () => schoolsApi.getSchool(slug!),
     enabled: Boolean(slug),
   });
+  useDocumentTitle(data?.name);
 
   if (!slug) return <Navigate to="/schools" replace />;
 

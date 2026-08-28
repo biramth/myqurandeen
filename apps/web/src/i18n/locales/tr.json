@@ -18,7 +18,9 @@
     "groupAdmin": "Yönetim",
     "menu": "Menü",
     "admin": "Yönetim",
-    "assistant": "Yapay Zeka Asistanı"
+    "assistant": "Yapay Zeka Asistanı",
+    "sidebarLabel": "Ana gezinme",
+    "bottomNavLabel": "Mobil gezinme"
   },
   "home": {
     "title": "Ne calismak istersiniz?",
@@ -51,6 +53,8 @@
     "admin": { "title": "Yonetim", "description": "Yonetim paneli gelistirmenin 11. asamasinda geliyor." }
   },
   "auth": {
+    "showPassword": "Şifreyi göster",
+    "hidePassword": "Şifreyi gizle",
     "login": {
       "title": "Giris yap",
       "subtitle": "Favorilerinize, notlariniza ve egitim yollariniza erisin.",
@@ -76,8 +80,55 @@
   "profile": {
     "loading": "Yukleniyor...",
     "memberSince": "{{date}} tarihinden beri uye.",
-    "comingSoonNote": "Favoriler, notlar, koleksiyonlar ve egitim ilerlemesi sonraki gelistirme asamalarinda gelecek.",
-    "logout": "Cikis yap"
+    "logout": "Cikis yap",
+    "tabs": { "bookmarks": "Yer imleri", "notes": "Notlar", "collections": "Koleksiyonlar" }
+  },
+  "bookmark": {
+    "add": "Yer imlerine ekle",
+    "remove": "Yer imlerinden kaldır",
+    "added": "Yer imlerine eklendi",
+    "removed": "Yer imlerinden kaldırıldı"
+  },
+  "bookmarks": {
+    "empty": "Henüz yer imi yok.",
+    "remove": "Kaldır"
+  },
+  "notes": {
+    "title": "Notlar",
+    "empty": "Henüz not yok.",
+    "placeholder": "Bir not yazın...",
+    "save": "Kaydet",
+    "delete": "Sil",
+    "saved": "Not kaydedildi",
+    "deleted": "Not silindi"
+  },
+  "collections": {
+    "empty": "Henüz koleksiyon yok.",
+    "emptyItems": "Bu koleksiyonda öğe yok.",
+    "create": "Oluştur",
+    "namePlaceholder": "Koleksiyon adı",
+    "itemCount_one": "{{count}} öğe",
+    "itemCount_other": "{{count}} öğe",
+    "delete": "Sil",
+    "removeItem": "Kaldır",
+    "back": "Koleksiyonlara dön",
+    "addToCollection": "Bir koleksiyona ekle",
+    "created": "Koleksiyon oluşturuldu",
+    "deleted": "Koleksiyon silindi",
+    "itemAdded": "Koleksiyona eklendi",
+    "itemAlready": "Zaten bu koleksiyonda",
+    "itemRemoved": "Koleksiyondan kaldırıldı"
+  },
+  "targetTypes": {
+    "verse": "Ayet",
+    "hadith": "Hadis",
+    "tafsir_entry": "Tefsir",
+    "concept": "Kavram",
+    "book": "Kitap",
+    "scholar": "Alim",
+    "event": "Olay",
+    "fiqh_topic": "Fıkıh konusu",
+    "lesson": "Ders"
   },
   "quran": {
     "title": "Kuran",
@@ -213,7 +264,8 @@
   "common": {
     "loading": "Yukleniyor...",
     "showTranslation": "Ceviriyi goster",
-    "hideTranslation": "Ceviriyi gizle"
+    "hideTranslation": "Ceviriyi gizle",
+    "error": "Bir hata olustu. Lütfen tekrar deneyin."
   },
   "library": {
     "title": "Kütüphane",
@@ -238,18 +290,26 @@
     "assignedTo": "Atanan",
     "assignToMe": "Bana ata",
     "active": "Aktif",
-    "inactive": "Pasif"
+    "inactive": "Pasif",
+    "auditLog": "Denetim günlüğü",
+    "noAuditEntries": "Henüz günlük kaydı yok.",
+    "roleUpdated": "Rol güncellendi",
+    "statusUpdated": "Durum güncellendi",
+    "userUpdated": "Kullanıcı güncellendi",
+    "assigned": "Bildirim atandı"
   },
   "assistant": {
     "title": "Yapay Zeka Asistanı",
     "subtitle": "Bir soru sorun, platformun zaten doğrulanmış kaynaklarına dayanan bir yanıt alın.",
-    "disclaimer": "Yanıtlar Qurandeen'de zaten kaynaklandırılmış içerikten üretilir. Aşağıdaki kaynakları her zaman kontrol edin.",
+    "disclaimer": "Yanıtlar myQurandeen'de zaten kaynaklandırılmış içerikten üretilir. Aşağıdaki kaynakları her zaman kontrol edin.",
     "notReady": "Asistan şu anda kullanılamıyor (dizin veya model hazır değil).",
     "placeholder": "Sorunuzu yazın...",
     "ask": "Sor",
     "thinking": "Aranıyor...",
     "error": "Şu anda bir yanıt alınamadı.",
     "sources": "Kaynaklar",
-    "empty": "Başlamak için bir soru sorun."
+    "empty": "Başlamak için bir soru sorun.",
+    "loginRequired": "Asistana soru sormak için giriş yapın.",
+    "logIn": "Giriş yap"
   }
 }

@@ -5,9 +5,11 @@ import { Lightbulb } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Skeleton } from "@/components/ui/skeleton";
 import { conceptsApi } from "@/features/concepts/api";
+import { useDocumentTitle } from "@/hooks/useDocumentTitle";
 
 export function ConceptsPage() {
   const { t } = useTranslation();
+  useDocumentTitle(t("concepts.title"));
   const { data: concepts, isLoading, isError } = useQuery({
     queryKey: ["concepts"],
     queryFn: conceptsApi.listConcepts,

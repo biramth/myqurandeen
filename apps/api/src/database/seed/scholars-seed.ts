@@ -74,7 +74,7 @@ const SCHOLARS: ScholarSeed[] = [
     bornYear: 810,
     diedYear: 870,
     place: "Boukhara (actuel Ouzbekistan)",
-    bio: "Compilateur de Sahih al-Bukhari, recueil de hadiths considère par consensus sunnite comme le plus authentique après le Coran. Il aurait examine des centaines de milliers de hadiths avant de retenir ceux repondant à ses criteres rigoureux d'authenticité.",
+    bio: "Compilateur de Sahih al-Bukhari, recueil de hadiths considère par consensus sunnite comme le plus authentique après le Coran. Il aurait examiné des centaines de milliers de hadiths avant de retenir ceux repondant à ses critères rigoureux d'authenticité.",
     expertise: ["Sciences du hadith"],
   },
   {
@@ -84,7 +84,7 @@ const SCHOLARS: ScholarSeed[] = [
     bornYear: 821,
     diedYear: 875,
     place: "Nishapur, Perse",
-    bio: "Compilateur de Sahih Muslim, second des deux recueils de hadiths les plus authentiques (avec Sahih al-Bukhari) selon le consensus sunnite, reconnu pour la rigueur de sa méthode de classement des chaines de transmission.",
+    bio: "Compilateur de Sahih Muslim, second des deux recueils de hadiths les plus authentiques (avec Sahih al-Bukhari) selon le consensus sunnite, reconnu pour la rigueur de sa méthode de classement des chaînes de transmission.",
     expertise: ["Sciences du hadith"],
   },
   {
@@ -104,7 +104,7 @@ const SCHOLARS: ScholarSeed[] = [
     bornYear: 824,
     diedYear: 892,
     place: "Tirmidh (actuel Ouzbekistan)",
-    bio: "Compilateur de Jami at-Tirmidhi, reconnu pour avoir systématiquement indique le degré d'authenticité de chaque hadith et signale les divergences d'interprétation entre savants.",
+    bio: "Compilateur de Jami at-Tirmidhi, reconnu pour avoir systématiquement indiqué le degré d'authenticité de chaque hadith et signalé les divergences d'interprétation entre savants.",
     expertise: ["Sciences du hadith"],
   },
   {
@@ -114,7 +114,7 @@ const SCHOLARS: ScholarSeed[] = [
     bornYear: 829,
     diedYear: 915,
     place: "Nasa (actuel Turkmenistan)",
-    bio: "Compilateur de Sunan an-Nasa'i, l'un des quatre Sunan, connu pour la rigueur particulière apportee à l'examen des chaines de transmission.",
+    bio: "Compilateur de Sunan an-Nasa'i, l'un des quatre Sunan, connu pour la rigueur particulière apportee à l'examen des chaînes de transmission.",
     expertise: ["Sciences du hadith"],
   },
   {
@@ -144,7 +144,7 @@ const SCHOLARS: ScholarSeed[] = [
     bornYear: 1300,
     diedYear: 1373,
     place: "Damas, Syrie",
-    bio: "Savant shafi'ite connu pour son tafsir (Tafsir al-Qur'an al-'Azim), son ouvrage historique Al-Bidaya wan-Nihaya et son recueil sur les recits prophetiques anterieurs (Qisas al-Anbiya). Son tafsir est particulièrement estime pour son usage systématique du Coran et de la Sunna pour expliquer le texte coranique.",
+    bio: "Savant shafi'ite connu pour son tafsir (Tafsir al-Qur'an al-'Azim), son ouvrage historique Al-Bidaya wan-Nihaya et son recueil sur les récits prophetiques anterieurs (Qisas al-Anbiya). Son tafsir est particulièrement estime pour son usage systématique du Coran et de la Sunna pour expliquer le texte coranique.",
     expertise: ["Tafsir", "Histoire", "Hadith"],
     schoolSlug: "shafiite",
   },
@@ -155,7 +155,7 @@ const SCHOLARS: ScholarSeed[] = [
     bornYear: 1058,
     diedYear: 1111,
     place: "Tus, Perse",
-    bio: "Théologien, juriste et penseur majeur, auteur d'Ihya Ulum ad-Din (\"Revivification des sciences de la religion\"), œuvre de synthese entre droit, théologie et spiritualite. Il a également marque la théologie ash'arite et le rapport entre philosophie grecque et pensee islamique.",
+    bio: "Théologien, juriste et penseur majeur, auteur d'Ihya Ulum ad-Din (\"Revivification des sciences de la religion\"), œuvre de synthese entre droit, théologie et spiritualité. Il a également marqué la théologie ash'arite et le rapport entre philosophie grecque et pensée islamique.",
     expertise: ["Théologie", "Fiqh", "Spiritualité"],
     schoolSlug: "shafiite",
   },

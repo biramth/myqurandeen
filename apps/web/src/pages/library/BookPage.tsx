@@ -5,7 +5,9 @@ import { ExternalLink } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { Skeleton } from "@/components/ui/skeleton";
 import { Breadcrumbs } from "@/components/shared/Breadcrumbs";
+import { ContentUserActions } from "@/components/shared/ContentUserActions";
 import { libraryApi } from "@/features/library/api";
+import { useDocumentTitle } from "@/hooks/useDocumentTitle";
 
 export function BookPage() {
   const { slug } = useParams<{ slug: string }>();
@@ -16,6 +18,7 @@ export function BookPage() {
     queryFn: () => libraryApi.getBook(slug!),
     enabled: Boolean(slug),
   });
+  useDocumentTitle(data?.title);
 
   if (!slug) return <Navigate to="/library" replace />;
 
@@ -47,6 +50,8 @@ export function BookPage() {
             {data.era && <Badge variant="outline">{data.era}</Badge>}
             {data.publicDomain && <Badge variant="outline">{t("library.publicDomain")}</Badge>}
           </div>
+
+          <ContentUserActions targetType="book" targetId={data.id} className="mb-4" />
 
           {data.description && <p className="mb-6 text-sm leading-relaxed">{data.description}</p>}
 

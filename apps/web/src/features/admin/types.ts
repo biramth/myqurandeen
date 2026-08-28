@@ -39,3 +39,16 @@ export interface AdminRole {
   name: string;
   description: string | null;
 }
+
+export interface AuditLogEntry {
+  id: string;
+  actorUserId: string | null;
+  actorName: string | null;
+  action: string;
+  entityType: string;
+  entityId: string | null;
+  before: unknown;
+  after: unknown;
+  ip: string | null;
+  createdAt: string;
+}

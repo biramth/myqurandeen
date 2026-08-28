@@ -6,11 +6,13 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Skeleton } from "@/components/ui/skeleton";
 import { learningApi } from "@/features/learning/api";
+import { useDocumentTitle } from "@/hooks/useDocumentTitle";
 
 const LEVEL_KEYS = { beginner: "learning.beginner", intermediate: "learning.intermediate", advanced: "learning.advanced" } as const;
 
 export function LearningPathsPage() {
   const { t } = useTranslation();
+  useDocumentTitle(t("learning.title"));
   const { data: paths, isLoading, isError } = useQuery({
     queryKey: ["learning", "paths"],
     queryFn: learningApi.listPaths,

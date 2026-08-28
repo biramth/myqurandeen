@@ -7,6 +7,7 @@ import { Badge } from "@/components/ui/badge";
 import { Skeleton } from "@/components/ui/skeleton";
 import { learningApi } from "@/features/learning/api";
 import { useAuth } from "@/features/auth/auth-context";
+import { useDocumentTitle } from "@/hooks/useDocumentTitle";
 
 const LEVEL_KEYS = { beginner: "learning.beginner", intermediate: "learning.intermediate", advanced: "learning.advanced" } as const;
 
@@ -20,6 +21,7 @@ export function LearningPathPage() {
     queryFn: () => learningApi.getPath(slug!),
     enabled: Boolean(slug),
   });
+  useDocumentTitle(data?.title);
 
   const { data: completedLessonIds } = useQuery({
     queryKey: ["learning", "progress"],

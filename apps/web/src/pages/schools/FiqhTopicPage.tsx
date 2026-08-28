@@ -5,7 +5,9 @@ import { HelpCircle } from "lucide-react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Skeleton } from "@/components/ui/skeleton";
 import { Breadcrumbs } from "@/components/shared/Breadcrumbs";
+import { ContentUserActions } from "@/components/shared/ContentUserActions";
 import { schoolsApi } from "@/features/schools/api";
+import { useDocumentTitle } from "@/hooks/useDocumentTitle";
 
 export function FiqhTopicPage() {
   const { slug } = useParams<{ slug: string }>();
@@ -16,6 +18,7 @@ export function FiqhTopicPage() {
     queryFn: () => schoolsApi.getFiqhTopicComparison(slug!),
     enabled: Boolean(slug),
   });
+  useDocumentTitle(data?.topic.title);
 
   if (!slug) return <Navigate to="/fiqh" replace />;
 
@@ -34,7 +37,9 @@ export function FiqhTopicPage() {
       {data && (
         <>
           <h1 className="mb-1 text-xl font-semibold">{data.topic.title}</h1>
-          {data.topic.description && <p className="mb-6 text-sm text-muted-foreground">{data.topic.description}</p>}
+          {data.topic.description && <p className="mb-4 text-sm text-muted-foreground">{data.topic.description}</p>}
+
+          <ContentUserActions targetType="fiqh_topic" targetId={data.topic.id} className="mb-6" />
 
           <div className="space-y-3">
             {data.positions.map((position) => (

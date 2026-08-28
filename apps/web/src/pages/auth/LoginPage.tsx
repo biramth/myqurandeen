@@ -10,11 +10,14 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { useAuth } from "@/features/auth/auth-context";
 import { loginSchema, type LoginValues } from "@/features/auth/schemas";
 import { ApiError } from "@/lib/api-client";
+import { PasswordInput } from "@/components/shared/PasswordInput";
+import { useDocumentTitle } from "@/hooks/useDocumentTitle";
 
 export function LoginPage() {
   const { login } = useAuth();
   const navigate = useNavigate();
   const { t } = useTranslation();
+  useDocumentTitle(t("auth.login.title"));
   const [serverError, setServerError] = React.useState<string | null>(null);
 
   const {
@@ -29,7 +32,7 @@ export function LoginPage() {
       await login(values);
       navigate("/profile");
     } catch (error) {
-      setServerError(error instanceof ApiError ? error.message : "Une erreur est survenue");
+      setServerError(error instanceof ApiError ? error.message : t("common.error"));
     }
   };
 
@@ -49,7 +52,7 @@ export function LoginPage() {
             </div>
             <div className="space-y-2">
               <Label htmlFor="password">{t("auth.login.password")}</Label>
-              <Input id="password" type="password" autoComplete="current-password" {...register("password")} />
+              <PasswordInput id="password" autoComplete="current-password" {...register("password")} />
               {errors.password && <p className="text-sm text-destructive">{errors.password.message}</p>}
             </div>
             {serverError && <p className="text-sm text-destructive">{serverError}</p>}

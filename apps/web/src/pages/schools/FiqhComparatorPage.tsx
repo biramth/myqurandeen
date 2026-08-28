@@ -5,9 +5,11 @@ import { Scale } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Skeleton } from "@/components/ui/skeleton";
 import { schoolsApi } from "@/features/schools/api";
+import { useDocumentTitle } from "@/hooks/useDocumentTitle";
 
 export function FiqhComparatorPage() {
   const { t } = useTranslation();
+  useDocumentTitle(t("schools.comparatorTitle"));
   const { data: topics, isLoading, isError } = useQuery({
     queryKey: ["schools", "fiqh-topics"],
     queryFn: schoolsApi.listFiqhTopics,

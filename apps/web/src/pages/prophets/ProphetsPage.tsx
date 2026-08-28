@@ -5,9 +5,11 @@ import { Users } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Skeleton } from "@/components/ui/skeleton";
 import { prophetsApi } from "@/features/prophets/api";
+import { useDocumentTitle } from "@/hooks/useDocumentTitle";
 
 export function ProphetsPage() {
   const { t } = useTranslation();
+  useDocumentTitle(t("prophets.title"));
   const { data: prophets, isLoading, isError } = useQuery({
     queryKey: ["prophets"],
     queryFn: prophetsApi.listProphets,

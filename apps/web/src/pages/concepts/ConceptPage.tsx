@@ -5,7 +5,9 @@ import { Badge } from "@/components/ui/badge";
 import { Card, CardContent } from "@/components/ui/card";
 import { Skeleton } from "@/components/ui/skeleton";
 import { Breadcrumbs } from "@/components/shared/Breadcrumbs";
+import { ContentUserActions } from "@/components/shared/ContentUserActions";
 import { conceptsApi } from "@/features/concepts/api";
+import { useDocumentTitle } from "@/hooks/useDocumentTitle";
 
 export function ConceptPage() {
   const { slug } = useParams<{ slug: string }>();
@@ -16,6 +18,7 @@ export function ConceptPage() {
     queryFn: () => conceptsApi.getConcept(slug!),
     enabled: Boolean(slug),
   });
+  useDocumentTitle(data?.term);
 
   if (!slug) return <Navigate to="/concepts" replace />;
 
@@ -39,6 +42,8 @@ export function ConceptPage() {
             )}
           </div>
           <p className="mb-4 text-sm font-medium text-muted-foreground">{data.definition}</p>
+
+          <ContentUserActions targetType="concept" targetId={data.id} className="mb-4" />
 
           {data.origin && (
             <section className="mb-4">

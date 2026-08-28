@@ -52,7 +52,7 @@ const COLLECTIONS: CollectionConfig[] = [
     englishEdition: "eng-bukhari",
     extraEditions: { fr: "fra-bukhari" },
     description:
-      "Recueil compile par l'imam al-Bukhari, considere par consensus des savants sunnites comme le recueil de hadiths le plus authentique apres le Coran.",
+      "Recueil compilé par l'imam al-Bukhari, considéré par consensus des savants sunnites comme le recueil de hadiths le plus authentique après le Coran.",
   },
   {
     slug: "muslim",
@@ -64,7 +64,7 @@ const COLLECTIONS: CollectionConfig[] = [
     englishEdition: "eng-muslim",
     extraEditions: { fr: "fra-muslim" },
     description:
-      "Recueil compile par l'imam Muslim, second des deux Sahihain avec Sahih al-Bukhari, egalement reconnu comme authentique par consensus.",
+      "Recueil compilé par l'imam Muslim, second des deux Sahihain avec Sahih al-Bukhari, également reconnu comme authentique par consensus.",
   },
   {
     slug: "abudawud",
@@ -76,7 +76,7 @@ const COLLECTIONS: CollectionConfig[] = [
     englishEdition: "eng-abudawud",
     extraEditions: { fr: "fra-abudawud" },
     description:
-      "Un des quatre Sunan, centre sur les hadiths juridiques (ahkam). Contient des hadiths de degres varies, precises hadith par hadith.",
+      "Un des quatre Sunan, centre sur les hadiths juridiques (ahkam). Contient des hadiths de degrés variés, précises hadith par hadith.",
   },
   {
     slug: "tirmidhi",
@@ -87,7 +87,7 @@ const COLLECTIONS: CollectionConfig[] = [
     arabicEdition: "ara-tirmidhi",
     englishEdition: "eng-tirmidhi",
     description:
-      "Recueil connu pour indiquer systematiquement le degre d'authenticite de chaque hadith et les divergences entre savants du hadith.",
+      "Recueil connu pour indiquer systématiquement le degré d'authenticité de chaque hadith et les divergences entre savants du hadith.",
   },
   {
     slug: "nasai",
@@ -98,7 +98,7 @@ const COLLECTIONS: CollectionConfig[] = [
     arabicEdition: "ara-nasai",
     englishEdition: "eng-nasai",
     extraEditions: { fr: "fra-nasai" },
-    description: "Un des quatre Sunan, reconnu pour la rigueur de sa selection des chaines de transmission.",
+    description: "Un des quatre Sunan, reconnu pour la rigueur de sa sélection des chaînes de transmission.",
   },
   {
     slug: "ibnmajah",
@@ -109,7 +109,7 @@ const COLLECTIONS: CollectionConfig[] = [
     arabicEdition: "ara-ibnmajah",
     englishEdition: "eng-ibnmajah",
     extraEditions: { fr: "fra-ibnmajah" },
-    description: "Le sixieme recueil retenu dans les Kutub al-Sittah, complementaire aux cinq precedents.",
+    description: "Le sixième recueil retenu dans les Kutub al-Sittah, complémentaire aux cinq précédents.",
   },
 ];
 
@@ -313,7 +313,7 @@ export async function importHadiths(db: Database): Promise<void> {
   const [datasetSource] = await db
     .insert(sources)
     .values({
-      title: "fawazahmed0/hadith-api (jeu de donnees ouvert, MIT)",
+      title: "fawazahmed0/hadith-api (jeu de données ouvert, MIT)",
       type: "website",
       url: "https://github.com/fawazahmed0/hadith-api",
       language: "en",
@@ -323,7 +323,7 @@ export async function importHadiths(db: Database): Promise<void> {
   const datasetSourceRow =
     datasetSource ??
     (await db.query.sources.findFirst({
-      where: eq(sources.title, "fawazahmed0/hadith-api (jeu de donnees ouvert, MIT)"),
+      where: eq(sources.title, "fawazahmed0/hadith-api (jeu de données ouvert, MIT)"),
     }));
 
   for (const config of COLLECTIONS) {

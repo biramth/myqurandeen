@@ -3,6 +3,7 @@ import { BrowserRouter } from "react-router-dom";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { ThemeProvider } from "@/components/shared/theme-provider";
 import { AuthProvider } from "@/features/auth/auth-context";
+import { AppToaster } from "@/components/shared/AppToaster";
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -19,6 +20,7 @@ export function AppProviders({ children }: { children: React.ReactNode }) {
       <ThemeProvider>
         <BrowserRouter>
           <AuthProvider>{children}</AuthProvider>
+          <AppToaster />
         </BrowserRouter>
       </ThemeProvider>
     </QueryClientProvider>

@@ -6,6 +6,7 @@ import { Button } from "@/components/ui/button";
 import { Skeleton } from "@/components/ui/skeleton";
 import { learningApi } from "@/features/learning/api";
 import { QuizBlock } from "@/features/learning/QuizBlock";
+import { useDocumentTitle } from "@/hooks/useDocumentTitle";
 
 export function LearningQuizPage() {
   const { slug } = useParams<{ slug: string }>();
@@ -16,6 +17,7 @@ export function LearningQuizPage() {
     queryFn: () => learningApi.getPath(slug!),
     enabled: Boolean(slug),
   });
+  useDocumentTitle(t("learning.finalQuiz"));
 
   const { data: quiz, isLoading, isError } = useQuery({
     queryKey: ["learning", "path-quiz", slug],

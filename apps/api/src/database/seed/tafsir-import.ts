@@ -34,9 +34,9 @@ const TAFSIR_EDITIONS: TafsirEditionConfig[] = [
     slug: "ar-tafsir-muyassar",
     workTitle: "At-Tafsir al-Muyassar",
     language: "ar",
-    authorName: "Comite de savants du Complexe du Roi Fahd",
+    authorName: "Comité de savants du Complexe du Roi Fahd",
     authorEra: "contemporain",
-    description: "Tafsir concis et moderne redige par un comite de savants, publie par le Complexe du Roi Fahd pour l'impression du Noble Coran.",
+    description: "Tafsir concis et moderne rédigé par un comité de savants, publié par le Complexe du Roi Fahd pour l'impression du Noble Coran.",
   },
   {
     slug: "ar-tafsir-al-mukhtasar",
@@ -44,7 +44,7 @@ const TAFSIR_EDITIONS: TafsirEditionConfig[] = [
     language: "ar",
     authorName: "Tafsir Center for Quranic Studies",
     authorEra: "contemporain",
-    description: "Explication abregee du sens du Coran, produite par le Tafsir Center for Quranic Studies (rattache a l'universite King Saud).",
+    description: "Explication abrégée du sens du Coran, produite par le Tafsir Center for Quranic Studies (rattaché a l'université King Saud).",
   },
   {
     slug: "en-tafsir-al-mukhtasar",
@@ -60,7 +60,7 @@ const TAFSIR_EDITIONS: TafsirEditionConfig[] = [
     language: "fr",
     authorName: "Tafsir Center for Quranic Studies",
     authorEra: "contemporain",
-    description: "Traduction francaise de l'explication abregee du sens du Coran, produite par le Tafsir Center for Quranic Studies.",
+    description: "Traduction française de l'explication abrégée du sens du Coran, produite par le Tafsir Center for Quranic Studies.",
   },
   {
     slug: "ar-tafsir-ibn-kathir",
@@ -72,7 +72,7 @@ const TAFSIR_EDITIONS: TafsirEditionConfig[] = [
   },
   {
     slug: "en-tafisr-ibn-kathir",
-    workTitle: "Tafsir Ibn Kathir (abrege)",
+    workTitle: "Tafsir Ibn Kathir (abrégé)",
     language: "en",
     authorName: "Ibn Kathir",
     authorEra: "701-774 AH / 1300-1373",
@@ -151,7 +151,7 @@ export async function importTafsirs(db: Database): Promise<void> {
   const [datasetSource] = await db
     .insert(sources)
     .values({
-      title: "spa5k/tafsir_api (jeu de donnees ouvert)",
+      title: "spa5k/tafsir_api (jeu de données ouvert)",
       type: "website",
       url: "https://github.com/spa5k/tafsir_api",
       language: "en",
@@ -160,7 +160,7 @@ export async function importTafsirs(db: Database): Promise<void> {
     .returning();
   const datasetSourceRow =
     datasetSource ??
-    (await db.query.sources.findFirst({ where: eq(sources.title, "spa5k/tafsir_api (jeu de donnees ouvert)") }));
+    (await db.query.sources.findFirst({ where: eq(sources.title, "spa5k/tafsir_api (jeu de données ouvert)") }));
 
   // Repertoire verset par (numero_sourate:numero_verset) -> id, construit une seule fois.
   const surahs = await db.select({ id: quranSurahs.id, number: quranSurahs.number }).from(quranSurahs);

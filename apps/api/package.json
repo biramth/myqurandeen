@@ -2,7 +2,7 @@
   "name": "@qurandeen/api",
   "version": "0.1.0",
   "private": true,
-  "description": "API NestJS de Qurandeen - monolithe modulaire",
+  "description": "API NestJS de myQurandeen - monolithe modulaire",
   "scripts": {
     "build": "nest build",
     "start": "nest start",

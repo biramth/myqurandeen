@@ -1,6 +1,6 @@
 import { Inject, Injectable, Logger } from "@nestjs/common";
 import { ConfigService } from "@nestjs/config";
-import { and, eq } from "drizzle-orm";
+import { and, eq, inArray } from "drizzle-orm";
 import { DRIZZLE } from "../../database/database.constants";
 import type { Database } from "../../database/database.module";
 import { aiEmbeddings } from "../../database/schema";
@@ -271,6 +271,13 @@ export class EmbeddingService {
   }
 
   private async indexTafsir(): Promise<number> {
+    // On n'indexe que les oeuvres de tafsir disponibles en francais ou en
+    // anglais (jamais l'arabe seul) - meme logique que indexVerses() : sans
+    // ca, le LLM devrait traduire lui-meme un commentaire arabe, ce qui
+    // produit des reponses inventees. Ca reduit aussi le volume a indexer
+    // (quota Gemini limite), sans perte pour l'utilisateur puisque les
+    // oeuvres arabophones seules (ex. At-Tafsir al-Muyassar) n'apportaient
+    // de toute facon pas de contenu exploitable tel quel pour le RAG.
     const rows = await this.db
       .select({
         entryId: tafsirEntries.id,
@@ -285,7 +292,8 @@ export class EmbeddingService {
       .innerJoin(tafsirSources, eq(tafsirSources.id, tafsirEntries.tafsirSourceId))
       .leftJoin(authors, eq(authors.id, tafsirSources.authorId))
       .innerJoin(quranVerses, eq(quranVerses.id, tafsirEntries.verseStartId))
-      .innerJoin(quranSurahs, eq(quranSurahs.id, quranVerses.surahId));
+      .innerJoin(quranSurahs, eq(quranSurahs.id, quranVerses.surahId))
+      .where(inArray(tafsirSources.language, ["fr", "en"]));
 
     const chunks: { contentId: string; text: string; context: string; meta: string }[] = [];
 

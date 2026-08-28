@@ -2,13 +2,15 @@ import * as React from "react";
 import { Link } from "react-router-dom";
 import { useMutation, useQuery } from "@tanstack/react-query";
 import { useTranslation } from "react-i18next";
-import { Sparkles, Send, Loader2, BookMarked, TriangleAlert } from "lucide-react";
+import { Sparkles, Send, Loader2, BookMarked, TriangleAlert, LogIn } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Skeleton } from "@/components/ui/skeleton";
+import { useAuth } from "@/features/auth/auth-context";
 import { aiApi } from "@/features/ai/api";
 import { resolveSourceLink } from "@/features/ai/source-links";
 import type { AiQueryResult } from "@/features/ai/types";
+import { useDocumentTitle } from "@/hooks/useDocumentTitle";
 
 interface Exchange {
   id: string;
@@ -19,6 +21,8 @@ interface Exchange {
 
 export function AssistantPage() {
   const { t } = useTranslation();
+  const { user } = useAuth();
+  useDocumentTitle(t("assistant.title"));
   const [question, setQuestion] = React.useState("");
   const [exchanges, setExchanges] = React.useState<Exchange[]>([]);
 
@@ -72,19 +76,31 @@ export function AssistantPage() {
         </div>
       )}
 
-      <form onSubmit={handleSubmit} className="mb-8 flex gap-2">
-        <Input
-          value={question}
-          onChange={(e) => setQuestion(e.target.value)}
-          placeholder={t("assistant.placeholder")}
-          disabled={Boolean(notReady) || queryMutation.isPending}
-          aria-label={t("assistant.placeholder")}
-        />
-        <Button type="submit" disabled={Boolean(notReady) || queryMutation.isPending || !question.trim()}>
-          {queryMutation.isPending ? <Loader2 className="h-4 w-4 animate-spin" /> : <Send className="h-4 w-4" />}
-          {t("assistant.ask")}
-        </Button>
-      </form>
+      {!user ? (
+        <div className="mb-8 flex items-center justify-between gap-3 rounded-md border p-4 text-sm">
+          <span>{t("assistant.loginRequired")}</span>
+          <Button asChild size="sm">
+            <Link to="/login">
+              <LogIn className="h-4 w-4" aria-hidden="true" />
+              {t("assistant.logIn")}
+            </Link>
+          </Button>
+        </div>
+      ) : (
+        <form onSubmit={handleSubmit} className="mb-8 flex gap-2">
+          <Input
+            value={question}
+            onChange={(e) => setQuestion(e.target.value)}
+            placeholder={t("assistant.placeholder")}
+            disabled={Boolean(notReady) || queryMutation.isPending}
+            aria-label={t("assistant.placeholder")}
+          />
+          <Button type="submit" disabled={Boolean(notReady) || queryMutation.isPending || !question.trim()}>
+            {queryMutation.isPending ? <Loader2 className="h-4 w-4 animate-spin" /> : <Send className="h-4 w-4" />}
+            {t("assistant.ask")}
+          </Button>
+        </form>
+      )}
 
       <div className="space-y-6">
         {exchanges.map((exchange) => (

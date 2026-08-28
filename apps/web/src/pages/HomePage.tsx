@@ -18,6 +18,7 @@ import {
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
+import { useDocumentTitle } from "@/hooks/useDocumentTitle";
 
 const CATEGORY_ICONS = {
   quran: BookOpen,
@@ -51,6 +52,7 @@ export function HomePage() {
   const navigate = useNavigate();
   const { t } = useTranslation();
   const [query, setQuery] = React.useState("");
+  useDocumentTitle();
 
   const handleSearch = (event: React.FormEvent) => {
     event.preventDefault();

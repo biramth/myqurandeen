@@ -5,9 +5,11 @@ import { History as HistoryIcon } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Skeleton } from "@/components/ui/skeleton";
 import { historyApi } from "@/features/history/api";
+import { useDocumentTitle } from "@/hooks/useDocumentTitle";
 
 export function HistoryPeriodsPage() {
   const { t } = useTranslation();
+  useDocumentTitle(t("history.title"));
   const { data: periods, isLoading, isError } = useQuery({
     queryKey: ["history", "periods"],
     queryFn: historyApi.listPeriods,

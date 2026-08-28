@@ -1,6 +1,6 @@
-# Contribuer a Qurandeen
+# Contribuer a myQurandeen
 
-Merci de l'interet porte a ce projet. Qurandeen est une bibliotheque
+Merci de l'interet porte a ce projet. myQurandeen est une bibliotheque
 numerique open-source sur l'Islam : Coran, hadith, tafsir, fiqh, histoire,
 savants, concepts, parcours d'apprentissage, avec des sources verifiables
 pour tout contenu religieux. Un module IA optionnel (RAG local) existe et

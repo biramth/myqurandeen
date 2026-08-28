@@ -21,7 +21,7 @@ export const envSchema = z.object({
 
   // Gemini (API distante)
   GEMINI_API_KEY: z.string().optional(),
-  GEMINI_LLM_MODEL: z.string().default("gemini-2.5-flash"),
+  GEMINI_LLM_MODEL: z.string().default("gemini-3.6-flash"),
   GEMINI_EMBEDDING_MODEL: z.string().default("gemini-embedding-001"),
 
   // Ollama (local, optionnel)

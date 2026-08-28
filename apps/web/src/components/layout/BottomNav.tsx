@@ -6,10 +6,12 @@ import { cn } from "@/lib/utils";
 import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from "@/components/ui/sheet";
 import { NAV_GROUPS } from "@/config/navigation";
 import { useAuth } from "@/features/auth/auth-context";
+import { useAiEnabled } from "@/features/ai/useAiEnabled";
 
 export function BottomNav() {
   const { t } = useTranslation();
   const { user } = useAuth();
+  const aiEnabled = useAiEnabled();
   const [menuOpen, setMenuOpen] = React.useState(false);
 
   const items = [
@@ -21,22 +23,34 @@ export function BottomNav() {
 
   return (
     <nav
-      className="fixed inset-x-0 bottom-0 z-40 flex h-16 items-center justify-around border-t bg-background md:hidden"
-      aria-label="Navigation principale"
+      className="fixed inset-x-0 bottom-0 z-40 flex items-stretch justify-around border-t bg-background/95 pb-[env(safe-area-inset-bottom)] backdrop-blur supports-[backdrop-filter]:bg-background/80 md:hidden"
+      aria-label={t("nav.bottomNavLabel")}
     >
       {items.map(({ label, href, icon: Icon }) => (
         <NavLink
           key={href}
           to={href}
+          end={href === "/"}
           className={({ isActive }) =>
             cn(
-              "flex min-w-[56px] flex-col items-center gap-1 rounded-md px-2 py-1.5 text-xs text-muted-foreground",
+              "flex min-w-[64px] flex-1 flex-col items-center justify-center gap-0.5 py-2 text-[11px] text-muted-foreground transition-colors active:bg-accent",
               isActive && "text-primary",
             )
           }
         >
-          <Icon className="h-5 w-5" aria-hidden="true" />
-          {label}
+          {({ isActive }) => (
+            <>
+              <span
+                className={cn(
+                  "flex h-8 w-12 items-center justify-center rounded-full transition-colors",
+                  isActive && "bg-primary/10",
+                )}
+              >
+                <Icon className="h-5 w-5" aria-hidden="true" />
+              </span>
+              {label}
+            </>
+          )}
         </NavLink>
       ))}
 
@@ -44,9 +58,11 @@ export function BottomNav() {
         <SheetTrigger asChild>
           <button
             type="button"
-            className="flex min-w-[56px] flex-col items-center gap-1 rounded-md px-2 py-1.5 text-xs text-muted-foreground"
+            className="flex min-w-[64px] flex-1 flex-col items-center justify-center gap-0.5 py-2 text-[11px] text-muted-foreground transition-colors active:bg-accent"
           >
-            <Menu className="h-5 w-5" aria-hidden="true" />
+            <span className="flex h-8 w-12 items-center justify-center rounded-full">
+              <Menu className="h-5 w-5" aria-hidden="true" />
+            </span>
             {t("nav.menu")}
           </button>
         </SheetTrigger>
@@ -55,16 +71,18 @@ export function BottomNav() {
             <SheetTitle>{t("nav.menu")}</SheetTitle>
           </SheetHeader>
           <div className="mt-4 space-y-6 pb-4">
-            <div>
-              <Link
-                to="/assistant"
-                onClick={() => setMenuOpen(false)}
-                className="flex items-center gap-2 rounded-md px-3 py-2 text-sm hover:bg-accent"
-              >
-                <Sparkles className="h-4 w-4 shrink-0 text-muted-foreground" aria-hidden="true" />
-                <span className="truncate">{t("nav.assistant")}</span>
-              </Link>
-            </div>
+            {aiEnabled && (
+              <div>
+                <Link
+                  to="/assistant"
+                  onClick={() => setMenuOpen(false)}
+                  className="flex items-center gap-2 rounded-md px-3 py-2 text-sm hover:bg-accent"
+                >
+                  <Sparkles className="h-4 w-4 shrink-0 text-muted-foreground" aria-hidden="true" />
+                  <span className="truncate">{t("nav.assistant")}</span>
+                </Link>
+              </div>
+            )}
 
             {NAV_GROUPS.map((group) => (
               <div key={group.titleKey}>

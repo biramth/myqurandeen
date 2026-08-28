@@ -25,7 +25,7 @@ const BOOKS: BookSeed[] = [
     authorName: "Al-Bukhari",
     authorEra: "194-256 AH / 810-870",
     description:
-      "Recueil de hadiths compilé par Muhammad ibn Ismail al-Bukhari, considère par consensus sunnite comme le recueil le plus authentique après le Coran. Il aurait examine des centaines de milliers de hadiths avant de retenir environ 7 275 traditions (avec repetitions) repondant à ses criteres rigoureux d'authenticité.",
+      "Recueil de hadiths compilé par Muhammad ibn Ismail al-Bukhari, considère par consensus sunnite comme le recueil le plus authentique après le Coran. Il aurait examiné des centaines de milliers de hadiths avant de retenir environ 7 275 traditions (avec répétitions) repondant à ses critères rigoureux d'authenticité.",
     language: "ar",
     era: "IIIe siècle AH / IXe siècle",
     categories: ["Hadith"],
@@ -35,7 +35,7 @@ const BOOKS: BookSeed[] = [
     authorName: "Muslim ibn al-Hajjaj",
     authorEra: "206-261 AH / 821-875",
     description:
-      "Second des deux recueils de hadiths les plus authentiques (avec Sahih al-Bukhari) selon le consensus sunnite. Muslim ibn al-Hajjaj est reconnu pour la rigueur de sa méthode de classement des chaines de transmission et pour avoir regroupe les differentes versions d'un même hadith sous une seule entree.",
+      "Second des deux recueils de hadiths les plus authentiques (avec Sahih al-Bukhari) selon le consensus sunnite. Muslim ibn al-Hajjaj est reconnu pour la rigueur de sa méthode de classement des chaînes de transmission et pour avoir regroupe les différentes versions d'un même hadith sous une seule entrée.",
     language: "ar",
     era: "IIIe siècle AH / IXe siècle",
     categories: ["Hadith"],
@@ -55,7 +55,7 @@ const BOOKS: BookSeed[] = [
     authorName: "At-Tirmidhi",
     authorEra: "209-279 AH / 824-892",
     description:
-      "Recueil reconnu pour avoir systématiquement indique le degré d'authenticité de chaque hadith et signale les divergences d'interprétation entre savants sur un même texte, ce qui en fait une référence privilegiee pour l'étude comparee du fiqh.",
+      "Recueil reconnu pour avoir systématiquement indiqué le degré d'authenticité de chaque hadith et signalé les divergences d'interprétation entre savants sur un même texte, ce qui en fait une référence privilegiee pour l'étude comparee du fiqh.",
     language: "ar",
     era: "IIIe siècle AH / IXe siècle",
     categories: ["Hadith"],
@@ -65,7 +65,7 @@ const BOOKS: BookSeed[] = [
     authorName: "An-Nasa'i",
     authorEra: "215-303 AH / 829-915",
     description:
-      "L'un des quatre Sunan, connu pour la rigueur particulière apportee à l'examen des chaines de transmission et pour un taux relativement faible de hadiths faibles compare a d'autres recueils de la même période.",
+      "L'un des quatre Sunan, connu pour la rigueur particulière apportee à l'examen des chaînes de transmission et pour un taux relativement faible de hadiths faibles compare a d'autres recueils de la même période.",
     language: "ar",
     era: "IIIe-IVe siècle AH / IXe-Xe siècle",
     categories: ["Hadith"],
@@ -85,7 +85,7 @@ const BOOKS: BookSeed[] = [
     authorName: "Malik ibn Anas",
     authorEra: "93-179 AH / 711-795",
     description:
-      "L'un des plus anciens recueils organisant hadiths et positions juridiques par thèmes, redige par l'imam Malik, fondateur de l'école malikite. Il accorde une place importante à la pratique vivante des habitants de Médine comme témoignage de la Sunna.",
+      "L'un des plus anciens recueils organisant hadiths et positions juridiques par thèmes, rédigé par l'imam Malik, fondateur de l'école malikite. Il accorde une place importante à la pratique vivante des habitants de Médine comme témoignage de la Sunna.",
     language: "ar",
     era: "IIe siècle AH / VIIIe siècle",
     categories: ["Hadith", "Fiqh"],
@@ -95,7 +95,7 @@ const BOOKS: BookSeed[] = [
     authorName: "An-Nawawi",
     authorEra: "631-676 AH / 1233-1277",
     description:
-      "Compilation thematique de hadiths centree sur l'éthique, la spiritualite et le comportement quotidien, organisée par l'imam An-Nawawi en chapitres consacres a des vertus spécifiques (sincérité, patience, misericorde...).",
+      "Compilation thematique de hadiths centree sur l'éthique, la spiritualité et le comportement quotidien, organisée par l'imam An-Nawawi en chapitres consacres a des vertus spécifiques (sincérité, patience, misericorde...).",
     language: "ar",
     era: "VIIe siècle AH / XIIIe siècle",
     categories: ["Hadith", "Spiritualité"],
@@ -135,7 +135,7 @@ const BOOKS: BookSeed[] = [
     authorName: "Ash-Shafi'i",
     authorEra: "150-204 AH / 767-820",
     description:
-      "Premier ouvrage systématique de méthodologie juridique islamique (usul al-fiqh), redige par l'imam Ash-Shafi'i. Il y hierarchise les sources du droit (Coran, Sunna, consensus, analogie) et pose des bases méthodologiques reprises par l'ensemble des écoles ulterieures.",
+      "Premier ouvrage systématique de méthodologie juridique islamique (usul al-fiqh), rédigé par l'imam Ash-Shafi'i. Il y hierarchise les sources du droit (Coran, Sunna, consensus, analogie) et pose des bases méthodologiques reprises par l'ensemble des écoles ulterieures.",
     language: "ar",
     era: "IIe-IIIe siècle AH / VIIIe-IXe siècle",
     categories: ["Usul al-fiqh"],
@@ -185,7 +185,7 @@ const BOOKS: BookSeed[] = [
     authorName: "Ibn Hisham",
     authorEra: "m. 218 AH / 833",
     description:
-      "Biographie du Prophète ﷺ fondée sur la recension par Ibn Hisham de la sira, plus ancienne biographie prophétique, initialement redigee par Ibn Ishaq. C'est l'une des sources classiques les plus utilisées pour l'étude de la vie du Prophète ﷺ.",
+      "Biographie du Prophète ﷺ fondée sur la recension par Ibn Hisham de la sira, plus ancienne biographie prophétique, initialement rédigée par Ibn Ishaq. C'est l'une des sources classiques les plus utilisées pour l'étude de la vie du Prophète ﷺ.",
     language: "ar",
     era: "IIIe siècle AH / IXe siècle",
     categories: ["Sira", "Histoire"],
@@ -195,7 +195,7 @@ const BOOKS: BookSeed[] = [
     authorName: "Ibn Kathir",
     authorEra: "701-774 AH / 1300-1373",
     description:
-      "Recueil des recits des prophètes anterieurs a Muhammad ﷺ tels que rapportes par le Coran et la tradition islamique, source de référence pour la section Prophètes de cette plateforme.",
+      "Recueil des récits des prophètes anterieurs a Muhammad ﷺ tels que rapportes par le Coran et la tradition islamique, source de référence pour la section Prophètes de cette plateforme.",
     language: "ar",
     era: "VIIIe siècle AH / XIVe siècle",
     categories: ["Sira"],
@@ -205,7 +205,7 @@ const BOOKS: BookSeed[] = [
     authorName: "Al-Ghazali",
     authorEra: "450-505 AH / 1058-1111",
     description:
-      "Œuvre majeure de synthese entre droit, théologie et spiritualite, structurée en quatre parties (culte, usages sociaux, vices de l'ame, vertus salvatrices), l'un des ouvrages les plus lus de la litterature spirituelle islamique classique.",
+      "Œuvre majeure de synthese entre droit, théologie et spiritualité, structurée en quatre parties (culte, usages sociaux, vices de l'ame, vertus salvatrices), l'un des ouvrages les plus lus de la littérature spirituelle islamique classique.",
     language: "ar",
     era: "Ve-VIe siècle AH / XIe-XIIe siècle",
     categories: ["Spiritualité"],
@@ -215,7 +215,7 @@ const BOOKS: BookSeed[] = [
     authorName: "At-Tahawi",
     authorEra: "239-321 AH / 853-933",
     description:
-      "Expose concis des croyances fondamentales de l'Islam, redige par Abu Ja'far at-Tahawi pour présenter, selon ses propres termes, la croyance des savants de la voie sunnite ; largement étudié et commente à travers les siècles dans differents courants du sunnisme.",
+      "Exposé concis des croyances fondamentales de l'Islam, rédigé par Abu Ja'far at-Tahawi pour présenter, selon ses propres termes, la croyance des savants de la voie sunnite ; largement étudié et commente à travers les siècles dans différents courants du sunnisme.",
     language: "ar",
     era: "IIIe-IVe siècle AH / IXe-Xe siècle",
     categories: ["Aqida"],
@@ -225,7 +225,7 @@ const BOOKS: BookSeed[] = [
     authorName: "Ibn Hajar al-Asqalani",
     authorEra: "773-852 AH / 1372-1449",
     description:
-      "Traité concis de terminologie du hadith (mustalah al-hadith), servant de référence classique pour la classification des hadiths (sahih, hasan, da'if...) et la compréhension des chaines de transmission.",
+      "Traité concis de terminologie du hadith (mustalah al-hadith), servant de référence classique pour la classification des hadiths (sahih, hasan, da'if...) et la compréhension des chaînes de transmission.",
     language: "ar",
     era: "VIIIe-IXe siècle AH / XIVe-XVe siècle",
     categories: ["Sciences du hadith"],
@@ -235,7 +235,7 @@ const BOOKS: BookSeed[] = [
     authorName: "Ibn Hajar al-Asqalani",
     authorEra: "773-852 AH / 1372-1449",
     description:
-      "Commentaire de référence sur Sahih al-Bukhari, considère comme l'un des commentaires les plus complets et les plus rigoureux jamais rediges sur ce recueil de hadiths.",
+      "Commentaire de référence sur Sahih al-Bukhari, considère comme l'un des commentaires les plus complets et les plus rigoureux jamais rédigés sur ce recueil de hadiths.",
     language: "ar",
     era: "VIIIe-IXe siècle AH / XIVe-XVe siècle",
     categories: ["Sciences du hadith", "Hadith"],
@@ -258,6 +258,156 @@ const BOOKS: BookSeed[] = [
       "Poeme didactique de mille vers resumant l'ensemble de la grammaire arabe classique, memorise traditionnellement par les etudiants en sciences islamiques comme fondement de l'analyse grammaticale des textes.",
     language: "ar",
     era: "VIIe siècle AH / XIIIe siècle",
+    categories: ["Langue arabe"],
+  },
+  {
+    title: "Al-Jami' li-Ahkam al-Qur'an (Tafsir al-Qurtubi)",
+    authorName: "Al-Qurtubi",
+    authorEra: "m. 671 AH / 1273",
+    description:
+      "Commentaire du Coran particulièrement centré sur l'extraction des règles juridiques (ahkam) contenues dans chaque verset, tout en rassemblant de nombreuses opinions exégétiques et linguistiques antérieures.",
+    language: "ar",
+    era: "VIIe siècle AH / XIIIe siècle",
+    categories: ["Tafsir"],
+  },
+  {
+    title: "Taysir al-Karim ar-Rahman (Tafsir as-Sa'di)",
+    authorName: "As-Sa'di",
+    authorEra: "1307-1376 AH / 1889-1956",
+    description:
+      "Commentaire moderne du Coran rédigé dans un style volontairement concis et accessible, largement diffuse et traduit dans plusieurs langues comme introduction a l'exégèse coranique.",
+    language: "ar",
+    era: "XXe siècle",
+    categories: ["Tafsir"],
+  },
+  {
+    title: "Zad al-Masir fi 'Ilm at-Tafsir",
+    authorName: "Ibn al-Jawzi",
+    authorEra: "508-597 AH / 1116-1201",
+    description:
+      "Commentaire du Coran de format concis, rassemblant et synthetisant les principales opinions exégétiques antérieures verset par verset, rédigé par le savant hanbalite Ibn al-Jawzi.",
+    language: "ar",
+    era: "VIe siècle AH / XIIe siècle",
+    categories: ["Tafsir"],
+  },
+  {
+    title: "Al-Umm",
+    authorName: "Ash-Shafi'i",
+    authorEra: "150-204 AH / 767-820",
+    description:
+      "Compendium fondateur du fiqh shafi'ite rédigé par l'imam Ash-Shafi'i lui-même, couvrant l'ensemble des questions juridiques a la lumière de la méthodologie exposee dans son Ar-Risala.",
+    language: "ar",
+    era: "IIe-IIIe siècle AH / VIIIe-IXe siècle",
+    categories: ["Fiqh"],
+  },
+  {
+    title: "Al-Hidaya",
+    authorName: "Al-Marghinani",
+    authorEra: "m. 593 AH / 1197",
+    description:
+      "Ouvrage de référence du fiqh hanafite, structure de manière particulièrement claire et pedagogique, largement etudie dans les cursus traditionnels de cette école a travers les siècles.",
+    language: "ar",
+    era: "VIe siècle AH / XIIe siècle",
+    categories: ["Fiqh"],
+  },
+  {
+    title: "Al-Mughni",
+    authorName: "Ibn Qudama",
+    authorEra: "541-620 AH / 1147-1223",
+    description:
+      "Somme juridique majeure du fiqh hanbalite rédigée par Ibn Qudama, qui exposé systématiquement chaque question en presentant également les positions des autres écoles et leurs arguments respectifs.",
+    language: "ar",
+    era: "VIe-VIIe siècle AH / XIIe-XIIIe siècle",
+    categories: ["Fiqh", "Fiqh comparé"],
+  },
+  {
+    title: "Bidayat al-Mujtahid wa Nihayat al-Muqtasid",
+    authorName: "Ibn Rushd",
+    authorEra: "520-595 AH / 1126-1198",
+    description:
+      "Ouvrage de fiqh comparé rédigé par le juriste et philosophe Ibn Rushd (Averroès), qui exposé methodiquement les positions des différentes écoles juridiques sur chaque question avec leurs preuves respectives et les causes de leur divergence.",
+    language: "ar",
+    era: "VIe siècle AH / XIIe siècle",
+    categories: ["Fiqh comparé"],
+  },
+  {
+    title: "Al-Waraqat",
+    authorName: "Al-Juwayni",
+    authorEra: "419-478 AH / 1028-1085",
+    description:
+      "Court traité introductif de méthodologie juridique (usul al-fiqh), traditionnellement utilisé comme premier support d'enseignement de cette discipline dans les cursus classiques.",
+    language: "ar",
+    era: "Ve siècle AH / XIe siècle",
+    categories: ["Usul al-fiqh"],
+  },
+  {
+    title: "Al-Fiqh al-Akbar",
+    authorName: "Abu Hanifa",
+    authorEra: "80-150 AH / 699-767",
+    description:
+      "Court traité de croyance (aqida) attribué a l'imam Abu Hanifa, fondateur de l'école hanafite, parmi les plus anciens textes structurant systématiquement les articles de foi islamiques.",
+    language: "ar",
+    era: "IIe siècle AH / VIIIe siècle",
+    categories: ["Aqida"],
+  },
+  {
+    title: "Al-'Aqida al-Wasitiyya",
+    authorName: "Ibn Taymiyya",
+    authorEra: "661-728 AH / 1263-1328",
+    description:
+      "Traité de croyance rédigé par Ibn Taymiyya a la demande d'un juge de la ville de Wasit, presentant ce que l'auteur considère comme la croyance des premières generations musulmanes (salaf) sur les questions relatives aux attributs divins.",
+    language: "ar",
+    era: "VIIe-VIIIe siècle AH / XIIIe-XIVe siècle",
+    categories: ["Aqida"],
+  },
+  {
+    title: "Al-Adab al-Mufrad",
+    authorName: "Al-Bukhari",
+    authorEra: "194-256 AH / 810-870",
+    description:
+      "Recueil de hadiths distinct de Sahih al-Bukhari, entièrement consacre aux règles de bienséance, de politesse et de comportement (adab) dans la vie quotidienne et les relations sociales.",
+    language: "ar",
+    era: "IIIe siècle AH / IXe siècle",
+    categories: ["Hadith"],
+  },
+  {
+    title: "Muqaddimat Ibn as-Salah",
+    authorName: "Ibn as-Salah",
+    authorEra: "577-643 AH / 1181-1245",
+    description:
+      "Ouvrage fondateur qui a systematise pour la première fois de manière aussi complète la terminologie des sciences du hadith, servant de base a de nombreux traités ulterieurs sur le sujet, dont le Nukhbat al-Fikar d'Ibn Hajar.",
+    language: "ar",
+    era: "VIe-VIIe siècle AH / XIIe-XIIIe siècle",
+    categories: ["Sciences du hadith"],
+  },
+  {
+    title: "Al-Hikam al-'Ata'iyya",
+    authorName: "Ibn Ata Allah al-Iskandari",
+    authorEra: "658-709 AH / 1260-1309",
+    description:
+      "Recueil d'aphorismes spirituels traitant de la sincérité, du détachement et de la relation du cœur a Dieu, parmi les textes de spiritualité islamique (tasawwuf) les plus lus et commentes a travers les siècles.",
+    language: "ar",
+    era: "VIIe-VIIIe siècle AH / XIIIe-XIVe siècle",
+    categories: ["Spiritualité"],
+  },
+  {
+    title: "Ar-Rahiq al-Makhtum",
+    authorName: "Safi ar-Rahman al-Mubarakpuri",
+    authorEra: "1362-1427 AH / 1943-2006",
+    description:
+      "Biographie moderne du Prophète ﷺ rédigée au XXe siècle, distinguee lors d'un concours international consacre a la sira, largement traduite (dont en français) et diffusee comme référence contemporaine accessible.",
+    language: "ar",
+    era: "XXe siècle",
+    categories: ["Sira", "Histoire"],
+  },
+  {
+    title: "Al-Ajrumiyyah",
+    authorName: "Ibn Ajurrum",
+    authorEra: "672-723 AH / 1273-1323",
+    description:
+      "Court traité introductif de grammaire arabe, traditionnellement le tout premier texte etudie par les debutants avant d'aborder des ouvrages plus avances comme l'Alfiyyat Ibn Malik.",
+    language: "ar",
+    era: "VIIe-VIIIe siècle AH / XIIIe-XIVe siècle",
     categories: ["Langue arabe"],
   },
 ];

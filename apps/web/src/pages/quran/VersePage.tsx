@@ -4,7 +4,9 @@ import { useTranslation } from "react-i18next";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Skeleton } from "@/components/ui/skeleton";
 import { Breadcrumbs } from "@/components/shared/Breadcrumbs";
+import { ContentUserActions } from "@/components/shared/ContentUserActions";
 import { quranApi } from "@/features/quran/api";
+import { useDocumentTitle } from "@/hooks/useDocumentTitle";
 
 export function VersePage() {
   const { surah: surahParam, verse: verseParam } = useParams<{ surah: string; verse: string }>();
@@ -17,6 +19,7 @@ export function VersePage() {
     queryFn: () => quranApi.getVerse(surahNumber, verseNumber),
     enabled: Number.isInteger(surahNumber) && Number.isInteger(verseNumber),
   });
+  useDocumentTitle(data ? `${data.surah.nameTransliterated} ${data.verse.numberInSurah}` : undefined);
 
   if (!Number.isInteger(surahNumber) || !Number.isInteger(verseNumber)) {
     return <Navigate to="/quran" replace />;
@@ -45,6 +48,8 @@ export function VersePage() {
               {data.verse.textArabic}
             </p>
           </div>
+
+          <ContentUserActions targetType="verse" targetId={data.verse.id} className="mt-4" />
 
           <h2 className="mb-3 mt-8 text-sm font-semibold uppercase tracking-wide text-muted-foreground">
             {t("quran.comparisonTitle")}

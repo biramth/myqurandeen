@@ -22,6 +22,6 @@ async function main() {
 }
 
 main().catch((error) => {
-  console.error("Echec du seed ecoles:", error);
+  console.error("Echec du seed écoles:", error);
   process.exit(1);
 });

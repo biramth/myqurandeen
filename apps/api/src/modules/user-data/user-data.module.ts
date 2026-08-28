@@ -1,5 +1,10 @@
 import { Module } from "@nestjs/common";
+import { UserDataController } from "./user-data.controller";
+import { UserDataService } from "./user-data.service";
 
-/** Squelette : notes, favoris, collections - logique ajoutee au fil des phases (rattachee au contenu concerne). */
-@Module({})
+/** Donnees personnelles de l'utilisateur connecte : notes, favoris, collections. */
+@Module({
+  controllers: [UserDataController],
+  providers: [UserDataService],
+})
 export class UserDataModule {}

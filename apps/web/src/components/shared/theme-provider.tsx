@@ -24,6 +24,20 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
     const root = window.document.documentElement;
     root.classList.toggle("dark", theme === "dark");
     window.localStorage.setItem(STORAGE_KEY, theme);
+
+    // Aligne la couleur de la barre de statut/navigateur mobile sur le theme
+    // actif - les meta `theme-color` statiques ne suivent que la preference
+    // OS, pas le bouton de bascule manuel de l'app.
+    const meta = document.querySelector('meta[name="theme-color"]:not([media])') as HTMLMetaElement | null;
+    const color = theme === "dark" ? "#0f121a" : "#ffffff";
+    if (meta) {
+      meta.content = color;
+    } else {
+      const created = document.createElement("meta");
+      created.name = "theme-color";
+      created.content = color;
+      document.head.appendChild(created);
+    }
   }, [theme]);
 
   const toggleTheme = React.useCallback(() => {

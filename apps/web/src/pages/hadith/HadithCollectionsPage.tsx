@@ -5,9 +5,11 @@ import { ScrollText } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Skeleton } from "@/components/ui/skeleton";
 import { hadithApi } from "@/features/hadith/api";
+import { useDocumentTitle } from "@/hooks/useDocumentTitle";
 
 export function HadithCollectionsPage() {
   const { t } = useTranslation();
+  useDocumentTitle(t("hadith.title"));
   const { data: collections, isLoading, isError } = useQuery({
     queryKey: ["hadith", "collections"],
     queryFn: hadithApi.listCollections,

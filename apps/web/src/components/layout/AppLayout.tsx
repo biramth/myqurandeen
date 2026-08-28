@@ -9,7 +9,7 @@ export function AppLayout() {
       <Header />
       <div className="flex flex-1">
         <Sidebar />
-        <main className="min-w-0 flex-1 pb-20 md:pb-0">
+        <main className="min-w-0 flex-1 pb-[calc(4rem+env(safe-area-inset-bottom))] md:pb-0">
           <Outlet />
         </main>
       </div>

@@ -8,6 +8,7 @@ import { Skeleton } from "@/components/ui/skeleton";
 import { learningApi } from "@/features/learning/api";
 import { QuizBlock } from "@/features/learning/QuizBlock";
 import { useAuth } from "@/features/auth/auth-context";
+import { useDocumentTitle } from "@/hooks/useDocumentTitle";
 
 export function LearningLessonPage() {
   const { slug, order } = useParams<{ slug: string; order: string }>();
@@ -29,6 +30,7 @@ export function LearningLessonPage() {
   });
 
   const lesson = path?.lessons.find((l) => l.order === orderNum);
+  useDocumentTitle(lesson?.title);
 
   const { data: quiz } = useQuery({
     queryKey: ["learning", "lesson-quiz", lesson?.id],

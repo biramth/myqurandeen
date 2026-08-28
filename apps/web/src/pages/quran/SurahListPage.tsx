@@ -7,9 +7,11 @@ import { Badge } from "@/components/ui/badge";
 import { Skeleton } from "@/components/ui/skeleton";
 import { quranApi } from "@/features/quran/api";
 import { translatedSurahName } from "@/features/quran/surah-names";
+import { useDocumentTitle } from "@/hooks/useDocumentTitle";
 
 export function SurahListPage() {
   const { t } = useTranslation();
+  useDocumentTitle(t("quran.title"));
   const { data: surahs, isLoading, isError } = useQuery({
     queryKey: ["quran", "surahs"],
     queryFn: quranApi.listSurahs,

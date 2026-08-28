@@ -6,6 +6,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Skeleton } from "@/components/ui/skeleton";
 import { hadithApi } from "@/features/hadith/api";
+import { useDocumentTitle } from "@/hooks/useDocumentTitle";
 
 export function HadithCollectionPage() {
   const { collection: slug } = useParams<{ collection: string }>();
@@ -16,6 +17,7 @@ export function HadithCollectionPage() {
     queryFn: () => hadithApi.getCollection(slug!),
     enabled: Boolean(slug),
   });
+  useDocumentTitle(data?.name);
 
   if (!slug) return <Navigate to="/hadith" replace />;
 

@@ -18,7 +18,9 @@
     "groupAdmin": "Admin",
     "menu": "Menu",
     "admin": "Admin",
-    "assistant": "Asisten AI"
+    "assistant": "Asisten AI",
+    "sidebarLabel": "Navigasi utama",
+    "bottomNavLabel": "Navigasi seluler"
   },
   "home": {
     "title": "Apa yang ingin Anda pelajari?",
@@ -51,6 +53,8 @@
     "admin": { "title": "Administrasi", "description": "Dasbor admin akan hadir pada Fase 11 pengembangan." }
   },
   "auth": {
+    "showPassword": "Tampilkan kata sandi",
+    "hidePassword": "Sembunyikan kata sandi",
     "login": {
       "title": "Masuk",
       "subtitle": "Akses favorit, catatan, dan jalur belajar Anda.",
@@ -76,8 +80,54 @@
   "profile": {
     "loading": "Memuat...",
     "memberSince": "Anggota sejak {{date}}.",
-    "comingSoonNote": "Favorit, catatan, koleksi, dan progres belajar akan hadir pada fase pengembangan berikutnya.",
-    "logout": "Keluar"
+    "logout": "Keluar",
+    "tabs": { "bookmarks": "Favorit", "notes": "Catatan", "collections": "Koleksi" }
+  },
+  "bookmark": {
+    "add": "Tambah ke favorit",
+    "remove": "Hapus dari favorit",
+    "added": "Ditambahkan ke favorit",
+    "removed": "Dihapus dari favorit"
+  },
+  "bookmarks": {
+    "empty": "Belum ada favorit.",
+    "remove": "Hapus"
+  },
+  "notes": {
+    "title": "Catatan",
+    "empty": "Belum ada catatan.",
+    "placeholder": "Tulis catatan...",
+    "save": "Simpan",
+    "delete": "Hapus",
+    "saved": "Catatan disimpan",
+    "deleted": "Catatan dihapus"
+  },
+  "collections": {
+    "empty": "Belum ada koleksi.",
+    "emptyItems": "Tidak ada item dalam koleksi ini.",
+    "create": "Buat",
+    "namePlaceholder": "Nama koleksi",
+    "itemCount_other": "{{count}} item",
+    "delete": "Hapus",
+    "removeItem": "Hapus",
+    "back": "Kembali ke koleksi",
+    "addToCollection": "Tambahkan ke koleksi",
+    "created": "Koleksi dibuat",
+    "deleted": "Koleksi dihapus",
+    "itemAdded": "Ditambahkan ke koleksi",
+    "itemAlready": "Sudah ada di koleksi ini",
+    "itemRemoved": "Dihapus dari koleksi"
+  },
+  "targetTypes": {
+    "verse": "Ayat",
+    "hadith": "Hadis",
+    "tafsir_entry": "Tafsir",
+    "concept": "Konsep",
+    "book": "Buku",
+    "scholar": "Ulama",
+    "event": "Peristiwa",
+    "fiqh_topic": "Topik fikih",
+    "lesson": "Pelajaran"
   },
   "quran": {
     "title": "Al-Quran",
@@ -213,7 +263,8 @@
   "common": {
     "loading": "Memuat...",
     "showTranslation": "Tampilkan terjemahan",
-    "hideTranslation": "Sembunyikan terjemahan"
+    "hideTranslation": "Sembunyikan terjemahan",
+    "error": "Terjadi kesalahan. Silakan coba lagi."
   },
   "library": {
     "title": "Perpustakaan",
@@ -238,18 +289,26 @@
     "assignedTo": "Ditugaskan ke",
     "assignToMe": "Tugaskan ke saya",
     "active": "Aktif",
-    "inactive": "Nonaktif"
+    "inactive": "Nonaktif",
+    "auditLog": "Log audit",
+    "noAuditEntries": "Belum ada entri log.",
+    "roleUpdated": "Peran diperbarui",
+    "statusUpdated": "Status diperbarui",
+    "userUpdated": "Pengguna diperbarui",
+    "assigned": "Laporan ditugaskan"
   },
   "assistant": {
     "title": "Asisten AI",
     "subtitle": "Ajukan pertanyaan, dapatkan jawaban berdasarkan sumber yang sudah diverifikasi di platform.",
-    "disclaimer": "Jawaban dihasilkan dari konten yang sudah bersumber di Qurandeen. Selalu periksa sumber yang dikutip di bawah.",
+    "disclaimer": "Jawaban dihasilkan dari konten yang sudah bersumber di myQurandeen. Selalu periksa sumber yang dikutip di bawah.",
     "notReady": "Asisten belum tersedia saat ini (indeks atau model belum siap).",
     "placeholder": "Ajukan pertanyaan Anda...",
     "ask": "Tanya",
     "thinking": "Mencari...",
     "error": "Tidak dapat memperoleh jawaban saat ini.",
     "sources": "Sumber",
-    "empty": "Ajukan pertanyaan untuk memulai."
+    "empty": "Ajukan pertanyaan untuk memulai.",
+    "loginRequired": "Masuk untuk mengajukan pertanyaan kepada asisten.",
+    "logIn": "Masuk"
   }
 }

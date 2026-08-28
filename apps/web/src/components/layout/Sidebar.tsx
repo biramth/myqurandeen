@@ -4,6 +4,7 @@ import { ShieldCheck, Sparkles } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { NAV_GROUPS } from "@/config/navigation";
 import { useAuth } from "@/features/auth/auth-context";
+import { useAiEnabled } from "@/features/ai/useAiEnabled";
 
 const navLinkClass = ({ isActive }: { isActive: boolean }) =>
   cn(
@@ -14,16 +15,19 @@ const navLinkClass = ({ isActive }: { isActive: boolean }) =>
 export function Sidebar() {
   const { t } = useTranslation();
   const { user } = useAuth();
+  const aiEnabled = useAiEnabled();
 
   return (
     <aside className="sticky top-16 hidden h-[calc(100vh-4rem)] w-56 shrink-0 overflow-y-auto border-e px-3 py-6 md:block">
-      <nav aria-label="Navigation principale" className="space-y-6">
-        <div>
-          <NavLink to="/assistant" className={navLinkClass}>
-            <Sparkles className="h-4 w-4 shrink-0" aria-hidden="true" />
-            <span className="truncate">{t("nav.assistant")}</span>
-          </NavLink>
-        </div>
+      <nav aria-label={t("nav.sidebarLabel")} className="space-y-6">
+        {aiEnabled && (
+          <div>
+            <NavLink to="/assistant" className={navLinkClass}>
+              <Sparkles className="h-4 w-4 shrink-0" aria-hidden="true" />
+              <span className="truncate">{t("nav.assistant")}</span>
+            </NavLink>
+          </div>
+        )}
 
         {NAV_GROUPS.map((group) => (
           <div key={group.titleKey}>

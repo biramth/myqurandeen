@@ -74,13 +74,26 @@ ce qui produisait des reponses fausses (contraire a la regle ci-dessous).
 
 ## A savoir / limites actuelles
 
-- Les endpoints `/ai/*` sont tous `@Public()` (aucune authentification,
-  aucun rate limit dedie). `query`/`search` declenchent des appels LLM
-  reels ; `index`/`index/:type` declenchent des batchs d'embeddings. A
-  restreindre avant toute exposition large (par role via `@RequirePermission`,
-  ou throttling).
-- Le palier gratuit de l'API Gemini est rate-limite (requetes par minute et
-  par jour) ; `GeminiProvider` retente automatiquement sur 429/5xx avec un
-  backoff exponentiel, mais une indexation complete peut rester lente.
-- Seul `verse` embarque une traduction pour l'instant. `tafsir` (contenu
-  arabe uniquement) a la meme limite mais n'a pas encore ete corrige.
+- `health`/`stats` restent `@Public()` (statut en lecture seule, sans cout).
+  `query`/`search` demandent d'etre connecte (throttle : 15/min) - vraies
+  requetes LLM/embedding facturees sur le quota Gemini. `index`/
+  `index/:type` sont reservees a la permission `ai:index` (roles ADMIN/
+  SUPER_ADMIN, throttle : 3/min) car elles purgent puis reconstruisent tout
+  l'index - operation couteuse et destructive.
+- **Le palier gratuit de l'API Gemini pour `gemini-embedding-001` est un
+  quota de 1000 requetes/JOUR (pas par minute)** - confirme empiriquement
+  le 2026-08-28 (`quotaId:
+  "EmbedContentRequestsPerDayPerUserPerProjectPerModel-FreeTier"`).
+  `GeminiProvider` retente automatiquement sur 429/5xx en respectant le
+  `RetryInfo.retryDelay` renvoye par l'API, mais ca ne peut rien faire
+  contre un quota journalier deja epuise - une fois les 1000 requetes du
+  jour consommees, toute nouvelle indexation echoue jusqu'au lendemain,
+  quel que soit le nombre de tentatives. Le corpus complet (~77k chunks)
+  demande environ 4 jours d'indexation au minimum sur le palier gratuit.
+- `verse` et `tafsir` embarquent tous les deux une traduction/edition en
+  francais ou anglais plutot que le contenu arabe brut (corrige le
+  2026-08-28 pour les deux) - sans ca, le LLM devait traduire lui-meme et
+  produisait des reponses inventees. `tafsir` n'indexe que les oeuvres
+  disponibles en fr/en (`Al-Mukhtasar fi at-Tafsir` fr+en, `Tafsir Ibn
+  Kathir (abrege)` en) ; les oeuvres arabophones seules (`At-Tafsir
+  al-Muyassar`) sont exclues de l'index RAG.

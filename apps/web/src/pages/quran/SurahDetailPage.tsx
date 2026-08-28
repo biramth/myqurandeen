@@ -13,6 +13,7 @@ import { quranApi } from "@/features/quran/api";
 import { translatedSurahName } from "@/features/quran/surah-names";
 import { tafsirApi } from "@/features/tafsir/api";
 import { isRtlLanguage } from "@/lib/rtl";
+import { useDocumentTitle } from "@/hooks/useDocumentTitle";
 
 export function SurahDetailPage() {
   const { surah: surahParam } = useParams<{ surah: string }>();
@@ -28,6 +29,7 @@ export function SurahDetailPage() {
     queryFn: () => quranApi.getSurah(surahNumber),
     enabled: Number.isInteger(surahNumber) && surahNumber > 0,
   });
+  useDocumentTitle(surah?.nameTransliterated);
 
   const { data: translations } = useQuery({
     queryKey: ["quran", "translations"],

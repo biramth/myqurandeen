@@ -4,7 +4,9 @@ import { useTranslation } from "react-i18next";
 import { Badge } from "@/components/ui/badge";
 import { Skeleton } from "@/components/ui/skeleton";
 import { Breadcrumbs } from "@/components/shared/Breadcrumbs";
+import { ContentUserActions } from "@/components/shared/ContentUserActions";
 import { hadithApi } from "@/features/hadith/api";
+import { useDocumentTitle } from "@/hooks/useDocumentTitle";
 
 export function HadithDetailPage() {
   const { collection: slug, number } = useParams<{ collection: string; number: string }>();
@@ -15,6 +17,7 @@ export function HadithDetailPage() {
     queryFn: () => hadithApi.getHadith(slug!, number!),
     enabled: Boolean(slug) && Boolean(number),
   });
+  useDocumentTitle(data ? `${data.collection.name} ${data.hadith.number}` : undefined);
 
   if (!slug || !number) return <Navigate to="/hadith" replace />;
 
@@ -53,6 +56,8 @@ export function HadithDetailPage() {
           )}
 
           <p className="rounded-lg border p-5 text-sm leading-relaxed">{data.hadith.textTranslation}</p>
+
+          <ContentUserActions targetType="hadith" targetId={data.hadith.id} className="mt-4" />
 
           {data.translations.length > 0 && (
             <div className="mt-6 space-y-3">

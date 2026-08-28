@@ -1,5 +1,6 @@
 import { Inject, Injectable, NotFoundException } from "@nestjs/common";
 import { and, asc, eq, inArray } from "drizzle-orm";
+import { LEARNING_LEVELS } from "@qurandeen/shared";
 import { DRIZZLE } from "../../database/database.constants";
 import type { Database } from "../../database/database.module";
 import {
@@ -15,7 +16,14 @@ export class LearningService {
   constructor(@Inject(DRIZZLE) private readonly db: Database) {}
 
   async listPaths() {
-    return this.db.select().from(learningPaths).orderBy(asc(learningPaths.level));
+    const paths = await this.db.select().from(learningPaths);
+    // Tri par difficulte croissante (beginner -> intermediate -> advanced) :
+    // un tri alphabetique sur `level` donnerait l'ordre errone
+    // advanced/beginner/intermediate, "advanced" passant en premier.
+    return paths.sort(
+      (a, b) => LEARNING_LEVELS.indexOf(a.level as (typeof LEARNING_LEVELS)[number]) -
+        LEARNING_LEVELS.indexOf(b.level as (typeof LEARNING_LEVELS)[number]),
+    );
   }
 
   async getPath(slug: string) {

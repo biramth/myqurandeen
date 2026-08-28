@@ -18,7 +18,9 @@
     "groupAdmin": "Administración",
     "menu": "Menú",
     "admin": "Administración",
-    "assistant": "Asistente IA"
+    "assistant": "Asistente IA",
+    "sidebarLabel": "Navegación principal",
+    "bottomNavLabel": "Navegación móvil"
   },
   "home": {
     "title": "¿Que deseas estudiar?",
@@ -51,6 +53,8 @@
     "admin": { "title": "Administracion", "description": "El panel de administracion llegara en la Fase 11 del desarrollo." }
   },
   "auth": {
+    "showPassword": "Mostrar contraseña",
+    "hidePassword": "Ocultar contraseña",
     "login": {
       "title": "Iniciar sesion",
       "subtitle": "Accede a tus favoritos, notas e itinerarios de aprendizaje.",
@@ -76,8 +80,55 @@
   "profile": {
     "loading": "Cargando...",
     "memberSince": "Miembro desde el {{date}}.",
-    "comingSoonNote": "Favoritos, notas, colecciones y progreso de itinerarios llegaran en las proximas fases de desarrollo.",
-    "logout": "Cerrar sesion"
+    "logout": "Cerrar sesion",
+    "tabs": { "bookmarks": "Favoritos", "notes": "Notas", "collections": "Colecciones" }
+  },
+  "bookmark": {
+    "add": "Añadir a favoritos",
+    "remove": "Quitar de favoritos",
+    "added": "Añadido a favoritos",
+    "removed": "Quitado de favoritos"
+  },
+  "bookmarks": {
+    "empty": "Aún no hay favoritos.",
+    "remove": "Quitar"
+  },
+  "notes": {
+    "title": "Notas",
+    "empty": "Aún no hay notas.",
+    "placeholder": "Escribe una nota...",
+    "save": "Guardar",
+    "delete": "Eliminar",
+    "saved": "Nota guardada",
+    "deleted": "Nota eliminada"
+  },
+  "collections": {
+    "empty": "Aún no hay colecciones.",
+    "emptyItems": "No hay elementos en esta colección.",
+    "create": "Crear",
+    "namePlaceholder": "Nombre de la colección",
+    "itemCount_one": "{{count}} elemento",
+    "itemCount_other": "{{count}} elementos",
+    "delete": "Eliminar",
+    "removeItem": "Quitar",
+    "back": "Volver a colecciones",
+    "addToCollection": "Añadir a una colección",
+    "created": "Colección creada",
+    "deleted": "Colección eliminada",
+    "itemAdded": "Añadido a la colección",
+    "itemAlready": "Ya está en esta colección",
+    "itemRemoved": "Quitado de la colección"
+  },
+  "targetTypes": {
+    "verse": "Versículo",
+    "hadith": "Hadiz",
+    "tafsir_entry": "Tafsir",
+    "concept": "Concepto",
+    "book": "Libro",
+    "scholar": "Erudito",
+    "event": "Evento",
+    "fiqh_topic": "Tema de fiqh",
+    "lesson": "Lección"
   },
   "quran": {
     "title": "El Coran",
@@ -213,7 +264,8 @@
   "common": {
     "loading": "Cargando...",
     "showTranslation": "Mostrar traduccion",
-    "hideTranslation": "Ocultar traduccion"
+    "hideTranslation": "Ocultar traduccion",
+    "error": "Ha ocurrido un error. Inténtalo de nuevo."
   },
   "library": {
     "title": "Biblioteca",
@@ -238,18 +290,26 @@
     "assignedTo": "Asignado a",
     "assignToMe": "Asignarme",
     "active": "Activo",
-    "inactive": "Inactivo"
+    "inactive": "Inactivo",
+    "auditLog": "Registro de auditoría",
+    "noAuditEntries": "Aún no hay entradas en el registro.",
+    "roleUpdated": "Rol actualizado",
+    "statusUpdated": "Estado actualizado",
+    "userUpdated": "Usuario actualizado",
+    "assigned": "Reporte asignado"
   },
   "assistant": {
     "title": "Asistente IA",
     "subtitle": "Haz una pregunta y obtén una respuesta basada en las fuentes ya verificadas de la plataforma.",
-    "disclaimer": "Las respuestas se generan a partir de contenido ya documentado en Qurandeen. Verifica siempre las fuentes citadas abajo.",
+    "disclaimer": "Las respuestas se generan a partir de contenido ya documentado en myQurandeen. Verifica siempre las fuentes citadas abajo.",
     "notReady": "El asistente no está disponible en este momento (índice o modelo no listo).",
     "placeholder": "Escribe tu pregunta...",
     "ask": "Preguntar",
     "thinking": "Buscando...",
     "error": "No se pudo obtener una respuesta en este momento.",
     "sources": "Fuentes",
-    "empty": "Haz una pregunta para empezar."
+    "empty": "Haz una pregunta para empezar.",
+    "loginRequired": "Inicia sesión para preguntar al asistente.",
+    "logIn": "Iniciar sesión"
   }
 }

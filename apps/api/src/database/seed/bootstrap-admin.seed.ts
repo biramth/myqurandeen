@@ -13,7 +13,7 @@ export async function seedBootstrapAdmin(db: Database): Promise<void> {
   const password = process.env.ADMIN_PASSWORD;
 
   if (!email || !password) {
-    console.log("Bootstrap admin: ADMIN_EMAIL/ADMIN_PASSWORD absents, etape ignoree.");
+    console.log("Bootstrap admin: ADMIN_EMAIL/ADMIN_PASSWORD absents, étape ignoree.");
     return;
   }
 
@@ -25,7 +25,7 @@ export async function seedBootstrapAdmin(db: Database): Promise<void> {
 
   const superAdminRole = await db.query.roles.findFirst({ where: eq(roles.name, "SUPER_ADMIN") });
   if (!superAdminRole) {
-    throw new Error("Role SUPER_ADMIN introuvable - lancez d'abord le seed RBAC.");
+    throw new Error("Rôle SUPER_ADMIN introuvable - lancez d'abord le seed RBAC.");
   }
 
   const passwordHash = await argon2.hash(password);

@@ -8,9 +8,11 @@ import { Badge } from "@/components/ui/badge";
 import { Skeleton } from "@/components/ui/skeleton";
 import { libraryApi } from "@/features/library/api";
 import type { LibraryBookSummary } from "@/features/library/types";
+import { useDocumentTitle } from "@/hooks/useDocumentTitle";
 
 export function LibraryPage() {
   const { t } = useTranslation();
+  useDocumentTitle(t("library.title"));
   const { data: books, isLoading, isError } = useQuery({
     queryKey: ["library", "books"],
     queryFn: libraryApi.listBooks,

@@ -4,6 +4,7 @@ import { useTranslation } from "react-i18next";
 import { Skeleton } from "@/components/ui/skeleton";
 import { Breadcrumbs } from "@/components/shared/Breadcrumbs";
 import { prophetsApi } from "@/features/prophets/api";
+import { useDocumentTitle } from "@/hooks/useDocumentTitle";
 
 export function ProphetPage() {
   const { slug } = useParams<{ slug: string }>();
@@ -14,6 +15,7 @@ export function ProphetPage() {
     queryFn: () => prophetsApi.getProphet(slug!),
     enabled: Boolean(slug),
   });
+  useDocumentTitle(data?.name);
 
   if (!slug) return <Navigate to="/prophets" replace />;
 

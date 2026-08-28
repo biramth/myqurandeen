@@ -9,6 +9,13 @@ import { AppModule } from "./app.module";
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
 
+  // Necessaire derriere tout reverse proxy (nginx, Railway, Render,
+  // Vercel...) : sans ca, req.ip renvoie toujours l'IP du proxy plutot que
+  // celle du client reel, ce qui casse a la fois le rate limiting (tous les
+  // utilisateurs partagent alors la meme IP apparente) et le champ ip du
+  // journal d'audit.
+  app.getHttpAdapter().getInstance().set("trust proxy", 1);
+
   app.use(helmet());
   app.use(cookieParser());
   app.enableCors({
@@ -25,8 +32,8 @@ async function bootstrap() {
   );
 
   const swaggerConfig = new DocumentBuilder()
-    .setTitle("Qurandeen API")
-    .setDescription("API de la plateforme d'etude de l'Islam Qurandeen")
+    .setTitle("myQurandeen API")
+    .setDescription("API de la plateforme d'etude de l'Islam myQurandeen")
     .setVersion("0.1.0")
     .addBearerAuth()
     .build();
@@ -35,7 +42,7 @@ async function bootstrap() {
 
   const port = process.env.API_PORT ?? 3000;
   await app.listen(port);
-  console.log(`Qurandeen API demarree sur http://localhost:${port} (docs: /docs)`);
+  console.log(`myQurandeen API demarree sur http://localhost:${port} (docs: /docs)`);
 }
 
 bootstrap();

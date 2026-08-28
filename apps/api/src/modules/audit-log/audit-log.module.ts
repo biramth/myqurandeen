@@ -1,5 +1,10 @@
 import { Module } from "@nestjs/common";
+import { AuditLogController } from "./audit-log.controller";
+import { AuditLogService } from "./audit-log.service";
 
-/** Squelette : consultation du journal d'audit, logique ajoutee en Phase 11. */
-@Module({})
+/** Consultation du journal d'audit (ecriture faite par les autres modules : reports, users, etc.). */
+@Module({
+  controllers: [AuditLogController],
+  providers: [AuditLogService],
+})
 export class AuditLogModule {}

@@ -33,7 +33,7 @@ const LESSON_QUIZZES: Record<string, Record<number, QuestionSeed[]>> = {
           "Livre sacré",
         ],
         correctIndex: 0,
-        explanation: "\"Islam\" vient de la racine s-l-m, qui exprime la soumission et partage sa racine avec le mot \"paix\" (salam).",
+        explanation: "\"Islam\" vient de la racine s-l-m, qui exprimé la soumission et partage sa racine avec le mot \"paix\" (salam).",
       },
       {
         question: "Quel est le concept central du message islamique selon cette leçon ?",
@@ -131,7 +131,7 @@ const LESSON_QUIZZES: Record<string, Record<number, QuestionSeed[]>> = {
         explanation: "Muhammad ﷺ était surnommé \"Al-Amin\" bien avant sa mission prophétique, en raison de sa véracité reconnue.",
       },
       {
-        question: "Quel épisode illustre cette réputation d'intégrité ?",
+        question: "Quel épisode illustré cette réputation d'intégrité ?",
         options: [
           "La bataille de Badr",
           "Le choix du juge pour la Pierre Noire lors de la reconstruction de la Kaaba",
@@ -240,7 +240,7 @@ const LESSON_QUIZZES: Record<string, Record<number, QuestionSeed[]>> = {
         explanation: "Le sawm est obligatoire durant le mois de Ramadan, neuvième mois du calendrier lunaire islamique.",
       },
       {
-        question: "Quel objectif le Coran associe-t-il au jeûne (sourate 2:183) ?",
+        question: "Quel objectif le Coran associé-t-il au jeûne (sourate 2:183) ?",
         options: ["La richesse matérielle", "La taqwa (conscience de Dieu)", "La force physique", "La sagesse politique"],
         correctIndex: 1,
         explanation: "Le Coran présente le jeûne comme un moyen d'accéder à la taqwa, la conscience de Dieu.",
@@ -248,7 +248,7 @@ const LESSON_QUIZZES: Record<string, Record<number, QuestionSeed[]>> = {
     ],
     13: [
       {
-        question: "Que marque l'Hégire (622) ?",
+        question: "Que marqué l'Hégire (622) ?",
         options: [
           "Le début du calendrier islamique",
           "La fin de la mission prophétique",
@@ -256,7 +256,7 @@ const LESSON_QUIZZES: Record<string, Record<number, QuestionSeed[]>> = {
           "La conquête de La Mecque",
         ],
         correctIndex: 0,
-        explanation: "L'Hégire (622) marque le point de départ du calendrier islamique.",
+        explanation: "L'Hégire (622) marqué le point de départ du calendrier islamique.",
       },
       {
         question: "Quel traité de trêve est signé en 628 ?",
@@ -281,7 +281,7 @@ const LESSON_QUIZZES: Record<string, Record<number, QuestionSeed[]>> = {
           "La sagesse, la force, le courage, la loyauté",
         ],
         correctIndex: 1,
-        explanation: "Al-Asr identifie quatre conditions : la foi (iman), les bonnes actions, le rappel mutuel de la vérité et de la patience.",
+        explanation: "Al-Asr identifié quatre conditions : la foi (iman), les bonnes actions, le rappel mutuel de la vérité et de la patience.",
       },
     ],
     15: [
@@ -361,6 +361,256 @@ const LESSON_QUIZZES: Record<string, Record<number, QuestionSeed[]>> = {
       },
     ],
   },
+  "pratique-de-la-priere": {
+    1: [
+      {
+        question: "Laquelle de ces conditions doit être réunie avant de commencer la prière ?",
+        options: [
+          "Être orienté vers La Mecque (qibla)",
+          "Avoir mémorisé tout le Coran",
+          "Être dans une mosquée",
+          "Avoir jeûné le jour même",
+        ],
+        correctIndex: 0,
+        explanation: "L'orientation vers la qibla fait partie des conditions de validité de la prière, avec la pureté rituelle, le temps entré, l'awra couverte et l'intention.",
+      },
+      {
+        question: "Par quelle formule commence la prière ?",
+        options: ["\"As-salamu alaykum\"", "\"Allahu akbar\" (takbirat al-ihram)", "\"Bismillah\"", "\"Alhamdulillah\""],
+        correctIndex: 1,
+        explanation: "La prière commence par le takbir d'ouverture, \"Allahu akbar\" (takbirat al-ihram).",
+      },
+    ],
+    2: [
+      {
+        question: "Dans quel ordre se déroule le wudu ?",
+        options: [
+          "Pieds, mains, visage, tête",
+          "Mains, bouche/nez, visage, avant-bras, tête/oreilles, pieds",
+          "Visage, pieds, mains, tête",
+          "Tête, visage, mains, pieds",
+        ],
+        correctIndex: 1,
+        explanation: "Le wudu suit un ordre précis : mains, bouche et nez, visage, avant-bras, passage sur la tête et les oreilles, puis pieds.",
+      },
+      {
+        question: "Lequel de ces gestes du wudu est reconnu comme obligatoire par toutes les écoles ?",
+        options: ["Le rinçage du nez", "Le rinçage de la bouche", "Laver le visage", "Répéter chaque geste trois fois"],
+        correctIndex: 2,
+        explanation: "Laver le visage, les avant-bras et les pieds, et passer la main sur une partie de la tête, sont reconnus comme obligatoires par l'ensemble des écoles.",
+      },
+    ],
+    3: [
+      {
+        question: "Quelle est la séquence de base d'une rak'a ?",
+        options: [
+          "Station debout, inclinaison, deux prosternations",
+          "Deux prosternations puis station debout",
+          "Inclinaison seule répétée",
+          "Position assise puis inclinaison",
+        ],
+        correctIndex: 0,
+        explanation: "Chaque rak'a suit la séquence : station debout (qiyam), inclinaison (ruku'), puis deux prosternations (sujud).",
+      },
+      {
+        question: "À quel moment de la rak'a le fidèle est-il considéré le plus proche de Dieu ?",
+        options: ["La station debout", "L'inclinaison", "La prosternation", "Le taslim"],
+        correctIndex: 2,
+        explanation: "La prosternation est considérée comme le moment de plus grande proximité avec Dieu, propice aux invocations personnelles.",
+      },
+    ],
+    4: [
+      {
+        question: "Quelle sourate est récitée à chaque rak'a de chaque prière ?",
+        options: ["Al-Ikhlas", "Al-Fatiha", "Al-Baqara", "Ya-Sin"],
+        correctIndex: 1,
+        explanation: "La Fatiha est récitée à chaque rak'a et considérée comme un pilier de la prière.",
+      },
+      {
+        question: "Que dit-on généralement lors de la prosternation ?",
+        options: [
+          "\"Subhana rabbiya al-a'la\" (Gloire à mon Seigneur le Très Haut)",
+          "\"Allahu akbar\" uniquement",
+          "Le tashahhud complet",
+          "Rien, le silence est requis",
+        ],
+        correctIndex: 0,
+        explanation: "\"Subhana rabbiya al-a'la\" est la formule de glorification récitée durant la prosternation.",
+      },
+    ],
+    5: [
+      {
+        question: "Que récite-t-on en position assise, notamment à la fin de la prière ?",
+        options: ["La Fatiha", "Le tashahhud", "Ayat al-Kursi", "Le takbir seul"],
+        correctIndex: 1,
+        explanation: "Le tashahhud, qui inclut l'attestation de foi, est récité en position assise, après deux rak'at puis à la fin de la prière.",
+      },
+      {
+        question: "Comment se conclut la prière ?",
+        options: [
+          "Par une prosternation supplémentaire",
+          "Par le taslim, en tournant la tête à droite puis à gauche",
+          "En restant assis en silence",
+          "Par la récitation de la Fatiha",
+        ],
+        correctIndex: 1,
+        explanation: "La prière se conclut par le taslim : tourner la tête vers la droite puis vers la gauche en saluant.",
+      },
+    ],
+    6: [
+      {
+        question: "Combien de prières obligatoires rythment la journée ?",
+        options: ["Trois", "Quatre", "Cinq", "Sept"],
+        correctIndex: 2,
+        explanation: "Cinq prières obligatoires : fajr, dhuhr, asr, maghrib et isha.",
+      },
+      {
+        question: "Quelle prière remplacé exceptionnellement le dhuhr le vendredi ?",
+        options: ["Le fajr", "La jumu'a (prière du vendredi)", "L'isha", "Le maghrib"],
+        correctIndex: 1,
+        explanation: "La prière du vendredi (jumu'a) remplacé le dhuhr ce jour-là, dans des conditions collectives précises.",
+      },
+    ],
+    7: [
+      {
+        question: "Quel verset est largement rapporté comme récité après chaque prière obligatoire ?",
+        options: ["Al-Ikhlas", "Ayat al-Kursi (2:255)", "Al-Fatiha", "An-Nas"],
+        correctIndex: 1,
+        explanation: "La récitation d'Ayat al-Kursi après chaque prière obligatoire est une pratique largement rapportée.",
+      },
+      {
+        question: "Que désigne le terme \"dhikr\" ?",
+        options: [
+          "Le jeûne du Ramadan",
+          "Le rappel ou la mention de Dieu, sous toutes ses formes",
+          "Le pèlerinage",
+          "L'aumône obligatoire",
+        ],
+        correctIndex: 1,
+        explanation: "Le dhikr désigne toute mention ou tout rappel de Dieu, par la parole, la récitation ou la pensée.",
+      },
+    ],
+    8: [
+      {
+        question: "Que dit-on traditionnellement avant de manger ?",
+        options: ["\"Alhamdulillah\"", "\"Bismillah\"", "\"Subhanallah\"", "\"Allahu akbar\""],
+        correctIndex: 1,
+        explanation: "\"Bismillah\" (Au nom de Dieu) est dit avant de manger ; \"Alhamdulillah\" (Louange à Dieu) après.",
+      },
+      {
+        question: "Quel est le statut juridique des invocations du quotidien (repas, sommeil, voyage...) ?",
+        options: ["Obligatoires (fard)", "Recommandées (sunna)", "Interdites en dehors du Ramadan", "Réservées aux savants"],
+        correctIndex: 1,
+        explanation: "Ces invocations relèvent de la sunna, la pratique recommandée du Prophète ﷺ, sans être obligatoires.",
+      },
+    ],
+  },
+  "jeune-et-aumone": {
+    1: [
+      {
+        question: "Quel est le quatrième pilier de l'Islam ?",
+        options: ["La zakat", "Le sawm (jeûne du Ramadan)", "Le hajj", "La shahada"],
+        correctIndex: 1,
+        explanation: "Le sawm, le jeûne du mois de Ramadan, est le quatrième des cinq piliers de l'Islam.",
+      },
+      {
+        question: "Que fait-on durant les heures de jeûne ?",
+        options: [
+          "On s'abstient de nourriture, boisson et rapports intimes",
+          "On prie uniquement",
+          "On jeûne seulement la nuit",
+          "On s'abstient uniquement de viande",
+        ],
+        correctIndex: 0,
+        explanation: "Le jeûne consiste à s'abstenir de nourriture, de boisson et de rapports intimes de l'aube au coucher du soleil.",
+      },
+    ],
+    2: [
+      {
+        question: "Manger par oubli durant le jeûne rompt-il celui-ci ?",
+        options: ["Oui, systématiquement", "Non, selon la majorité des écoles", "Seulement le vendredi", "Seulement pour les voyageurs"],
+        correctIndex: 1,
+        explanation: "Un oubli n'annule pas le jeûne selon la majorité des écoles, considéré comme une provision accordée par Dieu.",
+      },
+      {
+        question: "Quelle école considère que la ventouse (hijama) annule le jeûne ?",
+        options: ["Hanafite", "Malikite", "Shafi'ite", "Hanbalite"],
+        correctIndex: 3,
+        explanation: "L'école hanbalite retient que la ventouse annule le jeûne, à la différence des trois autres écoles.",
+      },
+    ],
+    3: [
+      {
+        question: "Avant quelle échéance un jour de jeûne manqué doit-il être rattrapé ?",
+        options: ["Avant la fin de la semaine", "Avant le Ramadan suivant", "Avant un mois", "Il n'y a pas de délai"],
+        correctIndex: 1,
+        explanation: "Le rattrapage (qada) doit être effectué avant l'arrivée du Ramadan suivant.",
+      },
+      {
+        question: "Que se passe-t-il en cas de retard injustifié du rattrapage selon trois des quatre écoles ?",
+        options: [
+          "Rien de plus n'est requis",
+          "Un fidya s'ajoute au qada",
+          "Le jeûne devient invalide définitivement",
+          "Il faut jeûner deux mois consécutifs",
+        ],
+        correctIndex: 1,
+        explanation: "Malikites, shafi'ites et hanbalites ajoutent un fidya en cas de retard injustifié au-delà du Ramadan suivant ; les hanafites non.",
+      },
+    ],
+    4: [
+      {
+        question: "Quel est le troisième pilier de l'Islam ?",
+        options: ["La zakat", "Le sawm", "Le hajj", "La salah"],
+        correctIndex: 0,
+        explanation: "La zakat, l'aumône obligatoire, est le troisième des cinq piliers de l'Islam.",
+      },
+      {
+        question: "Quel taux est généralement retenu pour la zakat sur l'or et l'argent ?",
+        options: ["1 %", "2,5 %", "5 %", "10 %"],
+        correctIndex: 1,
+        explanation: "Le taux généralement retenu pour la zakat sur l'or et l'argent est de 2,5 % de la valeur au-delà du nisab.",
+      },
+    ],
+    5: [
+      {
+        question: "Quand la zakat al-fitr doit-elle être versée ?",
+        options: [
+          "Avant la prière de l'Aïd al-Fitr",
+          "N'importe quand dans l'année",
+          "Uniquement le premier jour du Ramadan",
+          "Après la prière de l'Aïd",
+        ],
+        correctIndex: 0,
+        explanation: "La zakat al-fitr doit être versée avant la prière de l'Aïd al-Fitr, pour permettre aux nécessiteux de célébrer la fête.",
+      },
+      {
+        question: "Quelle école autorise le versement de la zakat al-fitr en valeur monétaire ?",
+        options: ["Hanafite", "Malikite", "Shafi'ite", "Hanbalite"],
+        correctIndex: 0,
+        explanation: "L'école hanafite autorise le versement en valeur monétaire équivalente ; les trois autres exigent un versement en nature.",
+      },
+    ],
+    6: [
+      {
+        question: "En quoi la sadaqah diffère-t-elle de la zakat ?",
+        options: [
+          "Elle est volontaire, sans montant ni fréquence fixés",
+          "Elle est plus importante que la zakat",
+          "Elle remplacé la zakat",
+          "Elle n'existe que pendant le Ramadan",
+        ],
+        correctIndex: 0,
+        explanation: "La sadaqah est une aumône volontaire, sans montant ni fréquence fixés, contrairement à la zakat qui est une obligation calculée.",
+      },
+      {
+        question: "Selon la tradition prophétique, qu'est-ce qui peut aussi constituer une sadaqah ?",
+        options: ["Uniquement un don d'argent", "Un sourire ou une parole bienveillante", "Uniquement la nourriture", "Rien d'autre que l'or"],
+        correctIndex: 1,
+        explanation: "Un hadith rapporte qu'un sourire, une parole bienveillante ou le fait d'écarter un obstacle du chemin constituent une forme de sadaqah.",
+      },
+    ],
+  },
   intermediaire: {
     1: [
       {
@@ -403,7 +653,7 @@ const LESSON_QUIZZES: Record<string, Record<number, QuestionSeed[]>> = {
         explanation: "L'école hanafite a été fondée par l'imam Abu Hanifa à Kufa.",
       },
       {
-        question: "Quel outil méthodologique l'école hanafite utilise-t-elle fréquemment ?",
+        question: "Quel outil méthodologique l'école hanafite utilisé-t-elle fréquemment ?",
         options: [
           "L'istihsan (préférence juridique)",
           "La pratique des habitants de Médine uniquement",
@@ -508,7 +758,7 @@ const LESSON_QUIZZES: Record<string, Record<number, QuestionSeed[]>> = {
         explanation: "Ash-Shafi'i, avec Ar-Risala, a proposé la première systématisation rigoureuse de l'usul al-fiqh.",
       },
       {
-        question: "Quelle hiérarchie des sources l'approche shafi'ite applique-t-elle ?",
+        question: "Quelle hiérarchie des sources l'approche shafi'ite appliqué-t-elle ?",
         options: [
           "Coutume, puis Coran",
           "Coran, Sunna, consensus (ijma'), puis qiyas",
@@ -516,7 +766,7 @@ const LESSON_QUIZZES: Record<string, Record<number, QuestionSeed[]>> = {
           "Qiyas en premier, puis Coran",
         ],
         correctIndex: 1,
-        explanation: "L'approche shafi'ite applique une hiérarchisation stricte : Coran, Sunna, ijma', puis qiyas.",
+        explanation: "L'approche shafi'ite appliqué une hiérarchisation stricte : Coran, Sunna, ijma', puis qiyas.",
       },
     ],
     9: [
@@ -565,7 +815,7 @@ const LESSON_QUIZZES: Record<string, Record<number, QuestionSeed[]>> = {
         explanation: "Muslim rapporte que le kibr est \"le rejet de la vérité et le mépris des gens\".",
       },
       {
-        question: "Quel comportement du Prophète ﷺ illustre le tawadu' selon cette leçon ?",
+        question: "Quel comportement du Prophète ﷺ illustré le tawadu' selon cette leçon ?",
         options: [
           "Il exigeait une place réservée parmi ses compagnons",
           "Il réparait lui-même ses vêtements et trayait ses chèvres",
@@ -676,7 +926,7 @@ const LESSON_QUIZZES: Record<string, Record<number, QuestionSeed[]>> = {
         explanation: "Ya-Sin est une sourate mecquoise de quatre-vingt-trois versets.",
       },
       {
-        question: "Quel argument Ya-Sin utilise-t-elle pour défendre la résurrection ?",
+        question: "Quel argument Ya-Sin utilisé-t-elle pour défendre la résurrection ?",
         options: [
           "L'analogie avec la terre revivifiée par la pluie",
           "Un témoignage historique",
@@ -848,7 +1098,7 @@ const LESSON_QUIZZES: Record<string, Record<number, QuestionSeed[]>> = {
         explanation: "Une divergence entre écoles est généralement le résultat de méthodologies différentes, non un désaccord sur les fondements de la foi.",
       },
       {
-        question: "Quel exemple concret illustre cette divergence méthodologique dans la leçon ?",
+        question: "Quel exemple concret illustré cette divergence méthodologique dans la leçon ?",
         options: [
           "Le nombre de sourates du Coran",
           "La position des mains pendant la prière",
@@ -856,7 +1106,7 @@ const LESSON_QUIZZES: Record<string, Record<number, QuestionSeed[]>> = {
           "La date du Ramadan",
         ],
         correctIndex: 1,
-        explanation: "L'exemple de la position des mains pendant la prière illustre l'impact des hadiths et des pratiques régionales sur la divergence.",
+        explanation: "L'exemple de la position des mains pendant la prière illustré l'impact des hadiths et des pratiques régionales sur la divergence.",
       },
     ],
     11: [
@@ -869,7 +1119,7 @@ const LESSON_QUIZZES: Record<string, Record<number, QuestionSeed[]>> = {
           "Simplifier le fiqh en une seule position",
         ],
         correctIndex: 1,
-        explanation: "Le comparateur vise à rendre visible une pluralité légitime, sans désigner une position comme supérieure.",
+        explanation: "Le comparateur visé à rendre visible une pluralité légitime, sans désigner une position comme supérieure.",
       },
       {
         question: "Comment le comparateur est-il organisé ?",
@@ -919,7 +1169,7 @@ const FINAL_QUIZZES: Record<string, QuestionSeed[]> = {
       explanation: "Les Kutub as-Sittah regroupent six recueils canoniques.",
     },
     {
-      question: "Quel événement à Ta'if illustre la patience (sabr) du Prophète ﷺ ?",
+      question: "Quel événement à Ta'if illustré la patience (sabr) du Prophète ﷺ ?",
       options: [
         "Il y fut accueilli en héros",
         "Il y fut rejeté et lapidé, mais refusa la destruction de la ville",
@@ -928,6 +1178,112 @@ const FINAL_QUIZZES: Record<string, QuestionSeed[]> = {
       ],
       correctIndex: 1,
       explanation: "Rejeté et lapidé à Ta'if, il refusa que la ville soit détruite, espérant que sa descendance croirait un jour.",
+    },
+  ],
+  "pratique-de-la-priere": [
+    {
+      question: "Quelles sont les conditions préalables à la prière ?",
+      options: [
+        "Pureté rituelle, orientation vers la qibla, temps entré, awra couverte, intention",
+        "Avoir jeûné le jour même",
+        "Être dans une mosquée",
+        "Avoir mémorisé le Coran entier",
+      ],
+      correctIndex: 0,
+      explanation: "Cinq conditions doivent être réunies avant de commencer la prière, dont la pureté rituelle et l'orientation vers la qibla.",
+    },
+    {
+      question: "Dans quel ordre se déroule le wudu ?",
+      options: [
+        "Mains, bouche/nez, visage, avant-bras, tête/oreilles, pieds",
+        "Pieds, mains, tête, visage",
+        "Visage puis mains uniquement",
+        "Tête, pieds, mains, visage",
+      ],
+      correctIndex: 0,
+      explanation: "Le wudu suit un ordre précis, des mains jusqu'aux pieds en passant par le visage et la tête.",
+    },
+    {
+      question: "Quelle est la séquence de base d'une rak'a ?",
+      options: [
+        "Station debout, inclinaison, deux prosternations",
+        "Deux prosternations puis inclinaison",
+        "Position assise uniquement",
+        "Inclinaison répétée quatre fois",
+      ],
+      correctIndex: 0,
+      explanation: "Station debout (qiyam), inclinaison (ruku'), puis deux prosternations (sujud) forment la séquence de chaque rak'a.",
+    },
+    {
+      question: "Quelle sourate est un pilier récité à chaque rak'a ?",
+      options: ["Al-Ikhlas", "Al-Fatiha", "Al-Baqara", "Ya-Sin"],
+      correctIndex: 1,
+      explanation: "La Fatiha est récitée à chaque rak'a et considérée comme un pilier de la prière.",
+    },
+    {
+      question: "Comment se conclut la prière ?",
+      options: [
+        "Par le taslim, en tournant la tête à droite puis à gauche",
+        "Par une prosternation supplémentaire obligatoire",
+        "En restant debout en silence",
+        "Par la récitation d'Ayat al-Kursi uniquement",
+      ],
+      correctIndex: 0,
+      explanation: "Le taslim, salutation en tournant la tête à droite puis à gauche, conclut formellement la prière.",
+    },
+    {
+      question: "Quel est le statut des invocations du quotidien comme celle avant de manger ?",
+      options: ["Obligatoires (fard)", "Recommandées (sunna)", "Interdites hors Ramadan", "Réservées aux voyageurs"],
+      correctIndex: 1,
+      explanation: "Les invocations du quotidien relèvent de la sunna, la pratique recommandée, sans être une obligation.",
+    },
+  ],
+  "jeune-et-aumone": [
+    {
+      question: "Que fait-on durant les heures de jeûne du Ramadan ?",
+      options: [
+        "On s'abstient de nourriture, boisson et rapports intimes de l'aube au coucher du soleil",
+        "On s'abstient uniquement de viande",
+        "On jeûne uniquement la nuit",
+        "On prie sans interruption",
+      ],
+      correctIndex: 0,
+      explanation: "Le jeûne consiste à s'abstenir de nourriture, de boisson et de rapports intimes entre l'aube et le coucher du soleil.",
+    },
+    {
+      question: "Quelle école considère que la ventouse (hijama) annule le jeûne ?",
+      options: ["Hanafite", "Malikite", "Shafi'ite", "Hanbalite"],
+      correctIndex: 3,
+      explanation: "L'école hanbalite retient que la ventouse annule le jeûne, à la différence des trois autres écoles.",
+    },
+    {
+      question: "Avant quelle échéance un jour de jeûne manqué doit-il être rattrapé (qada) ?",
+      options: ["Avant la fin de la semaine", "Avant le Ramadan suivant", "Avant un mois", "Il n'y a pas de délai"],
+      correctIndex: 1,
+      explanation: "Le rattrapage doit être effectué avant l'arrivée du Ramadan suivant.",
+    },
+    {
+      question: "Quel taux est généralement retenu pour la zakat sur l'or et l'argent ?",
+      options: ["1 %", "2,5 %", "5 %", "10 %"],
+      correctIndex: 1,
+      explanation: "Le taux généralement retenu pour la zakat sur l'or et l'argent est de 2,5 % de la valeur au-delà du nisab.",
+    },
+    {
+      question: "Quand la zakat al-fitr doit-elle être versée ?",
+      options: ["Avant la prière de l'Aïd al-Fitr", "N'importe quand dans l'année", "Après la prière de l'Aïd", "Uniquement le dernier jour du Ramadan à minuit"],
+      correctIndex: 0,
+      explanation: "La zakat al-fitr doit être versée avant la prière de l'Aïd al-Fitr, pour permettre aux nécessiteux de célébrer la fête.",
+    },
+    {
+      question: "En quoi la sadaqah diffère-t-elle de la zakat ?",
+      options: [
+        "Elle est volontaire, sans montant ni fréquence fixés",
+        "Elle remplacé la zakat",
+        "Elle n'existe que pendant le Ramadan",
+        "Elle est réservée aux voyageurs",
+      ],
+      correctIndex: 0,
+      explanation: "La sadaqah est une aumône volontaire, sans montant ni fréquence fixés, contrairement à la zakat qui est une obligation calculée.",
     },
   ],
   intermediaire: [
@@ -981,7 +1337,7 @@ const FINAL_QUIZZES: Record<string, QuestionSeed[]> = {
       explanation: "Les quatre sources classiques sont le Coran, la Sunna, l'ijma' et le qiyas.",
     },
     {
-      question: "Quel argument la sourate Ya-Sin utilise-t-elle pour la résurrection ?",
+      question: "Quel argument la sourate Ya-Sin utilisé-t-elle pour la résurrection ?",
       options: ["Un miracle visible", "L'analogie avec la terre revivifiée par la pluie", "Un témoignage historique", "Aucun argument rationnel"],
       correctIndex: 1,
       explanation: "Ya-Sin compare la capacité de Dieu à revivifier la terre morte par la pluie à Sa capacité à ressusciter les morts.",
