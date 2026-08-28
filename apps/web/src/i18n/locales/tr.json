@@ -196,6 +196,8 @@
     "error": "Veriler yuklenemedi.",
     "errorDetail": "Bu sayfa yuklenemedi.",
     "backToList": "Tum mezhepler",
+    "backToSchools": "Mezheplere dön",
+    "backToComparator": "Karşılaştırma aracına dön",
     "fiqhSchools": "Fikih mezhepleri",
     "theologicalSchools": "Itikadi ekoller",
     "theological": "Kelam",
@@ -204,7 +206,17 @@
     "history": "Tarih",
     "principles": "Ilkeler ve yontem",
     "sourcesUsed": "Kullanilan kaynaklar",
-    "whyDivergence": "Neden bir goru ayriligi var?"
+    "whyDivergence": "Neden bir goru ayriligi var?",
+    "suggestQuestion": "Soru öner",
+    "suggestQuestionTitle": "Karşılaştırma aracı için soru öner",
+    "suggestQuestionDescription": "Farklı mezheplerin görüşünü görmek istediğiniz bir fıkıh konusu önerin. Ekip üyelerimiz yayınlamadan önce inceleyecek.",
+    "suggestQuestionPlaceholder": "Örn.: Dinen usulüne uygun kesilmemiş bir hayvanın derisinden yapılmış kıyafet namazda giyilebilir mi?",
+    "suggestQuestionContextPlaceholder": "Ek bağlam (isteğe bağlı)",
+    "suggestQuestionSubmit": "Öneriyi gönder",
+    "suggestQuestionSubmitting": "Gönderiliyor...",
+    "suggestQuestionSuccess": "Teşekkürler! Öneriniz ekibe iletildi.",
+    "suggestQuestionError": "Öneri şu anda gönderilemedi.",
+    "suggestQuestionRequired": "Lütfen sorunuzu açıklayın."
   },
   "search": {
     "title": "Arama",
@@ -265,7 +277,8 @@
     "loading": "Yukleniyor...",
     "showTranslation": "Ceviriyi goster",
     "hideTranslation": "Ceviriyi gizle",
-    "error": "Bir hata olustu. Lütfen tekrar deneyin."
+    "error": "Bir hata olustu. Lütfen tekrar deneyin.",
+    "cancel": "Iptal"
   },
   "library": {
     "title": "Kütüphane",
@@ -296,7 +309,15 @@
     "roleUpdated": "Rol güncellendi",
     "statusUpdated": "Durum güncellendi",
     "userUpdated": "Kullanıcı güncellendi",
-    "assigned": "Bildirim atandı"
+    "assigned": "Bildirim atandı",
+    "fiqhSuggestions": "Fıkıh önerileri",
+    "noFiqhSuggestions": "Şu anda öneri yok.",
+    "suggestedBy": "Öneren",
+    "fiqhSuggestionStatus": {
+      "NOUVELLE": "İşlenmedi",
+      "EN_COURS": "İşleniyor",
+      "TRAITEE": "İşlendi"
+    }
   },
   "assistant": {
     "title": "Yapay Zeka Asistanı",

@@ -40,6 +40,23 @@ export interface AdminRole {
   description: string | null;
 }
 
+export type FiqhSuggestionStatus = "NOUVELLE" | "EN_COURS" | "TRAITEE";
+
+export const FIQH_SUGGESTION_STATUSES: FiqhSuggestionStatus[] = ["NOUVELLE", "EN_COURS", "TRAITEE"];
+
+export interface AdminFiqhSuggestion {
+  id: string;
+  submittedBy: string | null;
+  submittedByName: string | null;
+  question: string;
+  context: string | null;
+  status: FiqhSuggestionStatus;
+  adminNote: string | null;
+  handledBy: string | null;
+  handledByName: string | null;
+  createdAt: string;
+}
+
 export interface AuditLogEntry {
   id: string;
   actorUserId: string | null;

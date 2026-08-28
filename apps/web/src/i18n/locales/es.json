@@ -196,6 +196,8 @@
     "error": "No se pudieron cargar los datos.",
     "errorDetail": "No se pudo cargar esta pagina.",
     "backToList": "Todas las escuelas",
+    "backToSchools": "Volver a las escuelas",
+    "backToComparator": "Volver al comparador",
     "fiqhSchools": "Escuelas juridicas (fiqh)",
     "theologicalSchools": "Corrientes teologicas",
     "theological": "Teologia",
@@ -204,7 +206,17 @@
     "history": "Historia",
     "principles": "Principios y metodo",
     "sourcesUsed": "Fuentes utilizadas",
-    "whyDivergence": "¿Por que existe una divergencia?"
+    "whyDivergence": "¿Por que existe una divergencia?",
+    "suggestQuestion": "Sugerir una pregunta",
+    "suggestQuestionTitle": "Sugerir una pregunta para el comparador",
+    "suggestQuestionDescription": "Propon un tema de fiqh sobre el que te gustaria ver la posicion de las distintas escuelas. Un miembro del equipo lo revisara antes de publicarlo.",
+    "suggestQuestionPlaceholder": "Ej.: ¿Esta permitido llevar ropa de piel de un animal no sacrificado ritualmente durante la oracion?",
+    "suggestQuestionContextPlaceholder": "Contexto adicional (opcional)",
+    "suggestQuestionSubmit": "Enviar sugerencia",
+    "suggestQuestionSubmitting": "Enviando...",
+    "suggestQuestionSuccess": "¡Gracias! Tu sugerencia ha sido enviada al equipo.",
+    "suggestQuestionError": "No se pudo enviar la sugerencia en este momento.",
+    "suggestQuestionRequired": "Por favor describe tu pregunta."
   },
   "search": {
     "title": "Busqueda",
@@ -265,7 +277,8 @@
     "loading": "Cargando...",
     "showTranslation": "Mostrar traduccion",
     "hideTranslation": "Ocultar traduccion",
-    "error": "Ha ocurrido un error. Inténtalo de nuevo."
+    "error": "Ha ocurrido un error. Inténtalo de nuevo.",
+    "cancel": "Cancelar"
   },
   "library": {
     "title": "Biblioteca",
@@ -296,7 +309,15 @@
     "roleUpdated": "Rol actualizado",
     "statusUpdated": "Estado actualizado",
     "userUpdated": "Usuario actualizado",
-    "assigned": "Reporte asignado"
+    "assigned": "Reporte asignado",
+    "fiqhSuggestions": "Sugerencias de fiqh",
+    "noFiqhSuggestions": "Ninguna sugerencia por el momento.",
+    "suggestedBy": "Sugerido por",
+    "fiqhSuggestionStatus": {
+      "NOUVELLE": "Sin tratar",
+      "EN_COURS": "En proceso",
+      "TRAITEE": "Tratada"
+    }
   },
   "assistant": {
     "title": "Asistente IA",

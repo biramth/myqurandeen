@@ -1134,6 +1134,155 @@ const LESSON_QUIZZES: Record<string, Record<number, QuestionSeed[]>> = {
       },
     ],
   },
+  sira: {
+    1: [
+      {
+        question: "Quel surnom était donné à Muhammad ﷺ avant même le début de sa mission prophétique ?",
+        options: ["Al-Amin (le digne de confiance)", "Al-Mustafa (l'élu)", "Al-Fatih (le conquérant)", "Al-Ghazali"],
+        correctIndex: 0,
+        explanation: "Il était surnommé \"Al-Amin\" à La Mecque en raison de sa réputation d'honnêteté et de fiabilité reconnue de tous.",
+      },
+      {
+        question: "Combien de temps a duré le mariage du Prophète ﷺ avec Khadija ?",
+        options: ["Cinq ans", "Dix ans", "Vingt-cinq ans", "Quarante ans"],
+        correctIndex: 2,
+        explanation: "Leur union, monogame, a duré vingt-cinq ans, jusqu'à la mort de Khadija.",
+      },
+    ],
+    2: [
+      {
+        question: "Où la première révélation a-t-elle eu lieu, selon la tradition ?",
+        options: ["Dans la grotte de Hira", "Dans la Kaaba", "À Médine", "Dans la grotte de Thawr"],
+        correctIndex: 0,
+        explanation: "La révélation débute dans la grotte de Hira, sur le mont An-Nour près de La Mecque, vers l'an 610.",
+      },
+      {
+        question: "Qui est traditionnellement considérée comme la première personne à avoir cru au message du Prophète ﷺ ?",
+        options: ["Khadija", "Abu Bakr", "Ali", "Omar"],
+        correctIndex: 0,
+        explanation: "Khadija, son épouse, est unanimement présentée comme la toute première croyante.",
+      },
+    ],
+    3: [
+      {
+        question: "Que provoqué l'appel public au tawhid auprès des chefs de Quraych ?",
+        options: [
+          "Une adhésion rapide et générale",
+          "Une indifférence totale",
+          "Une opposition croissante et des persécutions",
+          "Une invitation à négocier immédiatement",
+        ],
+        correctIndex: 2,
+        explanation: "L'appel public remet en cause l'ordre religieux et économique mecquois, provoquant moqueries, boycott et persécutions.",
+      },
+      {
+        question: "Vers quel royaume une partie des premiers musulmans émigre-t-elle pour fuir les persécutions ?",
+        options: ["L'Abyssinie", "La Perse", "L'Égypte", "Byzance"],
+        correctIndex: 0,
+        explanation: "Ils émigrent vers le royaume chrétien d'Aksoum, en Abyssinie, dont le souverain est réputé juste.",
+      },
+    ],
+    4: [
+      {
+        question: "Quels deux soutiens proches le Prophète ﷺ perd-il durant l'\"Année de la Tristesse\" ?",
+        options: [
+          "Khadija et Abu Talib",
+          "Abu Bakr et Omar",
+          "Ali et Hamza",
+          "Aisha et Fatima",
+        ],
+        correctIndex: 0,
+        explanation: "Il perd son épouse Khadija et son oncle protecteur Abu Talib en l'espace de quelques mois, vers 619.",
+      },
+      {
+        question: "Qu'est-ce qui est institué lors du voyage nocturne et de l'ascension (Isra wal Mi'raj) ?",
+        options: ["Les cinq prières quotidiennes", "Le jeûne du Ramadan", "La zakat", "Le hajj"],
+        correctIndex: 0,
+        explanation: "C'est lors de cet événement que les cinq prières quotidiennes sont instituées, selon la tradition.",
+      },
+    ],
+    5: [
+      {
+        question: "Que sont les \"serments d'Aqaba\" ?",
+        options: [
+          "Des engagements d'accueil conclus avec des habitants de Yathrib",
+          "Un traité de paix avec les Byzantins",
+          "Le nom d'une bataille",
+          "Un pèlerinage annuel",
+        ],
+        correctIndex: 0,
+        explanation: "Ce sont deux engagements successifs par lesquels des habitants de Yathrib s'engagent à accueillir et protéger le Prophète ﷺ.",
+      },
+      {
+        question: "Quelle année marque le point de départ du calendrier musulman ?",
+        options: ["610 (début de la révélation)", "622 (l'Hégire)", "630 (conquête de La Mecque)", "632 (décès du Prophète ﷺ)"],
+        correctIndex: 1,
+        explanation: "L'Hégire, l'émigration vers Médine en 622, marque le point de départ du calendrier hégirien.",
+      },
+    ],
+    6: [
+      {
+        question: "Pourquoi la bataille d'Uhud bascule-t-elle en défaveur des musulmans ?",
+        options: [
+          "Un groupe d'archers quitte sa position pour le butin",
+          "Le Prophète ﷺ est absent",
+          "Les musulmans manquent d'armes",
+          "Une tempête de sable les surprend",
+        ],
+        correctIndex: 0,
+        explanation: "Des archers quittent leur position stratégique pour participer au butin, permettant à la cavalerie mecquoise de prendre les musulmans à revers.",
+      },
+      {
+        question: "Quelle tactique permet aux musulmans de mettre en échec le siège de Médine (bataille du Fossé) ?",
+        options: [
+          "Le creusement d'un fossé défensif",
+          "Une attaque surprise nocturne",
+          "Un traité signé avant le siège",
+          "L'intervention d'une tribu alliée",
+        ],
+        correctIndex: 0,
+        explanation: "Sur suggestion de Salman al-Farisi, les musulmans creusent un fossé qui rend l'assaut de la cavalerie ennemie inefficace.",
+      },
+    ],
+    7: [
+      {
+        question: "Comment le traité de Hudaybiyya est-il qualifié dans le Coran, malgré son apparence désavantageuse ?",
+        options: ["Une victoire manifeste", "Une défaite honorable", "Un simple accord commercial", "Une trêve sans importance"],
+        correctIndex: 0,
+        explanation: "Le Coran (sourate Al-Fath) le qualifie de \"victoire manifeste\", ayant permis une large diffusion pacifique de l'Islam.",
+      },
+      {
+        question: "Comment se déroule la conquête de La Mecque en 630 ?",
+        options: [
+          "Avec très peu de résistance et une amnistie générale",
+          "Après un long siège sanglant",
+          "Grâce à une intervention étrangère",
+          "Elle n'a jamais eu lieu du vivant du Prophète ﷺ",
+        ],
+        correctIndex: 0,
+        explanation: "La ville se rend avec peu de résistance et le Prophète ﷺ accorde une amnistie générale, y compris à d'anciens persécuteurs.",
+      },
+    ],
+    8: [
+      {
+        question: "Que rappelle le Sermon d'Adieu, prononcé lors du Pèlerinage d'Adieu ?",
+        options: [
+          "L'égalité entre croyants et l'interdiction de l'usure",
+          "Les règles du commerce international",
+          "La liste des califes à venir",
+          "Le calendrier des futures conquêtes",
+        ],
+        correctIndex: 0,
+        explanation: "Il rappelle notamment l'égalité entre croyants, l'interdiction de l'usure et de la vengeance tribale, et les droits réciproques entre époux.",
+      },
+      {
+        question: "Qui est désigné comme premier calife après le décès du Prophète ﷺ ?",
+        options: ["Abu Bakr", "Omar", "Uthman", "Ali"],
+        correctIndex: 0,
+        explanation: "Abu Bakr as-Siddiq est désigné premier calife, ouvrant la période rashidun.",
+      },
+    ],
+  },
 };
 
 const FINAL_QUIZZES: Record<string, QuestionSeed[]> = {
@@ -1375,6 +1524,49 @@ const FINAL_QUIZZES: Record<string, QuestionSeed[]> = {
       ],
       correctIndex: 1,
       explanation: "Le comparateur rend visible, sans hiérarchie, une pluralité de positions légitimes documentées.",
+    },
+  ],
+  sira: [
+    {
+      question: "Quel événement marque le début de la révélation coranique ?",
+      options: [
+        "L'apparition de l'ange Jibril dans la grotte de Hira",
+        "L'Hégire vers Médine",
+        "La conquête de La Mecque",
+        "Le Pèlerinage d'Adieu",
+      ],
+      correctIndex: 0,
+      explanation: "La révélation débute vers 610, dans la grotte de Hira, par l'ordre \"Iqra\" transmis par l'ange Jibril.",
+    },
+    {
+      question: "Vers quel pays les premiers musulmans persécutés émigrent-ils ?",
+      options: ["L'Abyssinie", "La Perse", "Byzance", "L'Égypte"],
+      correctIndex: 0,
+      explanation: "Ils émigrent vers le royaume chrétien d'Aksoum, en Abyssinie.",
+    },
+    {
+      question: "Que institue le voyage nocturne et l'ascension (Isra wal Mi'raj) ?",
+      options: ["Les cinq prières quotidiennes", "Le jeûne du Ramadan", "La zakat", "Le pèlerinage"],
+      correctIndex: 0,
+      explanation: "Les cinq prières quotidiennes sont instituées lors de cet événement.",
+    },
+    {
+      question: "Quelle bataille de 624 est présentée dans le Coran comme un signe du soutien divin ?",
+      options: ["Badr", "Uhud", "Le Fossé", "Hudaybiyya"],
+      correctIndex: 0,
+      explanation: "Badr, première grande victoire musulmane, est présentée dans le Coran (sourate Al-Anfal) comme un signe divin.",
+    },
+    {
+      question: "Comment le Prophète ﷺ traite-t-il ses anciens persécuteurs lors de la conquête de La Mecque ?",
+      options: ["Il leur accorde une amnistie générale", "Il les bannit", "Il exige une compensation financière", "Il les exécute"],
+      correctIndex: 0,
+      explanation: "Il accorde une amnistie générale, y compris à nombre de ses anciens persécuteurs, un épisode largement souligné dans la tradition.",
+    },
+    {
+      question: "Qui succède au Prophète ﷺ à la tête de la communauté après sa mort en 632 ?",
+      options: ["Abu Bakr, premier calife", "Ali, son cousin et gendre", "Omar", "Aucun successeur n'est désigné"],
+      correctIndex: 0,
+      explanation: "Abu Bakr as-Siddiq est désigné premier calife, ouvrant la période rashidun.",
     },
   ],
 };

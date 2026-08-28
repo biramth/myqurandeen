@@ -34,7 +34,7 @@ const PROPHETS: ProphetSeed[] = [
     peopleAddressed: null,
     quranicMentions: "Mentionne notamment dans les sourates Al-Baqara, Al-A'raf et Ta-Ha.",
     description:
-      "Considère comme le premier être humain et le premier prophète en Islam. Le Coran relate sa création, son installation au paradis avec son epouse, l'épisode de l'arbre defendu et de la désobéissance sous l'influence d'Iblis (Satan), puis leur envoi sur terre après repentir et pardon divin. Il est présente comme le père de l'humanité.",
+      "Considère comme le premier être humain et le premier prophète en Islam. Le Coran relate sa création directe par Dieu a partir d'argile, l'insufflation de l'âme, puis l'ordre donne aux anges de se prosterner devant lui - qu'Iblis (Satan), par orgueil, refuse d'executer, provoquant son bannissement. Installé au paradis avec son epouse Hawwa (Eve), Adam se voit interdire l'approche d'un arbre precis ; seduits par Iblis, le couple en mange et est renvoyé sur terre, non par punition definitive mais après avoir sincerement demande pardon et l'avoir obtenu - un récit que la tradition islamique lit comme fondateur de la notion de repentir (tawba) plutôt que comme un peche originel transmis a toute l'humanité. Il est présente comme le père de l'humanité et le premier a avoir recu une révélation divine.",
     era: "Origines de l'humanité",
   },
   {
@@ -44,7 +44,7 @@ const PROPHETS: ProphetSeed[] = [
     peopleAddressed: null,
     quranicMentions: "Mentionne dans les sourates Maryam et Al-Anbiya.",
     description:
-      "Prophète mentionne brievement dans le Coran, decrit comme veridique et élevé à un haut rang. La tradition islamique l'associé parfois a des figures anciennes connues pour leur sagesse, sans que les sources scripturaires n'en disent beaucoup plus.",
+      "Prophète mentionne brievement dans le Coran, decrit comme veridique (siddiq) et élevé par Dieu a un haut rang (makan 'aliyy). La tradition exegetique l'associé parfois a des connaissances anciennes (ecriture, calcul, astronomie selon certains commentateurs) et, dans certains récits non coraniques d'authenticité discutee, a la figure biblique d'Hénoch, sans que le texte coranique lui-même n'en dise davantage. Il demeure l'une des figures prophetiques les moins documentees du Coran, ce qui invite a la prudence quant a tout détail au-dela de ce que le texte affirme explicitement.",
     era: "Période ancienne, avant Nuh selon la tradition",
   },
   {
@@ -54,7 +54,7 @@ const PROPHETS: ProphetSeed[] = [
     peopleAddressed: "Son peuple, qui pratiquait l'idolatrie",
     quranicMentions: "Sujet d'une sourate entière (Nuh) ; également évoque dans Al-A'raf, Hud et Al-Ankabut.",
     description:
-      "Envoye à un peuple qui persiste dans l'idolatrie malgre des siècles d'appel à l'unicité de Dieu, Nuh construit une arche sur ordre divin pour sauver les croyants et des couples d'animaux avant un deluge destructeur. Son fils, refusant de le suivre, perit dans le deluge, épisode souvent cité pour illustrer que la parente ne suffit pas sans la foi.",
+      "Envoye à un peuple qui persiste dans l'idolatrie malgre neuf cent cinquante ans d'appel, selon le chiffre donne par le Coran (sourate Al-Ankabut, 29:14), à l'unicité de Dieu, Nuh ne convainc qu'une poignee de croyants. Sur ordre divin, il construit une arche pour sauver les croyants et un couple de chaque espèce animale avant qu'un deluge ne detruise le reste de son peuple. Son fils, refusant de le suivre et cherchant refuge sur une montagne par orgueil, perit dans les flots - épisode ou Nuh, bouleverse, interroge Dieu sur cette perte, et recoit en réponse que l'appartenance familiale ne suffit pas sans la foi. L'arche s'echoue finalement sur le mont Al-Judi, et Nuh est celebre dans le Coran comme un \"serviteur reconnaissant\" (13:3) et l'un des cinq \"messagers dotes de fermete\" (ulu al-'azm).",
     era: "Période ancienne",
   },
   {
@@ -64,7 +64,7 @@ const PROPHETS: ProphetSeed[] = [
     peopleAddressed: "Le peuple de 'Ad",
     quranicMentions: "Sujet d'une sourate entière (Hud) ; également évoque dans Al-A'raf et Ash-Shu'ara.",
     description:
-      "Envoye au peuple de 'Ad, connu pour sa puissance et ses constructions impressionnantes, Hud les appelle a abandonner l'idolatrie. Face à leur refus obstine, une tempete devastatrice s'abat sur eux tandis que Hud et les croyants sont epargnes.",
+      "Envoye au peuple de 'Ad, installe dans la région d'Al-Ahqaf (au sud de la péninsule arabique) et connu pour sa puissance physique et ses constructions imposantes sur des hauteurs, Hud les appelle a abandonner l'idolatrie et a reconnaitre les bienfaits que Dieu leur avait accordes. Face à leur refus obstine et a leurs moqueries, un vent violent et glacial, decrit dans le Coran comme s'etant abattu sur eux durant sept nuits et huit jours (sourate Al-Haqqa, 69:7), les extermine entierement, tandis que Hud et les croyants qui l'avaient suivi sont epargnes.",
     era: "Période ancienne, après Nuh",
   },
   {
@@ -74,7 +74,7 @@ const PROPHETS: ProphetSeed[] = [
     peopleAddressed: "Le peuple de Thamud",
     quranicMentions: "Évoque dans Al-A'raf, Hud, Ash-Shu'ara et Al-Qamar, entre autres.",
     description:
-      "Envoye au peuple de Thamud, connu pour avoir taille des demeures dans la roche, Salih leur présente une chamelle comme signe divin et les met en garde de ne pas lui nuire. Le peuple tue neanmoins la chamelle, provoquant un châtiment qui les extermine, à l'exception de Salih et des croyants.",
+      "Envoye au peuple de Thamud, successeur du peuple de 'Ad et connu pour avoir taille des demeures dans la roche des montagnes (des vestiges archeologiques traditionnellement associés a ce récit se trouvent a Madain Salih, dans le nord-ouest de l'Arabie saoudite actuelle), Salih leur présente une chamelle miraculeuse comme signe divin tangible et les met en garde de ne lui causer aucun tort, sous peine de châtiment. Le peuple, pousse par quelques instigateurs, sacrifie neanmoins la chamelle, provoquant trois jours plus tard un châtiment (traditionnellement decrit comme un tremblement de terre accompagne d'un cri terrible, sayha) qui les extermine, a l'exception de Salih et des croyants qui l'avaient suivi.",
     era: "Période ancienne, après 'Ad",
   },
   {
@@ -84,7 +84,7 @@ const PROPHETS: ProphetSeed[] = [
     peopleAddressed: "Son peuple babylonien, puis plus largement les generations suivantes",
     quranicMentions: "Très largement évoque, notamment dans Al-Baqara, Al-An'am, Ibrahim et As-Saffat.",
     description:
-      "Figure centrale du monotheisme en Islam, Ibrahim brise les idoles de son peuple et confronte le roi tyrannique de son époque, echappant miraculeusement au bucher. Avec son fils Isma'il, il reconstruit la Kaaba à La Mecque. Sa disposition a sacrifier son fils sur ordre divin, remplacé in extremis par un belier, est commemoree lors de l'Aid al-Adha. Il est considère comme l'ancetre spirituel commun aux traditions juive, chrétienne et musulmane.",
+      "Figure centrale du monotheisme en Islam, Ibrahim entame sa quête de Dieu, selon le récit coranique (sourate Al-An'am, 6:74-79), en observant les astres, la lune puis le soleil avant de conclure qu'aucun d'eux ne peut être divin puisqu'ils declinent tous. Il brise ensuite les idoles de son peuple, ne laissant que la plus grande pour qu'elle en soit accusee, et confronte le roi tyrannique de son époque (traditionnellement identifie a Nemrod), echappant miraculeusement a un bucher rendu \"fraicheur et paix\" par ordre divin. Avec son fils Isma'il, il reconstruit les fondations de la Kaaba à La Mecque en y invoquant Dieu pour les generations a venir. Sa disposition a sacrifier son fils en songe sur ordre divin, remplace in extremis par un belier envoye par Dieu, est commemoree chaque annee lors de l'Aid al-Adha. Père d'Isma'il et d'Ishaq, il est considère comme l'ancetre spirituel commun aux traditions juive, chrétienne et musulmane, et le Coran le designe comme \"ami intime de Dieu\" (khalil Allah, 4:125).",
     era: "Environ IIe millenaire avant l'ere commune (chronologie traditionnelle)",
   },
   {
@@ -94,7 +94,7 @@ const PROPHETS: ProphetSeed[] = [
     peopleAddressed: "Le peuple de Sodome",
     quranicMentions: "Évoque dans Al-A'raf, Hud, Al-Hijr et Ash-Shu'ara, entre autres.",
     description:
-      "Neveu d'Ibrahim selon la tradition, Lut est envoye au peuple de Sodome pour les avertir de leurs pratiques immorales. Face à leur refus persistant, la ville est detruite, tandis que Lut et sa famille sont sauves, à l'exception de son epouse.",
+      "Neveu d'Ibrahim selon la tradition, Lut est envoye au peuple de Sodome et des cites voisines pour les avertir de leurs pratiques immorales, notamment des rapports entre hommes que le Coran presente comme une transgression inedite parmi les peuples anterieurs. Des anges, envoyes sous forme humaine pour annoncer le châtiment, sont recus par Lut qui craint pour leur securite face a son peuple ; celui-ci, refusant tout avertissement, voit ses cites detruites et retournees sens dessus dessous. Lut et sa famille sont sauves durant la nuit, a l'exception de son epouse, qui s'etait retournee vers la destruction en signe de son manque de foi et perit avec le peuple.",
     era: "Contemporain d'Ibrahim",
   },
   {
@@ -104,7 +104,7 @@ const PROPHETS: ProphetSeed[] = [
     peopleAddressed: "Les habitants de La Mecque",
     quranicMentions: "Évoque dans Al-Baqara, As-Saffat, Maryam et Al-Anbiya.",
     description:
-      "Fils aine d'Ibrahim, installé avec sa mère Hajar à La Mecque, ou jaillit selon la tradition la source de Zamzam. Il participe avec son père à la reconstruction de la Kaaba et est traditionnellement considère comme l'ancetre des Arabes du Hijaz, dont est issu le Prophète Muhammad ﷺ.",
+      "Fils aine d'Ibrahim, ne de sa servante Hajar, Isma'il est installé encore nourrisson avec sa mère dans la vallee desertique de La Mecque sur ordre divin. Selon la tradition, alors qu'Hajar court desesperement entre les collines de Safa et Marwa a la recherche d'eau - course commemoree aujourd'hui dans le rituel du sa'y du hajj et de la 'umra -, la source de Zamzam jaillit miraculeusement sous les pieds de l'enfant. Devenu adulte, il participe avec son père a la reconstruction de la Kaaba et accepte, selon le récit coranique, de se soumettre au sacrifice demande a Ibrahim en songe. Il est traditionnellement considère comme l'ancetre des tribus arabes du Hijaz, dont est issu, plusieurs generations plus tard, le Prophète Muhammad ﷺ.",
     era: "Contemporain d'Ibrahim",
   },
   {
@@ -114,7 +114,7 @@ const PROPHETS: ProphetSeed[] = [
     peopleAddressed: null,
     quranicMentions: "Évoque dans Al-Baqara, As-Saffat et Hud.",
     description:
-      "Second fils d'Ibrahim, ne de son epouse Sarah, Ishaq est annonce par des anges venus visiter Ibrahim. Il est le père de Ya'qub et, par sa lignee, l'ancetre traditionnel des Enfants d'Israel (Bani Isra'il).",
+      "Second fils d'Ibrahim, ne de son epouse Sarah alors que celle-ci et Ibrahim etaient déjà âges, Ishaq est annonce par des anges venus visiter Ibrahim pour lui apprendre la destruction imminente du peuple de Lut - une naissance decrite dans le Coran comme un signe supplementaire de la puissance divine, la reaction de surprise de Sarah étant explicitement rapportee (sourate Hud, 11:71-72). Il est le père de Ya'qub et, par sa lignee, l'ancetre traditionnel des Enfants d'Israel (Bani Isra'il), dont la plupart des prophètes ulterieurs mentionnes dans le Coran sont issus.",
     era: "Contemporain d'Ibrahim",
   },
   {
@@ -124,7 +124,7 @@ const PROPHETS: ProphetSeed[] = [
     peopleAddressed: null,
     quranicMentions: "Évoque notamment dans la sourate Yusuf et dans Al-Baqara.",
     description:
-      "Fils d'Ishaq et père de Yusuf, Ya'qub, également appele Isra'il, est le patriarche dont descendent les douze tribus d'Israel. Le Coran relate sa profonde douleur après la disparition de son fils Yusuf et sa foi inebranlable en la misericorde divine.",
+      "Fils d'Ishaq et père de Yusuf (ainsi que de onze autres fils, patriarches traditionnels des douze tribus d'Israel), Ya'qub, également appele Isra'il, est presente par le Coran comme un père d'une profonde tendresse, dont la douleur après la disparition de Yusuf le rend litteralement aveugle de chagrin, selon le récit de la sourate Yusuf. Sa confiance inebranlable dans la misericorde et la sagesse divines, malgre l'incomprehension de son entourage, culmine avec le recouvrement miraculeux de sa vue au contact de la chemise de Yusuf, envoyee depuis l'Égypte, et avec les retrouvailles finales de toute la famille.",
     era: "Descendant d'Ibrahim",
   },
   {
@@ -134,7 +134,7 @@ const PROPHETS: ProphetSeed[] = [
     peopleAddressed: "L'Égypte antique",
     quranicMentions: "Sujet d'une sourate entière (Yusuf), présentée comme \"le plus beau des récits\".",
     description:
-      "Fils de Ya'qub, vendu comme esclave par ses frères jaloux puis emmene en Égypte, Yusuf resiste à la tentation, est injustement emprisonne, puis s'élevé grâce à sa capacité a interpréter les songes jusqu'à devenir un haut responsable charge des reserves du pays. Il finit par se reconcilier avec ses frères et retrouver son père.",
+      "Fils prefere de Ya'qub, jete dans un puits par ses frères jaloux de l'affection que leur père lui portait, Yusuf est recueilli par une caravane et vendu comme esclave en Égypte, ou il est achete par un haut dignitaire. Devenu jeune homme, il resiste a la tentation de l'epouse de son maitre, qui l'accuse neanmoins injustement, le conduisant en prison pendant plusieurs années malgre son innocence etablie. En detention, sa capacité a interpréter les songes se revele, jusqu'a ce que Pharaon lui-même fasse appel a lui pour un rêve prophetique annoncant une famine ; Yusuf, libere, s'élevé alors au rang de haut responsable charge des reserves alimentaires du pays. Une famine ramene finalement ses frères en Égypte pour y chercher des vivres, sans le reconnaitre, avant qu'il ne se revele a eux et pardonne leur trahison passee, permettant les retrouvailles de toute la famille, y compris son père Ya'qub.",
     era: "Descendant d'Ibrahim, en Égypte",
   },
   {
@@ -144,7 +144,7 @@ const PROPHETS: ProphetSeed[] = [
     peopleAddressed: null,
     quranicMentions: "Évoque dans Al-Anbiya et Sad.",
     description:
-      "Symbole coranique de la patience dans l'épreuve, Ayyub subit une longue maladie et la perte de ses biens sans jamais cesser d'invoquer Dieu avec confiance. Sa guerison et la restauration de ce qu'il avait perdu sont présentées comme une récompense de sa perseverance.",
+      "Symbole coranique de la patience dans l'épreuve (sabr), Ayyub, homme riche et pieux, subit une longue maladie physique ainsi que la perte de ses biens et, selon les récits exegetiques traditionnels, d'une partie de sa famille, sans jamais cesser d'invoquer Dieu avec confiance ni se plaindre au-dela d'une brève et pudique invocation rapportee dans le Coran (\"le mal m'a touche, et Tu es le plus Misericordieux des misericordieux\", 21:83). Sa guerison, obtenue selon la tradition par une source d'eau jaillie a l'endroit ou il frappe le sol du pied, et la restauration au double de ce qu'il avait perdu, sont présentées comme la récompense de sa perseverance et une misericorde particuliere de Dieu envers lui.",
     era: "Période ancienne",
   },
   {
@@ -154,7 +154,7 @@ const PROPHETS: ProphetSeed[] = [
     peopleAddressed: "Le peuple de Madyan",
     quranicMentions: "Évoque dans Al-A'raf, Hud et Ash-Shu'ara.",
     description:
-      "Envoye au peuple de Madyan, Shu'ayb les appelle à l'unicité de Dieu et dénonce leurs pratiques commerciales malhonnetes, notamment la fraude sur les poids et mesures. Face au rejet de son message, un châtiment s'abat sur son peuple.",
+      "Envoye au peuple de Madyan, region marchande de la peninsule arabique, Shu'ayb les appelle a l'unicité de Dieu et dénonce vigoureusement leurs pratiques commerciales malhonnetes, notamment la fraude sur les poids et mesures qui semble avoir été une pratique repandue et normalisee dans cette société. Souvent surnomme par la tradition exegetique \"l'orateur des prophètes\" (khatib al-anbiya) pour l'eloquence de ses arguments rapportes dans le Coran, il fait face au rejet et aux menaces d'expulsion de son peuple ; un châtiment (traditionnellement decrit comme un cri accompagne d'une chaleur accablante suivie d'une ombre trompeuse) s'abat finalement sur eux, tandis que Shu'ayb et les croyants sont epargnes.",
     era: "Période ancienne",
   },
   {
@@ -164,7 +164,7 @@ const PROPHETS: ProphetSeed[] = [
     peopleAddressed: "Pharaon et les Enfants d'Israel",
     quranicMentions: "Le prophète le plus frequemment mentionne dans le Coran, notamment dans Al-Baqara, Al-A'raf, Ta-Ha et Al-Qasas.",
     description:
-      "Envoye a Pharaon pour liberer les Enfants d'Israel de l'oppression, Musa recoit la révélation au mont Sinai après avoir vu le buisson ardent. Son affrontement avec les magiciens de Pharaon, la traversee miraculeuse de la mer et la noyade de Pharaon, ainsi que la reception de la Torah, sont parmi les récits les plus developpes du Coran.",
+      "Ne parmi les Enfants d'Israel a une époque ou Pharaon fait tuer les nouveau-nes males par crainte d'une prophetie, Musa est sauve en etant confie aux eaux du Nil dans un panier et recueilli, selon le récit coranique, par la propre famille de Pharaon qui l'elevera. Devenu adulte, après avoir tue accidentellement un Égyptien et fui vers Madyan ou il epouse la fille de Shu'ayb (ou d'un homme pieux identifie a lui par la tradition), il recoit la révélation au mont Sinai en voyant un feu depuis lequel Dieu lui parle directement, un statut de dialogue direct qui vaut a Musa le titre de \"Kalim Allah\" (celui a qui Dieu a parle). Envoye avec son frère Harun aupres de Pharaon pour liberer les Enfants d'Israel de l'oppression, il affronte les magiciens de la cour egyptienne dans un duel de prodiges qu'il remporte, avant de conduire son peuple hors d'Égypte lors d'une traversee miraculeuse de la mer qui s'ouvre devant eux et se referme sur l'armee de Pharaon, provoquant sa noyade. La reception de la Torah (Tawrat) au Sinai et les epreuves prolongees du peuple d'Israel dans le desert comptent parmi les récits les plus developpes du Coran.",
     era: "Environ XIIIe siècle avant l'ere commune (chronologie traditionnelle)",
   },
   {
@@ -174,7 +174,7 @@ const PROPHETS: ProphetSeed[] = [
     peopleAddressed: "Les Enfants d'Israel, aux cotes de Musa",
     quranicMentions: "Évoque notamment dans Ta-Ha, Al-A'raf et Maryam.",
     description:
-      "Frère aine de Musa, désigne par Dieu, à la demande de Musa, comme assistant et porte-parole en raison de son eloquence. Il l'accompagne dans sa mission face à Pharaon et dans la conduite des Enfants d'Israel.",
+      "Frère aine de Musa, désigne par Dieu, a la demande expresse de Musa qui invoque son manque d'eloquence (sourate Ta-Ha, 20:25-35), comme assistant, ministre et porte-parole dans sa mission face a Pharaon. Il accompagne Musa dans la confrontation avec Pharaon puis dans la conduite des Enfants d'Israel a travers le desert, et se voit confier la responsabilite du peuple lorsque Musa s'absente pour recevoir la révélation au Sinai - episode marque par l'adoration du veau d'or par une partie du peuple malgre les avertissements de Harun, qui tente en vain de les en dissuader.",
     era: "Contemporain de Musa",
   },
   {
@@ -184,7 +184,7 @@ const PROPHETS: ProphetSeed[] = [
     peopleAddressed: null,
     quranicMentions: "Mentionne brievement dans Al-Anbiya et Sad, parmi les hommes patients et vertueux.",
     description:
-      "Figure mentionnee de manière très succincte dans le Coran, associée à la patience et à la droiture. Son identification précise fait l'objet de discussions parmi les commentateurs, certains l'associant a des figures bibliques, sans consensus definitif.",
+      "Figure mentionnee de manière très succincte dans le Coran (deux occurrences seulement), associée explicitement a la patience et a l'appartenance aux \"vertueux\" (akhyar). Son identification précise fait l'objet de discussions parmi les commentateurs classiques : certains l'associent au prophète biblique Ézéchiel, d'autres y voient un homme pieux non prophete ayant pris la responsabilite (kifl) d'une tâche exigeante, sans qu'un consensus definitif ne se degage. Cette incertitude exegetique elle-même illustre la prudence avec laquelle le Coran est generalement etudie sur les points qu'il ne detaille pas explicitement.",
     era: "Période incertaine",
   },
   {
@@ -194,7 +194,7 @@ const PROPHETS: ProphetSeed[] = [
     peopleAddressed: "Les Enfants d'Israel",
     quranicMentions: "Évoque dans Al-Baqara, Sad, Saba et Al-Anbiya.",
     description:
-      "Roi et prophète des Enfants d'Israel, Dawud recoit le Zabur (Psaumes) et est célèbre pour sa voix et ses louanges à Dieu. Le Coran rappelle sa victoire sur Goliath (Jalut) alors qu'il etait encore jeune, ainsi que le don de travailler le fer qui lui fut accorde.",
+      "Roi et prophète des Enfants d'Israel, Dawud remporte, alors qu'il n'est encore qu'un jeune combattant dans l'armee du roi Talut (Saul), une victoire decisive sur le geant Jalut (Goliath), episode rapporte dans la sourate Al-Baqara (2:251) qui marque le debut de son ascension. Il recoit ensuite le Zabur (Psaumes), livre de louanges dont le Coran souligne la beaute, et est celebre pour une voix si melodieuse que montagnes et oiseaux se seraient joints a ses invocations. Le Coran lui attribué egalement le don de travailler le fer a mains nues pour en faire des cottes de mailles, et le presente comme un juge equitable exerce a trancher les litiges avec discernement, notamment dans le récit celèbre des deux plaignants venus le consulter (sourate Sad, 38:21-24).",
     era: "Environ Xe siècle avant l'ere commune (chronologie traditionnelle)",
   },
   {
@@ -204,7 +204,7 @@ const PROPHETS: ProphetSeed[] = [
     peopleAddressed: "Les Enfants d'Israel",
     quranicMentions: "Évoque notamment dans An-Naml, Sad et Al-Anbiya.",
     description:
-      "Fils de Dawud, Sulayman herite d'un royaume étendu et recoit un pouvoir sur les vents, les djinns et la compréhension du langage des oiseaux. Le Coran relate notamment sa correspondance avec la reine de Saba (Bilqis) et sa conversion à l'Islam.",
+      "Fils de Dawud, Sulayman herite d'un royaume étendu et recoit de Dieu, en reponse a une priere ou il demande un royaume que nul après lui ne possedera, un pouvoir exceptionnel sur les vents, sur les djinns qu'il met a son service pour des travaux de construction, et sur la comprehension du langage des animaux, notamment des oiseaux. Le récit le plus developpe le concernant est sa correspondance avec la reine de Saba (Bilqis), initiee par une huppe (hudhud) qui lui rapporte l'existence de ce royaume prospere mais adorateur du soleil ; après un echange de messages et le transport miraculeux du trone de la reine jusqu'a lui, celle-ci, impressionnee par la sagesse de Sulayman et par son palais au sol de verre qu'elle prend d'abord pour de l'eau, se convertit finalement a l'adoration du Dieu unique.",
     era: "Fils de Dawud",
   },
   {
@@ -214,7 +214,7 @@ const PROPHETS: ProphetSeed[] = [
     peopleAddressed: "Son peuple, adorateur de l'idole Baal",
     quranicMentions: "Évoque dans As-Saffat et Al-An'am.",
     description:
-      "Envoye à un peuple adorant l'idole Baal, Ilyas les appelle a revenir à l'adoration exclusive de Dieu. Le Coran le présente parmi les vertueux et les envoyes.",
+      "Envoye a un peuple des Enfants d'Israel adorant l'idole Baal, Ilyas les appelle avec insistance a revenir a l'adoration exclusive du Dieu createur de leurs ancetres, en des termes rapportes de facon relativement developpee dans la sourate As-Saffat (37:123-132). Le Coran le présente parmi les vertueux et les envoyes, et note qu'une paix (salam) particuliere lui a été accordee parmi les generations suivantes, signe de la place respectee qu'il occupe dans le récit prophetique malgre le rejet initial de son peuple.",
     era: "Période des Enfants d'Israel",
   },
   {
@@ -224,7 +224,7 @@ const PROPHETS: ProphetSeed[] = [
     peopleAddressed: null,
     quranicMentions: "Mentionne brievement dans Al-An'am et Sad.",
     description:
-      "Mentionne très brievement dans le Coran parmi les hommes de bien favorises par Dieu, sans récit détaillé associé dans le texte coranique lui-même.",
+      "Mentionne très brievement dans le Coran, toujours au sein d'une liste de prophètes decrits collectivement comme favorises par Dieu au-dessus des mondes, sans récit narratif propre associé dans le texte coranique lui-même. La tradition exegetique l'associé generalement, sur la base des sources bibliques et de recits post-coraniques, a un successeur du prophète Ilyas, sans que cela ne soit precise par le Coran.",
     era: "Période des Enfants d'Israel",
   },
   {
@@ -234,7 +234,7 @@ const PROPHETS: ProphetSeed[] = [
     peopleAddressed: "Le peuple de Ninive",
     quranicMentions: "Sujet d'une sourate entière (Yunus, bien que le récit principal soit dans As-Saffat et Al-Anbiya).",
     description:
-      "Envoye au peuple de Ninive, Yunus quitte sa mission par decouragement avant l'ordre divin et se retrouve avale par un grand poisson après avoir été jete à la mer. Il implore le pardon divin depuis les tenebres et est sauve ; son peuple, quant à lui, finit par se repentir et echappe au châtiment - cas rare dans le Coran d'un peuple sauve après avoir cru.",
+      "Envoye au peuple de Ninive, Yunus, decourage par le rejet initial de son message, quitte sa mission sans attendre l'ordre divin et embarque sur un navire ; designe par tirage au sort pour être jete a la mer afin d'alleger le bateau en difficulte, il est avale par un grand poisson. Dans les tenebres du ventre du poisson, il implore le pardon divin par une invocation devenue celèbre dans la tradition islamique (\"Il n'y a de divinite que Toi, gloire a Toi, j'ai vraiment été du nombre des injustes\", 21:87) et est ensuite rejete sain et sauf sur le rivage. Son peuple, entretemps, voyant les signes avant-coureurs d'un châtiment imminent, se repent collectivement et est epargne - un cas presente dans le Coran (10:98) comme rare et notable d'un peuple entier sauve après avoir cru, contrairement au sort des peuples de Nuh, 'Ad ou Thamud.",
     era: "Période des Enfants d'Israel",
   },
   {
@@ -244,7 +244,7 @@ const PROPHETS: ProphetSeed[] = [
     peopleAddressed: "Les Enfants d'Israel",
     quranicMentions: "Évoque dans Maryam et Al Imran.",
     description:
-      "Gardien de Maryam (Marie) au Temple, Zakariya prie pour obtenir un enfant malgre son grand âge et la sterilite de son epouse. Sa prière est exaucee par la naissance de Yahya, annoncee par les anges.",
+      "Gardien de Maryam (Marie) au Temple de Jerusalem, Zakariya, qui y decouvre regulierement des provisions inexpliquees aupres d'elle, en tire lui-même l'espoir de demander a Dieu un enfant malgre son grand âge et la sterilite reconnue de son epouse. Sa prière discrete et confiante est exaucee par l'annonce, faite par les anges, de la naissance prochaine de Yahya - une reponse a laquelle Zakariya demande un signe, recevant alors, selon le Coran, l'incapacite temporaire de parler pendant trois jours malgre sa bonne santé, comme confirmation de la promesse divine.",
     era: "Contemporain de Maryam",
   },
   {
@@ -254,7 +254,7 @@ const PROPHETS: ProphetSeed[] = [
     peopleAddressed: "Les Enfants d'Israel",
     quranicMentions: "Évoque dans Maryam et Al Imran.",
     description:
-      "Fils de Zakariya, Yahya recoit la sagesse des sa jeunesse et est decrit par le Coran comme pieux, doux envers ses parents et etranger à l'orgueil. Il est traditionnellement associé a Jean le Baptiste.",
+      "Fils de Zakariya, ne en reponse a la prière de son père malgre le grand âge de ses parents, Yahya recoit la sagesse des son enfance et est decrit par le Coran comme pieux, tendre envers ses parents, pur, et \"non tyrannique ni desobeissant\" (19:14). Il est traditionnellement identifie a Jean le Baptiste et le Coran lui adresse directement une salutation de paix pour le jour de sa naissance, de sa mort et de sa resurrection (19:15), formule identique a celle reservee a Isa quelques versets plus loin.",
     era: "Contemporain d'Isa",
   },
   {
@@ -264,7 +264,7 @@ const PROPHETS: ProphetSeed[] = [
     peopleAddressed: "Les Enfants d'Israel",
     quranicMentions: "Très largement évoque, notamment dans Al Imran, Maryam et Al-Ma'ida.",
     description:
-      "Ne miraculeusement de Maryam (Marie) sans intervention paternelle, Isa est considère en Islam comme un prophète et messager, porteur de l'Evangile (Injil), mais non comme divin ni fils de Dieu - une divergence théologique majeure avec le christianisme. Le Coran lui attribué des miracles par permission divine (guerisons, ressusciter les morts) et affirme qu'il n'a pas été tue ni crucifie mais élevé auprès de Dieu, sa fin terrestre exacte restant discutee parmi les commentateurs.",
+      "Ne miraculeusement de Maryam (Marie) sans intervention paternelle - un signe explicitement compare par le Coran a la création d'Adam (3:59) - Isa parle des le berceau pour defendre l'honneur de sa mère face aux accusations portees contre elle. Il est considère en Islam comme un prophète et messager, porteur de l'Évangile (Injil) confirmant la Torah, mais non comme divin ni fils de Dieu : le Coran rejette explicitement et a plusieurs reprises la trinite et la filiation divine (notamment sourate Al-Ma'ida, 5:72-75), tout en honorant profondement Isa et Maryam. Le Coran lui attribué, par permission divine et non par pouvoir propre, plusieurs miracles - guerir aveugles et lepreux, ressusciter des morts, faconner un oiseau d'argile qu'il anime - et affirme qu'il n'a pas été tue ni crucifie mais que Dieu l'a eleve aupres de Lui, la nature exacte de cette fin terrestre (mort naturelle ulterieure ou elevation corporelle immediate suivie d'un retour eschatologique attendu) restant discutee parmi les commentateurs, la majorité retenant l'idee d'une elevation sans mort a ce moment-la et d'un retour a la fin des temps.",
     era: "Debut de l'ere commune",
   },
 ];

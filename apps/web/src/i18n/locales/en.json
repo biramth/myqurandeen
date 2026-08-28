@@ -196,6 +196,8 @@
     "error": "Unable to load the data.",
     "errorDetail": "Unable to load this page.",
     "backToList": "All schools",
+    "backToSchools": "Back to schools",
+    "backToComparator": "Back to the comparator",
     "fiqhSchools": "Legal schools (fiqh)",
     "theologicalSchools": "Theological currents",
     "theological": "Theology",
@@ -204,7 +206,17 @@
     "history": "History",
     "principles": "Principles and method",
     "sourcesUsed": "Sources used",
-    "whyDivergence": "Why does a divergence exist?"
+    "whyDivergence": "Why does a divergence exist?",
+    "suggestQuestion": "Suggest a question",
+    "suggestQuestionTitle": "Suggest a question for the comparator",
+    "suggestQuestionDescription": "Propose a fiqh topic on which you'd like to see the different schools' positions. A team member will review it before publication.",
+    "suggestQuestionPlaceholder": "E.g.: Is wearing clothing made from the hide of a ritually unslaughtered animal permitted during prayer?",
+    "suggestQuestionContextPlaceholder": "Additional context (optional)",
+    "suggestQuestionSubmit": "Send suggestion",
+    "suggestQuestionSubmitting": "Sending...",
+    "suggestQuestionSuccess": "Thank you! Your suggestion has been sent to the team.",
+    "suggestQuestionError": "Unable to send the suggestion right now.",
+    "suggestQuestionRequired": "Please describe your question."
   },
   "search": {
     "title": "Search",
@@ -265,7 +277,8 @@
     "loading": "Loading...",
     "showTranslation": "Show translation",
     "hideTranslation": "Hide translation",
-    "error": "Something went wrong. Please try again."
+    "error": "Something went wrong. Please try again.",
+    "cancel": "Cancel"
   },
   "library": {
     "title": "Library",
@@ -296,7 +309,15 @@
     "roleUpdated": "Role updated",
     "statusUpdated": "Status updated",
     "userUpdated": "User updated",
-    "assigned": "Report assigned"
+    "assigned": "Report assigned",
+    "fiqhSuggestions": "Fiqh suggestions",
+    "noFiqhSuggestions": "No suggestions for now.",
+    "suggestedBy": "Suggested by",
+    "fiqhSuggestionStatus": {
+      "NOUVELLE": "Untreated",
+      "EN_COURS": "In progress",
+      "TRAITEE": "Handled"
+    }
   },
   "assistant": {
     "title": "AI Assistant",

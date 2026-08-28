@@ -20,6 +20,8 @@ const PERMISSION_DESCRIPTIONS: Partial<Record<PermissionValue, string>> = {
   "report:view": "Consulter les signalements.",
   "report:assign": "Assigner un signalement à un modérateur.",
   "report:resolve": "Clôturer un signalement (workflow de modération).",
+  "fiqh_suggestion:view": "Consulter les questions de fiqh suggérées par les utilisateurs.",
+  "fiqh_suggestion:resolve": "Changer le statut d'une suggestion de question de fiqh.",
   "audit_log:read": "Consulter le journal d'audit.",
   "ai:index": "Déclencher la (re)indexation du contenu pour l'assistant IA (opération coûteuse en quota).",
 };

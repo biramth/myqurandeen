@@ -198,6 +198,8 @@
     "error": "Не удалось загрузить данные.",
     "errorDetail": "Не удалось загрузить эту страницу.",
     "backToList": "Все школы",
+    "backToSchools": "Назад к школам",
+    "backToComparator": "Назад к сравнению",
     "fiqhSchools": "Правовые школы (фикх)",
     "theologicalSchools": "Богословские течения",
     "theological": "Богословие",
@@ -206,7 +208,17 @@
     "history": "История",
     "principles": "Принципы и метод",
     "sourcesUsed": "Использованные источники",
-    "whyDivergence": "Почему существует расхождение?"
+    "whyDivergence": "Почему существует расхождение?",
+    "suggestQuestion": "Предложить вопрос",
+    "suggestQuestionTitle": "Предложить вопрос для сравнения",
+    "suggestQuestionDescription": "Предложите тему фикха, по которой вы хотели бы увидеть позиции разных школ. Член команды рассмотрит её перед публикацией.",
+    "suggestQuestionPlaceholder": "Напр.: Разрешено ли носить одежду из шкуры животного, забитого не по ритуальным правилам, во время молитвы?",
+    "suggestQuestionContextPlaceholder": "Дополнительный контекст (необязательно)",
+    "suggestQuestionSubmit": "Отправить предложение",
+    "suggestQuestionSubmitting": "Отправка...",
+    "suggestQuestionSuccess": "Спасибо! Ваше предложение отправлено команде.",
+    "suggestQuestionError": "Не удалось отправить предложение сейчас.",
+    "suggestQuestionRequired": "Пожалуйста, опишите ваш вопрос."
   },
   "search": {
     "title": "Поиск",
@@ -267,7 +279,8 @@
     "loading": "Загрузка...",
     "showTranslation": "Показать перевод",
     "hideTranslation": "Скрыть перевод",
-    "error": "Произошла ошибка. Попробуйте снова."
+    "error": "Произошла ошибка. Попробуйте снова.",
+    "cancel": "Отмена"
   },
   "library": {
     "title": "Библиотека",
@@ -298,7 +311,15 @@
     "roleUpdated": "Роль обновлена",
     "statusUpdated": "Статус обновлён",
     "userUpdated": "Пользователь обновлён",
-    "assigned": "Жалоба назначена"
+    "assigned": "Жалоба назначена",
+    "fiqhSuggestions": "Предложения по фикху",
+    "noFiqhSuggestions": "Пока нет предложений.",
+    "suggestedBy": "Предложено",
+    "fiqhSuggestionStatus": {
+      "NOUVELLE": "Не рассмотрено",
+      "EN_COURS": "В процессе",
+      "TRAITEE": "Обработано"
+    }
   },
   "assistant": {
     "title": "ИИ-ассистент",

@@ -2,7 +2,7 @@ import { pgTable, text, unique, uuid, varchar } from "drizzle-orm/pg-core";
 import { id, timestamps } from "./_columns";
 import { sources } from "./sources";
 import { users } from "./identity";
-import { SCHOOL_TYPES } from "@qurandeen/shared";
+import { FIQH_SUGGESTION_STATUSES, SCHOOL_TYPES } from "@qurandeen/shared";
 
 /** Ecoles juridiques (fiqh) et courants theologiques, meme table (type). */
 export const schools = pgTable("schools", {
@@ -53,5 +53,24 @@ export const fiqhDivergenceNotes = pgTable("fiqh_divergence_notes", {
     .references(() => fiqhTopics.id, { onDelete: "cascade" }),
   explanation: text("explanation").notNull(),
   sourceId: uuid("source_id").references(() => sources.id, { onDelete: "set null" }),
+  ...timestamps,
+});
+
+/**
+ * Suggestions d'utilisateurs pour de nouveaux sujets du comparateur de fiqh
+ * (pas encore de contenu structure - juste une question proposee, examinee
+ * par l'equipe editoriale avant, eventuellement, de devenir un vrai
+ * fiqh_topic source). Workflow volontairement simple (3 etats) plutôt que
+ * de reutiliser le workflow de signalement (`reports`), pense pour du
+ * contenu deja existant a corriger et non pour proposer du contenu neuf.
+ */
+export const fiqhSuggestions = pgTable("fiqh_suggestions", {
+  id: id(),
+  submittedBy: uuid("submitted_by").references(() => users.id, { onDelete: "set null" }),
+  question: text("question").notNull(),
+  context: text("context"),
+  status: varchar("status", { length: 16, enum: FIQH_SUGGESTION_STATUSES }).default("NOUVELLE").notNull(),
+  adminNote: text("admin_note"),
+  handledBy: uuid("handled_by").references(() => users.id, { onDelete: "set null" }),
   ...timestamps,
 });

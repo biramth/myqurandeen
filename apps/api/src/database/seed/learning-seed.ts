@@ -874,6 +874,133 @@ const PATHS: PathSeed[] = [
       },
     ],
   },
+  {
+    title: "La vie du Prophète ﷺ (Sira)",
+    slug: "sira",
+    level: "intermediate",
+    description: "Un parcours chronologique complet à travers la vie du Prophète Muhammad ﷺ, de La Mecque à Médine, en s'appuyant sur la chronologie sourcée de cette plateforme.",
+    lessons: [
+      {
+        order: 1,
+        title: "Enfance et jeunesse : un orphelin devenu \"Al-Amin\"",
+        content:
+          "Muhammad ibn Abdillah naît à La Mecque vers 570, l'année traditionnellement appelée \"Année de l'Éléphant\". Orphelin de père avant sa naissance puis de mère vers l'âge de six ans, il est élevé successivement par son grand-père Abd al-Muttalib puis par son oncle Abu Talib, chef respecté du clan des Banu Hashim mais de condition modeste.\n\nCette enfance marquée par la perte précoce de ses deux parents ne l'empêche pas de se forger, en grandissant, une réputation exceptionnelle d'honnêteté et de fiabilité au sein de la société mecquoise, où il est surnommé \"Al-Amin\" (le digne de confiance) bien avant le début de sa mission prophétique. C'est cette réputation qui conduit une riche marchande, Khadija, à lui confier la gestion de ses caravanes commerciales, puis à lui proposer le mariage alors qu'il a environ vingt-cinq ans - une union heureuse et monogame qui durera jusqu'à la mort de Khadija, vingt-cinq ans plus tard.\n\nCes années de jeunesse, largement silencieuses dans les sources sur le plan religieux, dessinent néanmoins le portrait d'un homme intègre, réfléchi et déjà porté à la méditation solitaire - une disposition qui le conduira, à l'approche de la quarantaine, à se retirer régulièrement dans la grotte de Hira.",
+        keyTakeaways: [
+          "Orphelin très jeune, Muhammad ﷺ est élevé par son grand-père puis son oncle Abu Talib.",
+          "Il est surnommé \"Al-Amin\" (le digne de confiance) pour son intégrité, bien avant la révélation.",
+          "Son mariage avec Khadija, initié par la confiance qu'elle plaçait en lui, dure vingt-cinq ans.",
+        ],
+        references: [{ label: "Événement : Naissance du Prophète ﷺ", url: "/history/event/naissance-du-prophete" }],
+      },
+      {
+        order: 2,
+        title: "Le début de la révélation à la grotte de Hira",
+        content:
+          "Vers l'âge de quarante ans, Muhammad ﷺ prend l'habitude de se retirer périodiquement dans la grotte de Hira, sur le mont An-Nour près de La Mecque, pour y méditer loin de l'agitation de la ville. C'est là, en l'an 610, que la tradition situe le premier événement de la révélation : l'ange Jibril (Gabriel) lui apparaît et lui ordonne \"Iqra\" (\"Lis\" ou \"Récite\"), correspondant aux premiers versets de la sourate Al-Alaq.\n\nBouleversé par cette expérience inédite, il redescend tremblant auprès de Khadija, qui le rassure et le soutient sans hésitation - un soutien immédiat et inconditionnel qui en fait, selon la tradition unanime, la toute première personne à croire en sa mission. Après une interruption de la révélation qui plonge le Prophète ﷺ dans l'incertitude, celle-ci reprend et se poursuivra, par fragments, sur environ vingt-trois années.\n\nLes tout premiers convertis à l'Islam - Khadija, Ali (son jeune cousin), Abu Bakr (son ami proche) et Zayd ibn Haritha (son affranchi) - marquent le début d'une phase de prédication discrète, limitée au cercle familial et amical le plus proche, qui durera environ trois ans avant l'ordre de prêcher publiquement.",
+        keyTakeaways: [
+          "La révélation débute vers 610, dans la grotte de Hira, par l'ordre \"Iqra\" transmis par l'ange Jibril.",
+          "Khadija est traditionnellement la première personne à croire en la mission du Prophète ﷺ.",
+          "Une phase de prédication discrète, limitée aux proches, précède l'appel public.",
+        ],
+        references: [
+          { label: "Événement : Début de la Révélation", url: "/history/event/debut-revelation" },
+          { label: "Concept : Wahy (Révélation)", url: "/concepts/wahy" },
+        ],
+      },
+      {
+        order: 3,
+        title: "La prédication publique et les persécutions à La Mecque",
+        content:
+          "Après environ trois années de prédication discrète, le Prophète ﷺ reçoit l'ordre de proclamer publiquement son message d'unicité divine (tawhid) et d'abandon du culte des idoles - une remise en cause frontale de l'ordre religieux, social et économique bâti autour de la Kaaba, alors sanctuaire polythéiste majeur de la péninsule. L'opposition de plusieurs chefs de Quraych s'intensifie rapidement : moqueries, boycott économique et social du clan protecteur, puis persécutions physiques directes visant en priorité les premiers musulmans dépourvus de protection tribale forte.\n\nDes esclaves ou affranchis comme Bilal ibn Rabah subissent des tortures particulièrement sévères pour avoir refusé de renier leur foi, tandis que le Prophète ﷺ lui-même, protégé par le statut de son oncle Abu Talib au sein du clan des Banu Hashim malgré le refus de celui-ci de se convertir, échappe aux pires violences physiques sans être épargné par l'hostilité générale.\n\nFace à l'intensification des persécutions, une partie des premiers musulmans les plus vulnérables reçoit le conseil d'émigrer temporairement vers le royaume chrétien d'Aksoum, en Abyssinie, dont le souverain est réputé pour sa justice - un épisode qui illustre, dès les tout premiers temps de l'Islam, une relation pacifique recherchée avec une autorité religieuse différente.",
+        keyTakeaways: [
+          "L'appel public au tawhid provoque une opposition croissante des chefs de Quraych.",
+          "Les premiers musulmans sans protection tribale, comme Bilal ibn Rabah, subissent des persécutions sévères.",
+          "Une partie des croyants émigre temporairement vers l'Abyssinie chrétienne, accueillie pacifiquement.",
+        ],
+        references: [
+          { label: "Événement : Prédication publique à La Mecque", url: "/history/event/predication-publique" },
+          { label: "Événement : Émigration en Abyssinie", url: "/history/event/emigration-abyssinie" },
+        ],
+      },
+      {
+        order: 4,
+        title: "L'Année de la Tristesse et le voyage nocturne",
+        content:
+          "Vers 619, en l'espace de quelques mois, le Prophète ﷺ perd deux de ses soutiens les plus proches : Khadija, sa première épouse et première croyante, puis Abu Talib, son oncle protecteur malgré son propre refus de se convertir. Cette double perte fragilise sensiblement sa position à La Mecque, la protection tribale qu'assurait Abu Talib s'estompant avec sa mort ; un voyage de recherche de soutien à Ta'if se solde peu après par un rejet particulièrement hostile de la population locale.\n\nC'est dans ce contexte de grande difficulté que la tradition islamique situe un événement d'une importance théologique majeure : le voyage nocturne et l'ascension (Isra wal Mi'raj), au cours duquel le Prophète ﷺ est transporté en une seule nuit de La Mecque à Jérusalem, puis élevé à travers les cieux, où les cinq prières quotidiennes sont instituées.\n\nCet épisode, survenu à un moment de grande épreuve personnelle, est traditionnellement lu comme un réconfort divin autant que comme un événement fondateur, établissant un lien spirituel durable entre La Mecque, Médine et Jérusalem qui structure encore aujourd'hui la géographie sacrée de l'Islam.",
+        keyTakeaways: [
+          "La mort de Khadija et d'Abu Talib, en 619, fragilise la position du Prophète ﷺ à La Mecque.",
+          "Le voyage nocturne (Isra) le conduit de La Mecque à Jérusalem, puis à une ascension à travers les cieux (Mi'raj).",
+          "La prière rituelle (salah) cinq fois par jour est instituée lors de cet événement.",
+        ],
+        references: [
+          { label: "Événement : Année de la Tristesse", url: "/history/event/annee-de-la-tristesse" },
+          { label: "Événement : Voyage nocturne et Ascension", url: "/history/event/isra-wal-miraj" },
+        ],
+      },
+      {
+        order: 5,
+        title: "L'Hégire : de La Mecque à Médine",
+        content:
+          "Lors du pèlerinage annuel, des habitants de Yathrib (future Médine) rencontrent le Prophète ﷺ au défilé d'Aqaba et concluent avec lui, en deux étapes successives, un engagement d'accueil et de protection - les serments d'Aqaba - qui ouvrent la voie à l'installation d'une communauté musulmane organisée hors de La Mecque.\n\nFace à un projet d'assassinat fomenté par des chefs de Quraych inquiets de cette nouvelle base, le Prophète ﷺ quitte La Mecque avec Abu Bakr, laissant Ali dormir dans son lit pour couvrir leur départ. Après une halte dans la grotte de Thawr pour échapper à leurs poursuivants, les deux hommes rejoignent Yathrib, rebaptisée Médine (\"la Ville [du Prophète]\") - un événement, l'Hégire (Hijra), qui marque le point de départ du calendrier musulman en l'an 622.\n\nÀ Médine, le Prophète ﷺ organise la première communauté musulmane structurée, encadrant notamment ses relations avec les différentes tribus juives de la ville à travers un document fondateur connu sous le nom de \"Constitution de Médine\", qui établit un cadre de coexistence entre les différentes composantes de la cité.",
+        keyTakeaways: [
+          "Les serments d'Aqaba, conclus avec des habitants de Yathrib, ouvrent la voie à l'installation à Médine.",
+          "L'Hégire de 622 marque le point de départ du calendrier musulman.",
+          "La \"Constitution de Médine\" organise la coexistence entre musulmans et tribus juives de la ville.",
+        ],
+        references: [
+          { label: "Événement : Serments d'Aqaba", url: "/history/event/serments-aqaba" },
+          { label: "Événement : Hégire vers Médine", url: "/history/event/hegire" },
+        ],
+      },
+      {
+        order: 6,
+        title: "Badr, Uhud et le Fossé : les grandes batailles",
+        content:
+          "En 624, alors qu'ils tentent d'intercepter une caravane marchande de Quraych, environ trois cents musulmans de Médine affrontent une armée mecquoise bien plus nombreuse près du puits de Badr. Cette première confrontation militaire majeure se solde par une victoire musulmane inattendue, présentée dans le Coran comme un signe du soutien divin et devenue un repère central de la mémoire islamique.\n\nUn an plus tard, à Uhud, les Mecquois reviennent en force venger leur défaite : favorable aux musulmans dans un premier temps, la bataille bascule lorsqu'un groupe d'archers quitte sa position stratégique pour participer au butin, permettant à la cavalerie mecquoise de prendre les musulmans à revers. Le Prophète ﷺ est blessé et plusieurs compagnons, dont son oncle Hamza, sont tués - un épisode généralement lu comme une leçon sur la discipline plutôt que comme une défaite décisive.\n\nEn 627, une coalition menée par les Quraych assiège Médine avec une force considérable ; sur suggestion de Salman al-Farisi, compagnon d'origine perse, les musulmans creusent un fossé défensif (khandaq) autour des zones vulnérables de la ville, tactique alors inhabituelle qui rend l'assaut de la cavalerie ennemie inefficace et contraint la coalition à se retirer sans combat décisif.",
+        keyTakeaways: [
+          "Badr (624) est la première grande victoire militaire musulmane, présentée comme un signe divin.",
+          "Uhud (625) illustre l'importance de la discipline face à la tentation du butin.",
+          "Le Fossé (627), creusé sur suggestion de Salman al-Farisi, met en échec un siège coalisé de Médine.",
+        ],
+        references: [
+          { label: "Événement : Bataille de Badr", url: "/history/event/bataille-de-badr" },
+          { label: "Événement : Bataille d'Uhud", url: "/history/event/bataille-d-uhud" },
+          { label: "Événement : Bataille du Fossé", url: "/history/event/bataille-du-fosse" },
+        ],
+      },
+      {
+        order: 7,
+        title: "Hudaybiyya et la conquête pacifique de La Mecque",
+        content:
+          "En 628, parti avec environ mille quatre cents compagnons pour accomplir la 'umra et non pour combattre, le Prophète ﷺ est arrêté par les Quraych à Hudaybiyya, aux abords de La Mecque. Après négociation, un traité de trêve de dix ans est conclu : les musulmans acceptent de rebrousser chemin cette année-là, mais obtiennent le droit d'effectuer le pèlerinage l'année suivante ainsi qu'une reconnaissance politique implicite de leur communauté - un accord perçu par certains compagnons comme désavantageux sur le moment, mais présenté dans le Coran comme une \"victoire manifeste\" ayant permis à l'Islam de se diffuser largement durant la période de paix qui suit.\n\nCette trêve est rompue en 630 lorsqu'une tribu alliée aux Mecquois attaque une tribu alliée aux musulmans ; le Prophète ﷺ marche alors sur La Mecque à la tête d'une force importante. La ville se rend avec peu de résistance, et le Prophète ﷺ y entre en accordant une amnistie générale, y compris à nombre de ses anciens persécuteurs - une clémence largement soulignée dans la tradition islamique comme l'un des épisodes les plus marquants de sa vie.\n\nIl fait alors détruire les idoles entourant et à l'intérieur de la Kaaba, restituant le sanctuaire, selon la croyance islamique, à sa vocation originelle de lieu de culte du Dieu unique associée à Ibrahim et Isma'il.",
+        keyTakeaways: [
+          "Le traité de Hudaybiyya (628), désavantageux en apparence, permet une diffusion pacifique de l'Islam.",
+          "La conquête de La Mecque (630) se fait avec très peu de résistance et se conclut par une amnistie générale.",
+          "Les idoles de la Kaaba sont détruites, restituant le sanctuaire à l'adoration du Dieu unique.",
+        ],
+        references: [
+          { label: "Événement : Traité de Hudaybiyya", url: "/history/event/traite-hudaybiyya" },
+          { label: "Événement : Conquête de La Mecque", url: "/history/event/conquete-de-la-mecque" },
+        ],
+      },
+      {
+        order: 8,
+        title: "Le Pèlerinage d'Adieu et le décès du Prophète ﷺ",
+        content:
+          "Quelques mois avant sa mort, en l'an 632, le Prophète ﷺ effectue son unique pèlerinage complet à La Mecque depuis l'Hégire, accompagné d'un très grand nombre de musulmans. À cette occasion, il prononce le célèbre Sermon d'Adieu, dans lequel il rappelle des principes fondamentaux restés au cœur de l'éthique islamique : l'égalité entre les croyants au-delà de toute origine ethnique, l'interdiction de l'usure et de la vengeance tribale, les droits et devoirs réciproques entre époux, et l'appel pressant à transmettre fidèlement son message aux générations futures.\n\nPeu après ce pèlerinage, le Prophète ﷺ tombe malade et décède à Médine, dans les appartements de son épouse Aisha, où il est enterré. Sa disparition plonge la jeune communauté musulmane dans un choc profond ; selon la tradition, Abu Bakr rassure les compagnons en rappelant que si Muhammad ﷺ est mort comme tout être humain, le message qu'il a transmis, lui, demeure.\n\nSa mort ouvre immédiatement la question de la succession à la tête de la communauté, résolue par la désignation d'Abu Bakr comme premier calife - un événement qui marque à la fois la fin de la Sira et le début de la période rashidun, développée dans la section Histoire de cette plateforme.",
+        keyTakeaways: [
+          "Le Sermon d'Adieu (632) rappelle des principes fondamentaux d'égalité et d'éthique sociale.",
+          "Le Prophète ﷺ décède à Médine peu après, laissant un message que la communauté s'engage à transmettre.",
+          "Sa mort ouvre la question de la succession, résolue par la désignation d'Abu Bakr comme premier calife.",
+        ],
+        references: [
+          { label: "Événement : Pèlerinage d'Adieu", url: "/history/event/pelerinage-d-adieu" },
+          { label: "Événement : Décès du Prophète ﷺ", url: "/history/event/deces-du-prophete" },
+          { label: "Période : Califat Rashidun", url: "/history/rashidun" },
+        ],
+      },
+    ],
+  },
 ];
 
 export async function seedLearning(db: Database): Promise<void> {

@@ -312,6 +312,8 @@
     "error": "Impossible de charger les données.",
     "errorDetail": "Impossible de charger cette fiche.",
     "backToList": "Toutes les écoles",
+    "backToSchools": "Retour aux écoles",
+    "backToComparator": "Retour au comparateur",
     "fiqhSchools": "Écoles juridiques (fiqh)",
     "theologicalSchools": "Courants théologiques",
     "theological": "Théologie",
@@ -320,7 +322,17 @@
     "history": "Histoire",
     "principles": "Principes et méthode",
     "sourcesUsed": "Sources utilisées",
-    "whyDivergence": "Pourquoi existe-t-il une divergence ?"
+    "whyDivergence": "Pourquoi existe-t-il une divergence ?",
+    "suggestQuestion": "Suggérer une question",
+    "suggestQuestionTitle": "Suggérer une question au comparateur",
+    "suggestQuestionDescription": "Proposez un sujet de fiqh sur lequel vous aimeriez voir la position des différentes écoles. Un membre de l'équipe l'examinera avant publication.",
+    "suggestQuestionPlaceholder": "Ex. : Le port de vêtements en cuir d'animal non sacrifié rituellement est-il permis en prière ?",
+    "suggestQuestionContextPlaceholder": "Contexte ou précision supplémentaire (facultatif)",
+    "suggestQuestionSubmit": "Envoyer la suggestion",
+    "suggestQuestionSubmitting": "Envoi...",
+    "suggestQuestionSuccess": "Merci ! Votre suggestion a bien été transmise à l'équipe.",
+    "suggestQuestionError": "Impossible d'envoyer la suggestion pour le moment.",
+    "suggestQuestionRequired": "Merci de décrire votre question."
   },
   "search": {
     "title": "Recherche",
@@ -381,7 +393,8 @@
     "loading": "Chargement...",
     "showTranslation": "Afficher la traduction",
     "hideTranslation": "Masquer la traduction",
-    "error": "Une erreur est survenue. Réessayez."
+    "error": "Une erreur est survenue. Réessayez.",
+    "cancel": "Annuler"
   },
   "library": {
     "title": "Bibliothèque",
@@ -412,7 +425,15 @@
     "roleUpdated": "Rôle mis à jour",
     "statusUpdated": "Statut mis à jour",
     "userUpdated": "Utilisateur mis à jour",
-    "assigned": "Signalement assigné"
+    "assigned": "Signalement assigné",
+    "fiqhSuggestions": "Suggestions fiqh",
+    "noFiqhSuggestions": "Aucune suggestion pour le moment.",
+    "suggestedBy": "Suggéré par",
+    "fiqhSuggestionStatus": {
+      "NOUVELLE": "Non traitée",
+      "EN_COURS": "En cours de traitement",
+      "TRAITEE": "Traitée"
+    }
   },
   "assistant": {
     "title": "Assistant IA",

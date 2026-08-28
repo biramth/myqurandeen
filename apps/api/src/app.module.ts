@@ -29,6 +29,7 @@ import { LearningModule } from "./modules/learning/learning.module";
 import { SearchModule } from "./modules/search/search.module";
 import { UserDataModule } from "./modules/user-data/user-data.module";
 import { ReportsModule } from "./modules/reports/reports.module";
+import { FiqhSuggestionsModule } from "./modules/fiqh-suggestions/fiqh-suggestions.module";
 import { AdminModule } from "./modules/admin/admin.module";
 import { AuditLogModule } from "./modules/audit-log/audit-log.module";
 import { AiModule } from "./modules/ai/ai.module";
@@ -69,6 +70,7 @@ import { AiModule } from "./modules/ai/ai.module";
     SearchModule,
     UserDataModule,
     ReportsModule,
+    FiqhSuggestionsModule,
     AdminModule,
     AuditLogModule,
     AiModule,

@@ -195,6 +195,8 @@
     "error": "Data tidak dapat dimuat.",
     "errorDetail": "Halaman ini tidak dapat dimuat.",
     "backToList": "Semua mazhab",
+    "backToSchools": "Kembali ke mazhab",
+    "backToComparator": "Kembali ke pembanding",
     "fiqhSchools": "Mazhab fikih",
     "theologicalSchools": "Aliran teologi",
     "theological": "Teologi",
@@ -203,7 +205,17 @@
     "history": "Sejarah",
     "principles": "Prinsip dan metode",
     "sourcesUsed": "Sumber yang digunakan",
-    "whyDivergence": "Mengapa ada perbedaan pendapat?"
+    "whyDivergence": "Mengapa ada perbedaan pendapat?",
+    "suggestQuestion": "Sarankan pertanyaan",
+    "suggestQuestionTitle": "Sarankan pertanyaan untuk pembanding",
+    "suggestQuestionDescription": "Usulkan topik fikih yang ingin Anda lihat posisi berbagai mazhabnya. Anggota tim akan meninjaunya sebelum dipublikasikan.",
+    "suggestQuestionPlaceholder": "Cth.: Apakah mengenakan pakaian dari kulit hewan yang tidak disembelih secara syar'i diperbolehkan saat salat?",
+    "suggestQuestionContextPlaceholder": "Konteks tambahan (opsional)",
+    "suggestQuestionSubmit": "Kirim saran",
+    "suggestQuestionSubmitting": "Mengirim...",
+    "suggestQuestionSuccess": "Terima kasih! Saran Anda telah dikirim ke tim.",
+    "suggestQuestionError": "Saran tidak dapat dikirim saat ini.",
+    "suggestQuestionRequired": "Mohon jelaskan pertanyaan Anda."
   },
   "search": {
     "title": "Pencarian",
@@ -264,7 +276,8 @@
     "loading": "Memuat...",
     "showTranslation": "Tampilkan terjemahan",
     "hideTranslation": "Sembunyikan terjemahan",
-    "error": "Terjadi kesalahan. Silakan coba lagi."
+    "error": "Terjadi kesalahan. Silakan coba lagi.",
+    "cancel": "Batal"
   },
   "library": {
     "title": "Perpustakaan",
@@ -295,7 +308,15 @@
     "roleUpdated": "Peran diperbarui",
     "statusUpdated": "Status diperbarui",
     "userUpdated": "Pengguna diperbarui",
-    "assigned": "Laporan ditugaskan"
+    "assigned": "Laporan ditugaskan",
+    "fiqhSuggestions": "Saran fikih",
+    "noFiqhSuggestions": "Belum ada saran saat ini.",
+    "suggestedBy": "Disarankan oleh",
+    "fiqhSuggestionStatus": {
+      "NOUVELLE": "Belum diproses",
+      "EN_COURS": "Sedang diproses",
+      "TRAITEE": "Sudah diproses"
+    }
   },
   "assistant": {
     "title": "Asisten AI",

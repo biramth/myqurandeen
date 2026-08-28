@@ -11,7 +11,12 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { useAuth } from "@/features/auth/auth-context";
 import { adminApi } from "@/features/admin/api";
 import { useDocumentTitle } from "@/hooks/useDocumentTitle";
-import { REPORT_STATUSES, type ReportStatus } from "@/features/admin/types";
+import {
+  FIQH_SUGGESTION_STATUSES,
+  REPORT_STATUSES,
+  type FiqhSuggestionStatus,
+  type ReportStatus,
+} from "@/features/admin/types";
 import { cn } from "@/lib/utils";
 
 const STATUS_VARIANT: Record<ReportStatus, string> = {
@@ -20,6 +25,12 @@ const STATUS_VARIANT: Record<ReportStatus, string> = {
   CORRECTION: "bg-accent text-accent-foreground",
   VALIDATION: "bg-primary/10 text-primary",
   PUBLIE: "bg-primary/10 text-primary",
+};
+
+const FIQH_SUGGESTION_STATUS_VARIANT: Record<FiqhSuggestionStatus, string> = {
+  NOUVELLE: "bg-destructive/10 text-destructive",
+  EN_COURS: "bg-accent text-accent-foreground",
+  TRAITEE: "bg-primary/10 text-primary",
 };
 
 function ReportsTab() {
@@ -117,6 +128,84 @@ function ReportsTab() {
               </SelectContent>
             </Select>
           </div>
+        </div>
+      ))}
+    </div>
+  );
+}
+
+function FiqhSuggestionsTab() {
+  const { t } = useTranslation();
+  const queryClient = useQueryClient();
+
+  const { data: suggestions, isLoading, isError } = useQuery({
+    queryKey: ["admin", "fiqh-suggestions"],
+    queryFn: adminApi.listFiqhSuggestions,
+  });
+
+  const statusMutation = useMutation({
+    mutationFn: ({ id, status }: { id: string; status: FiqhSuggestionStatus }) =>
+      adminApi.updateFiqhSuggestionStatus(id, status),
+    onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: ["admin", "fiqh-suggestions"] });
+      toast.success(t("admin.statusUpdated"));
+    },
+    onError: () => toast.error(t("common.error")),
+  });
+
+  if (isError) return <p className="py-8 text-center text-sm text-destructive">{t("admin.error")}</p>;
+  if (isLoading) {
+    return (
+      <div className="space-y-3">
+        <Skeleton className="h-24 w-full" />
+        <Skeleton className="h-24 w-full" />
+        <Skeleton className="h-24 w-full" />
+      </div>
+    );
+  }
+  if (suggestions && suggestions.length === 0) {
+    return <p className="py-8 text-center text-sm text-muted-foreground">{t("admin.noFiqhSuggestions")}</p>;
+  }
+
+  return (
+    <div className="space-y-3">
+      {suggestions?.map((suggestion) => (
+        <div key={suggestion.id} className="rounded-md border p-4 transition-colors hover:border-primary/30">
+          <div className="mb-2 flex flex-wrap items-center gap-2">
+            <span
+              className={cn(
+                "rounded px-2 py-0.5 text-xs font-medium",
+                FIQH_SUGGESTION_STATUS_VARIANT[suggestion.status],
+              )}
+            >
+              {t(`admin.fiqhSuggestionStatus.${suggestion.status}`)}
+            </span>
+          </div>
+          <p className="mb-1 text-sm font-medium">{suggestion.question}</p>
+          {suggestion.context && <p className="mb-2 text-sm text-muted-foreground">{suggestion.context}</p>}
+          <p className="mb-3 text-xs text-muted-foreground">
+            {t("admin.suggestedBy")} {suggestion.submittedByName ?? t("admin.anonymous")}
+            {" - "}
+            {new Date(suggestion.createdAt).toLocaleDateString()}
+          </p>
+          <Select
+            value={suggestion.status}
+            disabled={statusMutation.isPending && statusMutation.variables?.id === suggestion.id}
+            onValueChange={(value) =>
+              statusMutation.mutate({ id: suggestion.id, status: value as FiqhSuggestionStatus })
+            }
+          >
+            <SelectTrigger className="h-8 w-[180px] text-xs">
+              <SelectValue />
+            </SelectTrigger>
+            <SelectContent>
+              {FIQH_SUGGESTION_STATUSES.map((s) => (
+                <SelectItem key={s} value={s}>
+                  {t(`admin.fiqhSuggestionStatus.${s}`)}
+                </SelectItem>
+              ))}
+            </SelectContent>
+          </Select>
         </div>
       ))}
     </div>
@@ -269,11 +358,15 @@ export function AdminPage() {
       <Tabs defaultValue="reports">
         <TabsList className="mb-6">
           <TabsTrigger value="reports">{t("admin.reports")}</TabsTrigger>
+          <TabsTrigger value="fiqh-suggestions">{t("admin.fiqhSuggestions")}</TabsTrigger>
           <TabsTrigger value="users">{t("admin.users")}</TabsTrigger>
           <TabsTrigger value="audit">{t("admin.auditLog")}</TabsTrigger>
         </TabsList>
         <TabsContent value="reports">
           <ReportsTab />
+        </TabsContent>
+        <TabsContent value="fiqh-suggestions">
+          <FiqhSuggestionsTab />
         </TabsContent>
         <TabsContent value="users">
           <UsersTab />

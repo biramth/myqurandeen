@@ -196,6 +196,8 @@
     "error": "ڈیٹا لوڈ نہیں ہو سکا۔",
     "errorDetail": "یہ صفحہ لوڈ نہیں ہو سکا۔",
     "backToList": "تمام مذاہب",
+    "backToSchools": "مذاہب کی طرف واپس",
+    "backToComparator": "موازنہ کے آلے کی طرف واپس",
     "fiqhSchools": "فقہی مذاہب",
     "theologicalSchools": "عقائدی مکاتب فکر",
     "theological": "عقیدہ",
@@ -204,7 +206,17 @@
     "history": "تاریخ",
     "principles": "اصول و طریقہ کار",
     "sourcesUsed": "استعمال شدہ مآخذ",
-    "whyDivergence": "اختلاف کیوں پایا جاتا ہے؟"
+    "whyDivergence": "اختلاف کیوں پایا جاتا ہے؟",
+    "suggestQuestion": "سوال تجویز کریں",
+    "suggestQuestionTitle": "موازنہ کے آلے کے لیے سوال تجویز کریں",
+    "suggestQuestionDescription": "ایک فقہی موضوع تجویز کریں جس پر آپ مختلف مذاہب کا موقف دیکھنا چاہتے ہیں۔ ٹیم کا ایک رکن اشاعت سے پہلے اس کا جائزہ لے گا۔",
+    "suggestQuestionPlaceholder": "مثال: کیا نماز میں ایسے جانور کی کھال سے بنے کپڑے پہننا جائز ہے جسے شرعی طریقے سے ذبح نہیں کیا گیا؟",
+    "suggestQuestionContextPlaceholder": "اضافی تفصیل (اختیاری)",
+    "suggestQuestionSubmit": "تجویز بھیجیں",
+    "suggestQuestionSubmitting": "بھیجا جا رہا ہے...",
+    "suggestQuestionSuccess": "شکریہ! آپ کی تجویز ٹیم کو بھیج دی گئی ہے۔",
+    "suggestQuestionError": "فی الحال تجویز بھیجنا ممکن نہیں۔",
+    "suggestQuestionRequired": "براہ کرم اپنا سوال بیان کریں۔"
   },
   "search": {
     "title": "تلاش",
@@ -265,7 +277,8 @@
     "loading": "لوڈ ہو رہا ہے...",
     "showTranslation": "ترجمہ دکھائیں",
     "hideTranslation": "ترجمہ چھپائیں",
-    "error": "کچھ غلط ہو گیا۔ دوبارہ کوشش کریں۔"
+    "error": "کچھ غلط ہو گیا۔ دوبارہ کوشش کریں۔",
+    "cancel": "منسوخ کریں"
   },
   "library": {
     "title": "کتب خانہ",
@@ -296,7 +309,15 @@
     "roleUpdated": "کردار اپ ڈیٹ ہو گیا",
     "statusUpdated": "حیثیت اپ ڈیٹ ہو گئی",
     "userUpdated": "صارف اپ ڈیٹ ہو گیا",
-    "assigned": "شکایت تفویض ہو گئی"
+    "assigned": "شکایت تفویض ہو گئی",
+    "fiqhSuggestions": "فقہی تجاویز",
+    "noFiqhSuggestions": "فی الحال کوئی تجویز نہیں۔",
+    "suggestedBy": "تجویز کنندہ",
+    "fiqhSuggestionStatus": {
+      "NOUVELLE": "غیر حل شدہ",
+      "EN_COURS": "زیر کارروائی",
+      "TRAITEE": "حل شدہ"
+    }
   },
   "assistant": {
     "title": "AI معاون",

@@ -196,6 +196,8 @@
     "error": "Die Daten konnten nicht geladen werden.",
     "errorDetail": "Diese Seite konnte nicht geladen werden.",
     "backToList": "Alle Schulen",
+    "backToSchools": "Zurück zu den Rechtsschulen",
+    "backToComparator": "Zurück zum Vergleich",
     "fiqhSchools": "Rechtsschulen (Fiqh)",
     "theologicalSchools": "Theologische Stromungen",
     "theological": "Theologie",
@@ -204,7 +206,17 @@
     "history": "Geschichte",
     "principles": "Prinzipien und Methode",
     "sourcesUsed": "Verwendete Quellen",
-    "whyDivergence": "Warum gibt es eine Divergenz?"
+    "whyDivergence": "Warum gibt es eine Divergenz?",
+    "suggestQuestion": "Frage vorschlagen",
+    "suggestQuestionTitle": "Eine Frage für den Vergleich vorschlagen",
+    "suggestQuestionDescription": "Schlagen Sie ein Fiqh-Thema vor, zu dem Sie die Positionen der verschiedenen Rechtsschulen sehen möchten. Ein Teammitglied prüft dies vor der Veröffentlichung.",
+    "suggestQuestionPlaceholder": "Z. B.: Ist das Tragen von Kleidung aus dem Fell eines nicht rituell geschlachteten Tieres beim Gebet erlaubt?",
+    "suggestQuestionContextPlaceholder": "Zusätzlicher Kontext (optional)",
+    "suggestQuestionSubmit": "Vorschlag senden",
+    "suggestQuestionSubmitting": "Senden...",
+    "suggestQuestionSuccess": "Danke! Ihr Vorschlag wurde an das Team gesendet.",
+    "suggestQuestionError": "Der Vorschlag konnte derzeit nicht gesendet werden.",
+    "suggestQuestionRequired": "Bitte beschreiben Sie Ihre Frage."
   },
   "search": {
     "title": "Suche",
@@ -265,7 +277,8 @@
     "loading": "Wird geladen...",
     "showTranslation": "Ubersetzung anzeigen",
     "hideTranslation": "Ubersetzung ausblenden",
-    "error": "Ein Fehler ist aufgetreten. Bitte versuchen Sie es erneut."
+    "error": "Ein Fehler ist aufgetreten. Bitte versuchen Sie es erneut.",
+    "cancel": "Abbrechen"
   },
   "library": {
     "title": "Bibliothek",
@@ -296,7 +309,15 @@
     "roleUpdated": "Rolle aktualisiert",
     "statusUpdated": "Status aktualisiert",
     "userUpdated": "Benutzer aktualisiert",
-    "assigned": "Meldung zugewiesen"
+    "assigned": "Meldung zugewiesen",
+    "fiqhSuggestions": "Fiqh-Vorschläge",
+    "noFiqhSuggestions": "Derzeit keine Vorschläge.",
+    "suggestedBy": "Vorgeschlagen von",
+    "fiqhSuggestionStatus": {
+      "NOUVELLE": "Unbearbeitet",
+      "EN_COURS": "In Bearbeitung",
+      "TRAITEE": "Bearbeitet"
+    }
   },
   "assistant": {
     "title": "KI-Assistent",

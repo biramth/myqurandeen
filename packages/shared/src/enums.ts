@@ -63,3 +63,7 @@ export const REPORT_STATUSES = [
   "PUBLIE",
 ] as const;
 export type ReportStatus = (typeof REPORT_STATUSES)[number];
+
+/** Workflow simple (3 etats) pour les suggestions de sujets du comparateur de fiqh. */
+export const FIQH_SUGGESTION_STATUSES = ["NOUVELLE", "EN_COURS", "TRAITEE"] as const;
+export type FiqhSuggestionStatus = (typeof FIQH_SUGGESTION_STATUSES)[number];
