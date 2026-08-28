@@ -14,7 +14,18 @@ export type Database = NodePgDatabase<typeof schema>;
       provide: DRIZZLE,
       inject: [ConfigService],
       useFactory: (config: ConfigService): Database => {
-        const pool = new Pool({ connectionString: config.get<string>("DATABASE_URL") });
+        const connectionString = config.get<string>("DATABASE_URL");
+        // Le driver `pg` ne fait pas toujours confiance a la chaine de
+        // certificats presentee par le pooler Supabase depuis un conteneur
+        // (Render, Railway...) meme avec `sslmode=require` dans l'URL : ca
+        // produit un "self-signed certificate in certificate chain" qui fait
+        // planter chaque requete en 500 sans toucher au endpoint /health (qui
+        // ne passe pas par la DB). On force donc `ssl` explicitement des que
+        // l'URL demande du SSL.
+        const ssl = connectionString?.includes("sslmode=require")
+          ? { rejectUnauthorized: false }
+          : undefined;
+        const pool = new Pool({ connectionString, ssl });
         return drizzle(pool, { schema });
       },
     },

@@ -1,6 +1,10 @@
 import { tokenStore } from "@/lib/token-store";
 
-const API_URL = import.meta.env.VITE_API_URL ?? "http://localhost:3000";
+// On retire un eventuel `/` final : les appels ci-dessous concatenent
+// toujours un chemin qui commence deja par `/` (ex. "/quran/surahs"), donc
+// un VITE_API_URL avec slash final produirait "//quran/surahs" -> 404 cote
+// API (arrive en prod si la variable est saisie avec un slash sur Vercel).
+const API_URL = (import.meta.env.VITE_API_URL ?? "http://localhost:3000").replace(/\/+$/, "");
 
 export class ApiError extends Error {
   constructor(
