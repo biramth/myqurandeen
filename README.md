@@ -143,13 +143,6 @@ L'assistant IA a besoin d'un index séparé une fois le contenu importé —
 voir [apps/api/src/modules/ai/README.md](apps/api/src/modules/ai/README.md)
 (`POST /ai/index`, réservé aux rôles ADMIN/SUPER_ADMIN).
 
-## Déploiement
-
-Voir [DEPLOYMENT.md](DEPLOYMENT.md) pour le guide complet, y compris la
-réponse détaillée à « peut-on déployer entièrement sur Vercel ? » (résumé :
-le frontend oui, sans réserve ; l'API non, pas telle quelle — voir pourquoi
-dans ce document).
-
 ## État d'avancement
 
 Le socle fonctionnel est en place et couvre l'ensemble des domaines listés
