@@ -1,5 +1,6 @@
 import {
   customType,
+  index,
   pgTable,
   smallint,
   text,
@@ -41,12 +42,16 @@ export const quranVerses = pgTable(
       .references(() => quranSurahs.id, { onDelete: "cascade" }),
     numberInSurah: smallint("number_in_surah").notNull(),
     textArabic: text("text_arabic").notNull(),
+    textTransliterated: text("text_transliterated"),
     textSearch: tsvector("text_search").generatedAlwaysAs(
       (): ReturnType<typeof sql> => sql`to_tsvector('simple', coalesce(text_arabic, ''))`,
     ),
     ...timestamps,
   },
-  (t) => [unique("quran_verses_surah_number_uidx").on(t.surahId, t.numberInSurah)],
+  (t) => [
+    unique("quran_verses_surah_number_uidx").on(t.surahId, t.numberInSurah),
+    index("quran_verses_text_search_gin_idx").using("gin", t.textSearch),
+  ],
 );
 
 /** Une "edition" de traduction (ex. "Traduction Hamidullah, FR"). */
@@ -72,9 +77,15 @@ export const verseTranslations = pgTable(
       .notNull()
       .references(() => translations.id, { onDelete: "cascade" }),
     text: text("text").notNull(),
+    textSearch: tsvector("text_search").generatedAlwaysAs(
+      (): ReturnType<typeof sql> => sql`to_tsvector('simple', coalesce("text", ''))`,
+    ),
     ...timestamps,
   },
-  (t) => [unique("verse_translations_verse_translation_uidx").on(t.verseId, t.translationId)],
+  (t) => [
+    unique("verse_translations_verse_translation_uidx").on(t.verseId, t.translationId),
+    index("verse_translations_text_search_gin_idx").using("gin", t.textSearch),
+  ],
 );
 
 export const tafsirSources = pgTable("tafsir_sources", {
@@ -88,19 +99,23 @@ export const tafsirSources = pgTable("tafsir_sources", {
   ...timestamps,
 });
 
-export const tafsirEntries = pgTable("tafsir_entries", {
-  id: id(),
-  tafsirSourceId: uuid("tafsir_source_id")
-    .notNull()
-    .references(() => tafsirSources.id, { onDelete: "cascade" }),
-  verseStartId: uuid("verse_start_id")
-    .notNull()
-    .references(() => quranVerses.id, { onDelete: "cascade" }),
-  verseEndId: uuid("verse_end_id").references(() => quranVerses.id, { onDelete: "cascade" }),
-  content: text("content").notNull(),
-  textSearch: tsvector("text_search").generatedAlwaysAs(
-    (): ReturnType<typeof sql> => sql`to_tsvector('simple', coalesce(content, ''))`,
-  ),
-  createdBy: uuid("created_by").references(() => users.id, { onDelete: "set null" }),
-  ...timestamps,
-});
+export const tafsirEntries = pgTable(
+  "tafsir_entries",
+  {
+    id: id(),
+    tafsirSourceId: uuid("tafsir_source_id")
+      .notNull()
+      .references(() => tafsirSources.id, { onDelete: "cascade" }),
+    verseStartId: uuid("verse_start_id")
+      .notNull()
+      .references(() => quranVerses.id, { onDelete: "cascade" }),
+    verseEndId: uuid("verse_end_id").references(() => quranVerses.id, { onDelete: "cascade" }),
+    content: text("content").notNull(),
+    textSearch: tsvector("text_search").generatedAlwaysAs(
+      (): ReturnType<typeof sql> => sql`to_tsvector('simple', coalesce(content, ''))`,
+    ),
+    createdBy: uuid("created_by").references(() => users.id, { onDelete: "set null" }),
+    ...timestamps,
+  },
+  (t) => [index("tafsir_entries_text_search_gin_idx").using("gin", t.textSearch)],
+);

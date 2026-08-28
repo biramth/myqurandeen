@@ -19,6 +19,7 @@
     "db:migrate": "npm run db:migrate -w apps/api",
     "db:seed": "npm run db:seed -w apps/api",
     "db:seed:quran": "npm run db:seed:quran -w apps/api",
+    "db:seed:transliteration": "npm run db:seed:transliteration -w apps/api",
     "db:seed:hadith": "npm run db:seed:hadith -w apps/api",
     "db:seed:tafsir": "npm run db:seed:tafsir -w apps/api",
     "db:seed:history": "npm run db:seed:history -w apps/api",

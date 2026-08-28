@@ -9,6 +9,24 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Skeleton } from "@/components/ui/skeleton";
 import { searchApi } from "@/features/search/api";
 import { useDocumentTitle } from "@/hooks/useDocumentTitle";
+import type { SearchResults } from "@/features/search/types";
+import { cn } from "@/lib/utils";
+
+const FILTERS = [
+  { key: "all", labelKey: "search.all" },
+  { key: "verses", labelKey: "nav.quran" },
+  { key: "hadiths", labelKey: "nav.hadith" },
+  { key: "tafsirEntries", labelKey: "comingSoon.tafsir.title" },
+  { key: "books", labelKey: "library.title" },
+  { key: "concepts", labelKey: "concepts.title" },
+  { key: "scholars", labelKey: "scholars.title" },
+  { key: "prophets", labelKey: "prophets.title" },
+  { key: "events", labelKey: "history.title" },
+  { key: "fiqhTopics", labelKey: "schools.comparatorTitle" },
+  { key: "schools", labelKey: "schools.title" },
+] as const;
+
+type FilterKey = (typeof FILTERS)[number]["key"];
 
 function ResultSection({
   title,
@@ -28,11 +46,38 @@ function ResultSection({
   );
 }
 
+function resultCounts(data: SearchResults): Record<FilterKey, number> {
+  return {
+    all:
+      data.verses.length +
+      data.hadiths.length +
+      data.tafsirEntries.length +
+      data.books.length +
+      data.concepts.length +
+      data.scholars.length +
+      data.prophets.length +
+      data.events.length +
+      data.fiqhTopics.length +
+      data.schools.length,
+    verses: data.verses.length,
+    hadiths: data.hadiths.length,
+    tafsirEntries: data.tafsirEntries.length,
+    books: data.books.length,
+    concepts: data.concepts.length,
+    scholars: data.scholars.length,
+    prophets: data.prophets.length,
+    events: data.events.length,
+    fiqhTopics: data.fiqhTopics.length,
+    schools: data.schools.length,
+  };
+}
+
 export function SearchPage() {
   const { t } = useTranslation();
   const [searchParams, setSearchParams] = useSearchParams();
   const initialQuery = searchParams.get("q") ?? "";
   const [inputValue, setInputValue] = React.useState(initialQuery);
+  const [activeFilter, setActiveFilter] = React.useState<FilterKey>("all");
   useDocumentTitle(t("search.title"));
 
   const { data, isFetching, isError } = useQuery({
@@ -41,22 +86,18 @@ export function SearchPage() {
     enabled: initialQuery.trim().length >= 2,
   });
 
+  React.useEffect(() => {
+    setActiveFilter("all");
+  }, [initialQuery]);
+
   const handleSubmit = (event: React.FormEvent) => {
     event.preventDefault();
     setSearchParams(inputValue ? { q: inputValue } : {});
   };
 
-  const totalResults = data
-    ? data.verses.length +
-      data.hadiths.length +
-      data.tafsirEntries.length +
-      data.concepts.length +
-      data.scholars.length +
-      data.prophets.length +
-      data.events.length +
-      data.fiqhTopics.length +
-      data.schools.length
-    : 0;
+  const totalResults = data ? resultCounts(data).all : 0;
+  const counts = data ? resultCounts(data) : null;
+  const showSection = (key: FilterKey) => activeFilter === "all" || activeFilter === key;
 
   return (
     <div className="mx-auto max-w-3xl px-4 py-10">
@@ -89,130 +130,190 @@ export function SearchPage() {
         <p className="text-sm text-muted-foreground">{t("search.noResults")}</p>
       )}
 
-      {data && (
+      {data && totalResults > 0 && (
         <>
-          <ResultSection title={t("nav.quran")} count={data.verses.length}>
-            {data.verses.map((v) => (
-              <Link key={v.id} to={`/quran/${v.surahNumber}/${v.numberInSurah}`}>
-                <Card className="transition-colors hover:border-primary/50">
-                  <CardContent className="p-3">
-                    <p className="text-xs text-muted-foreground">
-                      {v.surahName} {v.surahNumber}:{v.numberInSurah}
-                    </p>
-                    <p dir="rtl" className="mt-1 font-arabic text-lg">
-                      {v.textArabic}
-                    </p>
-                  </CardContent>
-                </Card>
-              </Link>
-            ))}
-          </ResultSection>
+          <p className="mb-4 text-sm text-muted-foreground">
+            {t("search.results", { count: totalResults })}
+          </p>
 
-          <ResultSection title={t("nav.hadith")} count={data.hadiths.length}>
-            {data.hadiths.map((h) => (
-              <Link key={h.id} to={`/hadith/${h.collectionSlug}/${h.numberInCollection}`}>
-                <Card className="transition-colors hover:border-primary/50">
-                  <CardContent className="p-3">
-                    <p className="text-xs text-muted-foreground">
-                      {h.collectionName} - {t("hadith.hadithLabel")} {h.number}
-                    </p>
-                    <p className="mt-1 line-clamp-2 text-sm">{h.textTranslation}</p>
-                  </CardContent>
-                </Card>
-              </Link>
-            ))}
-          </ResultSection>
+          <div className="mb-8 flex flex-wrap gap-2">
+            {FILTERS.map((filter) => {
+              const count = counts?.[filter.key] ?? 0;
+              return (
+                <Button
+                  key={filter.key}
+                  variant={activeFilter === filter.key ? "default" : "outline"}
+                  size="sm"
+                  onClick={() => setActiveFilter(filter.key)}
+                >
+                  {t(filter.labelKey)}
+                  {count > 0 && <span className="ml-1.5 opacity-80">{count}</span>}
+                </Button>
+              );
+            })}
+          </div>
 
-          <ResultSection title={t("comingSoon.tafsir.title") || "Tafsir"} count={data.tafsirEntries.length}>
-            {data.tafsirEntries.map((entry) => (
-              <Link key={entry.id} to={`/quran/${entry.surahNumber}/${entry.numberInSurah}`}>
-                <Card className="transition-colors hover:border-primary/50">
-                  <CardContent className="p-3">
-                    <p className="text-xs text-muted-foreground">
-                      {entry.workTitle} - {entry.surahNumber}:{entry.numberInSurah}
-                    </p>
-                    <p className="mt-1 line-clamp-2 text-sm">{entry.content}</p>
-                  </CardContent>
-                </Card>
-              </Link>
-            ))}
-          </ResultSection>
+          {showSection("verses") && (
+            <ResultSection title={t("nav.quran")} count={data.verses.length}>
+              {data.verses.map((v) => (
+                <Link key={v.id} to={`/quran/${v.surahNumber}/${v.numberInSurah}`}>
+                  <Card className={cn("transition-colors hover:border-primary/50")}>
+                    <CardContent className="p-3">
+                      <p className="text-xs text-muted-foreground">
+                        {v.surahName} {v.surahNumber}:{v.numberInSurah}
+                      </p>
+                      <p dir="rtl" className="mt-1 font-arabic text-lg">
+                        {v.textArabic}
+                      </p>
+                      {v.textTransliterated && (
+                        <p className="mt-0.5 text-xs italic text-muted-foreground">{v.textTransliterated}</p>
+                      )}
+                    </CardContent>
+                  </Card>
+                </Link>
+              ))}
+            </ResultSection>
+          )}
 
-          <ResultSection title={t("concepts.title")} count={data.concepts.length}>
-            {data.concepts.map((c) => (
-              <Link key={c.id} to={`/concepts/${c.slug}`}>
-                <Card className="transition-colors hover:border-primary/50">
-                  <CardContent className="p-3">
-                    <p className="text-sm font-medium">{c.term}</p>
-                    <p className="mt-1 line-clamp-2 text-sm text-muted-foreground">{c.definition}</p>
-                  </CardContent>
-                </Card>
-              </Link>
-            ))}
-          </ResultSection>
+          {showSection("hadiths") && (
+            <ResultSection title={t("nav.hadith")} count={data.hadiths.length}>
+              {data.hadiths.map((h) => (
+                <Link key={h.id} to={`/hadith/${h.collectionSlug}/${h.numberInCollection}`}>
+                  <Card className="transition-colors hover:border-primary/50">
+                    <CardContent className="p-3">
+                      <p className="text-xs text-muted-foreground">
+                        {h.collectionName} - {t("hadith.hadithLabel")} {h.number}
+                      </p>
+                      <p className="mt-1 line-clamp-2 text-sm">{h.textTranslation}</p>
+                    </CardContent>
+                  </Card>
+                </Link>
+              ))}
+            </ResultSection>
+          )}
 
-          <ResultSection title={t("scholars.title")} count={data.scholars.length}>
-            {data.scholars.map((s) => (
-              <Link key={s.id} to={`/scholars/${s.slug}`}>
-                <Card className="transition-colors hover:border-primary/50">
-                  <CardContent className="p-3">
-                    <p className="text-sm font-medium">{s.name}</p>
-                    {s.bio && <p className="mt-1 line-clamp-2 text-sm text-muted-foreground">{s.bio}</p>}
-                  </CardContent>
-                </Card>
-              </Link>
-            ))}
-          </ResultSection>
+          {showSection("tafsirEntries") && (
+            <ResultSection title={t("comingSoon.tafsir.title") || "Tafsir"} count={data.tafsirEntries.length}>
+              {data.tafsirEntries.map((entry) => (
+                <Link key={entry.id} to={`/quran/${entry.surahNumber}/${entry.numberInSurah}`}>
+                  <Card className="transition-colors hover:border-primary/50">
+                    <CardContent className="p-3">
+                      <p className="text-xs text-muted-foreground">
+                        {entry.workTitle} - {entry.surahNumber}:{entry.numberInSurah}
+                      </p>
+                      <p className="mt-1 line-clamp-2 text-sm">{entry.content}</p>
+                    </CardContent>
+                  </Card>
+                </Link>
+              ))}
+            </ResultSection>
+          )}
 
-          <ResultSection title={t("prophets.title")} count={data.prophets.length}>
-            {data.prophets.map((p) => (
-              <Link key={p.id} to={`/prophets/${p.slug}`}>
-                <Card className="transition-colors hover:border-primary/50">
-                  <CardContent className="p-3">
-                    <p className="text-sm font-medium">{p.name}</p>
-                    <p className="mt-1 line-clamp-2 text-sm text-muted-foreground">{p.description}</p>
-                  </CardContent>
-                </Card>
-              </Link>
-            ))}
-          </ResultSection>
+          {showSection("books") && (
+            <ResultSection title={t("library.title")} count={data.books.length}>
+              {data.books.map((book) => (
+                <Link key={book.id} to={`/library/${book.slug}`}>
+                  <Card className="transition-colors hover:border-primary/50">
+                    <CardContent className="p-3">
+                      <p className="text-sm font-medium">{book.title}</p>
+                      {book.authorName && <p className="text-xs text-muted-foreground">{book.authorName}</p>}
+                      {book.description && (
+                        <p className="mt-1 line-clamp-2 text-sm text-muted-foreground">{book.description}</p>
+                      )}
+                    </CardContent>
+                  </Card>
+                </Link>
+              ))}
+            </ResultSection>
+          )}
 
-          <ResultSection title={t("history.title")} count={data.events.length}>
-            {data.events.map((e) => (
-              <Link key={e.id} to={`/history/event/${e.slug}`}>
-                <Card className="transition-colors hover:border-primary/50">
-                  <CardContent className="p-3">
-                    <p className="text-sm font-medium">{e.title}</p>
-                    <p className="mt-1 line-clamp-2 text-sm text-muted-foreground">{e.description}</p>
-                  </CardContent>
-                </Card>
-              </Link>
-            ))}
-          </ResultSection>
+          {showSection("concepts") && (
+            <ResultSection title={t("concepts.title")} count={data.concepts.length}>
+              {data.concepts.map((c) => (
+                <Link key={c.id} to={`/concepts/${c.slug}`}>
+                  <Card className="transition-colors hover:border-primary/50">
+                    <CardContent className="p-3">
+                      <p className="text-sm font-medium">{c.term}</p>
+                      <p className="mt-1 line-clamp-2 text-sm text-muted-foreground">{c.definition}</p>
+                    </CardContent>
+                  </Card>
+                </Link>
+              ))}
+            </ResultSection>
+          )}
 
-          <ResultSection title={t("schools.comparatorTitle")} count={data.fiqhTopics.length}>
-            {data.fiqhTopics.map((topic) => (
-              <Link key={topic.id} to={`/fiqh/${topic.slug}`}>
-                <Card className="transition-colors hover:border-primary/50">
-                  <CardContent className="p-3">
-                    <p className="text-sm font-medium">{topic.title}</p>
-                  </CardContent>
-                </Card>
-              </Link>
-            ))}
-          </ResultSection>
+          {showSection("scholars") && (
+            <ResultSection title={t("scholars.title")} count={data.scholars.length}>
+              {data.scholars.map((s) => (
+                <Link key={s.id} to={`/scholars/${s.slug}`}>
+                  <Card className="transition-colors hover:border-primary/50">
+                    <CardContent className="p-3">
+                      <p className="text-sm font-medium">{s.name}</p>
+                      {s.bio && <p className="mt-1 line-clamp-2 text-sm text-muted-foreground">{s.bio}</p>}
+                    </CardContent>
+                  </Card>
+                </Link>
+              ))}
+            </ResultSection>
+          )}
 
-          <ResultSection title={t("schools.title")} count={data.schools.length}>
-            {data.schools.map((school) => (
-              <Link key={school.id} to={`/schools/${school.slug}`}>
-                <Card className="transition-colors hover:border-primary/50">
-                  <CardContent className="p-3">
-                    <p className="text-sm font-medium">{school.name}</p>
-                  </CardContent>
-                </Card>
-              </Link>
-            ))}
-          </ResultSection>
+          {showSection("prophets") && (
+            <ResultSection title={t("prophets.title")} count={data.prophets.length}>
+              {data.prophets.map((p) => (
+                <Link key={p.id} to={`/prophets/${p.slug}`}>
+                  <Card className="transition-colors hover:border-primary/50">
+                    <CardContent className="p-3">
+                      <p className="text-sm font-medium">{p.name}</p>
+                      <p className="mt-1 line-clamp-2 text-sm text-muted-foreground">{p.description}</p>
+                    </CardContent>
+                  </Card>
+                </Link>
+              ))}
+            </ResultSection>
+          )}
+
+          {showSection("events") && (
+            <ResultSection title={t("history.title")} count={data.events.length}>
+              {data.events.map((e) => (
+                <Link key={e.id} to={`/history/event/${e.slug}`}>
+                  <Card className="transition-colors hover:border-primary/50">
+                    <CardContent className="p-3">
+                      <p className="text-sm font-medium">{e.title}</p>
+                      <p className="mt-1 line-clamp-2 text-sm text-muted-foreground">{e.description}</p>
+                    </CardContent>
+                  </Card>
+                </Link>
+              ))}
+            </ResultSection>
+          )}
+
+          {showSection("fiqhTopics") && (
+            <ResultSection title={t("schools.comparatorTitle")} count={data.fiqhTopics.length}>
+              {data.fiqhTopics.map((topic) => (
+                <Link key={topic.id} to={`/fiqh/${topic.slug}`}>
+                  <Card className="transition-colors hover:border-primary/50">
+                    <CardContent className="p-3">
+                      <p className="text-sm font-medium">{topic.title}</p>
+                    </CardContent>
+                  </Card>
+                </Link>
+              ))}
+            </ResultSection>
+          )}
+
+          {showSection("schools") && (
+            <ResultSection title={t("schools.title")} count={data.schools.length}>
+              {data.schools.map((school) => (
+                <Link key={school.id} to={`/schools/${school.slug}`}>
+                  <Card className="transition-colors hover:border-primary/50">
+                    <CardContent className="p-3">
+                      <p className="text-sm font-medium">{school.name}</p>
+                    </CardContent>
+                  </Card>
+                </Link>
+              ))}
+            </ResultSection>
+          )}
         </>
       )}
     </div>

@@ -1,8 +1,10 @@
 import { Inject, Injectable } from "@nestjs/common";
-import { and, eq, ilike, or, sql } from "drizzle-orm";
+import { eq, ilike, or, sql } from "drizzle-orm";
 import { DRIZZLE } from "../../database/database.constants";
 import type { Database } from "../../database/database.module";
 import {
+  authors,
+  books,
   concepts,
   fiqhTopics,
   hadithBooks,
@@ -17,10 +19,16 @@ import {
   schools,
   tafsirEntries,
   tafsirSources,
+  verseTranslations,
 } from "../../database/schema";
 
 const RESULT_LIMIT = 8;
 
+/**
+ * Recherche transverse multi-entites. Les resultats FTS sont classes par
+ * pertinence (ts_rank), et la recherche sur les versets couvre a la fois le
+ * texte arabe et les traductions (verse_translations.text_search).
+ */
 @Injectable()
 export class SearchService {
   constructor(@Inject(DRIZZLE) private readonly db: Database) {}
@@ -32,6 +40,7 @@ export class SearchService {
         verses: [],
         hadiths: [],
         tafsirEntries: [],
+        books: [],
         concepts: [],
         scholars: [],
         prophets: [],
@@ -42,31 +51,52 @@ export class SearchService {
     }
 
     const like = `%${trimmed}%`;
-    const tsQuery = sql`plainto_tsquery('simple', ${trimmed})`;
+    // websearch_to_tsquery supporte les guillemets (phrase), l'exclusion
+    // avec "-" et l'operateur OR - syntaxe adaptee a une saisie utilisateur.
+    const tsQuery = sql`websearch_to_tsquery('simple', ${trimmed})`;
 
-    const [
-      verses,
-      hadithRows,
-      tafsirRows,
-      conceptRows,
-      scholarRows,
-      prophetRows,
-      eventRows,
-      fiqhTopicRows,
-      schoolRows,
-    ] = await Promise.all([
+    const verseColumns = {
+      id: quranVerses.id,
+      surahNumber: quranSurahs.number,
+      surahName: quranSurahs.nameTransliterated,
+      numberInSurah: quranVerses.numberInSurah,
+      textArabic: quranVerses.textArabic,
+      textTransliterated: quranVerses.textTransliterated,
+    };
+
+    const [arabicVerseRows, translationVerseRows, hadithRows, tafsirRows, bookRows] = await Promise.all([
+      // Versets en arabe
       this.db
         .select({
-          id: quranVerses.id,
-          surahNumber: quranSurahs.number,
-          surahName: quranSurahs.nameTransliterated,
-          numberInSurah: quranVerses.numberInSurah,
-          textArabic: quranVerses.textArabic,
+          ...verseColumns,
+          rank: sql<number>`ts_rank(${quranVerses.textSearch}, ${tsQuery})`,
         })
         .from(quranVerses)
         .innerJoin(quranSurahs, eq(quranSurahs.id, quranVerses.surahId))
         .where(sql`${quranVerses.textSearch} @@ ${tsQuery}`)
+        .orderBy(sql`ts_rank(${quranVerses.textSearch}, ${tsQuery}) desc`)
         .limit(RESULT_LIMIT),
+      // Versets trouves via les traductions (fr, en, ...) - dedoublonnes ensuite.
+      this.db
+        .select({
+          ...verseColumns,
+          rank: sql<number>`max(ts_rank(${verseTranslations.textSearch}, ${tsQuery}))`,
+        })
+        .from(verseTranslations)
+        .innerJoin(quranVerses, eq(quranVerses.id, verseTranslations.verseId))
+        .innerJoin(quranSurahs, eq(quranSurahs.id, quranVerses.surahId))
+        .where(sql`${verseTranslations.textSearch} @@ ${tsQuery}`)
+        .groupBy(
+          quranVerses.id,
+          quranSurahs.number,
+          quranSurahs.nameTransliterated,
+          quranVerses.numberInSurah,
+          quranVerses.textArabic,
+          quranVerses.textTransliterated,
+        )
+        .orderBy(sql`max(ts_rank(${verseTranslations.textSearch}, ${tsQuery})) desc`)
+        .limit(RESULT_LIMIT),
+      // Hadiths
       this.db
         .select({
           id: hadiths.id,
@@ -76,12 +106,15 @@ export class SearchService {
           number: hadiths.number,
           numberInCollection: hadiths.numberInCollection,
           textTranslation: hadiths.textTranslation,
+          rank: sql<number>`ts_rank(${hadiths.textSearch}, ${tsQuery})`,
         })
         .from(hadiths)
         .innerJoin(hadithCollections, eq(hadithCollections.id, hadiths.collectionId))
         .innerJoin(hadithBooks, eq(hadithBooks.id, hadiths.hadithBookId))
         .where(sql`${hadiths.textSearch} @@ ${tsQuery}`)
+        .orderBy(sql`ts_rank(${hadiths.textSearch}, ${tsQuery}) desc`)
         .limit(RESULT_LIMIT),
+      // Tafsir
       this.db
         .select({
           id: tafsirEntries.id,
@@ -89,13 +122,46 @@ export class SearchService {
           surahNumber: quranSurahs.number,
           numberInSurah: quranVerses.numberInSurah,
           content: tafsirEntries.content,
+          rank: sql<number>`ts_rank(${tafsirEntries.textSearch}, ${tsQuery})`,
         })
         .from(tafsirEntries)
         .innerJoin(tafsirSources, eq(tafsirSources.id, tafsirEntries.tafsirSourceId))
         .innerJoin(quranVerses, eq(quranVerses.id, tafsirEntries.verseStartId))
         .innerJoin(quranSurahs, eq(quranSurahs.id, quranVerses.surahId))
         .where(sql`${tafsirEntries.textSearch} @@ ${tsQuery}`)
+        .orderBy(sql`ts_rank(${tafsirEntries.textSearch}, ${tsQuery}) desc`)
         .limit(RESULT_LIMIT),
+      // Livres de la bibliotheque
+      this.db
+        .select({
+          id: books.id,
+          title: books.title,
+          slug: books.slug,
+          description: books.description,
+          authorName: authors.name,
+          rank: sql<number>`ts_rank(${books.textSearch}, ${tsQuery})`,
+        })
+        .from(books)
+        .leftJoin(authors, eq(authors.id, books.authorId))
+        .where(sql`${books.textSearch} @@ ${tsQuery}`)
+        .orderBy(sql`ts_rank(${books.textSearch}, ${tsQuery}) desc`)
+        .limit(RESULT_LIMIT),
+    ]);
+
+    // Fusion arabe + traductions : on garde le meilleur rang par verset.
+    const verseByKey = new Map<string, (typeof arabicVerseRows)[number]>();
+    for (const verse of [...arabicVerseRows, ...translationVerseRows]) {
+      const key = `${verse.surahNumber}:${verse.numberInSurah}`;
+      const existing = verseByKey.get(key);
+      if (!existing || verse.rank > existing.rank) {
+        verseByKey.set(key, verse);
+      }
+    }
+    const verses = [...verseByKey.values()]
+      .sort((a, b) => b.rank - a.rank)
+      .slice(0, RESULT_LIMIT);
+
+    const [conceptRows, scholarRows, prophetRows, eventRows, fiqhTopicRows, schoolRows] = await Promise.all([
       this.db
         .select({ id: concepts.id, term: concepts.term, slug: concepts.slug, definition: concepts.definition })
         .from(concepts)
@@ -118,15 +184,17 @@ export class SearchService {
           slug: historicalEvents.slug,
           periodSlug: historicalPeriods.slug,
           description: historicalEvents.description,
+          rank: sql<number>`ts_rank(${historicalEvents.textSearch}, ${tsQuery})`,
         })
         .from(historicalEvents)
         .innerJoin(historicalPeriods, eq(historicalPeriods.id, historicalEvents.periodId))
         .where(sql`${historicalEvents.textSearch} @@ ${tsQuery}`)
+        .orderBy(sql`ts_rank(${historicalEvents.textSearch}, ${tsQuery}) desc`)
         .limit(RESULT_LIMIT),
       this.db
         .select({ id: fiqhTopics.id, title: fiqhTopics.title, slug: fiqhTopics.slug, description: fiqhTopics.description })
         .from(fiqhTopics)
-        .where(and(or(ilike(fiqhTopics.title, like), ilike(fiqhTopics.description, like))))
+        .where(or(ilike(fiqhTopics.title, like), ilike(fiqhTopics.description, like)))
         .limit(RESULT_LIMIT),
       this.db
         .select({ id: schools.id, name: schools.name, slug: schools.slug, type: schools.type })
@@ -139,6 +207,7 @@ export class SearchService {
       verses,
       hadiths: hadithRows,
       tafsirEntries: tafsirRows,
+      books: bookRows,
       concepts: conceptRows,
       scholars: scholarRows,
       prophets: prophetRows,

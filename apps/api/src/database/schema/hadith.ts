@@ -1,4 +1,4 @@
-import { customType, doublePrecision, integer, pgTable, primaryKey, text, unique, uuid, varchar } from "drizzle-orm/pg-core";
+import { customType, doublePrecision, index, integer, pgTable, primaryKey, text, unique, uuid, varchar } from "drizzle-orm/pg-core";
 import { sql } from "drizzle-orm";
 import { id, timestamps } from "./_columns";
 import { authors, sources } from "./sources";
@@ -72,7 +72,10 @@ export const hadiths = pgTable(
   // Pas de contrainte d'unicite sur (hadithBookId, number) : ce numero "dans le
   // livre" peut se repeter pour des hadiths freres (memes propos, chaines
   // differentes, ex. 25 et 25 bis) - identifiant d'affichage, pas une cle.
-  (t) => [unique("hadiths_collection_number_uidx").on(t.collectionId, t.numberInCollection)],
+  (t) => [
+    unique("hadiths_collection_number_uidx").on(t.collectionId, t.numberInCollection),
+    index("hadiths_text_search_gin_idx").using("gin", t.textSearch),
+  ],
 );
 
 /**

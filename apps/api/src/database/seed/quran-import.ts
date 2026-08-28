@@ -209,6 +209,66 @@ async function upsertTranslationEdition(
   return count;
 }
 
+interface TransliterationRow {
+  id: string;
+  text: string;
+}
+
+async function upsertTransliteration(
+  db: Database,
+  surahIdByNumber: Map<number, string>,
+  verseIdByKey: Map<string, string>,
+): Promise<number> {
+  console.log("Import Coran: telechargement de la transliteration (en.transliteration)...");
+  const editionSurahs = await fetchEdition("en.transliteration");
+
+  let count = 0;
+  for (const surah of editionSurahs) {
+    const surahId = surahIdByNumber.get(surah.number);
+    if (!surahId) continue;
+
+    const rows: TransliterationRow[] = surah.ayahs
+      .map((ayah) => {
+        const verseId = verseIdByKey.get(`${surahId}:${ayah.numberInSurah}`);
+        return verseId ? { id: verseId, text: ayah.text } : null;
+      })
+      .filter((r): r is TransliterationRow => r !== null);
+
+    if (rows.length === 0) continue;
+
+    const values = sql.join(
+      rows.map((r) => sql`(${r.id}::uuid, ${r.text})`),
+      sql`, `,
+    );
+    await db.execute(sql`
+      UPDATE quran_verses q
+      SET text_transliterated = v.text
+      FROM (VALUES ${values}) AS v(id, text)
+      WHERE q.id = v.id
+    `);
+    count += rows.length;
+  }
+
+  console.log(`Import Coran: transliteration associee a ${count} versets.`);
+  return count;
+}
+
+/**
+ * Backfill cible : remplit la transliteration de tous les versets deja en base
+ * sans re-telecharger les traductions. Utilise par `db:seed:transliteration`.
+ */
+export async function importTransliteration(db: Database): Promise<void> {
+  const surahs = await db.select({ id: quranSurahs.id, number: quranSurahs.number }).from(quranSurahs);
+  const surahIdByNumber = new Map<number, string>(surahs.map((s) => [s.number, s.id]));
+
+  const verses = await db
+    .select({ id: quranVerses.id, surahId: quranVerses.surahId, numberInSurah: quranVerses.numberInSurah })
+    .from(quranVerses);
+  const verseIdByKey = new Map<string, string>(verses.map((v) => [`${v.surahId}:${v.numberInSurah}`, v.id]));
+
+  await upsertTransliteration(db, surahIdByNumber, verseIdByKey);
+}
+
 export async function importQuran(db: Database): Promise<void> {
   console.log("Import Coran: telechargement du texte arabe (Tanzil / quran-uthmani)...");
   const arabicSurahs = await fetchEdition("quran-uthmani");
@@ -288,5 +348,7 @@ export async function importQuran(db: Database): Promise<void> {
     await upsertTranslationEdition(db, editionConfig, arabicSurahs, surahIdByNumber, verseIdByKey);
   }
 
-  console.log(`Import Coran termine: ${TRANSLATION_EDITIONS.length} traductions importees.`);
+  await upsertTransliteration(db, surahIdByNumber, verseIdByKey);
+
+  console.log(`Import Coran termine: ${TRANSLATION_EDITIONS.length} traductions et 1 transliteration importees.`);
 }

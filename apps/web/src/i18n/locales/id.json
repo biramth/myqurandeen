@@ -28,29 +28,89 @@
     "searchPlaceholder": "Cari ayat, hadis, atau konsep...",
     "searchButton": "Cari",
     "categories": {
-      "quran": { "label": "Al-Quran", "description": "Teks, terjemahan, tafsir" },
-      "hadith": { "label": "Hadis", "description": "Koleksi dan keotentikan" },
-      "tafsir": { "label": "Tafsir", "description": "Tafsir ayat per ayat" },
-      "fiqh": { "label": "Fikih", "description": "Mazhab dan pembanding" },
-      "prophet": { "label": "Kehidupan Nabi ﷺ", "description": "Garis waktu bersumber" },
-      "prophets": { "label": "Para Nabi", "description": "Adam, Ibrahim, Musa, Isa..." },
-      "history": { "label": "Sejarah", "description": "Dinasti dan periode" },
-      "scholars": { "label": "Ulama", "description": "Biografi dan karya" },
-      "library": { "label": "Perpustakaan", "description": "Karya referensi" },
-      "learning": { "label": "Jalur belajar", "description": "Pembelajaran terbimbing" },
-      "concepts": { "label": "Konsep", "description": "Tauhid, Salat, Zakat..." }
+      "quran": {
+        "label": "Al-Quran",
+        "description": "Teks, terjemahan, tafsir"
+      },
+      "hadith": {
+        "label": "Hadis",
+        "description": "Koleksi dan keotentikan"
+      },
+      "tafsir": {
+        "label": "Tafsir",
+        "description": "Tafsir ayat per ayat"
+      },
+      "fiqh": {
+        "label": "Fikih",
+        "description": "Mazhab dan pembanding"
+      },
+      "prophet": {
+        "label": "Kehidupan Nabi ﷺ",
+        "description": "Garis waktu bersumber"
+      },
+      "prophets": {
+        "label": "Para Nabi",
+        "description": "Adam, Ibrahim, Musa, Isa..."
+      },
+      "history": {
+        "label": "Sejarah",
+        "description": "Dinasti dan periode"
+      },
+      "scholars": {
+        "label": "Ulama",
+        "description": "Biografi dan karya"
+      },
+      "library": {
+        "label": "Perpustakaan",
+        "description": "Karya referensi"
+      },
+      "learning": {
+        "label": "Jalur belajar",
+        "description": "Pembelajaran terbimbing"
+      },
+      "concepts": {
+        "label": "Konsep",
+        "description": "Tauhid, Salat, Zakat..."
+      }
     }
   },
   "comingSoon": {
-    "notFound": { "title": "Halaman tidak ditemukan", "description": "Halaman ini belum ada." },
-    "tafsir": { "title": "Tafsir", "description": "Perpustakaan tafsir akan hadir pada Fase 5 pengembangan." },
-    "schools": { "title": "Mazhab dan fikih", "description": "Pembanding mazhab fikih akan hadir pada Fase 7 pengembangan." },
-    "history": { "title": "Sejarah Islam", "description": "Garis waktu interaktif (termasuk kehidupan Nabi ﷺ) akan hadir pada Fase 6 pengembangan." },
-    "scholars": { "title": "Ulama", "description": "Basis data ulama akan hadir pada Fase 8 pengembangan." },
-    "library": { "title": "Perpustakaan", "description": "Perpustakaan digital akan hadir pada Fase 8 pengembangan." },
-    "learning": { "title": "Jalur belajar", "description": "Jalur belajar terbimbing akan hadir pada Fase 10 pengembangan." },
-    "search": { "title": "Pencarian lanjutan", "description": "Mesin pencari lintas konten akan hadir pada Fase 9 pengembangan." },
-    "admin": { "title": "Administrasi", "description": "Dasbor admin akan hadir pada Fase 11 pengembangan." }
+    "notFound": {
+      "title": "Halaman tidak ditemukan",
+      "description": "Halaman ini belum ada."
+    },
+    "tafsir": {
+      "title": "Tafsir",
+      "description": "Perpustakaan tafsir akan hadir pada Fase 5 pengembangan."
+    },
+    "schools": {
+      "title": "Mazhab dan fikih",
+      "description": "Pembanding mazhab fikih akan hadir pada Fase 7 pengembangan."
+    },
+    "history": {
+      "title": "Sejarah Islam",
+      "description": "Garis waktu interaktif (termasuk kehidupan Nabi ﷺ) akan hadir pada Fase 6 pengembangan."
+    },
+    "scholars": {
+      "title": "Ulama",
+      "description": "Basis data ulama akan hadir pada Fase 8 pengembangan."
+    },
+    "library": {
+      "title": "Perpustakaan",
+      "description": "Perpustakaan digital akan hadir pada Fase 8 pengembangan."
+    },
+    "learning": {
+      "title": "Jalur belajar",
+      "description": "Jalur belajar terbimbing akan hadir pada Fase 10 pengembangan."
+    },
+    "search": {
+      "title": "Pencarian lanjutan",
+      "description": "Mesin pencari lintas konten akan hadir pada Fase 9 pengembangan."
+    },
+    "admin": {
+      "title": "Administrasi",
+      "description": "Dasbor admin akan hadir pada Fase 11 pengembangan."
+    }
   },
   "auth": {
     "showPassword": "Tampilkan kata sandi",
@@ -81,7 +141,11 @@
     "loading": "Memuat...",
     "memberSince": "Anggota sejak {{date}}.",
     "logout": "Keluar",
-    "tabs": { "bookmarks": "Favorit", "notes": "Catatan", "collections": "Koleksi" }
+    "tabs": {
+      "bookmarks": "Favorit",
+      "notes": "Catatan",
+      "collections": "Koleksi"
+    }
   },
   "bookmark": {
     "add": "Tambah ke favorit",
@@ -220,7 +284,10 @@
   "search": {
     "title": "Pencarian",
     "error": "Pencarian gagal.",
-    "noResults": "Tidak ada hasil ditemukan."
+    "noResults": "Tidak ada hasil ditemukan.",
+    "all": "Semua",
+    "results": "{{count}} hasil",
+    "results_plural": "{{count}} hasil"
   },
   "learning": {
     "title": "Jalur belajar",

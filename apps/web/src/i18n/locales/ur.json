@@ -28,29 +28,89 @@
     "searchPlaceholder": "کوئی آیت، حدیث یا اصطلاح تلاش کریں...",
     "searchButton": "تلاش کریں",
     "categories": {
-      "quran": { "label": "قرآن", "description": "متن، تراجم، تفسیر" },
-      "hadith": { "label": "حدیث", "description": "مجموعے اور صحت" },
-      "tafsir": { "label": "تفسیر", "description": "آیت بہ آیت تفسیر" },
-      "fiqh": { "label": "فقہ", "description": "مذاہب اور موازنہ" },
-      "prophet": { "label": "سیرت النبی ﷺ", "description": "مستند تاریخ وار ترتیب" },
-      "prophets": { "label": "انبیاء", "description": "آدم، ابراہیم، موسی، عیسی..." },
-      "history": { "label": "تاریخ", "description": "خاندان اور ادوار" },
-      "scholars": { "label": "علماء", "description": "سوانح اور تصانیف" },
-      "library": { "label": "کتب خانہ", "description": "حوالہ جاتی کتب" },
-      "learning": { "label": "تعلیمی راستے", "description": "راہنمائی شدہ تعلیم" },
-      "concepts": { "label": "تصورات", "description": "توحید، صلاۃ، زکاۃ..." }
+      "quran": {
+        "label": "قرآن",
+        "description": "متن، تراجم، تفسیر"
+      },
+      "hadith": {
+        "label": "حدیث",
+        "description": "مجموعے اور صحت"
+      },
+      "tafsir": {
+        "label": "تفسیر",
+        "description": "آیت بہ آیت تفسیر"
+      },
+      "fiqh": {
+        "label": "فقہ",
+        "description": "مذاہب اور موازنہ"
+      },
+      "prophet": {
+        "label": "سیرت النبی ﷺ",
+        "description": "مستند تاریخ وار ترتیب"
+      },
+      "prophets": {
+        "label": "انبیاء",
+        "description": "آدم، ابراہیم، موسی، عیسی..."
+      },
+      "history": {
+        "label": "تاریخ",
+        "description": "خاندان اور ادوار"
+      },
+      "scholars": {
+        "label": "علماء",
+        "description": "سوانح اور تصانیف"
+      },
+      "library": {
+        "label": "کتب خانہ",
+        "description": "حوالہ جاتی کتب"
+      },
+      "learning": {
+        "label": "تعلیمی راستے",
+        "description": "راہنمائی شدہ تعلیم"
+      },
+      "concepts": {
+        "label": "تصورات",
+        "description": "توحید، صلاۃ، زکاۃ..."
+      }
     }
   },
   "comingSoon": {
-    "notFound": { "title": "صفحہ نہیں ملا", "description": "یہ صفحہ (ابھی تک) موجود نہیں ہے۔" },
-    "tafsir": { "title": "تفسیر", "description": "تفسیر کا کتب خانہ ترقی کے مرحلہ 5 میں آ رہا ہے۔" },
-    "schools": { "title": "مذاہب اور فقہ", "description": "فقہی مذاہب کا موازنہ ترقی کے مرحلہ 7 میں آ رہا ہے۔" },
-    "history": { "title": "اسلامی تاریخ", "description": "انٹرایکٹو تاریخ وار ترتیب (بشمول سیرت النبی ﷺ) ترقی کے مرحلہ 6 میں آ رہی ہے۔" },
-    "scholars": { "title": "علماء", "description": "علماء کا ڈیٹا بیس ترقی کے مرحلہ 8 میں آ رہا ہے۔" },
-    "library": { "title": "کتب خانہ", "description": "ڈیجیٹل کتب خانہ ترقی کے مرحلہ 8 میں آ رہا ہے۔" },
-    "learning": { "title": "تعلیمی راستے", "description": "راہنمائی شدہ تعلیمی راستے ترقی کے مرحلہ 10 میں آ رہے ہیں۔" },
-    "search": { "title": "جدید تلاش", "description": "مکمل تلاش کا نظام ترقی کے مرحلہ 9 میں آ رہا ہے۔" },
-    "admin": { "title": "انتظامیہ", "description": "انتظامی ڈیش بورڈ ترقی کے مرحلہ 11 میں آ رہا ہے۔" }
+    "notFound": {
+      "title": "صفحہ نہیں ملا",
+      "description": "یہ صفحہ (ابھی تک) موجود نہیں ہے۔"
+    },
+    "tafsir": {
+      "title": "تفسیر",
+      "description": "تفسیر کا کتب خانہ ترقی کے مرحلہ 5 میں آ رہا ہے۔"
+    },
+    "schools": {
+      "title": "مذاہب اور فقہ",
+      "description": "فقہی مذاہب کا موازنہ ترقی کے مرحلہ 7 میں آ رہا ہے۔"
+    },
+    "history": {
+      "title": "اسلامی تاریخ",
+      "description": "انٹرایکٹو تاریخ وار ترتیب (بشمول سیرت النبی ﷺ) ترقی کے مرحلہ 6 میں آ رہی ہے۔"
+    },
+    "scholars": {
+      "title": "علماء",
+      "description": "علماء کا ڈیٹا بیس ترقی کے مرحلہ 8 میں آ رہا ہے۔"
+    },
+    "library": {
+      "title": "کتب خانہ",
+      "description": "ڈیجیٹل کتب خانہ ترقی کے مرحلہ 8 میں آ رہا ہے۔"
+    },
+    "learning": {
+      "title": "تعلیمی راستے",
+      "description": "راہنمائی شدہ تعلیمی راستے ترقی کے مرحلہ 10 میں آ رہے ہیں۔"
+    },
+    "search": {
+      "title": "جدید تلاش",
+      "description": "مکمل تلاش کا نظام ترقی کے مرحلہ 9 میں آ رہا ہے۔"
+    },
+    "admin": {
+      "title": "انتظامیہ",
+      "description": "انتظامی ڈیش بورڈ ترقی کے مرحلہ 11 میں آ رہا ہے۔"
+    }
   },
   "auth": {
     "showPassword": "پاس ورڈ دکھائیں",
@@ -81,7 +141,11 @@
     "loading": "لوڈ ہو رہا ہے...",
     "memberSince": "{{date}} سے رکن ہیں۔",
     "logout": "لاگ آؤٹ",
-    "tabs": { "bookmarks": "پسندیدہ", "notes": "نوٹس", "collections": "مجموعے" }
+    "tabs": {
+      "bookmarks": "پسندیدہ",
+      "notes": "نوٹس",
+      "collections": "مجموعے"
+    }
   },
   "bookmark": {
     "add": "پسندیدہ میں شامل کریں",
@@ -221,7 +285,10 @@
   "search": {
     "title": "تلاش",
     "error": "تلاش ناکام ہو گئی۔",
-    "noResults": "کوئی نتیجہ نہیں ملا۔"
+    "noResults": "کوئی نتیجہ نہیں ملا۔",
+    "all": "سب",
+    "results": "{{count}} نتیجہ",
+    "results_plural": "{{count}} نتائج"
   },
   "learning": {
     "title": "تعلیمی راستے",

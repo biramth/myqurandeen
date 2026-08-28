@@ -28,29 +28,89 @@
     "searchPlaceholder": "Buscar un versiculo, un hadiz, un concepto...",
     "searchButton": "Buscar",
     "categories": {
-      "quran": { "label": "Coran", "description": "Texto, traducciones, tafsir" },
-      "hadith": { "label": "Hadiz", "description": "Colecciones y autenticidad" },
-      "tafsir": { "label": "Tafsir", "description": "Exegesis versiculo por versiculo" },
-      "fiqh": { "label": "Fiqh", "description": "Escuelas y comparador" },
-      "prophet": { "label": "Vida del Profeta ﷺ", "description": "Cronologia documentada" },
-      "prophets": { "label": "Profetas", "description": "Adan, Abraham, Moises, Jesus..." },
-      "history": { "label": "Historia", "description": "Dinastias y periodos" },
-      "scholars": { "label": "Sabios", "description": "Biografias y obras" },
-      "library": { "label": "Biblioteca", "description": "Obras de referencia" },
-      "learning": { "label": "Itinerarios", "description": "Aprendizaje guiado" },
-      "concepts": { "label": "Conceptos", "description": "Tawhid, Salah, Zakat..." }
+      "quran": {
+        "label": "Coran",
+        "description": "Texto, traducciones, tafsir"
+      },
+      "hadith": {
+        "label": "Hadiz",
+        "description": "Colecciones y autenticidad"
+      },
+      "tafsir": {
+        "label": "Tafsir",
+        "description": "Exegesis versiculo por versiculo"
+      },
+      "fiqh": {
+        "label": "Fiqh",
+        "description": "Escuelas y comparador"
+      },
+      "prophet": {
+        "label": "Vida del Profeta ﷺ",
+        "description": "Cronologia documentada"
+      },
+      "prophets": {
+        "label": "Profetas",
+        "description": "Adan, Abraham, Moises, Jesus..."
+      },
+      "history": {
+        "label": "Historia",
+        "description": "Dinastias y periodos"
+      },
+      "scholars": {
+        "label": "Sabios",
+        "description": "Biografias y obras"
+      },
+      "library": {
+        "label": "Biblioteca",
+        "description": "Obras de referencia"
+      },
+      "learning": {
+        "label": "Itinerarios",
+        "description": "Aprendizaje guiado"
+      },
+      "concepts": {
+        "label": "Conceptos",
+        "description": "Tawhid, Salah, Zakat..."
+      }
     }
   },
   "comingSoon": {
-    "notFound": { "title": "Pagina no encontrada", "description": "Esta pagina no existe (todavia)." },
-    "tafsir": { "title": "Tafsir", "description": "La biblioteca de tafsires llegara en la Fase 5 del desarrollo." },
-    "schools": { "title": "Escuelas y fiqh", "description": "El comparador de escuelas juridicas llegara en la Fase 7 del desarrollo." },
-    "history": { "title": "Historia del Islam", "description": "La cronologia interactiva (incluida la vida del Profeta ﷺ) llegara en la Fase 6 del desarrollo." },
-    "scholars": { "title": "Sabios", "description": "La base de datos de sabios llegara en la Fase 8 del desarrollo." },
-    "library": { "title": "Biblioteca", "description": "La biblioteca digital llegara en la Fase 8 del desarrollo." },
-    "learning": { "title": "Itinerarios de aprendizaje", "description": "Los itinerarios guiados llegaran en la Fase 10 del desarrollo." },
-    "search": { "title": "Busqueda avanzada", "description": "El motor de busqueda transversal llegara en la Fase 9 del desarrollo." },
-    "admin": { "title": "Administracion", "description": "El panel de administracion llegara en la Fase 11 del desarrollo." }
+    "notFound": {
+      "title": "Pagina no encontrada",
+      "description": "Esta pagina no existe (todavia)."
+    },
+    "tafsir": {
+      "title": "Tafsir",
+      "description": "La biblioteca de tafsires llegara en la Fase 5 del desarrollo."
+    },
+    "schools": {
+      "title": "Escuelas y fiqh",
+      "description": "El comparador de escuelas juridicas llegara en la Fase 7 del desarrollo."
+    },
+    "history": {
+      "title": "Historia del Islam",
+      "description": "La cronologia interactiva (incluida la vida del Profeta ﷺ) llegara en la Fase 6 del desarrollo."
+    },
+    "scholars": {
+      "title": "Sabios",
+      "description": "La base de datos de sabios llegara en la Fase 8 del desarrollo."
+    },
+    "library": {
+      "title": "Biblioteca",
+      "description": "La biblioteca digital llegara en la Fase 8 del desarrollo."
+    },
+    "learning": {
+      "title": "Itinerarios de aprendizaje",
+      "description": "Los itinerarios guiados llegaran en la Fase 10 del desarrollo."
+    },
+    "search": {
+      "title": "Busqueda avanzada",
+      "description": "El motor de busqueda transversal llegara en la Fase 9 del desarrollo."
+    },
+    "admin": {
+      "title": "Administracion",
+      "description": "El panel de administracion llegara en la Fase 11 del desarrollo."
+    }
   },
   "auth": {
     "showPassword": "Mostrar contraseña",
@@ -81,7 +141,11 @@
     "loading": "Cargando...",
     "memberSince": "Miembro desde el {{date}}.",
     "logout": "Cerrar sesion",
-    "tabs": { "bookmarks": "Favoritos", "notes": "Notas", "collections": "Colecciones" }
+    "tabs": {
+      "bookmarks": "Favoritos",
+      "notes": "Notas",
+      "collections": "Colecciones"
+    }
   },
   "bookmark": {
     "add": "Añadir a favoritos",
@@ -221,7 +285,10 @@
   "search": {
     "title": "Busqueda",
     "error": "La busqueda fallo.",
-    "noResults": "No se encontraron resultados."
+    "noResults": "No se encontraron resultados.",
+    "all": "Todo",
+    "results": "{{count}} resultado",
+    "results_plural": "{{count}} resultados"
   },
   "learning": {
     "title": "Itinerarios de aprendizaje",

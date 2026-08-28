@@ -16,6 +16,7 @@
     "db:migrate": "tsx src/database/migrate.ts",
     "db:seed": "tsx src/database/seed/run-seed.ts",
     "db:seed:quran": "tsx src/database/seed/run-quran-import.ts",
+    "db:seed:transliteration": "tsx src/database/seed/run-transliteration-import.ts",
     "db:seed:hadith": "tsx src/database/seed/run-hadith-import.ts",
     "db:seed:tafsir": "tsx src/database/seed/run-tafsir-import.ts",
     "db:seed:history": "tsx src/database/seed/run-history-seed.ts",

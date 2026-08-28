@@ -28,29 +28,89 @@
     "searchPlaceholder": "Einen Vers, einen Hadith, einen Begriff suchen...",
     "searchButton": "Suchen",
     "categories": {
-      "quran": { "label": "Koran", "description": "Text, Ubersetzungen, Tafsir" },
-      "hadith": { "label": "Hadith", "description": "Sammlungen und Authentizitat" },
-      "tafsir": { "label": "Tafsir", "description": "Vers-fur-Vers-Auslegung" },
-      "fiqh": { "label": "Fiqh", "description": "Rechtsschulen und Vergleich" },
-      "prophet": { "label": "Leben des Propheten ﷺ", "description": "Belegte Zeitlinie" },
-      "prophets": { "label": "Propheten", "description": "Adam, Abraham, Mose, Jesus..." },
-      "history": { "label": "Geschichte", "description": "Dynastien und Epochen" },
-      "scholars": { "label": "Gelehrte", "description": "Biografien und Werke" },
-      "library": { "label": "Bibliothek", "description": "Nachschlagewerke" },
-      "learning": { "label": "Lernpfade", "description": "Angeleitetes Lernen" },
-      "concepts": { "label": "Konzepte", "description": "Tawhid, Salah, Zakat..." }
+      "quran": {
+        "label": "Koran",
+        "description": "Text, Ubersetzungen, Tafsir"
+      },
+      "hadith": {
+        "label": "Hadith",
+        "description": "Sammlungen und Authentizitat"
+      },
+      "tafsir": {
+        "label": "Tafsir",
+        "description": "Vers-fur-Vers-Auslegung"
+      },
+      "fiqh": {
+        "label": "Fiqh",
+        "description": "Rechtsschulen und Vergleich"
+      },
+      "prophet": {
+        "label": "Leben des Propheten ﷺ",
+        "description": "Belegte Zeitlinie"
+      },
+      "prophets": {
+        "label": "Propheten",
+        "description": "Adam, Abraham, Mose, Jesus..."
+      },
+      "history": {
+        "label": "Geschichte",
+        "description": "Dynastien und Epochen"
+      },
+      "scholars": {
+        "label": "Gelehrte",
+        "description": "Biografien und Werke"
+      },
+      "library": {
+        "label": "Bibliothek",
+        "description": "Nachschlagewerke"
+      },
+      "learning": {
+        "label": "Lernpfade",
+        "description": "Angeleitetes Lernen"
+      },
+      "concepts": {
+        "label": "Konzepte",
+        "description": "Tawhid, Salah, Zakat..."
+      }
     }
   },
   "comingSoon": {
-    "notFound": { "title": "Seite nicht gefunden", "description": "Diese Seite existiert (noch) nicht." },
-    "tafsir": { "title": "Tafsir", "description": "Die Tafsir-Bibliothek kommt in Phase 5 der Entwicklung." },
-    "schools": { "title": "Rechtsschulen und Fiqh", "description": "Der Vergleich der Rechtsschulen kommt in Phase 7 der Entwicklung." },
-    "history": { "title": "Geschichte des Islam", "description": "Die interaktive Zeitlinie (einschließlich des Lebens des Propheten ﷺ) kommt in Phase 6 der Entwicklung." },
-    "scholars": { "title": "Gelehrte", "description": "Die Gelehrtendatenbank kommt in Phase 8 der Entwicklung." },
-    "library": { "title": "Bibliothek", "description": "Die digitale Bibliothek kommt in Phase 8 der Entwicklung." },
-    "learning": { "title": "Lernpfade", "description": "Die angeleiteten Lernpfade kommen in Phase 10 der Entwicklung." },
-    "search": { "title": "Erweiterte Suche", "description": "Die ubergreifende Suchmaschine kommt in Phase 9 der Entwicklung." },
-    "admin": { "title": "Verwaltung", "description": "Das Admin-Dashboard kommt in Phase 11 der Entwicklung." }
+    "notFound": {
+      "title": "Seite nicht gefunden",
+      "description": "Diese Seite existiert (noch) nicht."
+    },
+    "tafsir": {
+      "title": "Tafsir",
+      "description": "Die Tafsir-Bibliothek kommt in Phase 5 der Entwicklung."
+    },
+    "schools": {
+      "title": "Rechtsschulen und Fiqh",
+      "description": "Der Vergleich der Rechtsschulen kommt in Phase 7 der Entwicklung."
+    },
+    "history": {
+      "title": "Geschichte des Islam",
+      "description": "Die interaktive Zeitlinie (einschließlich des Lebens des Propheten ﷺ) kommt in Phase 6 der Entwicklung."
+    },
+    "scholars": {
+      "title": "Gelehrte",
+      "description": "Die Gelehrtendatenbank kommt in Phase 8 der Entwicklung."
+    },
+    "library": {
+      "title": "Bibliothek",
+      "description": "Die digitale Bibliothek kommt in Phase 8 der Entwicklung."
+    },
+    "learning": {
+      "title": "Lernpfade",
+      "description": "Die angeleiteten Lernpfade kommen in Phase 10 der Entwicklung."
+    },
+    "search": {
+      "title": "Erweiterte Suche",
+      "description": "Die ubergreifende Suchmaschine kommt in Phase 9 der Entwicklung."
+    },
+    "admin": {
+      "title": "Verwaltung",
+      "description": "Das Admin-Dashboard kommt in Phase 11 der Entwicklung."
+    }
   },
   "auth": {
     "showPassword": "Passwort anzeigen",
@@ -81,7 +141,11 @@
     "loading": "Wird geladen...",
     "memberSince": "Mitglied seit {{date}}.",
     "logout": "Abmelden",
-    "tabs": { "bookmarks": "Lesezeichen", "notes": "Notizen", "collections": "Sammlungen" }
+    "tabs": {
+      "bookmarks": "Lesezeichen",
+      "notes": "Notizen",
+      "collections": "Sammlungen"
+    }
   },
   "bookmark": {
     "add": "Zu Lesezeichen hinzufügen",
@@ -221,7 +285,10 @@
   "search": {
     "title": "Suche",
     "error": "Die Suche ist fehlgeschlagen.",
-    "noResults": "Keine Ergebnisse gefunden."
+    "noResults": "Keine Ergebnisse gefunden.",
+    "all": "Alle",
+    "results": "{{count}} Ergebnis",
+    "results_plural": "{{count}} Ergebnisse"
   },
   "learning": {
     "title": "Lernpfade",

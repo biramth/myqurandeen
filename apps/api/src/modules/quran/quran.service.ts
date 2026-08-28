@@ -19,7 +19,12 @@ export class QuranService {
     }
 
     const verses = await this.db
-      .select({ id: quranVerses.id, numberInSurah: quranVerses.numberInSurah, textArabic: quranVerses.textArabic })
+      .select({
+        id: quranVerses.id,
+        numberInSurah: quranVerses.numberInSurah,
+        textArabic: quranVerses.textArabic,
+        textTransliterated: quranVerses.textTransliterated,
+      })
       .from(quranVerses)
       .where(eq(quranVerses.surahId, surah.id))
       .orderBy(asc(quranVerses.numberInSurah));

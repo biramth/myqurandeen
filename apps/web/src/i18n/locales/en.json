@@ -28,29 +28,89 @@
     "searchPlaceholder": "Search a verse, a hadith, a concept...",
     "searchButton": "Search",
     "categories": {
-      "quran": { "label": "Quran", "description": "Text, translations, tafsir" },
-      "hadith": { "label": "Hadith", "description": "Collections and authenticity" },
-      "tafsir": { "label": "Tafsir", "description": "Verse-by-verse exegesis" },
-      "fiqh": { "label": "Fiqh", "description": "Schools and comparator" },
-      "prophet": { "label": "Life of the Prophet ﷺ", "description": "Sourced timeline" },
-      "prophets": { "label": "Prophets", "description": "Adam, Abraham, Moses, Jesus..." },
-      "history": { "label": "History", "description": "Dynasties and periods" },
-      "scholars": { "label": "Scholars", "description": "Biographies and works" },
-      "library": { "label": "Library", "description": "Reference works" },
-      "learning": { "label": "Learning paths", "description": "Guided learning" },
-      "concepts": { "label": "Concepts", "description": "Tawhid, Salah, Zakat..." }
+      "quran": {
+        "label": "Quran",
+        "description": "Text, translations, tafsir"
+      },
+      "hadith": {
+        "label": "Hadith",
+        "description": "Collections and authenticity"
+      },
+      "tafsir": {
+        "label": "Tafsir",
+        "description": "Verse-by-verse exegesis"
+      },
+      "fiqh": {
+        "label": "Fiqh",
+        "description": "Schools and comparator"
+      },
+      "prophet": {
+        "label": "Life of the Prophet ﷺ",
+        "description": "Sourced timeline"
+      },
+      "prophets": {
+        "label": "Prophets",
+        "description": "Adam, Abraham, Moses, Jesus..."
+      },
+      "history": {
+        "label": "History",
+        "description": "Dynasties and periods"
+      },
+      "scholars": {
+        "label": "Scholars",
+        "description": "Biographies and works"
+      },
+      "library": {
+        "label": "Library",
+        "description": "Reference works"
+      },
+      "learning": {
+        "label": "Learning paths",
+        "description": "Guided learning"
+      },
+      "concepts": {
+        "label": "Concepts",
+        "description": "Tawhid, Salah, Zakat..."
+      }
     }
   },
   "comingSoon": {
-    "notFound": { "title": "Page not found", "description": "This page does not exist (yet)." },
-    "tafsir": { "title": "Tafsir", "description": "The tafsir library is arriving in Phase 5 of development." },
-    "schools": { "title": "Schools and fiqh", "description": "The legal schools comparator is arriving in Phase 7 of development." },
-    "history": { "title": "History of Islam", "description": "The interactive timeline (including the life of the Prophet ﷺ) is arriving in Phase 6 of development." },
-    "scholars": { "title": "Scholars", "description": "The scholars database is arriving in Phase 8 of development." },
-    "library": { "title": "Library", "description": "The digital library is arriving in Phase 8 of development." },
-    "learning": { "title": "Learning paths", "description": "Guided learning paths are arriving in Phase 10 of development." },
-    "search": { "title": "Advanced search", "description": "The cross-content search engine is arriving in Phase 9 of development." },
-    "admin": { "title": "Administration", "description": "The admin dashboard is arriving in Phase 11 of development." }
+    "notFound": {
+      "title": "Page not found",
+      "description": "This page does not exist (yet)."
+    },
+    "tafsir": {
+      "title": "Tafsir",
+      "description": "The tafsir library is arriving in Phase 5 of development."
+    },
+    "schools": {
+      "title": "Schools and fiqh",
+      "description": "The legal schools comparator is arriving in Phase 7 of development."
+    },
+    "history": {
+      "title": "History of Islam",
+      "description": "The interactive timeline (including the life of the Prophet ﷺ) is arriving in Phase 6 of development."
+    },
+    "scholars": {
+      "title": "Scholars",
+      "description": "The scholars database is arriving in Phase 8 of development."
+    },
+    "library": {
+      "title": "Library",
+      "description": "The digital library is arriving in Phase 8 of development."
+    },
+    "learning": {
+      "title": "Learning paths",
+      "description": "Guided learning paths are arriving in Phase 10 of development."
+    },
+    "search": {
+      "title": "Advanced search",
+      "description": "The cross-content search engine is arriving in Phase 9 of development."
+    },
+    "admin": {
+      "title": "Administration",
+      "description": "The admin dashboard is arriving in Phase 11 of development."
+    }
   },
   "auth": {
     "showPassword": "Show password",
@@ -81,7 +141,11 @@
     "loading": "Loading...",
     "memberSince": "Member since {{date}}.",
     "logout": "Log out",
-    "tabs": { "bookmarks": "Bookmarks", "notes": "Notes", "collections": "Collections" }
+    "tabs": {
+      "bookmarks": "Bookmarks",
+      "notes": "Notes",
+      "collections": "Collections"
+    }
   },
   "bookmark": {
     "add": "Add to bookmarks",
@@ -221,7 +285,10 @@
   "search": {
     "title": "Search",
     "error": "The search failed.",
-    "noResults": "No results found."
+    "noResults": "No results found.",
+    "all": "All",
+    "results": "{{count}} result",
+    "results_plural": "{{count}} results"
   },
   "learning": {
     "title": "Learning paths",

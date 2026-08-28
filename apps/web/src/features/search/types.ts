@@ -1,5 +1,12 @@
 export interface SearchResults {
-  verses: { id: string; surahNumber: number; surahName: string; numberInSurah: number; textArabic: string }[];
+  verses: {
+    id: string;
+    surahNumber: number;
+    surahName: string;
+    numberInSurah: number;
+    textArabic: string;
+    textTransliterated: string | null;
+  }[];
   hadiths: {
     id: string;
     collectionSlug: string;
@@ -10,6 +17,7 @@ export interface SearchResults {
     textTranslation: string;
   }[];
   tafsirEntries: { id: string; workTitle: string; surahNumber: number; numberInSurah: number; content: string }[];
+  books: { id: string; title: string; slug: string; description: string | null; authorName: string | null }[];
   concepts: { id: string; term: string; slug: string; definition: string }[];
   scholars: { id: string; name: string; slug: string; bio: string | null }[];
   prophets: { id: string; name: string; slug: string; description: string }[];

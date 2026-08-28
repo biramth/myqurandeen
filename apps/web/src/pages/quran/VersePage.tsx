@@ -47,6 +47,9 @@ export function VersePage() {
             <p dir="rtl" lang="ar" className="font-arabic text-3xl leading-loose">
               {data.verse.textArabic}
             </p>
+            {data.verse.textTransliterated && (
+              <p className="mt-3 text-sm italic leading-relaxed text-muted-foreground">{data.verse.textTransliterated}</p>
+            )}
           </div>
 
           <ContentUserActions targetType="verse" targetId={data.verse.id} className="mt-4" />

@@ -28,29 +28,89 @@
     "searchPlaceholder": "Bir ayet, hadis veya kavram arayin...",
     "searchButton": "Ara",
     "categories": {
-      "quran": { "label": "Kuran", "description": "Metin, cevirileri, tefsir" },
-      "hadith": { "label": "Hadis", "description": "Koleksiyonlar ve sihhat" },
-      "tafsir": { "label": "Tefsir", "description": "Ayet ayet tefsir" },
-      "fiqh": { "label": "Fikih", "description": "Mezhepler ve karsilastirma" },
-      "prophet": { "label": "Peygamberin ﷺ Hayati", "description": "Kaynakli kronoloji" },
-      "prophets": { "label": "Peygamberler", "description": "Adem, Ibrahim, Musa, Isa..." },
-      "history": { "label": "Tarih", "description": "Hanedanlar ve donemler" },
-      "scholars": { "label": "Alimler", "description": "Biyografiler ve eserler" },
-      "library": { "label": "Kutuphane", "description": "Referans eserler" },
-      "learning": { "label": "Egitim yollari", "description": "Rehberli ogrenim" },
-      "concepts": { "label": "Kavramlar", "description": "Tevhid, Salat, Zekat..." }
+      "quran": {
+        "label": "Kuran",
+        "description": "Metin, cevirileri, tefsir"
+      },
+      "hadith": {
+        "label": "Hadis",
+        "description": "Koleksiyonlar ve sihhat"
+      },
+      "tafsir": {
+        "label": "Tefsir",
+        "description": "Ayet ayet tefsir"
+      },
+      "fiqh": {
+        "label": "Fikih",
+        "description": "Mezhepler ve karsilastirma"
+      },
+      "prophet": {
+        "label": "Peygamberin ﷺ Hayati",
+        "description": "Kaynakli kronoloji"
+      },
+      "prophets": {
+        "label": "Peygamberler",
+        "description": "Adem, Ibrahim, Musa, Isa..."
+      },
+      "history": {
+        "label": "Tarih",
+        "description": "Hanedanlar ve donemler"
+      },
+      "scholars": {
+        "label": "Alimler",
+        "description": "Biyografiler ve eserler"
+      },
+      "library": {
+        "label": "Kutuphane",
+        "description": "Referans eserler"
+      },
+      "learning": {
+        "label": "Egitim yollari",
+        "description": "Rehberli ogrenim"
+      },
+      "concepts": {
+        "label": "Kavramlar",
+        "description": "Tevhid, Salat, Zekat..."
+      }
     }
   },
   "comingSoon": {
-    "notFound": { "title": "Sayfa bulunamadi", "description": "Bu sayfa (henuz) mevcut degil." },
-    "tafsir": { "title": "Tefsir", "description": "Tefsir kutuphanesi gelistirmenin 5. asamasinda geliyor." },
-    "schools": { "title": "Mezhepler ve fikih", "description": "Fikih mezhepleri karsilastirici gelistirmenin 7. asamasinda geliyor." },
-    "history": { "title": "Islam tarihi", "description": "Interaktif kronoloji (Peygamberin ﷺ hayati dahil) gelistirmenin 6. asamasinda geliyor." },
-    "scholars": { "title": "Alimler", "description": "Alimler veritabani gelistirmenin 8. asamasinda geliyor." },
-    "library": { "title": "Kutuphane", "description": "Dijital kutuphane gelistirmenin 8. asamasinda geliyor." },
-    "learning": { "title": "Egitim yollari", "description": "Rehberli egitim yollari gelistirmenin 10. asamasinda geliyor." },
-    "search": { "title": "Gelismis arama", "description": "Kapsamli arama motoru gelistirmenin 9. asamasinda geliyor." },
-    "admin": { "title": "Yonetim", "description": "Yonetim paneli gelistirmenin 11. asamasinda geliyor." }
+    "notFound": {
+      "title": "Sayfa bulunamadi",
+      "description": "Bu sayfa (henuz) mevcut degil."
+    },
+    "tafsir": {
+      "title": "Tefsir",
+      "description": "Tefsir kutuphanesi gelistirmenin 5. asamasinda geliyor."
+    },
+    "schools": {
+      "title": "Mezhepler ve fikih",
+      "description": "Fikih mezhepleri karsilastirici gelistirmenin 7. asamasinda geliyor."
+    },
+    "history": {
+      "title": "Islam tarihi",
+      "description": "Interaktif kronoloji (Peygamberin ﷺ hayati dahil) gelistirmenin 6. asamasinda geliyor."
+    },
+    "scholars": {
+      "title": "Alimler",
+      "description": "Alimler veritabani gelistirmenin 8. asamasinda geliyor."
+    },
+    "library": {
+      "title": "Kutuphane",
+      "description": "Dijital kutuphane gelistirmenin 8. asamasinda geliyor."
+    },
+    "learning": {
+      "title": "Egitim yollari",
+      "description": "Rehberli egitim yollari gelistirmenin 10. asamasinda geliyor."
+    },
+    "search": {
+      "title": "Gelismis arama",
+      "description": "Kapsamli arama motoru gelistirmenin 9. asamasinda geliyor."
+    },
+    "admin": {
+      "title": "Yonetim",
+      "description": "Yonetim paneli gelistirmenin 11. asamasinda geliyor."
+    }
   },
   "auth": {
     "showPassword": "Şifreyi göster",
@@ -81,7 +141,11 @@
     "loading": "Yukleniyor...",
     "memberSince": "{{date}} tarihinden beri uye.",
     "logout": "Cikis yap",
-    "tabs": { "bookmarks": "Yer imleri", "notes": "Notlar", "collections": "Koleksiyonlar" }
+    "tabs": {
+      "bookmarks": "Yer imleri",
+      "notes": "Notlar",
+      "collections": "Koleksiyonlar"
+    }
   },
   "bookmark": {
     "add": "Yer imlerine ekle",
@@ -221,7 +285,10 @@
   "search": {
     "title": "Arama",
     "error": "Arama basarisiz oldu.",
-    "noResults": "Sonuc bulunamadi."
+    "noResults": "Sonuc bulunamadi.",
+    "all": "Tümü",
+    "results": "{{count}} sonuç",
+    "results_plural": "{{count}} sonuç"
   },
   "learning": {
     "title": "Egitim yollari",

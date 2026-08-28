@@ -214,6 +214,12 @@ export function SurahDetailPage() {
                       {verse.textArabic}
                     </p>
 
+                    {verse.textTransliterated && (
+                      <p className="mt-1.5 text-sm italic leading-relaxed text-muted-foreground">
+                        {verse.textTransliterated}
+                      </p>
+                    )}
+
                     {showTranslation && activeTranslation && (
                       <p
                         dir={translationIsRtl ? "rtl" : "ltr"}

@@ -14,6 +14,7 @@ export interface VerseSummary {
   id: string;
   numberInSurah: number;
   textArabic: string;
+  textTransliterated: string | null;
 }
 
 export interface SurahDetail extends Surah {

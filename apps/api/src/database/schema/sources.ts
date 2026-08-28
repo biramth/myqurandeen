@@ -1,6 +1,13 @@
-import { boolean, pgTable, primaryKey, text, uuid, varchar } from "drizzle-orm/pg-core";
+import { boolean, customType, index, pgTable, primaryKey, text, uuid, varchar } from "drizzle-orm/pg-core";
+import { sql } from "drizzle-orm";
 import { id, timestamps } from "./_columns";
 import { SOURCE_TYPES } from "@qurandeen/shared";
+
+const tsvector = customType<{ data: string }>({
+  dataType() {
+    return "tsvector";
+  },
+});
 
 /**
  * Coeur du systeme de provenance (voir CONTRIBUTING.md) : tout contenu
@@ -31,20 +38,28 @@ export const bookCategories = pgTable("book_categories", {
   ...timestamps,
 });
 
-export const books = pgTable("books", {
-  id: id(),
-  title: varchar("title", { length: 300 }).notNull(),
-  slug: varchar("slug", { length: 300 }).notNull().unique(),
-  authorId: uuid("author_id").references(() => authors.id, { onDelete: "set null" }),
-  description: text("description"),
-  language: varchar("language", { length: 8 }),
-  era: varchar("era", { length: 100 }),
-  publicDomain: boolean("public_domain").default(false).notNull(),
-  license: varchar("license", { length: 120 }),
-  externalUrl: text("external_url"),
-  sourceId: uuid("source_id").references(() => sources.id, { onDelete: "set null" }),
-  ...timestamps,
-});
+export const books = pgTable(
+  "books",
+  {
+    id: id(),
+    title: varchar("title", { length: 300 }).notNull(),
+    slug: varchar("slug", { length: 300 }).notNull().unique(),
+    authorId: uuid("author_id").references(() => authors.id, { onDelete: "set null" }),
+    description: text("description"),
+    language: varchar("language", { length: 8 }),
+    era: varchar("era", { length: 100 }),
+    publicDomain: boolean("public_domain").default(false).notNull(),
+    license: varchar("license", { length: 120 }),
+    externalUrl: text("external_url"),
+    sourceId: uuid("source_id").references(() => sources.id, { onDelete: "set null" }),
+    textSearch: tsvector("text_search").generatedAlwaysAs(
+      (): ReturnType<typeof sql> =>
+        sql`to_tsvector('simple', coalesce(title, '') || ' ' || coalesce(description, ''))`,
+    ),
+    ...timestamps,
+  },
+  (t) => [index("books_text_search_gin_idx").using("gin", t.textSearch)],
+);
 
 export const bookEditions = pgTable("book_editions", {
   id: id(),

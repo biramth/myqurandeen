@@ -28,29 +28,89 @@
     "searchPlaceholder": "Rechercher un verset, un hadith, un concept...",
     "searchButton": "Rechercher",
     "categories": {
-      "quran": { "label": "Coran", "description": "Texte, traductions, tafsir" },
-      "hadith": { "label": "Hadith", "description": "Collections et authenticité" },
-      "tafsir": { "label": "Tafsir", "description": "Exégèse verset par verset" },
-      "fiqh": { "label": "Fiqh", "description": "Écoles et comparateur" },
-      "prophet": { "label": "Vie du Prophète صلى الله عليه وسلم", "description": "Chronologie sourcée" },
-      "prophets": { "label": "Prophètes", "description": "Adam, Ibrahim, Moïse, Jésus..." },
-      "history": { "label": "Histoire", "description": "Dynasties et périodes" },
-      "scholars": { "label": "Savants", "description": "Biographies et œuvres" },
-      "library": { "label": "Bibliothèque", "description": "Ouvrages de référence" },
-      "learning": { "label": "Parcours", "description": "Apprentissage guidé" },
-      "concepts": { "label": "Concepts", "description": "Tawhid, Salah, Zakat..." }
+      "quran": {
+        "label": "Coran",
+        "description": "Texte, traductions, tafsir"
+      },
+      "hadith": {
+        "label": "Hadith",
+        "description": "Collections et authenticité"
+      },
+      "tafsir": {
+        "label": "Tafsir",
+        "description": "Exégèse verset par verset"
+      },
+      "fiqh": {
+        "label": "Fiqh",
+        "description": "Écoles et comparateur"
+      },
+      "prophet": {
+        "label": "Vie du Prophète صلى الله عليه وسلم",
+        "description": "Chronologie sourcée"
+      },
+      "prophets": {
+        "label": "Prophètes",
+        "description": "Adam, Ibrahim, Moïse, Jésus..."
+      },
+      "history": {
+        "label": "Histoire",
+        "description": "Dynasties et périodes"
+      },
+      "scholars": {
+        "label": "Savants",
+        "description": "Biographies et œuvres"
+      },
+      "library": {
+        "label": "Bibliothèque",
+        "description": "Ouvrages de référence"
+      },
+      "learning": {
+        "label": "Parcours",
+        "description": "Apprentissage guidé"
+      },
+      "concepts": {
+        "label": "Concepts",
+        "description": "Tawhid, Salah, Zakat..."
+      }
     }
   },
   "comingSoon": {
-    "notFound": { "title": "Page introuvable", "description": "Cette page n'existe pas (encore)." },
-    "tafsir": { "title": "Tafsir", "description": "La bibliothèque de tafsirs arrive en Phase 5 du développement." },
-    "schools": { "title": "Écoles et fiqh", "description": "Le comparateur d'écoles juridiques arrive en Phase 7 du développement." },
-    "history": { "title": "Histoire de l'Islam", "description": "La chronologie interactive (dont la vie du Prophète صلى الله عليه وسلم) arrive en Phase 6 du développement." },
-    "scholars": { "title": "Savants", "description": "La base de données des savants arrive en Phase 8 du développement." },
-    "library": { "title": "Bibliothèque", "description": "La bibliothèque numérique arrive en Phase 8 du développement." },
-    "learning": { "title": "Parcours d'apprentissage", "description": "Les parcours guidés arrivent en Phase 10 du développement." },
-    "search": { "title": "Recherche avancée", "description": "Le moteur de recherche transverse arrive en Phase 9 du développement." },
-    "admin": { "title": "Administration", "description": "Le tableau de bord d'administration arrive en Phase 11 du développement." }
+    "notFound": {
+      "title": "Page introuvable",
+      "description": "Cette page n'existe pas (encore)."
+    },
+    "tafsir": {
+      "title": "Tafsir",
+      "description": "La bibliothèque de tafsirs arrive en Phase 5 du développement."
+    },
+    "schools": {
+      "title": "Écoles et fiqh",
+      "description": "Le comparateur d'écoles juridiques arrive en Phase 7 du développement."
+    },
+    "history": {
+      "title": "Histoire de l'Islam",
+      "description": "La chronologie interactive (dont la vie du Prophète صلى الله عليه وسلم) arrive en Phase 6 du développement."
+    },
+    "scholars": {
+      "title": "Savants",
+      "description": "La base de données des savants arrive en Phase 8 du développement."
+    },
+    "library": {
+      "title": "Bibliothèque",
+      "description": "La bibliothèque numérique arrive en Phase 8 du développement."
+    },
+    "learning": {
+      "title": "Parcours d'apprentissage",
+      "description": "Les parcours guidés arrivent en Phase 10 du développement."
+    },
+    "search": {
+      "title": "Recherche avancée",
+      "description": "Le moteur de recherche transverse arrive en Phase 9 du développement."
+    },
+    "admin": {
+      "title": "Administration",
+      "description": "Le tableau de bord d'administration arrive en Phase 11 du développement."
+    }
   },
   "auth": {
     "showPassword": "Afficher le mot de passe",
@@ -81,7 +141,11 @@
     "loading": "Chargement...",
     "memberSince": "Membre depuis le {{date}}.",
     "logout": "Se déconnecter",
-    "tabs": { "bookmarks": "Favoris", "notes": "Notes", "collections": "Collections" }
+    "tabs": {
+      "bookmarks": "Favoris",
+      "notes": "Notes",
+      "collections": "Collections"
+    }
   },
   "bookmark": {
     "add": "Ajouter aux favoris",
@@ -337,7 +401,10 @@
   "search": {
     "title": "Recherche",
     "error": "La recherche a échoué.",
-    "noResults": "Aucun résultat trouvé."
+    "noResults": "Aucun résultat trouvé.",
+    "all": "Tout",
+    "results": "{{count}} résultat",
+    "results_plural": "{{count}} résultats"
   },
   "learning": {
     "title": "Parcours d'apprentissage",
