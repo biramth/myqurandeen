@@ -107,15 +107,15 @@ export function SurahDetailPage() {
 
   return (
     <div className="mx-auto max-w-3xl px-4 py-8">
-      <div className="mb-4 flex items-center justify-between gap-3">
-        <Button variant="ghost" size="sm" asChild className="-ml-2">
+      <div className="mb-4 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+        <Button variant="ghost" size="sm" asChild className="-ml-2 self-start">
           <Link to="/quran">
             <ArrowLeft className="h-4 w-4" />
             {t("quran.backToList")}
           </Link>
         </Button>
 
-        <div className="flex items-center gap-2">
+        <div className="flex flex-wrap items-center gap-2">
           {activeTranslation && (
             <Button
               variant={showTranslation ? "secondary" : "outline"}
@@ -129,7 +129,7 @@ export function SurahDetailPage() {
 
           {tafsirWorks && tafsirWorks.length > 0 && (
             <Select value={selectedTafsirId ?? undefined} onValueChange={setSelectedTafsirId}>
-              <SelectTrigger className="h-9 w-[10rem] text-xs sm:w-[16rem] sm:text-sm">
+              <SelectTrigger className="h-9 w-[calc(100vw-2rem)] max-w-xs text-xs sm:w-[16rem] sm:text-sm">
                 <BookMarked className="h-3.5 w-3.5 shrink-0" aria-hidden="true" />
                 <SelectValue />
               </SelectTrigger>

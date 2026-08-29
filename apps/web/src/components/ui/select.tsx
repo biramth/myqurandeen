@@ -13,7 +13,13 @@ const SelectTrigger = React.forwardRef<
   <SelectPrimitive.Trigger
     ref={ref}
     className={cn(
-      "flex h-10 items-center justify-between gap-2 overflow-hidden rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 [&>span]:line-clamp-1 [&>span]:text-start",
+      // ":not(.hidden)" est necessaire : "[&>span]" cible tout span enfant
+      // direct, y compris un span "hidden sm:inline" (ex. LanguageSwitcher,
+      // qui masque son libelle sous le breakpoint sm) - sans cette exclusion,
+      // ce garde-fou de troncature (specificite CSS "trigger > span" > simple
+      // classe ".hidden") reaffichait le libelle en display:-webkit-box,
+      // provoquant un debordement du header sur mobile.
+      "flex h-10 items-center justify-between gap-2 overflow-hidden rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 [&>span:not(.hidden)]:line-clamp-1 [&>span:not(.hidden)]:text-start",
       className,
     )}
     {...props}
