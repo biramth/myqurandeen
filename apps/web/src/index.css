@@ -93,4 +93,17 @@
   [dir="rtl"] {
     font-family: "Amiri", "Traditional Arabic", serif;
   }
+
+  /* iOS Safari zoome automatiquement la page au focus de tout champ dont la
+     taille de police calculee est < 16px (nos inputs sont en text-sm, 14px) -
+     desagreable sur mobile et casse la mise en page le temps que l'utilisateur
+     dezoome. 16px minimum uniquement sous le breakpoint sm : le style visuel
+     (text-sm) reste inchange sur desktop. */
+  @media (max-width: 640px) {
+    input,
+    select,
+    textarea {
+      font-size: 16px;
+    }
+  }
 }
