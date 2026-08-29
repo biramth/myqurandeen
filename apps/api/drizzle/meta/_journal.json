@@ -155,6 +155,13 @@
       "when": 1788011211705,
       "tag": "0021_unaccent_search",
       "breakpoints": true
+    },
+    {
+      "idx": 22,
+      "version": "7",
+      "when": 1788012398298,
+      "tag": "0022_pg_trgm_extension",
+      "breakpoints": true
     }
   ]
 }

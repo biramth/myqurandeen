@@ -1,5 +1,5 @@
 import { Inject, Injectable } from "@nestjs/common";
-import { eq, or, sql } from "drizzle-orm";
+import { eq, sql } from "drizzle-orm";
 import type { PgColumn } from "drizzle-orm/pg-core";
 import { DRIZZLE } from "../../database/database.constants";
 import type { Database } from "../../database/database.module";
@@ -26,6 +26,8 @@ import {
 } from "../../database/schema";
 
 const RESULT_LIMIT = 8;
+/** Seuil de similarite trigramme (pg_trgm) sous lequel une correspondance approximative n'est pas retenue. */
+const FUZZY_THRESHOLD = 0.25;
 
 /**
  * Recherche transverse multi-entites. Les resultats FTS sont classes par
@@ -44,6 +46,26 @@ export class SearchService {
    */
   private unaccentIlike(column: PgColumn, value: string) {
     return sql`immutable_unaccent(${column}) ILIKE immutable_unaccent(${value})`;
+  }
+
+  /**
+   * Correspondance floue : substring exact (insensible accents/casse) prioritaire
+   * (rang 1), sinon similarite trigramme (pg_trgm, migration 0022) au-dessus de
+   * FUZZY_THRESHOLD - tolere une faute de frappe ("Ibn Katir" -> "Ibn Kathir")
+   * la ou une simple ILIKE ne trouverait rien. Ces tables sont assez petites
+   * (quelques dizaines/centaines de lignes) pour que similarity() en scan
+   * complet reste instantane, sans index trigramme dedie.
+   */
+  private fuzzyMatch(columns: PgColumn[], like: string, trimmed: string) {
+    const ilikeConds = columns.map((c) => this.unaccentIlike(c, like));
+    const anyIlike = sql`(${sql.join(ilikeConds, sql` OR `)})`;
+    const similarities = columns.map(
+      (c) => sql`similarity(immutable_unaccent(${c}), immutable_unaccent(${trimmed}))`,
+    );
+    const bestSimilarity = sql`GREATEST(${sql.join(similarities, sql`, `)})`;
+    const rank = sql<number>`CASE WHEN ${anyIlike} THEN 1 ELSE ${bestSimilarity} END`;
+    const where = sql`(${anyIlike} OR ${bestSimilarity} > ${FUZZY_THRESHOLD})`;
+    return { where, rank };
   }
 
   async search(query: string) {
@@ -177,27 +199,43 @@ export class SearchService {
       .sort((a, b) => b.rank - a.rank)
       .slice(0, RESULT_LIMIT);
 
+    const conceptsMatch = this.fuzzyMatch([concepts.term, concepts.definition, concepts.explanation], like, trimmed);
+    const scholarsMatch = this.fuzzyMatch([scholars.name, scholars.bio], like, trimmed);
+    const prophetsMatch = this.fuzzyMatch([prophets.name, prophets.description], like, trimmed);
+    const fiqhTopicsMatch = this.fuzzyMatch([fiqhTopics.title, fiqhTopics.description], like, trimmed);
+    const schoolsMatch = this.fuzzyMatch([schools.name, schools.history], like, trimmed);
+    const duasMatch = this.fuzzyMatch([duas.title, duas.translation, duas.transliteration], like, trimmed);
+
     const [conceptRows, scholarRows, prophetRows, eventRows, fiqhTopicRows, schoolRows, duaRows] = await Promise.all([
       this.db
-        .select({ id: concepts.id, term: concepts.term, slug: concepts.slug, definition: concepts.definition })
+        .select({
+          id: concepts.id,
+          term: concepts.term,
+          slug: concepts.slug,
+          definition: concepts.definition,
+          rank: conceptsMatch.rank,
+        })
         .from(concepts)
-        .where(
-          or(
-            this.unaccentIlike(concepts.term, like),
-            this.unaccentIlike(concepts.definition, like),
-            this.unaccentIlike(concepts.explanation, like),
-          ),
-        )
+        .where(conceptsMatch.where)
+        .orderBy(sql`${conceptsMatch.rank} desc`)
         .limit(RESULT_LIMIT),
       this.db
-        .select({ id: scholars.id, name: scholars.name, slug: scholars.slug, bio: scholars.bio })
+        .select({ id: scholars.id, name: scholars.name, slug: scholars.slug, bio: scholars.bio, rank: scholarsMatch.rank })
         .from(scholars)
-        .where(or(this.unaccentIlike(scholars.name, like), this.unaccentIlike(scholars.bio, like)))
+        .where(scholarsMatch.where)
+        .orderBy(sql`${scholarsMatch.rank} desc`)
         .limit(RESULT_LIMIT),
       this.db
-        .select({ id: prophets.id, name: prophets.name, slug: prophets.slug, description: prophets.description })
+        .select({
+          id: prophets.id,
+          name: prophets.name,
+          slug: prophets.slug,
+          description: prophets.description,
+          rank: prophetsMatch.rank,
+        })
         .from(prophets)
-        .where(or(this.unaccentIlike(prophets.name, like), this.unaccentIlike(prophets.description, like)))
+        .where(prophetsMatch.where)
+        .orderBy(sql`${prophetsMatch.rank} desc`)
         .limit(RESULT_LIMIT),
       this.db
         .select({
@@ -214,14 +252,22 @@ export class SearchService {
         .orderBy(sql`ts_rank(${historicalEvents.textSearch}, ${tsQuery}) desc`)
         .limit(RESULT_LIMIT),
       this.db
-        .select({ id: fiqhTopics.id, title: fiqhTopics.title, slug: fiqhTopics.slug, description: fiqhTopics.description })
+        .select({
+          id: fiqhTopics.id,
+          title: fiqhTopics.title,
+          slug: fiqhTopics.slug,
+          description: fiqhTopics.description,
+          rank: fiqhTopicsMatch.rank,
+        })
         .from(fiqhTopics)
-        .where(or(this.unaccentIlike(fiqhTopics.title, like), this.unaccentIlike(fiqhTopics.description, like)))
+        .where(fiqhTopicsMatch.where)
+        .orderBy(sql`${fiqhTopicsMatch.rank} desc`)
         .limit(RESULT_LIMIT),
       this.db
-        .select({ id: schools.id, name: schools.name, slug: schools.slug, type: schools.type })
+        .select({ id: schools.id, name: schools.name, slug: schools.slug, type: schools.type, rank: schoolsMatch.rank })
         .from(schools)
-        .where(or(this.unaccentIlike(schools.name, like), this.unaccentIlike(schools.history, like)))
+        .where(schoolsMatch.where)
+        .orderBy(sql`${schoolsMatch.rank} desc`)
         .limit(RESULT_LIMIT),
       // Duas et dhikr
       this.db
@@ -231,16 +277,12 @@ export class SearchService {
           translation: duas.translation,
           categorySlug: duaCategories.slug,
           categoryName: duaCategories.name,
+          rank: duasMatch.rank,
         })
         .from(duas)
         .innerJoin(duaCategories, eq(duaCategories.id, duas.categoryId))
-        .where(
-          or(
-            this.unaccentIlike(duas.title, like),
-            this.unaccentIlike(duas.translation, like),
-            this.unaccentIlike(duas.transliteration, like),
-          ),
-        )
+        .where(duasMatch.where)
+        .orderBy(sql`${duasMatch.rank} desc`)
         .limit(RESULT_LIMIT),
     ]);
 
