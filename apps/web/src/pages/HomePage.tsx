@@ -12,13 +12,11 @@ import {
   GraduationCap,
   Library,
   Route,
-  Search,
   Users,
   Lightbulb,
 } from "lucide-react";
-import { Input } from "@/components/ui/input";
-import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
+import { SearchBox } from "@/components/shared/SearchBox";
 import { useDocumentTitle } from "@/hooks/useDocumentTitle";
 
 const CATEGORY_ICONS = {
@@ -57,9 +55,8 @@ export function HomePage() {
   const [query, setQuery] = React.useState("");
   useDocumentTitle();
 
-  const handleSearch = (event: React.FormEvent) => {
-    event.preventDefault();
-    navigate(query ? `/search?q=${encodeURIComponent(query)}` : "/search");
+  const handleSearch = (submitted: string) => {
+    navigate(submitted ? `/search?q=${encodeURIComponent(submitted)}` : "/search");
   };
 
   const categories = Object.keys(CATEGORY_ICONS) as (keyof typeof CATEGORY_ICONS)[];
@@ -71,19 +68,9 @@ export function HomePage() {
         <p className="mt-3 text-muted-foreground">{t("home.subtitle")}</p>
       </div>
 
-      <form onSubmit={handleSearch} className="mx-auto mt-8 flex max-w-xl gap-2">
-        <div className="relative flex-1">
-          <Search className="pointer-events-none absolute start-3 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground" />
-          <Input
-            value={query}
-            onChange={(e) => setQuery(e.target.value)}
-            placeholder={t("home.searchPlaceholder")}
-            className="ps-9"
-            aria-label={t("nav.search")}
-          />
-        </div>
-        <Button type="submit">{t("home.searchButton")}</Button>
-      </form>
+      <div className="mx-auto mt-8 max-w-xl">
+        <SearchBox value={query} onChange={setQuery} onSubmit={handleSearch} />
+      </div>
 
       <div className="mt-12 grid grid-cols-2 gap-3 sm:grid-cols-3">
         {categories.map((key) => {

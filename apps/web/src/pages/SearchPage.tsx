@@ -3,10 +3,10 @@ import { Link, useSearchParams } from "react-router-dom";
 import { useQuery } from "@tanstack/react-query";
 import { useTranslation } from "react-i18next";
 import { Search as SearchIcon } from "lucide-react";
-import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Skeleton } from "@/components/ui/skeleton";
+import { SearchBox } from "@/components/shared/SearchBox";
 import { searchApi } from "@/features/search/api";
 import { useDocumentTitle } from "@/hooks/useDocumentTitle";
 import type { SearchResults } from "@/features/search/types";
@@ -93,9 +93,8 @@ export function SearchPage() {
     setActiveFilter("all");
   }, [initialQuery]);
 
-  const handleSubmit = (event: React.FormEvent) => {
-    event.preventDefault();
-    setSearchParams(inputValue ? { q: inputValue } : {});
+  const handleSubmit = (submitted: string) => {
+    setSearchParams(submitted ? { q: submitted } : {});
   };
 
   const totalResults = data ? resultCounts(data).all : 0;
@@ -109,16 +108,9 @@ export function SearchPage() {
         <h1 className="text-2xl font-semibold tracking-tight">{t("search.title")}</h1>
       </div>
 
-      <form onSubmit={handleSubmit} className="mb-8 flex gap-2">
-        <Input
-          value={inputValue}
-          onChange={(e) => setInputValue(e.target.value)}
-          placeholder={t("home.searchPlaceholder")}
-          aria-label={t("nav.search")}
-          autoFocus
-        />
-        <Button type="submit">{t("home.searchButton")}</Button>
-      </form>
+      <div className="mb-8">
+        <SearchBox value={inputValue} onChange={setInputValue} onSubmit={handleSubmit} />
+      </div>
 
       {isError && <p className="text-sm text-destructive">{t("search.error")}</p>}
       {isFetching && (

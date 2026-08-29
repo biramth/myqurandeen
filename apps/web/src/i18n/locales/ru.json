@@ -314,7 +314,9 @@
     "noResults": "Результаты не найдены.",
     "all": "Все",
     "results": "{{count}} результат",
-    "results_plural": "{{count}} результатов"
+    "results_plural": "{{count}} результатов",
+    "recentSearches": "Недавние запросы",
+    "clearHistory": "Очистить"
   },
   "learning": {
     "title": "Учебные маршруты",

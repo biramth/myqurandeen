@@ -312,7 +312,9 @@
     "noResults": "Sonuc bulunamadi.",
     "all": "Tümü",
     "results": "{{count}} sonuç",
-    "results_plural": "{{count}} sonuç"
+    "results_plural": "{{count}} sonuç",
+    "recentSearches": "Son aramalar",
+    "clearHistory": "Temizle"
   },
   "learning": {
     "title": "Egitim yollari",

@@ -428,7 +428,9 @@
     "noResults": "Aucun résultat trouvé.",
     "all": "Tout",
     "results": "{{count}} résultat",
-    "results_plural": "{{count}} résultats"
+    "results_plural": "{{count}} résultats",
+    "recentSearches": "Recherches récentes",
+    "clearHistory": "Effacer"
   },
   "learning": {
     "title": "Parcours d'apprentissage",

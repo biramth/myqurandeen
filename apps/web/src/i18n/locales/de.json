@@ -312,7 +312,9 @@
     "noResults": "Keine Ergebnisse gefunden.",
     "all": "Alle",
     "results": "{{count}} Ergebnis",
-    "results_plural": "{{count}} Ergebnisse"
+    "results_plural": "{{count}} Ergebnisse",
+    "recentSearches": "Letzte Suchen",
+    "clearHistory": "Löschen"
   },
   "learning": {
     "title": "Lernpfade",

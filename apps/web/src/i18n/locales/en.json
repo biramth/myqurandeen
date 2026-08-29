@@ -312,7 +312,9 @@
     "noResults": "No results found.",
     "all": "All",
     "results": "{{count}} result",
-    "results_plural": "{{count}} results"
+    "results_plural": "{{count}} results",
+    "recentSearches": "Recent searches",
+    "clearHistory": "Clear"
   },
   "learning": {
     "title": "Learning paths",

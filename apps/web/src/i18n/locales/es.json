@@ -312,7 +312,9 @@
     "noResults": "No se encontraron resultados.",
     "all": "Todo",
     "results": "{{count}} resultado",
-    "results_plural": "{{count}} resultados"
+    "results_plural": "{{count}} resultados",
+    "recentSearches": "Búsquedas recientes",
+    "clearHistory": "Borrar"
   },
   "learning": {
     "title": "Itinerarios de aprendizaje",

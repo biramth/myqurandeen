@@ -311,7 +311,9 @@
     "noResults": "Tidak ada hasil ditemukan.",
     "all": "Semua",
     "results": "{{count}} hasil",
-    "results_plural": "{{count}} hasil"
+    "results_plural": "{{count}} hasil",
+    "recentSearches": "Pencarian terbaru",
+    "clearHistory": "Hapus"
   },
   "learning": {
     "title": "Jalur belajar",

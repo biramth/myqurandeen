@@ -312,7 +312,9 @@
     "noResults": "کوئی نتیجہ نہیں ملا۔",
     "all": "سب",
     "results": "{{count}} نتیجہ",
-    "results_plural": "{{count}} نتائج"
+    "results_plural": "{{count}} نتائج",
+    "recentSearches": "حالیہ تلاشیں",
+    "clearHistory": "صاف کریں"
   },
   "learning": {
     "title": "تعلیمی راستے",
