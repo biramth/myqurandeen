@@ -68,3 +68,10 @@ export type ReportStatus = (typeof REPORT_STATUSES)[number];
 /** Workflow simple (3 etats) pour les suggestions de sujets du comparateur de fiqh. */
 export const FIQH_SUGGESTION_STATUSES = ["NOUVELLE", "EN_COURS", "TRAITEE"] as const;
 export type FiqhSuggestionStatus = (typeof FIQH_SUGGESTION_STATUSES)[number];
+
+/** Cible d'un rappel notification (distinct de TARGET_TYPES : "toute une categorie de dua" n'est pas bookmarkable). */
+export const REMINDER_TARGET_TYPES = ["dua", "dua_category", "surah"] as const;
+export type ReminderTargetType = (typeof REMINDER_TARGET_TYPES)[number];
+
+/** 0 = dimanche ... 6 = samedi (convention JS Date#getDay(), pas ISO). */
+export const WEEKDAYS = [0, 1, 2, 3, 4, 5, 6] as const;

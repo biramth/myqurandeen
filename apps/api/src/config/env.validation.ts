@@ -28,6 +28,15 @@ export const envSchema = z.object({
   OLLAMA_URL: z.string().url().default("http://localhost:11434"),
   OLLAMA_LLM_MODEL: z.string().default("qwen2.5:3b"),
   OLLAMA_EMBEDDING_MODEL: z.string().default("nomic-embed-text"),
+
+  // Notifications push (rappels dua/lecture) - optionnelles : la
+  // fonctionnalite se desactive silencieusement si absentes (voir
+  // WebPushProvider). zod .object() ignore les cles non declarees ici, donc
+  // elles DOIVENT figurer meme optionnelles pour rester lisibles via
+  // ConfigService apres validation.
+  VAPID_PUBLIC_KEY: z.string().optional(),
+  VAPID_PRIVATE_KEY: z.string().optional(),
+  VAPID_SUBJECT: z.string().optional(),
 });
 
 export type EnvConfig = z.infer<typeof envSchema>;

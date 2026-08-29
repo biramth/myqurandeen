@@ -3,6 +3,7 @@ import { Module } from "@nestjs/common";
 import { APP_FILTER, APP_GUARD } from "@nestjs/core";
 import { ConfigModule } from "@nestjs/config";
 import { JwtModule } from "@nestjs/jwt";
+import { ScheduleModule } from "@nestjs/schedule";
 import { ThrottlerGuard, ThrottlerModule } from "@nestjs/throttler";
 import { validateEnv } from "./config/env.validation";
 import { HttpExceptionFilter } from "./common/filters/http-exception.filter";
@@ -34,6 +35,8 @@ import { FiqhSuggestionsModule } from "./modules/fiqh-suggestions/fiqh-suggestio
 import { AdminModule } from "./modules/admin/admin.module";
 import { AuditLogModule } from "./modules/audit-log/audit-log.module";
 import { AiModule } from "./modules/ai/ai.module";
+import { NotificationsModule } from "./modules/notifications/notifications.module";
+import { RemindersModule } from "./modules/reminders/reminders.module";
 
 @Module({
   imports: [
@@ -47,6 +50,7 @@ import { AiModule } from "./modules/ai/ai.module";
       envFilePath: path.resolve(__dirname, "../../../.env"),
     }),
     ThrottlerModule.forRoot([{ ttl: 60_000, limit: 120 }]),
+    ScheduleModule.forRoot(),
     // JwtModule est importe ici aussi car JwtAuthGuard (APP_GUARD global,
     // instancie dans le contexte d'AppModule) a besoin de JwtService.
     JwtModule.register({}),
@@ -76,6 +80,8 @@ import { AiModule } from "./modules/ai/ai.module";
     AdminModule,
     AuditLogModule,
     AiModule,
+    NotificationsModule,
+    RemindersModule,
   ],
   providers: [
     { provide: APP_FILTER, useClass: HttpExceptionFilter },
