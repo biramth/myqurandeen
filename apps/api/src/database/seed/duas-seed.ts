@@ -1055,87 +1055,101 @@ const CATEGORIES: DuaCategorySeed[] = [
     items: [
       {
         title: "Rabbana atina (le bien ici-bas et dans l'au-delà)",
-        arabicText: null,
-        transliteration: null,
+        arabicText: "وَمِنْهُم مَّن يَقُولُ رَبَّنَآ ءَاتِنَا فِى ٱلدُّنْيَا حَسَنَةًۭ وَفِى ٱلْءَاخِرَةِ حَسَنَةًۭ وَقِنَا عَذَابَ ٱلنَّارِ",
+        transliteration:
+          "Wa minhum mai yaqoolu rabbanaaa aatina fid dunyaa hasanatawn wa fil aakhirati hasanatanw wa qinaa azaaban Naar.",
         translation:
-          "Notre Seigneur, donne-nous belle part ici-bas, et belle part aussi dans l'au-delà, et protège-nous du châtiment du Feu. (Coran 2:201)",
+          "Et il est des gens qui disent : « Seigneur ! Accorde-nous belle part ici-bas, et belle part aussi dans l'au-delà, et protège-nous du châtiment du Feu ! » (Coran 2:201)",
         repeatCount: null,
         referenceUrl: "/quran/2/201",
       },
       {
         title: "Rabbana la tu'akhidhna (l'oubli et l'erreur)",
-        arabicText: null,
-        transliteration: null,
+        arabicText:
+          "لَا يُكَلِّفُ ٱللَّهُ نَفْسًا إِلَّا وُسْعَهَا ۚ لَهَا مَا كَسَبَتْ وَعَلَيْهَا مَا ٱكْتَسَبَتْ ۗ رَبَّنَا لَا تُؤَاخِذْنَآ إِن نَّسِينَآ أَوْ أَخْطَأْنَا ۚ رَبَّنَا وَلَا تَحْمِلْ عَلَيْنَآ إِصْرًۭا كَمَا حَمَلْتَهُۥ عَلَى ٱلَّذِينَ مِن قَبْلِنَا ۚ رَبَّنَا وَلَا تُحَمِّلْنَا مَا لَا طَاقَةَ لَنَا بِهِۦ ۖ وَٱعْفُ عَنَّا وَٱغْفِرْ لَنَا وَٱرْحَمْنَآ ۚ أَنتَ مَوْلَىٰنَا فَٱنصُرْنَا عَلَى ٱلْقَوْمِ ٱلْكَٰفِرِينَ",
+        transliteration:
+          "Laa yukalliful-laahu nafsan illaa wus'ahaa ; lahaa maa kasabat wa 'alaihaa maktasabat ; Rabbanaa la tu'aakhiznaa in naseenaaa aw akhtaanaa ; Rabbanaa wa laa tahmil-'alainaaa isran kamaa hamaltahoo 'alal-lazeena min qablinaa ; Rabbanaa wa laa tuhammilnaa maa laa taaqata lanaa bih, wa'fu 'annaa waghfir lanaa warhamnaa ; Anta mawlaanaa fansurnaa 'alal qawmil kaafireen.",
         translation:
-          "Notre Seigneur, ne nous sanctionne pas si nous oublions ou commettons une erreur. (Coran 2:286)",
+          "Allah n'impose à aucune âme une charge supérieure à sa capacité. [...] Notre Seigneur, ne nous sanctionne pas si nous oublions ou commettons une erreur. Notre Seigneur ! Ne nous charge pas d'un fardeau lourd comme Tu as chargé ceux qui vécurent avant nous. Notre Seigneur ! Ne nous impose pas ce que nous ne pouvons supporter, efface nos fautes, pardonne-nous et fais-nous miséricorde. Tu es notre Maître, accorde-nous donc la victoire sur les peuples infidèles. (Coran 2:286, verset complet)",
         repeatCount: null,
         referenceUrl: "/quran/2/286",
       },
       {
         title: "Rabbana la tuzigh (l'égarement du cœur)",
-        arabicText: null,
-        transliteration: null,
+        arabicText: "رَبَّنَا لَا تُزِغْ قُلُوبَنَا بَعْدَ إِذْ هَدَيْتَنَا وَهَبْ لَنَا مِن لَّدُنكَ رَحْمَةً ۚ إِنَّكَ أَنتَ ٱلْوَهَّابُ",
+        transliteration:
+          "Rabbanaa laa tuzigh quloobanaa ba'da iz hadaitanaa wa hab lanaa mil ladunka rahmah ; innaka antal Wahhaab.",
         translation:
-          "Notre Seigneur, ne fais pas dévier nos cœurs après que Tu nous aies guidés, et accorde-nous Ta miséricorde. (Coran 3:8)",
+          "Seigneur ! Ne laisse pas dévier nos cœurs après que Tu nous aies guidés, et accorde-nous Ta miséricorde. C'est Toi, certes, le Grand Donateur ! (Coran 3:8)",
         repeatCount: null,
         referenceUrl: "/quran/3/8",
       },
       {
         title: "Rabbana innana amanna (la foi et le pardon)",
-        arabicText: null,
-        transliteration: null,
-        translation: "Notre Seigneur, nous avons cru ; pardonne-nous donc nos péchés et épargne-nous le châtiment du Feu. (Coran 3:16)",
+        arabicText: "ٱلَّذِينَ يَقُولُونَ رَبَّنَآ إِنَّنَآ ءَامَنَّا فَٱغْفِرْ لَنَا ذُنُوبَنَا وَقِنَا عَذَابَ ٱلنَّارِ",
+        transliteration: "Allazeena yaqooloona Rabbanaaa innanaaa aamannaa faghfir lanaa zunoobanaa wa qinaa 'azaaban Naar.",
+        translation:
+          "Qui disent : « Ô notre Seigneur, nous avons la foi ; pardonne-nous donc nos péchés, et protège-nous du châtiment du Feu. » (Coran 3:16)",
         repeatCount: null,
         referenceUrl: "/quran/3/16",
       },
       {
         title: "Rabbi ishrah li sadri (l'ouverture de la poitrine)",
-        arabicText: null,
-        transliteration: null,
+        arabicText:
+          "قَالَ رَبِّ ٱشْرَحْ لِى صَدْرِى وَيَسِّرْ لِىٓ أَمْرِى وَٱحْلُلْ عُقْدَةًۭ مِّن لِّسَانِى يَفْقَهُوا۟ قَوْلِى",
+        transliteration:
+          "Qaala Rabbish rah lee sadree, wa yassir leee amree, wahlul 'uqdatam milli saanee, yafqahoo qawlee.",
         translation:
-          "Seigneur, ouvre-moi ma poitrine, facilite ma tâche, et dénoue un nœud de ma langue afin qu'ils comprennent mes paroles. (Coran 20:25-28, invocation de Musa)",
+          "[Moïse] dit : « Seigneur, ouvre-moi ma poitrine, et facilite ma mission, et dénoue un nœud en ma langue, afin qu'ils comprennent mes paroles. » (Coran 20:25-28)",
         repeatCount: null,
         referenceUrl: "/quran/20/25",
       },
       {
         title: "Rabbi habli minas-salihin (une descendance vertueuse)",
-        arabicText: null,
-        transliteration: null,
-        translation: "Seigneur, fais-moi don d'un enfant du nombre des vertueux. (Coran 37:100, invocation d'Ibrahim)",
+        arabicText: "رَبِّ هَبْ لِى مِنَ ٱلصَّٰلِحِينَ",
+        transliteration: "Rabbi hab lee minas saaliheen.",
+        translation: "Seigneur, fais-moi don d'une [descendance] d'entre les vertueux. (Coran 37:100, invocation d'Ibrahim)",
         repeatCount: null,
         referenceUrl: "/quran/37/100",
       },
       {
         title: "Rabbi ij'alni muqimas-salat (l'assiduité à la prière)",
-        arabicText: null,
-        transliteration: null,
+        arabicText:
+          "رَبِّ ٱجْعَلْنِى مُقِيمَ ٱلصَّلَوٰةِ وَمِن ذُرِّيَّتِى ۚ رَبَّنَا وَتَقَبَّلْ دُعَآءِ رَبَّنَا ٱغْفِرْ لِى وَلِوَٰلِدَىَّ وَلِلْمُؤْمِنِينَ يَوْمَ يَقُومُ ٱلْحِسَابُ",
+        transliteration:
+          "Rabbij 'alnee muqeemas Salaati wa min zurriyyatee Rabbanaa wa taqabbal du'aaa'. Rabbanagh fir lee wa liwaalidaiya wa lilmu'mineena Yawma yaqoomul hisaab.",
         translation:
-          "Seigneur, fais que j'accomplisse assidûment la prière, ainsi qu'une partie de ma descendance ; notre Seigneur, exauce ma prière. (Coran 14:40)",
+          "Ô mon Seigneur ! Fais que j'accomplisse assidûment la prière, ainsi qu'une partie de ma descendance ; exauce ma prière, ô notre Seigneur ! Ô notre Seigneur ! Pardonne-moi, ainsi qu'à mes père et mère et aux croyants, le jour de la reddition des comptes. (Coran 14:40-41)",
         repeatCount: null,
         referenceUrl: "/quran/14/40",
       },
       {
         title: "Rabbana hab lana (la joie des yeux)",
-        arabicText: null,
-        transliteration: null,
+        arabicText:
+          "وَٱلَّذِينَ يَقُولُونَ رَبَّنَا هَبْ لَنَا مِنْ أَزْوَٰجِنَا وَذُرِّيَّٰتِنَا قُرَّةَ أَعْيُنٍۢ وَٱجْعَلْنَا لِلْمُتَّقِينَ إِمَامًا",
+        transliteration:
+          "Wallazeena yaqooloona Rabbanaa hab lanaa min azwaajinaa wa zurriyaatinaa qurrata a'yuninw waj 'alnaa lilmuttaqeena Imaamaa.",
         translation:
-          "Notre Seigneur, fais que nos épouses et nos descendants soient une source de joie pour nous, et fais de nous un modèle pour les pieux. (Coran 25:74)",
+          "Et qui disent : « Seigneur, donne-nous, en nos épouses et nos descendants, la joie des yeux, et fais de nous un guide pour les pieux. » (Coran 25:74)",
         repeatCount: null,
         referenceUrl: "/quran/25/74",
       },
       {
         title: "Rabbi inni lima anzalta (le besoin en Allah)",
-        arabicText: null,
-        transliteration: null,
-        translation: "Seigneur, j'ai grand besoin du bien que Tu feras descendre vers moi. (Coran 28:24, invocation de Musa à Madyan)",
+        arabicText: "فَسَقَىٰ لَهُمَا ثُمَّ تَوَلَّىٰٓ إِلَى ٱلظِّلِّ فَقَالَ رَبِّ إِنِّى لِمَآ أَنزَلْتَ إِلَىَّ مِنْ خَيْرٍۢ فَقِيرٌۭ",
+        transliteration:
+          "Fasaqaa lahumaa summa tawallaaa ilaz zilli faqaala Rabbi innee limaaa anzalta ilaiya min khairin faqeer.",
+        translation:
+          "Il abreuva [les bêtes] pour elles puis retourna à l'ombre et dit : « Seigneur, j'ai grand besoin du bien que Tu feras descendre vers moi. » (Coran 28:24, invocation de Musa à Madyan)",
         repeatCount: null,
         referenceUrl: "/quran/28/24",
       },
       {
         title: "Rabbi anzilni (une descente bénie)",
-        arabicText: null,
-        transliteration: null,
-        translation: "Seigneur, fais-moi débarquer d'un débarquement béni, car c'est Toi qui es le Meilleur des débarqueurs. (Coran 23:29, invocation de Nuh)",
+        arabicText: "وَقُل رَّبِّ أَنزِلْنِى مُنزَلًۭا مُّبَارَكًۭا وَأَنتَ خَيْرُ ٱلْمُنزِلِينَ",
+        transliteration: "Wa qur Rabbi anzilnee munzalam mubaarakanw wa Anta khairul munzileen.",
+        translation:
+          "Et dis : « Seigneur, fais-moi débarquer d'un débarquement béni. Tu es Celui qui procure le meilleur débarquement. » (Coran 23:29, invocation de Nuh)",
         repeatCount: null,
         referenceUrl: "/quran/23/29",
       },
