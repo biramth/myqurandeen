@@ -37,6 +37,10 @@
         "label": "Hadis",
         "description": "Koleksi dan keotentikan"
       },
+      "duas": {
+        "label": "Doa & Dzikir",
+        "description": "Doa berdasarkan tema"
+      },
       "tafsir": {
         "label": "Tafsir",
         "description": "Tafsir ayat per ayat"

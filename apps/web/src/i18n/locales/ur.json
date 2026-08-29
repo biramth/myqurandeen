@@ -37,6 +37,10 @@
         "label": "حدیث",
         "description": "مجموعے اور صحت"
       },
+      "duas": {
+        "label": "دعا اور ذکر",
+        "description": "موضوع کے لحاظ سے دعائیں"
+      },
       "tafsir": {
         "label": "تفسیر",
         "description": "آیت بہ آیت تفسیر"

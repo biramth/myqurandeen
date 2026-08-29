@@ -5,6 +5,7 @@ import {
   BookOpen,
   ScrollText,
   BookMarked,
+  HandHeart,
   Scale,
   Landmark,
   History,
@@ -23,6 +24,7 @@ import { useDocumentTitle } from "@/hooks/useDocumentTitle";
 const CATEGORY_ICONS = {
   quran: BookOpen,
   hadith: ScrollText,
+  duas: HandHeart,
   tafsir: BookMarked,
   fiqh: Scale,
   prophet: Landmark,
@@ -37,6 +39,7 @@ const CATEGORY_ICONS = {
 const CATEGORY_HREFS: Record<keyof typeof CATEGORY_ICONS, string> = {
   quran: "/quran",
   hadith: "/hadith",
+  duas: "/duas",
   tafsir: "/tafsir",
   fiqh: "/schools",
   prophet: "/history/vie-du-prophete",

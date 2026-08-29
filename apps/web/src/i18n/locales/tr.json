@@ -37,6 +37,10 @@
         "label": "Hadis",
         "description": "Koleksiyonlar ve sihhat"
       },
+      "duas": {
+        "label": "Dua ve Zikir",
+        "description": "Konularina gore dualar"
+      },
       "tafsir": {
         "label": "Tefsir",
         "description": "Ayet ayet tefsir"

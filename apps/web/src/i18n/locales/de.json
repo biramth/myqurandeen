@@ -37,6 +37,10 @@
         "label": "Hadith",
         "description": "Sammlungen und Authentizitat"
       },
+      "duas": {
+        "label": "Dua & Dhikr",
+        "description": "Bittgebete nach Themen"
+      },
       "tafsir": {
         "label": "Tafsir",
         "description": "Vers-fur-Vers-Auslegung"

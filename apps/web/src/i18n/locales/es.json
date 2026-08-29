@@ -37,6 +37,10 @@
         "label": "Hadiz",
         "description": "Colecciones y autenticidad"
       },
+      "duas": {
+        "label": "Dua y Dhikr",
+        "description": "Súplicas por tema"
+      },
       "tafsir": {
         "label": "Tafsir",
         "description": "Exegesis versiculo por versiculo"

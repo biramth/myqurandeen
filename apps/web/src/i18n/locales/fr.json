@@ -37,6 +37,10 @@
         "label": "Hadith",
         "description": "Collections et authenticité"
       },
+      "duas": {
+        "label": "Dua & Dhikr",
+        "description": "Invocations classées par thème"
+      },
       "tafsir": {
         "label": "Tafsir",
         "description": "Exégèse verset par verset"
