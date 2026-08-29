@@ -1,5 +1,6 @@
 import { Inject, Injectable } from "@nestjs/common";
-import { eq, ilike, or, sql } from "drizzle-orm";
+import { eq, or, sql } from "drizzle-orm";
+import type { PgColumn } from "drizzle-orm/pg-core";
 import { DRIZZLE } from "../../database/database.constants";
 import type { Database } from "../../database/database.module";
 import {
@@ -35,6 +36,16 @@ const RESULT_LIMIT = 8;
 export class SearchService {
   constructor(@Inject(DRIZZLE) private readonly db: Database) {}
 
+  /**
+   * ILIKE insensible aux accents (immutable_unaccent, cf. migration 0021) :
+   * une recherche "ecole" doit aussi retrouver "école". A utiliser pour les
+   * quelques tables sans colonne text_search dediee (trop petites/peu
+   * consultees pour justifier un index FTS complet).
+   */
+  private unaccentIlike(column: PgColumn, value: string) {
+    return sql`immutable_unaccent(${column}) ILIKE immutable_unaccent(${value})`;
+  }
+
   async search(query: string) {
     const trimmed = query.trim();
     if (trimmed.length < 2) {
@@ -56,7 +67,9 @@ export class SearchService {
     const like = `%${trimmed}%`;
     // websearch_to_tsquery supporte les guillemets (phrase), l'exclusion
     // avec "-" et l'operateur OR - syntaxe adaptee a une saisie utilisateur.
-    const tsQuery = sql`websearch_to_tsquery('simple', ${trimmed})`;
+    // immutable_unaccent cote requete aussi : sinon "ecole" (sans accent, tres
+    // frequent) ne matcherait pas un texte indexe insensible aux accents.
+    const tsQuery = sql`websearch_to_tsquery('simple', immutable_unaccent(${trimmed}))`;
 
     const verseColumns = {
       id: quranVerses.id,
@@ -168,17 +181,23 @@ export class SearchService {
       this.db
         .select({ id: concepts.id, term: concepts.term, slug: concepts.slug, definition: concepts.definition })
         .from(concepts)
-        .where(or(ilike(concepts.term, like), ilike(concepts.definition, like), ilike(concepts.explanation, like)))
+        .where(
+          or(
+            this.unaccentIlike(concepts.term, like),
+            this.unaccentIlike(concepts.definition, like),
+            this.unaccentIlike(concepts.explanation, like),
+          ),
+        )
         .limit(RESULT_LIMIT),
       this.db
         .select({ id: scholars.id, name: scholars.name, slug: scholars.slug, bio: scholars.bio })
         .from(scholars)
-        .where(or(ilike(scholars.name, like), ilike(scholars.bio, like)))
+        .where(or(this.unaccentIlike(scholars.name, like), this.unaccentIlike(scholars.bio, like)))
         .limit(RESULT_LIMIT),
       this.db
         .select({ id: prophets.id, name: prophets.name, slug: prophets.slug, description: prophets.description })
         .from(prophets)
-        .where(or(ilike(prophets.name, like), ilike(prophets.description, like)))
+        .where(or(this.unaccentIlike(prophets.name, like), this.unaccentIlike(prophets.description, like)))
         .limit(RESULT_LIMIT),
       this.db
         .select({
@@ -197,12 +216,12 @@ export class SearchService {
       this.db
         .select({ id: fiqhTopics.id, title: fiqhTopics.title, slug: fiqhTopics.slug, description: fiqhTopics.description })
         .from(fiqhTopics)
-        .where(or(ilike(fiqhTopics.title, like), ilike(fiqhTopics.description, like)))
+        .where(or(this.unaccentIlike(fiqhTopics.title, like), this.unaccentIlike(fiqhTopics.description, like)))
         .limit(RESULT_LIMIT),
       this.db
         .select({ id: schools.id, name: schools.name, slug: schools.slug, type: schools.type })
         .from(schools)
-        .where(or(ilike(schools.name, like), ilike(schools.history, like)))
+        .where(or(this.unaccentIlike(schools.name, like), this.unaccentIlike(schools.history, like)))
         .limit(RESULT_LIMIT),
       // Duas et dhikr
       this.db
@@ -215,7 +234,13 @@ export class SearchService {
         })
         .from(duas)
         .innerJoin(duaCategories, eq(duaCategories.id, duas.categoryId))
-        .where(or(ilike(duas.title, like), ilike(duas.translation, like), ilike(duas.transliteration, like)))
+        .where(
+          or(
+            this.unaccentIlike(duas.title, like),
+            this.unaccentIlike(duas.translation, like),
+            this.unaccentIlike(duas.transliteration, like),
+          ),
+        )
         .limit(RESULT_LIMIT),
     ]);
 

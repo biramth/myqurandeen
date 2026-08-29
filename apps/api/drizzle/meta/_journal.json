@@ -148,6 +148,13 @@
       "when": 1787992370099,
       "tag": "0020_moaning_venus",
       "breakpoints": true
+    },
+    {
+      "idx": 21,
+      "version": "7",
+      "when": 1788011211705,
+      "tag": "0021_unaccent_search",
+      "breakpoints": true
     }
   ]
 }

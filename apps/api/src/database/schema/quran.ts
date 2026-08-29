@@ -44,7 +44,7 @@ export const quranVerses = pgTable(
     textArabic: text("text_arabic").notNull(),
     textTransliterated: text("text_transliterated"),
     textSearch: tsvector("text_search").generatedAlwaysAs(
-      (): ReturnType<typeof sql> => sql`to_tsvector('simple', coalesce(text_arabic, ''))`,
+      (): ReturnType<typeof sql> => sql`to_tsvector('simple', immutable_unaccent(coalesce(text_arabic, '')))`,
     ),
     ...timestamps,
   },
@@ -78,7 +78,7 @@ export const verseTranslations = pgTable(
       .references(() => translations.id, { onDelete: "cascade" }),
     text: text("text").notNull(),
     textSearch: tsvector("text_search").generatedAlwaysAs(
-      (): ReturnType<typeof sql> => sql`to_tsvector('simple', coalesce("text", ''))`,
+      (): ReturnType<typeof sql> => sql`to_tsvector('simple', immutable_unaccent(coalesce("text", '')))`,
     ),
     ...timestamps,
   },
@@ -112,7 +112,7 @@ export const tafsirEntries = pgTable(
     verseEndId: uuid("verse_end_id").references(() => quranVerses.id, { onDelete: "cascade" }),
     content: text("content").notNull(),
     textSearch: tsvector("text_search").generatedAlwaysAs(
-      (): ReturnType<typeof sql> => sql`to_tsvector('simple', coalesce(content, ''))`,
+      (): ReturnType<typeof sql> => sql`to_tsvector('simple', immutable_unaccent(coalesce(content, '')))`,
     ),
     createdBy: uuid("created_by").references(() => users.id, { onDelete: "set null" }),
     ...timestamps,

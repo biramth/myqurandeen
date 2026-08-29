@@ -54,7 +54,7 @@ export const books = pgTable(
     sourceId: uuid("source_id").references(() => sources.id, { onDelete: "set null" }),
     textSearch: tsvector("text_search").generatedAlwaysAs(
       (): ReturnType<typeof sql> =>
-        sql`to_tsvector('simple', coalesce(title, '') || ' ' || coalesce(description, ''))`,
+        sql`to_tsvector('simple', immutable_unaccent(coalesce(title, '') || ' ' || coalesce(description, '')))`,
     ),
     ...timestamps,
   },

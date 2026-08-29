@@ -41,7 +41,7 @@ export const historicalEvents = pgTable(
     description: text("description").notNull(),
     textSearch: tsvector("text_search").generatedAlwaysAs(
       (): ReturnType<typeof sql> =>
-        sql`to_tsvector('simple', coalesce(title, '') || ' ' || coalesce(description, ''))`,
+        sql`to_tsvector('simple', immutable_unaccent(coalesce(title, '') || ' ' || coalesce(description, '')))`,
     ),
     createdBy: uuid("created_by").references(() => users.id, { onDelete: "set null" }),
     ...timestamps,

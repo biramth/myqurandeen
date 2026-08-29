@@ -64,7 +64,7 @@ export const hadiths = pgTable(
     sourceId: uuid("source_id").references(() => sources.id, { onDelete: "set null" }),
     textSearch: tsvector("text_search").generatedAlwaysAs(
       (): ReturnType<typeof sql> =>
-        sql`to_tsvector('simple', coalesce(text_translation, '') || ' ' || coalesce(text_arabic, ''))`,
+        sql`to_tsvector('simple', immutable_unaccent(coalesce(text_translation, '') || ' ' || coalesce(text_arabic, '')))`,
     ),
     createdBy: uuid("created_by").references(() => users.id, { onDelete: "set null" }),
     ...timestamps,
