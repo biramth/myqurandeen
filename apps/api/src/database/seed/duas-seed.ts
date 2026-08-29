@@ -669,6 +669,478 @@ const CATEGORIES: DuaCategorySeed[] = [
       },
     ],
   },
+  {
+    name: "Ramadan",
+    slug: "ramadan",
+    description: "Invocations propres au mois de Ramadan.",
+    items: [
+      {
+        title: "En rompant le jeûne (iftar)",
+        arabicText: "ذَهَبَ الظَّمَأُ وَابْتَلَّتِ الْعُرُوقُ وَثَبَتَ الْأَجْرُ إِنْ شَاءَ اللَّهُ",
+        transliteration: "Dhahaba zama'u wabtallatil-'uruqu wa thabatal-ajru in sha'Allah.",
+        translation: "La soif est partie, les veines sont désaltérées, et la récompense est acquise, si Allah le veut.",
+        repeatCount: 1,
+        virtue: "Rapportée par Abu Dawud, dite par le Prophète ﷺ en rompant le jeûne.",
+      },
+      {
+        title: "Nuit du Destin (Laylat al-Qadr)",
+        arabicText: "اللَّهُمَّ إِنَّكَ عَفُوٌّ تُحِبُّ الْعَفْوَ فَاعْفُ عَنِّي",
+        transliteration: "Allahumma innaka 'afuwwun tuhibbul-'afwa fa'fu 'anni.",
+        translation: "Ô Allah, Tu es Celui qui pardonne et Tu aimes le pardon ; pardonne-moi donc.",
+        repeatCount: 1,
+        virtue: "Enseignée par le Prophète ﷺ à Aisha pour la Nuit du Destin - rapportée par At-Tirmidhi.",
+      },
+    ],
+  },
+  {
+    name: "Parents",
+    slug: "parents",
+    description: "Invocation en faveur des parents.",
+    items: [
+      {
+        title: "Miséricorde envers les parents",
+        arabicText: "رَبِّ ارْحَمْهُمَا كَمَا رَبَّيَانِي صَغِيرًا",
+        transliteration: "Rabbi irhamhuma kama rabbayani saghira.",
+        translation: "Seigneur, fais-leur miséricorde comme ils m'ont élevé tout petit. (Coran 17:24)",
+        repeatCount: 1,
+        referenceUrl: "/quran/17/24",
+      },
+    ],
+  },
+  {
+    name: "Enfants",
+    slug: "enfants",
+    description: "Invocation de protection pour les enfants.",
+    items: [
+      {
+        title: "Protection des enfants",
+        arabicText:
+          "أُعِيذُكُمَا بِكَلِمَاتِ اللَّهِ التَّامَّةِ مِنْ كُلِّ شَيْطَانٍ وَهَامَّةٍ، وَمِنْ كُلِّ عَيْنٍ لَامَّةٍ",
+        transliteration: "U'idhukuma bikalimatillahit-tammati min kulli shaytanin wa hammah, wa min kulli 'aynin lammah.",
+        translation:
+          "Je vous place tous deux sous la protection des paroles parfaites d'Allah, contre tout diable, toute bête nuisible et tout œil malveillant.",
+        repeatCount: 1,
+        virtue:
+          "Le Prophète ﷺ récitait cette formule sur Al-Hasan et Al-Husayn, précisant que c'est ainsi qu'Ibrahim protégeait Isma'il et Ishaq - rapportée par Al-Bukhari.",
+      },
+    ],
+  },
+  {
+    name: "Tristesse",
+    slug: "tristesse",
+    description: "Invocation face à la tristesse ou à l'épreuve.",
+    items: [
+      {
+        title: "Rien n'est facile hormis ce que Tu rends facile",
+        arabicText: "اللَّهُمَّ لَا سَهْلَ إِلَّا مَا جَعَلْتَهُ سَهْلًا، وَأَنْتَ تَجْعَلُ الْحَزَنَ إِذَا شِئْتَ سَهْلًا",
+        transliteration: "Allahumma la sahla illa ma ja'altahu sahla, wa anta taj'alul-hazna idha shi'ta sahla.",
+        translation:
+          "Ô Allah, rien n'est facile hormis ce que Tu rends facile, et Tu peux, si Tu le veux, rendre facile ce qui est source de tristesse.",
+        repeatCount: 1,
+        virtue: "Rapportée par Ibn Hibban, largement reprise dans les recueils de duas.",
+      },
+    ],
+  },
+  {
+    name: "Bonheur",
+    slug: "bonheur",
+    description: "Formule de gratitude lorsqu'un bienfait ou un événement heureux survient.",
+    items: [
+      {
+        title: "Louange pour un bienfait",
+        arabicText: "الْحَمْدُ لِلَّهِ الَّذِي بِنِعْمَتِهِ تَتِمُّ الصَّالِحَاتُ",
+        transliteration: "Alhamdu lillahil-ladhi bini'matihi tatimmus-salihat.",
+        translation: "Louange à Allah, par la grâce duquel s'accomplissent les bonnes œuvres.",
+        repeatCount: 1,
+        virtue: "Rapportée par Ibn Majah.",
+      },
+    ],
+  },
+  {
+    name: "Doute",
+    slug: "doute",
+    description: "Que faire et que dire face aux insinuations et doutes concernant la foi.",
+    items: [
+      {
+        title: "Face aux insinuations du doute",
+        arabicText: "آمَنْتُ بِاللَّهِ",
+        transliteration: "Amantu billah.",
+        translation: "Je crois en Allah.",
+        repeatCount: 1,
+        virtue:
+          "Le Prophète ﷺ a enseigné de dire cela et de cesser d'y penser face aux insinuations sur l'origine de la création - rapportée par Al-Bukhari et Muslim.",
+      },
+    ],
+  },
+  {
+    name: "Repentir",
+    slug: "repentir",
+    description: "Invocation de repentir, au-delà du Sayyid al-Istighfar des adhkar du matin et du soir.",
+    items: [
+      {
+        title: "Demande de pardon et de repentir",
+        arabicText: "رَبِّ اغْفِرْ لِي وَتُبْ عَلَيَّ إِنَّكَ أَنْتَ التَّوَّابُ الرَّحِيمُ",
+        transliteration: "Rabbighfir li wa tub 'alayya innaka Antat-Tawwabur-Rahim.",
+        translation:
+          "Seigneur, pardonne-moi et accepte mon repentir, car Tu es Celui qui accueille le repentir, le Très Miséricordieux.",
+        repeatCount: 1,
+      },
+    ],
+  },
+  {
+    name: "Richesse",
+    slug: "richesse",
+    description: "Invocation pour la subsistance et l'indépendance financière licite.",
+    items: [
+      {
+        title: "Suffisance par le licite",
+        arabicText: "اللَّهُمَّ اكْفِنِي بِحَلَالِكَ عَنْ حَرَامِكَ، وَأَغْنِنِي بِفَضْلِكَ عَمَّنْ سِوَاكَ",
+        transliteration: "Allahummak-fini bihalalika 'an haramik, wa aghnini bifadlika 'amman siwak.",
+        translation:
+          "Ô Allah, suffis-moi par ce qui est licite en me passant de ce qui est illicite, et rends-moi riche par Ta grâce en me passant de tout autre que Toi.",
+        repeatCount: 1,
+        virtue: "Rapportée par At-Tirmidhi, dua pour être libéré des dettes et de la dépendance envers autrui.",
+      },
+    ],
+  },
+  {
+    name: "Hajj et 'Umra",
+    slug: "hajj-umra",
+    description: "Invocation emblématique du pèlerinage.",
+    items: [
+      {
+        title: "La Talbiya",
+        arabicText:
+          "لَبَّيْكَ اللَّهُمَّ لَبَّيْكَ، لَبَّيْكَ لَا شَرِيكَ لَكَ لَبَّيْكَ، إِنَّ الْحَمْدَ وَالنِّعْمَةَ لَكَ وَالْمُلْكَ، لَا شَرِيكَ لَكَ",
+        transliteration:
+          "Labbayk Allahumma labbayk, labbayka la sharika laka labbayk, innal-hamda wan-ni'mata laka wal-mulk, la sharika lak.",
+        translation:
+          "Me voici à Ton service, ô Allah, me voici. Me voici, Tu n'as point d'associé, me voici. La louange, le bienfait et la royauté T'appartiennent ; Tu n'as point d'associé.",
+        repeatCount: 1,
+        virtue:
+          "Invocation emblématique récitée dès l'entrée en état de sacralisation (ihram) - rapportée par Al-Bukhari et Muslim.",
+      },
+    ],
+  },
+  {
+    name: "Louange",
+    slug: "louange",
+    description: "Formules de glorification et de louange d'Allah.",
+    items: [
+      {
+        title: "Les paroles les plus aimées d'Allah",
+        arabicText: "سُبْحَانَ اللَّهِ وَالْحَمْدُ لِلَّهِ وَلَا إِلَٰهَ إِلَّا اللَّهُ وَاللَّهُ أَكْبَرُ",
+        transliteration: "Subhanallahi, walhamdulillahi, wa la ilaha illallahu, wallahu akbar.",
+        translation: "Gloire à Allah, louange à Allah, il n'y a de divinité qu'Allah, Allah est le plus grand.",
+        repeatCount: 1,
+        virtue: "Les paroles les plus aimées d'Allah après le Coran - rapportées par Muslim.",
+      },
+    ],
+  },
+  {
+    name: "Prière",
+    slug: "priere",
+    description: "Invocation d'ouverture (istiftah) récitée au début de la prière.",
+    items: [
+      {
+        title: "Invocation d'ouverture de la prière",
+        arabicText: "سُبْحَانَكَ اللَّهُمَّ وَبِحَمْدِكَ، وَتَبَارَكَ اسْمُكَ، وَتَعَالَى جَدُّكَ، وَلَا إِلَٰهَ غَيْرُكَ",
+        transliteration: "Subhanaka Allahumma wa bihamdika, wa tabaraka ismuka, wa ta'ala jadduka, wa la ilaha ghayruk.",
+        translation:
+          "Gloire à Toi, ô Allah, et louange à Toi. Béni soit Ton nom, exaltée soit Ta majesté, et il n'y a de divinité que Toi.",
+        repeatCount: 1,
+        virtue: "Récitée après le premier takbir - rapportée par Abu Dawud et At-Tirmidhi.",
+      },
+    ],
+  },
+  {
+    name: "Société",
+    slug: "societe",
+    description: "Invocation pour l'unité et la concorde entre croyants.",
+    items: [
+      {
+        title: "Contre la rancune entre croyants",
+        arabicText:
+          "رَبَّنَا اغْفِرْ لَنَا وَلِإِخْوَانِنَا الَّذِينَ سَبَقُونَا بِالْإِيمَانِ وَلَا تَجْعَلْ فِي قُلُوبِنَا غِلًّا لِلَّذِينَ آمَنُوا",
+        transliteration:
+          "Rabbanaghfir lana wa li-ikhwaninal-ladhina sabaquna bil-imani wa la taj'al fi qulubina ghillal-lilladhina amanu.",
+        translation:
+          "Notre Seigneur, pardonne-nous, ainsi qu'à nos frères qui nous ont précédés dans la foi, et ne mets dans nos cœurs aucune rancune envers ceux qui ont cru. (Coran 59:10)",
+        repeatCount: 1,
+        referenceUrl: "/quran/59/10",
+      },
+    ],
+  },
+  {
+    name: "Tentation",
+    slug: "tentation",
+    description: "Invocation de refuge contre les épreuves et tentations.",
+    items: [
+      {
+        title: "Refuge contre les épreuves",
+        arabicText: "اللَّهُمَّ إِنِّي أَعُوذُ بِكَ مِنَ الْفِتَنِ مَا ظَهَرَ مِنْهَا وَمَا بَطَنَ",
+        transliteration: "Allahumma inni a'udhu bika minal-fitani ma zahara minha wa ma batan.",
+        translation: "Ô Allah, je cherche refuge auprès de Toi contre les épreuves, apparentes et cachées.",
+        repeatCount: 1,
+        virtue: "Rapportée par Muslim.",
+      },
+    ],
+  },
+  {
+    name: "Connaissance",
+    slug: "connaissance",
+    description: "Invocations pour la recherche d'une connaissance bénéfique.",
+    items: [
+      {
+        title: "Accroître ma connaissance",
+        arabicText: "رَبِّ زِدْنِي عِلْمًا",
+        transliteration: "Rabbi zidni 'ilma.",
+        translation: "Seigneur, accrois mes connaissances. (Coran 20:114)",
+        repeatCount: 1,
+        referenceUrl: "/quran/20/114",
+      },
+      {
+        title: "Connaissance et action bénéfiques",
+        arabicText: "اللَّهُمَّ انْفَعْنِي بِمَا عَلَّمْتَنِي، وَعَلِّمْنِي مَا يَنْفَعُنِي، وَزِدْنِي عِلْمًا",
+        transliteration: "Allahummanfa'ni bima 'allamtani, wa 'allimni ma yanfa'uni, wa zidni 'ilma.",
+        translation:
+          "Ô Allah, fais-moi profiter de ce que Tu m'as enseigné, enseigne-moi ce qui m'est utile, et accrois mes connaissances.",
+        repeatCount: 1,
+        virtue: "Rapportée par At-Tirmidhi et Ibn Majah.",
+      },
+    ],
+  },
+  {
+    name: "Nuit",
+    slug: "nuit",
+    description: "La prière de nuit (tahajjud), au-delà des heures obligatoires.",
+    items: [
+      {
+        title: "La prière de nuit (Tahajjud)",
+        arabicText: null,
+        transliteration: null,
+        translation:
+          "Et de nuit, éveille-toi en prière, ceci est un supplément pour toi. Il se peut que ton Seigneur t'élève à une position glorieuse. (Coran 17:79)",
+        repeatCount: null,
+        referenceUrl: "/quran/17/79",
+      },
+    ],
+  },
+  {
+    name: "Décès",
+    slug: "deces",
+    description: "Invocation à l'annonce d'un décès ou d'une épreuve.",
+    items: [
+      {
+        title: "À l'annonce d'un décès",
+        arabicText:
+          "إِنَّا لِلَّهِ وَإِنَّا إِلَيْهِ رَاجِعُونَ، اللَّهُمَّ أْجُرْنِي فِي مُصِيبَتِي وَأَخْلِفْ لِي خَيْرًا مِنْهَا",
+        transliteration: "Inna lillahi wa inna ilayhi raji'un. Allahumma'jurni fi musibati wa akhlif li khayran minha.",
+        translation:
+          "Certes nous sommes à Allah, et c'est à Lui que nous retournons. Ô Allah, récompense-moi dans mon épreuve et remplace-la moi par quelque chose de meilleur.",
+        repeatCount: 1,
+        virtue: "Rapportée par Muslim.",
+      },
+    ],
+  },
+  {
+    name: "Mosquée",
+    slug: "mosquee",
+    description: "Invocations en entrant et en sortant de la mosquée.",
+    items: [
+      {
+        title: "En entrant à la mosquée",
+        arabicText: "اللَّهُمَّ افْتَحْ لِي أَبْوَابَ رَحْمَتِكَ",
+        transliteration: "Allahummaf-tah li abwaba rahmatik.",
+        translation: "Ô Allah, ouvre-moi les portes de Ta miséricorde.",
+        repeatCount: 1,
+        virtue: "Rapportée par Muslim.",
+      },
+      {
+        title: "En sortant de la mosquée",
+        arabicText: "اللَّهُمَّ إِنِّي أَسْأَلُكَ مِنْ فَضْلِكَ",
+        transliteration: "Allahumma inni as'aluka min fadlik.",
+        translation: "Ô Allah, je Te demande de Ta grâce.",
+        repeatCount: 1,
+        virtue: "Rapportée par Muslim.",
+      },
+    ],
+  },
+  {
+    name: "Vêtements",
+    slug: "vetements",
+    description: "Invocation en mettant un nouveau vêtement.",
+    items: [
+      {
+        title: "En mettant un nouveau vêtement",
+        arabicText: "الْحَمْدُ لِلَّهِ الَّذِي كَسَانِي هَذَا وَرَزَقَنِيهِ مِنْ غَيْرِ حَوْلٍ مِنِّي وَلَا قُوَّةٍ",
+        transliteration: "Alhamdu lillahil-ladhi kasani hadha wa razaqanihi min ghayri hawlin minni wa la quwwah.",
+        translation: "Louange à Allah qui m'a vêtu de ceci et me l'a accordé sans nul effort ni force de ma part.",
+        repeatCount: 1,
+        virtue: "Rapportée par Abu Dawud et At-Tirmidhi.",
+      },
+    ],
+  },
+  {
+    name: "Ablutions",
+    slug: "ablutions",
+    description: "Invocation à réciter après avoir accompli le wudu (petites ablutions).",
+    items: [
+      {
+        title: "Après le wudu",
+        arabicText: "أَشْهَدُ أَنْ لَا إِلَٰهَ إِلَّا اللَّهُ وَحْدَهُ لَا شَرِيكَ لَهُ، وَأَشْهَدُ أَنَّ مُحَمَّدًا عَبْدُهُ وَرَسُولُهُ",
+        transliteration:
+          "Ashhadu an la ilaha illallahu wahdahu la sharika lah, wa ashhadu anna Muhammadan 'abduhu wa rasuluh.",
+        translation:
+          "J'atteste qu'il n'y a de divinité qu'Allah, Seul, sans associé, et j'atteste que Muhammad est Son serviteur et Son messager.",
+        repeatCount: 1,
+        virtue: "Les huit portes du Paradis lui sont ouvertes, il peut entrer par celle qu'il souhaite - rapportée par Muslim.",
+      },
+    ],
+  },
+  {
+    name: "Animaux",
+    slug: "animaux",
+    description: "Invocations liées aux animaux et aux montures.",
+    items: [
+      {
+        title: "En entendant un coq chanter ou un âne braire",
+        arabicText: null,
+        transliteration: null,
+        translation:
+          "En entendant un coq chanter, demander à Allah de Sa grâce, car il aurait vu un ange ; en entendant un âne braire, chercher refuge auprès d'Allah contre le diable, car il aurait vu un diable - rapporté par Al-Bukhari et Muslim.",
+        repeatCount: null,
+      },
+      {
+        title: "En montant sur sa monture ou son véhicule",
+        arabicText:
+          "سُبْحَانَ الَّذِي سَخَّرَ لَنَا هَٰذَا وَمَا كُنَّا لَهُ مُقْرِنِينَ وَإِنَّا إِلَىٰ رَبِّنَا لَمُنْقَلِبُونَ",
+        transliteration: "Subhanal-ladhi sakhkhara lana hadha wa ma kunna lahu muqrinin, wa inna ila Rabbina lamunqalibun.",
+        translation:
+          "Gloire à Celui qui a mis ceci à notre service, alors que nous n'aurions pu l'accomplir par nous-mêmes. Et c'est vers notre Seigneur que nous retournerons. (Coran 43:13-14)",
+        repeatCount: 1,
+        referenceUrl: "/quran/43/13",
+      },
+    ],
+  },
+  {
+    name: "Maladie",
+    slug: "maladie",
+    description: "Invocations pour soi-même en cas de maladie ou de douleur.",
+    items: [
+      {
+        title: "Demande de guérison pour soi-même",
+        arabicText: "أَذْهِبِ الْبَأْسَ رَبَّ النَّاسِ، اشْفِ أَنْتَ الشَّافِي، لَا شِفَاءَ إِلَّا شِفَاؤُكَ، شِفَاءً لَا يُغَادِرُ سَقَمًا",
+        transliteration: "Adhhibil-ba'sa Rabban-nas, ishfi Antash-Shafi, la shifa'a illa shifa'uk, shifa'an la yughadiru saqama.",
+        translation:
+          "Éloigne le mal, Seigneur des hommes, guéris, c'est Toi qui guéris, il n'y a de guérison que la Tienne, une guérison qui ne laisse aucune trace de la maladie.",
+        repeatCount: 1,
+        virtue: "Rapportée par Al-Bukhari et Muslim, invocation du Prophète ﷺ auprès d'un malade.",
+      },
+      {
+        title: "En cas de douleur localisée",
+        arabicText: "أَعُوذُ بِعِزَّةِ اللَّهِ وَقُدْرَتِهِ مِنْ شَرِّ مَا أَجِدُ وَأُحَاذِرُ",
+        transliteration: "A'udhu bi'izzatillahi wa qudratihi min sharri ma ajidu wa uhadhir.",
+        translation: "Je cherche refuge dans la puissance et le pouvoir d'Allah contre le mal que je ressens et que je crains.",
+        repeatCount: 7,
+        virtue: "Rapportée par Muslim, à dire en posant la main sur l'endroit douloureux.",
+      },
+    ],
+  },
+  {
+    name: "40 Rabbana",
+    slug: "40-rabbana",
+    description:
+      "Une sélection des invocations coraniques commençant par « Rabbana » (Notre Seigneur), parmi les plus connues et les plus récitées - non une liste canonique unique, les compilations existantes variant d'un ouvrage à l'autre.",
+    items: [
+      {
+        title: "Rabbana atina (le bien ici-bas et dans l'au-delà)",
+        arabicText: null,
+        transliteration: null,
+        translation:
+          "Notre Seigneur, donne-nous belle part ici-bas, et belle part aussi dans l'au-delà, et protège-nous du châtiment du Feu. (Coran 2:201)",
+        repeatCount: null,
+        referenceUrl: "/quran/2/201",
+      },
+      {
+        title: "Rabbana la tu'akhidhna (l'oubli et l'erreur)",
+        arabicText: null,
+        transliteration: null,
+        translation:
+          "Notre Seigneur, ne nous sanctionne pas si nous oublions ou commettons une erreur. (Coran 2:286)",
+        repeatCount: null,
+        referenceUrl: "/quran/2/286",
+      },
+      {
+        title: "Rabbana la tuzigh (l'égarement du cœur)",
+        arabicText: null,
+        transliteration: null,
+        translation:
+          "Notre Seigneur, ne fais pas dévier nos cœurs après que Tu nous aies guidés, et accorde-nous Ta miséricorde. (Coran 3:8)",
+        repeatCount: null,
+        referenceUrl: "/quran/3/8",
+      },
+      {
+        title: "Rabbana innana amanna (la foi et le pardon)",
+        arabicText: null,
+        transliteration: null,
+        translation: "Notre Seigneur, nous avons cru ; pardonne-nous donc nos péchés et épargne-nous le châtiment du Feu. (Coran 3:16)",
+        repeatCount: null,
+        referenceUrl: "/quran/3/16",
+      },
+      {
+        title: "Rabbi ishrah li sadri (l'ouverture de la poitrine)",
+        arabicText: null,
+        transliteration: null,
+        translation:
+          "Seigneur, ouvre-moi ma poitrine, facilite ma tâche, et dénoue un nœud de ma langue afin qu'ils comprennent mes paroles. (Coran 20:25-28, invocation de Musa)",
+        repeatCount: null,
+        referenceUrl: "/quran/20/25",
+      },
+      {
+        title: "Rabbi habli minas-salihin (une descendance vertueuse)",
+        arabicText: null,
+        transliteration: null,
+        translation: "Seigneur, fais-moi don d'un enfant du nombre des vertueux. (Coran 37:100, invocation d'Ibrahim)",
+        repeatCount: null,
+        referenceUrl: "/quran/37/100",
+      },
+      {
+        title: "Rabbi ij'alni muqimas-salat (l'assiduité à la prière)",
+        arabicText: null,
+        transliteration: null,
+        translation:
+          "Seigneur, fais que j'accomplisse assidûment la prière, ainsi qu'une partie de ma descendance ; notre Seigneur, exauce ma prière. (Coran 14:40)",
+        repeatCount: null,
+        referenceUrl: "/quran/14/40",
+      },
+      {
+        title: "Rabbana hab lana (la joie des yeux)",
+        arabicText: null,
+        transliteration: null,
+        translation:
+          "Notre Seigneur, fais que nos épouses et nos descendants soient une source de joie pour nous, et fais de nous un modèle pour les pieux. (Coran 25:74)",
+        repeatCount: null,
+        referenceUrl: "/quran/25/74",
+      },
+      {
+        title: "Rabbi inni lima anzalta (le besoin en Allah)",
+        arabicText: null,
+        transliteration: null,
+        translation: "Seigneur, j'ai grand besoin du bien que Tu feras descendre vers moi. (Coran 28:24, invocation de Musa à Madyan)",
+        repeatCount: null,
+        referenceUrl: "/quran/28/24",
+      },
+      {
+        title: "Rabbi anzilni (une descente bénie)",
+        arabicText: null,
+        transliteration: null,
+        translation: "Seigneur, fais-moi débarquer d'un débarquement béni, car c'est Toi qui es le Meilleur des débarqueurs. (Coran 23:29, invocation de Nuh)",
+        repeatCount: null,
+        referenceUrl: "/quran/23/29",
+      },
+    ],
+  },
 ];
 
 export async function seedDuas(db: Database): Promise<void> {
