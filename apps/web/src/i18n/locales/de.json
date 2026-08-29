@@ -142,6 +142,12 @@
       "login": "Anmelden"
     }
   },
+  "authPrompt": {
+    "title": "Erstellen Sie ein kostenloses Konto",
+    "bookmarkDescription": "um diesen Inhalt zu Ihren Favoriten hinzuzufügen.",
+    "collectionDescription": "um diesen Inhalt in persönlichen Sammlungen zu organisieren.",
+    "noteDescription": "um persönliche Notizen zu diesem Inhalt zu machen."
+  },
   "profile": {
     "loading": "Wird geladen...",
     "memberSince": "Mitglied seit {{date}}.",

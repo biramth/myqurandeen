@@ -3,6 +3,7 @@ import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { useTranslation } from "react-i18next";
 import { toast } from "sonner";
 import { Button } from "@/components/ui/button";
+import { SignUpPromptPopover } from "@/components/shared/SignUpPromptPopover";
 import { useAuth } from "@/features/auth/auth-context";
 import { userDataApi } from "@/features/user-data/api";
 import type { TargetType } from "@/features/user-data/types";
@@ -13,7 +14,12 @@ interface BookmarkButtonProps {
   size?: "default" | "sm";
 }
 
-/** Bouton favori reutilisable, a deposer sur n'importe quelle page de detail de contenu. N'affiche rien si l'utilisateur n'est pas connecte. */
+/**
+ * Bouton favori reutilisable, a deposer sur n'importe quelle page de detail
+ * de contenu. Reste visible pour un visiteur non connecte - c'est ce qui
+ * donne envie d'essayer - mais le clic ouvre alors une invitation a se
+ * connecter/creer un compte plutot que d'effectuer l'action.
+ */
 export function BookmarkButton({ targetType, targetId, size = "default" }: BookmarkButtonProps) {
   const { t } = useTranslation();
   const { user } = useAuth();
@@ -36,7 +42,19 @@ export function BookmarkButton({ targetType, targetId, size = "default" }: Bookm
     onError: () => toast.error(t("common.error")),
   });
 
-  if (!user) return null;
+  if (!user) {
+    return (
+      <SignUpPromptPopover
+        description={t("authPrompt.bookmarkDescription")}
+        trigger={
+          <Button type="button" variant="outline" size={size}>
+            <Bookmark className="h-4 w-4" aria-hidden="true" />
+            {t("bookmark.add")}
+          </Button>
+        }
+      />
+    );
+  }
 
   const isBookmarked = data?.bookmarked ?? false;
 

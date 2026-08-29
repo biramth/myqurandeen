@@ -11,7 +11,12 @@ interface ContentUserActionsProps {
   size?: "default" | "sm";
 }
 
-/** Regroupe favori / collection / note pour un contenu donne - a deposer sur les pages de detail. N'affiche rien pour un visiteur non connecte (chaque sous-composant se masque deja seul). */
+/**
+ * Regroupe favori / collection / note pour un contenu donne - a deposer sur
+ * les pages de detail. Reste visible pour un visiteur non connecte : chaque
+ * sous-composant invite alors a creer un compte au clic plutot que de se
+ * masquer (voir SignUpPromptPopover).
+ */
 export function ContentUserActions({ targetType, targetId, className, size = "default" }: ContentUserActionsProps) {
   return (
     <div className={className}>

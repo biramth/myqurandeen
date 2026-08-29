@@ -5,6 +5,7 @@ import { useTranslation } from "react-i18next";
 import { toast } from "sonner";
 import { Button } from "@/components/ui/button";
 import { Textarea } from "@/components/ui/textarea";
+import { SignUpPromptPopover } from "@/components/shared/SignUpPromptPopover";
 import { useAuth } from "@/features/auth/auth-context";
 import { userDataApi } from "@/features/user-data/api";
 import type { TargetType } from "@/features/user-data/types";
@@ -14,7 +15,12 @@ interface NoteWidgetProps {
   targetId: string;
 }
 
-/** Notes personnelles rattachees a un contenu precis : depliable, sans encombrer la page tant que l'utilisateur ne l'ouvre pas. */
+/**
+ * Notes personnelles rattachees a un contenu precis : depliable, sans
+ * encombrer la page tant que l'utilisateur ne l'ouvre pas. Reste visible
+ * sans compte - cliquer invite alors a se connecter/creer un compte plutot
+ * que de deplier l'editeur de note.
+ */
 export function NoteWidget({ targetType, targetId }: NoteWidgetProps) {
   const { t } = useTranslation();
   const { user } = useAuth();
@@ -48,7 +54,19 @@ export function NoteWidget({ targetType, targetId }: NoteWidgetProps) {
     onError: () => toast.error(t("common.error")),
   });
 
-  if (!user) return null;
+  if (!user) {
+    return (
+      <SignUpPromptPopover
+        description={t("authPrompt.noteDescription")}
+        trigger={
+          <Button type="button" variant="ghost" size="sm">
+            <NotebookPen className="h-4 w-4" aria-hidden="true" />
+            {t("notes.title")}
+          </Button>
+        }
+      />
+    );
+  }
 
   return (
     <div>

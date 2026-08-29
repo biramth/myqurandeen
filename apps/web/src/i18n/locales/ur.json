@@ -142,6 +142,12 @@
       "login": "لاگ ان کریں"
     }
   },
+  "authPrompt": {
+    "title": "ایک مفت اکاؤنٹ بنائیں",
+    "bookmarkDescription": "اس مواد کو اپنے پسندیدہ میں محفوظ کرنے کے لیے۔",
+    "collectionDescription": "اس مواد کو ذاتی مجموعوں میں ترتیب دینے کے لیے۔",
+    "noteDescription": "اس مواد پر ذاتی نوٹس لینے کے لیے۔"
+  },
   "profile": {
     "loading": "لوڈ ہو رہا ہے...",
     "memberSince": "{{date}} سے رکن ہیں۔",

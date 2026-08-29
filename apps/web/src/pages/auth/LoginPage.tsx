@@ -1,5 +1,5 @@
 import * as React from "react";
-import { useNavigate, Link } from "react-router-dom";
+import { useNavigate, useSearchParams, Link } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useTranslation } from "react-i18next";
@@ -16,9 +16,16 @@ import { useDocumentTitle } from "@/hooks/useDocumentTitle";
 export function LoginPage() {
   const { login } = useAuth();
   const navigate = useNavigate();
+  const [searchParams] = useSearchParams();
   const { t } = useTranslation();
   useDocumentTitle(t("auth.login.title"));
   const [serverError, setServerError] = React.useState<string | null>(null);
+
+  // Uniquement un chemin interne (commencant par un seul "/") pour eviter
+  // qu'un lien construit avec ?redirect=https://... ne soit reutilise.
+  const redirectParam = searchParams.get("redirect");
+  const redirect = redirectParam && /^\/(?!\/)/.test(redirectParam) ? redirectParam : "/profile";
+  const registerHref = redirectParam ? `/register?redirect=${encodeURIComponent(redirectParam)}` : "/register";
 
   const {
     register,
@@ -30,7 +37,7 @@ export function LoginPage() {
     setServerError(null);
     try {
       await login(values);
-      navigate("/profile");
+      navigate(redirect);
     } catch (error) {
       setServerError(error instanceof ApiError ? error.message : t("common.error"));
     }
@@ -62,7 +69,7 @@ export function LoginPage() {
           </form>
           <p className="mt-4 text-center text-sm text-muted-foreground">
             {t("auth.login.noAccount")}{" "}
-            <Link to="/register" className="text-primary underline-offset-4 hover:underline">
+            <Link to={registerHref} className="text-primary underline-offset-4 hover:underline">
               {t("auth.login.createAccount")}
             </Link>
           </p>
