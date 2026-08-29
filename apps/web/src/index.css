@@ -98,12 +98,15 @@
      taille de police calculee est < 16px (nos inputs sont en text-sm, 14px) -
      desagreable sur mobile et casse la mise en page le temps que l'utilisateur
      dezoome. 16px minimum uniquement sous le breakpoint sm : le style visuel
-     (text-sm) reste inchange sur desktop. */
+     (text-sm) reste inchange sur desktop.
+     !important est necessaire : le selecteur d'element brut "input" (specificite
+     0,0,1) perd sinon face a la classe Tailwind ".text-sm" (0,1,0) presente sur
+     chaque champ - la regle etait donc sans effet malgre la media query active. */
   @media (max-width: 640px) {
     input,
     select,
     textarea {
-      font-size: 16px;
+      font-size: 16px !important;
     }
   }
 }
