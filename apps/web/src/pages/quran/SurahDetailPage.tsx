@@ -8,7 +8,6 @@ import { Badge } from "@/components/ui/badge";
 import { Separator } from "@/components/ui/separator";
 import { Skeleton } from "@/components/ui/skeleton";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
-import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from "@/components/ui/sheet";
 import { quranApi } from "@/features/quran/api";
 import { translatedSurahName } from "@/features/quran/surah-names";
 import { tafsirApi } from "@/features/tafsir/api";
@@ -21,8 +20,17 @@ export function SurahDetailPage() {
   const { t, i18n } = useTranslation();
   const [copiedVerse, setCopiedVerse] = React.useState<number | null>(null);
   const [showTranslation, setShowTranslation] = React.useState(false);
-  const [tafsirOpen, setTafsirOpen] = React.useState(false);
   const [selectedTafsirId, setSelectedTafsirId] = React.useState<string | null>(null);
+  // Versets dont le tafsir est deplie - affichage direct sous le verset
+  // plutot que dans un panneau lateral (Sheet) separe du texte.
+  const [expandedTafsirVerses, setExpandedTafsirVerses] = React.useState<Set<number>>(new Set());
+  const toggleTafsir = (numberInSurah: number) =>
+    setExpandedTafsirVerses((prev) => {
+      const next = new Set(prev);
+      if (next.has(numberInSurah)) next.delete(numberInSurah);
+      else next.add(numberInSurah);
+      return next;
+    });
 
   const { data: surah, isLoading, isError } = useQuery({
     queryKey: ["quran", "surah", surahNumber],
@@ -72,8 +80,16 @@ export function SurahDetailPage() {
   const { data: tafsirRows, isFetching: isTafsirLoading } = useQuery({
     queryKey: ["tafsir", "surah", surahNumber, selectedTafsirId],
     queryFn: () => tafsirApi.getSurahTafsir(surahNumber, selectedTafsirId!),
-    enabled: Number.isInteger(surahNumber) && Boolean(selectedTafsirId) && tafsirOpen,
+    enabled: Number.isInteger(surahNumber) && Boolean(selectedTafsirId),
   });
+
+  const tafsirByVerseNumber = React.useMemo(() => {
+    const map = new Map<number, string>();
+    for (const row of tafsirRows ?? []) {
+      map.set(row.numberInSurah, row.content);
+    }
+    return map;
+  }, [tafsirRows]);
 
   if (!surahParam || !Number.isInteger(surahNumber) || surahNumber < 1 || surahNumber > 114) {
     return <Navigate to="/quran" replace />;
@@ -111,61 +127,22 @@ export function SurahDetailPage() {
             </Button>
           )}
 
-          <Sheet open={tafsirOpen} onOpenChange={setTafsirOpen}>
-            <SheetTrigger asChild>
-              <Button variant="outline" size="sm">
-                <BookMarked className="h-4 w-4" />
-                {t("quran.tafsirTitle")}
-              </Button>
-            </SheetTrigger>
-            <SheetContent className="flex w-full flex-col sm:max-w-lg">
-              <SheetHeader>
-                <SheetTitle>{t("quran.tafsirTitle")}</SheetTitle>
-                {tafsirWorks && tafsirWorks.length > 0 && (
-                  <Select value={selectedTafsirId ?? undefined} onValueChange={setSelectedTafsirId}>
-                    <SelectTrigger className="w-full">
-                      <SelectValue />
-                    </SelectTrigger>
-                    <SelectContent>
-                      {tafsirWorks.map((work) => (
-                        <SelectItem key={work.id} value={work.id}>
-                          {work.title}
-                          {work.authorName ? ` - ${work.authorName}` : ""}
-                        </SelectItem>
-                      ))}
-                    </SelectContent>
-                  </Select>
-                )}
-              </SheetHeader>
-
-              <div className="-mx-6 flex-1 overflow-y-auto px-6">
-                {isTafsirLoading && !tafsirRows?.length && (
-                  <div className="space-y-3">
-                    <Skeleton className="h-16 w-full" />
-                    <Skeleton className="h-16 w-full" />
-                  </div>
-                )}
-                {tafsirRows?.length === 0 && !isTafsirLoading && (
-                  <p className="text-sm text-muted-foreground">{t("quran.noTafsir")}</p>
-                )}
-                <div className="space-y-4 pb-6">
-                  {tafsirRows?.map((row) => (
-                    <div key={row.numberInSurah}>
-                      <Badge variant="secondary" className="mb-1.5">
-                        {row.numberInSurah}
-                      </Badge>
-                      <p
-                        dir={selectedTafsirWork && isRtlLanguage(selectedTafsirWork.language) ? "rtl" : "ltr"}
-                        className="text-sm leading-relaxed"
-                      >
-                        {row.content}
-                      </p>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            </SheetContent>
-          </Sheet>
+          {tafsirWorks && tafsirWorks.length > 0 && (
+            <Select value={selectedTafsirId ?? undefined} onValueChange={setSelectedTafsirId}>
+              <SelectTrigger className="h-9 w-[10rem] text-xs sm:w-[16rem] sm:text-sm">
+                <BookMarked className="h-3.5 w-3.5 shrink-0" aria-hidden="true" />
+                <SelectValue />
+              </SelectTrigger>
+              <SelectContent>
+                {tafsirWorks.map((work) => (
+                  <SelectItem key={work.id} value={work.id}>
+                    {work.title}
+                    {work.authorName ? ` - ${work.authorName}` : ""}
+                  </SelectItem>
+                ))}
+              </SelectContent>
+            </Select>
+          )}
         </div>
       </div>
 
@@ -231,6 +208,31 @@ export function SurahDetailPage() {
                       </p>
                     )}
 
+                    {expandedTafsirVerses.has(verse.numberInSurah) && selectedTafsirId && (
+                      <div className="mt-3 rounded-md border-t bg-accent/30 pt-3">
+                        {isTafsirLoading && !tafsirRows?.length ? (
+                          <Skeleton className="h-12 w-full" />
+                        ) : tafsirByVerseNumber.has(verse.numberInSurah) ? (
+                          <>
+                            {selectedTafsirWork && (
+                              <p className="mb-1 text-xs font-medium uppercase tracking-wide text-muted-foreground">
+                                {selectedTafsirWork.title}
+                                {selectedTafsirWork.authorName ? ` - ${selectedTafsirWork.authorName}` : ""}
+                              </p>
+                            )}
+                            <p
+                              dir={selectedTafsirWork && isRtlLanguage(selectedTafsirWork.language) ? "rtl" : "ltr"}
+                              className="text-sm leading-relaxed"
+                            >
+                              {tafsirByVerseNumber.get(verse.numberInSurah)}
+                            </p>
+                          </>
+                        ) : (
+                          <p className="text-sm text-muted-foreground">{t("quran.noTafsir")}</p>
+                        )}
+                      </div>
+                    )}
+
                     <div className="mt-2 flex items-center gap-1">
                       <Button
                         variant="ghost"
@@ -240,6 +242,16 @@ export function SurahDetailPage() {
                         <Copy className="h-3.5 w-3.5" />
                         {copiedVerse === verse.numberInSurah ? t("quran.copied") : t("quran.copy")}
                       </Button>
+                      {selectedTafsirId && (
+                        <Button
+                          variant={expandedTafsirVerses.has(verse.numberInSurah) ? "secondary" : "ghost"}
+                          size="sm"
+                          onClick={() => toggleTafsir(verse.numberInSurah)}
+                        >
+                          <BookMarked className="h-3.5 w-3.5" />
+                          {t("quran.tafsirTitle")}
+                        </Button>
+                      )}
                     </div>
                   </div>
                 </div>
