@@ -332,7 +332,22 @@
     "quizScore": "Puan: {{score}} / {{total}}",
     "quizRetry": "Tekrar dene",
     "errorQuiz": "Sınav yüklenemedi.",
-    "noQuiz": "Bu parkur için henüz sınav yok."
+    "noQuiz": "Bu parkur için henüz sınav yok.",
+    "postures": {
+      "qiyam": "Kiyam (ayakta durus)",
+      "ruku": "Ruku (egilme)",
+      "sujud": "Secde",
+      "julus": "Oturus (celse)",
+      "repeat": "sonraki rekat icin tekrarlanir"
+    },
+    "wuduSteps": {
+      "hands": "Eller",
+      "mouthNose": "Agiz ve burun",
+      "face": "Yuz",
+      "arms": "Kollar",
+      "head": "Bas ve kulaklar",
+      "feet": "Ayaklar"
+    }
   },
   "scholars": {
     "title": "Alimler",
@@ -350,6 +365,7 @@
     "backToList": "Tum kavramlar",
     "origin": "Koken",
     "explanation": "Aciklama",
+    "divergence": "Anlayis farkliligi",
     "related": "Ilgili kavramlar"
   },
   "tafsir": {

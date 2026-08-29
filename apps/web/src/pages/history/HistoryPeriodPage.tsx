@@ -4,6 +4,7 @@ import { useTranslation } from "react-i18next";
 import { Separator } from "@/components/ui/separator";
 import { Skeleton } from "@/components/ui/skeleton";
 import { Breadcrumbs } from "@/components/shared/Breadcrumbs";
+import { ProseText } from "@/components/shared/ProseText";
 import { historyApi } from "@/features/history/api";
 import { useDocumentTitle } from "@/hooks/useDocumentTitle";
 
@@ -36,7 +37,7 @@ export function HistoryPeriodPage() {
             <p className="text-sm text-muted-foreground">
               {data.startYear} - {data.endYear} {data.region ? `- ${data.region}` : ""}
             </p>
-            {data.description && <p className="mt-2 text-sm text-muted-foreground">{data.description}</p>}
+            {data.description && <ProseText text={data.description} className="mt-3" />}
           </header>
 
           <h2 className="mb-3 text-sm font-semibold uppercase tracking-wide text-muted-foreground">
@@ -49,7 +50,9 @@ export function HistoryPeriodPage() {
                 <Link to={`/history/event/${event.slug}`} className="group">
                   <p className="text-xs font-medium text-muted-foreground">{event.dateApprox}</p>
                   <p className="font-medium group-hover:text-primary">{event.title}</p>
-                  <p className="mt-1 text-sm text-muted-foreground">{event.description}</p>
+                  <p className="mt-1 line-clamp-2 text-sm leading-relaxed text-muted-foreground">
+                    {event.description}
+                  </p>
                 </Link>
                 {i < data.events.length - 1 && <Separator className="mt-6 opacity-0" />}
               </li>

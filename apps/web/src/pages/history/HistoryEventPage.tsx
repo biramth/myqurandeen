@@ -5,6 +5,7 @@ import { Badge } from "@/components/ui/badge";
 import { Skeleton } from "@/components/ui/skeleton";
 import { Breadcrumbs } from "@/components/shared/Breadcrumbs";
 import { ContentUserActions } from "@/components/shared/ContentUserActions";
+import { ProseText } from "@/components/shared/ProseText";
 import { historyApi } from "@/features/history/api";
 import { useDocumentTitle } from "@/hooks/useDocumentTitle";
 
@@ -41,9 +42,9 @@ export function HistoryEventPage() {
             <h1 className="text-xl font-semibold">{data.event.title}</h1>
             {data.event.dateApprox && <Badge variant="secondary">{data.event.dateApprox}</Badge>}
           </div>
-          <p className="text-sm leading-relaxed">{data.event.description}</p>
+          <ProseText text={data.event.description} className="mt-3" />
 
-          <ContentUserActions targetType="event" targetId={data.event.id} className="mt-4" />
+          <ContentUserActions targetType="event" targetId={data.event.id} className="mt-5" />
 
           {data.sources.length > 0 && (
             <div className="mt-6">

@@ -332,7 +332,22 @@
     "quizScore": "Ergebnis: {{score}} / {{total}}",
     "quizRetry": "Erneut versuchen",
     "errorQuiz": "Quiz konnte nicht geladen werden.",
-    "noQuiz": "Für diesen Lernpfad ist noch kein Quiz verfügbar."
+    "noQuiz": "Für diesen Lernpfad ist noch kein Quiz verfügbar.",
+    "postures": {
+      "qiyam": "Qiyam (Stehen)",
+      "ruku": "Ruku' (Verbeugung)",
+      "sujud": "Sujud (Niederwerfung)",
+      "julus": "Julus (Sitzen)",
+      "repeat": "dann Wiederholung für die nächste Einheit"
+    },
+    "wuduSteps": {
+      "hands": "Hände",
+      "mouthNose": "Mund und Nase",
+      "face": "Gesicht",
+      "arms": "Unterarme",
+      "head": "Kopf und Ohren",
+      "feet": "Füße"
+    }
   },
   "scholars": {
     "title": "Gelehrte",
@@ -350,6 +365,7 @@
     "backToList": "Alle Konzepte",
     "origin": "Herkunft",
     "explanation": "Erklarung",
+    "divergence": "Unterschiedliches Verständnis",
     "related": "Verwandte Konzepte"
   },
   "tafsir": {

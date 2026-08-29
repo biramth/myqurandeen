@@ -332,7 +332,22 @@
     "quizScore": "Puntuación: {{score}} / {{total}}",
     "quizRetry": "Intentar de nuevo",
     "errorQuiz": "No se pudo cargar el cuestionario.",
-    "noQuiz": "Aún no hay cuestionario disponible para este itinerario."
+    "noQuiz": "Aún no hay cuestionario disponible para este itinerario.",
+    "postures": {
+      "qiyam": "Qiyam (de pie)",
+      "ruku": "Ruku' (inclinación)",
+      "sujud": "Sujud (prosternación)",
+      "julus": "Julus (sentado)",
+      "repeat": "luego se repite para la siguiente unidad"
+    },
+    "wuduSteps": {
+      "hands": "Manos",
+      "mouthNose": "Boca y nariz",
+      "face": "Rostro",
+      "arms": "Antebrazos",
+      "head": "Cabeza y orejas",
+      "feet": "Pies"
+    }
   },
   "scholars": {
     "title": "Sabios",
@@ -350,6 +365,7 @@
     "backToList": "Todos los conceptos",
     "origin": "Origen",
     "explanation": "Explicacion",
+    "divergence": "Divergencia de comprensión",
     "related": "Conceptos relacionados"
   },
   "tafsir": {

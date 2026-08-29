@@ -5,6 +5,7 @@ import { Badge } from "@/components/ui/badge";
 import { Skeleton } from "@/components/ui/skeleton";
 import { Breadcrumbs } from "@/components/shared/Breadcrumbs";
 import { ContentUserActions } from "@/components/shared/ContentUserActions";
+import { ProseText } from "@/components/shared/ProseText";
 import { scholarsApi } from "@/features/scholars/api";
 import { useDocumentTitle } from "@/hooks/useDocumentTitle";
 
@@ -58,7 +59,7 @@ export function ScholarPage() {
             </div>
           )}
 
-          {data.bio && <p className="mb-4 text-sm leading-relaxed">{data.bio}</p>}
+          {data.bio && <ProseText text={data.bio} className="mb-5" />}
 
           <ContentUserActions targetType="scholar" targetId={data.id} className="mb-6" />
 

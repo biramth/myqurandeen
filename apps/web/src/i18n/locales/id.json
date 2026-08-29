@@ -331,7 +331,22 @@
     "quizScore": "Skor: {{score}} / {{total}}",
     "quizRetry": "Coba lagi",
     "errorQuiz": "Kuis tidak dapat dimuat.",
-    "noQuiz": "Belum ada kuis untuk jalur ini."
+    "noQuiz": "Belum ada kuis untuk jalur ini.",
+    "postures": {
+      "qiyam": "Qiyam (berdiri)",
+      "ruku": "Ruku' (membungkuk)",
+      "sujud": "Sujud",
+      "julus": "Julus (duduk)",
+      "repeat": "lalu diulangi untuk rakaat berikutnya"
+    },
+    "wuduSteps": {
+      "hands": "Tangan",
+      "mouthNose": "Mulut dan hidung",
+      "face": "Wajah",
+      "arms": "Lengan bawah",
+      "head": "Kepala dan telinga",
+      "feet": "Kaki"
+    }
   },
   "scholars": {
     "title": "Ulama",
@@ -349,6 +364,7 @@
     "backToList": "Semua konsep",
     "origin": "Asal usul",
     "explanation": "Penjelasan",
+    "divergence": "Perbedaan pemahaman",
     "related": "Konsep terkait"
   },
   "tafsir": {

@@ -3,6 +3,7 @@ import { useQuery } from "@tanstack/react-query";
 import { useTranslation } from "react-i18next";
 import { Skeleton } from "@/components/ui/skeleton";
 import { Breadcrumbs } from "@/components/shared/Breadcrumbs";
+import { ProseText } from "@/components/shared/ProseText";
 import { prophetsApi } from "@/features/prophets/api";
 import { useDocumentTitle } from "@/hooks/useDocumentTitle";
 
@@ -60,7 +61,7 @@ export function ProphetPage() {
             )}
           </dl>
 
-          <p className="text-sm leading-relaxed">{data.description}</p>
+          <ProseText text={data.description} />
         </>
       )}
     </div>

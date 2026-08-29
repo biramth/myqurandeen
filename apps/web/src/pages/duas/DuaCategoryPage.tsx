@@ -1,10 +1,11 @@
 import { Link, Navigate, useParams } from "react-router-dom";
 import { useQuery } from "@tanstack/react-query";
 import { useTranslation } from "react-i18next";
-import { ArrowLeft } from "lucide-react";
+import { ArrowLeft, Sparkles } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Skeleton } from "@/components/ui/skeleton";
+import { Callout } from "@/components/shared/Callout";
 import { ContentUserActions } from "@/components/shared/ContentUserActions";
 import { DuaCounter } from "@/components/shared/DuaCounter";
 import { duasApi } from "@/features/duas/api";
@@ -73,7 +74,7 @@ export function DuaCategoryPage() {
                     <p className="text-sm italic text-muted-foreground">{dua.transliteration}</p>
                   )}
 
-                  <p className="text-sm leading-relaxed">{dua.translation}</p>
+                  <p className="text-[15px] leading-relaxed">{dua.translation}</p>
 
                   {dua.referenceUrl && (
                     <Link to={dua.referenceUrl} className="text-sm text-primary hover:underline">
@@ -82,7 +83,9 @@ export function DuaCategoryPage() {
                   )}
 
                   {dua.virtue && (
-                    <p className="border-t pt-2 text-xs text-muted-foreground">{dua.virtue}</p>
+                    <Callout icon={Sparkles} className="text-xs">
+                      {dua.virtue}
+                    </Callout>
                   )}
 
                   {dua.sourceTitle && <p className="text-xs text-muted-foreground">{dua.sourceTitle}</p>}

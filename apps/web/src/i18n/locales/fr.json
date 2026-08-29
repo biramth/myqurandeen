@@ -448,7 +448,22 @@
     "quizScore": "Score : {{score}} / {{total}}",
     "quizRetry": "Recommencer",
     "errorQuiz": "Impossible de charger le quiz.",
-    "noQuiz": "Aucun quiz disponible pour ce parcours pour le moment."
+    "noQuiz": "Aucun quiz disponible pour ce parcours pour le moment.",
+    "postures": {
+      "qiyam": "Qiyam (debout)",
+      "ruku": "Ruku' (inclinaison)",
+      "sujud": "Sujud (prosternation)",
+      "julus": "Julus (assis)",
+      "repeat": "puis on répète pour l'unité suivante"
+    },
+    "wuduSteps": {
+      "hands": "Mains",
+      "mouthNose": "Bouche et nez",
+      "face": "Visage",
+      "arms": "Avant-bras",
+      "head": "Tête et oreilles",
+      "feet": "Pieds"
+    }
   },
   "scholars": {
     "title": "Savants",
@@ -466,6 +481,7 @@
     "backToList": "Tous les concepts",
     "origin": "Origine",
     "explanation": "Explication",
+    "divergence": "Divergence de compréhension",
     "related": "Concepts liés"
   },
   "tafsir": {

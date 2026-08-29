@@ -6,6 +6,7 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Skeleton } from "@/components/ui/skeleton";
 import { Breadcrumbs } from "@/components/shared/Breadcrumbs";
+import { ProseText } from "@/components/shared/ProseText";
 import { schoolsApi } from "@/features/schools/api";
 import { useDocumentTitle } from "@/hooks/useDocumentTitle";
 
@@ -47,29 +48,29 @@ export function SchoolPage() {
           {data.era && <p className="mb-4 text-sm text-muted-foreground">{data.era}</p>}
 
           {data.history && (
-            <section className="mb-4">
-              <h2 className="mb-1 text-sm font-semibold uppercase tracking-wide text-muted-foreground">
+            <section className="mb-5">
+              <h2 className="mb-1.5 text-sm font-semibold uppercase tracking-wide text-muted-foreground">
                 {t("schools.history")}
               </h2>
-              <p className="text-sm leading-relaxed">{data.history}</p>
+              <ProseText text={data.history} />
             </section>
           )}
 
           {data.principles && (
-            <section className="mb-4">
-              <h2 className="mb-1 text-sm font-semibold uppercase tracking-wide text-muted-foreground">
+            <section className="mb-5">
+              <h2 className="mb-1.5 text-sm font-semibold uppercase tracking-wide text-muted-foreground">
                 {t("schools.principles")}
               </h2>
-              <p className="text-sm leading-relaxed">{data.principles}</p>
+              <ProseText text={data.principles} />
             </section>
           )}
 
           {data.sourcesUsed && (
             <section>
-              <h2 className="mb-1 text-sm font-semibold uppercase tracking-wide text-muted-foreground">
+              <h2 className="mb-1.5 text-sm font-semibold uppercase tracking-wide text-muted-foreground">
                 {t("schools.sourcesUsed")}
               </h2>
-              <p className="text-sm leading-relaxed">{data.sourcesUsed}</p>
+              <ProseText text={data.sourcesUsed} />
             </section>
           )}
         </>

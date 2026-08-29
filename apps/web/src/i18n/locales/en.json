@@ -332,7 +332,22 @@
     "quizScore": "Score: {{score}} / {{total}}",
     "quizRetry": "Try again",
     "errorQuiz": "Couldn't load the quiz.",
-    "noQuiz": "No quiz available for this path yet."
+    "noQuiz": "No quiz available for this path yet.",
+    "postures": {
+      "qiyam": "Qiyam (standing)",
+      "ruku": "Ruku' (bowing)",
+      "sujud": "Sujud (prostration)",
+      "julus": "Julus (sitting)",
+      "repeat": "then repeat for the next unit"
+    },
+    "wuduSteps": {
+      "hands": "Hands",
+      "mouthNose": "Mouth and nose",
+      "face": "Face",
+      "arms": "Forearms",
+      "head": "Head and ears",
+      "feet": "Feet"
+    }
   },
   "scholars": {
     "title": "Scholars",
@@ -350,6 +365,7 @@
     "backToList": "All concepts",
     "origin": "Origin",
     "explanation": "Explanation",
+    "divergence": "Divergence of understanding",
     "related": "Related concepts"
   },
   "tafsir": {

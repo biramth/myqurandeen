@@ -6,6 +6,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Skeleton } from "@/components/ui/skeleton";
 import { Breadcrumbs } from "@/components/shared/Breadcrumbs";
+import { Callout } from "@/components/shared/Callout";
 import { ContentUserActions } from "@/components/shared/ContentUserActions";
 import { schoolsApi } from "@/features/schools/api";
 import { useDocumentTitle } from "@/hooks/useDocumentTitle";
@@ -66,19 +67,13 @@ export function FiqhTopicPage() {
           </div>
 
           {data.divergenceNotes.length > 0 && (
-            <Card className="mt-6 bg-accent/40">
-              <CardHeader className="pb-2">
-                <CardTitle className="flex items-center gap-2 text-sm font-medium">
-                  <HelpCircle className="h-4 w-4" />
-                  {t("schools.whyDivergence")}
-                </CardTitle>
-              </CardHeader>
-              <CardContent className="pt-0 text-sm leading-relaxed">
-                {data.divergenceNotes.map((note, i) => (
-                  <p key={i}>{note.explanation}</p>
-                ))}
-              </CardContent>
-            </Card>
+            <Callout icon={HelpCircle} label={t("schools.whyDivergence")} className="mt-6">
+              {data.divergenceNotes.map((note, i) => (
+                <p key={i} className={i > 0 ? "mt-3" : undefined}>
+                  {note.explanation}
+                </p>
+              ))}
+            </Callout>
           )}
         </>
       )}

@@ -2,10 +2,11 @@ import { Link, Navigate, useParams } from "react-router-dom";
 import { useQuery } from "@tanstack/react-query";
 import { useTranslation } from "react-i18next";
 import { Badge } from "@/components/ui/badge";
-import { Card, CardContent } from "@/components/ui/card";
 import { Skeleton } from "@/components/ui/skeleton";
 import { Breadcrumbs } from "@/components/shared/Breadcrumbs";
+import { Callout } from "@/components/shared/Callout";
 import { ContentUserActions } from "@/components/shared/ContentUserActions";
+import { ProseText } from "@/components/shared/ProseText";
 import { conceptsApi } from "@/features/concepts/api";
 import { useDocumentTitle } from "@/hooks/useDocumentTitle";
 
@@ -46,31 +47,31 @@ export function ConceptPage() {
           <ContentUserActions targetType="concept" targetId={data.id} className="mb-4" />
 
           {data.origin && (
-            <section className="mb-4">
-              <h2 className="mb-1 text-sm font-semibold uppercase tracking-wide text-muted-foreground">
+            <section className="mb-5">
+              <h2 className="mb-1.5 text-sm font-semibold uppercase tracking-wide text-muted-foreground">
                 {t("concepts.origin")}
               </h2>
-              <p className="text-sm leading-relaxed">{data.origin}</p>
+              <ProseText text={data.origin} />
             </section>
           )}
 
           {data.explanation && (
-            <section className="mb-4">
-              <h2 className="mb-1 text-sm font-semibold uppercase tracking-wide text-muted-foreground">
+            <section className="mb-5">
+              <h2 className="mb-1.5 text-sm font-semibold uppercase tracking-wide text-muted-foreground">
                 {t("concepts.explanation")}
               </h2>
-              <p className="text-sm leading-relaxed">{data.explanation}</p>
+              <ProseText text={data.explanation} />
             </section>
           )}
 
           {data.divergences.length > 0 && (
-            <Card className="mb-4 bg-accent/40">
-              <CardContent className="p-4 text-sm leading-relaxed">
-                {data.divergences.map((d, i) => (
-                  <p key={i}>{d.explanation}</p>
-                ))}
-              </CardContent>
-            </Card>
+            <Callout label={t("concepts.divergence")} className="mb-5">
+              {data.divergences.map((d, i) => (
+                <p key={i} className={i > 0 ? "mt-3" : undefined}>
+                  {d.explanation}
+                </p>
+              ))}
+            </Callout>
           )}
 
           {data.related.length > 0 && (

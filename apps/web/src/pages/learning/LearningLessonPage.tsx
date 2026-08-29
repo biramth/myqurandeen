@@ -6,6 +6,7 @@ import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
 import { Skeleton } from "@/components/ui/skeleton";
 import { learningApi } from "@/features/learning/api";
+import { LessonIllustration } from "@/features/learning/illustrations/LessonIllustration";
 import { QuizBlock } from "@/features/learning/QuizBlock";
 import { useAuth } from "@/features/auth/auth-context";
 import { useDocumentTitle } from "@/hooks/useDocumentTitle";
@@ -77,8 +78,10 @@ export function LearningLessonPage() {
           </p>
           <h1 className="mb-4 text-xl font-semibold">{lesson.title}</h1>
 
+          {slug && <LessonIllustration pathSlug={slug} order={orderNum} />}
+
           {paragraphs.length > 0 && (
-            <div className="space-y-3 text-sm leading-relaxed text-muted-foreground">
+            <div className="space-y-4 text-[15px] leading-[1.75] text-foreground/90">
               {paragraphs.map((paragraph, pIndex) => (
                 <p key={pIndex}>{paragraph}</p>
               ))}
