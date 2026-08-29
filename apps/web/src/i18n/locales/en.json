@@ -146,7 +146,8 @@
     "title": "Create a free account",
     "bookmarkDescription": "to save this content to your bookmarks.",
     "collectionDescription": "to organize this content into custom collections.",
-    "noteDescription": "to take personal notes on this content."
+    "noteDescription": "to take personal notes on this content.",
+    "reminderDescription": "to get a reminder at the time you choose."
   },
   "profile": {
     "loading": "Loading...",
@@ -155,8 +156,48 @@
     "tabs": {
       "bookmarks": "Bookmarks",
       "notes": "Notes",
-      "collections": "Collections"
+      "collections": "Collections",
+      "reminders": "Reminders"
     }
+  },
+  "reminders": {
+    "pushUnsupported": "Notifications aren't supported by this browser.",
+    "pushUnconfigured": "Notifications aren't configured on this server yet.",
+    "pushDenied": "Notifications are blocked - allow them in your browser settings.",
+    "pushEnabled": "Notifications enabled on this device.",
+    "pushPrompt": "Enable notifications to receive your reminders.",
+    "enablePush": "Enable notifications",
+    "disablePush": "Disable",
+    "rotationTitle": "Automatic reading rotation",
+    "rotationDescription": "A different surah to read, reminded every day.",
+    "rotationEnable": "Enable",
+    "rotationDisable": "Disable",
+    "save": "Save",
+    "saving": "Saving...",
+    "updated": "Reminder updated.",
+    "error": "Something went wrong.",
+    "yourReminders": "Your reminders",
+    "addReminder": "Add a reminder",
+    "remindMe": "Remind me",
+    "remindMeTitle": "Create a reminder",
+    "empty": "No reminders yet.",
+    "everyDay": "every day",
+    "active": "Active",
+    "paused": "Paused",
+    "delete": "Delete",
+    "deleted": "Reminder deleted.",
+    "created": "Reminder created.",
+    "targetTypeLabel": "What do you want to do?",
+    "targetType": {
+      "dua": "A specific invocation",
+      "dua_category": "A whole category",
+      "surah": "Read a surah"
+    },
+    "categoryLabel": "Category",
+    "duaLabel": "Invocation",
+    "surahLabel": "Surah",
+    "timeLabel": "Time",
+    "daysLabel": "Days"
   },
   "bookmark": {
     "add": "Add to bookmarks",

@@ -8,6 +8,7 @@ import { Skeleton } from "@/components/ui/skeleton";
 import { Callout } from "@/components/shared/Callout";
 import { ContentUserActions } from "@/components/shared/ContentUserActions";
 import { DuaCounter } from "@/components/shared/DuaCounter";
+import { QuickReminderButton } from "@/features/reminders/QuickReminderButton";
 import { duasApi } from "@/features/duas/api";
 import { getDuaCategoryIcon } from "@/features/duas/icons";
 import { useDocumentTitle } from "@/hooks/useDocumentTitle";
@@ -47,9 +48,12 @@ export function DuaCategoryPage() {
 
       {data && (
         <>
-          <div className="mb-1 flex items-center gap-2">
-            <CategoryIcon className="h-6 w-6 text-primary" aria-hidden="true" />
-            <h1 className="text-xl font-semibold">{data.category.name}</h1>
+          <div className="mb-1 flex flex-wrap items-center justify-between gap-2">
+            <div className="flex items-center gap-2">
+              <CategoryIcon className="h-6 w-6 text-primary" aria-hidden="true" />
+              <h1 className="text-xl font-semibold">{data.category.name}</h1>
+            </div>
+            <QuickReminderButton targetType="dua_category" targetId={data.category.id} />
           </div>
           {data.category.description && (
             <p className="mb-6 text-sm text-muted-foreground">{data.category.description}</p>
@@ -61,7 +65,13 @@ export function DuaCategoryPage() {
                 <CardContent className="space-y-3 p-4">
                   <div>
                     <p className="font-medium">{dua.title}</p>
-                    <ContentUserActions targetType="dua" targetId={dua.id} size="sm" className="mt-1.5" />
+                    <ContentUserActions
+                      targetType="dua"
+                      targetId={dua.id}
+                      size="sm"
+                      className="mt-1.5"
+                      extra={<QuickReminderButton targetType="dua" targetId={dua.id} size="sm" />}
+                    />
                   </div>
 
                   {dua.arabicText && (

@@ -146,7 +146,8 @@
     "title": "Ucretsiz bir hesap olusturun",
     "bookmarkDescription": "bu icerigi favorilerinize kaydetmek icin.",
     "collectionDescription": "bu icerigi kisisel koleksiyonlarda duzenlemek icin.",
-    "noteDescription": "bu icerikle ilgili kisisel notlar almak icin."
+    "noteDescription": "bu icerikle ilgili kisisel notlar almak icin.",
+    "reminderDescription": "secilen saatte bir hatirlatici almak icin."
   },
   "profile": {
     "loading": "Yukleniyor...",
@@ -155,8 +156,48 @@
     "tabs": {
       "bookmarks": "Yer imleri",
       "notes": "Notlar",
-      "collections": "Koleksiyonlar"
+      "collections": "Koleksiyonlar",
+      "reminders": "Hatırlatıcılar"
     }
+  },
+  "reminders": {
+    "pushUnsupported": "Bildirimler bu tarayıcı tarafından desteklenmiyor.",
+    "pushUnconfigured": "Bildirimler bu sunucuda henüz yapılandırılmadı.",
+    "pushDenied": "Bildirimler engellendi - tarayıcı ayarlarınızdan izin verin.",
+    "pushEnabled": "Bu cihazda bildirimler etkin.",
+    "pushPrompt": "Hatırlatıcılarınızı almak için bildirimleri etkinleştirin.",
+    "enablePush": "Bildirimleri etkinleştir",
+    "disablePush": "Devre dışı bırak",
+    "rotationTitle": "Otomatik okuma rotasyonu",
+    "rotationDescription": "Her gün hatırlatılan, okunacak farklı bir sure.",
+    "rotationEnable": "Etkinleştir",
+    "rotationDisable": "Devre dışı bırak",
+    "save": "Kaydet",
+    "saving": "Kaydediliyor...",
+    "updated": "Hatırlatıcı güncellendi.",
+    "error": "Bir hata oluştu.",
+    "yourReminders": "Hatırlatıcılarınız",
+    "addReminder": "Hatırlatıcı ekle",
+    "remindMe": "Bana hatırlat",
+    "remindMeTitle": "Hatırlatıcı oluştur",
+    "empty": "Henüz hatırlatıcı yok.",
+    "everyDay": "her gün",
+    "active": "Etkin",
+    "paused": "Duraklatıldı",
+    "delete": "Sil",
+    "deleted": "Hatırlatıcı silindi.",
+    "created": "Hatırlatıcı oluşturuldu.",
+    "targetTypeLabel": "Ne yapmak istiyorsunuz?",
+    "targetType": {
+      "dua": "Belirli bir dua",
+      "dua_category": "Tüm bir kategori",
+      "surah": "Bir sure okumak"
+    },
+    "categoryLabel": "Kategori",
+    "duaLabel": "Dua",
+    "surahLabel": "Sure",
+    "timeLabel": "Saat",
+    "daysLabel": "Günler"
   },
   "bookmark": {
     "add": "Yer imlerine ekle",

@@ -146,7 +146,8 @@
     "title": "Crea una cuenta gratuita",
     "bookmarkDescription": "para guardar este contenido en tus favoritos.",
     "collectionDescription": "para organizar este contenido en colecciones personalizadas.",
-    "noteDescription": "para tomar notas personales sobre este contenido."
+    "noteDescription": "para tomar notas personales sobre este contenido.",
+    "reminderDescription": "para recibir un recordatorio a la hora que elijas."
   },
   "profile": {
     "loading": "Cargando...",
@@ -155,8 +156,48 @@
     "tabs": {
       "bookmarks": "Favoritos",
       "notes": "Notas",
-      "collections": "Colecciones"
+      "collections": "Colecciones",
+      "reminders": "Recordatorios"
     }
+  },
+  "reminders": {
+    "pushUnsupported": "Las notificaciones no son compatibles con este navegador.",
+    "pushUnconfigured": "Las notificaciones aún no están configuradas en este servidor.",
+    "pushDenied": "Las notificaciones están bloqueadas - actívalas en la configuración de tu navegador.",
+    "pushEnabled": "Notificaciones activadas en este dispositivo.",
+    "pushPrompt": "Activa las notificaciones para recibir tus recordatorios.",
+    "enablePush": "Activar notificaciones",
+    "disablePush": "Desactivar",
+    "rotationTitle": "Rotación automática de lectura",
+    "rotationDescription": "Una sura diferente para leer, recordada cada día.",
+    "rotationEnable": "Activar",
+    "rotationDisable": "Desactivar",
+    "save": "Guardar",
+    "saving": "Guardando...",
+    "updated": "Recordatorio actualizado.",
+    "error": "Ocurrió un error.",
+    "yourReminders": "Tus recordatorios",
+    "addReminder": "Añadir un recordatorio",
+    "remindMe": "Recordármelo",
+    "remindMeTitle": "Crear un recordatorio",
+    "empty": "Aún no hay recordatorios.",
+    "everyDay": "todos los días",
+    "active": "Activo",
+    "paused": "En pausa",
+    "delete": "Eliminar",
+    "deleted": "Recordatorio eliminado.",
+    "created": "Recordatorio creado.",
+    "targetTypeLabel": "¿Qué quieres hacer?",
+    "targetType": {
+      "dua": "Una invocación específica",
+      "dua_category": "Toda una categoría",
+      "surah": "Leer una sura"
+    },
+    "categoryLabel": "Categoría",
+    "duaLabel": "Invocación",
+    "surahLabel": "Sura",
+    "timeLabel": "Hora",
+    "daysLabel": "Días"
   },
   "bookmark": {
     "add": "Añadir a favoritos",

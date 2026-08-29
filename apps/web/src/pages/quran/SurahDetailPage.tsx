@@ -11,6 +11,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { quranApi } from "@/features/quran/api";
 import { translatedSurahName } from "@/features/quran/surah-names";
 import { tafsirApi } from "@/features/tafsir/api";
+import { QuickReminderButton } from "@/features/reminders/QuickReminderButton";
 import { isRtlLanguage } from "@/lib/rtl";
 import { useDocumentTitle } from "@/hooks/useDocumentTitle";
 
@@ -175,6 +176,9 @@ export function SurahDetailPage() {
                   {surah.revelationPlace === "mecca" ? t("quran.mecca") : t("quran.medina")}
                 </Badge>
               )}
+            </div>
+            <div className="mt-2 flex justify-center">
+              <QuickReminderButton targetType="surah" surahNumber={surah.number} />
             </div>
           </header>
 

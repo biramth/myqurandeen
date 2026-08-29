@@ -146,7 +146,8 @@
     "title": "Buat akun gratis",
     "bookmarkDescription": "untuk menyimpan konten ini ke favorit Anda.",
     "collectionDescription": "untuk mengatur konten ini ke dalam koleksi khusus.",
-    "noteDescription": "untuk membuat catatan pribadi tentang konten ini."
+    "noteDescription": "untuk membuat catatan pribadi tentang konten ini.",
+    "reminderDescription": "untuk mendapatkan pengingat pada waktu yang Anda pilih."
   },
   "profile": {
     "loading": "Memuat...",
@@ -155,8 +156,48 @@
     "tabs": {
       "bookmarks": "Favorit",
       "notes": "Catatan",
-      "collections": "Koleksi"
+      "collections": "Koleksi",
+      "reminders": "Pengingat"
     }
+  },
+  "reminders": {
+    "pushUnsupported": "Notifikasi tidak didukung oleh browser ini.",
+    "pushUnconfigured": "Notifikasi belum dikonfigurasi di server ini.",
+    "pushDenied": "Notifikasi diblokir - izinkan di pengaturan browser Anda.",
+    "pushEnabled": "Notifikasi diaktifkan di perangkat ini.",
+    "pushPrompt": "Aktifkan notifikasi untuk menerima pengingat Anda.",
+    "enablePush": "Aktifkan notifikasi",
+    "disablePush": "Nonaktifkan",
+    "rotationTitle": "Rotasi bacaan otomatis",
+    "rotationDescription": "Surah berbeda untuk dibaca, diingatkan setiap hari.",
+    "rotationEnable": "Aktifkan",
+    "rotationDisable": "Nonaktifkan",
+    "save": "Simpan",
+    "saving": "Menyimpan...",
+    "updated": "Pengingat diperbarui.",
+    "error": "Terjadi kesalahan.",
+    "yourReminders": "Pengingat Anda",
+    "addReminder": "Tambah pengingat",
+    "remindMe": "Ingatkan saya",
+    "remindMeTitle": "Buat pengingat",
+    "empty": "Belum ada pengingat.",
+    "everyDay": "setiap hari",
+    "active": "Aktif",
+    "paused": "Dijeda",
+    "delete": "Hapus",
+    "deleted": "Pengingat dihapus.",
+    "created": "Pengingat dibuat.",
+    "targetTypeLabel": "Apa yang ingin Anda lakukan?",
+    "targetType": {
+      "dua": "Doa tertentu",
+      "dua_category": "Seluruh kategori",
+      "surah": "Membaca surah"
+    },
+    "categoryLabel": "Kategori",
+    "duaLabel": "Doa",
+    "surahLabel": "Surah",
+    "timeLabel": "Waktu",
+    "daysLabel": "Hari"
   },
   "bookmark": {
     "add": "Tambah ke favorit",

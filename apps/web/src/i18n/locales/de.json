@@ -146,7 +146,8 @@
     "title": "Erstellen Sie ein kostenloses Konto",
     "bookmarkDescription": "um diesen Inhalt zu Ihren Favoriten hinzuzufügen.",
     "collectionDescription": "um diesen Inhalt in persönlichen Sammlungen zu organisieren.",
-    "noteDescription": "um persönliche Notizen zu diesem Inhalt zu machen."
+    "noteDescription": "um persönliche Notizen zu diesem Inhalt zu machen.",
+    "reminderDescription": "um eine Erinnerung zur gewünschten Uhrzeit zu erhalten."
   },
   "profile": {
     "loading": "Wird geladen...",
@@ -155,8 +156,48 @@
     "tabs": {
       "bookmarks": "Lesezeichen",
       "notes": "Notizen",
-      "collections": "Sammlungen"
+      "collections": "Sammlungen",
+      "reminders": "Erinnerungen"
     }
+  },
+  "reminders": {
+    "pushUnsupported": "Benachrichtigungen werden von diesem Browser nicht unterstützt.",
+    "pushUnconfigured": "Benachrichtigungen sind auf diesem Server noch nicht konfiguriert.",
+    "pushDenied": "Benachrichtigungen sind blockiert - erlauben Sie sie in Ihren Browsereinstellungen.",
+    "pushEnabled": "Benachrichtigungen auf diesem Gerät aktiviert.",
+    "pushPrompt": "Aktivieren Sie Benachrichtigungen, um Ihre Erinnerungen zu erhalten.",
+    "enablePush": "Benachrichtigungen aktivieren",
+    "disablePush": "Deaktivieren",
+    "rotationTitle": "Automatische Leserotation",
+    "rotationDescription": "Jeden Tag eine andere Sure zum Lesen als Erinnerung.",
+    "rotationEnable": "Aktivieren",
+    "rotationDisable": "Deaktivieren",
+    "save": "Speichern",
+    "saving": "Speichern...",
+    "updated": "Erinnerung aktualisiert.",
+    "error": "Ein Fehler ist aufgetreten.",
+    "yourReminders": "Ihre Erinnerungen",
+    "addReminder": "Erinnerung hinzufügen",
+    "remindMe": "Erinnere mich",
+    "remindMeTitle": "Erinnerung erstellen",
+    "empty": "Noch keine Erinnerung.",
+    "everyDay": "jeden Tag",
+    "active": "Aktiv",
+    "paused": "Pausiert",
+    "delete": "Löschen",
+    "deleted": "Erinnerung gelöscht.",
+    "created": "Erinnerung erstellt.",
+    "targetTypeLabel": "Was möchten Sie tun?",
+    "targetType": {
+      "dua": "Eine bestimmte Anrufung",
+      "dua_category": "Eine ganze Kategorie",
+      "surah": "Eine Sure lesen"
+    },
+    "categoryLabel": "Kategorie",
+    "duaLabel": "Anrufung",
+    "surahLabel": "Sure",
+    "timeLabel": "Uhrzeit",
+    "daysLabel": "Tage"
   },
   "bookmark": {
     "add": "Zu Lesezeichen hinzufügen",

@@ -146,7 +146,8 @@
     "title": "Créez un compte gratuit",
     "bookmarkDescription": "pour enregistrer ce contenu dans vos favoris.",
     "collectionDescription": "pour organiser ce contenu dans des collections personnalisées.",
-    "noteDescription": "pour prendre des notes personnelles sur ce contenu."
+    "noteDescription": "pour prendre des notes personnelles sur ce contenu.",
+    "reminderDescription": "pour recevoir un rappel personnalisé à l'heure de votre choix."
   },
   "profile": {
     "loading": "Chargement...",
@@ -155,8 +156,48 @@
     "tabs": {
       "bookmarks": "Favoris",
       "notes": "Notes",
-      "collections": "Collections"
+      "collections": "Collections",
+      "reminders": "Rappels"
     }
+  },
+  "reminders": {
+    "pushUnsupported": "Les notifications ne sont pas prises en charge par ce navigateur.",
+    "pushUnconfigured": "Les notifications ne sont pas encore configurées sur ce serveur.",
+    "pushDenied": "Les notifications sont bloquées - autorisez-les dans les réglages de votre navigateur.",
+    "pushEnabled": "Notifications activées sur cet appareil.",
+    "pushPrompt": "Activez les notifications pour recevoir vos rappels.",
+    "enablePush": "Activer les notifications",
+    "disablePush": "Désactiver",
+    "rotationTitle": "Rotation automatique de lecture",
+    "rotationDescription": "Une sourate différente à lire, rappelée chaque jour.",
+    "rotationEnable": "Activer",
+    "rotationDisable": "Désactiver",
+    "save": "Enregistrer",
+    "saving": "Enregistrement...",
+    "updated": "Rappel mis à jour.",
+    "error": "Une erreur est survenue.",
+    "yourReminders": "Vos rappels",
+    "addReminder": "Ajouter un rappel",
+    "remindMe": "Me rappeler",
+    "remindMeTitle": "Créer un rappel",
+    "empty": "Aucun rappel pour l'instant.",
+    "everyDay": "tous les jours",
+    "active": "Actif",
+    "paused": "En pause",
+    "delete": "Supprimer",
+    "deleted": "Rappel supprimé.",
+    "created": "Rappel créé.",
+    "targetTypeLabel": "Que voulez-vous faire ?",
+    "targetType": {
+      "dua": "Une invocation précise",
+      "dua_category": "Toute une catégorie",
+      "surah": "Lire une sourate"
+    },
+    "categoryLabel": "Catégorie",
+    "duaLabel": "Invocation",
+    "surahLabel": "Sourate",
+    "timeLabel": "Heure",
+    "daysLabel": "Jours"
   },
   "bookmark": {
     "add": "Ajouter aux favoris",

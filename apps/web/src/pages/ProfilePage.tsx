@@ -3,7 +3,7 @@ import { Link, Navigate } from "react-router-dom";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { useTranslation } from "react-i18next";
 import { toast } from "sonner";
-import { Bookmark, FolderOpen, NotebookPen, Trash2, ArrowLeft, Plus } from "lucide-react";
+import { Bookmark, FolderOpen, NotebookPen, Trash2, ArrowLeft, Plus, BellRing } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Skeleton } from "@/components/ui/skeleton";
@@ -12,6 +12,7 @@ import { Badge } from "@/components/ui/badge";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { useAuth } from "@/features/auth/auth-context";
 import { userDataApi } from "@/features/user-data/api";
+import { RemindersTab } from "@/features/reminders/RemindersTab";
 import { useDocumentTitle } from "@/hooks/useDocumentTitle";
 
 function EmptyState({ icon: Icon, label }: { icon: typeof Bookmark; label: string }) {
@@ -361,6 +362,10 @@ export function ProfilePage() {
             <FolderOpen className="h-4 w-4" aria-hidden="true" />
             {t("profile.tabs.collections")}
           </TabsTrigger>
+          <TabsTrigger value="reminders">
+            <BellRing className="h-4 w-4" aria-hidden="true" />
+            {t("profile.tabs.reminders")}
+          </TabsTrigger>
         </TabsList>
         <TabsContent value="bookmarks">
           <BookmarksTab />
@@ -370,6 +375,9 @@ export function ProfilePage() {
         </TabsContent>
         <TabsContent value="collections">
           <CollectionsTab />
+        </TabsContent>
+        <TabsContent value="reminders">
+          <RemindersTab />
         </TabsContent>
       </Tabs>
     </div>
