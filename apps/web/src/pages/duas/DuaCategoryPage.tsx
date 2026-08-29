@@ -59,9 +59,9 @@ export function DuaCategoryPage() {
             {data.duas.map((dua) => (
               <Card key={dua.id}>
                 <CardContent className="space-y-3 p-4">
-                  <div className="flex items-start justify-between gap-2">
+                  <div>
                     <p className="font-medium">{dua.title}</p>
-                    <ContentUserActions targetType="dua" targetId={dua.id} className="flex shrink-0 gap-1" />
+                    <ContentUserActions targetType="dua" targetId={dua.id} size="sm" className="mt-1.5" />
                   </div>
 
                   {dua.arabicText && (

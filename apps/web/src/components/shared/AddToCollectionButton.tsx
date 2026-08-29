@@ -14,10 +14,11 @@ import { cn } from "@/lib/utils";
 interface AddToCollectionButtonProps {
   targetType: TargetType;
   targetId: string;
+  size?: "default" | "sm";
 }
 
 /** Menu (Popover accessible : focus trap, Echap, clic exterieur geres par Radix) permettant d'ajouter le contenu courant a une collection existante ou nouvelle. */
-export function AddToCollectionButton({ targetType, targetId }: AddToCollectionButtonProps) {
+export function AddToCollectionButton({ targetType, targetId, size = "default" }: AddToCollectionButtonProps) {
   const { t } = useTranslation();
   const { user } = useAuth();
   const queryClient = useQueryClient();
@@ -57,7 +58,7 @@ export function AddToCollectionButton({ targetType, targetId }: AddToCollectionB
   return (
     <Popover open={open} onOpenChange={setOpen}>
       <PopoverTrigger asChild>
-        <Button type="button" variant="outline">
+        <Button type="button" variant="outline" size={size}>
           <FolderPlus className="h-4 w-4" aria-hidden="true" />
           {t("collections.addToCollection")}
         </Button>

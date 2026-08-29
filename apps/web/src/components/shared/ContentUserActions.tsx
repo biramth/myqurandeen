@@ -7,15 +7,17 @@ interface ContentUserActionsProps {
   targetType: TargetType;
   targetId: string;
   className?: string;
+  /** "sm" pour un usage compact (ex. dans une liste de cartes) plutot que sur une page de detail dediee. */
+  size?: "default" | "sm";
 }
 
 /** Regroupe favori / collection / note pour un contenu donne - a deposer sur les pages de detail. N'affiche rien pour un visiteur non connecte (chaque sous-composant se masque deja seul). */
-export function ContentUserActions({ targetType, targetId, className }: ContentUserActionsProps) {
+export function ContentUserActions({ targetType, targetId, className, size = "default" }: ContentUserActionsProps) {
   return (
     <div className={className}>
       <div className="flex flex-wrap items-center gap-2">
-        <BookmarkButton targetType={targetType} targetId={targetId} />
-        <AddToCollectionButton targetType={targetType} targetId={targetId} />
+        <BookmarkButton targetType={targetType} targetId={targetId} size={size} />
+        <AddToCollectionButton targetType={targetType} targetId={targetId} size={size} />
       </div>
       <div className="mt-2">
         <NoteWidget targetType={targetType} targetId={targetId} />
