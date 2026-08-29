@@ -1,5 +1,5 @@
-import { Link, Navigate, useParams } from "react-router-dom";
-import { useQuery, useQueryClient } from "@tanstack/react-query";
+import { Link, Navigate, useNavigate, useParams } from "react-router-dom";
+import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { useTranslation } from "react-i18next";
 import { ArrowLeft, ArrowRight, Check, Circle, ListChecks, BookMarked, HelpCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -16,6 +16,7 @@ export function LearningLessonPage() {
   const { t } = useTranslation();
   const { user } = useAuth();
   const queryClient = useQueryClient();
+  const navigate = useNavigate();
   const orderNum = Number(order);
 
   const { data: path, isLoading, isError } = useQuery({
@@ -39,21 +40,48 @@ export function LearningLessonPage() {
     enabled: Boolean(lesson),
   });
 
+  const toggleMutation = useMutation({
+    mutationFn: (lessonId: string) => learningApi.toggleLesson(lessonId),
+    onSuccess: (result, lessonId) => {
+      // Met a jour le cache de progression localement pour un retour d'interface
+      // immediat, en appliquant le resultat renvoye par l'API, puis resynchronise
+      // en arriere-plan (invalidateQueries ne bloque pas le re-rendu).
+      queryClient.setQueryData<string[]>(["learning", "progress"], (old) => {
+        const current = new Set(old ?? []);
+        if (result.completed) current.add(lessonId);
+        else current.delete(lessonId);
+        return Array.from(current);
+      });
+      queryClient.invalidateQueries({ queryKey: ["learning", "progress"] });
+    },
+  });
+
   if (!slug || !order || Number.isNaN(orderNum)) return <Navigate to="/learn" replace />;
 
   const completedSet = new Set(completedLessonIds ?? []);
   const isCompleted = lesson ? completedSet.has(lesson.id) : false;
 
-  const handleToggle = async () => {
+  const handleToggle = () => {
     if (!lesson) return;
-    await learningApi.toggleLesson(lesson.id);
-    queryClient.invalidateQueries({ queryKey: ["learning", "progress"] });
+    toggleMutation.mutate(lesson.id);
   };
 
   const sortedLessons = path?.lessons.slice().sort((a, b) => a.order - b.order) ?? [];
   const index = sortedLessons.findIndex((l) => l.order === orderNum);
   const prevLesson = index > 0 ? sortedLessons[index - 1] : null;
   const nextLesson = index >= 0 && index < sortedLessons.length - 1 ? sortedLessons[index + 1] : null;
+
+  // "Lecon suivante" marque la lecon courante comme terminee (si ce n'est pas
+  // deja fait) puis navigue. La navigation ne depend pas de la requete, pour
+  // ne pas retarder le deplacement.
+  const handleNext = () => {
+    if (lesson && !isCompleted && user) {
+      toggleMutation.mutate(lesson.id);
+    }
+    if (nextLesson) {
+      navigate(`/learn/${slug}/lessons/${nextLesson.order}`);
+    }
+  };
 
   const paragraphs = lesson?.content ? lesson.content.split("\n\n") : [];
 
@@ -138,7 +166,7 @@ export function LearningLessonPage() {
           <div className="flex items-center justify-center">
             <button
               type="button"
-              disabled={!user}
+              disabled={!user || toggleMutation.isPending}
               onClick={handleToggle}
               className="inline-flex items-center gap-2 rounded-md border px-4 py-2 text-sm font-medium disabled:cursor-not-allowed disabled:opacity-40"
             >
@@ -169,11 +197,9 @@ export function LearningLessonPage() {
               <span />
             )}
             {nextLesson ? (
-              <Button size="sm" asChild>
-                <Link to={`/learn/${slug}/lessons/${nextLesson.order}`}>
-                  {t("learning.nextLesson")}
-                  <ArrowRight className="h-4 w-4" />
-                </Link>
+              <Button size="sm" onClick={handleNext}>
+                {t("learning.nextLesson")}
+                <ArrowRight className="h-4 w-4" />
               </Button>
             ) : (
               <Button size="sm" asChild>
