@@ -7,7 +7,7 @@ import { authors, eventSources, historicalEvents, historicalPeriods, sources } f
  * n'existe pour ce domaine) a partir d'ouvrages historiques classiques
  * largement reconnus. Dates et faits limites au consensus historiographique
  * établi ; toute date est approximative et suivie de sa source. Ne pas
- * étendre cette liste sans vérification croisee serieuse - voir
+ * étendre cette liste sans vérification croisee sérieuse - voir
  * CONTRIBUTING.md (principe des sources vérifiables).
  */
 
@@ -44,7 +44,7 @@ const BADAI_IBN_IYAS: SourceRef = {
 };
 // Pour les périodes trop récentes ou trop étendues géographiquement pour être
 // couvertes par une chronique classique unique (empire ottoman sur six
-// siècles, Afrique de l'Ouest, Asie du Sud-Est...), on cite une synthese
+// siècles, Afrique de l'Ouest, Asie du Sud-Est...), on cité une synthese
 // académique de référence plutôt que d'inventer une source classique
 // inexistante - voir CONTRIBUTING.md.
 const CAMBRIDGE_HISTORY_ISLAM: SourceRef = {
@@ -88,7 +88,7 @@ const PERIODS: PeriodSeed[] = [
         dateApprox: "~570",
         eventType: "birth",
         description:
-          "Muhammad ibn Abdillah nait à La Mecque au sein du clan des Banu Hashim, l'un des clans de la tribu de Quraych, qui à la garde de la Kaaba. Son père, Abdullah, est mort avant sa naissance ; sa mère, Amina, mourra alors qu'il a environ six ans. L'année de sa naissance est traditionnellement appelee \"Année de l'Elephant\" (Am al-Fil), en référence à une expedition abyssine menee contre La Mecque avec des elephants de guerre, évoquée dans la sourate Al-Fil. Orphelin très jeune, il est confie à son grand-père Abd al-Muttalib puis, après le décès de celui-ci, à son oncle Abu Talib, qui l'elevera et le protegera durant une grande partie de sa vie adulte.",
+          "Muhammad ibn Abdillah nait à La Mecque au sein du clan des Banu Hashim, l'un des clans de la tribu de Quraych, qui à la garde de la Kaaba. Son père, Abdullah, est mort avant sa naissance ; sa mère, Amina, mourra alors qu'il a environ six ans. L'année de sa naissance est traditionnellement appelee \"Année de l'Elephant\" (Am al-Fil), en référence à une expédition abyssine menée contre La Mecque avec des elephants de guerre, évoquée dans la sourate Al-Fil. Orphelin très jeune, il est confie à son grand-père Abd al-Muttalib puis, après le décès de celui-ci, à son oncle Abu Talib, qui l'elevera et le protegera durant une grande partie de sa vie adulte.",
         source: SIRA_IBN_HISHAM,
       },
       {
@@ -97,16 +97,16 @@ const PERIODS: PeriodSeed[] = [
         dateApprox: "610",
         eventType: "révélation",
         description:
-          "Âge d'environ quarante ans, Muhammad ﷺ a pris l'habitude de se retirer periodiquement dans la grotte de Hira, sur le mont An-Nour pres de La Mecque, pour y mediter. C'est la que, selon la tradition, l'ange Gabriel (Jibril) lui apparait et lui transmet les premiers versets reveles, l'ordre \"Iqra\" (\"Lis\" ou \"Récite\"), correspondant au debut de la sourate Al-Alaq. Bouleverse par cette experience, il rentre auprès de son epouse Khadija, qui le rassure et le soutient ; ce moment marqué, dans la tradition islamique, le debut de sa mission prophétique.",
+          "Âge d'environ quarante ans, Muhammad ﷺ a pris l'habitude de se retirer periodiquement dans la grotte de Hira, sur le mont An-Nour près de La Mecque, pour y mediter. C'est la que, selon la tradition, l'ange Gabriel (Jibril) lui apparait et lui transmet les premiers versets reveles, l'ordre \"Iqra\" (\"Lis\" ou \"Récite\"), correspondant au debut de la sourate Al-Alaq. Bouleverse par cette experience, il rentre auprès de son épouse Khadija, qui le rassure et le soutient ; ce moment marqué, dans la tradition islamique, le debut de sa mission prophétique.",
         source: SIRA_IBN_HISHAM,
       },
       {
-        title: "Predication publique à La Mecque",
+        title: "Prédication publique à La Mecque",
         slug: "predication-publique",
         dateApprox: "~613",
         eventType: "event",
         description:
-          "Après environ trois années de predication discrete auprès de proches (parmi les premiers convertis : Khadija, Ali, Abu Bakr et Zayd ibn Haritha), le Prophète ﷺ recoit, selon la tradition, l'ordre de proclamer publiquement son message. Cet appel à l'unicité de Dieu (tawhid) et à l'abandon du culte des idoles se heurte à l'opposition croissante de plusieurs chefs de Quraych, qui y voient une remise en cause de leur ordre social, religieux et économique, la Kaaba etant alors un centre polytheiste majeur de la péninsule. Cette période est marquee par le boycott, la moquerie et, pour certains des premiers musulmans issus de familles sans protection tribale forte, des persecutions physiques.",
+          "Après environ trois années de prédication discrete auprès de proches (parmi les premiers convertis : Khadija, Ali, Abu Bakr et Zayd ibn Haritha), le Prophète ﷺ reçoit, selon la tradition, l'ordre de proclamer publiquement son message. Cet appel à l'unicité de Dieu (tawhid) et à l'abandon du culte des idoles se heurte à l'opposition croissante de plusieurs chefs de Quraych, qui y voient une remise en cause de leur ordre social, religieux et économique, la Kaaba etant alors un centre polytheiste majeur de la péninsule. Cette période est marquee par le boycott, la moquerie et, pour certains des premiers musulmans issus de familles sans protection tribale forte, des persecutions physiques.",
         source: SIRA_IBN_HISHAM,
       },
       {
@@ -115,7 +115,7 @@ const PERIODS: PeriodSeed[] = [
         dateApprox: "615",
         eventType: "migration",
         description:
-          "Face à l'intensification des persecutions contre les premiers musulmans les plus vulnerables, le Prophète ﷺ conseille à un groupe d'entre eux d'émigrer vers le royaume chretien d'Aksoum, en Abyssinie, dont le souverain (le Negus) est reconnu pour sa justice. Deux vagues d'émigration y ont lieu. Selon la tradition, une delegation de Quraych tente d'obtenir du Negus l'extradition des refugies, mais celui-ci, après avoir entendu leur présentation de l'Islam - notamment un passage de la sourate Maryam concernant Jésus et Marie - refusé de les livrer. Cet épisode est souvent cité comme un exemple ancien de relations pacifiques entre les premiers musulmans et une autorité chrétienne.",
+          "Face à l'intensification des persecutions contre les premiers musulmans les plus vulnerables, le Prophète ﷺ conseille à un groupe d'entre eux d'émigrer vers le royaume chretien d'Aksoum, en Abyssinie, dont le souverain (le Negus) est reconnu pour sa justice. Deux vagues d'émigration y ont lieu. Selon la tradition, une delegation de Quraych tente d'obtenir du Negus l'extradition des réfugiés, mais celui-ci, après avoir entendu leur présentation de l'Islam - notamment un passage de la sourate Maryam concernant Jésus et Marie - refusé de les livrer. Cet épisode est souvent cité comme un exemple ancien de relations pacifiques entre les premiers musulmans et une autorité chrétienne.",
         source: SIRA_IBN_HISHAM,
       },
       {
@@ -124,7 +124,7 @@ const PERIODS: PeriodSeed[] = [
         dateApprox: "619",
         eventType: "event",
         description:
-          "En l'espace de quelques mois, le Prophète ﷺ perd deux de ses soutiens les plus proches. Khadija, sa première epouse, qui l'avait soutenu financierement et moralement depuis le debut de la révélation, décédé. Peu après, Abu Talib, son oncle qui l'avait protège des Quraych malgre son propre refus de se convertir, meurt également. Cette double perte, survenue alors que la protection tribale d'Abu Talib s'estompe, fragilise la position du Prophète ﷺ à La Mecque et précède une période de recherche de soutien aupres d'autres tribus, notamment lors d'un voyage a Ta'if qui se solde par un rejet hostile.",
+          "En l'espace de quelques mois, le Prophète ﷺ perd deux de ses soutiens les plus proches. Khadija, sa première épouse, qui l'avait soutenu financierement et moralement depuis le debut de la révélation, décédé. Peu après, Abu Talib, son oncle qui l'avait protège des Quraych malgre son propre refus de se convertir, meurt également. Cette double perte, survenue alors que la protection tribale d'Abu Talib s'estompe, fragilise la position du Prophète ﷺ à La Mecque et précède une période de recherche de soutien aupres d'autres tribus, notamment lors d'un voyage a Ta'if qui se solde par un rejet hostile.",
         source: SIRA_IBN_HISHAM,
       },
       {
@@ -133,7 +133,7 @@ const PERIODS: PeriodSeed[] = [
         dateApprox: "~620-621",
         eventType: "event",
         description:
-          "Selon la tradition islamique, le Prophète ﷺ est transporte en une seule nuit de la Mosquee sacrée de La Mecque à la \"Mosquee la plus éloignée\" (Al-Masjid al-Aqsa), identifiée a Jerusalem (l'Isra), évoque au debut de la sourate Al-Isra. De la, il effectue une ascension à travers les cieux (le Mi'raj), au cours de laquelle les cinq prières quotidiennes sont instituees. Cet événement, survenu durant une période difficile de sa predication mecquoise, occupé une place théologique et spirituelle majeure dans l'Islam, notamment pour le lien qu'il etablit avec Jerusalem.",
+          "Selon la tradition islamique, le Prophète ﷺ est transporte en une seule nuit de la Mosquee sacrée de La Mecque à la \"Mosquee la plus éloignée\" (Al-Masjid al-Aqsa), identifiée a Jerusalem (l'Isra), évoque au debut de la sourate Al-Isra. De la, il effectue une ascension à travers les cieux (le Mi'raj), au cours de laquelle les cinq prières quotidiennes sont instituees. Cet événement, survenu durant une période difficile de sa prédication mecquoise, occupé une place théologique et spirituelle majeure dans l'Islam, notamment pour le lien qu'il etablit avec Jerusalem.",
         source: SIRA_IBN_HISHAM,
       },
       {
@@ -142,7 +142,7 @@ const PERIODS: PeriodSeed[] = [
         dateApprox: "621-622",
         eventType: "treaty",
         description:
-          "A l'occasion du pèlerinage annuel, des habitants de Yathrib (future Médine), appartenant aux tribus arabes des Aws et des Khazraj, rencontrent le Prophète ﷺ au defile d'Aqaba, pres de La Mecque. Un premier engagement (622 selon certaines datations, ou l'année précédente) porte sur des principes moraux et religieux ; un second, l'année suivante, rassemble un groupe plus large qui s'engage a proteger le Prophète ﷺ comme l'un des leurs s'il vient s'installer à Médine. Ces accords ouvrent la voie à l'installation d'une communauté musulmane organisée à Médine et preparent directement l'Hegire.",
+          "A l'occasion du pèlerinage annuel, des habitants de Yathrib (future Médine), appartenant aux tribus arabes des Aws et des Khazraj, rencontrent le Prophète ﷺ au defile d'Aqaba, près de La Mecque. Un premier engagement (622 selon certaines datations, ou l'année précédente) porte sur des principes moraux et religieux ; un second, l'année suivante, rassemble un groupe plus large qui s'engage a protéger le Prophète ﷺ comme l'un des leurs s'il vient s'installer à Médine. Ces accords ouvrent la voie à l'installation d'une communauté musulmane organisée à Médine et preparent directement l'Hegire.",
         source: SIRA_IBN_HISHAM,
       },
       {
@@ -160,7 +160,7 @@ const PERIODS: PeriodSeed[] = [
         dateApprox: "624 / 2 AH",
         eventType: "battle",
         description:
-          "Alors qu'ils tentent d'intercepter une caravane marchande de Quraych revenant de Syrie, environ 300 musulmans de Médine se retrouvent face à une armee mecquoise nettement supérieure en nombre, venue defendre la caravane et affirmer son autorité. La bataille, qui se déroule pres du puits de Badr, se solde par une victoire musulmane inattendue, avec la mort de plusieurs chefs mecquois dont Abu Jahl. Première confrontation militaire majeure entre les deux camps, Badr est présentée dans le Coran (sourate Al-Anfal) comme un signe du soutien divin et occupé depuis une place symbolique centrale dans la mémoire islamique.",
+          "Alors qu'ils tentent d'intercepter une caravane marchande de Quraych revenant de Syrie, environ 300 musulmans de Médine se retrouvent face à une armee mecquoise nettement supérieure en nombre, venue defendre la caravane et affirmer son autorité. La bataille, qui se déroule près du puits de Badr, se solde par une victoire musulmane inattendue, avec la mort de plusieurs chefs mecquois dont Abu Jahl. Première confrontation militaire majeure entre les deux camps, Badr est présentée dans le Coran (sourate Al-Anfal) comme un signe du soutien divin et occupé depuis une place symbolique centrale dans la mémoire islamique.",
         source: TARIKH_TABARI,
       },
       {
@@ -169,7 +169,7 @@ const PERIODS: PeriodSeed[] = [
         dateApprox: "625 / 3 AH",
         eventType: "battle",
         description:
-          "Un an après Badr, les Mecquois reviennent en force pour venger leur defaite et affrontent les musulmans pres du mont Uhud, non loin de Médine. Dans un premier temps favorable aux musulmans, l'issue de la bataille bascule lorsque un groupe d'archers postes sur une colline strategique quitte sa position pour participer au butin, permettant à la cavalerie mecquoise, menee par Khalid ibn al-Walid (alors encore non converti), de prendre les musulmans a revers. Le Prophète ﷺ est blesse et plusieurs compagnons, dont son oncle Hamza, sont tues. Uhud est généralement présentée comme une lecon sur la discipline et l'obéissance plutôt que comme une defaite decisive.",
+          "Un an après Badr, les Mecquois reviennent en force pour venger leur defaite et affrontent les musulmans près du mont Uhud, non loin de Médine. Dans un premier temps favorable aux musulmans, l'issue de la bataille bascule lorsque un groupe d'archers postes sur une colline strategique quitte sa position pour participer au butin, permettant à la cavalerie mecquoise, menée par Khalid ibn al-Walid (alors encore non converti), de prendre les musulmans a revers. Le Prophète ﷺ est blesse et plusieurs compagnons, dont son oncle Hamza, sont tues. Uhud est généralement présentée comme une lecon sur la discipline et l'obéissance plutôt que comme une defaite decisive.",
         source: TARIKH_TABARI,
       },
       {
@@ -178,7 +178,7 @@ const PERIODS: PeriodSeed[] = [
         dateApprox: "627 / 5 AH",
         eventType: "battle",
         description:
-          "Une coalition reunissant les Quraych et plusieurs tribus alliees assiege Médine avec une force consequente. Sur suggestion de Salman al-Farisi, compagnon d'origine perse, les musulmans creusent un large fosse defensif (khandaq) autour des zones vulnerables de la ville, une tactique alors inhabituelle dans la guerre arabe traditionnelle qui rend l'assaut de la cavalerie ennemie inefficace. Après plusieurs semaines de siege infructueux, aggravees par des dissensions internes à la coalition et des conditions climatiques defavorables, les assiegeants se retirent sans combat decisif. L'épisode se conclut par la reddition de la tribu juive des Banu Qurayza, accusee d'avoir comploté avec les assiegeants pendant le siege.",
+          "Une coalition reunissant les Quraych et plusieurs tribus alliees assiège Médine avec une force consequente. Sur suggestion de Salman al-Farisi, compagnon d'origine perse, les musulmans creusent un large fosse defensif (khandaq) autour des zones vulnerables de la ville, une tactique alors inhabituelle dans la guerre arabe traditionnelle qui rend l'assaut de la cavalerie ennemie inefficace. Après plusieurs semaines de siège infructueux, aggravees par des dissensions internes à la coalition et des conditions climatiques defavorables, les assiegeants se retirent sans combat decisif. L'épisode se conclut par la reddition de la tribu juive des Banu Qurayza, accusee d'avoir comploté avec les assiegeants pendant le siège.",
         source: TARIKH_TABARI,
       },
       {
@@ -196,7 +196,7 @@ const PERIODS: PeriodSeed[] = [
         dateApprox: "630 / 8 AH",
         eventType: "conquest",
         description:
-          "Après qu'une tribu alliee aux Mecquois attaque une tribu alliee aux musulmans, rompant ainsi la treve de Hudaybiyya, le Prophète ﷺ marche sur La Mecque à la tete d'une force importante. La ville se rend avec peu de resistance ; le Prophète ﷺ y entre en accordant une amnistie générale à la population, y compris a nombre de ses anciens persecuteurs, une clemence largement soulignee dans la tradition islamique. Il fait detruire les idoles entourant et à l'intérieur de la Kaaba, restituant le sanctuaire, selon la croyance islamique, à sa vocation originelle de lieu de culte du Dieu unique associée a Abraham et Ismael.",
+          "Après qu'une tribu alliee aux Mecquois attaque une tribu alliee aux musulmans, rompant ainsi la treve de Hudaybiyya, le Prophète ﷺ marche sur La Mecque à la tete d'une force importante. La ville se rend avec peu de résistance ; le Prophète ﷺ y entre en accordant une amnistie générale à la population, y compris a nombre de ses anciens persecuteurs, une clemence largement soulignee dans la tradition islamique. Il fait detruire les idoles entourant et à l'intérieur de la Kaaba, restituant le sanctuaire, selon la croyance islamique, à sa vocation originelle de lieu de culte du Dieu unique associée a Abraham et Ismael.",
         source: SIRA_IBN_HISHAM,
       },
       {
@@ -205,7 +205,7 @@ const PERIODS: PeriodSeed[] = [
         dateApprox: "632 / 10 AH",
         eventType: "event",
         description:
-          "Quelques mois avant sa mort, le Prophète ﷺ effectue son unique pèlerinage complet à La Mecque depuis l'Hegire, accompagne d'un très grand nombre de musulmans. A cette occasion, il prononce le célèbre Sermon d'Adieu (Khutbat al-Wada'), dans lequel il rappelle des principes fondamentaux : l'égalité entre les croyants, l'interdiction de l'usure et de la vengeance tribale, les droits et devoirs reciproques entre epoux, et l'appel a transmettre son message aux generations futures. C'est durant ce pèlerinage qu'est traditionnellement située la révélation du verset coranique (5:3) évoquant l'achevement de la religion.",
+          "Quelques mois avant sa mort, le Prophète ﷺ effectue son unique pèlerinage complet à La Mecque depuis l'Hegire, accompagne d'un très grand nombre de musulmans. A cette occasion, il prononce le célèbre Sermon d'Adieu (Khutbat al-Wada'), dans lequel il rappelle des principes fondamentaux : l'égalité entre les croyants, l'interdiction de l'usure et de la vengeance tribale, les droits et devoirs reciproques entre époux, et l'appel a transmettre son message aux générations futures. C'est durant ce pèlerinage qu'est traditionnellement située la révélation du verset coranique (5:3) évoquant l'achevement de la religion.",
         source: SIRA_IBN_HISHAM,
       },
       {
@@ -214,7 +214,7 @@ const PERIODS: PeriodSeed[] = [
         dateApprox: "632 / 11 AH",
         eventType: "death",
         description:
-          "Quelques mois après le pèlerinage d'adieu, le Prophète ﷺ tombe malade et décédé à Médine, dans les appartements de son epouse Aisha, ou il est enterre. Sa mort plonge la jeune communauté musulmane dans un profond choc ; selon la tradition, Abu Bakr rassure les compagnons en rappelant que si Muhammad ﷺ est mort comme tout être humain, le message qu'il a transmis demeure. Sa disparition ouvre la question de sa succession à la tete de la communauté, resolue par la designation d'Abu Bakr comme premier calife, marquant le debut de la période rashidun.",
+          "Quelques mois après le pèlerinage d'adieu, le Prophète ﷺ tombe malade et décédé à Médine, dans les appartements de son épouse Aisha, ou il est enterre. Sa mort plonge la jeune communauté musulmane dans un profond choc ; selon la tradition, Abu Bakr rassure les compagnons en rappelant que si Muhammad ﷺ est mort comme tout être humain, le message qu'il a transmis demeure. Sa disparition ouvre la question de sa succession à la tete de la communauté, resolue par la designation d'Abu Bakr comme premier calife, marquant le debut de la période rashidun.",
         source: SIRA_IBN_HISHAM,
       },
     ],
@@ -234,7 +234,7 @@ const PERIODS: PeriodSeed[] = [
         dateApprox: "632",
         eventType: "event",
         description:
-          "Dans les heures suivant le décès du Prophète ﷺ, alors qu'aucune procedure de succession n'avait été formellement établie, les principaux compagnons se reunissent à la Saqifa des Banu Sa'ida à Médine. Après discussion entre Muhajirun (émigrés mecquois) et Ansar (auxiliaires médinois), Abu Bakr as-Siddiq, proche compagnon du Prophète ﷺ et père d'Aisha, est désigne premier calife (\"successeur\") par allegeance (bay'a). Il prend le titre de \"Khalifat Rasul Allah\" (successeur du Messager de Dieu) et dirige la communauté depuis Médine jusqu'à sa mort en 634, ou il désigne lui-même Omar comme successeur.",
+          "Dans les heures suivant le décès du Prophète ﷺ, alors qu'aucune procédure de succession n'avait été formellement établie, les principaux compagnons se reunissent à la Saqifa des Banu Sa'ida à Médine. Après discussion entre Muhajirun (émigrés mecquois) et Ansar (auxiliaires médinois), Abu Bakr as-Siddiq, proche compagnon du Prophète ﷺ et père d'Aisha, est désigne premier calife (\"successeur\") par allegeance (bay'a). Il prend le titre de \"Khalifat Rasul Allah\" (successeur du Messager de Dieu) et dirige la communauté depuis Médine jusqu'à sa mort en 634, ou il désigne lui-même Omar comme successeur.",
         source: TARIKH_TABARI,
       },
       {
@@ -243,7 +243,7 @@ const PERIODS: PeriodSeed[] = [
         dateApprox: "632-633",
         eventType: "battle",
         description:
-          "Des la mort du Prophète ﷺ, plusieurs tribus arabes qui s'étaient ralliees à l'Islam ou avaient accepte de verser la zakat à Médine font secession (ridda), certaines revenant à leurs croyances anterieures, d'autres refusant simplement l'autorité fiscale et politique de Médine, et d'autres encore suivant de faux pretendants a la prophetie comme Musaylima. Abu Bakr, malgré les réticences de certains compagnons dont Omar, engage une serie de campagnes militaires menees notamment par le general Khalid ibn al-Walid pour retablir l'autorité de Médine. Ces guerres, achevees en un peu plus d'un an, consolident l'unité politique de la péninsule arabique et permettent, une fois la paix retablie, de rediriger l'énergie militaire vers l'expansion hors d'Arabie.",
+          "Des la mort du Prophète ﷺ, plusieurs tribus arabes qui s'étaient ralliees à l'Islam ou avaient accepte de verser la zakat à Médine font secession (ridda), certaines revenant à leurs croyances anterieures, d'autres refusant simplement l'autorité fiscale et politique de Médine, et d'autres encore suivant de faux pretendants a la prophetie comme Musaylima. Abu Bakr, malgré les réticences de certains compagnons dont Omar, engage une série de campagnes militaires menées notamment par le général Khalid ibn al-Walid pour rétablir l'autorité de Médine. Ces guerres, achevees en un peu plus d'un an, consolident l'unité politique de la péninsule arabique et permettent, une fois la paix retablie, de rediriger l'énergie militaire vers l'expansion hors d'Arabie.",
         source: TARIKH_TABARI,
       },
       {
@@ -252,7 +252,7 @@ const PERIODS: PeriodSeed[] = [
         dateApprox: "636",
         eventType: "battle",
         description:
-          "Sur les rives du fleuve Yarmouk, aux confins de la Syrie et de la Jordanie actuelles, une armee musulmane commandee notamment par Khalid ibn al-Walid affronte une force byzantine bien plus nombreuse envoyee par l'empereur Heraclius pour reconquerir les territoires perdus. Profitant d'une tempête de sable et d'une coordination tactique superieure, les musulmans infligent une defaite decisive aux Byzantins. Cette victoire met fin durablement à la domination byzantine sur la Syrie et ouvre la voie à la conquête rapide du Levant, y compris de Jerusalem, remise pacifiquement au calife Omar en personne peu après.",
+          "Sur les rives du fleuve Yarmouk, aux confins de la Syrie et de la Jordanie actuelles, une armee musulmane commandee notamment par Khalid ibn al-Walid affronte une force byzantine bien plus nombreuse envoyee par l'empereur Heraclius pour reconquerir les territoires perdus. Profitant d'une tempête de sable et d'une coordination tactique supérieure, les musulmans infligent une defaite decisive aux Byzantins. Cette victoire met fin durablement à la domination byzantine sur la Syrie et ouvre la voie à la conquête rapide du Levant, y compris de Jerusalem, remise pacifiquement au calife Omar en personne peu après.",
         source: TARIKH_TABARI,
       },
       {
@@ -261,7 +261,7 @@ const PERIODS: PeriodSeed[] = [
         dateApprox: "636",
         eventType: "battle",
         description:
-          "Pres de la ville de Qadisiyya, en Irak actuel, l'armee musulmane commandee par Sa'd ibn Abi Waqqas affronte les forces de l'Empire sassanide, alors affaibli par des décennies de guerre contre Byzance et des troubles dynastiques internes. La victoire musulmane, survenue la même année que Yarmouk, ouvre la voie à la conquête de la capitale sassanide Ctesiphon puis, dans les années suivantes, de l'ensemble de la Perse. L'effondrement de l'Empire sassanide qui s'ensuit constitue l'un des bouleversements géopolitiques majeurs du VIIe siècle et permet la diffusion rapide de l'Islam en Perse, en Asie centrale et au-delà.",
+          "Près de la ville de Qadisiyya, en Irak actuel, l'armee musulmane commandee par Sa'd ibn Abi Waqqas affronte les forces de l'Empire sassanide, alors affaibli par des décennies de guerre contre Byzance et des troubles dynastiques internes. La victoire musulmane, survenue la même année que Yarmouk, ouvre la voie à la conquête de la capitale sassanide Ctesiphon puis, dans les années suivantes, de l'ensemble de la Perse. L'effondrement de l'Empire sassanide qui s'ensuit constitue l'un des bouleversements géopolitiques majeurs du VIIe siècle et permet la diffusion rapide de l'Islam en Perse, en Asie centrale et au-delà.",
         source: TARIKH_TABARI,
       },
       {
@@ -270,7 +270,7 @@ const PERIODS: PeriodSeed[] = [
         dateApprox: "~650",
         eventType: "event",
         description:
-          "Alors que l'expansion territoriale rapide disperse les compagnons connaissant le Coran par cœur dans des régions eloignees, et que des divergences de lecture commencent a apparaitre entre les garnisons, le calife Uthman ibn Affan charge une commission dirigee par Zayd ibn Thabit - qui avait déjà supervise une première compilation sous Abu Bakr - d'établir un texte de référence unique à partir des copies existantes et des temoignages des derniers compagnons vivants. Plusieurs exemplaires officiels de ce texte standardise (souvent appele mushaf uthmani) sont ensuite envoyes dans les grandes villes de l'empire naissant, avec instruction de detruire les variantes divergentes, afin de garantir l'unité du texte coranique pour les generations futures.",
+          "Alors que l'expansion territoriale rapide disperse les compagnons connaissant le Coran par cœur dans des régions eloignees, et que des divergences de lecture commencent a apparaitre entre les garnisons, le calife Uthman ibn Affan charge une commission dirigee par Zayd ibn Thabit - qui avait déjà supervise une première compilation sous Abu Bakr - d'établir un texte de référence unique à partir des copies existantes et des temoignages des derniers compagnons vivants. Plusieurs exemplaires officiels de ce texte standardise (souvent appele mushaf uthmani) sont ensuite envoyes dans les grandes villes de l'empire naissant, avec instruction de detruire les variantes divergentes, afin de garantir l'unité du texte coranique pour les générations futures.",
         source: TARIKH_TABARI,
       },
       {
@@ -279,7 +279,7 @@ const PERIODS: PeriodSeed[] = [
         dateApprox: "656",
         eventType: "event",
         description:
-          "Après plusieurs années de tensions croissantes, alimentees par des accusations de favoritisme envers certains membres de son clan (les Omeyyades) dans la nomination des gouverneurs provinciaux, le calife Uthman ibn Affan, alors âgé, est assiege dans sa demeure à Médine par des mecontents venus de plusieurs provinces, notamment d'Égypte. Il est finalement tue alors qu'il recite le Coran, sans opposer de resistance armee par souci d'eviter un bain de sang parmi les musulmans. Cet assassinat, le premier d'un calife par d'autres musulmans, ouvre une période prolongee de troubles internes (la première fitna) qui fragilisera durablement l'unité politique de la communauté.",
+          "Après plusieurs années de tensions croissantes, alimentees par des accusations de favoritisme envers certains membres de son clan (les Omeyyades) dans la nomination des gouverneurs provinciaux, le calife Uthman ibn Affan, alors âgé, est assiège dans sa demeure à Médine par des mecontents venus de plusieurs provinces, notamment d'Égypte. Il est finalement tue alors qu'il récite le Coran, sans opposer de résistance armee par souci d'éviter un bain de sang parmi les musulmans. Cet assassinat, le premier d'un calife par d'autres musulmans, ouvre une période prolongee de troubles internes (la première fitna) qui fragilisera durablement l'unité politique de la communauté.",
         source: TARIKH_TABARI,
       },
       {
@@ -288,7 +288,7 @@ const PERIODS: PeriodSeed[] = [
         dateApprox: "657",
         eventType: "battle",
         description:
-          "Devenu calife après Uthman, Ali ibn Abi Talib fait face au refus de Muawiya, gouverneur de Syrie et parent d'Uthman, de lui preter allegeance tant que les assassins de son cousin n'ont pas été punis. Les deux armees s'affrontent pres du fleuve Euphrate, a Siffin, dans une bataille prolongee et indecise. Lorsque les troupes de Muawiya, en position defavorable, brandissent des pages du Coran au bout de leurs lances pour demander un arbitrage, Ali accepte, malgré l'opposition d'une partie de ses propres troupes. Cet arbitrage, percu comme desavantageux pour Ali, provoque la secession d'un groupe de ses partisans, les Kharijites, et affaiblit durablement son autorité.",
+          "Devenu calife après Uthman, Ali ibn Abi Talib fait face au refus de Muawiya, gouverneur de Syrie et parent d'Uthman, de lui preter allegeance tant que les assassins de son cousin n'ont pas été punis. Les deux armees s'affrontent près du fleuve Euphrate, a Siffin, dans une bataille prolongee et indecise. Lorsque les troupes de Muawiya, en position defavorable, brandissent des pages du Coran au bout de leurs lances pour demander un arbitrage, Ali accepte, malgré l'opposition d'une partie de ses propres troupes. Cet arbitrage, percu comme desavantageux pour Ali, provoque la secession d'un groupe de ses partisans, les Kharijites, et affaiblit durablement son autorité.",
         source: TARIKH_TABARI,
       },
       {
@@ -297,7 +297,7 @@ const PERIODS: PeriodSeed[] = [
         dateApprox: "661",
         eventType: "death",
         description:
-          "Le calife Ali ibn Abi Talib, cousin et gendre du Prophète ﷺ, est mortellement blesse à Kufa par un Kharijite, Ibn Muljam, qui lui reprochait notamment d'avoir accepte l'arbitrage de Siffin ; il décédé peu après. Son fils Hassan lui succède brievement avant de ceder le pouvoir a Muawiya afin d'eviter une nouvelle guerre civile, mettant fin à la première fitna. Cette transition marque la fin de la période rashidun et l'avenement du califat omeyyade hereditaire, un tournant que les traditions sunnite et chiite interpretent de manière significativement différente quant a la légitimité de la succession.",
+          "Le calife Ali ibn Abi Talib, cousin et gendre du Prophète ﷺ, est mortellement blesse à Kufa par un Kharijite, Ibn Muljam, qui lui reprochait notamment d'avoir accepte l'arbitrage de Siffin ; il décédé peu après. Son fils Hassan lui succède brievement avant de ceder le pouvoir a Muawiya afin d'éviter une nouvelle guerre civile, mettant fin à la première fitna. Cette transition marque la fin de la période rashidun et l'avenement du califat omeyyade hereditaire, un tournant que les traditions sunnite et chiite interpretent de manière significativement différente quant a la légitimité de la succession.",
         source: TARIKH_TABARI,
       },
     ],
@@ -309,7 +309,7 @@ const PERIODS: PeriodSeed[] = [
     endYear: 750,
     region: "Damas, du Levant à l'Andalousie",
     description:
-      "Première dynastie califale héréditaire de l'Islam, fondée par Muawiya ibn Abi Sufyan après la fin de la période rashidun, avec Damas pour capitale. En moins d'un siècle, les Omeyyades étendent l'empire musulman de l'Andalousie à l'Asie centrale et à l'Indus, faisant de lui le plus vaste empire que le monde ait connu jusqu'alors, tout en administrant un territoire immense et culturellement divers grace a une bureaucratie largement héritee des administrations byzantine et sassanide. Leur légitimité reste néanmoins contestee par une partie de la communauté, notamment les partisans d'Ali (proto-chiites) et les Kharijites, jusqu'à leur renversement par les Abbassides en 750.",
+      "Première dynastie califale héréditaire de l'Islam, fondée par Muawiya ibn Abi Sufyan après la fin de la période rashidun, avec Damas pour capitale. En moins d'un siècle, les Omeyyades étendent l'empire musulman de l'Andalousie à l'Asie centrale et à l'Indus, faisant de lui le plus vaste empire que le monde ait connu jusqu'alors, tout en administrant un territoire immense et culturellement divers grâce a une bureaucratie largement héritee des administrations byzantine et sassanide. Leur légitimité reste néanmoins contestee par une partie de la communauté, notamment les partisans d'Ali (proto-chiites) et les Kharijites, jusqu'à leur renversement par les Abbassides en 750.",
     events: [
       {
         title: "Muawiya fondé le califat omeyyade",
@@ -335,7 +335,7 @@ const PERIODS: PeriodSeed[] = [
         dateApprox: "711",
         eventType: "conquest",
         description:
-          "Une armee omeyyade composee majoritairement de Berberes recemment convertis, menee par le general Tariq ibn Ziyad, traverse le detroit separant l'Afrique du Nord de la péninsule ibérique - qui prendra son nom (Jabal Tariq, Gibraltar) - et defait le roi wisigoth Roderic a la bataille du Guadalete. En quelques années, la quasi-totalité de la péninsule ibérique passe sous domination musulmane, à l'exception de poches montagneuses au nord qui formeront le point de depart de la Reconquista chretienne plusieurs siècles plus tard.",
+          "Une armee omeyyade composee majoritairement de Berberes récemment convertis, menée par le général Tariq ibn Ziyad, traverse le detroit separant l'Afrique du Nord de la péninsule ibérique - qui prendra son nom (Jabal Tariq, Gibraltar) - et defait le roi wisigoth Roderic a la bataille du Guadalete. En quelques années, la quasi-totalité de la péninsule ibérique passe sous domination musulmane, à l'exception de poches montagneuses au nord qui formeront le point de depart de la Reconquista chretienne plusieurs siècles plus tard.",
         source: BIDAYA_IBN_KATHIR,
       },
       {
@@ -344,7 +344,7 @@ const PERIODS: PeriodSeed[] = [
         dateApprox: "732",
         eventType: "battle",
         description:
-          "Une expedition omeyyade menee depuis l'Andalousie par le gouverneur Abd al-Rahman al-Ghafiqi, remontant à travers l'Aquitaine, est arretee pres de Poitiers par les forces franques de Charles Martel. La defaite met un coup d'arret a l'avancee musulmane en Europe occidentale au-dela des Pyrenees ; les incursions se poursuivent encore quelques décennies mais sans nouvelle tentative de conquête d'ampleur comparable, tandis que l'expansion omeyyade se poursuit surtout a l'est, vers l'Asie centrale et l'Indus.",
+          "Une expédition omeyyade menée depuis l'Andalousie par le gouverneur Abd al-Rahman al-Ghafiqi, remontant à travers l'Aquitaine, est arretee près de Poitiers par les forces franques de Charles Martel. La defaite met un coup d'arret a l'avancee musulmane en Europe occidentale au-dela des Pyrenees ; les incursions se poursuivent encore quelques décennies mais sans nouvelle tentative de conquête d'ampleur comparable, tandis que l'expansion omeyyade se poursuit surtout a l'est, vers l'Asie centrale et l'Indus.",
         source: BIDAYA_IBN_KATHIR,
       },
       {
@@ -353,7 +353,7 @@ const PERIODS: PeriodSeed[] = [
         dateApprox: "750",
         eventType: "event",
         description:
-          "Une insurrection organisee depuis le Khorasan (nord-est de l'Iran actuel), menee par Abu Muslim al-Khurasani au nom de la famille abbasside - descendante d'un oncle du Prophète ﷺ, Al-Abbas - renverse la dynastie omeyyade en s'appuyant sur le mecontentement de nombreux mawali (musulmans non arabes traites en citoyens de second rang sous les Omeyyades) et de certains milieux proches des partisans d'Ali. La quasi-totalité des membres de la famille omeyyade est massacree ; un seul survivant notable, Abd al-Rahman Ier, s'enfuit vers l'Andalousie ou il fondera un émirat omeyyade independant, prolongeant la dynastie loin de Damas.",
+          "Une insurrection organisée depuis le Khorasan (nord-est de l'Iran actuel), menée par Abu Muslim al-Khurasani au nom de la famille abbasside - descendante d'un oncle du Prophète ﷺ, Al-Abbas - renverse la dynastie omeyyade en s'appuyant sur le mecontentement de nombreux mawali (musulmans non arabes traités en citoyens de second rang sous les Omeyyades) et de certains milieux proches des partisans d'Ali. La quasi-totalité des membres de la famille omeyyade est massacree ; un seul survivant notable, Abd al-Rahman Ier, s'enfuit vers l'Andalousie ou il fondera un émirat omeyyade independant, prolongeant la dynastie loin de Damas.",
         source: BIDAYA_IBN_KATHIR,
       },
     ],
@@ -382,7 +382,7 @@ const PERIODS: PeriodSeed[] = [
         dateApprox: "786-833",
         eventType: "event",
         description:
-          "Sous les califats d'Harun al-Rashid puis de son fils Al-Ma'mun, Bagdad atteint l'apogee de sa prosperite et de son rayonnement intellectuel, immortalisee (de façon largement romancee) dans le recueil des Mille et Une Nuits. Le commerce prospere sur des routes reliant la Chine a l'Afrique de l'Est et l'Europe, tandis que la cour abbasside attire poetes, musiciens, medecins et savants de tout l'empire et au-delà. Cette période pose les bases institutionnelles - notamment la Maison de la Sagesse fondee ou developpee sous Al-Ma'mun - de l'essor scientifique qui caracterisera les siècles suivants.",
+          "Sous les califats d'Harun al-Rashid puis de son fils Al-Ma'mun, Bagdad atteint l'apogee de sa prosperite et de son rayonnement intellectuel, immortalisee (de façon largement romancee) dans le recueil des Mille et Une Nuits. Le commerce prospere sur des routes reliant la Chine a l'Afrique de l'Est et l'Europe, tandis que la cour abbasside attire poetes, musiciens, medecins et savants de tout l'empire et au-delà. Cette période pose les bases institutionnelles - notamment la Maison de la Sagesse fondée ou developpee sous Al-Ma'mun - de l'essor scientifique qui caracterisera les siècles suivants.",
         source: BIDAYA_IBN_KATHIR,
       },
       {
@@ -400,7 +400,7 @@ const PERIODS: PeriodSeed[] = [
         dateApprox: "1258",
         eventType: "event",
         description:
-          "Les forces mongoles menees par Hulagu Khan, petit-fils de Gengis Khan, assiegent puis prennent Bagdad après le refus du calife Al-Musta'sim de se soumettre. La ville est mise a sac, sa population largement massacree et ses bibliotheques - dont celle de la Maison de la Sagesse - detruites, un episode que de nombreux historiens ulterieurs decriront comme l'un des plus grands desastres culturels de l'histoire islamique. Le dernier calife abbasside est execute, mettant fin au califat abbasside de Bagdad ; un califat abbasside symbolique, sans pouvoir politique reel, sera ensuite maintenu au Caire sous la protection des sultans mamelouks jusqu'a la conquête ottomane de 1517.",
+          "Les forces mongoles menées par Hulagu Khan, petit-fils de Gengis Khan, assiegent puis prennent Bagdad après le refus du calife Al-Musta'sim de se soumettre. La ville est mise a sac, sa population largement massacree et ses bibliotheques - dont celle de la Maison de la Sagesse - detruites, un episode que de nombreux historiens ulterieurs decriront comme l'un des plus grands desastres culturels de l'histoire islamique. Le dernier calife abbasside est exécute, mettant fin au califat abbasside de Bagdad ; un califat abbasside symbolique, sans pouvoir politique reel, sera ensuite maintenu au Caire sous la protection des sultans mamelouks jusqu'a la conquête ottomane de 1517.",
         source: BIDAYA_IBN_KATHIR,
       },
     ],
@@ -420,7 +420,7 @@ const PERIODS: PeriodSeed[] = [
         dateApprox: "711",
         eventType: "conquest",
         description:
-          "Debut de la conquête musulmane de la péninsule ibérique, alors sous domination du royaume wisigoth affaibli par des rivalites dynastiques internes. En quelques années, les armees omeyyades soumettent la quasi-totalité du territoire, à l'exception de zones montagneuses au nord (Asturies) ou se maintient une resistance chretienne qui deviendra, plusieurs siècles plus tard, le point de depart de la Reconquista.",
+          "Debut de la conquête musulmane de la péninsule ibérique, alors sous domination du royaume wisigoth affaibli par des rivalites dynastiques internes. En quelques années, les armees omeyyades soumettent la quasi-totalité du territoire, à l'exception de zones montagneuses au nord (Asturies) ou se maintient une résistance chretienne qui deviendra, plusieurs siècles plus tard, le point de depart de la Reconquista.",
         source: BIDAYA_IBN_KATHIR,
       },
       {
@@ -438,7 +438,7 @@ const PERIODS: PeriodSeed[] = [
         dateApprox: "929",
         eventType: "event",
         description:
-          "Abd al-Rahman III, déjà émir depuis plusieurs annees, proclame le califat de Cordoue, affirmant ainsi une égalité de statut avec les califats abbasside de Bagdad et fatimide du Caire. Cette période, qui se prolonge sous son fils Al-Hakam II, marque l'apogee politique, économique et culturel d'Al-Andalus : Cordoue devient l'une des plus grandes villes d'Europe, dotee d'une immense bibliotheque et d'un rayonnement scientifique et litteraire qui attire savants et etudiants de tout le bassin mediterraneen.",
+          "Abd al-Rahman III, déjà émir depuis plusieurs années, proclame le califat de Cordoue, affirmant ainsi une égalité de statut avec les califats abbasside de Bagdad et fatimide du Caire. Cette période, qui se prolonge sous son fils Al-Hakam II, marque l'apogee politique, économique et culturel d'Al-Andalus : Cordoue devient l'une des plus grandes villes d'Europe, dotee d'une immense bibliotheque et d'un rayonnement scientifique et littéraire qui attire savants et etudiants de tout le bassin mediterraneen.",
         source: BIDAYA_IBN_KATHIR,
       },
       {
@@ -485,7 +485,7 @@ const PERIODS: PeriodSeed[] = [
         dateApprox: "1260",
         eventType: "battle",
         description:
-          "Pres de la source de Ayn Jalut, en Palestine, l'armee mamelouke commandee par le sultan Qutuz et le general Baybars inflige aux Mongols leur première défaite majeure, mettant un coup d'arret decisif a leur expansion vers l'Égypte après la destruction de Bagdad deux ans plus tôt. Cette victoire, obtenue notamment grâce a une bonne connaissance du terrain et a une utilisation efficace de la cavalerie legere, sauve l'Égypte et le Hijaz (avec les villes saintes de La Mecque et Médine) d'une invasion mongole et etablit durablement la reputation militaire du jeune sultanat mamelouk.",
+          "Près de la source de Ayn Jalut, en Palestine, l'armee mamelouke commandee par le sultan Qutuz et le général Baybars inflige aux Mongols leur première défaite majeure, mettant un coup d'arret decisif a leur expansion vers l'Égypte après la destruction de Bagdad deux ans plus tôt. Cette victoire, obtenue notamment grâce a une bonne connaissance du terrain et a une utilisation efficace de la cavalerie légère, sauve l'Égypte et le Hijaz (avec les villes saintes de La Mecque et Médine) d'une invasion mongole et etablit durablement la reputation militaire du jeune sultanat mamelouk.",
         source: SULUK_AL_MAQRIZI,
       },
       {
@@ -503,7 +503,7 @@ const PERIODS: PeriodSeed[] = [
         dateApprox: "1291",
         eventType: "conquest",
         description:
-          "Les forces mameloukes du sultan Al-Ashraf Khalil prennent Acre, dernier grand bastion des États croises fondes deux siècles plus tôt lors de la première croisade. La chute de la ville met fin a la présence politique et militaire organisee des croisés au Levant, les derniers points d'appui mineurs etant evacues dans les mois suivants.",
+          "Les forces mameloukes du sultan Al-Ashraf Khalil prennent Acre, dernier grand bastion des États croises fondes deux siècles plus tôt lors de la première croisade. La chute de la ville met fin a la présence politique et militaire organisée des croisés au Levant, les derniers points d'appui mineurs etant evacues dans les mois suivants.",
         source: SULUK_AL_MAQRIZI,
       },
       {
@@ -550,7 +550,7 @@ const PERIODS: PeriodSeed[] = [
         dateApprox: "1520-1566",
         eventType: "event",
         description:
-          "Sous le règne de Suleiman Ier, appele \"le Magnifique\" en Europe et \"le Legislateur\" (Kanuni) dans la tradition ottomane pour sa vaste refonte du droit administratif et penal complementaire a la charia, l'empire atteint son apogee territoriale, militaire et culturelle, s'etendant jusqu'aux portes de Vienne (assiegee sans succes en 1529) et englobant la quasi-totalité du monde arabe. Cette période voit egalement un essor architectural majeur, notamment a travers les œuvres de l'architecte imperial Sinan.",
+          "Sous le règne de Suleiman Ier, appele \"le Magnifique\" en Europe et \"le Legislateur\" (Kanuni) dans la tradition ottomane pour sa vaste refonte du droit administratif et penal complementaire a la charia, l'empire atteint son apogee territoriale, militaire et culturelle, s'etendant jusqu'aux portes de Vienne (assiégée sans succès en 1529) et englobant la quasi-totalité du monde arabe. Cette période voit également un essor architectural majeur, notamment a travers les œuvres de l'architecte imperial Sinan.",
         source: CAMBRIDGE_HISTORY_ISLAM,
       },
       {
@@ -559,7 +559,7 @@ const PERIODS: PeriodSeed[] = [
         dateApprox: "1839-1876",
         eventType: "event",
         description:
-          "Face au déclin militaire et economique relatif de l'empire par rapport aux puissances europeennes, une série de réformes administratives, juridiques et militaires (Tanzimat, \"réorganisations\") est engagee, visant a moderniser l'État sur certains modeles europeens tout en preservant son caractere islamique : codification du droit, egalite juridique formelle entre sujets de toutes confessions, reforme de l'armee et de la fiscalite. Ces réformes, aux resultats contrastes, illustrent les tensions profondes entre modernisation et preservation de l'identite ottomane et islamique de l'empire face a la pression occidentale croissante.",
+          "Face au déclin militaire et economique relatif de l'empire par rapport aux puissances europeennes, une série de réformes administratives, juridiques et militaires (Tanzimat, \"réorganisations\") est engagee, visant a moderniser l'État sur certains modèles europeens tout en preservant son caractere islamique : codification du droit, égalité juridique formelle entre sujets de toutes confessions, réforme de l'armee et de la fiscalite. Ces réformes, aux résultats contrastes, illustrent les tensions profondes entre modernisation et preservation de l'identite ottomane et islamique de l'empire face a la pression occidentale croissante.",
         source: CAMBRIDGE_HISTORY_ISLAM,
       },
       {
@@ -568,7 +568,7 @@ const PERIODS: PeriodSeed[] = [
         dateApprox: "1922-1924",
         eventType: "event",
         description:
-          "Après la défaite ottomane lors de la Première Guerre mondiale et la guerre d'indépendance turque menee par Mustafa Kemal (Atatürk), la Grande Assemblee nationale turque abolit d'abord le sultanat en 1922 puis, en 1924, le califat lui-même, mettant fin a l'institution califale telle qu'elle avait perdure sous des formes diverses depuis la mort du Prophète ﷺ. Cette abolition, evenement majeur et encore largement discute dans le monde musulman contemporain, marque la fin d'une continuite institutionnelle de plus de treize siècles et a directement inspire par la suite plusieurs mouvements appelant a une restauration du califat.",
+          "Après la défaite ottomane lors de la Première Guerre mondiale et la guerre d'indépendance turque menée par Mustafa Kemal (Atatürk), la Grande Assemblee nationale turque abolit d'abord le sultanat en 1922 puis, en 1924, le califat lui-même, mettant fin a l'institution califale telle qu'elle avait perdure sous des formes diverses depuis la mort du Prophète ﷺ. Cette abolition, événement majeur et encore largement discute dans le monde musulman contemporain, marque la fin d'une continuite institutionnelle de plus de treize siècles et a directement inspire par la suite plusieurs mouvements appelant a une restauration du califat.",
         source: CAMBRIDGE_HISTORY_ISLAM,
       },
     ],
@@ -580,7 +580,7 @@ const PERIODS: PeriodSeed[] = [
     endYear: 1857,
     region: "Sous-continent indien",
     description:
-      "Dynastie musulmane d'origine turco-mongole fondée par Babur, descendant de Tamerlan et de Gengis Khan, après sa victoire a Panipat en 1526. Les Moghols unifient sous leur autorité la majeure partie du sous-continent indien et president a l'une des civilisations les plus riches et les plus prosperes de l'époque moderne, marquee par une politique religieuse variable selon les souverains - de la tolerance relative d'Akbar aux politiques plus rigoristes d'Aurangzeb - avant un long déclin face a la montée en puissance de la Compagnie britannique des Indes orientales, jusqu'a la disparition formelle de la dynastie en 1857.",
+      "Dynastie musulmane d'origine turco-mongole fondée par Babur, descendant de Tamerlan et de Gengis Khan, après sa victoire a Panipat en 1526. Les Moghols unifient sous leur autorité la majeure partie du sous-continent indien et president a l'une des civilisations les plus riches et les plus prosperes de l'époque moderne, marquee par une politique religieuse variable selon les souverains - de la tolérance relative d'Akbar aux politiques plus rigoristes d'Aurangzeb - avant un long déclin face a la montée en puissance de la Compagnie britannique des Indes orientales, jusqu'a la disparition formelle de la dynastie en 1857.",
     events: [
       {
         title: "Première bataille de Panipat",
@@ -588,16 +588,16 @@ const PERIODS: PeriodSeed[] = [
         dateApprox: "1526",
         eventType: "battle",
         description:
-          "Babur, prince timouride chasse d'Asie centrale par les Ouzbeks, envahit le nord de l'Inde et defait le sultan de Delhi Ibrahim Lodi a Panipat, malgre une infériorite numerique compensee par un usage novateur de l'artillerie a poudre. Cette victoire fonde l'Empire moghol, dont le nom (derive de \"Mongol\") reflete l'ascendance dynastique de Babur, bien que la culture de l'empire soit rapidement devenue largement indo-persane.",
+          "Babur, prince timouride chasse d'Asie centrale par les Ouzbeks, envahit le nord de l'Inde et defait le sultan de Delhi Ibrahim Lodi a Panipat, malgre une infériorite numerique compensee par un usage novateur de l'artillerie a poudre. Cette victoire fonde l'Empire moghol, dont le nom (derive de \"Mongol\") reflète l'ascendance dynastique de Babur, bien que la culture de l'empire soit rapidement devenue largement indo-persane.",
         source: CAMBRIDGE_HISTORY_ISLAM,
       },
       {
-        title: "Règne d'Akbar et politique de tolerance religieuse",
+        title: "Règne d'Akbar et politique de tolérance religieuse",
         slug: "regne-akbar",
         dateApprox: "1556-1605",
         eventType: "event",
         description:
-          "Petit-fils de Babur, Akbar consolide et etend considerablement l'empire tout en menant une politique de tolerance religieuse notable envers la vaste majorité hindoue de ses sujets, notamment par l'abolition de la taxe (jizya) sur les non-musulmans et l'integration de nobles hindous rajpoutes dans l'administration et l'armee. Il institue egalement une cour de dialogue interreligieux et une doctrine syncretique personnelle (Din-i Ilahi) qui restera toutefois marginale et sans grande posterite, contrastant avec les politiques plus orthodoxes de certains de ses successeurs.",
+          "Petit-fils de Babur, Akbar consolide et etend considerablement l'empire tout en menant une politique de tolérance religieuse notable envers la vaste majorité hindoue de ses sujets, notamment par l'abolition de la taxe (jizya) sur les non-musulmans et l'intégration de nobles hindous rajpoutes dans l'administration et l'armee. Il institue également une cour de dialogue interreligieux et une doctrine syncretique personnelle (Din-i Ilahi) qui restera toutefois marginale et sans grande postérité, contrastant avec les politiques plus orthodoxes de certains de ses successeurs.",
         source: CAMBRIDGE_HISTORY_ISLAM,
       },
       {
@@ -606,7 +606,7 @@ const PERIODS: PeriodSeed[] = [
         dateApprox: "1632-1653",
         eventType: "event",
         description:
-          "L'empereur Shah Jahan fait construire a Agra le Taj Mahal, mausolee de marbre blanc en memoire de son epouse Mumtaz Mahal, decedee en couches. Chef-d'œuvre de l'architecture moghole melant influences persanes, ottomanes et indiennes, l'edifice devient l'un des monuments les plus celebres au monde et un symbole du raffinement architectural atteint par l'empire a son apogee.",
+          "L'empereur Shah Jahan fait construire a Agra le Taj Mahal, mausolee de marbre blanc en memoire de son épouse Mumtaz Mahal, décédée en couches. Chef-d'œuvre de l'architecture moghole melant influences persanes, ottomanes et indiennes, l'edifice devient l'un des monuments les plus célèbres au monde et un symbole du raffinement architectural atteint par l'empire a son apogee.",
         source: CAMBRIDGE_HISTORY_ISLAM,
       },
       {
@@ -615,7 +615,7 @@ const PERIODS: PeriodSeed[] = [
         dateApprox: "1707-1857",
         eventType: "event",
         description:
-          "Après la mort d'Aurangzeb en 1707, dont le règne long et marque par une expansion territoriale maximale mais aussi par des tensions religieuses et financieres accrues, l'empire entre dans un long déclin, fragmente par des revoltes regionales et l'affaiblissement progressif de l'autorité centrale. La Compagnie britannique des Indes orientales, initialement implantee comme puissance commerciale, prend un contrôle croissant du sous-continent ; après la grande revolte indienne de 1857, a laquelle le dernier empereur moghol Bahadur Shah II prete un soutien symbolique, les Britanniques abolissent formellement la dynastie et exilent le dernier souverain en Birmanie.",
+          "Après la mort d'Aurangzeb en 1707, dont le règne long et marque par une expansion territoriale maximale mais aussi par des tensions religieuses et financieres accrues, l'empire entre dans un long déclin, fragmente par des revoltes regionales et l'affaiblissement progressif de l'autorité centrale. La Compagnie britannique des Indes orientales, initialement implantee comme puissance commerciale, prend un contrôle croissant du sous-continent ; après la grande révolte indienne de 1857, a laquelle le dernier empereur moghol Bahadur Shah II prete un soutien symbolique, les Britanniques abolissent formellement la dynastie et exilent le dernier souverain en Birmanie.",
         source: CAMBRIDGE_HISTORY_ISLAM,
       },
     ],
@@ -635,7 +635,7 @@ const PERIODS: PeriodSeed[] = [
         dateApprox: "VIIIe-XIe siècle",
         eventType: "event",
         description:
-          "Les caravanes commerciales traversant le Sahara, echangeant notamment l'or et le sel entre l'Afrique du Nord et le Sahel, introduisent progressivement l'Islam aupres des elites marchandes et politiques de l'empire du Ghana puis des royaumes voisins. Cette islamisation initialement urbaine et commerciale s'etend graduellement, sur plusieurs siècles et sans conquête militaire massive, aux populations plus larges de la région, un processus largement porte par les reseaux marchands et les confreries soufies.",
+          "Les caravanes commerciales traversant le Sahara, echangeant notamment l'or et le sel entre l'Afrique du Nord et le Sahel, introduisent progressivement l'Islam aupres des elites marchandes et politiques de l'empire du Ghana puis des royaumes voisins. Cette islamisation initialement urbaine et commerciale s'etend graduellement, sur plusieurs siècles et sans conquête militaire massive, aux populations plus larges de la région, un processus largement porte par les réseaux marchands et les confreries soufies.",
         source: CAMBRIDGE_HISTORY_ISLAM,
       },
       {
@@ -644,7 +644,7 @@ const PERIODS: PeriodSeed[] = [
         dateApprox: "1324",
         eventType: "event",
         description:
-          "Mansa Musa, souverain de l'empire du Mali alors a son apogee territoriale et economique grâce au controle des routes de l'or, effectue le pèlerinage a La Mecque accompagne d'une caravane d'une ampleur exceptionnelle, distribuant en chemin, notamment au Caire, des quantites d'or telles que certains chroniqueurs egyptiens rapportent une depreciation temporaire du metal sur les marches locaux. Ce voyage, largement documente par des sources externes, fait connaitre la richesse et la puissance de l'empire du Mali au monde mediterraneen et stimule les echanges intellectuels et commerciaux avec l'Afrique du Nord et le Moyen-Orient.",
+          "Mansa Musa, souverain de l'empire du Mali alors a son apogee territoriale et economique grâce au contrôle des routes de l'or, effectue le pèlerinage a La Mecque accompagne d'une caravane d'une ampleur exceptionnelle, distribuant en chemin, notamment au Caire, des quantites d'or telles que certains chroniqueurs egyptiens rapportent une depreciation temporaire du metal sur les marches locaux. Ce voyage, largement documente par des sources externes, fait connaitre la richesse et la puissance de l'empire du Mali au monde mediterraneen et stimule les echanges intellectuels et commerciaux avec l'Afrique du Nord et le Moyen-Orient.",
         source: CAMBRIDGE_HISTORY_ISLAM,
       },
       {
@@ -662,7 +662,7 @@ const PERIODS: PeriodSeed[] = [
         dateApprox: "1804-1809",
         eventType: "event",
         description:
-          "Usman dan Fodio, savant et reformateur peul, mene un mouvement de reforme religieuse puis un jihad contre les royaumes haoussa qu'il juge insuffisamment conformes a l'Islam, aboutissant a la fondation du califat de Sokoto dans le nord de l'actuel Nigeria, qui deviendra l'un des plus vastes États d'Afrique subsaharienne au XIXe siècle. Le califat, dote d'une administration structuree et d'un important rayonnement intellectuel, notamment a travers les ecrits d'Usman dan Fodio et de sa fille Nana Asma'u, perdurera jusqu'a la colonisation britannique au debut du XXe siècle.",
+          "Usman dan Fodio, savant et reformateur peul, mène un mouvement de réforme religieuse puis un jihad contre les royaumes haoussa qu'il juge insuffisamment conformes a l'Islam, aboutissant a la fondation du califat de Sokoto dans le nord de l'actuel Nigeria, qui deviendra l'un des plus vastes États d'Afrique subsaharienne au XIXe siècle. Le califat, dote d'une administration structurée et d'un important rayonnement intellectuel, notamment a travers les ecrits d'Usman dan Fodio et de sa fille Nana Asma'u, perdurera jusqu'a la colonisation britannique au debut du XXe siècle.",
         source: CAMBRIDGE_HISTORY_ISLAM,
       },
     ],
@@ -682,7 +682,7 @@ const PERIODS: PeriodSeed[] = [
         dateApprox: "~1267",
         eventType: "event",
         description:
-          "Sur la cote nord de Sumatra, le sultanat de Samudra Pasai s'impose comme le premier État islamique clairement atteste de l'archipel malais, beneficiant de sa position sur les routes commerciales maritimes reliant l'Inde a la Chine. Sa cour devient un centre de diffusion de l'Islam vers les regions voisines et un point d'appui pour les marchands et voyageurs musulmans traversant la région, dont le celèbre Ibn Battuta qui y fait escale au XIVe siècle.",
+          "Sur la côte nord de Sumatra, le sultanat de Samudra Pasai s'impose comme le premier État islamique clairement atteste de l'archipel malais, beneficiant de sa position sur les routes commerciales maritimes reliant l'Inde a la Chine. Sa cour devient un centre de diffusion de l'Islam vers les régions voisines et un point d'appui pour les marchands et voyageurs musulmans traversant la région, dont le celèbre Ibn Battuta qui y fait escale au XIVe siècle.",
         source: CAMBRIDGE_HISTORY_ISLAM,
       },
       {
@@ -700,7 +700,7 @@ const PERIODS: PeriodSeed[] = [
         dateApprox: "XVe-XVIe siècle",
         eventType: "event",
         description:
-          "L'islamisation de l'ile de Java, cœur demographique de l'actuelle Indonesie, est traditionnellement associee a neuf figures missionnaires (Wali Songo, \"les neuf saints\") qui auraient combine predication religieuse et adaptation aux formes culturelles et artistiques locales - notamment le theatre d'ombres wayang - pour faciliter la conversion progressive des populations javanaises, jusque-la largement hindou-bouddhistes. Cette approche syncretique sur le plan culturel, tout en preservant l'orthodoxie religieuse de fond, caracterise durablement l'Islam de l'archipel indonesien.",
+          "L'islamisation de l'ile de Java, cœur demographique de l'actuelle Indonesie, est traditionnellement associee a neuf figures missionnaires (Wali Songo, \"les neuf saints\") qui auraient combine prédication religieuse et adaptation aux formes culturelles et artistiques locales - notamment le théâtre d'ombres wayang - pour faciliter la conversion progressive des populations javanaises, jusque-la largement hindou-bouddhistes. Cette approche syncretique sur le plan culturel, tout en preservant l'orthodoxie religieuse de fond, caracterise durablement l'Islam de l'archipel indonesien.",
         source: CAMBRIDGE_HISTORY_ISLAM,
       },
     ],

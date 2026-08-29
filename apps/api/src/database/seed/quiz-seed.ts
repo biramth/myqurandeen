@@ -1557,7 +1557,7 @@ const FINAL_QUIZZES: Record<string, QuestionSeed[]> = {
       explanation: "Badr, première grande victoire musulmane, est présentée dans le Coran (sourate Al-Anfal) comme un signe divin.",
     },
     {
-      question: "Comment le Prophète ﷺ traite-t-il ses anciens persécuteurs lors de la conquête de La Mecque ?",
+      question: "Comment le Prophète ﷺ traité-t-il ses anciens persécuteurs lors de la conquête de La Mecque ?",
       options: ["Il leur accorde une amnistie générale", "Il les bannit", "Il exige une compensation financière", "Il les exécute"],
       correctIndex: 0,
       explanation: "Il accorde une amnistie générale, y compris à nombre de ses anciens persécuteurs, un épisode largement souligné dans la tradition.",

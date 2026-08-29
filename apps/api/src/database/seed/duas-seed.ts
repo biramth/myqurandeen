@@ -5,9 +5,9 @@ import { authors, duaCategories, duas, sources } from "../schema";
 /**
  * Invocations (dua) et rappels (dhikr), compiles a partir de Hisn al-Muslim
  * ("La citadelle du musulman") de Sa'id ibn Ali ibn Wahf Al-Qahtani,
- * compilation de reference mondialement diffusee, elle-même fondee sur des
+ * compilation de référence mondialement diffusee, elle-même fondée sur des
  * hadiths authentiques (principalement Sahih al-Bukhari et Sahih Muslim).
- * Contenu volontairement limite aux invocations les plus etablies et les
+ * Contenu volontairement limite aux invocations les plus établies et les
  * mieux documentees plutôt qu'exhaustif - voir CONTRIBUTING.md (aucun
  * contenu religieux invente ou approximatif).
  */

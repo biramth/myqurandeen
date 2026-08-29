@@ -47,10 +47,10 @@ const CONCEPTS: ConceptSeed[] = [
     term: "Zakat",
     termArabic: "الزكاة",
     slug: "zakat",
-    definition: "L'aumone obligatoire prelevee annuellement sur certains biens.",
+    definition: "L'aumone obligatoire prélevée annuellement sur certains biens.",
     origin: "Racine arabe z-k-w, évoquant la purification et la croissance.",
     explanation:
-      "La zakat est une aumone obligatoire, troisième pilier de l'Islam, due annuellement par les musulmans disposant de biens depassant un seuil minimal (nisab) conserve pendant une annee lunaire complete, generalement calculee a 2,5% pour l'or, l'argent et les avoirs monetaires. Elle est redistribuee a des categories de beneficiaires définies explicitement par le Coran (sourate At-Tawba, 9:60), notamment les pauvres, les necessiteux et les personnes endettees.\n\nElle est concue a la fois comme un acte d'adoration purifiant les biens de celui qui la verse (d'où sa racine, évoquant la purification et la croissance) et comme un mecanisme structurel de redistribution sociale, distinct de la sadaqah qui reste volontaire et sans montant fixe.",
+      "La zakat est une aumone obligatoire, troisième pilier de l'Islam, due annuellement par les musulmans disposant de biens depassant un seuil minimal (nisab) conserve pendant une année lunaire complete, généralement calculee a 2,5% pour l'or, l'argent et les avoirs monetaires. Elle est redistribuee a des categories de beneficiaires définies explicitement par le Coran (sourate At-Tawba, 9:60), notamment les pauvres, les necessiteux et les personnes endettees.\n\nElle est concue a la fois comme un acte d'adoration purifiant les biens de celui qui la verse (d'où sa racine, évoquant la purification et la croissance) et comme un mecanisme structurel de redistribution sociale, distinct de la sadaqah qui reste volontaire et sans montant fixe.",
     relatedSlugs: ["sawm"],
   },
   {
@@ -60,7 +60,7 @@ const CONCEPTS: ConceptSeed[] = [
     definition: "Le jeune, notamment celui du mois de Ramadan.",
     origin: "Terme coranique, quatrième pilier de l'Islam.",
     explanation:
-      "Le sawm désigne l'abstinence complete de nourriture, de boisson et de rapports intimes du lever a la tombee du jour, principalement durant le mois lunaire de Ramadan, mois durant lequel la tradition situe le debut de la révélation coranique. Quatrième pilier de l'Islam, il est présente dans le Coran (sourate Al-Baqara, 2:183) comme un moyen d'acceder a la piété (taqwa), et non comme une fin en soi.\n\nCertaines categories de personnes (malades, voyageurs, femmes enceintes ou allaitantes...) beneficient de concessions légales (rukhsa) leur permettant de rompre le jeune sous condition de rattrapage ou de compensation, selon des modalites qui varient d'une école juridique a l'autre.",
+      "Le sawm désigne l'abstinence complete de nourriture, de boisson et de rapports intimes du lever a la tombee du jour, principalement durant le mois lunaire de Ramadan, mois durant lequel la tradition situé le debut de la révélation coranique. Quatrième pilier de l'Islam, il est présente dans le Coran (sourate Al-Baqara, 2:183) comme un moyen d'acceder a la piété (taqwa), et non comme une fin en soi.\n\nCertaines categories de personnes (malades, voyageurs, femmes enceintes ou allaitantes...) beneficient de concessions légales (rukhsa) leur permettant de rompre le jeune sous condition de rattrapage ou de compensation, selon des modalites qui varient d'une école juridique a l'autre.",
     relatedSlugs: ["taqwa", "zakat"],
   },
   {
@@ -70,7 +70,7 @@ const CONCEPTS: ConceptSeed[] = [
     definition: "Le grand pèlerinage à La Mecque, cinquième pilier de l'Islam.",
     origin: "Terme coranique associé au sanctuaire de la Kaaba.",
     explanation:
-      "Le hajj est le pèlerinage annuel a La Mecque, obligatoire une fois dans la vie pour tout musulman qui en a la capacité physique et financiere (istita'a). Il comprend une série de rites accomplis durant les premiers jours du mois de Dhul-Hijja - dont la station a Arafat, le sacrifice, la lapidation des stèles a Mina et les circumambulations autour de la Kaaba - sur des lieux associés a la tradition d'Ibrahim et Isma'il.\n\nDistinct de la 'umra (le \"petit pèlerinage\"), qui peut être accompli a tout moment de l'année et comporte moins de rites, le hajj marque chaque annee le rassemblement le plus vaste de musulmans venus du monde entier en un même lieu et un même temps.",
+      "Le hajj est le pèlerinage annuel a La Mecque, obligatoire une fois dans la vie pour tout musulman qui en a la capacité physique et financiere (istita'a). Il comprend une série de rites accomplis durant les premiers jours du mois de Dhul-Hijja - dont la station a Arafat, le sacrifice, la lapidation des stèles a Mina et les circumambulations autour de la Kaaba - sur des lieux associés a la tradition d'Ibrahim et Isma'il.\n\nDistinct de la 'umra (le \"petit pèlerinage\"), qui peut être accompli a tout moment de l'année et comporte moins de rites, le hajj marque chaque année le rassemblement le plus vaste de musulmans venus du monde entier en un même lieu et un même temps.",
     relatedSlugs: [],
   },
   {
@@ -80,7 +80,7 @@ const CONCEPTS: ConceptSeed[] = [
     definition: "La foi islamique, comprenant la croyance intérieure et son expression.",
     origin: "Racine arabe a-m-n, évoquant la sécurité et la confiance.",
     explanation:
-      "L'iman désigne la foi, généralement decrite - notamment a partir du celèbre \"hadith de Jibril\" rapporte par Muslim - comme reposant sur six articles : la croyance en Dieu, en Ses anges, en Ses livres, en Ses messagers, au Jour dernier et au décret divin (qadar). Elle est étroitement liée a l'islam (la soumission pratique, exprimee par les cinq piliers) et a l'ihsan (l'excellence spirituelle), les trois notions formant ensemble ce que ce même hadith presente comme les trois degres de la religion.\n\nLes théologiens divergent sur la définition précise de l'iman : pour les hanafites et maturidites, l'iman relève essentiellement de la croyance du cœur et de son expression verbale, tandis que pour d'autres courants, dont une partie des ash'arites et les hanbalites/atharites, les œuvres font partie integrante de l'iman, qui peut ainsi augmenter ou diminuer selon l'obéissance ou la desobeissance du croyant.",
+      "L'iman désigne la foi, généralement decrite - notamment a partir du celèbre \"hadith de Jibril\" rapporte par Muslim - comme reposant sur six articles : la croyance en Dieu, en Ses anges, en Ses livres, en Ses messagers, au Jour dernier et au décret divin (qadar). Elle est étroitement liée a l'islam (la soumission pratique, exprimee par les cinq piliers) et a l'ihsan (l'excellence spirituelle), les trois notions formant ensemble ce que ce même hadith présente comme les trois degres de la religion.\n\nLes théologiens divergent sur la définition précise de l'iman : pour les hanafites et maturidites, l'iman relève essentiellement de la croyance du cœur et de son expression verbale, tandis que pour d'autres courants, dont une partie des ash'arites et les hanbalites/atharites, les œuvres font partie integrante de l'iman, qui peut ainsi augmenter ou diminuer selon l'obéissance ou la desobeissance du croyant.",
     relatedSlugs: ["tawhid", "ihsan"],
     divergence:
       "Les théologiens divergent sur la définition précise de l'iman : pour les hanafites et maturidites, l'iman relève essentiellement de la croyance du cœur et de son expression verbale, tandis que pour d'autres courants, dont une partie des ash'arites et les hanbalites/atharites, les œuvres font partie integrante de l'iman, qui peut ainsi augmenter ou diminuer.",
@@ -92,7 +92,7 @@ const CONCEPTS: ConceptSeed[] = [
     definition: "L'excellence spirituelle dans l'adoration et le comportement.",
     origin: "Racine arabe h-s-n, évoquant la beaute et le bien-faire.",
     explanation:
-      "L'ihsan est défini dans le hadith de Jibril, rapporte par Muslim, comme le fait \"d'adorer Dieu comme si tu Le voyais, et si tu ne Le vois pas, sache que Lui te voit\". Il représente le troisième et plus élevé des degres de la religion identifies par ce hadith, au-dela de la simple observance des règles exterieures (islam) et de la croyance interieure (iman).\n\nDans son acception la plus large, l'ihsan ne se limite pas a l'adoration rituelle : le Coran l'emploie egalement pour designer l'excellence morale dans les relations humaines, notamment envers les parents (sourate Al-Isra, 17:23). Cette double dimension - conscience spirituelle constante et excellence du comportement - en fait une notion centrale de la spiritualité islamique (tasawwuf).",
+      "L'ihsan est défini dans le hadith de Jibril, rapporte par Muslim, comme le fait \"d'adorer Dieu comme si tu Le voyais, et si tu ne Le vois pas, sache que Lui te voit\". Il représente le troisième et plus élevé des degres de la religion identifies par ce hadith, au-dela de la simple observance des règles exterieures (islam) et de la croyance intérieure (iman).\n\nDans son acception la plus large, l'ihsan ne se limite pas a l'adoration rituelle : le Coran l'emploie également pour designer l'excellence morale dans les relations humaines, notamment envers les parents (sourate Al-Isra, 17:23). Cette double dimension - conscience spirituelle constante et excellence du comportement - en fait une notion centrale de la spiritualité islamique (tasawwuf).",
     relatedSlugs: ["iman", "taqwa"],
   },
   {
@@ -102,7 +102,7 @@ const CONCEPTS: ConceptSeed[] = [
     definition: "La conscience de Dieu et la crainte révérencielle qui en découle.",
     origin: "Racine arabe w-q-y, évoquant la protection.",
     explanation:
-      "La taqwa désigne un état de conscience constante de Dieu, conduisant a se proteger de Son mécontentement par l'obéissance et l'évitement du peche - une vigilance interieure plutôt qu'une simple crainte passive. Le Coran la présente frequemment comme le critère de la supériorité spirituelle entre les êtres humains, independamment de l'origine ou du statut social (sourate Al-Hujurat, 49:13).\n\nElle est également présentée comme la finalite du jeune (sourate Al-Baqara, 2:183) et comme une condition de discernement (furqan) accordee par Dieu a celui qui la cultive (sourate Al-Anfal, 8:29), articulant ainsi etroitement dimension ethique et dimension spirituelle.",
+      "La taqwa désigne un état de conscience constante de Dieu, conduisant a se protéger de Son mécontentement par l'obéissance et l'évitement du peche - une vigilance intérieure plutôt qu'une simple crainte passive. Le Coran la présente frequemment comme le critère de la supériorité spirituelle entre les êtres humains, independamment de l'origine ou du statut social (sourate Al-Hujurat, 49:13).\n\nElle est également présentée comme la finalite du jeune (sourate Al-Baqara, 2:183) et comme une condition de discernement (furqan) accordee par Dieu a celui qui la cultive (sourate Al-Anfal, 8:29), articulant ainsi étroitement dimension ethique et dimension spirituelle.",
     relatedSlugs: ["ihsan", "sawm"],
   },
   {
@@ -112,7 +112,7 @@ const CONCEPTS: ConceptSeed[] = [
     definition: "Le fait d'associer des partenaires ou des égaux à Dieu.",
     origin: "Racine arabe sh-r-k, évoquant l'association et le partage.",
     explanation:
-      "Le shirk est l'opposé du tawhid : il consiste a attribuer a une entite autre que Dieu des qualites, un pouvoir ou un droit a l'adoration qui Lui reviennent exclusivement, que ce soit de facon manifeste (adoration d'idoles ou d'autres divinites) ou plus subtile. Il est considère dans le Coran comme la faute la plus grave, la seule que Dieu n'accorde pas de pardonner sans repentir prealable (sourate An-Nisa, 4:48).\n\nLes théologiens distinguent traditionnellement le \"grand shirk\" (ash-shirk al-akbar), qui fait sortir de l'Islam, du \"petit shirk\" (ash-shirk al-asghar) comme la riya (ostentation), qui constitue une faute grave sans annuler la foi elle-même.",
+      "Le shirk est l'opposé du tawhid : il consiste a attribuer a une entite autre que Dieu des qualités, un pouvoir ou un droit a l'adoration qui Lui reviennent exclusivement, que ce soit de façon manifeste (adoration d'idoles ou d'autres divinites) ou plus subtile. Il est considère dans le Coran comme la faute la plus grave, la seule que Dieu n'accorde pas de pardonner sans repentir prealable (sourate An-Nisa, 4:48).\n\nLes théologiens distinguent traditionnellement le \"grand shirk\" (ash-shirk al-akbar), qui fait sortir de l'Islam, du \"petit shirk\" (ash-shirk al-asghar) comme la riya (ostentation), qui constitue une faute grave sans annuler la foi elle-même.",
     relatedSlugs: ["tawhid"],
   },
   {
@@ -122,7 +122,7 @@ const CONCEPTS: ConceptSeed[] = [
     definition: "La compréhension et l'élaboration du droit islamique.",
     origin: "Racine arabe f-q-h, évoquant la compréhension approfondie.",
     explanation:
-      "Le fiqh désigne la discipline juridique islamique, c'est-a-dire l'ensemble des règles pratiques deduites des sources scripturaires (Coran, Sunna) par les savants, a l'aide d'une méthodologie codifiee (usul al-fiqh) reposant sur le Coran, la Sunna, le consensus (ijma') et le raisonnement analogique (qiyas). Il couvre aussi bien le culte (ibadat - prière, jeune, zakat, hajj) que les relations sociales (mu'amalat - contrats, mariage, commerce, droit penal).\n\nA la difference de la théologie (aqida), qui traite des fondements de la croyance, le fiqh se concentre sur la mise en pratique concrete de la religion, un domaine ou la divergence licite (ikhtilaf) entre écoles juridiques est largement documentee et acceptee, comme l'illustre le comparateur de fiqh de cette plateforme.",
+      "Le fiqh désigne la discipline juridique islamique, c'est-a-dire l'ensemble des règles pratiques deduites des sources scripturaires (Coran, Sunna) par les savants, a l'aide d'une méthodologie codifiee (usul al-fiqh) reposant sur le Coran, la Sunna, le consensus (ijma') et le raisonnement analogique (qiyas). Il couvre aussi bien le culte (ibadat - prière, jeune, zakat, hajj) que les relations sociales (mu'amalat - contrats, mariage, commerce, droit penal).\n\nA la difference de la théologie (aqida), qui traité des fondements de la croyance, le fiqh se concentre sur la mise en pratique concrete de la religion, un domaine ou la divergence licite (ikhtilaf) entre écoles juridiques est largement documentee et acceptee, comme l'illustre le comparateur de fiqh de cette plateforme.",
     relatedSlugs: [],
   },
   {
@@ -132,7 +132,7 @@ const CONCEPTS: ConceptSeed[] = [
     definition: "La tradition et la pratique du Prophète Muhammad ﷺ.",
     origin: "Terme arabe désignant à l'origine une voie ou une pratique établie.",
     explanation:
-      "La sunnah renvoie a l'ensemble des paroles, actes et approbations tacites attribués au Prophète ﷺ, transmis par la tradition du hadith a travers des chaînes de rapporteurs (isnad) minutieusement etudiees par les spécialistes du hadith. Elle constitue, avec le Coran, l'une des deux sources scripturaires principales de l'Islam, et joue un rôle indispensable pour expliciter, detailler ou preciser des prescriptions coraniques enoncees de façon generale (par exemple, la manière precise d'accomplir la prière).\n\nLe terme est egalement employe dans un sens juridique plus restreint pour designer une categorie d'actes recommandes (par opposition a fard, l'obligatoire), dont l'accomplissement est meritoire sans être strictement obligatoire.",
+      "La sunnah renvoie a l'ensemble des paroles, actes et approbations tacites attribués au Prophète ﷺ, transmis par la tradition du hadith a travers des chaînes de rapporteurs (isnad) minutieusement etudiees par les spécialistes du hadith. Elle constitue, avec le Coran, l'une des deux sources scripturaires principales de l'Islam, et joue un rôle indispensable pour expliciter, detailler ou préciser des prescriptions coraniques enoncees de façon générale (par exemple, la manière précise d'accomplir la prière).\n\nLe terme est également employe dans un sens juridique plus restreint pour designer une categorie d'actes recommandes (par opposition a fard, l'obligatoire), dont l'accomplissement est meritoire sans être strictement obligatoire.",
     relatedSlugs: ["fiqh", "bidah"],
   },
   {
@@ -142,7 +142,7 @@ const CONCEPTS: ConceptSeed[] = [
     definition: "Une innovation introduite dans la pratique religieuse.",
     origin: "Racine arabe b-d-'a, évoquant la création d'une chose nouvelle.",
     explanation:
-      "La bid'ah désigne une pratique religieuse introduite sans précédent dans le Coran ou la Sunna et presentee comme faisant partie de la religion. Un hadith rapporte par Muslim avertit que \"toute innovation est un egarement\", une mise en garde qui structure fortement l'attitude traditionnelle envers les nouveautes en matiere de culte.\n\nLa portée exacte du terme - notamment la distinction entre innovations religieuses condamnables et nouveautes purement pratiques ou organisationnelles sans pretention cultuelle (moyens de communication, outils d'enseignement, etc.) - fait l'objet de discussions classiques parmi les savants ; certains distinguent meme, a l'interieur du champ religieux, des innovations \"louables\" (bid'a hasana) de pratiques manifestement contraires aux textes, une distinction elle-même debattue.",
+      "La bid'ah désigne une pratique religieuse introduite sans précédent dans le Coran ou la Sunna et présentée comme faisant partie de la religion. Un hadith rapporte par Muslim avertit que \"toute innovation est un egarement\", une mise en garde qui structure fortement l'attitude traditionnelle envers les nouveautes en matière de culte.\n\nLa portée exacte du terme - notamment la distinction entre innovations religieuses condamnables et nouveautes purement pratiques ou organisationnelles sans pretention cultuelle (moyens de communication, outils d'enseignement, etc.) - fait l'objet de discussions classiques parmi les savants ; certains distinguent même, a l'intérieur du champ religieux, des innovations \"louables\" (bid'a hasana) de pratiques manifestement contraires aux textes, une distinction elle-même debattue.",
     relatedSlugs: ["sunnah"],
   },
   {
@@ -152,7 +152,7 @@ const CONCEPTS: ConceptSeed[] = [
     definition: "Les petites ablutions rituelles preparant à la prière.",
     origin: "Racine arabe w-d-a, évoquant la proprete et l'eclat.",
     explanation:
-      "Le wudu est l'ablution rituelle requise avant la prière, decrite dans le Coran (sourate Al-Ma'ida, 5:6) : lavage du visage, des mains et avant-bras jusqu'aux coudes, essuyage de la tete et lavage des pieds jusqu'aux chevilles, accompli dans cet ordre et precede de l'intention (niyya). Il constitue une condition de validite de la prière et de plusieurs autres actes d'adoration, comme le contact avec le texte coranique selon la position juridique majoritaire.\n\nCertains actes du quotidien (sommeil profond, contact physique, emission de gaz...) sont discutes quant a leur capacité a l'invalider, les positions variant sensiblement d'une école juridique a l'autre, comme le detaille le comparateur de fiqh de cette plateforme.",
+      "Le wudu est l'ablution rituelle requise avant la prière, decrite dans le Coran (sourate Al-Ma'ida, 5:6) : lavage du visage, des mains et avant-bras jusqu'aux coudes, essuyage de la tete et lavage des pieds jusqu'aux chevilles, accompli dans cet ordre et précède de l'intention (niyya). Il constitue une condition de validite de la prière et de plusieurs autres actes d'adoration, comme le contact avec le texte coranique selon la position juridique majoritaire.\n\nCertains actes du quotidien (sommeil profond, contact physique, émission de gaz...) sont discutes quant a leur capacité a l'invalider, les positions variant sensiblement d'une école juridique a l'autre, comme le detaille le comparateur de fiqh de cette plateforme.",
     relatedSlugs: ["salah"],
   },
   {
@@ -162,7 +162,7 @@ const CONCEPTS: ConceptSeed[] = [
     definition: "Ce qui est licite ou permis selon le droit islamique.",
     origin: "Racine arabe h-l-l, évoquant ce qui est denoue ou autorise.",
     explanation:
-      "Le halal désigne tout acte, aliment ou pratique autorise par le droit islamique, par opposition au haram (interdit). Le terme est le plus souvent associé a l'alimentation - notamment l'abattage rituel de la viande - mais s'appliqué en réalité beaucoup plus largement, a l'ensemble des actes de la vie quotidienne, financiere, sociale et professionnelle.\n\nEn droit islamique classique, le halal recouvre en réalité plusieurs categories distinctes selon le degré de recommandation : l'obligatoire (fard), le recommande (mustahabb) et le simplement permis sans consequence particuliere (mubah), toutes regroupees sous le terme general de licite par opposition a l'interdit.",
+      "Le halal désigne tout acte, aliment ou pratique autorise par le droit islamique, par opposition au haram (interdit). Le terme est le plus souvent associé a l'alimentation - notamment l'abattage rituel de la viande - mais s'appliqué en réalité beaucoup plus largement, a l'ensemble des actes de la vie quotidienne, financiere, sociale et professionnelle.\n\nEn droit islamique classique, le halal recouvre en réalité plusieurs categories distinctes selon le degré de recommandation : l'obligatoire (fard), le recommande (mustahabb) et le simplement permis sans consequence particulière (mubah), toutes regroupees sous le terme général de licite par opposition a l'interdit.",
     relatedSlugs: ["haram"],
   },
   {
@@ -182,7 +182,7 @@ const CONCEPTS: ConceptSeed[] = [
     definition: "Le décret et la prédestination divine.",
     origin: "Racine arabe q-d-r, évoquant la mesure et la determination.",
     explanation:
-      "Le qadar renvoie a la croyance selon laquelle Dieu connait et a décrété de toute éternité tout ce qui adviendra - un des six articles de la foi enonces dans le hadith de Jibril - tout en laissant a l'être humain une responsabilité reelle sur ses actes, celui-ci disposant d'une capacité de choix (ikhtiyar) dont il repondra le Jour du Jugement. Cette articulation entre décret divin universel et responsabilité individuelle est presentee par la tradition sunnite comme une tension a preserver plutôt qu'a resoudre unilateralement dans un sens ou dans l'autre.\n\nL'articulation entre décret divin et libre arbitre humain a fait l'objet de debats théologiques historiques majeurs, notamment avec le mu'tazilisme qui insistait sur la liberte humaine par souci de justice divine, et avec certains courants deterministes (jabrites) a l'oppose ; la position sunnite classique se situe entre ces deux extremes.",
+      "Le qadar renvoie a la croyance selon laquelle Dieu connaît et a décrété de toute éternité tout ce qui adviendra - un des six articles de la foi enonces dans le hadith de Jibril - tout en laissant a l'être humain une responsabilité reelle sur ses actes, celui-ci disposant d'une capacité de choix (ikhtiyar) dont il repondra le Jour du Jugement. Cette articulation entre décret divin universel et responsabilité individuelle est présentée par la tradition sunnite comme une tension a preserver plutôt qu'a résoudre unilateralement dans un sens ou dans l'autre.\n\nL'articulation entre décret divin et libre arbitre humain a fait l'objet de debats théologiques historiques majeurs, notamment avec le mu'tazilisme qui insistait sur la liberté humaine par souci de justice divine, et avec certains courants deterministes (jabrites) a l'oppose ; la position sunnite classique se situé entre ces deux extrêmes.",
     relatedSlugs: ["iman"],
   },
   {
@@ -192,7 +192,7 @@ const CONCEPTS: ConceptSeed[] = [
     definition: "L'abandon confiant en Dieu après avoir pris les moyens nécessaires.",
     origin: "Racine arabe w-k-l, évoquant le fait de confier une affaire a quelqu'un.",
     explanation:
-      "Le tawakkul désigne la confiance placee en Dieu quant a l'issue des affaires, tout en accomplissant les efforts et moyens raisonnables a sa disposition - il ne s'agit donc pas d'un fatalisme passif mais d'une combinaison entre effort humain et remise de confiance envers le résultat final, qui appartient a Dieu seul. Il est souvent illustré par le hadith, rapporte par At-Tirmidhi, invitant a \"attacher sa chamelle, puis s'en remettre a Dieu\", en reponse a un compagnon qui demandait s'il devait laisser sa monture libre en professant sa confiance en Dieu.\n\nLe Coran (sourate At-Talaq, 65:3) associé le tawakkul a une promesse de suffisance divine (\"quiconque place sa confiance en Dieu, Il lui suffit\"), en faisant l'une des vertus les plus centrales de la vie spirituelle du croyant.",
+      "Le tawakkul désigne la confiance placee en Dieu quant a l'issue des affaires, tout en accomplissant les efforts et moyens raisonnables a sa disposition - il ne s'agit donc pas d'un fatalisme passif mais d'une combinaison entre effort humain et remise de confiance envers le résultat final, qui appartient a Dieu seul. Il est souvent illustré par le hadith, rapporte par At-Tirmidhi, invitant a \"attacher sa chamelle, puis s'en remettre a Dieu\", en réponse a un compagnon qui demandait s'il devait laisser sa monture libre en professant sa confiance en Dieu.\n\nLe Coran (sourate At-Talaq, 65:3) associé le tawakkul a une promesse de suffisance divine (\"quiconque place sa confiance en Dieu, Il lui suffit\"), en faisant l'une des vertus les plus centrales de la vie spirituelle du croyant.",
     relatedSlugs: ["qadar"],
   },
   {
@@ -202,7 +202,7 @@ const CONCEPTS: ConceptSeed[] = [
     definition: "La patience et l'endurance face aux épreuves.",
     origin: "Racine arabe s-b-r, évoquant le fait de se retenir et d'endurer.",
     explanation:
-      "Le sabr désigne la capacité a perseverer avec constance face aux difficultés, aux tentations ou dans l'accomplissement des obligations religieuses. Les commentateurs distinguent traditionnellement trois formes de sabr : la patience dans l'obéissance a Dieu, la patience face aux interdits (résister a la tentation) et la patience face aux épreuves et malheurs de la vie.\n\nLe Coran le présente a de nombreuses reprises comme une vertu recompensee sans limite (sourate Az-Zumar, 39:10), et l'associé frequemment a la prière comme deux ressources complementaires face aux difficultés (sourate Al-Baqara, 2:153).",
+      "Le sabr désigne la capacité a perseverer avec constance face aux difficultés, aux tentations ou dans l'accomplissement des obligations religieuses. Les commentateurs distinguent traditionnellement trois formes de sabr : la patience dans l'obéissance a Dieu, la patience face aux interdits (résister a la tentation) et la patience face aux épreuves et malheurs de la vie.\n\nLe Coran le présente a de nombreuses reprises comme une vertu récompensée sans limite (sourate Az-Zumar, 39:10), et l'associé frequemment a la prière comme deux ressources complementaires face aux difficultés (sourate Al-Baqara, 2:153).",
     relatedSlugs: ["tawakkul"],
   },
   {
@@ -212,7 +212,7 @@ const CONCEPTS: ConceptSeed[] = [
     definition: "Le rejet ou l'occultation de la foi en Dieu.",
     origin: "Racine arabe k-f-r, évoquant à l'origine le fait de couvrir ou dissimuler.",
     explanation:
-      "Le kufr désigne le rejet de la foi islamique, que ce soit par négation explicite ou par occultation volontaire d'une vérité pourtant reconnue - le sens etymologique originel de \"couvrir\" evoquant precisement l'idee de dissimuler une vérité perceptible plutôt que de simplement l'ignorer. Le terme est l'opposé conceptuel de l'iman, et designe aussi bien le rejet global de la foi islamique que, dans un sens juridique plus technique, certains actes ou paroles graves consideres comme incompatibles avec la foi.\n\nSa qualification précise dans des cas individuels est traditionnellement traitee avec une grande prudence méthodologique par les savants, qui distinguent generalement l'acte de kufr objectif du jugement porte sur la personne elle-même (takfir), reserve avec beaucoup de circonspection en raison de ses consequences graves.",
+      "Le kufr désigne le rejet de la foi islamique, que ce soit par négation explicite ou par occultation volontaire d'une vérité pourtant reconnue - le sens etymologique originel de \"couvrir\" evoquant précisément l'idée de dissimuler une vérité perceptible plutôt que de simplement l'ignorer. Le terme est l'opposé conceptuel de l'iman, et designe aussi bien le rejet global de la foi islamique que, dans un sens juridique plus technique, certains actes ou paroles graves consideres comme incompatibles avec la foi.\n\nSa qualification précise dans des cas individuels est traditionnellement traitee avec une grande prudence méthodologique par les savants, qui distinguent généralement l'acte de kufr objectif du jugement porte sur la personne elle-même (takfir), réserve avec beaucoup de circonspection en raison de ses consequences graves.",
     relatedSlugs: ["iman", "shirk"],
   },
   {
@@ -222,7 +222,7 @@ const CONCEPTS: ConceptSeed[] = [
     definition: "La communauté des croyants musulmans, au-dela des frontieres et des origines.",
     origin: "Racine arabe a-m-m, évoquant un groupe ou une nation.",
     explanation:
-      "L'umma désigne la communauté globale des musulmans, concue comme une entite unie par la foi plutôt que par l'origine ethnique, linguistique ou nationale - un principe explicitement affirme dans le celèbre sermon d'adieu du Prophète ﷺ, qui rappelle l'egalite de tous les croyants independamment de leur origine. Le concept trouvé ses fondements dans le Coran et dans la \"Constitution de Médine\", document etabli par le Prophète ﷺ peu après l'Hegire pour organiser les relations entre les différentes composantes de la société médinoise.\n\nLe terme umma est parfois employe dans un sens plus large englobant l'ensemble de l'humanité en tant que destinataire potentiel du message islamique (umma da'wa), a distinguer du sens plus restreint designant specifiquement la communauté des croyants (umma ijaba).",
+      "L'umma désigne la communauté globale des musulmans, concue comme une entite unie par la foi plutôt que par l'origine ethnique, linguistique ou nationale - un principe explicitement affirme dans le celèbre sermon d'adieu du Prophète ﷺ, qui rappelle l'égalité de tous les croyants independamment de leur origine. Le concept trouvé ses fondements dans le Coran et dans la \"Constitution de Médine\", document établi par le Prophète ﷺ peu après l'Hegire pour organiser les relations entre les différentes composantes de la société médinoise.\n\nLe terme umma est parfois employe dans un sens plus large englobant l'ensemble de l'humanité en tant que destinataire potentiel du message islamique (umma da'wa), a distinguer du sens plus restreint designant spécifiquement la communauté des croyants (umma ijaba).",
     relatedSlugs: ["tawhid"],
   },
   // --- Aqida : au-dela du tawhid et de l'iman ---
@@ -233,7 +233,7 @@ const CONCEPTS: ConceptSeed[] = [
     definition: "L'unicité de Dieu en tant que Seigneur, créateur et pourvoyeur unique de l'univers.",
     origin: "Racine arabe r-b-b, évoquant la seigneurie et l'entretien.",
     explanation:
-      "Le tawhid ar-rububiyya est le premier des trois volets classiquement distingues dans l'étude du tawhid : il affirme que Dieu seul créé, possède, gouverne et pourvoit à l'univers, sans associé dans ces fonctions.\n\nLes théologiens soulignent que ce volet du tawhid etait déjà largement reconnu par les polytheistes contemporains du Prophète ﷺ, comme le rappelle le Coran (sourate Al-Ankabut, 29:61) : reconnaitre Dieu comme créateur ne suffit donc pas a lui seul, d'où la nécessite des deux autres volets, l'uluhiyya et les asma wa sifat.",
+      "Le tawhid ar-rububiyya est le premier des trois volets classiquement distingues dans l'étude du tawhid : il affirme que Dieu seul créé, possède, gouverne et pourvoit à l'univers, sans associé dans ces fonctions.\n\nLes théologiens soulignent que ce volet du tawhid était déjà largement reconnu par les polytheistes contemporains du Prophète ﷺ, comme le rappelle le Coran (sourate Al-Ankabut, 29:61) : reconnaitre Dieu comme créateur ne suffit donc pas a lui seul, d'où la nécessite des deux autres volets, l'uluhiyya et les asma wa sifat.",
     relatedSlugs: ["tawhid", "uluhiyya", "asma-wa-sifat"],
   },
   {
@@ -331,7 +331,7 @@ const CONCEPTS: ConceptSeed[] = [
     termArabic: "الشيطان",
     slug: "shaytan",
     definition: "La figure du diable, incitant les êtrès humains et les jinns à la désobéissance envers Dieu.",
-    origin: "Racine arabe sh-t-n, évoquant l'éloignement et la rebellion.",
+    origin: "Racine arabe sh-t-n, évoquant l'éloignement et la rébellion.",
     explanation:
       "Iblis, identifié par le Coran comme un jinn, refusa par orgueil de se prosterner devant Adam sur ordre de Dieu et devint ainsi Shaytan, symbole et instigateur de la désobéissance. Le terme shaytan désigne par extension toute force ou tentation poussant vers le mal, chez les jinns comme chez les humains.\n\nLe Coran précise que le pouvoir du Shaytan sur l'être humain se limite à la suggestion (waswasa) : il ne peut contraindre personne, la responsabilité finale des actes revenant a chaque individu.",
     relatedSlugs: ["jinn", "shirk"],
@@ -364,7 +364,7 @@ const CONCEPTS: ConceptSeed[] = [
     definition: "L'humilite, l'absence d'orgueil envers Dieu et envers autrui.",
     origin: "Racine arabe w-d-a, évoquant le fait de s'abaisser.",
     explanation:
-      "Le tawadu' désigne une disposition de modestie et d'humilite, tant dans la relation au Créateur (reconnaitre sa dépendance totale envers Dieu) que dans les relations sociales (ne pas se considerer supérieur aux autres). Il est présente dans plusieurs hadiths comme une vertu elevant en réalité le statut de celui qui la pratique, à l'inverse du kibr (orgueil).",
+      "Le tawadu' désigne une disposition de modestie et d'humilite, tant dans la relation au Créateur (reconnaitre sa dépendance totale envers Dieu) que dans les relations sociales (ne pas se considérer supérieur aux autres). Il est présente dans plusieurs hadiths comme une vertu élevant en réalité le statut de celui qui la pratique, à l'inverse du kibr (orgueil).",
     relatedSlugs: ["kibr", "ihsan"],
   },
   {
@@ -424,7 +424,7 @@ const CONCEPTS: ConceptSeed[] = [
     definition: "La véracité et l'honnêteté dans la parole et les actes.",
     origin: "Racine arabe s-d-q, dont dérivé également le mot sadaqa (aumone).",
     explanation:
-      "Le sidq désigne la conformite entre ce que l'on dit, ce que l'on pense et ce que l'on fait. Il est présente dans le Coran comme étroitement lie à la foi (sourate At-Tawba, 9:119), et le Prophète ﷺ etait connu, avant même sa mission prophétique, sous le surnom d'\"Al-Amin\" (le digne de confiance) en raison de sa véracité reconnue par tous.",
+      "Le sidq désigne la conformite entre ce que l'on dit, ce que l'on pense et ce que l'on fait. Il est présente dans le Coran comme étroitement lie à la foi (sourate At-Tawba, 9:119), et le Prophète ﷺ était connu, avant même sa mission prophétique, sous le surnom d'\"Al-Amin\" (le digne de confiance) en raison de sa véracité reconnue par tous.",
     relatedSlugs: ["amanah", "ikhlas"],
   },
   {
@@ -465,7 +465,7 @@ const CONCEPTS: ConceptSeed[] = [
     definition: "Le contrat de mariage islamique, union licite entre un homme et une femme.",
     origin: "Terme coranique désignant l'union matrimoniale.",
     explanation:
-      "Le nikah est un contrat encadre par le droit islamique, comprenant des conditions (consentement, témoins, dot) et des droits et devoirs reciproques entre les epoux, présente dans le Coran comme un signe divin favorisant la tranquillité et l'affection mutuelle (sourate Ar-Rum, 30:21). Les modalites précises de certaines de ses conditions varient selon les écoles juridiques.",
+      "Le nikah est un contrat encadre par le droit islamique, comprenant des conditions (consentement, témoins, dot) et des droits et devoirs reciproques entre les époux, présente dans le Coran comme un signe divin favorisant la tranquillité et l'affection mutuelle (sourate Ar-Rum, 30:21). Les modalites précises de certaines de ses conditions varient selon les écoles juridiques.",
     relatedSlugs: ["fiqh"],
   },
   {
@@ -493,7 +493,7 @@ const CONCEPTS: ConceptSeed[] = [
     termArabic: "التقليد",
     slug: "taqlid",
     definition: "Le fait de suivre l'avis d'un savant ou d'une école juridique sans en examiner soi-même les preuves détaillées.",
-    origin: "Racine arabe q-l-d, évoquant le fait de porter un collier, au sens figure de se referer à une autorité.",
+    origin: "Racine arabe q-l-d, évoquant le fait de porter un collier, au sens figure de se référer à une autorité.",
     explanation:
       "Le taqlid désigne le fait, pour un non-specialiste, de suivre les conclusions juridiques d'un savant ou d'une école reconnue plutôt que de déduire lui-même une règle a partir des textes. La question de sa portée - notamment l'obligation ou non de suivre une seule école en toute chose - a fait l'objet de discussions méthodologiques classiques parmi les juristes.",
     relatedSlugs: ["ijtihad", "fiqh"],
@@ -505,7 +505,7 @@ const CONCEPTS: ConceptSeed[] = [
     definition: "Le consensus des savants qualifiés d'une époque sur une question de droit.",
     origin: "Racine arabe j-m-a, évoquant le rassemblement et l'accord.",
     explanation:
-      "L'ijma' désigne l'accord unanime des juristes qualifiés d'une generation sur une règle donnée, reconnu par la majorité des écoles sunnites comme la troisième source du droit islamique après le Coran et la Sunna. Sa portée pratique reste toutefois discutee, tant sur les modalites de son établissement que sur son perimetre exact.",
+      "L'ijma' désigne l'accord unanime des juristes qualifiés d'une génération sur une règle donnée, reconnu par la majorité des écoles sunnites comme la troisième source du droit islamique après le Coran et la Sunna. Sa portée pratique reste toutefois discutee, tant sur les modalites de son établissement que sur son perimetre exact.",
     relatedSlugs: ["qiyas", "fiqh"],
   },
   {
@@ -546,7 +546,7 @@ const CONCEPTS: ConceptSeed[] = [
     definition: "Les circonstances historiques ayant entouré la révélation d'un verset ou d'un passage coranique.",
     origin: "Composition arabe de asbab (causes) et nuzul (descente, révélation).",
     explanation:
-      "L'étude des asbab al-nuzul visé a identifier le contexte precis - une question posee au Prophète ﷺ, un événement particulier - dans lequel un verset a été révèle, afin de mieux en saisir la portée et d'éviter une lecture isolee de son contexte historique.",
+      "L'étude des asbab al-nuzul visé a identifier le contexte precis - une question posée au Prophète ﷺ, un événement particulier - dans lequel un verset a été révèle, afin de mieux en saisir la portée et d'éviter une lecture isolée de son contexte historique.",
     relatedSlugs: ["naskh", "wahy"],
   },
   // --- Adoration et spiritualite ---
@@ -577,7 +577,7 @@ const CONCEPTS: ConceptSeed[] = [
     definition: "Le retour vers Dieu après une faute, par le regret sincère et la résolution de ne pas y revenir.",
     origin: "Racine arabe t-w-b, évoquant le retour.",
     explanation:
-      "La tawba désigne le processus de repentir sincère, comprenant classiquement la reconnaissance de la faute, le regret, l'arret immédiat de l'acte fautif et la résolution de ne pas y revenir - accompagnee, si la faute concerne un tiers, de la reparation due. Le Coran présente Dieu comme infiniment accueillant envers quiconque se repent sincèrement (sourate Az-Zumar, 39:53).",
+      "La tawba désigne le processus de repentir sincère, comprenant classiquement la reconnaissance de la faute, le regret, l'arret immédiat de l'acte fautif et la résolution de ne pas y revenir - accompagnee, si la faute concerne un tiers, de la réparation due. Le Coran présente Dieu comme infiniment accueillant envers quiconque se repent sincèrement (sourate Az-Zumar, 39:53).",
     relatedSlugs: ["istighfar"],
   },
   {

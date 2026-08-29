@@ -55,7 +55,7 @@ const BOOKS: BookSeed[] = [
     authorName: "At-Tirmidhi",
     authorEra: "209-279 AH / 824-892",
     description:
-      "Recueil reconnu pour avoir systématiquement indiqué le degré d'authenticité de chaque hadith et signalé les divergences d'interprétation entre savants sur un même texte, ce qui en fait une référence privilegiee pour l'étude comparee du fiqh.",
+      "Recueil reconnu pour avoir systématiquement indiqué le degré d'authenticité de chaque hadith et signalé les divergences d'interprétation entre savants sur un même texte, ce qui en fait une référence privilégiée pour l'étude comparee du fiqh.",
     language: "ar",
     era: "IIIe siècle AH / IXe siècle",
     categories: ["Hadith"],
@@ -245,7 +245,7 @@ const BOOKS: BookSeed[] = [
     authorName: "Ibn Manzur",
     authorEra: "630-711 AH / 1233-1312",
     description:
-      "L'un des dictionnaires de langue arabe classique les plus complets, rassemblant les usages et significations attestes du vocabulaire arabe à travers la poesie preislamique, le Coran et le hadith.",
+      "L'un des dictionnaires de langue arabe classique les plus complets, rassemblant les usages et significations attestes du vocabulaire arabe à travers la poésie preislamique, le Coran et le hadith.",
     language: "ar",
     era: "VIIe-VIIIe siècle AH / XIIIe-XIVe siècle",
     categories: ["Langue arabe"],
@@ -355,7 +355,7 @@ const BOOKS: BookSeed[] = [
     authorName: "Ibn Taymiyya",
     authorEra: "661-728 AH / 1263-1328",
     description:
-      "Traité de croyance rédigé par Ibn Taymiyya a la demande d'un juge de la ville de Wasit, presentant ce que l'auteur considère comme la croyance des premières generations musulmanes (salaf) sur les questions relatives aux attributs divins.",
+      "Traité de croyance rédigé par Ibn Taymiyya a la demande d'un juge de la ville de Wasit, presentant ce que l'auteur considère comme la croyance des premières générations musulmanes (salaf) sur les questions relatives aux attributs divins.",
     language: "ar",
     era: "VIIe-VIIIe siècle AH / XIIIe-XIVe siècle",
     categories: ["Aqida"],

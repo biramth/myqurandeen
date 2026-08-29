@@ -4,7 +4,7 @@ import type { Database } from "../database.module";
 import { roles, users } from "../schema";
 
 /**
- * Cree un premier compte SUPER_ADMIN uniquement si ADMIN_EMAIL et
+ * Crée un premier compte SUPER_ADMIN uniquement si ADMIN_EMAIL et
  * ADMIN_PASSWORD sont fournis en variables d'environnement. Aucun mot de
  * passe par defaut n'est code en dur.
  */
@@ -19,7 +19,7 @@ export async function seedBootstrapAdmin(db: Database): Promise<void> {
 
   const existing = await db.query.users.findFirst({ where: eq(users.email, email) });
   if (existing) {
-    console.log(`Bootstrap admin: ${email} existe deja, etape ignoree.`);
+    console.log(`Bootstrap admin: ${email} existe déjà, etape ignoree.`);
     return;
   }
 
@@ -37,5 +37,5 @@ export async function seedBootstrapAdmin(db: Database): Promise<void> {
     emailVerifiedAt: new Date(),
   });
 
-  console.log(`Bootstrap admin: compte SUPER_ADMIN cree pour ${email}.`);
+  console.log(`Bootstrap admin: compte SUPER_ADMIN créé pour ${email}.`);
 }
