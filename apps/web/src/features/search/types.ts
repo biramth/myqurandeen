@@ -24,4 +24,5 @@ export interface SearchResults {
   events: { id: string; title: string; slug: string; periodSlug: string; description: string }[];
   fiqhTopics: { id: string; title: string; slug: string; description: string | null }[];
   schools: { id: string; name: string; slug: string; type: string }[];
+  duas: { id: string; title: string; translation: string; categorySlug: string; categoryName: string }[];
 }

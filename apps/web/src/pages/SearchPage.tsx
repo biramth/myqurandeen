@@ -24,6 +24,7 @@ const FILTERS = [
   { key: "events", labelKey: "history.title" },
   { key: "fiqhTopics", labelKey: "schools.comparatorTitle" },
   { key: "schools", labelKey: "schools.title" },
+  { key: "duas", labelKey: "duas.title" },
 ] as const;
 
 type FilterKey = (typeof FILTERS)[number]["key"];
@@ -58,7 +59,8 @@ function resultCounts(data: SearchResults): Record<FilterKey, number> {
       data.prophets.length +
       data.events.length +
       data.fiqhTopics.length +
-      data.schools.length,
+      data.schools.length +
+      data.duas.length,
     verses: data.verses.length,
     hadiths: data.hadiths.length,
     tafsirEntries: data.tafsirEntries.length,
@@ -69,6 +71,7 @@ function resultCounts(data: SearchResults): Record<FilterKey, number> {
     events: data.events.length,
     fiqhTopics: data.fiqhTopics.length,
     schools: data.schools.length,
+    duas: data.duas.length,
   };
 }
 
@@ -308,6 +311,22 @@ export function SearchPage() {
                   <Card className="transition-colors hover:border-primary/50">
                     <CardContent className="p-3">
                       <p className="text-sm font-medium">{school.name}</p>
+                    </CardContent>
+                  </Card>
+                </Link>
+              ))}
+            </ResultSection>
+          )}
+
+          {showSection("duas") && (
+            <ResultSection title={t("duas.title")} count={data.duas.length}>
+              {data.duas.map((dua) => (
+                <Link key={dua.id} to={`/duas/${dua.categorySlug}`}>
+                  <Card className="transition-colors hover:border-primary/50">
+                    <CardContent className="p-3">
+                      <p className="text-xs text-muted-foreground">{dua.categoryName}</p>
+                      <p className="mt-0.5 text-sm font-medium">{dua.title}</p>
+                      <p className="mt-1 line-clamp-2 text-sm text-muted-foreground">{dua.translation}</p>
                     </CardContent>
                   </Card>
                 </Link>

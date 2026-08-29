@@ -6,6 +6,8 @@ import {
   authors,
   books,
   concepts,
+  duaCategories,
+  duas,
   fiqhTopics,
   hadithBooks,
   hadithCollections,
@@ -47,6 +49,7 @@ export class SearchService {
         events: [],
         fiqhTopics: [],
         schools: [],
+        duas: [],
       };
     }
 
@@ -161,7 +164,7 @@ export class SearchService {
       .sort((a, b) => b.rank - a.rank)
       .slice(0, RESULT_LIMIT);
 
-    const [conceptRows, scholarRows, prophetRows, eventRows, fiqhTopicRows, schoolRows] = await Promise.all([
+    const [conceptRows, scholarRows, prophetRows, eventRows, fiqhTopicRows, schoolRows, duaRows] = await Promise.all([
       this.db
         .select({ id: concepts.id, term: concepts.term, slug: concepts.slug, definition: concepts.definition })
         .from(concepts)
@@ -201,6 +204,19 @@ export class SearchService {
         .from(schools)
         .where(or(ilike(schools.name, like), ilike(schools.history, like)))
         .limit(RESULT_LIMIT),
+      // Duas et dhikr
+      this.db
+        .select({
+          id: duas.id,
+          title: duas.title,
+          translation: duas.translation,
+          categorySlug: duaCategories.slug,
+          categoryName: duaCategories.name,
+        })
+        .from(duas)
+        .innerJoin(duaCategories, eq(duaCategories.id, duas.categoryId))
+        .where(or(ilike(duas.title, like), ilike(duas.translation, like), ilike(duas.transliteration, like)))
+        .limit(RESULT_LIMIT),
     ]);
 
     return {
@@ -214,6 +230,7 @@ export class SearchService {
       events: eventRows,
       fiqhTopics: fiqhTopicRows,
       schools: schoolRows,
+      duas: duaRows,
     };
   }
 }
