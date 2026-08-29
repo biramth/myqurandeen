@@ -24,6 +24,7 @@ import { SchoolsModule } from "./modules/schools/schools.module";
 import { ScholarsModule } from "./modules/scholars/scholars.module";
 import { HistoryModule } from "./modules/history/history.module";
 import { ConceptsModule } from "./modules/concepts/concepts.module";
+import { DuasModule } from "./modules/duas/duas.module";
 import { LibraryModule } from "./modules/library/library.module";
 import { LearningModule } from "./modules/learning/learning.module";
 import { SearchModule } from "./modules/search/search.module";
@@ -65,6 +66,7 @@ import { AiModule } from "./modules/ai/ai.module";
     ScholarsModule,
     HistoryModule,
     ConceptsModule,
+    DuasModule,
     LibraryModule,
     LearningModule,
     SearchModule,

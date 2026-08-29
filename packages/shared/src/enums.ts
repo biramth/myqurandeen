@@ -42,6 +42,7 @@ export const TARGET_TYPES = [
   "event",
   "fiqh_topic",
   "lesson",
+  "dua",
 ] as const;
 export type TargetType = (typeof TARGET_TYPES)[number];
 

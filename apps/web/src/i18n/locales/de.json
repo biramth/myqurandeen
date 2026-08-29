@@ -2,6 +2,7 @@
   "nav": {
     "quran": "Koran",
     "hadith": "Hadith",
+    "duas": "Dua & Dhikr",
     "fiqh": "Fiqh",
     "history": "Geschichte",
     "library": "Bibliothek",
@@ -192,7 +193,19 @@
     "scholar": "Gelehrter",
     "event": "Ereignis",
     "fiqh_topic": "Fiqh-Thema",
-    "lesson": "Lektion"
+    "lesson": "Lektion",
+    "dua": "Bittgebet"
+  },
+  "duas": {
+    "title": "Dua & Dhikr",
+    "subtitle": "Bittgebete und Gedenkformeln nach Themen geordnet - arabischer Text, Transliteration, Übersetzung und Wiederholungszähler.",
+    "error": "Die Kategorien konnten nicht geladen werden.",
+    "errorDetail": "Diese Kategorie konnte nicht geladen werden.",
+    "backToList": "Alle Kategorien",
+    "readReference": "Koranvers lesen",
+    "counterTap": "Zählen",
+    "counterDone": "Fertig",
+    "counterReset": "Zähler zurücksetzen"
   },
   "quran": {
     "title": "Der Koran",

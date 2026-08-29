@@ -11,3 +11,4 @@ export * from "./user-data";
 export * from "./moderation";
 export * from "./prophets";
 export * from "./ai-embeddings";
+export * from "./duas";

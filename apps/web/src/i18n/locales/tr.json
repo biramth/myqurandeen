@@ -2,6 +2,7 @@
   "nav": {
     "quran": "Kuran",
     "hadith": "Hadis",
+    "duas": "Dua ve Zikir",
     "fiqh": "Fikih",
     "history": "Tarih",
     "library": "Kutuphane",
@@ -192,7 +193,19 @@
     "scholar": "Alim",
     "event": "Olay",
     "fiqh_topic": "Fıkıh konusu",
-    "lesson": "Ders"
+    "lesson": "Ders",
+    "dua": "Dua"
+  },
+  "duas": {
+    "title": "Dua ve Zikir",
+    "subtitle": "Konularina gore siniflandirilmis dua ve zikirler - Arapca metin, okunusu, ceviri ve tekrar sayaci.",
+    "error": "Kategoriler yuklenemedi.",
+    "errorDetail": "Bu kategori yuklenemedi.",
+    "backToList": "Tum kategoriler",
+    "readReference": "Ayeti oku",
+    "counterTap": "Say",
+    "counterDone": "Tamamlandi",
+    "counterReset": "Sayaci sifirla"
   },
   "quran": {
     "title": "Kuran",

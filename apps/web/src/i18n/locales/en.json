@@ -2,6 +2,7 @@
   "nav": {
     "quran": "Quran",
     "hadith": "Hadith",
+    "duas": "Dua & Dhikr",
     "fiqh": "Fiqh",
     "history": "History",
     "library": "Library",
@@ -192,7 +193,19 @@
     "scholar": "Scholar",
     "event": "Event",
     "fiqh_topic": "Fiqh topic",
-    "lesson": "Lesson"
+    "lesson": "Lesson",
+    "dua": "Supplication"
+  },
+  "duas": {
+    "title": "Dua & Dhikr",
+    "subtitle": "Supplications and remembrances organized by theme - Arabic text, transliteration, translation and a repetition counter.",
+    "error": "Unable to load the categories.",
+    "errorDetail": "Unable to load this category.",
+    "backToList": "All categories",
+    "readReference": "Read the Quranic passage",
+    "counterTap": "Count",
+    "counterDone": "Done",
+    "counterReset": "Reset the counter"
   },
   "quran": {
     "title": "The Quran",

@@ -7,7 +7,8 @@ export type TargetType =
   | "scholar"
   | "event"
   | "fiqh_topic"
-  | "lesson";
+  | "lesson"
+  | "dua";
 
 interface TargetInfo {
   title: string;

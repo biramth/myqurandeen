@@ -4,6 +4,7 @@ import {
   Scale,
   History,
   GraduationCap,
+  HandHeart,
   Library,
   Route,
   Users,
@@ -36,6 +37,7 @@ export const NAV_GROUPS: NavGroup[] = [
     items: [
       { labelKey: "nav.quran", href: "/quran", icon: BookOpen },
       { labelKey: "nav.hadith", href: "/hadith", icon: ScrollText },
+      { labelKey: "nav.duas", href: "/duas", icon: HandHeart },
     ],
   },
   {

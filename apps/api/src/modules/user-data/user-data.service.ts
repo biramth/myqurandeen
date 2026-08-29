@@ -9,6 +9,8 @@ import {
   collectionItems,
   collections,
   concepts,
+  duaCategories,
+  duas,
   fiqhTopics,
   hadithCollections,
   hadiths,
@@ -145,6 +147,15 @@ export class UserDataService {
             .from(fiqhTopics)
             .where(inArray(fiqhTopics.id, ids));
           for (const r of rows) result.set(`fiqh_topic:${r.id}`, { title: r.title, href: `/fiqh/${r.slug}` });
+          break;
+        }
+        case "dua": {
+          const rows = await this.db
+            .select({ id: duas.id, title: duas.title, categorySlug: duaCategories.slug })
+            .from(duas)
+            .innerJoin(duaCategories, eq(duas.categoryId, duaCategories.id))
+            .where(inArray(duas.id, ids));
+          for (const r of rows) result.set(`dua:${r.id}`, { title: r.title, href: `/duas/${r.categorySlug}` });
           break;
         }
         case "lesson": {

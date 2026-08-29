@@ -2,6 +2,7 @@
   "nav": {
     "quran": "Coran",
     "hadith": "Hadith",
+    "duas": "Dua & Dhikr",
     "fiqh": "Fiqh",
     "history": "Histoire",
     "library": "Bibliothèque",
@@ -192,7 +193,19 @@
     "scholar": "Savant",
     "event": "Événement",
     "fiqh_topic": "Sujet de fiqh",
-    "lesson": "Leçon"
+    "lesson": "Leçon",
+    "dua": "Invocation"
+  },
+  "duas": {
+    "title": "Dua & Dhikr",
+    "subtitle": "Invocations et rappels classés par thème - texte arabe, translittération, traduction et compteur de répétitions.",
+    "error": "Impossible de charger les catégories.",
+    "errorDetail": "Impossible de charger cette catégorie.",
+    "backToList": "Toutes les catégories",
+    "readReference": "Lire le passage coranique",
+    "counterTap": "Compter",
+    "counterDone": "Terminé",
+    "counterReset": "Réinitialiser le compteur"
   },
   "quran": {
     "title": "Le Coran",

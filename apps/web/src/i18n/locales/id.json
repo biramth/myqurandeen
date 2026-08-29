@@ -2,6 +2,7 @@
   "nav": {
     "quran": "Al-Quran",
     "hadith": "Hadis",
+    "duas": "Doa & Dzikir",
     "fiqh": "Fikih",
     "history": "Sejarah",
     "library": "Perpustakaan",
@@ -191,7 +192,19 @@
     "scholar": "Ulama",
     "event": "Peristiwa",
     "fiqh_topic": "Topik fikih",
-    "lesson": "Pelajaran"
+    "lesson": "Pelajaran",
+    "dua": "Doa"
+  },
+  "duas": {
+    "title": "Doa & Dzikir",
+    "subtitle": "Doa dan dzikir dikelompokkan berdasarkan tema - teks Arab, transliterasi, terjemahan, dan penghitung pengulangan.",
+    "error": "Kategori tidak dapat dimuat.",
+    "errorDetail": "Kategori ini tidak dapat dimuat.",
+    "backToList": "Semua kategori",
+    "readReference": "Baca ayat terkait",
+    "counterTap": "Hitung",
+    "counterDone": "Selesai",
+    "counterReset": "Atur ulang penghitung"
   },
   "quran": {
     "title": "Al-Quran",

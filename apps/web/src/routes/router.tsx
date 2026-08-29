@@ -37,6 +37,12 @@ const HistoryPeriodPage = React.lazy(() =>
 const HistoryEventPage = React.lazy(() =>
   import("@/pages/history/HistoryEventPage").then((m) => ({ default: m.HistoryEventPage })),
 );
+const DuaCategoriesPage = React.lazy(() =>
+  import("@/pages/duas/DuaCategoriesPage").then((m) => ({ default: m.DuaCategoriesPage })),
+);
+const DuaCategoryPage = React.lazy(() =>
+  import("@/pages/duas/DuaCategoryPage").then((m) => ({ default: m.DuaCategoryPage })),
+);
 const SchoolsPage = React.lazy(() => import("@/pages/schools/SchoolsPage").then((m) => ({ default: m.SchoolsPage })));
 const SchoolPage = React.lazy(() => import("@/pages/schools/SchoolPage").then((m) => ({ default: m.SchoolPage })));
 const FiqhComparatorPage = React.lazy(() =>
@@ -117,6 +123,9 @@ export function AppRouter() {
           <Route path="/hadith/:collection/:number" element={<HadithDetailPage />} />
 
           <Route path="/tafsir" element={<TafsirWorksPage />} />
+
+          <Route path="/duas" element={<DuaCategoriesPage />} />
+          <Route path="/duas/:slug" element={<DuaCategoryPage />} />
 
           <Route path="/history" element={<HistoryPeriodsPage />} />
           <Route path="/history/event/:slug" element={<HistoryEventPage />} />

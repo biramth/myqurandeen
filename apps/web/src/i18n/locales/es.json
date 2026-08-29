@@ -2,6 +2,7 @@
   "nav": {
     "quran": "Coran",
     "hadith": "Hadiz",
+    "duas": "Dua y Dhikr",
     "fiqh": "Fiqh",
     "history": "Historia",
     "library": "Biblioteca",
@@ -192,7 +193,19 @@
     "scholar": "Erudito",
     "event": "Evento",
     "fiqh_topic": "Tema de fiqh",
-    "lesson": "Lección"
+    "lesson": "Lección",
+    "dua": "Súplica"
+  },
+  "duas": {
+    "title": "Dua y Dhikr",
+    "subtitle": "Súplicas y recuerdos clasificados por tema - texto árabe, transliteración, traducción y contador de repeticiones.",
+    "error": "No se pudieron cargar las categorías.",
+    "errorDetail": "No se pudo cargar esta categoría.",
+    "backToList": "Todas las categorías",
+    "readReference": "Leer el pasaje coránico",
+    "counterTap": "Contar",
+    "counterDone": "Hecho",
+    "counterReset": "Reiniciar el contador"
   },
   "quran": {
     "title": "El Coran",
