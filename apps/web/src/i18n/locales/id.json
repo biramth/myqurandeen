@@ -268,7 +268,8 @@
     "backToList": "Semua nabi",
     "era": "Masa",
     "peopleAddressed": "Kaum",
-    "quranicMentions": "Penyebutan dalam Al-Quran"
+    "quranicMentions": "Penyebutan dalam Al-Quran",
+    "narrative": "Kisah"
   },
   "schools": {
     "title": "Mazhab dan fikih",
@@ -354,7 +355,8 @@
     "error": "Ulama tidak dapat dimuat.",
     "errorDetail": "Halaman ini tidak dapat dimuat.",
     "backToList": "Semua ulama",
-    "schools": "Mazhab"
+    "schools": "Mazhab",
+    "biography": "Biografi"
   },
   "concepts": {
     "title": "Konsep Islam",

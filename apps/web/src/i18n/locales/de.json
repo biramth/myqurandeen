@@ -269,7 +269,8 @@
     "backToList": "Alle Propheten",
     "era": "Epoche",
     "peopleAddressed": "Volk",
-    "quranicMentions": "Koranische Erwahnungen"
+    "quranicMentions": "Koranische Erwahnungen",
+    "narrative": "Erzählung"
   },
   "schools": {
     "title": "Rechtsschulen und Fiqh",
@@ -355,7 +356,8 @@
     "error": "Die Gelehrten konnten nicht geladen werden.",
     "errorDetail": "Diese Seite konnte nicht geladen werden.",
     "backToList": "Alle Gelehrten",
-    "schools": "Rechtsschule"
+    "schools": "Rechtsschule",
+    "biography": "Biografie"
   },
   "concepts": {
     "title": "Islamische Konzepte",

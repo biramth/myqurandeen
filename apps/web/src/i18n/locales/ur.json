@@ -269,7 +269,8 @@
     "backToList": "تمام انبیاء",
     "era": "دور",
     "peopleAddressed": "قوم",
-    "quranicMentions": "قرآنی ذکر"
+    "quranicMentions": "قرآنی ذکر",
+    "narrative": "بیان"
   },
   "schools": {
     "title": "مذاہب اور فقہ",
@@ -355,7 +356,8 @@
     "error": "علماء لوڈ نہیں ہو سکے۔",
     "errorDetail": "یہ صفحہ لوڈ نہیں ہو سکا۔",
     "backToList": "تمام علماء",
-    "schools": "مذہب"
+    "schools": "مذہب",
+    "biography": "سوانح حیات"
   },
   "concepts": {
     "title": "اسلامی تصورات",

@@ -271,7 +271,8 @@
     "backToList": "Все пророки",
     "era": "Эпоха",
     "peopleAddressed": "Народ",
-    "quranicMentions": "Упоминания в Коране"
+    "quranicMentions": "Упоминания в Коране",
+    "narrative": "Повествование"
   },
   "schools": {
     "title": "Мазхабы и фикх",
@@ -357,7 +358,8 @@
     "error": "Не удалось загрузить ученых.",
     "errorDetail": "Не удалось загрузить эту страницу.",
     "backToList": "Все ученые",
-    "schools": "Мазхаб"
+    "schools": "Мазхаб",
+    "biography": "Биография"
   },
   "concepts": {
     "title": "Исламские понятия",

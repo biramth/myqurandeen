@@ -269,7 +269,8 @@
     "backToList": "Todos los profetas",
     "era": "Epoca",
     "peopleAddressed": "Pueblo",
-    "quranicMentions": "Menciones coranicas"
+    "quranicMentions": "Menciones coranicas",
+    "narrative": "Relato"
   },
   "schools": {
     "title": "Escuelas y fiqh",
@@ -355,7 +356,8 @@
     "error": "No se pudieron cargar los sabios.",
     "errorDetail": "No se pudo cargar esta pagina.",
     "backToList": "Todos los sabios",
-    "schools": "Escuela"
+    "schools": "Escuela",
+    "biography": "Biografía"
   },
   "concepts": {
     "title": "Conceptos islamicos",

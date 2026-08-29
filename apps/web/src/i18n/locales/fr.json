@@ -385,7 +385,8 @@
     "backToList": "Tous les prophètes",
     "era": "Époque",
     "peopleAddressed": "Peuple",
-    "quranicMentions": "Mentions coraniques"
+    "quranicMentions": "Mentions coraniques",
+    "narrative": "Récit"
   },
   "schools": {
     "title": "Écoles et fiqh",
@@ -471,7 +472,8 @@
     "error": "Impossible de charger les savants.",
     "errorDetail": "Impossible de charger cette fiche.",
     "backToList": "Tous les savants",
-    "schools": "École"
+    "schools": "École",
+    "biography": "Biographie"
   },
   "concepts": {
     "title": "Concepts islamiques",

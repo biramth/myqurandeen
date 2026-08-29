@@ -1,6 +1,7 @@
 import { Link, Navigate, useParams } from "react-router-dom";
 import { useQuery } from "@tanstack/react-query";
 import { useTranslation } from "react-i18next";
+import { History } from "lucide-react";
 import { Separator } from "@/components/ui/separator";
 import { Skeleton } from "@/components/ui/skeleton";
 import { Breadcrumbs } from "@/components/shared/Breadcrumbs";
@@ -33,11 +34,18 @@ export function HistoryPeriodPage() {
       {data && (
         <>
           <header className="mb-6">
-            <h1 className="text-xl font-semibold">{data.name}</h1>
-            <p className="text-sm text-muted-foreground">
-              {data.startYear} - {data.endYear} {data.region ? `- ${data.region}` : ""}
-            </p>
-            {data.description && <ProseText text={data.description} className="mt-3" />}
+            <div className="mb-1 flex items-center gap-3">
+              <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary">
+                <History className="h-5 w-5" aria-hidden="true" />
+              </span>
+              <div>
+                <h1 className="text-xl font-semibold">{data.name}</h1>
+                <p className="text-sm tabular-nums text-muted-foreground">
+                  {data.startYear} - {data.endYear} {data.region ? `- ${data.region}` : ""}
+                </p>
+              </div>
+            </div>
+            {data.description && <ProseText text={data.description} className="mt-4" />}
           </header>
 
           <h2 className="mb-3 text-sm font-semibold uppercase tracking-wide text-muted-foreground">

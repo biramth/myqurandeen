@@ -269,7 +269,8 @@
     "backToList": "Tum peygamberler",
     "era": "Donem",
     "peopleAddressed": "Kavim",
-    "quranicMentions": "Kuran'da gecisi"
+    "quranicMentions": "Kuran'da gecisi",
+    "narrative": "Anlati"
   },
   "schools": {
     "title": "Mezhepler ve fikih",
@@ -355,7 +356,8 @@
     "error": "Alimler yuklenemedi.",
     "errorDetail": "Bu sayfa yuklenemedi.",
     "backToList": "Tum alimler",
-    "schools": "Mezhep"
+    "schools": "Mezhep",
+    "biography": "Biyografi"
   },
   "concepts": {
     "title": "Islami kavramlar",

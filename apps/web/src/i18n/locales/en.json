@@ -269,7 +269,8 @@
     "backToList": "All prophets",
     "era": "Era",
     "peopleAddressed": "People",
-    "quranicMentions": "Quranic mentions"
+    "quranicMentions": "Quranic mentions",
+    "narrative": "Narrative"
   },
   "schools": {
     "title": "Schools and fiqh",
@@ -355,7 +356,8 @@
     "error": "Unable to load the scholars.",
     "errorDetail": "Unable to load this page.",
     "backToList": "All scholars",
-    "schools": "School"
+    "schools": "School",
+    "biography": "Biography"
   },
   "concepts": {
     "title": "Islamic concepts",

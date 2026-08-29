@@ -1,6 +1,7 @@
 import { Navigate, useParams } from "react-router-dom";
 import { useQuery } from "@tanstack/react-query";
 import { useTranslation } from "react-i18next";
+import { BookOpen, Clock, Users } from "lucide-react";
 import { Skeleton } from "@/components/ui/skeleton";
 import { Breadcrumbs } from "@/components/shared/Breadcrumbs";
 import { ProseText } from "@/components/shared/ProseText";
@@ -31,36 +32,55 @@ export function ProphetPage() {
 
       {data && (
         <>
-          <div className="mb-4 flex items-center justify-between gap-3">
-            <h1 className="text-xl font-semibold">{data.name}</h1>
-            {data.nameArabic && (
-              <span dir="rtl" className="font-arabic text-2xl">
-                {data.nameArabic}
-              </span>
-            )}
+          <div className="mb-1 flex items-center gap-3">
+            <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary">
+              <Users className="h-5 w-5" aria-hidden="true" />
+            </span>
+            <div className="flex flex-1 flex-wrap items-baseline justify-between gap-x-3 gap-y-1">
+              <h1 className="text-xl font-semibold">{data.name}</h1>
+              {data.nameArabic && (
+                <span dir="rtl" className="font-arabic text-2xl">
+                  {data.nameArabic}
+                </span>
+              )}
+            </div>
           </div>
 
-          <dl className="mb-6 space-y-1 text-sm text-muted-foreground">
-            {data.era && (
-              <div>
-                <dt className="inline font-medium text-foreground">{t("prophets.era")} : </dt>
-                <dd className="inline">{data.era}</dd>
-              </div>
-            )}
-            {data.peopleAddressed && (
-              <div>
-                <dt className="inline font-medium text-foreground">{t("prophets.peopleAddressed")} : </dt>
-                <dd className="inline">{data.peopleAddressed}</dd>
-              </div>
-            )}
-            {data.quranicMentions && (
-              <div>
-                <dt className="inline font-medium text-foreground">{t("prophets.quranicMentions")} : </dt>
-                <dd className="inline">{data.quranicMentions}</dd>
-              </div>
-            )}
-          </dl>
+          {(data.era || data.peopleAddressed || data.quranicMentions) && (
+            <div className="mb-6 mt-4 space-y-2 rounded-md border bg-muted/30 p-3 text-sm">
+              {data.era && (
+                <p className="flex items-start gap-2">
+                  <Clock className="mt-0.5 h-4 w-4 shrink-0 text-muted-foreground" aria-hidden="true" />
+                  <span>
+                    <span className="text-muted-foreground">{t("prophets.era")} : </span>
+                    {data.era}
+                  </span>
+                </p>
+              )}
+              {data.peopleAddressed && (
+                <p className="flex items-start gap-2">
+                  <Users className="mt-0.5 h-4 w-4 shrink-0 text-muted-foreground" aria-hidden="true" />
+                  <span>
+                    <span className="text-muted-foreground">{t("prophets.peopleAddressed")} : </span>
+                    {data.peopleAddressed}
+                  </span>
+                </p>
+              )}
+              {data.quranicMentions && (
+                <p className="flex items-start gap-2">
+                  <BookOpen className="mt-0.5 h-4 w-4 shrink-0 text-muted-foreground" aria-hidden="true" />
+                  <span>
+                    <span className="text-muted-foreground">{t("prophets.quranicMentions")} : </span>
+                    {data.quranicMentions}
+                  </span>
+                </p>
+              )}
+            </div>
+          )}
 
+          <h2 className="mb-1.5 text-sm font-semibold uppercase tracking-wide text-muted-foreground">
+            {t("prophets.narrative")}
+          </h2>
           <ProseText text={data.description} />
         </>
       )}

@@ -1,6 +1,7 @@
 import { Navigate, useParams } from "react-router-dom";
 import { useQuery } from "@tanstack/react-query";
 import { useTranslation } from "react-i18next";
+import { History } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { Skeleton } from "@/components/ui/skeleton";
 import { Breadcrumbs } from "@/components/shared/Breadcrumbs";
@@ -37,12 +38,19 @@ export function HistoryEventPage() {
 
       {data && (
         <>
-          {data.period && <p className="mb-1 text-sm text-muted-foreground">{data.period.name}</p>}
-          <div className="mb-2 flex items-center gap-2">
-            <h1 className="text-xl font-semibold">{data.event.title}</h1>
-            {data.event.dateApprox && <Badge variant="secondary">{data.event.dateApprox}</Badge>}
+          <div className="mb-1 flex items-start gap-3">
+            <span className="mt-0.5 flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary">
+              <History className="h-5 w-5" aria-hidden="true" />
+            </span>
+            <div>
+              {data.period && <p className="text-sm text-muted-foreground">{data.period.name}</p>}
+              <div className="flex flex-wrap items-center gap-2">
+                <h1 className="text-xl font-semibold">{data.event.title}</h1>
+                {data.event.dateApprox && <Badge variant="secondary">{data.event.dateApprox}</Badge>}
+              </div>
+            </div>
           </div>
-          <ProseText text={data.event.description} className="mt-3" />
+          <ProseText text={data.event.description} className="mt-4" />
 
           <ContentUserActions targetType="event" targetId={data.event.id} className="mt-5" />
 
