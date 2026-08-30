@@ -1,10 +1,22 @@
 import { z } from "zod";
 
-export const envSchema = z.object({
-  NODE_ENV: z.enum(["development", "test", "production"]).default("development"),
-  API_PORT: z.coerce.number().int().positive().default(3000),
-  DATABASE_URL: z.string().url(),
-  WEB_URL: z.string().url().default("http://localhost:5173"),
+/** Hotenames locaux : une URL vers ceux-ci ne doit jamais servir de base aux emails. */
+const LOCAL_HOSTNAMES = new Set(["localhost", "127.0.0.1", "0.0.0.0", "[::1]", "::1"]);
+
+function isLocalHost(url: string): boolean {
+  try {
+    return LOCAL_HOSTNAMES.has(new URL(url).hostname);
+  } catch {
+    return true;
+  }
+}
+
+export const envSchema = z
+  .object({
+    NODE_ENV: z.enum(["development", "test", "production"]).default("development"),
+    API_PORT: z.coerce.number().int().positive().default(3000),
+    DATABASE_URL: z.string().url(),
+    WEB_URL: z.string().url().default("http://localhost:5173"),
   // Origines CORS supplementaires (sep. par des virgules), en plus de WEB_URL.
   CORS_ORIGINS: z.string().optional(),
   JWT_ACCESS_SECRET: z.string().min(16, "JWT_ACCESS_SECRET doit faire au moins 16 caracteres"),
@@ -61,7 +73,33 @@ export const envSchema = z.object({
   // reinitialisation de mot de passe.
   VERIFY_TOKEN_TTL_SECONDS: z.coerce.number().int().positive().default(3600),
   RESET_TOKEN_TTL_SECONDS: z.coerce.number().int().positive().default(3600),
-});
+  })
+  .superRefine((env, ctx) => {
+    // WEB_URL sert de base a tous les liens des emails (verification, reset,
+    // de mot de passe, desabonnement) et au logo heberge : une valeur locale
+    // produirait des emails avec des liens inutilisables. Le fallback
+    // localhost convient au developpement, mais des qu'une cle Brevo est
+    // configuree des emails reels peuvent partir : exiger une URL publique.
+    if (env.BREVO_API_KEY && env.BREVO_API_KEY.trim()) {
+      if (isLocalHost(env.WEB_URL)) {
+        ctx.addIssue({
+          code: z.ZodIssueCode.custom,
+          path: ["WEB_URL"],
+          message:
+            "WEB_URL doit etre une URL publique reelle des que BREVO_API_KEY est configuree (les emails contiennent des liens bases dessus). Ex. : WEB_URL=https://myqurandeen.vercel.app",
+        });
+      }
+    }
+    // En production, WEB_URL alimente aussi le CORS : une valeur locale
+    // bloquerait silencieusement l'app en ligne.
+    if (env.NODE_ENV === "production" && isLocalHost(env.WEB_URL)) {
+      ctx.addIssue({
+        code: z.ZodIssueCode.custom,
+        path: ["WEB_URL"],
+        message: "WEB_URL doit etre l'URL publique de l'app en production (base des liens email et CORS).",
+      });
+    }
+  });
 
 export type EnvConfig = z.infer<typeof envSchema>;
 
