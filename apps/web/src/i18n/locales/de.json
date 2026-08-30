@@ -215,6 +215,7 @@
     "testPushSending": "Senden...",
     "testPushSuccess": "Test-Benachrichtigung gesendet.",
     "testPushError": "Senden fehlgeschlagen - Server-Konfiguration prüfen.",
+    "testPushGone": "Abonnement widerrufen (Push-Dienst-Fehler)",
     "streakAlertTitle": "Streak behalten",
     "streakAlertDescription": "Wenn du heute noch nichts gelesen hast, erinnern wir dich vor Mitternacht, damit du deine Serie nicht verlierst.",
     "streakAlertEnable": "Aktivieren",

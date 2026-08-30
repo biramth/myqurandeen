@@ -21,22 +21,34 @@ export class NotificationsService {
    * l'utilisateur (bouton "Envoyer un test" de l'onglet Rappels). Sert aussi
    * de diagnostic : un "sent" ici prouve que la chaîne VAPID -> push service
    * fonctionne, et qu'un problème éventuel vient du planificateur.
+   *
+   * `devices` liste chaque abonnement cible (hôte du push service, navigateur,
+   * configuration VAPID) : sur iOS ce doit etre `web.push.apple.com` depuis
+   * la PWA installee - un autre hote signifie que l'abonnement vient d'un
+   * contexte different (Safari, Android...) et son envoi ne sera pas affiche.
    */
-  async sendTest(userId: string): Promise<{ sent: number; total: number }> {
+  async sendTest(userId: string): Promise<{ sent: number; total: number; devices: unknown[] }> {
     const subs = await this.db.select().from(pushSubscriptions).where(eq(pushSubscriptions.userId, userId));
     let sent = 0;
+    const devices: unknown[] = [];
     for (const sub of subs) {
       const result = await this.webPush.send(sub, {
         title: "myQurandeen",
         body: "Test notification.",
         url: "/",
       });
+      devices.push({
+        host: new URL(sub.endpoint).host,
+        userAgent: sub.userAgent ?? null,
+        result,
+        sentAt: result === "sent" ? new Date().toISOString() : null,
+      });
       if (result === "sent") sent += 1;
       if (result === "gone") {
         await this.db.delete(pushSubscriptions).where(eq(pushSubscriptions.id, sub.id));
       }
     }
-    return { sent, total: subs.length };
+    return { sent, total: subs.length, devices };
   }
 
   async subscribe(

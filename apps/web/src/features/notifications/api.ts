@@ -6,6 +6,19 @@ export interface NotificationsHealth {
   lastTickAt: string | null;
 }
 
+export interface TestDevice {
+  host: string;
+  userAgent: string | null;
+  result: "sent" | "gone" | "error";
+  sentAt: string | null;
+}
+
+export interface TestResult {
+  sent: number;
+  total: number;
+  devices: TestDevice[];
+}
+
 export const notificationsApi = {
   health: () => apiClient.get<NotificationsHealth>("/notifications/health", { skipAuth: true }),
   isSubscribed: () => apiClient.get<{ subscribed: boolean }>("/notifications/subscribed"),
@@ -13,5 +26,5 @@ export const notificationsApi = {
     apiClient.post<{ subscribed: boolean }>("/notifications/subscribe", input),
   unsubscribe: (endpoint: string) =>
     apiClient.delete<{ subscribed: boolean }>(`/notifications/subscribe?endpoint=${encodeURIComponent(endpoint)}`),
-  test: () => apiClient.post<{ sent: number; total: number }>("/notifications/test"),
+  test: () => apiClient.post<TestResult>("/notifications/test"),
 };

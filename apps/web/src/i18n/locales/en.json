@@ -260,6 +260,7 @@
     "testPushSending": "Sending...",
     "testPushSuccess": "Test notification sent.",
     "testPushError": "Send failed - check the server configuration.",
+    "testPushGone": "subscription revoked (error on push service)",
     "streakAlertTitle": "Keep your streak",
     "streakAlertDescription": "If you haven't read anything yet today, we remind you before midnight so you don't lose your streak.",
     "streakAlertEnable": "Enable",

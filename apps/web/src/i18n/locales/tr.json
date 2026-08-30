@@ -215,6 +215,7 @@
     "testPushSending": "Gönderiliyor...",
     "testPushSuccess": "Test bildirimi gönderildi.",
     "testPushError": "Gönderilemedi - sunucu yapılandırmasını kontrol edin.",
+    "testPushGone": "abonelik iptal edildi (push servisi hatası)",
     "streakAlertTitle": "Serini koru",
     "streakAlertDescription": "Bugün henüz hiçbir şey okumadıysan, serini kaybetmemen için gece yarısından önce hatırlatırız.",
     "streakAlertEnable": "Etkinleştir",
