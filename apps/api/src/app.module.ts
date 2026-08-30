@@ -39,6 +39,7 @@ import { AiModule } from "./modules/ai/ai.module";
 import { NotificationsModule } from "./modules/notifications/notifications.module";
 import { RemindersModule } from "./modules/reminders/reminders.module";
 import { MailModule } from "./modules/mail/mail.module";
+import { MarketingModule } from "./modules/marketing/marketing.module";
 import { StreaksModule } from "./modules/streaks/streaks.module";
 import { GamificationModule } from "./modules/gamification/gamification.module";
 
@@ -92,6 +93,7 @@ import { GamificationModule } from "./modules/gamification/gamification.module";
     NotificationsModule,
     RemindersModule,
     MailModule,
+    MarketingModule,
     StreaksModule,
     GamificationModule,
   ],

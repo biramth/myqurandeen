@@ -1,15 +1,18 @@
+import { useState } from "react";
 import { Navigate } from "react-router-dom";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { useTranslation } from "react-i18next";
 import { toast } from "sonner";
-import { ShieldCheck, Check, X, Loader2 } from "lucide-react";
+import { ShieldCheck, Check, X, Loader2, Send } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
 import { Skeleton } from "@/components/ui/skeleton";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { useAuth } from "@/features/auth/auth-context";
 import { adminApi } from "@/features/admin/api";
+import { marketingApi } from "@/features/marketing/api";
 import { useDocumentTitle } from "@/hooks/useDocumentTitle";
 import {
   FIQH_SUGGESTION_STATUSES,
@@ -338,6 +341,100 @@ function AuditLogTab() {
   );
 }
 
+/**
+ * Reservee cote serveur a la permission marketing:send (SUPER_ADMIN) - voir
+ * MarketingController. L'onglet reste visible pour tout le personnel (meme
+ * garde UX-only que le reste de cette page) : un compte sans la permission
+ * recoit simplement une erreur 403 en essayant d'envoyer.
+ */
+function MarketingTab() {
+  const { t } = useTranslation();
+  const { user } = useAuth();
+  const [testEmail, setTestEmail] = useState(user?.email ?? "");
+  const [checked, setChecked] = useState<{ eligible: number } | null>(null);
+
+  const checkMutation = useMutation({
+    mutationFn: () => marketingApi.sendAnnouncement({ dryRun: true }),
+    onSuccess: (result) => setChecked({ eligible: result.eligible }),
+    onError: () => toast.error(t("admin.marketingTab.error")),
+  });
+
+  const testMutation = useMutation({
+    mutationFn: () => marketingApi.sendAnnouncement({ testEmail }),
+    onSuccess: () => toast.success(t("admin.marketingTab.sendTestSuccess")),
+    onError: () => toast.error(t("admin.marketingTab.error")),
+  });
+
+  const sendMutation = useMutation({
+    mutationFn: () => marketingApi.sendAnnouncement({ dryRun: false }),
+    onSuccess: (result) => {
+      toast.success(t("admin.marketingTab.sendAllSuccess", { count: result.sent, sent: result.sent, failed: result.failed }));
+      setChecked(null);
+    },
+    onError: () => toast.error(t("admin.marketingTab.error")),
+  });
+
+  const handleSendAll = () => {
+    if (!checked) return;
+    // window.confirm plutot qu'une AlertDialog dediee : action rare
+    // (une poignee de fois dans la vie du projet), un blocage natif du
+    // navigateur suffit a eviter un clic accidentel sur toute la base.
+    if (window.confirm(t("admin.marketingTab.sendAllConfirm", { count: checked.eligible }))) {
+      sendMutation.mutate();
+    }
+  };
+
+  return (
+    <div className="max-w-lg space-y-6">
+      <div>
+        <h3 className="font-medium">{t("admin.marketingTab.title")}</h3>
+        <p className="mt-1 text-sm text-muted-foreground">{t("admin.marketingTab.description")}</p>
+      </div>
+
+      <div className="flex items-center gap-3">
+        <Button type="button" variant="outline" onClick={() => checkMutation.mutate()} disabled={checkMutation.isPending}>
+          {checkMutation.isPending && <Loader2 className="mr-2 h-4 w-4 animate-spin" />}
+          {t("admin.marketingTab.checkEligible")}
+        </Button>
+        {checked && (
+          <span className="text-sm text-muted-foreground">
+            {t("admin.marketingTab.eligibleCount", { count: checked.eligible })}
+          </span>
+        )}
+      </div>
+
+      <div className="space-y-2">
+        <div className="flex gap-2">
+          <Input
+            type="email"
+            value={testEmail}
+            onChange={(e) => setTestEmail(e.target.value)}
+            placeholder={t("admin.marketingTab.sendTestPlaceholder")}
+            className="max-w-xs"
+          />
+          <Button type="button" variant="outline" onClick={() => testMutation.mutate()} disabled={testMutation.isPending || !testEmail}>
+            {testMutation.isPending && <Loader2 className="mr-2 h-4 w-4 animate-spin" />}
+            {t("admin.marketingTab.sendTest")}
+          </Button>
+        </div>
+      </div>
+
+      <div className="space-y-2 border-t pt-4">
+        <Button
+          type="button"
+          onClick={handleSendAll}
+          disabled={!checked || sendMutation.isPending}
+          className="bg-destructive text-destructive-foreground hover:bg-destructive/90"
+        >
+          {sendMutation.isPending ? <Loader2 className="mr-2 h-4 w-4 animate-spin" /> : <Send className="mr-2 h-4 w-4" />}
+          {t("admin.marketingTab.sendAll")}
+        </Button>
+        {!checked && <p className="text-xs text-muted-foreground">{t("admin.marketingTab.sendAllNeedsCheck")}</p>}
+      </div>
+    </div>
+  );
+}
+
 export function AdminPage() {
   const { t } = useTranslation();
   const { user, isLoading } = useAuth();
@@ -361,6 +458,7 @@ export function AdminPage() {
           <TabsTrigger value="fiqh-suggestions">{t("admin.fiqhSuggestions")}</TabsTrigger>
           <TabsTrigger value="users">{t("admin.users")}</TabsTrigger>
           <TabsTrigger value="audit">{t("admin.auditLog")}</TabsTrigger>
+          <TabsTrigger value="marketing">{t("admin.marketing")}</TabsTrigger>
         </TabsList>
         <TabsContent value="reports">
           <ReportsTab />
@@ -373,6 +471,9 @@ export function AdminPage() {
         </TabsContent>
         <TabsContent value="audit">
           <AuditLogTab />
+        </TabsContent>
+        <TabsContent value="marketing">
+          <MarketingTab />
         </TabsContent>
       </Tabs>
     </div>

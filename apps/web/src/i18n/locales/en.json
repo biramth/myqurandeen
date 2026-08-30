@@ -597,6 +597,23 @@
       "NOUVELLE": "Untreated",
       "EN_COURS": "In progress",
       "TRAITEE": "Handled"
+    },
+    "marketing": "Marketing",
+    "marketingTab": {
+      "title": "New version announcement",
+      "description": "Send the \"new version\" campaign email to every active account that hasn't opted out of marketing emails (verified address or not).",
+      "checkEligible": "Check recipients",
+      "eligibleCount_one": "{{count}} eligible recipient.",
+      "eligibleCount_other": "{{count}} eligible recipients.",
+      "sendTest": "Send a test to my address",
+      "sendTestPlaceholder": "address@email.com",
+      "sendTestSuccess": "Test email sent - check your inbox.",
+      "sendAll": "Send to everyone",
+      "sendAllConfirm": "Send the \"new version\" campaign to {{count}} recipients? This action cannot be undone.",
+      "sendAllSuccess_one": "Campaign sent: {{sent}} email sent, {{failed}} failure(s).",
+      "sendAllSuccess_other": "Campaign sent: {{sent}} emails sent, {{failed}} failure(s).",
+      "sendAllNeedsCheck": "Check recipients first.",
+      "error": "Something went wrong."
     }
   },
   "assistant": {
@@ -657,6 +674,17 @@
       "step3": "Choose “Add to Home Screen”.",
       "step4": "Confirm with “Add”. The app then appears on your home screen.",
       "gotIt": "Got it"
+    }
+  },
+  "marketing": {
+    "unsubscribe": {
+      "title": "Unsubscribe",
+      "subtitle": "Manage myQurandeen announcement emails.",
+      "processing": "Processing...",
+      "success": "Done: you will no longer receive myQurandeen announcement emails. You'll still receive essential account emails (verification, password reset).",
+      "missingToken": "Invalid or missing unsubscribe link.",
+      "error": "We couldn't process the unsubscribe request right now.",
+      "backToHome": "Back to home"
     }
   }
 }

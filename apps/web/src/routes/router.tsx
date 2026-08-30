@@ -105,6 +105,9 @@ const GoogleCallbackPage = React.lazy(() =>
   import("@/pages/auth/GoogleCallbackPage").then((m) => ({ default: m.GoogleCallbackPage })),
 );
 const ProfilePage = React.lazy(() => import("@/pages/ProfilePage").then((m) => ({ default: m.ProfilePage })));
+const UnsubscribePage = React.lazy(() =>
+  import("@/pages/marketing/UnsubscribePage").then((m) => ({ default: m.UnsubscribePage })),
+);
 
 function PageFallback() {
   const { t } = useTranslation();
@@ -186,6 +189,7 @@ export function AppRouter() {
           <Route path="/reset-password" element={<ResetPasswordPage />} />
           <Route path="/oauth/google/callback" element={<GoogleCallbackPage />} />
           <Route path="/profile" element={<ProfilePage />} />
+          <Route path="/desabonnement" element={<UnsubscribePage />} />
 
           <Route path="*" element={<ComingSoonRoute i18nKey="notFound" />} />
         </Route>

@@ -20,6 +20,7 @@ export const PERMISSIONS = {
   FIQH_SUGGESTION_RESOLVE: "fiqh_suggestion:resolve",
   AUDIT_LOG_READ: "audit_log:read",
   AI_INDEX_MANAGE: "ai:index",
+  MARKETING_SEND: "marketing:send",
 } as const satisfies Record<string, PermissionKey>;
 
 export type PermissionValue = (typeof PERMISSIONS)[keyof typeof PERMISSIONS];
@@ -58,6 +59,9 @@ export const DEFAULT_ROLE_PERMISSIONS: Record<RoleName, PermissionValue[]> = {
     PERMISSIONS.AUDIT_LOG_READ,
     PERMISSIONS.AI_INDEX_MANAGE,
   ],
+  // MARKETING_SEND (campagnes email a toute la base utilisateur) est reservee
+  // a SUPER_ADMIN : impact potentiel sur tous les comptes, contrairement au
+  // reste des permissions ADMIN qui restent scopees a du contenu/moderation.
   SUPER_ADMIN: [
     PERMISSIONS.USER_MANAGE,
     PERMISSIONS.ROLE_MANAGE,
@@ -71,5 +75,6 @@ export const DEFAULT_ROLE_PERMISSIONS: Record<RoleName, PermissionValue[]> = {
     PERMISSIONS.FIQH_SUGGESTION_RESOLVE,
     PERMISSIONS.AUDIT_LOG_READ,
     PERMISSIONS.AI_INDEX_MANAGE,
+    PERMISSIONS.MARKETING_SEND,
   ],
 };

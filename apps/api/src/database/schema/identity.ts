@@ -45,5 +45,9 @@ export const users = pgTable("users", {
   emailVerifiedAt: timestamp("email_verified_at", { withTimezone: true }),
   googleId: varchar("google_id", { length: 64 }),
   avatarUrl: text("avatar_url"),
+  // Desabonnement des emails marketing (annonces, campagnes) - distinct des
+  // emails transactionnels (verification, reset) qui restent toujours
+  // envoyes puisqu'ils sont necessaires au fonctionnement du compte.
+  marketingOptOut: boolean("marketing_opt_out").default(false).notNull(),
   ...timestamps,
 });

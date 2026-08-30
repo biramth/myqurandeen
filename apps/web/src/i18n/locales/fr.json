@@ -713,6 +713,23 @@
       "NOUVELLE": "Non traitée",
       "EN_COURS": "En cours de traitement",
       "TRAITEE": "Traitée"
+    },
+    "marketing": "Marketing",
+    "marketingTab": {
+      "title": "Annonce de la nouvelle version",
+      "description": "Envoie l'email de campagne \"nouvelle version\" à tous les comptes actifs qui n'ont pas demandé à être exclus des emails marketing (adresse vérifiée ou non).",
+      "checkEligible": "Vérifier les destinataires",
+      "eligibleCount_one": "{{count}} destinataire éligible.",
+      "eligibleCount_other": "{{count}} destinataires éligibles.",
+      "sendTest": "Envoyer un test à mon adresse",
+      "sendTestPlaceholder": "adresse@email.com",
+      "sendTestSuccess": "Email de test envoyé - vérifie ta boîte de réception.",
+      "sendAll": "Envoyer à tout le monde",
+      "sendAllConfirm": "Envoyer la campagne \"nouvelle version\" à {{count}} destinataires ? Cette action est irréversible.",
+      "sendAllSuccess_one": "Campagne envoyée : {{sent}} email envoyé, {{failed}} échec(s).",
+      "sendAllSuccess_other": "Campagne envoyée : {{sent}} emails envoyés, {{failed}} échec(s).",
+      "sendAllNeedsCheck": "Vérifie d'abord les destinataires.",
+      "error": "Une erreur est survenue."
     }
   },
   "assistant": {

@@ -1,26 +1,37 @@
 import { Injectable, Logger } from "@nestjs/common";
 import { ConfigService } from "@nestjs/config";
+import { verificationEmailTemplate } from "./templates/verification.template";
+import { resetPasswordEmailTemplate } from "./templates/reset-password.template";
+import { announcementEmailTemplate, type AnnouncementEmailOptions } from "./templates/announcement.template";
 
 /**
  * Fine couche autour de l'API transactionnelle Brevo (ex-Sendinblue) pour
- * l'envoi d'emails (verification email, reinitialisation de mot de passe).
- * Brevo est utilise plutot que Resend car il ne demande de verifier qu'une
- * simple adresse email (clic sur un lien) et non un domaine complet - utile
- * tant que le projet n'a pas de nom de domaine a lui. Appel direct en fetch
- * (pas de SDK) : l'API est un simple POST JSON, inutile d'ajouter une
- * dependance pour ca. Tant que BREVO_API_KEY n'est pas configuree, l'envoi
- * est simule et journalise (logs) plutot que d'echouer, meme principe que
- * WebPushProvider : un deploiement sans cle ne doit pas planter.
+ * l'envoi d'emails (verification email, reinitialisation de mot de passe,
+ * campagnes). Brevo est utilise plutot que Resend car il ne demande de
+ * verifier qu'une simple adresse email (clic sur un lien) et non un domaine
+ * complet - utile tant que le projet n'a pas de nom de domaine a lui. Appel
+ * direct en fetch (pas de SDK) : l'API est un simple POST JSON, inutile
+ * d'ajouter une dependance pour ca. Tant que BREVO_API_KEY n'est pas
+ * configuree, l'envoi est simule et journalise (logs) plutot que d'echouer,
+ * meme principe que WebPushProvider : un deploiement sans cle ne doit pas
+ * planter.
+ *
+ * La mise en forme (logo, couleurs de marque, structure) vit dans
+ * ./templates/*.ts - ce service ne fait que router `to/subject/html` vers
+ * Brevo et exposer les constructeurs de contenu aux autres modules.
  */
 @Injectable()
 export class MailService {
   private readonly logger = new Logger(MailService.name);
   private readonly apiKey: string;
   private readonly from: string;
+  /** Base publique de l'app (sans slash final) - utilisee pour le logo hebergé et les liens des emails. */
+  readonly webUrl: string;
 
   constructor(config: ConfigService) {
     this.apiKey = config.get<string>("BREVO_API_KEY", "");
     this.from = config.get<string>("EMAIL_FROM", "myqurandeen <no-reply@qurandeen.app>");
+    this.webUrl = config.get<string>("WEB_URL", "http://localhost:5173").replace(/\/+$/, "");
     if (!this.apiKey) {
       this.logger.warn("BREVO_API_KEY absente - les emails sont simules et journalises.");
     }
@@ -71,49 +82,14 @@ export class MailService {
   }
 
   buildVerificationEmail(verifyUrl: string): { subject: string; html: string } {
-    return {
-      subject: "Confirme ton adresse email",
-      html: this.layout(
-        "Confirme ton adresse email",
-        `<p>Bienvenue sur myQurandeen !</p>
-         <p>Pour activer ton compte, confirme ton adresse email en cliquant sur le lien ci-dessous :</p>
-         <p><a href="${verifyUrl}">Confirmer mon adresse email</a></p>
-         <p>Ce lien est valable 1 heure. Si tu n'es pas a l'origine de cette inscription, ignore cet email.</p>`,
-      ),
-    };
+    return verificationEmailTemplate(this.webUrl, verifyUrl);
   }
 
   buildResetEmail(resetUrl: string): { subject: string; html: string } {
-    return {
-      subject: "Reinitialise ton mot de passe",
-      html: this.layout(
-        "Reinitialise ton mot de passe",
-        `<p>Une demande de reinitialisation de mot de passe a ete faite pour ton compte myQurandeen.</p>
-         <p>Clique sur le lien ci-dessous pour choisir un nouveau mot de passe :</p>
-         <p><a href="${resetUrl}">Reinitialiser mon mot de passe</a></p>
-         <p>Ce lien est valable 1 heure. Si tu n'es pas a l'origine de cette demande, ignore cet email (ton mot de passe reste inchange).</p>`,
-      ),
-    };
+    return resetPasswordEmailTemplate(this.webUrl, resetUrl);
   }
 
-  private layout(title: string, bodyHtml: string): string {
-    return `<!DOCTYPE html>
-      <html lang="fr">
-        <head><meta charset="utf-8" /><title>${title}</title></head>
-        <body style="margin:0;padding:0;background:#f4f4f5;font-family:Arial,Helvetica,sans-serif;color:#18181b;">
-          <table role="presentation" width="100%" cellspacing="0" cellpadding="0" style="background:#f4f4f5;padding:24px;">
-            <tr><td align="center">
-              <table role="presentation" width="100%" style="max-width:420px;background:#ffffff;border-radius:12px;overflow:hidden;box-shadow:0 2px 8px rgba(0,0,0,0.06);">
-                <tr><td style="padding:28px 24px 8px;">
-                  <div style="font-size:20px;font-weight:600;color:#10b981;margin-bottom:16px;">myQurandeen</div>
-                </td></tr>
-                <tr><td style="padding:8px 24px 24px;font-size:15px;line-height:1.6;color:#3f3f46;">
-                  ${bodyHtml}
-                </td></tr>
-              </table>
-            </td></tr>
-          </table>
-        </body>
-      </html>`;
+  buildAnnouncementEmail(options: Omit<AnnouncementEmailOptions, "webUrl">): { subject: string; html: string } {
+    return announcementEmailTemplate({ webUrl: this.webUrl, ...options });
   }
 }
