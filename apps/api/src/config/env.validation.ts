@@ -40,11 +40,12 @@ export const envSchema = z.object({
   VAPID_PRIVATE_KEY: z.string().optional(),
   VAPID_SUBJECT: z.string().optional(),
 
-  // Emails (verification, reset de mot de passe) via Resend - optionnels :
-  // sans RESEND_API_KEY, l'envoi est simule et journalise (logs) plutot que
+  // Emails (verification, reset de mot de passe) via Brevo - optionnels :
+  // sans BREVO_API_KEY, l'envoi est simule et journalise (logs) plutot que
   // d'echouer, pour permettre le developpement sans cle.
-  RESEND_API_KEY: z.string().optional(),
-  // Format "Nom <email@domaine>" accepte par Resend.
+  BREVO_API_KEY: z.string().optional(),
+  // Format "Nom <email@domaine>" - doit correspondre a l'adresse expediteur
+  // verifiee dans Brevo (verification par email, pas besoin de domaine).
   EMAIL_FROM: z
     .string()
     .regex(/^[^<]*<[^@\s]+@[^@\s]+\.[^@\s]+>$|^[^@\s]+@[^@\s]+\.[^@\s]+$/, "EMAIL_FROM doit etre 'Nom <email@domaine>' ou 'email@domaine'")

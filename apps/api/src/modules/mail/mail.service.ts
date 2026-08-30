@@ -1,48 +1,73 @@
 import { Injectable, Logger } from "@nestjs/common";
 import { ConfigService } from "@nestjs/config";
-import { Resend } from "resend";
 
 /**
- * Fines couches autour de Resend pour l'envoi d'emails transactionnels
- * (verification email, reinitialisation de mot de passe). Tant que
- * RESEND_API_KEY n'est pas configuree, l'envoi est simule et journalise
- * (logs) plutot que d'echouer, meme principe que WebPushProvider : un
- * deploiement sans cle ne doit pas planter.
+ * Fine couche autour de l'API transactionnelle Brevo (ex-Sendinblue) pour
+ * l'envoi d'emails (verification email, reinitialisation de mot de passe).
+ * Brevo est utilise plutot que Resend car il ne demande de verifier qu'une
+ * simple adresse email (clic sur un lien) et non un domaine complet - utile
+ * tant que le projet n'a pas de nom de domaine a lui. Appel direct en fetch
+ * (pas de SDK) : l'API est un simple POST JSON, inutile d'ajouter une
+ * dependance pour ca. Tant que BREVO_API_KEY n'est pas configuree, l'envoi
+ * est simule et journalise (logs) plutot que d'echouer, meme principe que
+ * WebPushProvider : un deploiement sans cle ne doit pas planter.
  */
 @Injectable()
 export class MailService {
   private readonly logger = new Logger(MailService.name);
-  private readonly resend: Resend | null;
+  private readonly apiKey: string;
   private readonly from: string;
 
   constructor(config: ConfigService) {
-    const apiKey = config.get<string>("RESEND_API_KEY", "");
-    const from = config.get<string>("EMAIL_FROM", "myqurandeen <no-reply@qurandeen.app>");
-    this.from = from;
-    if (apiKey) {
-      this.resend = new Resend(apiKey);
-    } else {
-      this.resend = null;
-      this.logger.warn("RESEND_API_KEY absente - les emails sont simules et journalises.");
+    this.apiKey = config.get<string>("BREVO_API_KEY", "");
+    this.from = config.get<string>("EMAIL_FROM", "myqurandeen <no-reply@qurandeen.app>");
+    if (!this.apiKey) {
+      this.logger.warn("BREVO_API_KEY absente - les emails sont simules et journalises.");
     }
   }
 
   get isConfigured(): boolean {
-    return Boolean(this.resend);
+    return Boolean(this.apiKey);
   }
 
   async send(to: string, subject: string, html: string): Promise<void> {
-    if (!this.resend) {
+    if (!this.apiKey) {
       // Mode simule : on ne stocke pas le contenu des emails (ils peuvent
       // contenir des secrets), on loggue juste la cible et l'objet.
       this.logger.log(`[SIMULATION EMAIL] A -> ${to} | ${subject}`);
       return;
     }
-    const { error } = await this.resend.emails.send({ from: this.from, to, subject, html });
-    if (error) {
-      this.logger.error(`Echec d'envoi email a ${to} (${subject}) : ${error.message}`);
+
+    const { name, email } = this.parseFrom(this.from);
+    const response = await fetch("https://api.brevo.com/v3/smtp/email", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json",
+        "api-key": this.apiKey,
+      },
+      body: JSON.stringify({
+        sender: { name, email },
+        to: [{ email: to }],
+        subject,
+        htmlContent: html,
+      }),
+    });
+
+    if (!response.ok) {
+      const body = await response.text().catch(() => "");
+      this.logger.error(`Echec d'envoi email a ${to} (${subject}) : ${response.status} ${body}`);
       throw new Error("Echec de l'envoi d'email");
     }
+  }
+
+  /** Parse le format "Nom <email@domaine>" (accepte aussi une adresse seule). */
+  private parseFrom(from: string): { name: string; email: string } {
+    const match = from.match(/^([^<]*)<([^>]+)>$/);
+    if (match) {
+      return { name: match[1].trim(), email: match[2].trim() };
+    }
+    return { name: "myqurandeen", email: from.trim() };
   }
 
   buildVerificationEmail(verifyUrl: string): { subject: string; html: string } {
