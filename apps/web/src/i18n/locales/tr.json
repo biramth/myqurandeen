@@ -561,5 +561,20 @@
     "empty": "Başlamak için bir soru sorun.",
     "loginRequired": "Asistana soru sormak için giriş yapın.",
     "logIn": "Giriş yap"
+  },
+  "pwaInstaller": {
+    "title": "Uygulamayı kurun",
+    "description": "Ana ekranınızdan hızlı erişim, daha temiz bir ekran ve çevrimdışı içerik.",
+    "install": "Yükle",
+    "notNow": "Sonra",
+    "never": "Bir daha gösterme",
+    "ios": {
+      "title": "Ana Ekrana Ekle",
+      "description": "iPhone'da kurulum düğmesi yok: uygulamayı ana ekrana eklemek için şu adımları izleyin.",
+      "step1": "Safari çubuğunda Paylaş düğmesine (oklu kare) dokunun.",
+      "step2": "«Ana Ekrana Ekle» öğesini seçin.",
+      "step3": "«Ekle» ile onaylayın. Uygulama ana ekranınızda görünür.",
+      "gotIt": "Anlaşıldı"
+    }
   }
 }

@@ -9,6 +9,7 @@ import { Input } from "@/components/ui/input";
 import { Skeleton } from "@/components/ui/skeleton";
 import { cn } from "@/lib/utils";
 import { usePushSubscription } from "@/features/notifications/usePushSubscription";
+import { isIos } from "@/lib/platform";
 import { remindersApi } from "./api";
 import { AddReminderDialog } from "./AddReminderDialog";
 import { weekdayLabels } from "./weekdayLabels";
@@ -23,10 +24,7 @@ function PushToggle() {
    * totalement silencieux tant que l'app n'est pas ouverte en mode installe
    * (icone du home screen) : d'ou l'impression que le bouton "ne marche pas".
    */
-  const isIos = React.useMemo(() => {
-    const ua = navigator.userAgent;
-    return /iPhone|iPad|iPod/i.test(ua) || (navigator.platform === "MacIntel" && navigator.maxTouchPoints > 1);
-  }, []);
+  const ios = React.useMemo(isIos, []);
 
   if (support === "unsupported") {
     return <p className="text-sm text-muted-foreground">{t("reminders.pushUnsupported")}</p>;
@@ -34,7 +32,7 @@ function PushToggle() {
   if (support === "unconfigured") {
     return <p className="text-sm text-muted-foreground">{t("reminders.pushUnconfigured")}</p>;
   }
-  if (isIos && !isStandalone) {
+  if (ios && !isStandalone) {
     return (
       <div className="space-y-1">
         <p className="flex items-center gap-2 text-sm text-muted-foreground">
@@ -52,7 +50,7 @@ function PushToggle() {
           <BellOff className="h-4 w-4 shrink-0" aria-hidden="true" />
           {t("reminders.pushDenied")}
         </p>
-        {isIos && <p className="text-xs text-muted-foreground">{t("reminders.pushReinstall")}</p>}
+        {ios && <p className="text-xs text-muted-foreground">{t("reminders.pushReinstall")}</p>}
       </div>
     );
   }

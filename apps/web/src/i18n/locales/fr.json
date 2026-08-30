@@ -722,5 +722,20 @@
     "empty": "Posez une question pour commencer.",
     "loginRequired": "Connectez-vous pour poser une question à l'assistant.",
     "logIn": "Se connecter"
+  },
+  "pwaInstaller": {
+    "title": "Installer l'application",
+    "description": "Un écran plus propre, un accès direct depuis votre accueil et des contenus hors-ligne.",
+    "install": "Installer",
+    "notNow": "Plus tard",
+    "never": "Ne plus afficher",
+    "ios": {
+      "title": "Ajouter à l'écran d'accueil",
+      "description": "Sur iPhone, il n'y a pas de bouton d'installation : suivez ces étapes pour ajouter l'app à votre écran d'accueil.",
+      "step1": "Touchez l'icône Partager (carré avec une flèche) dans la barre Safari.",
+      "step2": "Choisissez « Ajouter à l'écran d'accueil ».",
+      "step3": "Confirmez avec « Ajouter ». L'app apparaît alors sur votre écran d'accueil.",
+      "gotIt": "Compris"
+    }
   }
 }

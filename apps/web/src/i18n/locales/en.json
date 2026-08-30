@@ -606,5 +606,20 @@
     "empty": "Ask a question to get started.",
     "loginRequired": "Log in to ask the assistant a question.",
     "logIn": "Log in"
+  },
+  "pwaInstaller": {
+    "title": "Install the app",
+    "description": "Quick access from your home screen, a cleaner screen and offline reading.",
+    "install": "Install",
+    "notNow": "Not now",
+    "never": "Don't show again",
+    "ios": {
+      "title": "Add to Home Screen",
+      "description": "The iPhone has no install button. Follow these steps to add the app to your home screen.",
+      "step1": "Tap the Share button (a square with an arrow) in the Safari bar.",
+      "step2": "Choose “Add to Home Screen”.",
+      "step3": "Confirm with “Add”. The app then appears on your home screen.",
+      "gotIt": "Got it"
+    }
   }
 }
