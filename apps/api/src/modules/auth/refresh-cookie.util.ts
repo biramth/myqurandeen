@@ -5,19 +5,18 @@ export const REFRESH_COOKIE_NAME = "refresh_token";
 /**
  * Options des cookies d'authentification httpOnly.
  *
- * En production, le frontend (Vercel) et l'API (Render) sont sur deux domaines
- * differents : le navigateur traite alors le cookie comme "tiers". Pour qu'il
- * soit accepte et renvoye en cross-site il faut SameSite=None + Secure.
- * En developpement (localhost), back et front partagent localhost et SameSite
- * doit rester "lax" pour que le cookie fonctionne en local sans HTTPS.
+ * En production, l'API est proxifiee sous le meme domaine que le frontend
+ * via `/api/*` (voir vercel.json) : le cookie est alors first-party et
+ * SameSite=Lax suffit (plus besoin de "none"/cross-site). En developpement
+ * (localhost), back et front partagent localhost : SameSite reste "lax".
  */
 export function cookieOptions(): CookieOptions {
   const isProd = process.env.NODE_ENV === "production";
   return {
     httpOnly: true,
     secure: isProd,
-    sameSite: isProd ? "none" : "lax",
-    path: "/auth",
+    sameSite: "lax",
+    path: "/",
     maxAge: 30 * 24 * 60 * 60 * 1000, // 30 jours, aligne sur JWT_REFRESH_TTL par defaut
   };
 }

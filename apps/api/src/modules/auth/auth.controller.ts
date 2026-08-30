@@ -34,8 +34,8 @@ function oauthCookieOptions() {
   return {
     httpOnly: true,
     secure: isProd,
-    sameSite: isProd ? ("none" as const) : ("lax" as const),
-    path: "/auth/google",
+    sameSite: "lax" as const,
+    path: "/",
     maxAge: 10 * 60 * 1000, // 10 min, le temps du flow OAuth
   };
 }

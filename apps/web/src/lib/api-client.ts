@@ -1,12 +1,19 @@
 import { tokenStore } from "@/lib/token-store";
 
+// Base de l'API utilisee partout dans l'app.
+// - En developpement : VITE_API_URL est defini (ex. http://localhost:3000),
+//   on appelle l'API directement.
+// - En production : VITE_API_URL est vide/absent, l'API est proxifiee sous le
+//   meme domaine via `/api/*` (voir vercel.json). Le cookie refresh posé par
+//   l'API est alors first-party et conserve par iOS à la fermeture de
+//   l'app/navigateur, contrairement à un cookie tiers cross-site.
 // On retire un eventuel `/` final : les appels ci-dessous concatenent
 // toujours un chemin qui commence deja par `/` (ex. "/quran/surahs"), donc
 // un VITE_API_URL avec slash final produirait "//quran/surahs" -> 404 cote
 // API (arrive en prod si la variable est saisie avec un slash sur Vercel).
-const API_URL = (import.meta.env.VITE_API_URL ?? "http://localhost:3000").replace(/\/+$/, "");
+const API_BASE = import.meta.env.VITE_API_URL ? import.meta.env.VITE_API_URL.replace(/\/+$/, "") : "/api";
 
-export { API_URL };
+export { API_BASE };
 
 export class ApiError extends Error {
   constructor(
@@ -33,7 +40,7 @@ async function refreshAccessToken(): Promise<string | null> {
   if (!refreshPromise) {
     refreshPromise = (async () => {
       try {
-        const response = await fetch(`${API_URL}/auth/refresh`, {
+        const response = await fetch(`${API_BASE}/auth/refresh`, {
           method: "POST",
           credentials: "include",
           headers: { "Content-Type": "application/json" },
@@ -61,7 +68,7 @@ async function request<T>(path: string, options: RequestOptions = {}): Promise<T
   const { body, skipAuth, headers, ...rest } = options;
 
   const doRequest = async (token: string | null): Promise<Response> => {
-    return fetch(`${API_URL}${path}`, {
+    return fetch(`${API_BASE}${path}`, {
       ...rest,
       credentials: "include",
       headers: {
