@@ -259,7 +259,11 @@
     "testPush": "Send a test notification",
     "testPushSending": "Sending...",
     "testPushSuccess": "Test notification sent.",
-    "testPushError": "Send failed - check the server configuration."
+    "testPushError": "Send failed - check the server configuration.",
+    "streakAlertTitle": "Keep your streak",
+    "streakAlertDescription": "If you haven't read anything yet today, we remind you before midnight so you don't lose your streak.",
+    "streakAlertEnable": "Enable",
+    "streakAlertDisable": "Disable"
   },
   "bookmark": {
     "add": "Add to bookmarks",

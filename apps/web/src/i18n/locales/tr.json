@@ -214,7 +214,11 @@
     "testPush": "Test bildirimi gönder",
     "testPushSending": "Gönderiliyor...",
     "testPushSuccess": "Test bildirimi gönderildi.",
-    "testPushError": "Gönderilemedi - sunucu yapılandırmasını kontrol edin."
+    "testPushError": "Gönderilemedi - sunucu yapılandırmasını kontrol edin.",
+    "streakAlertTitle": "Serini koru",
+    "streakAlertDescription": "Bugün henüz hiçbir şey okumadıysan, serini kaybetmemen için gece yarısından önce hatırlatırız.",
+    "streakAlertEnable": "Etkinleştir",
+    "streakAlertDisable": "Kapat"
   },
   "bookmark": {
     "add": "Yer imlerine ekle",

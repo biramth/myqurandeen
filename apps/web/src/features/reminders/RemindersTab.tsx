@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { useTranslation } from "react-i18next";
 import { toast } from "sonner";
-import { Bell, BellOff, BellRing, Send, Trash2 } from "lucide-react";
+import { Bell, BellOff, BellRing, Flame, Send, Trash2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Skeleton } from "@/components/ui/skeleton";
@@ -193,6 +193,84 @@ function RotationSettingsCard() {
   );
 }
 
+function StreakAlertCard() {
+  const { t } = useTranslation();
+  const queryClient = useQueryClient();
+  const { data: settings, isLoading } = useQuery({
+    queryKey: ["reminders", "streak-alert-settings"],
+    queryFn: remindersApi.getStreakAlertSettings,
+  });
+
+  const [timeOfDay, setTimeOfDay] = React.useState("19:00");
+
+  React.useEffect(() => {
+    if (settings) setTimeOfDay(settings.timeOfDay);
+  }, [settings]);
+
+  const upsertMutation = useMutation({
+    mutationFn: (isActive: boolean) =>
+      remindersApi.upsertStreakAlertSettings({
+        timeOfDay,
+        timezone: Intl.DateTimeFormat().resolvedOptions().timeZone,
+        isActive,
+      }),
+    onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: ["reminders", "streak-alert-settings"] });
+      toast.success(t("reminders.updated"));
+    },
+    onError: () => toast.error(t("reminders.error")),
+  });
+
+  if (isLoading) return <Skeleton className="h-24 w-full" />;
+
+  const isActive = settings?.isActive ?? false;
+
+  return (
+    <div className="rounded-md border p-3">
+      <div className="flex items-center justify-between gap-3">
+        <div>
+          <p className="flex items-center gap-1.5 text-sm font-medium">
+            <Flame className="h-4 w-4 text-orange-400" aria-hidden="true" />
+            {t("reminders.streakAlertTitle")}
+          </p>
+          <p className="text-xs text-muted-foreground">{t("reminders.streakAlertDescription")}</p>
+        </div>
+        <Button
+          type="button"
+          size="sm"
+          variant={isActive ? "outline" : "default"}
+          disabled={upsertMutation.isPending}
+          onClick={() => upsertMutation.mutate(!isActive)}
+        >
+          {isActive ? t("reminders.streakAlertDisable") : t("reminders.streakAlertEnable")}
+        </Button>
+      </div>
+
+      {isActive && (
+        <div className="mt-3 flex flex-wrap items-center gap-3">
+          <Input
+            type="time"
+            value={timeOfDay}
+            onChange={(e) => setTimeOfDay(e.target.value)}
+            className="h-9 w-28"
+          />
+          {settings && timeOfDay !== settings.timeOfDay && (
+            <Button
+              type="button"
+              size="sm"
+              variant="secondary"
+              disabled={upsertMutation.isPending}
+              onClick={() => upsertMutation.mutate(true)}
+            >
+              {t("reminders.save")}
+            </Button>
+          )}
+        </div>
+      )}
+    </div>
+  );
+}
+
 export function RemindersTab() {
   const { t, i18n } = useTranslation();
   const queryClient = useQueryClient();
@@ -222,6 +300,8 @@ export function RemindersTab() {
       </div>
 
       <RotationSettingsCard />
+
+      <StreakAlertCard />
 
       <div>
         <div className="mb-3 flex items-center justify-between">

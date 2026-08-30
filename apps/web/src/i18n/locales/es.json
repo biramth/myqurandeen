@@ -214,7 +214,11 @@
     "testPush": "Enviar notificación de prueba",
     "testPushSending": "Enviando...",
     "testPushSuccess": "Notificación de prueba enviada.",
-    "testPushError": "Error al enviar: revisa la configuración del servidor."
+    "testPushError": "Error al enviar: revisa la configuración del servidor.",
+    "streakAlertTitle": "Mantén tu racha",
+    "streakAlertDescription": "Si todavía no has leído nada hoy, te lo recordamos antes de medianoche para que no pierdas tu racha.",
+    "streakAlertEnable": "Activar",
+    "streakAlertDisable": "Desactivar"
   },
   "bookmark": {
     "add": "Añadir a favoritos",

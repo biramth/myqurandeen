@@ -1,0 +1,17 @@
+CREATE TABLE IF NOT EXISTS "streak_alert_settings" (
+	"id" uuid PRIMARY KEY DEFAULT gen_random_uuid() NOT NULL,
+	"user_id" uuid NOT NULL,
+	"time_of_day" varchar(5) NOT NULL,
+	"timezone" varchar(60) NOT NULL,
+	"is_active" boolean DEFAULT false NOT NULL,
+	"last_sent_at" timestamp with time zone,
+	"created_at" timestamp with time zone DEFAULT now() NOT NULL,
+	"updated_at" timestamp with time zone DEFAULT now() NOT NULL,
+	CONSTRAINT "streak_alert_settings_user_id_unique" UNIQUE("user_id")
+);
+--> statement-breakpoint
+DO $$ BEGIN
+ ALTER TABLE "streak_alert_settings" ADD CONSTRAINT "streak_alert_settings_user_id_users_id_fk" FOREIGN KEY ("user_id") REFERENCES "public"."users"("id") ON DELETE cascade ON UPDATE no action;
+EXCEPTION
+ WHEN duplicate_object THEN null;
+END $$;

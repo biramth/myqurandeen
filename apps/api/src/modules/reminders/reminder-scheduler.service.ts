@@ -18,7 +18,7 @@ interface LocalClock {
  * conversion et connait les regles DST a jour. `formatToParts` plutot que le
  * formattage en chaine + parsing, pour rester robuste aux locales.
  */
-function localClock(timeZone: string, at: Date = new Date()): LocalClock | null {
+export function localClock(timeZone: string, at: Date = new Date()): LocalClock | null {
   try {
     const parts = new Intl.DateTimeFormat("en-US", {
       timeZone,
@@ -47,7 +47,7 @@ function localClock(timeZone: string, at: Date = new Date()): LocalClock | null 
 }
 
 /** Minutes ecoulees entre "maintenant" (hh:mm) et une cible "hh:mm" ; negatif si la cible est dans le futur. */
-function minutesSince(nowHhmm: string, targetHhmm: string): number {
+export function minutesSince(nowHhmm: string, targetHhmm: string): number {
   const [nh, nm] = nowHhmm.split(":").map(Number);
   const [th, tm] = targetHhmm.split(":").map(Number);
   return nh * 60 + nm - (th * 60 + tm);
@@ -60,6 +60,7 @@ function minutesSince(nowHhmm: string, targetHhmm: string): number {
  * saute (un rappel de 6h arrive a 8h n'a plus de sens).
  */
 const GRACE_MINUTES = 45;
+export { GRACE_MINUTES };
 
 const DUA_BODY: Record<string, string> = {
   fr: "C'est l'heure de cette invocation.",

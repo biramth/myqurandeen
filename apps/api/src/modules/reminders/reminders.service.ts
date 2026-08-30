@@ -2,7 +2,7 @@ import { BadRequestException, Inject, Injectable, NotFoundException } from "@nes
 import { and, eq } from "drizzle-orm";
 import { DRIZZLE } from "../../database/database.constants";
 import type { Database } from "../../database/database.module";
-import { duaCategories, duas, quranSurahs, readingRotationSettings, reminders } from "../../database/schema";
+import { duaCategories, duas, quranSurahs, readingRotationSettings, reminders, streakAlertSettings } from "../../database/schema";
 import type { ReminderTargetType } from "@qurandeen/shared";
 
 interface ResolvedTarget {
@@ -143,6 +143,37 @@ export class RemindersService {
 
   async deleteRotationSettings(userId: string) {
     await this.db.delete(readingRotationSettings).where(eq(readingRotationSettings.userId, userId));
+    return { deleted: true };
+  }
+
+  // --- Alerte "garde ta serie" ---
+
+  async getStreakAlertSettings(userId: string) {
+    const [row] = await this.db
+      .select()
+      .from(streakAlertSettings)
+      .where(eq(streakAlertSettings.userId, userId))
+      .limit(1);
+    return row ?? null;
+  }
+
+  async upsertStreakAlertSettings(
+    userId: string,
+    input: { timeOfDay: string; timezone: string; isActive: boolean },
+  ) {
+    const [row] = await this.db
+      .insert(streakAlertSettings)
+      .values({ userId, ...input })
+      .onConflictDoUpdate({
+        target: streakAlertSettings.userId,
+        set: { ...input, updatedAt: new Date() },
+      })
+      .returning();
+    return row;
+  }
+
+  async deleteStreakAlertSettings(userId: string) {
+    await this.db.delete(streakAlertSettings).where(eq(streakAlertSettings.userId, userId));
     return { deleted: true };
   }
 }

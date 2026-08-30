@@ -210,7 +210,11 @@
     "testPush": "Kirim notifikasi uji",
     "testPushSending": "Mengirim...",
     "testPushSuccess": "Notifikasi uji terkirim.",
-    "testPushError": "Gagal mengirim - periksa konfigurasi server."
+    "testPushError": "Gagal mengirim - periksa konfigurasi server.",
+    "streakAlertTitle": "Jaga streak-mu",
+    "streakAlertDescription": "Jika kamu belum membaca apa pun hari ini, kami ingatkan sebelum tengah malam agar streak-mu tidak hilang.",
+    "streakAlertEnable": "Aktifkan",
+    "streakAlertDisable": "Nonaktifkan"
   },
   "bookmark": {
     "add": "Tambah ke favorit",

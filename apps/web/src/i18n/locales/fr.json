@@ -259,7 +259,11 @@
     "testPush": "Envoyer une notification de test",
     "testPushSending": "Envoi...",
     "testPushSuccess": "Notification de test envoyée.",
-    "testPushError": "Envoi échoué - vérifiez la configuration du serveur."
+    "testPushError": "Envoi échoué - vérifiez la configuration du serveur.",
+    "streakAlertTitle": "Garde ta série",
+    "streakAlertDescription": "Si tu n'as encore rien lu aujourd'hui, on te le rappelle avant minuit pour ne pas perdre ta série.",
+    "streakAlertEnable": "Activer",
+    "streakAlertDisable": "Désactiver"
   },
   "bookmark": {
     "add": "Ajouter aux favoris",

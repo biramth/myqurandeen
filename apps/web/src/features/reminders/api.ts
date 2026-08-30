@@ -1,5 +1,12 @@
 import { apiClient } from "@/lib/api-client";
-import type { CreateReminderInput, Reminder, RotationSettings, UpsertRotationSettingsInput } from "./types";
+import type {
+  CreateReminderInput,
+  Reminder,
+  RotationSettings,
+  StreakAlertSettings,
+  UpsertRotationSettingsInput,
+  UpsertStreakAlertSettingsInput,
+} from "./types";
 
 export const remindersApi = {
   list: () => apiClient.get<Reminder[]>("/reminders"),
@@ -12,4 +19,8 @@ export const remindersApi = {
   upsertRotationSettings: (input: UpsertRotationSettingsInput) =>
     apiClient.put<RotationSettings>("/reminders/rotation-settings", input),
   deleteRotationSettings: () => apiClient.delete<{ deleted: boolean }>("/reminders/rotation-settings"),
+
+  getStreakAlertSettings: () => apiClient.get<StreakAlertSettings | null>("/reminders/streak-alert-settings"),
+  upsertStreakAlertSettings: (input: UpsertStreakAlertSettingsInput) =>
+    apiClient.put<StreakAlertSettings>("/reminders/streak-alert-settings", input),
 };

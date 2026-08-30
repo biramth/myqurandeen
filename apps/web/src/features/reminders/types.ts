@@ -39,3 +39,17 @@ export interface UpsertRotationSettingsInput {
   timezone: string;
   isActive: boolean;
 }
+
+export interface StreakAlertSettings {
+  id: string;
+  timeOfDay: string;
+  timezone: string;
+  isActive: boolean;
+  lastSentAt: string | null;
+}
+
+export interface UpsertStreakAlertSettingsInput {
+  timeOfDay: string;
+  timezone: string;
+  isActive: boolean;
+}
