@@ -5,6 +5,8 @@ export const envSchema = z.object({
   API_PORT: z.coerce.number().int().positive().default(3000),
   DATABASE_URL: z.string().url(),
   WEB_URL: z.string().url().default("http://localhost:5173"),
+  // Origines CORS supplementaires (sep. par des virgules), en plus de WEB_URL.
+  CORS_ORIGINS: z.string().optional(),
   JWT_ACCESS_SECRET: z.string().min(16, "JWT_ACCESS_SECRET doit faire au moins 16 caracteres"),
   JWT_REFRESH_SECRET: z.string().min(16, "JWT_REFRESH_SECRET doit faire au moins 16 caracteres"),
   JWT_ACCESS_TTL: z.string().default("15m"),
@@ -37,6 +39,27 @@ export const envSchema = z.object({
   VAPID_PUBLIC_KEY: z.string().optional(),
   VAPID_PRIVATE_KEY: z.string().optional(),
   VAPID_SUBJECT: z.string().optional(),
+
+  // Emails (verification, reset de mot de passe) via Resend - optionnels :
+  // sans RESEND_API_KEY, l'envoi est simule et journalise (logs) plutot que
+  // d'echouer, pour permettre le developpement sans cle.
+  RESEND_API_KEY: z.string().optional(),
+  // Format "Nom <email@domaine>" accepte par Resend.
+  EMAIL_FROM: z
+    .string()
+    .regex(/^[^<]*<[^@\s]+@[^@\s]+\.[^@\s]+>$|^[^@\s]+@[^@\s]+\.[^@\s]+$/, "EMAIL_FROM doit etre 'Nom <email@domaine>' ou 'email@domaine'")
+    .default("myqurandeen <no-reply@qurandeen.app>"),
+
+  // Google OAuth ("Continuer avec Google") - optionnel : desactive tant que
+  // GOOGLE_CLIENT_ID/GOOGLE_CLIENT_SECRET ne sont pas fournis.
+  GOOGLE_CLIENT_ID: z.string().optional(),
+  GOOGLE_CLIENT_SECRET: z.string().optional(),
+  GOOGLE_CALLBACK_URL: z.string().url().optional().default("http://localhost:3000/auth/google/callback"),
+
+  // Duree de validite (en secondes) des jetons de verification email et de
+  // reinitialisation de mot de passe.
+  VERIFY_TOKEN_TTL_SECONDS: z.coerce.number().int().positive().default(3600),
+  RESET_TOKEN_TTL_SECONDS: z.coerce.number().int().positive().default(3600),
 });
 
 export type EnvConfig = z.infer<typeof envSchema>;

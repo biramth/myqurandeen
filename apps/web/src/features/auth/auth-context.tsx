@@ -10,6 +10,10 @@ interface AuthContextValue {
   login: (input: { email: string; password: string }) => Promise<void>;
   register: (input: { email: string; password: string; displayName: string }) => Promise<void>;
   logout: () => Promise<void>;
+  /** Reconnexion silencieuse via le cookie refresh httpOnly, puis charge /me. */
+  refreshSession: () => Promise<AuthUser | null>;
+  /** Met a jour l'utilisateur courant dans le contexte (ex. email verifie). */
+  setUserProfile: (user: AuthUser | null) => void;
 }
 
 const AuthContext = React.createContext<AuthContextValue | undefined>(undefined);
@@ -62,9 +66,21 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
     }
   }, []);
 
+  const refreshSession = React.useCallback(async () => {
+    const { accessToken } = await authApi.refresh();
+    tokenStore.set(accessToken);
+    const me = await authApi.me();
+    setUser(me);
+    return me;
+  }, []);
+
+  const setUserProfile = React.useCallback((next: AuthUser | null) => {
+    setUser(next);
+  }, []);
+
   const value = React.useMemo(
-    () => ({ user, isLoading, login, register, logout }),
-    [user, isLoading, login, register, logout],
+    () => ({ user, isLoading, login, register, logout, refreshSession, setUserProfile }),
+    [user, isLoading, login, register, logout, refreshSession, setUserProfile],
   );
 
   return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;

@@ -37,6 +37,7 @@ import { AuditLogModule } from "./modules/audit-log/audit-log.module";
 import { AiModule } from "./modules/ai/ai.module";
 import { NotificationsModule } from "./modules/notifications/notifications.module";
 import { RemindersModule } from "./modules/reminders/reminders.module";
+import { MailModule } from "./modules/mail/mail.module";
 
 @Module({
   imports: [
@@ -82,6 +83,7 @@ import { RemindersModule } from "./modules/reminders/reminders.module";
     AiModule,
     NotificationsModule,
     RemindersModule,
+    MailModule,
   ],
   providers: [
     { provide: APP_FILTER, useClass: HttpExceptionFilter },

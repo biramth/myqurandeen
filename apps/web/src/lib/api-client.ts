@@ -6,6 +6,8 @@ import { tokenStore } from "@/lib/token-store";
 // API (arrive en prod si la variable est saisie avec un slash sur Vercel).
 const API_URL = (import.meta.env.VITE_API_URL ?? "http://localhost:3000").replace(/\/+$/, "");
 
+export { API_URL };
+
 export class ApiError extends Error {
   constructor(
     message: string,

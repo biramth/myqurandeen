@@ -92,6 +92,18 @@ const LoginPage = React.lazy(() => import("@/pages/auth/LoginPage").then((m) => 
 const RegisterPage = React.lazy(() =>
   import("@/pages/auth/RegisterPage").then((m) => ({ default: m.RegisterPage })),
 );
+const VerifyEmailPage = React.lazy(() =>
+  import("@/pages/auth/VerifyEmailPage").then((m) => ({ default: m.VerifyEmailPage })),
+);
+const ForgotPasswordPage = React.lazy(() =>
+  import("@/pages/auth/ForgotPasswordPage").then((m) => ({ default: m.ForgotPasswordPage })),
+);
+const ResetPasswordPage = React.lazy(() =>
+  import("@/pages/auth/ResetPasswordPage").then((m) => ({ default: m.ResetPasswordPage })),
+);
+const GoogleCallbackPage = React.lazy(() =>
+  import("@/pages/auth/GoogleCallbackPage").then((m) => ({ default: m.GoogleCallbackPage })),
+);
 const ProfilePage = React.lazy(() => import("@/pages/ProfilePage").then((m) => ({ default: m.ProfilePage })));
 
 function PageFallback() {
@@ -169,6 +181,10 @@ export function AppRouter() {
 
           <Route path="/login" element={<LoginPage />} />
           <Route path="/register" element={<RegisterPage />} />
+          <Route path="/verify-email" element={<VerifyEmailPage />} />
+          <Route path="/forgot-password" element={<ForgotPasswordPage />} />
+          <Route path="/reset-password" element={<ResetPasswordPage />} />
+          <Route path="/oauth/google/callback" element={<GoogleCallbackPage />} />
           <Route path="/profile" element={<ProfilePage />} />
 
           <Route path="*" element={<ComingSoonRoute i18nKey="notFound" />} />

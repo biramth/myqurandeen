@@ -128,7 +128,11 @@
       "submit": "Se connecter",
       "submitting": "Connexion...",
       "noAccount": "Pas encore de compte ?",
-      "createAccount": "Créer un compte"
+      "createAccount": "Créer un compte",
+      "forgotPassword": "Mot de passe oublié ?",
+      "emailNotVerified": "Votre adresse email n'a pas encore été vérifiée. Cliquez sur le lien envoyé dans votre boîte mail pour activer votre compte.",
+      "resendVerification": "Renvoyer le lien de vérification",
+      "resendSent": "Lien renvoyé. Vérifiez votre boîte mail."
     },
     "register": {
       "title": "Créer un compte",
@@ -139,7 +143,45 @@
       "submit": "Créer mon compte",
       "submitting": "Création...",
       "haveAccount": "Déjà un compte ?",
-      "login": "Se connecter"
+      "login": "Se connecter",
+      "checkEmail": "Un email de confirmation a été envoyé à {{email}}. Cliquez sur le lien qu'il contient pour activer votre compte.",
+      "backToLogin": "Retour à la connexion"
+    },
+    "or": "ou",
+    "google": {
+      "continue": "Continuer avec Google"
+    },
+    "verifyEmail": {
+      "title": "Vérification de l'email",
+      "subtitle": "Confirmez votre adresse email.",
+      "processing": "Vérification en cours...",
+      "success": "Votre adresse email a été confirmée. Vous pouvez maintenant utiliser votre compte.",
+      "missingToken": "Lien de vérification invalide ou manquant.",
+      "goToProfile": "Accéder à mon profil",
+      "backToLogin": "Retour à la connexion"
+    },
+    "forgotPassword": {
+      "title": "Mot de passe oublié",
+      "subtitle": "Saisissez votre adresse email pour recevoir un lien de réinitialisation.",
+      "submit": "Envoyer le lien",
+      "submitting": "Envoi...",
+      "checkEmail": "Si un compte existe avec cette adresse, un email de réinitialisation vient d'être envoyé.",
+      "backToLogin": "Retour à la connexion"
+    },
+    "resetPassword": {
+      "title": "Nouveau mot de passe",
+      "subtitle": "Choisissez un nouveau mot de passe pour votre compte.",
+      "confirm": "Confirmer le mot de passe",
+      "submit": "Réinitialiser le mot de passe",
+      "submitting": "Réinitialisation...",
+      "success": "Votre mot de passe a été mis à jour. Connectez-vous avec votre nouveau mot de passe.",
+      "goToLogin": "Aller à la connexion",
+      "missingToken": "Lien de réinitialisation invalide ou manquant."
+    },
+    "oauth": {
+      "title": "Connexion via Google",
+      "connecting": "Connexion en cours...",
+      "error": "La connexion via Google a échoué. Réessayez ou utilisez votre email et votre mot de passe."
     }
   },
   "authPrompt": {
@@ -153,6 +195,9 @@
     "loading": "Chargement...",
     "memberSince": "Membre depuis le {{date}}.",
     "logout": "Se déconnecter",
+    "emailNotVerified": "Votre adresse email n'est pas encore vérifiée.",
+    "resendVerification": "Renvoyer le lien",
+    "resendSent": "Lien de vérification renvoyé.",
     "tabs": {
       "bookmarks": "Favoris",
       "notes": "Notes",

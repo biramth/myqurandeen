@@ -128,7 +128,11 @@
       "submit": "Log in",
       "submitting": "Logging in...",
       "noAccount": "No account yet?",
-      "createAccount": "Create an account"
+      "createAccount": "Create an account",
+      "forgotPassword": "Forgot your password?",
+      "emailNotVerified": "Your email address has not been verified yet. Click the link sent to your inbox to activate your account.",
+      "resendVerification": "Resend the verification link",
+      "resendSent": "Link resent. Check your inbox."
     },
     "register": {
       "title": "Create an account",
@@ -139,7 +143,45 @@
       "submit": "Create my account",
       "submitting": "Creating...",
       "haveAccount": "Already have an account?",
-      "login": "Log in"
+      "login": "Log in",
+      "checkEmail": "A confirmation email has been sent to {{email}}. Click the link it contains to activate your account.",
+      "backToLogin": "Back to log in"
+    },
+    "or": "or",
+    "google": {
+      "continue": "Continue with Google"
+    },
+    "verifyEmail": {
+      "title": "Email verification",
+      "subtitle": "Confirm your email address.",
+      "processing": "Verifying...",
+      "success": "Your email address has been confirmed. You can now use your account.",
+      "missingToken": "Invalid or missing verification link.",
+      "goToProfile": "Go to my profile",
+      "backToLogin": "Back to log in"
+    },
+    "forgotPassword": {
+      "title": "Forgot password",
+      "subtitle": "Enter your email address to receive a reset link.",
+      "submit": "Send the link",
+      "submitting": "Sending...",
+      "checkEmail": "If an account exists with this address, a reset email has just been sent.",
+      "backToLogin": "Back to log in"
+    },
+    "resetPassword": {
+      "title": "New password",
+      "subtitle": "Choose a new password for your account.",
+      "confirm": "Confirm password",
+      "submit": "Reset password",
+      "submitting": "Resetting...",
+      "success": "Your password has been updated. Log in with your new password.",
+      "goToLogin": "Go to log in",
+      "missingToken": "Invalid or missing reset link."
+    },
+    "oauth": {
+      "title": "Sign in with Google",
+      "connecting": "Connecting...",
+      "error": "Sign in with Google failed. Try again or use your email and password."
     }
   },
   "authPrompt": {
@@ -153,6 +195,9 @@
     "loading": "Loading...",
     "memberSince": "Member since {{date}}.",
     "logout": "Log out",
+    "emailNotVerified": "Your email address is not verified yet.",
+    "resendVerification": "Resend the link",
+    "resendSent": "Verification link resent.",
     "tabs": {
       "bookmarks": "Bookmarks",
       "notes": "Notes",

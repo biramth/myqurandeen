@@ -13,3 +13,4 @@ export * from "./prophets";
 export * from "./ai-embeddings";
 export * from "./duas";
 export * from "./notifications";
+export * from "./auth";

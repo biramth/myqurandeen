@@ -43,5 +43,7 @@ export const users = pgTable("users", {
     .references(() => roles.id, { onDelete: "restrict" }),
   isActive: boolean("is_active").default(true).notNull(),
   emailVerifiedAt: timestamp("email_verified_at", { withTimezone: true }),
+  googleId: varchar("google_id", { length: 64 }),
+  avatarUrl: text("avatar_url"),
   ...timestamps,
 });

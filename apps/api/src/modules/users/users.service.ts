@@ -1,6 +1,7 @@
 import { ConflictException, Inject, Injectable } from "@nestjs/common";
 import { eq } from "drizzle-orm";
 import * as argon2 from "argon2";
+import { randomBytes } from "node:crypto";
 import type { RoleName } from "@qurandeen/shared";
 import { DRIZZLE } from "../../database/database.constants";
 import type { Database } from "../../database/database.module";
@@ -24,8 +25,26 @@ export class UsersService {
     return this.db.query.users.findFirst({ where: eq(users.email, email) });
   }
 
+  async findByGoogleId(googleId: string) {
+    return this.db.query.users.findFirst({ where: eq(users.googleId, googleId) });
+  }
+
   async findById(id: string) {
     return this.db.query.users.findFirst({ where: eq(users.id, id) });
+  }
+
+  async markEmailVerified(userId: string) {
+    const [updated] = await this.db
+      .update(users)
+      .set({ emailVerifiedAt: new Date() })
+      .where(eq(users.id, userId))
+      .returning();
+    return updated;
+  }
+
+  async updatePassword(userId: string, password: string) {
+    const passwordHash = await argon2.hash(password);
+    await this.db.update(users).set({ passwordHash }).where(eq(users.id, userId));
   }
 
   async createUser(input: CreateUserInput) {
@@ -89,6 +108,63 @@ export class UsersService {
     return updated;
   }
 
+  /**
+   * Cree un utilisateur Connecte via Google (email pre-verifie par Google) ou
+   * lie le compte Google a un utilisateur email existant portant le meme
+   * email. Le mot de passe est deletaire (impossible a utiliser) tant que
+   * l'utilisateur n'a pas defini de mot de passe lui-meme.
+   */
+  async findOrCreateGoogleUser(profile: {
+    googleId: string;
+    email: string;
+    displayName: string;
+    avatarUrl?: string;
+  }): Promise<{ user: NonNullable<Awaited<ReturnType<UsersService["findByEmail"]>>>; created: boolean }> {
+    const existingByGoogle = await this.findByGoogleId(profile.googleId);
+    if (existingByGoogle) {
+      return { user: existingByGoogle, created: false };
+    }
+
+    const existingByEmail = await this.findByEmail(profile.email);
+    if (existingByEmail) {
+      // Lie le compte Google a l'email existant et marque l'email comme verifie.
+      const [updated] = await this.db
+        .update(users)
+        .set({
+          googleId: profile.googleId,
+          emailVerifiedAt: existingByEmail.emailVerifiedAt ?? new Date(),
+          ...(existingByEmail.avatarUrl ? {} : profile.avatarUrl ? { avatarUrl: profile.avatarUrl } : {}),
+        })
+        .where(eq(users.id, existingByEmail.id))
+        .returning();
+      return { user: updated, created: false };
+    }
+
+    const defaultRole = await this.rbac.findRoleByName("USER");
+    if (!defaultRole) {
+      throw new Error("Role USER introuvable - executez le seed RBAC");
+    }
+
+    // Mot de passe aleatoire irrecuperable, impossible a utiliser en login par
+    // mot de passe (compte cree via Google ; l'utilisateur pourra en definir un
+    // quand le flux "definir un mot de passe" existera).
+    const passwordHash = await argon2.hash(randomBytes(32).toString("base64url"));
+    const [user] = await this.db
+      .insert(users)
+      .values({
+        email: profile.email,
+        passwordHash,
+        displayName: profile.displayName,
+        roleId: defaultRole.id,
+        googleId: profile.googleId,
+        avatarUrl: profile.avatarUrl,
+        emailVerifiedAt: new Date(),
+      })
+      .returning();
+
+    return { user, created: true };
+  }
+
   toPublicProfile(
     user: {
       id: string;
@@ -96,6 +172,8 @@ export class UsersService {
       displayName: string;
       locale: string;
       createdAt: Date;
+      emailVerifiedAt: Date | null;
+      avatarUrl: string | null;
     },
     roleName?: RoleName,
   ) {
@@ -105,6 +183,8 @@ export class UsersService {
       displayName: user.displayName,
       locale: user.locale,
       memberSince: user.createdAt,
+      emailVerified: Boolean(user.emailVerifiedAt),
+      avatarUrl: user.avatarUrl,
       isStaff: Boolean(roleName) && roleName !== "USER",
     };
   }

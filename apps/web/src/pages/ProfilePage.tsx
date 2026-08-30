@@ -11,6 +11,7 @@ import { Input } from "@/components/ui/input";
 import { Badge } from "@/components/ui/badge";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { useAuth } from "@/features/auth/auth-context";
+import { authApi } from "@/features/auth/api";
 import { userDataApi } from "@/features/user-data/api";
 import { RemindersTab } from "@/features/reminders/RemindersTab";
 import { useDocumentTitle } from "@/hooks/useDocumentTitle";
@@ -322,6 +323,18 @@ export function ProfilePage() {
   const { user, isLoading, logout } = useAuth();
   const { t, i18n } = useTranslation();
   useDocumentTitle(user?.displayName ?? t("nav.profile"));
+  const [resendState, setResendState] = React.useState<"idle" | "sent" | "error">("idle");
+
+  const handleResendVerification = async () => {
+    if (!user) return;
+    setResendState("idle");
+    try {
+      await authApi.resendVerification(user.email);
+      setResendState("sent");
+    } catch {
+      setResendState("error");
+    }
+  };
 
   if (isLoading) {
     return <div className="mx-auto max-w-2xl px-4 py-16 text-center text-muted-foreground">{t("profile.loading")}</div>;
@@ -333,6 +346,16 @@ export function ProfilePage() {
 
   return (
     <div className="mx-auto max-w-2xl px-4 py-12">
+      {!user.emailVerified && (
+        <div className="mb-4 flex flex-wrap items-center justify-between gap-2 rounded-md border border-amber-300 bg-amber-50 px-4 py-3 dark:border-amber-500/30 dark:bg-amber-950/30">
+          <p className="text-sm text-amber-800 dark:text-amber-200">{t("profile.emailNotVerified")}</p>
+          <Button type="button" variant="outline" size="sm" onClick={handleResendVerification}>
+            {t("profile.resendVerification")}
+          </Button>
+          {resendState === "sent" && <p className="text-xs text-amber-700 dark:text-amber-300">{t("profile.resendSent")}</p>}
+          {resendState === "error" && <p className="text-xs text-destructive">{t("common.error")}</p>}
+        </div>
+      )}
       <Card>
         <CardHeader>
           <CardTitle>{user.displayName}</CardTitle>
