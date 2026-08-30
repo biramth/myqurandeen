@@ -75,6 +75,17 @@ export class NotificationsService {
     return { subscribed: false };
   }
 
+  /**
+   * Supprime tous les abonnements push de l'utilisateur. Utilisé par le
+   * bouton "Désactiver" : sur iOS le navigateur peut avoir déjà supprimé
+   * l'abonnement local (getSubscription() -> null) alors que la base dit
+   * encore "abonné" - il faut donc forcer le nettoyage côté serveur.
+   */
+  async removeAll(userId: string) {
+    await this.db.delete(pushSubscriptions).where(eq(pushSubscriptions.userId, userId));
+    return { subscribed: false };
+  }
+
   async isSubscribed(userId: string): Promise<boolean> {
     const rows = await this.db
       .select({ id: pushSubscriptions.id })

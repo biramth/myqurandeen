@@ -26,5 +26,6 @@ export const notificationsApi = {
     apiClient.post<{ subscribed: boolean }>("/notifications/subscribe", input),
   unsubscribe: (endpoint: string) =>
     apiClient.delete<{ subscribed: boolean }>(`/notifications/subscribe?endpoint=${encodeURIComponent(endpoint)}`),
+  unsubscribeAll: () => apiClient.delete<{ subscribed: boolean }>("/notifications/subscriptions"),
   test: () => apiClient.post<TestResult>("/notifications/test"),
 };

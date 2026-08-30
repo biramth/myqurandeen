@@ -16,8 +16,19 @@ import { weekdayLabels } from "./weekdayLabels";
 
 function PushToggle() {
   const { t } = useTranslation();
-  const { support, permission, isSubscribed, subscribe, unsubscribe, isPending } = usePushSubscription();
+  const { support, permission, isStandalone, isSubscribed, subscribe, unsubscribe, isPending } =
+    usePushSubscription();
   const [lastTest, setLastTest] = React.useState<TestResult | null>(null);
+
+  /**
+   * Sur iOS, `Notification.requestPermission()` / `subscribe()` restent
+   * totalement silencieux tant que l'app n'est pas ouverte en mode installe
+   * (icone du home screen) : d'ou l'impression que le bouton "ne marche pas".
+   */
+  const isIos = React.useMemo(() => {
+    const ua = navigator.userAgent;
+    return /iPhone|iPad|iPod/i.test(ua) || (navigator.platform === "MacIntel" && navigator.maxTouchPoints > 1);
+  }, []);
 
   const testMutation = useMutation({
     mutationFn: () => notificationsApi.test(),
@@ -38,12 +49,26 @@ function PushToggle() {
   if (support === "unconfigured") {
     return <p className="text-sm text-muted-foreground">{t("reminders.pushUnconfigured")}</p>;
   }
+  if (isIos && !isStandalone) {
+    return (
+      <div className="space-y-1">
+        <p className="flex items-center gap-2 text-sm text-muted-foreground">
+          <BellOff className="h-4 w-4 shrink-0" aria-hidden="true" />
+          {t("reminders.pushNeedInstall")}
+        </p>
+        <p className="text-xs text-muted-foreground">{t("reminders.pushNeedInstallHint")}</p>
+      </div>
+    );
+  }
   if (permission === "denied") {
     return (
-      <p className="flex items-center gap-2 text-sm text-muted-foreground">
-        <BellOff className="h-4 w-4 shrink-0" aria-hidden="true" />
-        {t("reminders.pushDenied")}
-      </p>
+      <div className="space-y-1">
+        <p className="flex items-center gap-2 text-sm text-muted-foreground">
+          <BellOff className="h-4 w-4 shrink-0" aria-hidden="true" />
+          {t("reminders.pushDenied")}
+        </p>
+        {isIos && <p className="text-xs text-muted-foreground">{t("reminders.pushReinstall")}</p>}
+      </div>
     );
   }
 

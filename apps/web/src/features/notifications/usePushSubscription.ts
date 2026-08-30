@@ -35,6 +35,20 @@ export function usePushSubscription() {
     typeof Notification === "undefined" ? "unsupported" : Notification.permission,
   );
 
+  /**
+   * iOS (et PWA en general) n'affiche la notification QUE si l'app est
+   * ouverte en mode installe (standalone) : bouton "Ajouter a l'ecran
+   * d'accueil" / icone du home screen. Detecte via navigator.standalone
+   * (iOS) ou display-mode: standalone (Android/desktop).
+   */
+  const isStandalone = React.useMemo(() => {
+    if (typeof window === "undefined") return false;
+    return (
+      (navigator as Navigator & { standalone?: boolean }).standalone === true ||
+      window.matchMedia("(display-mode: standalone)").matches
+    );
+  }, []);
+
   const { data: health } = useQuery({
     queryKey: ["notifications", "health"],
     queryFn: notificationsApi.health,
@@ -66,7 +80,9 @@ export function usePushSubscription() {
       if (!health?.vapidPublicKey) throw new Error("Notifications non configurees");
       const result = await Notification.requestPermission();
       setPermission(result);
-      if (result !== "granted") return;
+      if (result !== "granted") {
+        throw new Error("PERMISSION_DENIED");
+      }
 
       const registration = await navigator.serviceWorker.ready;
       const existing = await registration.pushManager.getSubscription();
@@ -96,8 +112,12 @@ export function usePushSubscription() {
       if (subscription) {
         const endpoint = subscription.endpoint;
         await subscription.unsubscribe();
-        await notificationsApi.unsubscribe(endpoint);
+        await notificationsApi.unsubscribe(endpoint).catch(() => undefined);
       }
+      // Même si le navigateur n'avait plus d'abonnement local (permission
+      // révoquée côté OS ou contexte différent), on nettoie TOUT côté
+      // serveur : sinon le bouton "Désactiver" semble ne rien faire.
+      await notificationsApi.unsubscribeAll();
     },
     onSuccess: () => queryClient.invalidateQueries({ queryKey: ["notifications", "subscribed"] }),
   });
@@ -105,6 +125,7 @@ export function usePushSubscription() {
   return {
     support,
     permission,
+    isStandalone,
     isSubscribed: subscribedData?.subscribed ?? false,
     subscribe: () => subscribeMutation.mutateAsync(),
     unsubscribe: () => unsubscribeMutation.mutateAsync(),

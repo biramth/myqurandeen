@@ -33,6 +33,11 @@ export class NotificationsController {
     return this.notificationsService.unsubscribe(user.sub, endpoint);
   }
 
+  @Delete("subscriptions")
+  removeAll(@CurrentUser() user: RequestUser) {
+    return this.notificationsService.removeAll(user.sub);
+  }
+
   @Post("test")
   sendTest(@CurrentUser() user: RequestUser) {
     return this.notificationsService.sendTest(user.sub);
