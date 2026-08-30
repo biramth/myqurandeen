@@ -13,7 +13,7 @@ import {
 } from "@/components/ui/dialog";
 import { usePwaInstall } from "./usePwaInstall";
 
-const iOS_STEPS = ["step1", "step2", "step3"] as const;
+const iOS_STEPS = ["step1", "step2", "step3", "step4"] as const;
 
 /**
  * Bandeau "Installer l'app" reserve au mobile (`md:hidden`) : invite native

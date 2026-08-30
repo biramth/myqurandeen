@@ -567,8 +567,9 @@
       "title": "Tambahkan ke Layar Utama",
       "description": "Di iPhone tidak ada tombol instalasi: ikuti langkah berikut untuk menambahkan aplikasi ke layar utama.",
       "step1": "Ketuk tombol Bagikan (kotak dengan panah) di bilah Safari.",
-      "step2": "Pilih «Tambahkan ke Layar Utama».",
-      "step3": "Konfirmasi dengan «Tambahkan». Aplikasi akan muncul di layar utama Anda.",
+      "step2": "Gulir ke bawah dan ketuk «Lainnya» (…) untuk menampilkan semua tindakan.",
+      "step3": "Pilih «Tambahkan ke Layar Utama».",
+      "step4": "Konfirmasi dengan «Tambahkan». Aplikasi akan muncul di layar utama Anda.",
       "gotIt": "Mengerti"
     }
   }

@@ -733,8 +733,9 @@
       "title": "Ajouter à l'écran d'accueil",
       "description": "Sur iPhone, il n'y a pas de bouton d'installation : suivez ces étapes pour ajouter l'app à votre écran d'accueil.",
       "step1": "Touchez l'icône Partager (carré avec une flèche) dans la barre Safari.",
-      "step2": "Choisissez « Ajouter à l'écran d'accueil ».",
-      "step3": "Confirmez avec « Ajouter ». L'app apparaît alors sur votre écran d'accueil.",
+      "step2": "Faites défiler et touchez « Plus » (…) pour afficher toutes les actions.",
+      "step3": "Choisissez « Ajouter à l'écran d'accueil ».",
+      "step4": "Confirmez avec « Ajouter ». L'app apparaît alors sur votre écran d'accueil.",
       "gotIt": "Compris"
     }
   }

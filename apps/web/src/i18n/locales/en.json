@@ -617,8 +617,9 @@
       "title": "Add to Home Screen",
       "description": "The iPhone has no install button. Follow these steps to add the app to your home screen.",
       "step1": "Tap the Share button (a square with an arrow) in the Safari bar.",
-      "step2": "Choose “Add to Home Screen”.",
-      "step3": "Confirm with “Add”. The app then appears on your home screen.",
+      "step2": "Scroll down and tap More (…) to show all actions.",
+      "step3": "Choose “Add to Home Screen”.",
+      "step4": "Confirm with “Add”. The app then appears on your home screen.",
       "gotIt": "Got it"
     }
   }

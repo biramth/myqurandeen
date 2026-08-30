@@ -572,8 +572,9 @@
       "title": "Ana Ekrana Ekle",
       "description": "iPhone'da kurulum düğmesi yok: uygulamayı ana ekrana eklemek için şu adımları izleyin.",
       "step1": "Safari çubuğunda Paylaş düğmesine (oklu kare) dokunun.",
-      "step2": "«Ana Ekrana Ekle» öğesini seçin.",
-      "step3": "«Ekle» ile onaylayın. Uygulama ana ekranınızda görünür.",
+      "step2": "Tüm eylemleri görmek için aşağı kaydırın ve «Daha Fazla» (…) öğesine dokunun.",
+      "step3": "«Ana Ekrana Ekle» öğesini seçin.",
+      "step4": "«Ekle» ile onaylayın. Uygulama ana ekranınızda görünür.",
       "gotIt": "Anlaşıldı"
     }
   }

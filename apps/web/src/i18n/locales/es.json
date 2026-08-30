@@ -572,8 +572,9 @@
       "title": "Añadir a la pantalla de inicio",
       "description": "En el iPhone no hay botón de instalación: sigue estos pasos para añadir la app a tu pantalla de inicio.",
       "step1": "Toca el botón Compartir (un cuadrado con una flecha) en la barra de Safari.",
-      "step2": "Elige «Añadir a la pantalla de inicio».",
-      "step3": "Confirma con «Añadir». La aplicación aparecerá en tu pantalla de inicio.",
+      "step2": "Desplázate hacia abajo y toca «Más» (…) para ver todas las acciones.",
+      "step3": "Elige «Añadir a la pantalla de inicio».",
+      "step4": "Confirma con «Añadir». La aplicación aparecerá en tu pantalla de inicio.",
       "gotIt": "Entendido"
     }
   }
