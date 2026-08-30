@@ -75,7 +75,7 @@ const BOOKS: BookSeed[] = [
     authorName: "Ibn Majah",
     authorEra: "209-273 AH / 824-887",
     description:
-      "Sixième recueil retenu dans les Kutub as-Sittah (les six livres canoniques de hadiths sunnites), organise par chapitres thematiques couvrant le culte comme les relations sociales.",
+      "Sixième recueil retenu dans les Kutub as-Sittah (les six livres canoniques de hadiths sunnites), organisé par chapitres thématiques couvrant le culte comme les relations sociales.",
     language: "ar",
     era: "IIIe siècle AH / IXe siècle",
     categories: ["Hadith"],

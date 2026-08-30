@@ -151,7 +151,7 @@ const PERIODS: PeriodSeed[] = [
         dateApprox: "622",
         eventType: "migration",
         description:
-          "Face à un projet d'assassinat fomente par des chefs de Quraych, le Prophète ﷺ quitte La Mecque avec Abu Bakr pour rejoindre Médine, laissant Ali dormir dans son lit pour couvrir son depart. Le voyage inclut une halte dans la grotte de Thawr, ou les deux hommes se cachent pendant que leurs poursuivants les recherchent. A leur arrivée a Yathrib, rebaptisee Médine (\"la Ville [du Prophète]\"), le Prophète ﷺ y organise la première communauté musulmane structurée, y compris ses relations avec les tribus juives de la ville via ce que la tradition appelle la \"Constitution de Médine\". Cette émigration (Hijra) marqué le point de depart du calendrier hegirien.",
+          "Face à un projet d'assassinat fomenté par des chefs de Quraych, le Prophète ﷺ quitte La Mecque avec Abu Bakr pour rejoindre Médine, laissant Ali dormir dans son lit pour couvrir son départ. Le voyage inclut une halte dans la grotte de Thawr, où les deux hommes se cachent pendant que leurs poursuivants les recherchent. À leur arrivée à Yathrib, rebaptisée Médine (\"la Ville [du Prophète]\"), le Prophète ﷺ y organise la première communauté musulmane structurée, y compris ses relations avec les tribus juives de la ville via ce que la tradition appelle la \"Constitution de Médine\". Cette émigration (Hijra) marque le point de départ du calendrier hégirien.",
         source: SIRA_IBN_HISHAM,
       },
       {
@@ -169,7 +169,7 @@ const PERIODS: PeriodSeed[] = [
         dateApprox: "625 / 3 AH",
         eventType: "battle",
         description:
-          "Un an après Badr, les Mecquois reviennent en force pour venger leur defaite et affrontent les musulmans près du mont Uhud, non loin de Médine. Dans un premier temps favorable aux musulmans, l'issue de la bataille bascule lorsque un groupe d'archers postes sur une colline strategique quitte sa position pour participer au butin, permettant à la cavalerie mecquoise, menée par Khalid ibn al-Walid (alors encore non converti), de prendre les musulmans a revers. Le Prophète ﷺ est blesse et plusieurs compagnons, dont son oncle Hamza, sont tues. Uhud est généralement présentée comme une lecon sur la discipline et l'obéissance plutôt que comme une defaite decisive.",
+          "Un an après Badr, les Mecquois reviennent en force pour venger leur défaite et affrontent les musulmans près du mont Uhud, non loin de Médine. Dans un premier temps favorable aux musulmans, l'issue de la bataille bascule lorsque un groupe d'archers postés sur une colline stratégique quitte sa position pour participer au butin, permettant à la cavalerie mecquoise, menée par Khalid ibn al-Walid (alors encore non converti), de prendre les musulmans à revers. Le Prophète ﷺ est blessé et plusieurs compagnons, dont son oncle Hamza, sont tués. Uhud est généralement présentée comme une leçon sur la discipline et l'obéissance plutôt que comme une défaite décisive.",
         source: TARIKH_TABARI,
       },
       {
@@ -252,7 +252,7 @@ const PERIODS: PeriodSeed[] = [
         dateApprox: "636",
         eventType: "battle",
         description:
-          "Sur les rives du fleuve Yarmouk, aux confins de la Syrie et de la Jordanie actuelles, une armee musulmane commandee notamment par Khalid ibn al-Walid affronte une force byzantine bien plus nombreuse envoyee par l'empereur Heraclius pour reconquerir les territoires perdus. Profitant d'une tempête de sable et d'une coordination tactique supérieure, les musulmans infligent une defaite decisive aux Byzantins. Cette victoire met fin durablement à la domination byzantine sur la Syrie et ouvre la voie à la conquête rapide du Levant, y compris de Jerusalem, remise pacifiquement au calife Omar en personne peu après.",
+          "Sur les rives du fleuve Yarmouk, aux confins de la Syrie et de la Jordanie actuelles, une armée musulmane commandée notamment par Khalid ibn al-Walid affronte une force byzantine bien plus nombreuse envoyée par l'empereur Héraclius pour reconquérir les territoires perdus. Profitant d'une tempête de sable et d'une coordination tactique supérieure, les musulmans infligent une défaite décisive aux Byzantins. Cette victoire met fin durablement à la domination byzantine sur la Syrie et ouvre la voie à la conquête rapide du Levant, y compris de Jérusalem, remise pacifiquement au calife Omar en personne peu après.",
         source: TARIKH_TABARI,
       },
       {
@@ -297,7 +297,7 @@ const PERIODS: PeriodSeed[] = [
         dateApprox: "661",
         eventType: "death",
         description:
-          "Le calife Ali ibn Abi Talib, cousin et gendre du Prophète ﷺ, est mortellement blesse à Kufa par un Kharijite, Ibn Muljam, qui lui reprochait notamment d'avoir accepte l'arbitrage de Siffin ; il décédé peu après. Son fils Hassan lui succède brievement avant de ceder le pouvoir a Muawiya afin d'éviter une nouvelle guerre civile, mettant fin à la première fitna. Cette transition marque la fin de la période rashidun et l'avenement du califat omeyyade hereditaire, un tournant que les traditions sunnite et chiite interpretent de manière significativement différente quant a la légitimité de la succession.",
+          "Le calife Ali ibn Abi Talib, cousin et gendre du Prophète ﷺ, est mortellement blessé à Kufa par un Kharijite, Ibn Muljam, qui lui reprochait notamment d'avoir accepté l'arbitrage de Siffin ; il décède peu après. Son fils Hassan lui succède brièvement avant de céder le pouvoir à Muawiya afin d'éviter une nouvelle guerre civile, mettant fin à la première fitna. Cette transition marque la fin de la période rashidun et l'avènement du califat omeyyade héréditaire, un tournant que les traditions sunnite et chiite interprètent de manière significativement différente quant à la légitimité de la succession.",
         source: TARIKH_TABARI,
       },
     ],
@@ -485,7 +485,7 @@ const PERIODS: PeriodSeed[] = [
         dateApprox: "1260",
         eventType: "battle",
         description:
-          "Près de la source de Ayn Jalut, en Palestine, l'armee mamelouke commandee par le sultan Qutuz et le général Baybars inflige aux Mongols leur première défaite majeure, mettant un coup d'arret decisif a leur expansion vers l'Égypte après la destruction de Bagdad deux ans plus tôt. Cette victoire, obtenue notamment grâce a une bonne connaissance du terrain et a une utilisation efficace de la cavalerie légère, sauve l'Égypte et le Hijaz (avec les villes saintes de La Mecque et Médine) d'une invasion mongole et etablit durablement la reputation militaire du jeune sultanat mamelouk.",
+          "Près de la source de Ayn Jalut, en Palestine, l'armée mamelouke commandée par le sultan Qutuz et le général Baybars inflige aux Mongols leur première défaite majeure, mettant un coup d'arrêt décisif à leur expansion vers l'Égypte après la destruction de Bagdad deux ans plus tôt. Cette victoire, obtenue notamment grâce à une bonne connaissance du terrain et à une utilisation efficace de la cavalerie légère, sauve l'Égypte et le Hijaz (avec les villes saintes de La Mecque et Médine) d'une invasion mongole et établit durablement la réputation militaire du jeune sultanat mamelouk.",
         source: SULUK_AL_MAQRIZI,
       },
       {
@@ -541,7 +541,7 @@ const PERIODS: PeriodSeed[] = [
         dateApprox: "1453",
         eventType: "conquest",
         description:
-          "Après un siège de près de deux mois utilisant notamment une artillerie de siège d'une ampleur inedite pour l'époque, le sultan Mehmed II, âge d'a peine vingt-et-un ans, s'empare de Constantinople, mettant fin a l'Empire byzantin plus de mille ans après sa fondation. La ville, rebaptisee Istanbul dans l'usage courant, devient la nouvelle capitale ottomane ; la basilique Sainte-Sophie est convertie en mosquee, et la conquête, largement percue dans le monde musulman comme l'accomplissement d'une prophetie attribuee au Prophète ﷺ, confere a Mehmed II le titre de \"Fatih\" (le Conquerant).",
+          "Après un siège de près de deux mois utilisant notamment une artillerie de siège d'une ampleur inédite pour l'époque, le sultan Mehmed II, âgé d'à peine vingt-et-un ans, s'empare de Constantinople, mettant fin à l'Empire byzantin plus de mille ans après sa fondation. La ville, rebaptisée Istanbul dans l'usage courant, devient la nouvelle capitale ottomane ; la basilique Sainte-Sophie est convertie en mosquée, et la conquête, largement perçue dans le monde musulman comme l'accomplissement d'une prophétie attribuée au Prophète ﷺ, confère à Mehmed II le titre de \"Fatih\" (le Conquérant).",
         source: CAMBRIDGE_HISTORY_ISLAM,
       },
       {
@@ -700,7 +700,7 @@ const PERIODS: PeriodSeed[] = [
         dateApprox: "XVe-XVIe siècle",
         eventType: "event",
         description:
-          "L'islamisation de l'ile de Java, cœur demographique de l'actuelle Indonesie, est traditionnellement associee a neuf figures missionnaires (Wali Songo, \"les neuf saints\") qui auraient combine prédication religieuse et adaptation aux formes culturelles et artistiques locales - notamment le théâtre d'ombres wayang - pour faciliter la conversion progressive des populations javanaises, jusque-la largement hindou-bouddhistes. Cette approche syncretique sur le plan culturel, tout en preservant l'orthodoxie religieuse de fond, caracterise durablement l'Islam de l'archipel indonesien.",
+          "L'islamisation de l'île de Java, cœur démographique de l'actuelle Indonésie, est traditionnellement associée à neuf figures missionnaires (Wali Songo, \"les neuf saints\") qui auraient combiné prédication religieuse et adaptation aux formes culturelles et artistiques locales - notamment le théâtre d'ombres wayang - pour faciliter la conversion progressive des populations javanaises, jusque-là largement hindou-bouddhistes. Cette approche syncrétique sur le plan culturel, tout en préservant l'orthodoxie religieuse de fond, caractérise durablement l'Islam de l'archipel indonésien.",
         source: CAMBRIDGE_HISTORY_ISLAM,
       },
     ],

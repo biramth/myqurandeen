@@ -30,7 +30,7 @@ const CONCEPTS: ConceptSeed[] = [
     definition: "L'unicité absolue de Dieu (Allah), pilier central de la croyance islamique.",
     origin: "Racine arabe w-h-d, exprimant l'idée d'unicité.",
     explanation:
-      "Le tawhid affirme qu'il n'existe qu'un seul Dieu, sans associé, sans égal et sans partenaire, dans Son essence, Ses attributs et Son adoration. Il constitue le premier des deux témoignages de la shahada et l'axe autour duquel s'organise l'ensemble de la doctrine islamique, tout appel prophétique dans le Coran se ramenant, selon la tradition, a ce même message fondamental (sourate An-Nahl, 16:36).\n\nIl est traditionnellement decompose en trois volets par les théologiens, détaillés séparément sur cette plateforme : l'unicité de la seigneurie (rububiyya), l'unicité de l'adoration (uluhiyya) et l'unicité des noms et attributs divins (asma wa sifat). Son opposé, le shirk, est présenté dans le Coran comme la seule faute que Dieu ne pardonne pas sans repentir sincère (sourate An-Nisa, 4:48).",
+      "Le tawhid affirme qu'il n'existe qu'un seul Dieu, sans associé, sans égal et sans partenaire, dans Son essence, Ses attributs et Son adoration. Il constitue le premier des deux témoignages de la shahada et l'axe autour duquel s'organise l'ensemble de la doctrine islamique, tout appel prophétique dans le Coran se ramenant, selon la tradition, à ce même message fondamental (sourate An-Nahl, 16:36).\n\nIl est traditionnellement décomposé en trois volets par les théologiens, détaillés séparément sur cette plateforme : l'unicité de la seigneurie (rububiyya), l'unicité de l'adoration (uluhiyya) et l'unicité des noms et attributs divins (asma wa sifat). Son opposé, le shirk, est présenté dans le Coran comme la seule faute que Dieu ne pardonne pas sans repentir sincère (sourate An-Nisa, 4:48).",
     relatedSlugs: ["shirk", "iman"],
   },
   {
@@ -608,7 +608,7 @@ const CONCEPTS: ConceptSeed[] = [
     definition: "Le principe de consultation mutuelle dans la prise de décision collective.",
     origin: "Racine arabe sh-w-r, évoquant le fait de consulter.",
     explanation:
-      "La shura désigne le principe, mentionne dans le Coran (sourate Ash-Shura, 42:38 ; Al Imran, 3:159) recommandant au Prophète ﷺ lui-même de consulter ses Compagnons, appliqué historiquement à la designation des premiers califes et plus largement présente comme un principe de gouvernance et de prise de décision collective en Islam.",
+      "La shura désigne le principe, mentionné dans le Coran (sourate Ash-Shura, 42:38 ; Al Imran, 3:159) recommandant au Prophète ﷺ lui-même de consulter ses Compagnons, appliqué historiquement à la désignation des premiers califes et plus largement présenté comme un principe de gouvernance et de prise de décision collective en Islam.",
     relatedSlugs: ["khilafa"],
   },
   {

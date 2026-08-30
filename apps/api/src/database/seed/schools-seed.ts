@@ -8,7 +8,7 @@ import { authors, fiqhDivergenceNotes, fiqhPositions, fiqhTopics, schools, sourc
  * compilé a partir d'ouvrages de référence standards de fiqh compare,
  * notamment "Al-Fiqh ala al-Madhahib al-Arba'a" d'Abd al-Rahman al-Jaziri,
  * qui a précisément pour objet de présenter les positions des quatre
- * écoles sunnites côte à côte. Chaque position est attribuee à l'école
+ * écoles sunnites côte à côte. Chaque position est attribuée à l'école
  * concernee sans jugement de valeur - voir CONTRIBUTING.md.
  */
 
@@ -38,9 +38,9 @@ const SCHOOLS: SchoolSeed[] = [
     founderName: "Malik ibn Anas",
     founderEra: "93-179 AH / 711-795",
     history:
-      "Fondée à Médine par l'imam Malik ibn Anas, qui y enseigna toute sa vie dans la mosquee du Prophète ﷺ, l'école malikite s'est diffusee très tôt en Afrique du Nord et en Andalousie grâce aux étudiants venus étudier aupres de Malik puis retournes enseigner dans leurs régions d'origine. Elle est aujourd'hui l'école dominante au Maghreb (Maroc, Algerie, Tunisie, Libye), en Afrique de l'Ouest (Senegal, Mali, Nigeria...) et coexiste avec l'école hanbalite dans certaines régions du Golfe, notamment au Koweit et aux Émirats.",
+      "Fondée à Médine par l'imam Malik ibn Anas, qui y enseigna toute sa vie dans la mosquée du Prophète ﷺ, l'école malikite s'est diffusée très tôt en Afrique du Nord et en Andalousie grâce aux étudiants venus étudier auprès de Malik puis retournés enseigner dans leurs régions d'origine. Elle est aujourd'hui l'école dominante au Maghreb (Maroc, Algérie, Tunisie, Libye), en Afrique de l'Ouest (Sénégal, Mali, Nigeria...) et coexiste avec l'école hanbalite dans certaines régions du Golfe, notamment au Koweït et aux Émirats.",
     principles:
-      "Accorde une place structurellement importante a la pratique des habitants de Médine ('amal ahl al-Madina), considérée comme un témoignage vivant et ininterrompu de la Sunna transmise depuis le Prophète ﷺ - une source distinctive qui n'a pas d'équivalent dans les autres écoles. Recourt également largement au principe de l'intérêt général (maslaha mursala) pour statuer sur des questions non explicitement traitees par les textes, et a la pratique consistant a bloquer les moyens menant a un mal (sadd adh-dhara'i), même lorsque l'acte initial n'est pas interdit en lui-même.",
+      "Accorde une place structurellement importante à la pratique des habitants de Médine ('amal ahl al-Madina), considérée comme un témoignage vivant et ininterrompu de la Sunna transmise depuis le Prophète ﷺ - une source distinctive qui n'a pas d'équivalent dans les autres écoles. Recourt également largement au principe de l'intérêt général (maslaha mursala) pour statuer sur des questions non explicitement traitées par les textes, et à la pratique consistant à bloquer les moyens menant à un mal (sadd adh-dhara'i), même lorsque l'acte initial n'est pas interdit en lui-même.",
     sourcesUsed: "Coran, Sunna, consensus (ijma'), pratique des Medinois, raisonnement analogique (qiyas), intérêt général (maslaha).",
     era: "IIe siècle AH / VIIIe siècle",
   },
@@ -51,9 +51,9 @@ const SCHOOLS: SchoolSeed[] = [
     founderName: "Abu Hanifa",
     founderEra: "80-150 AH / 699-767",
     history:
-      "Fondée a Kufa (Irak) par l'imam Abu Hanifa an-Nu'man et systematisee par ses élèves Abu Yusuf et Muhammad ash-Shaybani, l'école hanafite beneficia très tôt d'un statut privilégie du fait de l'adhesion de nombreux juges et administrateurs de l'empire abbasside, ce qui favorisa sa diffusion rapide. C'est aujourd'hui l'école la plus répandue numériquement dans le monde musulman, dominante en Turquie, dans les Balkans, en Asie centrale, ainsi que dans le sous-continent indien (Pakistan, Inde, Bangladesh) et en Afghanistan.",
+      "Fondée à Kufa (Irak) par l'imam Abu Hanifa an-Nu'man et systématisée par ses élèves Abu Yusuf et Muhammad ash-Shaybani, l'école hanafite bénéficia très tôt d'un statut privilégié du fait de l'adhésion de nombreux juges et administrateurs de l'empire abbasside, ce qui favorisa sa diffusion rapide. C'est aujourd'hui l'école la plus répandue numériquement dans le monde musulman, dominante en Turquie, dans les Balkans, en Asie centrale, ainsi que dans le sous-continent indien (Pakistan, Inde, Bangladesh) et en Afghanistan.",
     principles:
-      "Recours particulièrement developpe au raisonnement analogique (qiyas) et a la préférence juridique (istihsan, qui permet de s'ecarter d'une analogie stricte lorsqu'elle mène a un résultat juge inequitable), face a des situations non explicitement traitees par les textes. L'école accorde également un poids notable a la coutume locale ('urf) dans les domaines ou aucun texte n'est disponible, ce qui a favorise son adaptation a la grande diversité de contextes culturels rencontres lors de son expansion vers l'Asie centrale et l'Inde.",
+      "Recours particulièrement développé au raisonnement analogique (qiyas) et à la préférence juridique (istihsan, qui permet de s'écarter d'une analogie stricte lorsqu'elle mène à un résultat jugé inéquitable), face à des situations non explicitement traitées par les textes. L'école accorde également un poids notable à la coutume locale ('urf) dans les domaines où aucun texte n'est disponible, ce qui a favorisé son adaptation à la grande diversité de contextes culturels rencontrés lors de son expansion vers l'Asie centrale et l'Inde.",
     sourcesUsed: "Coran, Sunna, consensus (ijma'), raisonnement analogique (qiyas), préférence juridique (istihsan), coutume ('urf).",
     era: "IIe siècle AH / VIIIe siècle",
   },
@@ -64,10 +64,10 @@ const SCHOOLS: SchoolSeed[] = [
     founderName: "Muhammad ibn Idris ash-Shafi'i",
     founderEra: "150-204 AH / 767-820",
     history:
-      "Fondée par l'imam ash-Shafi'i, qui étudia successivement aupres de Malik a Médine puis des disciples d'Abu Hanifa en Irak avant de systématiser les principes de l'usul al-fiqh (méthodologie juridique) dans son ouvrage Ar-Risala, la première œuvre du genre. Il revisa une partie de sa propre doctrine après son installation en Égypte a la fin de sa vie. L'école s'est répandue notamment en Égypte, en Afrique de l'Est (Somalie, côté swahilie), en Asie du Sud-Est (Indonesie, Malaisie) et au Yemen.",
+      "Fondée par l'imam ash-Shafi'i, qui étudia successivement auprès de Malik à Médine puis des disciples d'Abu Hanifa en Irak avant de systématiser les principes de l'usul al-fiqh (méthodologie juridique) dans son ouvrage Ar-Risala, la première œuvre du genre. Il revisa une partie de sa propre doctrine après son installation en Égypte à la fin de sa vie. L'école s'est répandue notamment en Égypte, en Afrique de l'Est (Somalie, côté swahilie), en Asie du Sud-Est (Indonésie, Malaisie) et au Yemen.",
     principles:
-      "Première systématisation rigoureuse et explicite de la hiérarchie des sources du droit islamique, exposee dans Ar-Risala : le Coran et la Sunna authentifiee priment, suivis du consensus (ijma') puis du raisonnement analogique (qiyas), avec des règles precises encadrant chaque étape du raisonnement juridique. Cette codification méthodologique a fortement influence la manière dont les trois autres écoles sunnites ont elles-mêmes structure et justifie leur propre approche par la suite.",
-    sourcesUsed: "Coran, Sunna, consensus (ijma'), raisonnement analogique (qiyas), avec un cadre méthodologique très codifie.",
+      "Première systématisation rigoureuse et explicite de la hiérarchie des sources du droit islamique, exposée dans Ar-Risala : le Coran et la Sunna authentifiée priment, suivis du consensus (ijma') puis du raisonnement analogique (qiyas), avec des règles précises encadrant chaque étape du raisonnement juridique. Cette codification méthodologique a fortement influencé la manière dont les trois autres écoles sunnites ont elles-mêmes structuré et justifié leur propre approche par la suite.",
+    sourcesUsed: "Coran, Sunna, consensus (ijma'), raisonnement analogique (qiyas), avec un cadre méthodologique très codifié.",
     era: "IIe-IIIe siècle AH / VIIIe-IXe siècle",
   },
   {
@@ -77,10 +77,10 @@ const SCHOOLS: SchoolSeed[] = [
     founderName: "Ahmad ibn Hanbal",
     founderEra: "164-241 AH / 780-855",
     history:
-      "Fondée par l'imam Ahmad ibn Hanbal, connu aussi pour son immense recueil de hadiths (le Musnad) et pour sa résistance a la pression du pouvoir abbasside durant la mihna, l'école hanbalite resta longtemps minoritaire face aux trois autres écoles, avant d'être revitalisee par des savants comme Ibn Taymiyyah et son élève Ibn Qayyim al-Jawziyya au XIVe siècle. Elle est aujourd'hui predominante en Arabie Saoudite et dans une grande partie du Golfe, et constitue la base juridique de référence du courant salafi contemporain.",
+      "Fondée par l'imam Ahmad ibn Hanbal, connu aussi pour son immense recueil de hadiths (le Musnad) et pour sa résistance à la pression du pouvoir abbasside durant la mihna, l'école hanbalite resta longtemps minoritaire face aux trois autres écoles, avant d'être revitalisée par des savants comme Ibn Taymiyyah et son élève Ibn Qayyim al-Jawziyya au XIVe siècle. Elle est aujourd'hui prédominante en Arabie Saoudite et dans une grande partie du Golfe, et constitue la base juridique de référence du courant salafi contemporain.",
     principles:
-      "Attache une importance particulière au hadith authentique, y compris de portée limitee, et se montre généralement prudente vis-a-vis du raisonnement analogique systématique lorsqu'un texte, même faible selon d'autres critères, est disponible et qu'aucun texte plus fort ne le contredit. L'école privilégie également les avis rapportes des Compagnons du Prophète ﷺ lorsqu'aucun texte direct ne tranche une question, avant de recourir au raisonnement analogique proprement dit, considère comme un dernier recours.",
-    sourcesUsed: "Coran, Sunna (y compris hadiths faibles preferes à l'opinion personnelle dans certains cas), avis des Compagnons, raisonnement analogique en dernier recours.",
+      "Attache une importance particulière au hadith authentique, y compris de portée limitée, et se montre généralement prudente vis-à-vis du raisonnement analogique systématique lorsqu'un texte, même faible selon d'autres critères, est disponible et qu'aucun texte plus fort ne le contredit. L'école privilégie également les avis rapportés des Compagnons du Prophète ﷺ lorsqu'aucun texte direct ne tranche une question, avant de recourir au raisonnement analogique proprement dit, considéré comme un dernier recours.",
+    sourcesUsed: "Coran, Sunna (y compris hadiths faibles préférés à l'opinion personnelle dans certains cas), avis des Compagnons, raisonnement analogique en dernier recours.",
     era: "IIIe siècle AH / IXe siècle",
   },
   {
@@ -90,9 +90,9 @@ const SCHOOLS: SchoolSeed[] = [
     founderName: "Abu al-Hasan al-Ash'ari",
     founderEra: "260-324 AH / 874-936",
     history:
-      "Courant théologique (aqida) fondé par Abu al-Hasan al-Ash'ari, qui rompit publiquement avec le mu'tazilisme rationaliste dans lequel il avait été forme pour developper une voie intermediaire, plus tard consolidee et diffusee par des savants majeurs comme Al-Baqillani et surtout Al-Ghazali. Devenu l'une des écoles de théologie sunnite les plus repandues historiquement, elle s'est particulièrement associée aux écoles juridiques shafi'ite et malikite, et demeure aujourd'hui largement enseignee dans les grandes institutions sunnites traditionnelles comme Al-Azhar au Caire.",
+      "Courant théologique (aqida) fondé par Abu al-Hasan al-Ash'ari, qui rompit publiquement avec le mu'tazilisme rationaliste dans lequel il avait été formé pour développer une voie intermédiaire, plus tard consolidée et diffusée par des savants majeurs comme Al-Baqillani et surtout Al-Ghazali. Devenu l'une des écoles de théologie sunnite les plus répandues historiquement, elle s'est particulièrement associée aux écoles juridiques shafi'ite et malikite, et demeure aujourd'hui largement enseignée dans les grandes institutions sunnites traditionnelles comme Al-Azhar au Caire.",
     principles:
-      "Cherche une voie mediane entre le rationalisme systématique du mu'tazilisme, juge excessif dans la subordination des textes a la raison, et le litteralisme strict qui refuse tout recours a l'interprétation, tout en utilisant des outils du raisonnement rationnel (kalam) pour defendre et argumenter les articles de foi islamiques face aux objections philosophiques. Sur les attributs divins evoques dans des termes apparemment corporels (la \"main\" ou le \"visage\" de Dieu, par exemple), l'école privilégie généralement une interprétation allegorique (ta'wil) plutôt qu'une affirmation litterale sans specification de la modalite.",
+      "Cherche une voie médiane entre le rationalisme systématique du mu'tazilisme, jugé excessif dans la subordination des textes à la raison, et le littéralisme strict qui refuse tout recours à l'interprétation, tout en utilisant des outils du raisonnement rationnel (kalam) pour défendre et argumenter les articles de foi islamiques face aux objections philosophiques. Sur les attributs divins évoqués dans des termes apparemment corporels (la \"main\" ou le \"visage\" de Dieu, par exemple), l'école privilégie généralement une interprétation allégorique (ta'wil) plutôt qu'une affirmation littérale sans spécification de la modalité.",
     sourcesUsed: "Coran, Sunna, raisonnement rationnel (kalam) au service de la defense des croyances.",
     era: "IVe siècle AH / Xe siècle",
   },
@@ -103,9 +103,9 @@ const SCHOOLS: SchoolSeed[] = [
     founderName: "Abu Mansur al-Maturidi",
     founderEra: "m. 333 AH / 944",
     history:
-      "Courant théologique fondé par Abu Mansur al-Maturidi a Samarcande, developpe independamment de l'ash'arisme mais a la même époque et dans un esprit méthodologique proche, historiquement associé a l'école juridique hanafite dont il partage souvent le contexte geographique. Répandu en Asie centrale, en Turquie et dans les Balkans, il constitue avec l'ash'arisme l'une des deux grandes écoles de théologie sunnite reconnues comme orthodoxes par la tradition classique.",
+      "Courant théologique fondé par Abu Mansur al-Maturidi a Samarcande, developpe indépendamment de l'ash'arisme mais a la même époque et dans un esprit méthodologique proche, historiquement associé a l'école juridique hanafite dont il partage souvent le contexte geographique. Répandu en Asie centrale, en Turquie et dans les Balkans, il constitue avec l'ash'arisme l'une des deux grandes écoles de théologie sunnite reconnues comme orthodoxes par la tradition classique.",
     principles:
-      "Proche de l'ash'arisme sur la plupart des questions doctrinales fondamentales (unicité divine, attributs, prophetie, eschatologie), avec quelques divergences notables, notamment sur le rôle de la raison dans la connaissance du bien et du mal : les maturidites considèrent que la raison humaine peut, dans une certaine mesure, discerner par elle-même certaines obligations morales de base independamment de la révélation, alors que les ash'arites tendent a faire dependre entièrement la notion de bien et de mal de ce que la révélation designe comme tel.",
+      "Proche de l'ash'arisme sur la plupart des questions doctrinales fondamentales (unicité divine, attributs, prophétie, eschatologie), avec quelques divergences notables, notamment sur le rôle de la raison dans la connaissance du bien et du mal : les maturidites considèrent que la raison humaine peut, dans une certaine mesure, discerner par elle-même certaines obligations morales de base indépendamment de la révélation, alors que les ash'arites tendent à faire dépendre entièrement la notion de bien et de mal de ce que la révélation désigne comme tel.",
     sourcesUsed: "Coran, Sunna, raisonnement rationnel (kalam).",
     era: "IVe siècle AH / Xe siècle",
   },
@@ -116,9 +116,9 @@ const SCHOOLS: SchoolSeed[] = [
     founderName: "Ahmad ibn Hanbal (figure de référence)",
     founderEra: "164-241 AH / 780-855",
     history:
-      "Approche théologique privilegiant l'affirmation des textes (Coran et Sunna) sans recours a l'interprétation rationnelle systématique (kalam), historiquement associée a l'école hanbalite et a des figures comme Ibn Taymiyyah et Ibn Qayyim al-Jawziyya qui l'ont ulterieurement systematisee et defendue face aux critiques ash'arites et mu'tazilites. Elle constitue aujourd'hui la base théologique du courant salafi contemporain et reste influente en Arabie Saoudite et dans certains milieux hanbalites du Golfe.",
+      "Approche théologique privilégiant l'affirmation des textes (Coran et Sunna) sans recours à l'interprétation rationnelle systématique (kalam), historiquement associée à l'école hanbalite et à des figures comme Ibn Taymiyyah et Ibn Qayyim al-Jawziyya qui l'ont ultérieurement systématisée et défendue face aux critiques ash'arites et mu'tazilites. Elle constitue aujourd'hui la base théologique du courant salafi contemporain et reste influente en Arabie Saoudite et dans certains milieux hanbalites du Golfe.",
     principles:
-      "Affirme les textes relatifs aux attributs divins tels qu'ils sont rapportes dans le Coran et la Sunna (la \"main\", le \"visage\", l'\"établissement sur le Trone\"), sans les interpréter allegoriquement comme le font les ash'arites, mais sans chercher non plus a en determiner la modalite exacte (bila kayf, \"sans [demander] comment\"), une position resumee par la formule attribuee a Malik ibn Anas selon laquelle \"l'établissement [sur le Trone] est connu, sa modalite est inconnue, y croire est obligatoire, et interroger a ce sujet est une innovation blamable\".",
+      "Affirme les textes relatifs aux attributs divins tels qu'ils sont rapportés dans le Coran et la Sunna (la \"main\", le \"visage\", l'\"établissement sur le Trône\"), sans les interpréter allégoriquement comme le font les ash'arites, mais sans chercher non plus à en déterminer la modalité exacte (bila kayf, \"sans [demander] comment\"), une position résumée par la formule attribuée à Malik ibn Anas selon laquelle \"l'établissement [sur le Trône] est connu, sa modalité est inconnue, y croire est obligatoire, et interroger à ce sujet est une innovation blâmable\".",
     sourcesUsed: "Coran, Sunna, compréhension attribuée aux premières générations (salaf).",
     era: "IIIe siècle AH / IXe siècle et suivants",
   },
@@ -131,7 +131,7 @@ const SCHOOLS: SchoolSeed[] = [
     history:
       "Courant théologique rationaliste apparu a Bassora, traditionnellement rattache a la rupture de Wasil ibn Ata avec son maitre Al-Hasan al-Basri sur la question du statut du croyant ayant commis un peche grave. Le mu'tazilisme devint doctrine officielle du califat abbasside sous Al-Ma'mun et ses deux successeurs immediats au IXe siècle, période durant laquelle une inquisition (mihna) fut imposee aux savants refusant d'adherer a la thèse mu'tazilite du Coran créé - résistance a laquelle Ahmad ibn Hanbal doit une grande partie de sa notoriete. Le mouvement decline ensuite face a la contre-offensive ash'arite et hanbalite, et demeure aujourd'hui minoritaire, bien qu'historiquement déterminant dans le développement des outils et du vocabulaire du kalam islamique, y compris chez ses adversaires théologiques.",
     principles:
-      "Accorde une place centrale a la raison, considérée capable de determiner independamment certaines vérités morales et théologiques, notamment sur des questions comme la justice divine (Dieu ne peut, selon cette école, agir injustement par definition rationnelle de la justice) et le libre arbitre humain (l'être humain est l'auteur reel de ses actes, contrairement a la lecture plus deterministe dominante chez les ash'arites). Position minoritaire et distincte du courant sunnite majoritaire également sur la nature du Coran, considère créé et non incree, et sur le statut du croyant ayant commis un grand peche, place dans une position intermediaire entre croyant et mecreant.",
+      "Accorde une place centrale à la raison, considérée capable de déterminer indépendamment certaines vérités morales et théologiques, notamment sur des questions comme la justice divine (Dieu ne peut, selon cette école, agir injustement par définition rationnelle de la justice) et le libre arbitre humain (l'être humain est l'auteur réel de ses actes, contrairement à la lecture plus déterministe dominante chez les ash'arites). Position minoritaire et distincte du courant sunnite majoritaire également sur la nature du Coran, considéré créé et non incréé, et sur le statut du croyant ayant commis un grand péché, placé dans une position intermédiaire entre croyant et mécréant.",
     sourcesUsed: "Coran interprète à la lumiere du raisonnement rationnel (kalam).",
     era: "IIe siècle AH / VIIIe siècle",
   },
@@ -153,10 +153,10 @@ const FIQH_TOPICS: FiqhTopicSeed[] = [
     category: "Prière (Salat)",
     description: "Ou et comment placer les mains durant la station debout (qiyam) de la prière.",
     positions: [
-      { schoolSlug: "malikite", text: "Dans la position la plus connue de l'école, les mains sont laissees le long du corps (sadl) plutôt que croisees, bien que certains malikites rapportent aussi la position croisee." },
-      { schoolSlug: "hanafite", text: "La main droite est placee sur la main gauche, sous le nombril." },
-      { schoolSlug: "shafiite", text: "La main droite est placee sur la main gauche, sur la poitrine." },
-      { schoolSlug: "hanbalite", text: "La main droite est placee sur la main gauche, généralement sous le nombril, position proche de celle des hanafites." },
+      { schoolSlug: "malikite", text: "Dans la position la plus connue de l'école, les mains sont laissées le long du corps (sadl) plutôt que croisées, bien que certains malikites rapportent aussi la position croisée." },
+      { schoolSlug: "hanafite", text: "La main droite est placée sur la main gauche, sous le nombril." },
+      { schoolSlug: "shafiite", text: "La main droite est placée sur la main gauche, sur la poitrine." },
+      { schoolSlug: "hanbalite", text: "La main droite est placée sur la main gauche, généralement sous le nombril, position proche de celle des hanafites." },
     ],
     divergenceExplanation: "La divergence provient de la diversité des hadiths rapportes sur ce point et de la manière dont chaque école a évalue leur authenticité et leur portée, ainsi que du poids accorde à la pratique observee dans chaque région (Médine pour les malikites, Kufa pour les hanafites, etc.).",
   },
@@ -174,15 +174,15 @@ const FIQH_TOPICS: FiqhTopicSeed[] = [
     divergenceExplanation: "Plusieurs hadiths authentiques decrivent des pratiques du Prophète ﷺ a des moments différents ; les écoles divergent sur la manière de les concilier ou de determiner lesquels refletent la pratique la plus établie.",
   },
   {
-    title: "Récitation de la Basmala a voix haute",
+    title: "Récitation de la Basmala à voix haute",
     slug: "basmala-a-voix-haute",
     category: "Prière (Salat)",
-    description: "Si la formule \"Bismillah ar-Rahman ar-Rahim\" doit être récitée a voix haute ou basse avant la Fatiha dans les prières a voix haute.",
+    description: "Si la formule \"Bismillah ar-Rahman ar-Rahim\" doit être récitée à voix haute ou basse avant la Fatiha dans les prières à voix haute.",
     positions: [
-      { schoolSlug: "malikite", text: "La Basmala n'est pas récitée du tout au debut de la Fatiha dans la prière, position spécifique à cette école." },
-      { schoolSlug: "hanafite", text: "La Basmala est récitée, mais toujours a voix basse, même dans les prières a voix haute." },
-      { schoolSlug: "shafiite", text: "La Basmala est considérée comme un verset de la Fatiha et est récitée a voix haute dans les prières concernees." },
-      { schoolSlug: "hanbalite", text: "La Basmala est récitée a voix basse, position proche de celle des hanafites." },
+      { schoolSlug: "malikite", text: "La Basmala n'est pas récitée du tout au début de la Fatiha dans la prière, position spécifique à cette école." },
+      { schoolSlug: "hanafite", text: "La Basmala est récitée, mais toujours à voix basse, même dans les prières à voix haute." },
+      { schoolSlug: "shafiite", text: "La Basmala est considérée comme un verset de la Fatiha et est récitée à voix haute dans les prières concernées." },
+      { schoolSlug: "hanbalite", text: "La Basmala est récitée à voix basse, position proche de celle des hanafites." },
     ],
     divergenceExplanation: "La divergence tient à la question de savoir si la Basmala fait partie integrante du texte de la sourate Al-Fatiha, question sur laquelle les hadiths et les lectures coraniques rapportées varient.",
   },
@@ -194,7 +194,7 @@ const FIQH_TOPICS: FiqhTopicSeed[] = [
     positions: [
       { schoolSlug: "malikite", text: "Le contact avec une intention ou un plaisir (mubashara bi-shahwa) annule le wudu ; un contact neutre et sans désir ne l'annule pas." },
       { schoolSlug: "hanafite", text: "Le simple contact de la peau n'annule pas le wudu, seule l'émission de fluide invalidant l'annule." },
-      { schoolSlug: "shafiite", text: "Tout contact direct de peau a peau entre un homme et une femme non mahram annule le wudu, independamment de l'intention." },
+      { schoolSlug: "shafiite", text: "Tout contact direct de peau à peau entre un homme et une femme non mahram annule le wudu, indépendamment de l'intention." },
       { schoolSlug: "hanbalite", text: "Le contact avec plaisir ou désir annule le wudu ; position proche de celle des malikites." },
     ],
     divergenceExplanation: "La divergence provient d'interprétations différentes du verset coranique évoquant le fait d'avoir \"touche les femmes\" (Coran 4:43 et 5:6) - certaines écoles y voient une allusion euphemique aux rapports intimes, d'autres un sens plus littéral incluant le simple contact.",
