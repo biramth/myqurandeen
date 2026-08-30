@@ -96,7 +96,7 @@ export function GamificationCard() {
 
         <div>
           <div className="mb-2 flex items-center justify-between">
-            <p className="text-sm font-medium">{t("gamification.achievements")}</p>
+            <p className="text-sm font-medium">{t("gamification.achievementsTitle")}</p>
             <span className="text-xs text-muted-foreground">
               {t("gamification.achievementsCount", { current: unlockedCount, total: data.achievements.length })}
             </span>

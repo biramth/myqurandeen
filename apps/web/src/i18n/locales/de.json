@@ -267,7 +267,7 @@
     "dailyGoal": "Tagesziel",
     "dailyGoalProgress": "{{count}}/{{target}} Aktionen",
     "dailyGoalDone": "Ziel heute erreicht - gut gemacht!",
-    "achievements": "Erfolge",
+    "achievementsTitle": "Erfolge",
     "achievementsCount": "{{current}}/{{total}}",
     "unlockedAt": "Freigeschaltet am {{date}}",
     "locked": "Übe weiter, um diesen Erfolg freizuschalten.",

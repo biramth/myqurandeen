@@ -267,7 +267,7 @@
     "dailyGoal": "Günlük hedef",
     "dailyGoalProgress": "{{count}}/{{target}} eylem",
     "dailyGoalDone": "Bugünkü hedefe ulaşıldı - aferin!",
-    "achievements": "Başarılar",
+    "achievementsTitle": "Başarılar",
     "achievementsCount": "{{current}}/{{total}}",
     "unlockedAt": "{{date}} tarihinde açıldı",
     "locked": "Bu başarımı açmak için pratik yapmaya devam et.",

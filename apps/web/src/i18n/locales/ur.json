@@ -267,7 +267,7 @@
     "dailyGoal": "روزانہ ہدف",
     "dailyGoalProgress": "{{count}}/{{target}} اعمال",
     "dailyGoalDone": "آج کا ہدف مکمل — بہت خوب!",
-    "achievements": "کامیابیاں",
+    "achievementsTitle": "کامیابیاں",
     "achievementsCount": "{{current}}/{{total}}",
     "unlockedAt": "{{date}} کو حاصل ہوا",
     "locked": "یہ کامیابی حاصل کرنے کے لیے مشق جاری رکھیں۔",

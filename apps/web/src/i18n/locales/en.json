@@ -312,7 +312,7 @@
     "dailyGoal": "Daily goal",
     "dailyGoalProgress": "{{count}}/{{target}} actions",
     "dailyGoalDone": "Goal reached today - well done!",
-    "achievements": "Achievements",
+    "achievementsTitle": "Achievements",
     "achievementsCount": "{{current}}/{{total}}",
     "unlockedAt": "Unlocked on {{date}}",
     "locked": "Keep practicing to unlock this achievement.",

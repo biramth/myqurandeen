@@ -262,7 +262,7 @@
     "dailyGoal": "Target harian",
     "dailyGoalProgress": "{{count}}/{{target}} aksi",
     "dailyGoalDone": "Target tercapai hari ini - hebat!",
-    "achievements": "Prestasi",
+    "achievementsTitle": "Prestasi",
     "achievementsCount": "{{current}}/{{total}}",
     "unlockedAt": "Terbuka pada {{date}}",
     "locked": "Terus berlatih untuk membuka prestasi ini.",

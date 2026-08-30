@@ -277,7 +277,7 @@
     "dailyGoal": "Цель дня",
     "dailyGoalProgress": "{{count}}/{{target}} действий",
     "dailyGoalDone": "Цель дня достигнута — отлично!",
-    "achievements": "Достижения",
+    "achievementsTitle": "Достижения",
     "achievementsCount": "{{current}}/{{total}}",
     "unlockedAt": "Открыто {{date}}",
     "locked": "Продолжай практиковаться, чтобы открыть это достижение.",

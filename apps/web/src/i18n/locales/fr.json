@@ -312,7 +312,7 @@
     "dailyGoal": "Objectif du jour",
     "dailyGoalProgress": "{{count}}/{{target}} actions",
     "dailyGoalDone": "Objectif atteint aujourd'hui - bravo !",
-    "achievements": "Succès",
+    "achievementsTitle": "Succès",
     "achievementsCount": "{{current}}/{{total}}",
     "unlockedAt": "Débloqué le {{date}}",
     "locked": "Continue de t'entraîner pour débloquer ce succès.",
