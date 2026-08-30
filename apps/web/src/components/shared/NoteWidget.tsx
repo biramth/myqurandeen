@@ -8,6 +8,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { SignUpPromptPopover } from "@/components/shared/SignUpPromptPopover";
 import { useAuth } from "@/features/auth/auth-context";
 import { userDataApi } from "@/features/user-data/api";
+import { useGamificationEvent } from "@/features/gamification/useGamification";
 import type { TargetType } from "@/features/user-data/types";
 
 interface NoteWidgetProps {
@@ -25,6 +26,7 @@ export function NoteWidget({ targetType, targetId }: NoteWidgetProps) {
   const { t } = useTranslation();
   const { user } = useAuth();
   const queryClient = useQueryClient();
+  const track = useGamificationEvent();
   const [open, setOpen] = React.useState(false);
   const [draft, setDraft] = React.useState("");
 
@@ -41,6 +43,7 @@ export function NoteWidget({ targetType, targetId }: NoteWidgetProps) {
       setDraft("");
       queryClient.invalidateQueries({ queryKey });
       toast.success(t("notes.saved"));
+      track("note_created");
     },
     onError: () => toast.error(t("common.error")),
   });

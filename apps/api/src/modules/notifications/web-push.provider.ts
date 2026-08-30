@@ -22,6 +22,8 @@ export class WebPushProvider {
   private readonly logger = new Logger(WebPushProvider.name);
   readonly publicKey: string | null;
   readonly isConfigured: boolean;
+  /** Dernier passage du planificateur de rappels (diagnostic : savoir si le cron tourne bien en prod). */
+  lastTickAt: Date | null = null;
 
   constructor(config: ConfigService) {
     const publicKey = config.get<string>("VAPID_PUBLIC_KEY", "");

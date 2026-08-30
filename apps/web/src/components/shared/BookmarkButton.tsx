@@ -6,6 +6,7 @@ import { Button } from "@/components/ui/button";
 import { SignUpPromptPopover } from "@/components/shared/SignUpPromptPopover";
 import { useAuth } from "@/features/auth/auth-context";
 import { userDataApi } from "@/features/user-data/api";
+import { useGamificationEvent } from "@/features/gamification/useGamification";
 import type { TargetType } from "@/features/user-data/types";
 
 interface BookmarkButtonProps {
@@ -24,6 +25,7 @@ export function BookmarkButton({ targetType, targetId, size = "default" }: Bookm
   const { t } = useTranslation();
   const { user } = useAuth();
   const queryClient = useQueryClient();
+  const track = useGamificationEvent();
 
   const queryKey = ["bookmark-check", targetType, targetId];
   const { data } = useQuery({
@@ -38,6 +40,7 @@ export function BookmarkButton({ targetType, targetId, size = "default" }: Bookm
       queryClient.setQueryData(queryKey, result);
       queryClient.invalidateQueries({ queryKey: ["user-data", "bookmarks"] });
       toast.success(result.bookmarked ? t("bookmark.added") : t("bookmark.removed"));
+      if (result.bookmarked) track("bookmark_added");
     },
     onError: () => toast.error(t("common.error")),
   });

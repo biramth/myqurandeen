@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { Navigate, useParams } from "react-router-dom";
 import { useQuery } from "@tanstack/react-query";
 import { useTranslation } from "react-i18next";
@@ -7,18 +8,23 @@ import { Breadcrumbs } from "@/components/shared/Breadcrumbs";
 import { ContentUserActions } from "@/components/shared/ContentUserActions";
 import { hadithApi } from "@/features/hadith/api";
 import { useStreakPing } from "@/features/streaks/useStreak";
+import { useGamificationEvent } from "@/features/gamification/useGamification";
 import { useDocumentTitle } from "@/hooks/useDocumentTitle";
 
 export function HadithDetailPage() {
   const { collection: slug, number } = useParams<{ collection: string; number: string }>();
   const { t } = useTranslation();
   useStreakPing();
+  const track = useGamificationEvent();
 
   const { data, isLoading, isError } = useQuery({
     queryKey: ["hadith", "detail", slug, number],
     queryFn: () => hadithApi.getHadith(slug!, number!),
     enabled: Boolean(slug) && Boolean(number),
   });
+  useEffect(() => {
+    if (data) track("hadith_read");
+  }, [data, track]);
   useDocumentTitle(data ? `${data.collection.name} ${data.hadith.number}` : undefined);
 
   if (!slug || !number) return <Navigate to="/hadith" replace />;

@@ -3,11 +3,12 @@ import { Link } from "react-router-dom";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { useTranslation } from "react-i18next";
 import { toast } from "sonner";
-import { Bell, BellOff, BellRing, Trash2 } from "lucide-react";
+import { Bell, BellOff, BellRing, Send, Trash2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Skeleton } from "@/components/ui/skeleton";
 import { cn } from "@/lib/utils";
+import { notificationsApi } from "@/features/notifications/api";
 import { usePushSubscription } from "@/features/notifications/usePushSubscription";
 import { remindersApi } from "./api";
 import { AddReminderDialog } from "./AddReminderDialog";
@@ -16,6 +17,18 @@ import { weekdayLabels } from "./weekdayLabels";
 function PushToggle() {
   const { t } = useTranslation();
   const { support, permission, isSubscribed, subscribe, unsubscribe, isPending } = usePushSubscription();
+
+  const testMutation = useMutation({
+    mutationFn: () => notificationsApi.test(),
+    onSuccess: ({ sent }) => {
+      if (sent > 0) {
+        toast.success(t("reminders.testPushSuccess"));
+      } else {
+        toast.error(t("reminders.testPushError"));
+      }
+    },
+    onError: () => toast.error(t("reminders.testPushError")),
+  });
 
   if (support === "unsupported") {
     return <p className="text-sm text-muted-foreground">{t("reminders.pushUnsupported")}</p>;
@@ -42,17 +55,37 @@ function PushToggle() {
         )}
         {isSubscribed ? t("reminders.pushEnabled") : t("reminders.pushPrompt")}
       </p>
-      <Button
-        type="button"
-        size="sm"
-        variant={isSubscribed ? "outline" : "default"}
-        disabled={isPending}
-        onClick={() =>
-          (isSubscribed ? unsubscribe() : subscribe()).catch(() => toast.error(t("reminders.error")))
-        }
-      >
-        {isSubscribed ? t("reminders.disablePush") : t("reminders.enablePush")}
-      </Button>
+      <div className="flex items-center gap-2">
+        {isSubscribed && (
+          <Button
+            type="button"
+            size="sm"
+            variant="ghost"
+            disabled={testMutation.isPending}
+            onClick={() => testMutation.mutate()}
+          >
+            {testMutation.isPending ? (
+              t("reminders.testPushSending")
+            ) : (
+              <>
+                <Send className="h-4 w-4" aria-hidden="true" />
+                {t("reminders.testPush")}
+              </>
+            )}
+          </Button>
+        )}
+        <Button
+          type="button"
+          size="sm"
+          variant={isSubscribed ? "outline" : "default"}
+          disabled={isPending}
+          onClick={() =>
+            (isSubscribed ? unsubscribe() : subscribe()).catch(() => toast.error(t("reminders.error")))
+          }
+        >
+          {isSubscribed ? t("reminders.disablePush") : t("reminders.enablePush")}
+        </Button>
+      </div>
     </div>
   );
 }

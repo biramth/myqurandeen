@@ -1,8 +1,9 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { Check, X, RotateCcw } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
+import { useGamificationEvent } from "@/features/gamification/useGamification";
 import type { QuizQuestion } from "./types";
 
 interface QuizBlockProps {
@@ -12,6 +13,13 @@ interface QuizBlockProps {
 export function QuizBlock({ questions }: QuizBlockProps) {
   const { t } = useTranslation();
   const [answers, setAnswers] = useState<Record<string, string>>({});
+  const track = useGamificationEvent();
+
+  useEffect(() => {
+    if (questions.length > 0 && Object.keys(answers).length === questions.length) {
+      track("quiz_completed");
+    }
+  }, [answers, questions, track]);
 
   if (questions.length === 0) return null;
 

@@ -3,6 +3,7 @@ import { Outlet, useNavigate } from "react-router-dom";
 import { Header } from "./Header";
 import { Sidebar } from "./Sidebar";
 import { BottomNav } from "./BottomNav";
+import { CelebrationHost } from "@/features/gamification/CelebrationHost";
 
 /**
  * Un clic sur une notification push ne peut pas naviguer directement dans
@@ -30,6 +31,7 @@ export function AppLayout() {
   return (
     <div className="flex min-h-screen flex-col">
       <Header />
+      <CelebrationHost />
       <div className="flex flex-1">
         <Sidebar />
         <main className="min-w-0 flex-1 pb-[calc(4rem+env(safe-area-inset-bottom))] md:pb-0">

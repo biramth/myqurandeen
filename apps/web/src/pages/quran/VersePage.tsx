@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { Navigate, useParams } from "react-router-dom";
 import { useQuery } from "@tanstack/react-query";
 import { useTranslation } from "react-i18next";
@@ -7,6 +8,7 @@ import { Breadcrumbs } from "@/components/shared/Breadcrumbs";
 import { ContentUserActions } from "@/components/shared/ContentUserActions";
 import { quranApi } from "@/features/quran/api";
 import { useStreakPing } from "@/features/streaks/useStreak";
+import { useGamificationEvent } from "@/features/gamification/useGamification";
 import { useDocumentTitle } from "@/hooks/useDocumentTitle";
 
 export function VersePage() {
@@ -15,12 +17,16 @@ export function VersePage() {
   const verseNumber = Number(verseParam);
   const { t } = useTranslation();
   useStreakPing();
+  const track = useGamificationEvent();
 
   const { data, isLoading, isError } = useQuery({
     queryKey: ["quran", "verse", surahNumber, verseNumber],
     queryFn: () => quranApi.getVerse(surahNumber, verseNumber),
     enabled: Number.isInteger(surahNumber) && Number.isInteger(verseNumber),
   });
+  useEffect(() => {
+    if (data) track("verse_read");
+  }, [data, track]);
   useDocumentTitle(data ? `${data.surah.nameTransliterated} ${data.verse.numberInSurah}` : undefined);
 
   if (!Number.isInteger(surahNumber) || !Number.isInteger(verseNumber)) {

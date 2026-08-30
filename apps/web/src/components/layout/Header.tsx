@@ -6,6 +6,7 @@ import { ThemeToggle } from "@/components/shared/theme-toggle";
 import { LanguageSwitcher } from "@/components/shared/language-switcher";
 import { useAuth } from "@/features/auth/auth-context";
 import { StreakBadge } from "@/features/streaks/StreakBadge";
+import { LevelBadge } from "@/features/gamification/LevelBadge";
 import { cn } from "@/lib/utils";
 
 export function Header() {
@@ -22,6 +23,7 @@ export function Header() {
 
         <div className="flex items-center gap-1">
           {user && <StreakBadge />}
+          {user && <LevelBadge />}
           <LanguageSwitcher />
           <ThemeToggle />
           {!isLoading && (

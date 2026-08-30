@@ -10,6 +10,7 @@ import { LessonIllustration } from "@/features/learning/illustrations/LessonIllu
 import { QuizBlock } from "@/features/learning/QuizBlock";
 import { useAuth } from "@/features/auth/auth-context";
 import { useStreakPing } from "@/features/streaks/useStreak";
+import { useGamificationEvent } from "@/features/gamification/useGamification";
 import { useDocumentTitle } from "@/hooks/useDocumentTitle";
 
 export function LearningLessonPage() {
@@ -17,6 +18,7 @@ export function LearningLessonPage() {
   const { t } = useTranslation();
   const { user } = useAuth();
   useStreakPing();
+  const track = useGamificationEvent();
   const queryClient = useQueryClient();
   const navigate = useNavigate();
   const orderNum = Number(order);
@@ -55,6 +57,7 @@ export function LearningLessonPage() {
         return Array.from(current);
       });
       queryClient.invalidateQueries({ queryKey: ["learning", "progress"] });
+      if (result.completed) track("lesson_completed");
     },
   });
 

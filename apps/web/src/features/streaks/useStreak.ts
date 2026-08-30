@@ -4,6 +4,7 @@ import { toast } from "sonner";
 import { useTranslation } from "react-i18next";
 import { useAuth } from "@/features/auth/auth-context";
 import { getLocalDateString } from "@/lib/local-date";
+import { celebrations } from "@/features/gamification/celebrations";
 import { streaksApi } from "./api";
 
 export const STREAK_QUERY_KEY = ["streaks", "me"] as const;
@@ -59,6 +60,7 @@ export function useStreakPing(): void {
         queryClient.setQueryData(STREAK_QUERY_KEY, status);
         if (status.currentStreak > 1 && (!previous || previous.currentStreak < status.currentStreak)) {
           toast.success(t("streak.increased", { count: status.currentStreak }));
+          celebrations.emit({ kind: "streak", count: status.currentStreak });
         }
       })
       .catch(() => {

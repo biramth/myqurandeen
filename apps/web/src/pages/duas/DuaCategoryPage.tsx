@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { Link, Navigate, useParams } from "react-router-dom";
 import { useQuery } from "@tanstack/react-query";
 import { useTranslation } from "react-i18next";
@@ -12,18 +13,23 @@ import { QuickReminderButton } from "@/features/reminders/QuickReminderButton";
 import { duasApi } from "@/features/duas/api";
 import { getDuaCategoryIcon } from "@/features/duas/icons";
 import { useStreakPing } from "@/features/streaks/useStreak";
+import { useGamificationEvent } from "@/features/gamification/useGamification";
 import { useDocumentTitle } from "@/hooks/useDocumentTitle";
 
 export function DuaCategoryPage() {
   const { slug } = useParams<{ slug: string }>();
   const { t } = useTranslation();
   useStreakPing();
+  const track = useGamificationEvent();
 
   const { data, isLoading, isError } = useQuery({
     queryKey: ["duas", "category", slug],
     queryFn: () => duasApi.getCategory(slug!),
     enabled: Boolean(slug),
   });
+  useEffect(() => {
+    if (data) track("dua_read");
+  }, [data, track]);
   useDocumentTitle(data?.category.name);
 
   if (!slug) return <Navigate to="/duas" replace />;

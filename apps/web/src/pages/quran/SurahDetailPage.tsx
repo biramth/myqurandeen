@@ -13,6 +13,7 @@ import { translatedSurahName } from "@/features/quran/surah-names";
 import { tafsirApi } from "@/features/tafsir/api";
 import { QuickReminderButton } from "@/features/reminders/QuickReminderButton";
 import { useStreakPing } from "@/features/streaks/useStreak";
+import { useGamificationEvent } from "@/features/gamification/useGamification";
 import { isRtlLanguage } from "@/lib/rtl";
 import { useDocumentTitle } from "@/hooks/useDocumentTitle";
 
@@ -21,6 +22,7 @@ export function SurahDetailPage() {
   const surahNumber = Number(surahParam);
   const { t, i18n } = useTranslation();
   useStreakPing();
+  const track = useGamificationEvent();
   const [copiedVerse, setCopiedVerse] = React.useState<number | null>(null);
   const [showTranslation, setShowTranslation] = React.useState(false);
   const [selectedTafsirId, setSelectedTafsirId] = React.useState<string | null>(null);
@@ -41,6 +43,9 @@ export function SurahDetailPage() {
     enabled: Number.isInteger(surahNumber) && surahNumber > 0,
   });
   useDocumentTitle(surah?.nameTransliterated);
+  React.useEffect(() => {
+    if (surah) track("verse_read");
+  }, [surah, track]);
 
   const { data: translations } = useQuery({
     queryKey: ["quran", "translations"],

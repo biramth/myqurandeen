@@ -75,3 +75,15 @@ export type ReminderTargetType = (typeof REMINDER_TARGET_TYPES)[number];
 
 /** 0 = dimanche ... 6 = samedi (convention JS Date#getDay(), pas ISO). */
 export const WEEKDAYS = [0, 1, 2, 3, 4, 5, 6] as const;
+
+/** Type d'action utilisateur qui fait progresser le profil gamification (XP, succès, objectif du jour). */
+export const GAMIFICATION_EVENT_TYPES = [
+  "verse_read",
+  "hadith_read",
+  "dua_read",
+  "lesson_completed",
+  "quiz_completed",
+  "note_created",
+  "bookmark_added",
+] as const;
+export type GamificationEventType = (typeof GAMIFICATION_EVENT_TYPES)[number];

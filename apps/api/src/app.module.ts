@@ -40,6 +40,7 @@ import { NotificationsModule } from "./modules/notifications/notifications.modul
 import { RemindersModule } from "./modules/reminders/reminders.module";
 import { MailModule } from "./modules/mail/mail.module";
 import { StreaksModule } from "./modules/streaks/streaks.module";
+import { GamificationModule } from "./modules/gamification/gamification.module";
 
 @Module({
   imports: [
@@ -92,6 +93,7 @@ import { StreaksModule } from "./modules/streaks/streaks.module";
     RemindersModule,
     MailModule,
     StreaksModule,
+    GamificationModule,
   ],
   providers: [
     { provide: APP_FILTER, useClass: HttpExceptionFilter },

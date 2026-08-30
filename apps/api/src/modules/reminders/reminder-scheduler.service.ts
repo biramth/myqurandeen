@@ -1,4 +1,4 @@
-import { Inject, Injectable, Logger } from "@nestjs/common";
+import { Inject, Injectable, Logger, OnApplicationBootstrap } from "@nestjs/common";
 import { Cron, CronExpression } from "@nestjs/schedule";
 import { eq } from "drizzle-orm";
 import { DRIZZLE } from "../../database/database.constants";
@@ -45,6 +45,21 @@ function localClock(timeZone: string, at: Date = new Date()): LocalClock | null 
     return null;
   }
 }
+
+/** Minutes ecoulees entre "maintenant" (hh:mm) et une cible "hh:mm" ; negatif si la cible est dans le futur. */
+function minutesSince(nowHhmm: string, targetHhmm: string): number {
+  const [nh, nm] = nowHhmm.split(":").map(Number);
+  const [th, tm] = targetHhmm.split(":").map(Number);
+  return nh * 60 + nm - (th * 60 + tm);
+}
+
+/**
+ * Fenetre de tolerantance pour les notifications : si l'instance s'est
+ * reveillee tard (service endormi, deploiement...), on envoie quand meme les
+ * rappels dont l'heure est passee de moins de GRACE_MINUTES. Au-dela, on
+ * saute (un rappel de 6h arrive a 8h n'a plus de sens).
+ */
+const GRACE_MINUTES = 45;
 
 const DUA_BODY: Record<string, string> = {
   fr: "C'est l'heure de cette invocation.",
@@ -93,7 +108,7 @@ function bodyFor(targetType: "dua" | "dua_category" | "surah", locale: string): 
  * Postgres) avant de scaler horizontalement.
  */
 @Injectable()
-export class ReminderSchedulerService {
+export class ReminderSchedulerService implements OnApplicationBootstrap {
   private readonly logger = new Logger(ReminderSchedulerService.name);
 
   constructor(
@@ -101,9 +116,19 @@ export class ReminderSchedulerService {
     private readonly webPush: WebPushProvider,
   ) {}
 
+  /**
+   * Catch-up au demarrage : si l'instance dormait (tier gratuit Render) au
+   * moment du rappel et vient d'etre reveillee par une visite, on envoie les
+   * rappels dus recemment au lieu d'attendre la minute exacte suivante.
+   */
+  async onApplicationBootstrap() {
+    await this.tick();
+  }
+
   @Cron(CronExpression.EVERY_MINUTE)
   async tick() {
     if (!this.webPush.isConfigured) return;
+    this.webPush.lastTickAt = new Date();
     try {
       await this.processReminders();
       await this.processRotation();
@@ -121,7 +146,9 @@ export class ReminderSchedulerService {
 
     for (const { reminder, locale } of active) {
       const clock = localClock(reminder.timezone);
-      if (!clock || clock.hhmm !== reminder.timeOfDay || !reminder.daysOfWeek.includes(clock.dayOfWeek)) continue;
+      if (!clock || !reminder.daysOfWeek.includes(clock.dayOfWeek)) continue;
+      const since = minutesSince(clock.hhmm, reminder.timeOfDay);
+      if (since < 0 || since > GRACE_MINUTES) continue;
       if (reminder.lastSentAt && localClock(reminder.timezone, reminder.lastSentAt)?.dateKey === clock.dateKey) {
         continue; // deja envoye aujourd'hui (evite un double envoi si le tick chevauche)
       }
@@ -146,7 +173,9 @@ export class ReminderSchedulerService {
 
     for (const { setting, locale } of active) {
       const clock = localClock(setting.timezone);
-      if (!clock || clock.hhmm !== setting.timeOfDay || !setting.daysOfWeek.includes(clock.dayOfWeek)) continue;
+      if (!clock || !setting.daysOfWeek.includes(clock.dayOfWeek)) continue;
+      const since = minutesSince(clock.hhmm, setting.timeOfDay);
+      if (since < 0 || since > GRACE_MINUTES) continue;
       if (setting.lastSentAt && localClock(setting.timezone, setting.lastSentAt)?.dateKey === clock.dateKey) {
         continue;
       }

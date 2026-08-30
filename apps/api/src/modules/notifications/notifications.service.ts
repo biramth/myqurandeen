@@ -13,7 +13,30 @@ export class NotificationsService {
   ) {}
 
   health() {
-    return { ready: this.webPush.isConfigured, vapidPublicKey: this.webPush.publicKey };
+    return { ready: this.webPush.isConfigured, vapidPublicKey: this.webPush.publicKey, lastTickAt: this.webPush.lastTickAt };
+  }
+
+  /**
+   * Envoie immédiatement une notification de test à tous les abonnements de
+   * l'utilisateur (bouton "Envoyer un test" de l'onglet Rappels). Sert aussi
+   * de diagnostic : un "sent" ici prouve que la chaîne VAPID -> push service
+   * fonctionne, et qu'un problème éventuel vient du planificateur.
+   */
+  async sendTest(userId: string): Promise<{ sent: number; total: number }> {
+    const subs = await this.db.select().from(pushSubscriptions).where(eq(pushSubscriptions.userId, userId));
+    let sent = 0;
+    for (const sub of subs) {
+      const result = await this.webPush.send(sub, {
+        title: "myQurandeen",
+        body: "Test notification.",
+        url: "/",
+      });
+      if (result === "sent") sent += 1;
+      if (result === "gone") {
+        await this.db.delete(pushSubscriptions).where(eq(pushSubscriptions.id, sub.id));
+      }
+    }
+    return { sent, total: subs.length };
   }
 
   async subscribe(
