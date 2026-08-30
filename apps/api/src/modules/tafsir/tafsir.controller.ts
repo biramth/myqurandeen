@@ -1,10 +1,12 @@
-import { Controller, Get, Param, ParseIntPipe } from "@nestjs/common";
+import { CacheInterceptor } from "@nestjs/cache-manager";
+import { Controller, Get, Param, ParseIntPipe, UseInterceptors } from "@nestjs/common";
 import { ApiTags } from "@nestjs/swagger";
 import { Public } from "../../common/decorators/public.decorator";
 import { TafsirService } from "./tafsir.service";
 
 @ApiTags("tafsir")
 @Public()
+@UseInterceptors(CacheInterceptor)
 @Controller("tafsir")
 export class TafsirController {
   constructor(private readonly tafsirService: TafsirService) {}

@@ -1,10 +1,12 @@
-import { Controller, Get, Param } from "@nestjs/common";
+import { CacheInterceptor } from "@nestjs/cache-manager";
+import { Controller, Get, Param, UseInterceptors } from "@nestjs/common";
 import { ApiTags } from "@nestjs/swagger";
 import { Public } from "../../common/decorators/public.decorator";
 import { DuasService } from "./duas.service";
 
 @ApiTags("duas")
 @Public()
+@UseInterceptors(CacheInterceptor)
 @Controller("duas")
 export class DuasController {
   constructor(private readonly duasService: DuasService) {}

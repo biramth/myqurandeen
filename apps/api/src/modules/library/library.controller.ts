@@ -1,9 +1,11 @@
-import { Controller, Get, Param } from "@nestjs/common";
+import { CacheInterceptor } from "@nestjs/cache-manager";
+import { Controller, Get, Param, UseInterceptors } from "@nestjs/common";
 import { ApiTags } from "@nestjs/swagger";
 import { Public } from "../../common/decorators/public.decorator";
 import { LibraryService } from "./library.service";
 
 @ApiTags("library")
+@UseInterceptors(CacheInterceptor)
 @Controller("library")
 export class LibraryController {
   constructor(private readonly libraryService: LibraryService) {}

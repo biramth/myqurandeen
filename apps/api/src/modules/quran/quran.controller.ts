@@ -1,10 +1,15 @@
-import { Controller, Get, Param, ParseIntPipe } from "@nestjs/common";
+import { CacheInterceptor } from "@nestjs/cache-manager";
+import { Controller, Get, Param, ParseIntPipe, UseInterceptors } from "@nestjs/common";
 import { ApiTags } from "@nestjs/swagger";
 import { Public } from "../../common/decorators/public.decorator";
 import { QuranService } from "./quran.service";
 
+// Contenu de reference (texte coranique, traductions) : ne change quasiment
+// jamais en prod, mis en cache en memoire pour eviter de retaper la DB a
+// chaque page vue.
 @ApiTags("quran")
 @Public()
+@UseInterceptors(CacheInterceptor)
 @Controller("quran")
 export class QuranController {
   constructor(private readonly quranService: QuranService) {}

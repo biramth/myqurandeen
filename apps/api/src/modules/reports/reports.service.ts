@@ -5,12 +5,17 @@ import { DRIZZLE } from "../../database/database.constants";
 import type { Database } from "../../database/database.module";
 import { auditLogs, reportHistory, reports, users } from "../../database/schema";
 
+// Filet de securite : la file de moderation n'a pas encore de pagination
+// cote UI admin, mais on evite qu'un `select()` sans limite ne devienne
+// couteux si les signalements s'accumulent.
+const MAX_REPORTS = 500;
+
 @Injectable()
 export class ReportsService {
   constructor(@Inject(DRIZZLE) private readonly db: Database) {}
 
   async listReports() {
-    const rows = await this.db.select().from(reports).orderBy(desc(reports.createdAt));
+    const rows = await this.db.select().from(reports).orderBy(desc(reports.createdAt)).limit(MAX_REPORTS);
 
     const userIds = Array.from(
       new Set(rows.flatMap((r) => [r.reporterUserId, r.assignedTo]).filter((id): id is string => Boolean(id))),

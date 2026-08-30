@@ -75,6 +75,7 @@ export const hadiths = pgTable(
   (t) => [
     unique("hadiths_collection_number_uidx").on(t.collectionId, t.numberInCollection),
     index("hadiths_text_search_gin_idx").using("gin", t.textSearch),
+    index("hadiths_hadith_book_id_idx").on(t.hadithBookId),
   ],
 );
 

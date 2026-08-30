@@ -5,7 +5,13 @@
     "module": "ESNext",
     "moduleResolution": "Bundler",
     "allowSyntheticDefaultImports": true,
-    "strict": true
+    "strict": true,
+    // Un projet composite ne peut pas desactiver l'emission (TS6310), mais
+    // rien n'oblige a emettre a cote du .ts source : redirige vers un
+    // dossier ignore par git plutot que de recommiter vite.config.js/.d.ts
+    // a chaque build.
+    "outDir": "./.tsbuild",
+    "tsBuildInfoFile": "./.tsbuild/tsconfig.node.tsbuildinfo"
   },
   "include": ["vite.config.ts"]
 }

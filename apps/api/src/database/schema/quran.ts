@@ -117,5 +117,9 @@ export const tafsirEntries = pgTable(
     createdBy: uuid("created_by").references(() => users.id, { onDelete: "set null" }),
     ...timestamps,
   },
-  (t) => [index("tafsir_entries_text_search_gin_idx").using("gin", t.textSearch)],
+  (t) => [
+    index("tafsir_entries_text_search_gin_idx").using("gin", t.textSearch),
+    index("tafsir_entries_tafsir_source_id_idx").on(t.tafsirSourceId),
+    index("tafsir_entries_verse_start_id_idx").on(t.verseStartId),
+  ],
 );

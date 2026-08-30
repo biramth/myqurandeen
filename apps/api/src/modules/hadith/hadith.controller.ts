@@ -1,10 +1,12 @@
-import { Controller, Get, Param, ParseIntPipe, Query } from "@nestjs/common";
+import { CacheInterceptor } from "@nestjs/cache-manager";
+import { Controller, Get, Param, ParseIntPipe, Query, UseInterceptors } from "@nestjs/common";
 import { ApiTags } from "@nestjs/swagger";
 import { Public } from "../../common/decorators/public.decorator";
 import { HadithService } from "./hadith.service";
 
 @ApiTags("hadith")
 @Public()
+@UseInterceptors(CacheInterceptor)
 @Controller("hadith")
 export class HadithController {
   constructor(private readonly hadithService: HadithService) {}

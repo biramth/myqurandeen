@@ -1,8 +1,13 @@
 import { Inject, Injectable, NotFoundException } from "@nestjs/common";
-import { asc, eq } from "drizzle-orm";
+import { asc, eq, inArray } from "drizzle-orm";
 import { DRIZZLE } from "../../database/database.constants";
 import type { Database } from "../../database/database.module";
 import { authors, bookCategories, bookCategoryLinks, books } from "../../database/schema";
+
+// Filet de securite : la bibliotheque est un catalogue curee (dizaines
+// d'ouvrages), mais on borne quand meme la liste au cas ou elle grossirait
+// fortement sans pagination cote client.
+const MAX_BOOKS = 500;
 
 @Injectable()
 export class LibraryService {
@@ -13,35 +18,42 @@ export class LibraryService {
   }
 
   async listBooks() {
-    const rows = await this.db.query.books.findMany({ orderBy: (b, { asc: ascOp }) => ascOp(b.title) });
+    // Jointure SQL (auteur) au lieu de charger toute la table `authors` en
+    // memoire pour la mapper en JS.
+    const rows = await this.db
+      .select({
+        id: books.id,
+        slug: books.slug,
+        title: books.title,
+        authorName: authors.name,
+        language: books.language,
+        era: books.era,
+        publicDomain: books.publicDomain,
+      })
+      .from(books)
+      .leftJoin(authors, eq(books.authorId, authors.id))
+      .orderBy(asc(books.title))
+      .limit(MAX_BOOKS);
 
-    // Jointures manuelles (auteur + categories) pour rester coherent avec le
-    // reste du code, qui evite les relations Drizzle declaratives.
-    const authorRows = await this.db.select().from(authors);
-    const authorById = new Map(authorRows.map((a) => [a.id, a]));
+    if (rows.length === 0) return [];
 
-    const links = await this.db.select().from(bookCategoryLinks);
-    const categoryRows = await this.db.select().from(bookCategories);
-    const categoryById = new Map(categoryRows.map((c) => [c.id, c]));
+    // Categories : une seule requete jointe, filtree aux ouvrages effectivement
+    // retournes (au lieu de charger toute la table `book_categories`).
+    const bookIds = rows.map((b) => b.id);
+    const categoryRows = await this.db
+      .select({ bookId: bookCategoryLinks.bookId, id: bookCategories.id, name: bookCategories.name })
+      .from(bookCategoryLinks)
+      .innerJoin(bookCategories, eq(bookCategoryLinks.categoryId, bookCategories.id))
+      .where(inArray(bookCategoryLinks.bookId, bookIds));
+
     const categoriesByBook = new Map<string, { id: string; name: string }[]>();
-    for (const link of links) {
-      const category = categoryById.get(link.categoryId);
-      if (!category) continue;
-      const list = categoriesByBook.get(link.bookId) ?? [];
-      list.push({ id: category.id, name: category.name });
-      categoriesByBook.set(link.bookId, list);
+    for (const c of categoryRows) {
+      const list = categoriesByBook.get(c.bookId) ?? [];
+      list.push({ id: c.id, name: c.name });
+      categoriesByBook.set(c.bookId, list);
     }
 
-    return rows.map((book) => ({
-      id: book.id,
-      slug: book.slug,
-      title: book.title,
-      authorName: book.authorId ? (authorById.get(book.authorId)?.name ?? null) : null,
-      language: book.language,
-      era: book.era,
-      publicDomain: book.publicDomain,
-      categories: categoriesByBook.get(book.id) ?? [],
-    }));
+    return rows.map((book) => ({ ...book, categories: categoriesByBook.get(book.id) ?? [] }));
   }
 
   async getBook(slug: string) {
@@ -50,17 +62,15 @@ export class LibraryService {
       throw new NotFoundException(`Ouvrage "${slug}" introuvable`);
     }
 
-    const author = book.authorId
-      ? await this.db.query.authors.findFirst({ where: eq(authors.id, book.authorId) })
-      : null;
-
-    const links = await this.db.select().from(bookCategoryLinks).where(eq(bookCategoryLinks.bookId, book.id));
-    const categoryRows = await this.db.select().from(bookCategories);
-    const categoryById = new Map(categoryRows.map((c) => [c.id, c]));
-    const categories = links
-      .map((l) => categoryById.get(l.categoryId))
-      .filter((c): c is NonNullable<typeof c> => Boolean(c))
-      .map((c) => ({ id: c.id, name: c.name }));
+    // Auteur et categories sont independants l'un de l'autre : parallelises.
+    const [author, categories] = await Promise.all([
+      book.authorId ? this.db.query.authors.findFirst({ where: eq(authors.id, book.authorId) }) : null,
+      this.db
+        .select({ id: bookCategories.id, name: bookCategories.name })
+        .from(bookCategoryLinks)
+        .innerJoin(bookCategories, eq(bookCategoryLinks.categoryId, bookCategories.id))
+        .where(eq(bookCategoryLinks.bookId, book.id)),
+    ]);
 
     return { ...book, author, categories };
   }

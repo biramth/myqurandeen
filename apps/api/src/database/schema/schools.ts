@@ -1,4 +1,4 @@
-import { pgTable, text, unique, uuid, varchar } from "drizzle-orm/pg-core";
+import { index, pgTable, text, unique, uuid, varchar } from "drizzle-orm/pg-core";
 import { id, timestamps } from "./_columns";
 import { sources } from "./sources";
 import { users } from "./identity";
@@ -46,15 +46,19 @@ export const fiqhPositions = pgTable(
   (t) => [unique("fiqh_positions_topic_school_uidx").on(t.fiqhTopicId, t.schoolId)],
 );
 
-export const fiqhDivergenceNotes = pgTable("fiqh_divergence_notes", {
-  id: id(),
-  fiqhTopicId: uuid("fiqh_topic_id")
-    .notNull()
-    .references(() => fiqhTopics.id, { onDelete: "cascade" }),
-  explanation: text("explanation").notNull(),
-  sourceId: uuid("source_id").references(() => sources.id, { onDelete: "set null" }),
-  ...timestamps,
-});
+export const fiqhDivergenceNotes = pgTable(
+  "fiqh_divergence_notes",
+  {
+    id: id(),
+    fiqhTopicId: uuid("fiqh_topic_id")
+      .notNull()
+      .references(() => fiqhTopics.id, { onDelete: "cascade" }),
+    explanation: text("explanation").notNull(),
+    sourceId: uuid("source_id").references(() => sources.id, { onDelete: "set null" }),
+    ...timestamps,
+  },
+  (t) => [index("fiqh_divergence_notes_fiqh_topic_id_idx").on(t.fiqhTopicId)],
+);
 
 /**
  * Suggestions d'utilisateurs pour de nouveaux sujets du comparateur de fiqh

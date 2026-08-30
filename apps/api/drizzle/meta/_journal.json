@@ -183,6 +183,13 @@
       "when": 1788093001780,
       "tag": "0025_friendly_sprite",
       "breakpoints": true
+    },
+    {
+      "idx": 26,
+      "version": "7",
+      "when": 1788096405964,
+      "tag": "0026_wet_wallow",
+      "breakpoints": true
     }
   ]
 }

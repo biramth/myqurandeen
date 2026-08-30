@@ -4,6 +4,7 @@ import { ValidationPipe } from "@nestjs/common";
 import { DocumentBuilder, SwaggerModule } from "@nestjs/swagger";
 import helmet from "helmet";
 import cookieParser from "cookie-parser";
+import compression from "compression";
 import { AppModule } from "./app.module";
 
 async function bootstrap() {
@@ -18,6 +19,10 @@ async function bootstrap() {
 
   app.use(helmet());
   app.use(cookieParser());
+  // Compresse les reponses (gzip) - notamment utile pour les listes de
+  // versets/hadiths/traductions qui peuvent peser plusieurs dizaines de Ko en
+  // JSON brut.
+  app.use(compression());
 
   // Origins autorisees (CORS). En production le frontend (Vercel) est sur un
   // domaine different de l'API (Render) : on autorise explicitement WEB_URL

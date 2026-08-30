@@ -25,7 +25,19 @@ export type Database = NodePgDatabase<typeof schema>;
         const ssl = connectionString?.includes("sslmode=require")
           ? { rejectUnauthorized: false }
           : undefined;
-        const pool = new Pool({ connectionString, ssl });
+        const pool = new Pool({
+          connectionString,
+          ssl,
+          // Sans ces limites, `pg` retombe sur ses defauts (max: 10, pas de
+          // timeout) : une requete bloquee peut alors garder une connexion
+          // indefiniment et affamer le pool. On borne explicitement la taille
+          // du pool (coherent avec un service mono-instance) et on coupe les
+          // connexions/requetes qui trainent.
+          max: 15,
+          idleTimeoutMillis: 30_000,
+          connectionTimeoutMillis: 10_000,
+          statement_timeout: 15_000,
+        });
         return drizzle(pool, { schema });
       },
     },

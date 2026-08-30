@@ -1,5 +1,5 @@
 import { ForbiddenException, Inject, Injectable, NotFoundException } from "@nestjs/common";
-import { and, desc, eq, inArray } from "drizzle-orm";
+import { and, count, desc, eq, inArray } from "drizzle-orm";
 import type { TargetType } from "@qurandeen/shared";
 import { DRIZZLE } from "../../database/database.constants";
 import type { Database } from "../../database/database.module";
@@ -293,17 +293,25 @@ export class UserDataService {
   // --- Collections ---
 
   async listCollections(userId: string) {
-    const rows = await this.db.select().from(collections).where(eq(collections.userId, userId)).orderBy(desc(collections.createdAt));
-    const withCounts = await Promise.all(
-      rows.map(async (collection) => {
-        const items = await this.db
-          .select({ id: collectionItems.id })
-          .from(collectionItems)
-          .where(eq(collectionItems.collectionId, collection.id));
-        return { ...collection, itemCount: items.length };
-      }),
-    );
-    return withCounts;
+    // Une seule requete groupee (au lieu d'une requete de comptage par
+    // collection) : `leftJoin` + `groupBy` sur la cle primaire (Postgres
+    // deduit alors que les autres colonnes de `collections` en dependent
+    // fonctionnellement, donc elles restent utilisables hors agregat).
+    return this.db
+      .select({
+        id: collections.id,
+        userId: collections.userId,
+        name: collections.name,
+        description: collections.description,
+        createdAt: collections.createdAt,
+        updatedAt: collections.updatedAt,
+        itemCount: count(collectionItems.id),
+      })
+      .from(collections)
+      .leftJoin(collectionItems, eq(collectionItems.collectionId, collections.id))
+      .where(eq(collections.userId, userId))
+      .groupBy(collections.id)
+      .orderBy(desc(collections.createdAt));
   }
 
   async getCollection(userId: string, collectionId: string) {

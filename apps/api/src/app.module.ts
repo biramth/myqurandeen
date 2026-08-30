@@ -5,6 +5,7 @@ import { ConfigModule } from "@nestjs/config";
 import { JwtModule } from "@nestjs/jwt";
 import { ScheduleModule } from "@nestjs/schedule";
 import { ThrottlerGuard, ThrottlerModule } from "@nestjs/throttler";
+import { CacheModule } from "@nestjs/cache-manager";
 import { validateEnv } from "./config/env.validation";
 import { HttpExceptionFilter } from "./common/filters/http-exception.filter";
 import { JwtAuthGuard } from "./common/guards/jwt-auth.guard";
@@ -52,6 +53,11 @@ import { StreaksModule } from "./modules/streaks/streaks.module";
       envFilePath: path.resolve(__dirname, "../../../.env"),
     }),
     ThrottlerModule.forRoot([{ ttl: 60_000, limit: 120 }]),
+    // Cache en memoire (mono-instance, pas besoin de Redis) pour le contenu
+    // de reference (Coran, hadith, tafsir, ecoles, savants, histoire,
+    // concepts, duas, prophetes, bibliotheque) : applique explicitement via
+    // CacheInterceptor sur les controleurs concernes, pas globalement.
+    CacheModule.register({ isGlobal: true, ttl: 60 * 60 * 1000, max: 1000 }),
     ScheduleModule.forRoot(),
     // JwtModule est importe ici aussi car JwtAuthGuard (APP_GUARD global,
     // instancie dans le contexte d'AppModule) a besoin de JwtService.

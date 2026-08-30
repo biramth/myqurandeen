@@ -46,7 +46,10 @@ export const historicalEvents = pgTable(
     createdBy: uuid("created_by").references(() => users.id, { onDelete: "set null" }),
     ...timestamps,
   },
-  (t) => [index("historical_events_text_search_gin_idx").using("gin", t.textSearch)],
+  (t) => [
+    index("historical_events_text_search_gin_idx").using("gin", t.textSearch),
+    index("historical_events_period_id_idx").on(t.periodId),
+  ],
 );
 
 export const eventSources = pgTable(

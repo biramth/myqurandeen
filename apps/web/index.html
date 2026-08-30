@@ -9,6 +9,12 @@
     />
     <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)" />
     <meta name="theme-color" content="#0f121a" media="(prefers-color-scheme: dark)" />
+    <!-- Precharge la police arabe (texte coranique/hadith, present sur
+         quasiment toutes les pages de contenu) pour eviter le flash de texte
+         invisible/non stylise le temps que le CSS soit parse et la police
+         demandee. Le chemin doit rester en phase avec la regle @font-face
+         de src/index.css (chemin public stable, pas un fichier hashe). -->
+    <link rel="preload" href="/fonts/amiri-arabic-400-normal.woff2" as="font" type="font/woff2" crossorigin />
     <!-- Reprend l'icone "BookOpen" de lucide-react (ISC, deja une dependance
          du projet, utilisee dans la nav) plutot que d'heberger un asset
          externe (icons8) : meme langage visuel, aucune requete externe, pas

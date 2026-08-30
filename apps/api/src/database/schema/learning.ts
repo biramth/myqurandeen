@@ -1,4 +1,4 @@
-import { boolean, jsonb, pgTable, primaryKey, smallint, text, timestamp, uuid, varchar } from "drizzle-orm/pg-core";
+import { boolean, index, jsonb, pgTable, primaryKey, smallint, text, timestamp, uuid, varchar } from "drizzle-orm/pg-core";
 import { id, timestamps } from "./_columns";
 import { users } from "./identity";
 import { LEARNING_LEVELS, TARGET_TYPES } from "@qurandeen/shared";
@@ -51,22 +51,33 @@ export const userProgress = pgTable(
  * de lecon), soit directement a un parcours (quiz final recapitulatif) -
  * jamais les deux a la fois.
  */
-export const learningQuizQuestions = pgTable("learning_quiz_questions", {
-  id: id(),
-  lessonId: uuid("lesson_id").references(() => learningLessons.id, { onDelete: "cascade" }),
-  pathId: uuid("path_id").references(() => learningPaths.id, { onDelete: "cascade" }),
-  order: smallint("order").notNull(),
-  question: text("question").notNull(),
-  explanation: text("explanation"),
-  ...timestamps,
-});
+export const learningQuizQuestions = pgTable(
+  "learning_quiz_questions",
+  {
+    id: id(),
+    lessonId: uuid("lesson_id").references(() => learningLessons.id, { onDelete: "cascade" }),
+    pathId: uuid("path_id").references(() => learningPaths.id, { onDelete: "cascade" }),
+    order: smallint("order").notNull(),
+    question: text("question").notNull(),
+    explanation: text("explanation"),
+    ...timestamps,
+  },
+  (t) => [
+    index("learning_quiz_questions_lesson_id_idx").on(t.lessonId),
+    index("learning_quiz_questions_path_id_idx").on(t.pathId),
+  ],
+);
 
-export const learningQuizOptions = pgTable("learning_quiz_options", {
-  id: id(),
-  questionId: uuid("question_id")
-    .notNull()
-    .references(() => learningQuizQuestions.id, { onDelete: "cascade" }),
-  text: text("text").notNull(),
-  isCorrect: boolean("is_correct").default(false).notNull(),
-  order: smallint("order").notNull(),
-});
+export const learningQuizOptions = pgTable(
+  "learning_quiz_options",
+  {
+    id: id(),
+    questionId: uuid("question_id")
+      .notNull()
+      .references(() => learningQuizQuestions.id, { onDelete: "cascade" }),
+    text: text("text").notNull(),
+    isCorrect: boolean("is_correct").default(false).notNull(),
+    order: smallint("order").notNull(),
+  },
+  (t) => [index("learning_quiz_options_question_id_idx").on(t.questionId)],
+);

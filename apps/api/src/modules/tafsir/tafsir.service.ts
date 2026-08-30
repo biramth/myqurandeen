@@ -24,14 +24,16 @@ export class TafsirService {
   }
 
   async getSurahTafsir(surahNumber: number, tafsirSourceId: string) {
-    const surah = await this.db.query.quranSurahs.findFirst({ where: eq(quranSurahs.number, surahNumber) });
-    if (!surah) return [];
-
+    // Pas de verification prealable de l'existence de la sourate (elle ne
+    // change ici que le resultat, jamais l'erreur renvoyee - un simple []) :
+    // un seul aller-retour DB via une jointure directe sur le numero de
+    // sourate, au lieu de deux requetes sequentielles.
     return this.db
       .select({ numberInSurah: quranVerses.numberInSurah, content: tafsirEntries.content })
       .from(tafsirEntries)
       .innerJoin(quranVerses, eq(quranVerses.id, tafsirEntries.verseStartId))
-      .where(and(eq(quranVerses.surahId, surah.id), eq(tafsirEntries.tafsirSourceId, tafsirSourceId)))
+      .innerJoin(quranSurahs, eq(quranSurahs.id, quranVerses.surahId))
+      .where(and(eq(quranSurahs.number, surahNumber), eq(tafsirEntries.tafsirSourceId, tafsirSourceId)))
       .orderBy(asc(quranVerses.numberInSurah));
   }
 

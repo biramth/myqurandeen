@@ -1,4 +1,4 @@
-import { pgTable, primaryKey, text, uuid, varchar } from "drizzle-orm/pg-core";
+import { index, pgTable, primaryKey, text, uuid, varchar } from "drizzle-orm/pg-core";
 import { id, timestamps } from "./_columns";
 import { sources } from "./sources";
 import { users } from "./identity";
@@ -30,12 +30,16 @@ export const conceptRelations = pgTable(
   (t) => [primaryKey({ columns: [t.conceptId, t.relatedConceptId] })],
 );
 
-export const conceptDivergences = pgTable("concept_divergences", {
-  id: id(),
-  conceptId: uuid("concept_id")
-    .notNull()
-    .references(() => concepts.id, { onDelete: "cascade" }),
-  explanation: text("explanation").notNull(),
-  sourceId: uuid("source_id").references(() => sources.id, { onDelete: "set null" }),
-  ...timestamps,
-});
+export const conceptDivergences = pgTable(
+  "concept_divergences",
+  {
+    id: id(),
+    conceptId: uuid("concept_id")
+      .notNull()
+      .references(() => concepts.id, { onDelete: "cascade" }),
+    explanation: text("explanation").notNull(),
+    sourceId: uuid("source_id").references(() => sources.id, { onDelete: "set null" }),
+    ...timestamps,
+  },
+  (t) => [index("concept_divergences_concept_id_idx").on(t.conceptId)],
+);
