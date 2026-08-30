@@ -3,12 +3,11 @@ import { Link } from "react-router-dom";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { useTranslation } from "react-i18next";
 import { toast } from "sonner";
-import { Bell, BellOff, BellRing, Flame, Send, Trash2 } from "lucide-react";
+import { Bell, BellOff, BellRing, Flame, Trash2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Skeleton } from "@/components/ui/skeleton";
 import { cn } from "@/lib/utils";
-import { notificationsApi, type TestResult } from "@/features/notifications/api";
 import { usePushSubscription } from "@/features/notifications/usePushSubscription";
 import { remindersApi } from "./api";
 import { AddReminderDialog } from "./AddReminderDialog";
@@ -18,7 +17,6 @@ function PushToggle() {
   const { t } = useTranslation();
   const { support, permission, isStandalone, isSubscribed, subscribe, unsubscribe, isPending } =
     usePushSubscription();
-  const [lastTest, setLastTest] = React.useState<TestResult | null>(null);
 
   /**
    * Sur iOS, `Notification.requestPermission()` / `subscribe()` restent
@@ -29,19 +27,6 @@ function PushToggle() {
     const ua = navigator.userAgent;
     return /iPhone|iPad|iPod/i.test(ua) || (navigator.platform === "MacIntel" && navigator.maxTouchPoints > 1);
   }, []);
-
-  const testMutation = useMutation({
-    mutationFn: () => notificationsApi.test(),
-    onSuccess: ({ sent, total, devices }) => {
-      setLastTest({ sent, total, devices });
-      if (sent > 0) {
-        toast.success(t("reminders.testPushSuccess"));
-      } else {
-        toast.error(t("reminders.testPushError"));
-      }
-    },
-    onError: () => toast.error(t("reminders.testPushError")),
-  });
 
   if (support === "unsupported") {
     return <p className="text-sm text-muted-foreground">{t("reminders.pushUnsupported")}</p>;
@@ -82,47 +67,19 @@ function PushToggle() {
         )}
         {isSubscribed ? t("reminders.pushEnabled") : t("reminders.pushPrompt")}
       </p>
-<div className="flex items-center gap-2">
-          {isSubscribed && (
-            <Button
-              type="button"
-              size="sm"
-              variant="ghost"
-              disabled={testMutation.isPending}
-              onClick={() => testMutation.mutate()}
-            >
-              {testMutation.isPending ? (
-                t("reminders.testPushSending")
-              ) : (
-                <>
-                  <Send className="h-4 w-4" aria-hidden="true" />
-                  {t("reminders.testPush")}
-                </>
-              )}
-            </Button>
-          )}
-          <Button
-            type="button"
-            size="sm"
-            variant={isSubscribed ? "outline" : "default"}
-            disabled={isPending}
-            onClick={() =>
-              (isSubscribed ? unsubscribe() : subscribe()).catch(() => toast.error(t("reminders.error")))
-            }
-          >
-            {isSubscribed ? t("reminders.disablePush") : t("reminders.enablePush")}
-          </Button>
-        </div>
-      {lastTest && lastTest.devices.length > 0 && (
-        <ul className="mt-2 space-y-1 text-xs text-muted-foreground">
-          {lastTest.devices.map((device, i) => (
-            <li key={i}>
-              {device.userAgent ? `${device.userAgent} · ` : ""}
-              {device.host} {device.result === "gone" ? ` · ${t("reminders.testPushGone")}` : ""}
-            </li>
-          ))}
-        </ul>
-      )}
+      <div className="flex items-center gap-2">
+        <Button
+          type="button"
+          size="sm"
+          variant={isSubscribed ? "outline" : "default"}
+          disabled={isPending}
+          onClick={() =>
+            (isSubscribed ? unsubscribe() : subscribe()).catch(() => toast.error(t("reminders.error")))
+          }
+        >
+          {isSubscribed ? t("reminders.disablePush") : t("reminders.enablePush")}
+        </Button>
+      </div>
     </div>
   );
 }
