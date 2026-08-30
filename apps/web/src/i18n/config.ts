@@ -67,7 +67,7 @@ function applyDocumentDirection(language: string) {
 
 const i18nReady: Promise<unknown> = i18n
   .use(initReactI18next)
-  .use(JsonLocaleBackend)
+  .use(new JsonLocaleBackend())
   .init({
     resources: {
       // Seule la langue de repli est fournie statiquement (voir plus haut).
