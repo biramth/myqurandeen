@@ -1,9 +1,11 @@
 import { apiClient } from "@/lib/api-client";
 import type {
   CreateReminderInput,
+  DuaScheduleSettings,
   Reminder,
   RotationSettings,
   StreakAlertSettings,
+  UpsertDuaScheduleSettingsInput,
   UpsertRotationSettingsInput,
   UpsertStreakAlertSettingsInput,
 } from "./types";
@@ -23,4 +25,8 @@ export const remindersApi = {
   getStreakAlertSettings: () => apiClient.get<StreakAlertSettings | null>("/reminders/streak-alert-settings"),
   upsertStreakAlertSettings: (input: UpsertStreakAlertSettingsInput) =>
     apiClient.put<StreakAlertSettings>("/reminders/streak-alert-settings", input),
+
+  getDuaScheduleSettings: () => apiClient.get<DuaScheduleSettings | null>("/reminders/dua-schedule-settings"),
+  upsertDuaScheduleSettings: (input: UpsertDuaScheduleSettingsInput) =>
+    apiClient.put<DuaScheduleSettings>("/reminders/dua-schedule-settings", input),
 };

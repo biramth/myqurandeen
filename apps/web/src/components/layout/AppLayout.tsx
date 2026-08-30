@@ -5,6 +5,7 @@ import { Sidebar } from "./Sidebar";
 import { BottomNav } from "./BottomNav";
 import { CelebrationHost } from "@/features/gamification/CelebrationHost";
 import { InstallPrompt } from "@/features/pwa/InstallPrompt";
+import { NotificationOnboardingModal } from "@/features/onboarding/NotificationOnboardingModal";
 
 /**
  * Un clic sur une notification push ne peut pas naviguer directement dans
@@ -33,6 +34,7 @@ export function AppLayout() {
     <div className="flex min-h-screen flex-col">
       <Header />
       <InstallPrompt />
+      <NotificationOnboardingModal />
       <CelebrationHost />
       <div className="flex flex-1">
         <Sidebar />

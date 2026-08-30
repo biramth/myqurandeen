@@ -267,7 +267,13 @@
     "streakAlertTitle": "Garde ta série",
     "streakAlertDescription": "Si tu n'as encore rien lu aujourd'hui, on te le rappelle avant minuit pour ne pas perdre ta série.",
     "streakAlertEnable": "Activer",
-    "streakAlertDisable": "Désactiver"
+    "streakAlertDisable": "Désactiver",
+    "duaScheduleTitle": "Duas quotidiens automatiques",
+    "duaScheduleDescription": "Une vraie invocation chaque jour — le matin et le soir, sans effort.",
+    "duaScheduleEnable": "Activer",
+    "duaScheduleDisable": "Désactiver",
+    "duaScheduleMorning": "Matin",
+    "duaScheduleEvening": "Soir"
   },
   "bookmark": {
     "add": "Ajouter aux favoris",
@@ -723,6 +729,36 @@
     "loginRequired": "Connectez-vous pour poser une question à l'assistant.",
     "logIn": "Se connecter"
   },
+  "onboarding": {
+    "introTitle": "Un dua chaque jour, automatiquement",
+    "introDescription": "Une vraie invocation chaque matin et chaque soir, envoyée à la bonne heure. Rien à configurer : autorisez-les une fois, on s'occupe du reste.",
+    "benefitMorning": "Dua du matin",
+    "benefitEvening": "Dua du soir",
+    "benefitStreak": "Rappel « garde ta série »",
+    "continue": "Continuer",
+    "notNow": "Plus tard",
+    "never": "Ne plus afficher",
+    "accountTitle": "Créez votre compte gratuit",
+    "accountDescription": "Les notifications sont liées à un compte pour que vous gardiez votre progression et votre série sur n'importe quel appareil.",
+    "accountCta": "Créer un compte gratuit",
+    "accountLogin": "J'ai déjà un compte",
+    "installTitle": "Installez d'abord l'application",
+    "installDescription": "Installez myQurandeen pour recevoir les notifications de manière fiable.",
+    "installButton": "Installer l'application",
+    "installDone": "Je l'ai ajoutée et je l'ouvre depuis son icône",
+    "installIosHint": "Sur l'iPhone, ouvrez Safari et suivez ces étapes. Une fois ajoutée, ouvrez l'app depuis son icône : vos notifications reprendront ici automatiquement.",
+    "permissionTitle": "Autoriser les notifications",
+    "permissionDescription": "Un seul appui. Ensuite, tout est réglé pour vous : le dua du matin, le dua du soir et le rappel « garde ta série ».",
+    "permissionCta": "Autoriser les notifications",
+    "permissionPending": "Activation...",
+    "permissionClose": "J'ai compris",
+    "permissionDenied": "Les notifications sont bloquées. Autorisez-les dans les réglages de votre navigateur, puis revenez ici.",
+    "doneTitle": "Tout est activé",
+    "doneDescription": "Votre journée, en pilote automatique.",
+    "doneSummary": "Dua du matin · 07:00 — Dua du soir · 19:00 — Garde ta série · 20:00",
+    "doneManage": "Gérer dans les Rappels",
+    "doneClose": "Terminé"
+  },
   "pwaInstaller": {
     "title": "Installer l'application",
     "description": "Un écran plus propre, un accès direct depuis votre accueil et des contenus hors-ligne.",
@@ -737,6 +773,17 @@
       "step3": "Choisissez « Ajouter à l'écran d'accueil ».",
       "step4": "Confirmez avec « Ajouter ». L'app apparaît alors sur votre écran d'accueil.",
       "gotIt": "Compris"
+    }
+  },
+  "marketing": {
+    "unsubscribe": {
+      "title": "Désabonnement",
+      "subtitle": "Gérez la réception des emails d'annonce myQurandeen.",
+      "processing": "Traitement en cours...",
+      "success": "C'est fait : vous ne recevrez plus les emails d'annonce myQurandeen. Vous continuerez de recevoir les emails indispensables au fonctionnement de votre compte (vérification, réinitialisation de mot de passe).",
+      "missingToken": "Lien de désabonnement invalide ou manquant.",
+      "error": "Impossible de traiter la demande de désabonnement pour le moment.",
+      "backToHome": "Retour à l'accueil"
     }
   }
 }

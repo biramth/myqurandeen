@@ -15,4 +15,9 @@ export class SubscribePushDto {
   @IsOptional()
   @IsString()
   userAgent?: string;
+
+  /** Fuseau horaire IANA de l'utilisateur, capture cote client (Intl). */
+  @IsOptional()
+  @IsString()
+  timezone?: string;
 }

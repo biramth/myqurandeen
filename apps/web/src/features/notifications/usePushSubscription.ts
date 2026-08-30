@@ -100,6 +100,7 @@ export function usePushSubscription() {
         p256dh: json.keys.p256dh,
         auth: json.keys.auth,
         userAgent: navigator.userAgent,
+        timezone: Intl.DateTimeFormat().resolvedOptions().timeZone,
       });
     },
     onSuccess: () => queryClient.invalidateQueries({ queryKey: ["notifications", "subscribed"] }),

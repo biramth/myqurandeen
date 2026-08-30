@@ -22,7 +22,7 @@ export interface TestResult {
 export const notificationsApi = {
   health: () => apiClient.get<NotificationsHealth>("/notifications/health", { skipAuth: true }),
   isSubscribed: () => apiClient.get<{ subscribed: boolean }>("/notifications/subscribed"),
-  subscribe: (input: { endpoint: string; p256dh: string; auth: string; userAgent?: string }) =>
+  subscribe: (input: { endpoint: string; p256dh: string; auth: string; userAgent?: string; timezone?: string }) =>
     apiClient.post<{ subscribed: boolean }>("/notifications/subscribe", input),
   unsubscribe: (endpoint: string) =>
     apiClient.delete<{ subscribed: boolean }>(`/notifications/subscribe?endpoint=${encodeURIComponent(endpoint)}`),

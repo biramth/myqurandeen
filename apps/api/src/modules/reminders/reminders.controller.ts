@@ -7,6 +7,7 @@ import { CreateReminderDto } from "./dto/create-reminder.dto";
 import { UpdateReminderDto } from "./dto/update-reminder.dto";
 import { UpsertRotationSettingsDto } from "./dto/upsert-rotation-settings.dto";
 import { UpsertStreakAlertSettingsDto } from "./dto/upsert-streak-alert-settings.dto";
+import { UpsertDuaScheduleSettingsDto } from "./dto/upsert-dua-schedule-settings.dto";
 
 /**
  * Rappels notification de l'utilisateur connecte - JwtAuthGuard global
@@ -48,6 +49,16 @@ export class RemindersController {
   @Delete("streak-alert-settings")
   deleteStreakAlertSettings(@CurrentUser() user: RequestUser) {
     return this.remindersService.deleteStreakAlertSettings(user.sub);
+  }
+
+  @Get("dua-schedule-settings")
+  getDuaScheduleSettings(@CurrentUser() user: RequestUser) {
+    return this.remindersService.getDuaScheduleSettings(user.sub);
+  }
+
+  @Put("dua-schedule-settings")
+  upsertDuaScheduleSettings(@CurrentUser() user: RequestUser, @Body() dto: UpsertDuaScheduleSettingsDto) {
+    return this.remindersService.upsertDuaScheduleSettings(user.sub, dto);
   }
 
   @Get()

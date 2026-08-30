@@ -16,4 +16,5 @@ export * from "./notifications";
 export * from "./auth";
 export * from "./streaks";
 export * from "./streak-alerts";
+export * from "./dua-schedule";
 export * from "./gamification";

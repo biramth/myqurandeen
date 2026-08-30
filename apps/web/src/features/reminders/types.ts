@@ -53,3 +53,20 @@ export interface UpsertStreakAlertSettingsInput {
   timezone: string;
   isActive: boolean;
 }
+
+export interface DuaScheduleSettings {
+  id: string;
+  timezone: string;
+  morningTime: string;
+  eveningTime: string;
+  isActive: boolean;
+  morningSentAt: string | null;
+  eveningSentAt: string | null;
+}
+
+export interface UpsertDuaScheduleSettingsInput {
+  timezone: string;
+  morningTime?: string;
+  eveningTime?: string;
+  isActive?: boolean;
+}
