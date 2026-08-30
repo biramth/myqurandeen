@@ -6,11 +6,10 @@ import { isRtlLanguage } from "@/lib/rtl";
 /**
  * Les traductions sont chargees en lazy (une seule langue au demarrage) pour
  * ne pas emporter les ~200 ko des 8 fichiers JSON dans le bundle initial.
- * `en` reste importe statiquement : c'est la langue de repli (`fallbackLng`),
- * donc l'interface ne peut jamais rester vide meme si un JSON ne charge pas.
+ * Aucune langue n'est fournie via `resources` : i18next fait TOUJOURS appel au
+ * backend ci-dessous (sinon il court-circuite le backend et seule `en`
+ * resterait disponible, ce qui rendait le changement de langue inoperant).
  */
-import en from "./locales/en.json";
-
 export const SUPPORTED_LANGUAGES = ["fr", "en", "es", "de", "tr", "ur", "id", "ru"] as const;
 export type SupportedLanguage = (typeof SUPPORTED_LANGUAGES)[number];
 
@@ -65,15 +64,13 @@ function applyDocumentDirection(language: string) {
   document.documentElement.dir = isRtlLanguage(language) ? "rtl" : "ltr";
 }
 
+const initial = getInitialLanguage();
+
 const i18nReady: Promise<unknown> = i18n
   .use(initReactI18next)
   .use(new JsonLocaleBackend())
   .init({
-    resources: {
-      // Seule la langue de repli est fournie statiquement (voir plus haut).
-      en: { translation: en },
-    },
-    lng: getInitialLanguage(),
+    lng: initial,
     fallbackLng: "en",
     load: "currentOnly",
     interpolation: { escapeValue: false },
@@ -84,7 +81,9 @@ i18n.on("languageChanged", (language) => {
   applyDocumentDirection(language);
 });
 
-applyDocumentDirection(i18n.language);
+// Etat de depart fiable (i18n.language n'est pas encore resolu au moment de
+// l'import : sans `resources`, i18next ne le pose qu'a la fin de l'init).
+applyDocumentDirection(initial);
 
 export { i18nReady };
 export default i18n;
