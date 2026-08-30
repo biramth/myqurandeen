@@ -1,16 +1,77 @@
 /**
- * Service worker minimal, uniquement pour les notifications push (rappels
- * dua/lecture). Pas de cache offline ici - myQurandeen reste une app en
- * ligne, ce service worker ne sert qu'a recevoir les push et ouvrir la
- * bonne page au clic, meme si aucun onglet n'est ouvert.
+ * Service worker : notifications push + un cache "network-first" minimise
+ * pour un retour fluide sur le site :
+ *  - app-shell (navigations) : network-first avec repli sur le shell cache,
+ *    => le site s'ouvre meme hors-ligne une fois visite.
+ *  - assets statiques hashes (JS/CSS/polices/images) : stale-while-revalidate,
+ *    => fichiers immuables servis quasi instantanement au retour.
+ * Les requetes cross-origin (API sur onrender.com) et non-GET sont laissees
+ * telles quelles. Le cache est versionne : un changement de code ici doit
+ * augmenter les versions pour eviter de servir du stale.
  */
 
-self.addEventListener("install", () => {
-  self.skipWaiting();
+const SHELL_CACHE = "myqurandeen-shell-v1";
+const ASSET_CACHE = "myqurandeen-assets-v1";
+
+self.addEventListener("install", (event) => {
+  event.waitUntil(
+    // Precache de l'app-shell : sert de fallback offline pour les navigations.
+    caches.open(SHELL_CACHE).then((cache) => cache.add("/")).then(() => self.skipWaiting()),
+  );
 });
 
 self.addEventListener("activate", (event) => {
-  event.waitUntil(self.clients.claim());
+  event.waitUntil(
+    caches
+      .keys()
+      .then((keys) => Promise.all(keys.filter((key) => key !== SHELL_CACHE && key !== ASSET_CACHE).map((key) => caches.delete(key))))
+      .then(() => self.clients.claim()),
+  );
+});
+
+/** Network d'abord, repli sur le shell cache si hors-ligne. */
+async function navigationHandler(request) {
+  const cache = await caches.open(SHELL_CACHE);
+  try {
+    const response = await fetch(request);
+    if (response && response.ok) {
+      // Toujours sous la meme cle "/" : on rafraichit le shell sans le dupliquer.
+      await cache.put("/", response.clone());
+    }
+    return response;
+  } catch {
+    return (await cache.match("/")) || new Response("Hors-ligne", { status: 503 });
+  }
+}
+
+/** Stale-while-revalidate pour les assets immuables (noms hashes). */
+async function assetHandler(request) {
+  const cache = await caches.open(ASSET_CACHE);
+  const cached = await cache.match(request);
+  const network = fetch(request)
+    .then((response) => {
+      if (response && response.ok) cache.put(request, response.clone());
+      return response;
+    })
+    .catch(() => undefined);
+  return cached || network;
+}
+
+self.addEventListener("fetch", (event) => {
+  const { request } = event;
+  if (request.method !== "GET") return;
+
+  const url = new URL(request.url);
+  if (url.origin !== self.location.origin) return;
+
+  if (request.mode === "navigate") {
+    event.respondWith(navigationHandler(request));
+    return;
+  }
+
+  if (/\.(?:js|css|woff2?|ttf|eot|otf|svg|png|jpe?g|webp|gif|avif|ico)(?:\?.*)?$/i.test(url.pathname)) {
+    event.respondWith(assetHandler(request));
+  }
 });
 
 self.addEventListener("push", (event) => {
