@@ -23,6 +23,11 @@ COPY --from=build /app/packages/shared ./packages/shared
 COPY --from=build /app/apps/api/package.json ./apps/api/package.json
 COPY --from=build /app/apps/api/dist ./apps/api/dist
 COPY --from=build /app/apps/api/drizzle ./apps/api/drizzle
+# npm hoiste la plupart des dependances a la racine, mais choisit parfois de
+# garder un paquet niche dans apps/api/node_modules (son propre algorithme,
+# pas toujours previsible) - sans cette ligne, "Cannot find module" au
+# demarrage des lors qu'un paquet atterrit la plutot qu'a la racine.
+COPY --from=build /app/apps/api/node_modules ./apps/api/node_modules
 
 EXPOSE 3000
 CMD ["node", "apps/api/dist/main.js"]
