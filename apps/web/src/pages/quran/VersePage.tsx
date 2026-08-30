@@ -6,6 +6,7 @@ import { Skeleton } from "@/components/ui/skeleton";
 import { Breadcrumbs } from "@/components/shared/Breadcrumbs";
 import { ContentUserActions } from "@/components/shared/ContentUserActions";
 import { quranApi } from "@/features/quran/api";
+import { useStreakPing } from "@/features/streaks/useStreak";
 import { useDocumentTitle } from "@/hooks/useDocumentTitle";
 
 export function VersePage() {
@@ -13,6 +14,7 @@ export function VersePage() {
   const surahNumber = Number(surahParam);
   const verseNumber = Number(verseParam);
   const { t } = useTranslation();
+  useStreakPing();
 
   const { data, isLoading, isError } = useQuery({
     queryKey: ["quran", "verse", surahNumber, verseNumber],

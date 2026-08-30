@@ -160,6 +160,27 @@
       "reminders": "Напоминания"
     }
   },
+  "streak": {
+    "badgeLabel_one": "{{count}} день подряд",
+    "badgeLabel_few": "{{count}} дня подряд",
+    "badgeLabel_many": "{{count}} дней подряд",
+    "badgeLabel_other": "{{count}} дня подряд",
+    "days_one": "{{count}} день подряд",
+    "days_few": "{{count}} дня подряд",
+    "days_many": "{{count}} дней подряд",
+    "days_other": "{{count}} дня подряд",
+    "longest_one": "Рекорд: {{count}} день",
+    "longest_few": "Рекорд: {{count}} дня",
+    "longest_many": "Рекорд: {{count}} дней",
+    "longest_other": "Рекорд: {{count}} дня",
+    "increased_one": "{{count}} день подряд!",
+    "increased_few": "{{count}} дня подряд!",
+    "increased_many": "{{count}} дней подряд!",
+    "increased_other": "{{count}} дня подряд!",
+    "startMessage": "Прочитайте аят, дуа или завершите урок, чтобы начать свою серию.",
+    "activeTodayMessage": "Отлично, вы уже активны сегодня!",
+    "reminderMessage": "Не забудьте почитать сегодня, чтобы сохранить свою серию."
+  },
   "reminders": {
     "pushUnsupported": "Уведомления не поддерживаются этим браузером.",
     "pushUnconfigured": "Уведомления пока не настроены на этом сервере.",

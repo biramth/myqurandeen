@@ -7,11 +7,13 @@ import { Skeleton } from "@/components/ui/skeleton";
 import { Breadcrumbs } from "@/components/shared/Breadcrumbs";
 import { ContentUserActions } from "@/components/shared/ContentUserActions";
 import { libraryApi } from "@/features/library/api";
+import { useStreakPing } from "@/features/streaks/useStreak";
 import { useDocumentTitle } from "@/hooks/useDocumentTitle";
 
 export function BookPage() {
   const { slug } = useParams<{ slug: string }>();
   const { t } = useTranslation();
+  useStreakPing();
 
   const { data, isLoading, isError } = useQuery({
     queryKey: ["library", "book", slug],

@@ -160,6 +160,15 @@
       "reminders": "Pengingat"
     }
   },
+  "streak": {
+    "badgeLabel_other": "{{count}} hari beruntun",
+    "days_other": "{{count}} hari beruntun",
+    "longest_other": "Rekor: {{count}} hari",
+    "increased_other": "{{count}} hari beruntun!",
+    "startMessage": "Baca satu ayat, satu doa, atau selesaikan satu pelajaran untuk memulai rangkaianmu.",
+    "activeTodayMessage": "Mantap, kamu sudah aktif hari ini!",
+    "reminderMessage": "Jangan lupa membaca hari ini agar rangkaianmu tetap berlanjut."
+  },
   "reminders": {
     "pushUnsupported": "Notifikasi tidak didukung oleh browser ini.",
     "pushUnconfigured": "Notifikasi belum dikonfigurasi di server ini.",

@@ -1,4 +1,5 @@
 import { apiClient } from "@/lib/api-client";
+import { getLocalDateString } from "@/lib/local-date";
 import type { Bookmark, Collection, CollectionDetail, Note, TargetType } from "./types";
 
 export const userDataApi = {
@@ -8,13 +9,23 @@ export const userDataApi = {
       `/user-data/bookmarks/check?targetType=${targetType}&targetId=${targetId}`,
     ),
   toggleBookmark: (targetType: TargetType, targetId: string) =>
-    apiClient.post<{ bookmarked: boolean }>("/user-data/bookmarks/toggle", { targetType, targetId }),
+    apiClient.post<{ bookmarked: boolean }>("/user-data/bookmarks/toggle", {
+      targetType,
+      targetId,
+      localDate: getLocalDateString(),
+    }),
 
   listNotes: () => apiClient.get<Note[]>("/user-data/notes"),
   listNotesForTarget: (targetType: TargetType, targetId: string) =>
     apiClient.get<Note[]>(`/user-data/notes?targetType=${targetType}&targetId=${targetId}`),
   createNote: (targetType: TargetType, targetId: string, content: string, isPrivate?: boolean) =>
-    apiClient.post<Note>("/user-data/notes", { targetType, targetId, content, isPrivate }),
+    apiClient.post<Note>("/user-data/notes", {
+      targetType,
+      targetId,
+      content,
+      isPrivate,
+      localDate: getLocalDateString(),
+    }),
   updateNote: (id: string, content?: string, isPrivate?: boolean) =>
     apiClient.patch<Note>(`/user-data/notes/${id}`, { content, isPrivate }),
   deleteNote: (id: string) => apiClient.delete<void>(`/user-data/notes/${id}`),
@@ -27,7 +38,11 @@ export const userDataApi = {
     apiClient.patch<Collection>(`/user-data/collections/${id}`, { name, description }),
   deleteCollection: (id: string) => apiClient.delete<void>(`/user-data/collections/${id}`),
   addCollectionItem: (collectionId: string, targetType: TargetType, targetId: string) =>
-    apiClient.post(`/user-data/collections/${collectionId}/items`, { targetType, targetId }),
+    apiClient.post(`/user-data/collections/${collectionId}/items`, {
+      targetType,
+      targetId,
+      localDate: getLocalDateString(),
+    }),
   removeCollectionItem: (collectionId: string, itemId: string) =>
     apiClient.delete<void>(`/user-data/collections/${collectionId}/items/${itemId}`),
 };

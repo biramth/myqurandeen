@@ -1,4 +1,4 @@
-import { IsBoolean, IsIn, IsOptional, IsString, IsUUID, MinLength } from "class-validator";
+import { IsBoolean, IsIn, IsOptional, IsString, IsUUID, Matches, MinLength } from "class-validator";
 import { TARGET_TYPES, type TargetType } from "@qurandeen/shared";
 
 export class CreateNoteDto {
@@ -15,4 +15,9 @@ export class CreateNoteDto {
   @IsOptional()
   @IsBoolean()
   isPrivate?: boolean;
+
+  /** Date calendaire locale du client (YYYY-MM-DD), pour la serie d'activite. */
+  @IsOptional()
+  @Matches(/^\d{4}-\d{2}-\d{2}$/, { message: "localDate doit etre au format YYYY-MM-DD" })
+  localDate?: string;
 }

@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button";
 import { ThemeToggle } from "@/components/shared/theme-toggle";
 import { LanguageSwitcher } from "@/components/shared/language-switcher";
 import { useAuth } from "@/features/auth/auth-context";
+import { StreakBadge } from "@/features/streaks/StreakBadge";
 import { cn } from "@/lib/utils";
 
 export function Header() {
@@ -20,6 +21,7 @@ export function Header() {
         </Link>
 
         <div className="flex items-center gap-1">
+          {user && <StreakBadge />}
           <LanguageSwitcher />
           <ThemeToggle />
           {!isLoading && (

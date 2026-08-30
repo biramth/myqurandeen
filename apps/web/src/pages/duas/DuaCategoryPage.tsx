@@ -11,11 +11,13 @@ import { DuaCounter } from "@/components/shared/DuaCounter";
 import { QuickReminderButton } from "@/features/reminders/QuickReminderButton";
 import { duasApi } from "@/features/duas/api";
 import { getDuaCategoryIcon } from "@/features/duas/icons";
+import { useStreakPing } from "@/features/streaks/useStreak";
 import { useDocumentTitle } from "@/hooks/useDocumentTitle";
 
 export function DuaCategoryPage() {
   const { slug } = useParams<{ slug: string }>();
   const { t } = useTranslation();
+  useStreakPing();
 
   const { data, isLoading, isError } = useQuery({
     queryKey: ["duas", "category", slug],

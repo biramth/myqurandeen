@@ -205,6 +205,19 @@
       "reminders": "Reminders"
     }
   },
+  "streak": {
+    "badgeLabel_one": "{{count}} day streak",
+    "badgeLabel_other": "{{count}} day streak",
+    "days_one": "{{count}} day streak",
+    "days_other": "{{count}} day streak",
+    "longest_one": "Best: {{count}} day",
+    "longest_other": "Best: {{count}} days",
+    "increased_one": "{{count}} day streak!",
+    "increased_other": "{{count}} day streak!",
+    "startMessage": "Read a verse, a dua, or finish a lesson to start your streak.",
+    "activeTodayMessage": "Nice, you're up to date today!",
+    "reminderMessage": "Don't forget to read today to keep your streak."
+  },
   "reminders": {
     "pushUnsupported": "Notifications aren't supported by this browser.",
     "pushUnconfigured": "Notifications aren't configured on this server yet.",

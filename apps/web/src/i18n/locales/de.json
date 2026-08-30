@@ -160,6 +160,19 @@
       "reminders": "Erinnerungen"
     }
   },
+  "streak": {
+    "badgeLabel_one": "{{count}} Tag in Folge",
+    "badgeLabel_other": "{{count}} Tage in Folge",
+    "days_one": "{{count}} Tag in Folge",
+    "days_other": "{{count}} Tage in Folge",
+    "longest_one": "Rekord: {{count}} Tag",
+    "longest_other": "Rekord: {{count}} Tage",
+    "increased_one": "{{count}} Tag in Folge!",
+    "increased_other": "{{count}} Tage in Folge!",
+    "startMessage": "Lies einen Vers, eine Dua oder schließe eine Lektion ab, um deine Serie zu starten.",
+    "activeTodayMessage": "Super, du bist heute auf dem Laufenden!",
+    "reminderMessage": "Vergiss nicht, heute zu lesen, um deine Serie zu behalten."
+  },
   "reminders": {
     "pushUnsupported": "Benachrichtigungen werden von diesem Browser nicht unterstützt.",
     "pushUnconfigured": "Benachrichtigungen sind auf diesem Server noch nicht konfiguriert.",

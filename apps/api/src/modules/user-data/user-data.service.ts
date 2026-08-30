@@ -23,6 +23,7 @@ import {
   scholars,
   tafsirEntries,
 } from "../../database/schema";
+import { StreaksService } from "../streaks/streaks.service";
 
 /** Titre affichable + lien vers le contenu pour un couple (targetType, targetId). */
 interface TargetInfo {
@@ -32,7 +33,10 @@ interface TargetInfo {
 
 @Injectable()
 export class UserDataService {
-  constructor(@Inject(DRIZZLE) private readonly db: Database) {}
+  constructor(
+    @Inject(DRIZZLE) private readonly db: Database,
+    private readonly streaksService: StreaksService,
+  ) {}
 
   /**
    * Resout en une poignee de requetes groupees (une par type) le titre et le
@@ -212,7 +216,12 @@ export class UserDataService {
     return Boolean(existing);
   }
 
-  async toggleBookmark(userId: string, targetType: TargetType, targetId: string): Promise<{ bookmarked: boolean }> {
+  async toggleBookmark(
+    userId: string,
+    targetType: TargetType,
+    targetId: string,
+    localDate?: string,
+  ): Promise<{ bookmarked: boolean }> {
     const existing = await this.db.query.bookmarks.findFirst({
       where: and(eq(bookmarks.userId, userId), eq(bookmarks.targetType, targetType), eq(bookmarks.targetId, targetId)),
     });
@@ -223,6 +232,8 @@ export class UserDataService {
     }
 
     await this.db.insert(bookmarks).values({ userId, targetType, targetId });
+    // Uniquement a l'ajout (pas au retrait) : c'est l'action significative.
+    await this.streaksService.recordActivity(userId, localDate);
     return { bookmarked: true };
   }
 
@@ -241,11 +252,19 @@ export class UserDataService {
     return this.attachTargetInfo(rows, resolved);
   }
 
-  async createNote(userId: string, targetType: TargetType, targetId: string, content: string, isPrivate?: boolean) {
+  async createNote(
+    userId: string,
+    targetType: TargetType,
+    targetId: string,
+    content: string,
+    isPrivate?: boolean,
+    localDate?: string,
+  ) {
     const [note] = await this.db
       .insert(notes)
       .values({ userId, targetType, targetId, content, isPrivate: isPrivate ?? true })
       .returning();
+    await this.streaksService.recordActivity(userId, localDate);
     return note;
   }
 
@@ -318,13 +337,23 @@ export class UserDataService {
     await this.db.delete(collections).where(eq(collections.id, collection.id));
   }
 
-  async addCollectionItem(userId: string, collectionId: string, targetType: TargetType, targetId: string) {
+  async addCollectionItem(
+    userId: string,
+    collectionId: string,
+    targetType: TargetType,
+    targetId: string,
+    localDate?: string,
+  ) {
     const collection = await this.getOwnedCollection(userId, collectionId);
     const [item] = await this.db
       .insert(collectionItems)
       .values({ collectionId: collection.id, targetType, targetId })
       .onConflictDoNothing()
       .returning();
+    if (item) {
+      // Uniquement quand l'item est reellement nouveau (pas un doublon deja present).
+      await this.streaksService.recordActivity(userId, localDate);
+    }
     return item ?? (await this.db.query.collectionItems.findFirst({
       where: and(eq(collectionItems.collectionId, collection.id), eq(collectionItems.targetType, targetType), eq(collectionItems.targetId, targetId)),
     }));

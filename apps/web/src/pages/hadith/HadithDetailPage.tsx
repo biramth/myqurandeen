@@ -6,11 +6,13 @@ import { Skeleton } from "@/components/ui/skeleton";
 import { Breadcrumbs } from "@/components/shared/Breadcrumbs";
 import { ContentUserActions } from "@/components/shared/ContentUserActions";
 import { hadithApi } from "@/features/hadith/api";
+import { useStreakPing } from "@/features/streaks/useStreak";
 import { useDocumentTitle } from "@/hooks/useDocumentTitle";
 
 export function HadithDetailPage() {
   const { collection: slug, number } = useParams<{ collection: string; number: string }>();
   const { t } = useTranslation();
+  useStreakPing();
 
   const { data, isLoading, isError } = useQuery({
     queryKey: ["hadith", "detail", slug, number],

@@ -12,6 +12,7 @@ import { quranApi } from "@/features/quran/api";
 import { translatedSurahName } from "@/features/quran/surah-names";
 import { tafsirApi } from "@/features/tafsir/api";
 import { QuickReminderButton } from "@/features/reminders/QuickReminderButton";
+import { useStreakPing } from "@/features/streaks/useStreak";
 import { isRtlLanguage } from "@/lib/rtl";
 import { useDocumentTitle } from "@/hooks/useDocumentTitle";
 
@@ -19,6 +20,7 @@ export function SurahDetailPage() {
   const { surah: surahParam } = useParams<{ surah: string }>();
   const surahNumber = Number(surahParam);
   const { t, i18n } = useTranslation();
+  useStreakPing();
   const [copiedVerse, setCopiedVerse] = React.useState<number | null>(null);
   const [showTranslation, setShowTranslation] = React.useState(false);
   const [selectedTafsirId, setSelectedTafsirId] = React.useState<string | null>(null);

@@ -160,6 +160,19 @@
       "reminders": "Hatırlatıcılar"
     }
   },
+  "streak": {
+    "badgeLabel_one": "{{count}} günlük seri",
+    "badgeLabel_other": "{{count}} günlük seri",
+    "days_one": "{{count}} günlük seri",
+    "days_other": "{{count}} günlük seri",
+    "longest_one": "Rekor: {{count}} gün",
+    "longest_other": "Rekor: {{count}} gün",
+    "increased_one": "{{count}} günlük seri!",
+    "increased_other": "{{count}} günlük seri!",
+    "startMessage": "Serini başlatmak için bir ayet, bir dua oku ya da bir dersi tamamla.",
+    "activeTodayMessage": "Harika, bugün güncelsin!",
+    "reminderMessage": "Serini korumak için bugün okumayı unutma."
+  },
   "reminders": {
     "pushUnsupported": "Bildirimler bu tarayıcı tarafından desteklenmiyor.",
     "pushUnconfigured": "Bildirimler bu sunucuda henüz yapılandırılmadı.",

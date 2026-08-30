@@ -1,9 +1,10 @@
-import { Controller, Get, Param, Post } from "@nestjs/common";
+import { Body, Controller, Get, Param, Post } from "@nestjs/common";
 import { ApiTags } from "@nestjs/swagger";
 import { Public } from "../../common/decorators/public.decorator";
 import { CurrentUser } from "../../common/decorators/current-user.decorator";
 import type { RequestUser } from "../../common/types/authenticated-request";
 import { LearningService } from "./learning.service";
+import { ToggleLessonDto } from "./dto/toggle-lesson.dto";
 
 @ApiTags("learning")
 @Controller("learning")
@@ -40,7 +41,7 @@ export class LearningController {
   }
 
   @Post("lessons/:id/toggle")
-  toggleLesson(@Param("id") id: string, @CurrentUser() user: RequestUser) {
-    return this.learningService.toggleLessonCompletion(user.sub, id);
+  toggleLesson(@Param("id") id: string, @CurrentUser() user: RequestUser, @Body() dto: ToggleLessonDto) {
+    return this.learningService.toggleLessonCompletion(user.sub, id, dto.localDate);
   }
 }

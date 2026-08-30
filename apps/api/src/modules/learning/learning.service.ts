@@ -10,10 +10,14 @@ import {
   learningQuizQuestions,
   userProgress,
 } from "../../database/schema";
+import { StreaksService } from "../streaks/streaks.service";
 
 @Injectable()
 export class LearningService {
-  constructor(@Inject(DRIZZLE) private readonly db: Database) {}
+  constructor(
+    @Inject(DRIZZLE) private readonly db: Database,
+    private readonly streaksService: StreaksService,
+  ) {}
 
   async listPaths() {
     const paths = await this.db.select().from(learningPaths);
@@ -56,7 +60,7 @@ export class LearningService {
     return rows.map((r) => r.lessonId);
   }
 
-  async toggleLessonCompletion(userId: string, lessonId: string): Promise<{ completed: boolean }> {
+  async toggleLessonCompletion(userId: string, lessonId: string, localDate?: string): Promise<{ completed: boolean }> {
     const lesson = await this.db.query.learningLessons.findFirst({ where: eq(learningLessons.id, lessonId) });
     if (!lesson) {
       throw new NotFoundException("Lecon introuvable");
@@ -74,6 +78,9 @@ export class LearningService {
     }
 
     await this.db.insert(userProgress).values({ userId, lessonId });
+    // Uniquement quand une lecon vient d'etre marquee terminee (pas sur
+    // l'annulation) : c'est l'action significative qui compte pour la serie.
+    await this.streaksService.recordActivity(userId, localDate);
     return { completed: true };
   }
 

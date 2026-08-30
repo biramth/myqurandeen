@@ -205,6 +205,19 @@
       "reminders": "Rappels"
     }
   },
+  "streak": {
+    "badgeLabel_one": "{{count}} jour d'affilée",
+    "badgeLabel_other": "{{count}} jours d'affilée",
+    "days_one": "{{count}} jour d'affilée",
+    "days_other": "{{count}} jours d'affilée",
+    "longest_one": "Record : {{count}} jour",
+    "longest_other": "Record : {{count}} jours",
+    "increased_one": "{{count}} jour d'affilée !",
+    "increased_other": "{{count}} jours d'affilée !",
+    "startMessage": "Lis un verset, une dua ou termine une leçon pour commencer ta série.",
+    "activeTodayMessage": "Bravo, tu es à jour aujourd'hui !",
+    "reminderMessage": "N'oublie pas de lire aujourd'hui pour garder ta série."
+  },
   "reminders": {
     "pushUnsupported": "Les notifications ne sont pas prises en charge par ce navigateur.",
     "pushUnconfigured": "Les notifications ne sont pas encore configurées sur ce serveur.",

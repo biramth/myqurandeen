@@ -160,6 +160,19 @@
       "reminders": "یاد دہانیاں"
     }
   },
+  "streak": {
+    "badgeLabel_one": "{{count}} دن کا سلسلہ",
+    "badgeLabel_other": "{{count}} دنوں کا سلسلہ",
+    "days_one": "{{count}} دن کا سلسلہ",
+    "days_other": "{{count}} دنوں کا سلسلہ",
+    "longest_one": "ریکارڈ: {{count}} دن",
+    "longest_other": "ریکارڈ: {{count}} دن",
+    "increased_one": "{{count}} دن کا سلسلہ!",
+    "increased_other": "{{count}} دنوں کا سلسلہ!",
+    "startMessage": "اپنا سلسلہ شروع کرنے کے لیے ایک آیت، ایک دعا پڑھیں یا کوئی سبق مکمل کریں۔",
+    "activeTodayMessage": "شاباش، آپ آج تک اپ ڈیٹ ہیں!",
+    "reminderMessage": "اپنا سلسلہ برقرار رکھنے کے لیے آج پڑھنا نہ بھولیں۔"
+  },
   "reminders": {
     "pushUnsupported": "یہ براؤزر اطلاعات کو سپورٹ نہیں کرتا۔",
     "pushUnconfigured": "اس سرور پر اطلاعات ابھی ترتیب نہیں دی گئیں۔",

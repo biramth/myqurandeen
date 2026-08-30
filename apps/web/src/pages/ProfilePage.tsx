@@ -14,6 +14,7 @@ import { useAuth } from "@/features/auth/auth-context";
 import { authApi } from "@/features/auth/api";
 import { userDataApi } from "@/features/user-data/api";
 import { RemindersTab } from "@/features/reminders/RemindersTab";
+import { StreakCard } from "@/features/streaks/StreakCard";
 import { useDocumentTitle } from "@/hooks/useDocumentTitle";
 
 function EmptyState({ icon: Icon, label }: { icon: typeof Bookmark; label: string }) {
@@ -370,6 +371,8 @@ export function ProfilePage() {
           </Button>
         </CardContent>
       </Card>
+
+      <StreakCard />
 
       <Tabs defaultValue="bookmarks" className="mt-8">
         <TabsList className="mb-4">

@@ -38,6 +38,7 @@ import { AiModule } from "./modules/ai/ai.module";
 import { NotificationsModule } from "./modules/notifications/notifications.module";
 import { RemindersModule } from "./modules/reminders/reminders.module";
 import { MailModule } from "./modules/mail/mail.module";
+import { StreaksModule } from "./modules/streaks/streaks.module";
 
 @Module({
   imports: [
@@ -84,6 +85,7 @@ import { MailModule } from "./modules/mail/mail.module";
     NotificationsModule,
     RemindersModule,
     MailModule,
+    StreaksModule,
   ],
   providers: [
     { provide: APP_FILTER, useClass: HttpExceptionFilter },

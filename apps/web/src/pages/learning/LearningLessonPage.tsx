@@ -9,12 +9,14 @@ import { learningApi } from "@/features/learning/api";
 import { LessonIllustration } from "@/features/learning/illustrations/LessonIllustration";
 import { QuizBlock } from "@/features/learning/QuizBlock";
 import { useAuth } from "@/features/auth/auth-context";
+import { useStreakPing } from "@/features/streaks/useStreak";
 import { useDocumentTitle } from "@/hooks/useDocumentTitle";
 
 export function LearningLessonPage() {
   const { slug, order } = useParams<{ slug: string; order: string }>();
   const { t } = useTranslation();
   const { user } = useAuth();
+  useStreakPing();
   const queryClient = useQueryClient();
   const navigate = useNavigate();
   const orderNum = Number(order);

@@ -35,7 +35,7 @@ export class UserDataController {
 
   @Post("bookmarks/toggle")
   toggleBookmark(@CurrentUser() user: RequestUser, @Body() dto: ToggleBookmarkDto) {
-    return this.userDataService.toggleBookmark(user.sub, dto.targetType, dto.targetId);
+    return this.userDataService.toggleBookmark(user.sub, dto.targetType, dto.targetId, dto.localDate);
   }
 
   // --- Notes ---
@@ -51,7 +51,7 @@ export class UserDataController {
 
   @Post("notes")
   createNote(@CurrentUser() user: RequestUser, @Body() dto: CreateNoteDto) {
-    return this.userDataService.createNote(user.sub, dto.targetType, dto.targetId, dto.content, dto.isPrivate);
+    return this.userDataService.createNote(user.sub, dto.targetType, dto.targetId, dto.content, dto.isPrivate, dto.localDate);
   }
 
   @Patch("notes/:id")
@@ -93,7 +93,7 @@ export class UserDataController {
 
   @Post("collections/:id/items")
   addCollectionItem(@Param("id") id: string, @CurrentUser() user: RequestUser, @Body() dto: AddCollectionItemDto) {
-    return this.userDataService.addCollectionItem(user.sub, id, dto.targetType, dto.targetId);
+    return this.userDataService.addCollectionItem(user.sub, id, dto.targetType, dto.targetId, dto.localDate);
   }
 
   @Delete("collections/:id/items/:itemId")

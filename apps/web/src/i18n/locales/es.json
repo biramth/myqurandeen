@@ -160,6 +160,19 @@
       "reminders": "Recordatorios"
     }
   },
+  "streak": {
+    "badgeLabel_one": "{{count}} día seguido",
+    "badgeLabel_other": "{{count}} días seguidos",
+    "days_one": "{{count}} día seguido",
+    "days_other": "{{count}} días seguidos",
+    "longest_one": "Récord: {{count}} día",
+    "longest_other": "Récord: {{count}} días",
+    "increased_one": "¡{{count}} día seguido!",
+    "increased_other": "¡{{count}} días seguidos!",
+    "startMessage": "Lee un versículo, una dua o termina una lección para empezar tu racha.",
+    "activeTodayMessage": "¡Genial, ya estás al día hoy!",
+    "reminderMessage": "No olvides leer hoy para mantener tu racha."
+  },
   "reminders": {
     "pushUnsupported": "Las notificaciones no son compatibles con este navegador.",
     "pushUnconfigured": "Las notificaciones aún no están configuradas en este servidor.",

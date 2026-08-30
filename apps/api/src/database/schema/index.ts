@@ -14,3 +14,4 @@ export * from "./ai-embeddings";
 export * from "./duas";
 export * from "./notifications";
 export * from "./auth";
+export * from "./streaks";
