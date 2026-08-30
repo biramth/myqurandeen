@@ -33,7 +33,7 @@ const LESSON_QUIZZES: Record<string, Record<number, QuestionSeed[]>> = {
           "Livre sacré",
         ],
         correctIndex: 0,
-        explanation: "\"Islam\" vient de la racine s-l-m, qui exprimé la soumission et partage sa racine avec le mot \"paix\" (salam).",
+        explanation: "\"Islam\" vient de la racine s-l-m, qui exprime la soumission et partage sa racine avec le mot \"paix\" (salam).",
       },
       {
         question: "Quel est le concept central du message islamique selon cette leçon ?",
@@ -240,7 +240,7 @@ const LESSON_QUIZZES: Record<string, Record<number, QuestionSeed[]>> = {
         explanation: "Le sawm est obligatoire durant le mois de Ramadan, neuvième mois du calendrier lunaire islamique.",
       },
       {
-        question: "Quel objectif le Coran associé-t-il au jeûne (sourate 2:183) ?",
+        question: "Quel objectif le Coran associe-t-il au jeûne (sourate 2:183) ?",
         options: ["La richesse matérielle", "La taqwa (conscience de Dieu)", "La force physique", "La sagesse politique"],
         correctIndex: 1,
         explanation: "Le Coran présente le jeûne comme un moyen d'accéder à la taqwa, la conscience de Dieu.",
@@ -248,7 +248,7 @@ const LESSON_QUIZZES: Record<string, Record<number, QuestionSeed[]>> = {
     ],
     13: [
       {
-        question: "Que marqué l'Hégire (622) ?",
+        question: "Que marque l'Hégire (622) ?",
         options: [
           "Le début du calendrier islamique",
           "La fin de la mission prophétique",
@@ -256,7 +256,7 @@ const LESSON_QUIZZES: Record<string, Record<number, QuestionSeed[]>> = {
           "La conquête de La Mecque",
         ],
         correctIndex: 0,
-        explanation: "L'Hégire (622) marqué le point de départ du calendrier islamique.",
+        explanation: "L'Hégire (622) marque le point de départ du calendrier islamique.",
       },
       {
         question: "Quel traité de trêve est signé en 628 ?",
@@ -281,7 +281,7 @@ const LESSON_QUIZZES: Record<string, Record<number, QuestionSeed[]>> = {
           "La sagesse, la force, le courage, la loyauté",
         ],
         correctIndex: 1,
-        explanation: "Al-Asr identifié quatre conditions : la foi (iman), les bonnes actions, le rappel mutuel de la vérité et de la patience.",
+        explanation: "Al-Asr identifie quatre conditions : la foi (iman), les bonnes actions, le rappel mutuel de la vérité et de la patience.",
       },
     ],
     15: [
@@ -465,10 +465,10 @@ const LESSON_QUIZZES: Record<string, Record<number, QuestionSeed[]>> = {
         explanation: "Cinq prières obligatoires : fajr, dhuhr, asr, maghrib et isha.",
       },
       {
-        question: "Quelle prière remplacé exceptionnellement le dhuhr le vendredi ?",
+        question: "Quelle prière remplace exceptionnellement le dhuhr le vendredi ?",
         options: ["Le fajr", "La jumu'a (prière du vendredi)", "L'isha", "Le maghrib"],
         correctIndex: 1,
-        explanation: "La prière du vendredi (jumu'a) remplacé le dhuhr ce jour-là, dans des conditions collectives précises.",
+        explanation: "La prière du vendredi (jumu'a) remplace le dhuhr ce jour-là, dans des conditions collectives précises.",
       },
     ],
     7: [
@@ -597,7 +597,7 @@ const LESSON_QUIZZES: Record<string, Record<number, QuestionSeed[]>> = {
         options: [
           "Elle est volontaire, sans montant ni fréquence fixés",
           "Elle est plus importante que la zakat",
-          "Elle remplacé la zakat",
+          "Elle remplace la zakat",
           "Elle n'existe que pendant le Ramadan",
         ],
         correctIndex: 0,
@@ -653,7 +653,7 @@ const LESSON_QUIZZES: Record<string, Record<number, QuestionSeed[]>> = {
         explanation: "L'école hanafite a été fondée par l'imam Abu Hanifa à Kufa.",
       },
       {
-        question: "Quel outil méthodologique l'école hanafite utilisé-t-elle fréquemment ?",
+        question: "Quel outil méthodologique l'école hanafite utilise-t-elle fréquemment ?",
         options: [
           "L'istihsan (préférence juridique)",
           "La pratique des habitants de Médine uniquement",
@@ -758,7 +758,7 @@ const LESSON_QUIZZES: Record<string, Record<number, QuestionSeed[]>> = {
         explanation: "Ash-Shafi'i, avec Ar-Risala, a proposé la première systématisation rigoureuse de l'usul al-fiqh.",
       },
       {
-        question: "Quelle hiérarchie des sources l'approche shafi'ite appliqué-t-elle ?",
+        question: "Quelle hiérarchie des sources l'approche shafi'ite applique-t-elle ?",
         options: [
           "Coutume, puis Coran",
           "Coran, Sunna, consensus (ijma'), puis qiyas",
@@ -766,7 +766,7 @@ const LESSON_QUIZZES: Record<string, Record<number, QuestionSeed[]>> = {
           "Qiyas en premier, puis Coran",
         ],
         correctIndex: 1,
-        explanation: "L'approche shafi'ite appliqué une hiérarchisation stricte : Coran, Sunna, ijma', puis qiyas.",
+        explanation: "L'approche shafi'ite applique une hiérarchisation stricte : Coran, Sunna, ijma', puis qiyas.",
       },
     ],
     9: [
@@ -815,7 +815,7 @@ const LESSON_QUIZZES: Record<string, Record<number, QuestionSeed[]>> = {
         explanation: "Muslim rapporte que le kibr est \"le rejet de la vérité et le mépris des gens\".",
       },
       {
-        question: "Quel comportement du Prophète ﷺ illustré le tawadu' selon cette leçon ?",
+        question: "Quel comportement du Prophète ﷺ illustre le tawadu' selon cette leçon ?",
         options: [
           "Il exigeait une place réservée parmi ses compagnons",
           "Il réparait lui-même ses vêtements et trayait ses chèvres",
@@ -926,7 +926,7 @@ const LESSON_QUIZZES: Record<string, Record<number, QuestionSeed[]>> = {
         explanation: "Ya-Sin est une sourate mecquoise de quatre-vingt-trois versets.",
       },
       {
-        question: "Quel argument Ya-Sin utilisé-t-elle pour défendre la résurrection ?",
+        question: "Quel argument Ya-Sin utilise-t-elle pour défendre la résurrection ?",
         options: [
           "L'analogie avec la terre revivifiée par la pluie",
           "Un témoignage historique",
@@ -1098,7 +1098,7 @@ const LESSON_QUIZZES: Record<string, Record<number, QuestionSeed[]>> = {
         explanation: "Une divergence entre écoles est généralement le résultat de méthodologies différentes, non un désaccord sur les fondements de la foi.",
       },
       {
-        question: "Quel exemple concret illustré cette divergence méthodologique dans la leçon ?",
+        question: "Quel exemple concret illustre cette divergence méthodologique dans la leçon ?",
         options: [
           "Le nombre de sourates du Coran",
           "La position des mains pendant la prière",
@@ -1106,7 +1106,7 @@ const LESSON_QUIZZES: Record<string, Record<number, QuestionSeed[]>> = {
           "La date du Ramadan",
         ],
         correctIndex: 1,
-        explanation: "L'exemple de la position des mains pendant la prière illustré l'impact des hadiths et des pratiques régionales sur la divergence.",
+        explanation: "L'exemple de la position des mains pendant la prière illustre l'impact des hadiths et des pratiques régionales sur la divergence.",
       },
     ],
     11: [
@@ -1119,7 +1119,7 @@ const LESSON_QUIZZES: Record<string, Record<number, QuestionSeed[]>> = {
           "Simplifier le fiqh en une seule position",
         ],
         correctIndex: 1,
-        explanation: "Le comparateur visé à rendre visible une pluralité légitime, sans désigner une position comme supérieure.",
+        explanation: "Le comparateur vise à rendre visible une pluralité légitime, sans désigner une position comme supérieure.",
       },
       {
         question: "Comment le comparateur est-il organisé ?",
@@ -1165,7 +1165,7 @@ const LESSON_QUIZZES: Record<string, Record<number, QuestionSeed[]>> = {
     ],
     3: [
       {
-        question: "Que provoqué l'appel public au tawhid auprès des chefs de Quraych ?",
+        question: "Que provoque l'appel public au tawhid auprès des chefs de Quraych ?",
         options: [
           "Une adhésion rapide et générale",
           "Une indifférence totale",
@@ -1318,7 +1318,7 @@ const FINAL_QUIZZES: Record<string, QuestionSeed[]> = {
       explanation: "Les Kutub as-Sittah regroupent six recueils canoniques.",
     },
     {
-      question: "Quel événement à Ta'if illustré la patience (sabr) du Prophète ﷺ ?",
+      question: "Quel événement à Ta'if illustre la patience (sabr) du Prophète ﷺ ?",
       options: [
         "Il y fut accueilli en héros",
         "Il y fut rejeté et lapidé, mais refusa la destruction de la ville",
@@ -1427,7 +1427,7 @@ const FINAL_QUIZZES: Record<string, QuestionSeed[]> = {
       question: "En quoi la sadaqah diffère-t-elle de la zakat ?",
       options: [
         "Elle est volontaire, sans montant ni fréquence fixés",
-        "Elle remplacé la zakat",
+        "Elle remplace la zakat",
         "Elle n'existe que pendant le Ramadan",
         "Elle est réservée aux voyageurs",
       ],
@@ -1486,7 +1486,7 @@ const FINAL_QUIZZES: Record<string, QuestionSeed[]> = {
       explanation: "Les quatre sources classiques sont le Coran, la Sunna, l'ijma' et le qiyas.",
     },
     {
-      question: "Quel argument la sourate Ya-Sin utilisé-t-elle pour la résurrection ?",
+      question: "Quel argument la sourate Ya-Sin utilise-t-elle pour la résurrection ?",
       options: ["Un miracle visible", "L'analogie avec la terre revivifiée par la pluie", "Un témoignage historique", "Aucun argument rationnel"],
       correctIndex: 1,
       explanation: "Ya-Sin compare la capacité de Dieu à revivifier la terre morte par la pluie à Sa capacité à ressusciter les morts.",
@@ -1545,7 +1545,7 @@ const FINAL_QUIZZES: Record<string, QuestionSeed[]> = {
       explanation: "Ils émigrent vers le royaume chrétien d'Aksoum, en Abyssinie.",
     },
     {
-      question: "Que institue le voyage nocturne et l'ascension (Isra wal Mi'raj) ?",
+      question: "Qu'institue le voyage nocturne et l'ascension (Isra wal Mi'raj) ?",
       options: ["Les cinq prières quotidiennes", "Le jeûne du Ramadan", "La zakat", "Le pèlerinage"],
       correctIndex: 0,
       explanation: "Les cinq prières quotidiennes sont instituées lors de cet événement.",
@@ -1557,7 +1557,7 @@ const FINAL_QUIZZES: Record<string, QuestionSeed[]> = {
       explanation: "Badr, première grande victoire musulmane, est présentée dans le Coran (sourate Al-Anfal) comme un signe divin.",
     },
     {
-      question: "Comment le Prophète ﷺ traité-t-il ses anciens persécuteurs lors de la conquête de La Mecque ?",
+      question: "Comment le Prophète ﷺ traite-t-il ses anciens persécuteurs lors de la conquête de La Mecque ?",
       options: ["Il leur accorde une amnistie générale", "Il les bannit", "Il exige une compensation financière", "Il les exécute"],
       correctIndex: 0,
       explanation: "Il accorde une amnistie générale, y compris à nombre de ses anciens persécuteurs, un épisode largement souligné dans la tradition.",

@@ -4,6 +4,13 @@ import path from "node:path";
 import { visualizer } from "rollup-plugin-visualizer";
 
 export default defineConfig({
+  // `vite` s'execute avec cwd = apps/web : sans ceci, Vite chercherait un
+  // .env dans apps/web (inexistant) et VITE_API_URL resterait indefini en
+  // dev, faisant retomber apiClient sur "/api" - un chemin que ce serveur
+  // dev ne sait pas servir (pas de proxy), d'ou un fallback silencieux vers
+  // index.html au lieu du JSON attendu. Meme logique que l'envFilePath
+  // explicite d'AppModule cote API (voir apps/api/src/app.module.ts).
+  envDir: path.resolve(__dirname, "../.."),
   plugins: [
     react(),
     // `ANALYZE=1 npm run build -w apps/web` genere dist/stats.html pour

@@ -5,11 +5,11 @@ import { authors, fiqhDivergenceNotes, fiqhPositions, fiqhTopics, schools, sourc
 /**
  * Écoles juridiques (fiqh) et courants théologiques, et comparateur de
  * positions. Aucune API ouverte n'existe pour ce domaine : ce contenu est
- * compilé a partir d'ouvrages de référence standards de fiqh compare,
+ * compilé à partir d'ouvrages de référence standards de fiqh comparé,
  * notamment "Al-Fiqh ala al-Madhahib al-Arba'a" d'Abd al-Rahman al-Jaziri,
  * qui a précisément pour objet de présenter les positions des quatre
  * écoles sunnites côte à côte. Chaque position est attribuée à l'école
- * concernee sans jugement de valeur - voir CONTRIBUTING.md.
+ * concernée sans jugement de valeur - voir CONTRIBUTING.md.
  */
 
 const FIQH_REFERENCE = {
@@ -93,7 +93,7 @@ const SCHOOLS: SchoolSeed[] = [
       "Courant théologique (aqida) fondé par Abu al-Hasan al-Ash'ari, qui rompit publiquement avec le mu'tazilisme rationaliste dans lequel il avait été formé pour développer une voie intermédiaire, plus tard consolidée et diffusée par des savants majeurs comme Al-Baqillani et surtout Al-Ghazali. Devenu l'une des écoles de théologie sunnite les plus répandues historiquement, elle s'est particulièrement associée aux écoles juridiques shafi'ite et malikite, et demeure aujourd'hui largement enseignée dans les grandes institutions sunnites traditionnelles comme Al-Azhar au Caire.",
     principles:
       "Cherche une voie médiane entre le rationalisme systématique du mu'tazilisme, jugé excessif dans la subordination des textes à la raison, et le littéralisme strict qui refuse tout recours à l'interprétation, tout en utilisant des outils du raisonnement rationnel (kalam) pour défendre et argumenter les articles de foi islamiques face aux objections philosophiques. Sur les attributs divins évoqués dans des termes apparemment corporels (la \"main\" ou le \"visage\" de Dieu, par exemple), l'école privilégie généralement une interprétation allégorique (ta'wil) plutôt qu'une affirmation littérale sans spécification de la modalité.",
-    sourcesUsed: "Coran, Sunna, raisonnement rationnel (kalam) au service de la defense des croyances.",
+    sourcesUsed: "Coran, Sunna, raisonnement rationnel (kalam) au service de la défense des croyances.",
     era: "IVe siècle AH / Xe siècle",
   },
   {
@@ -103,7 +103,7 @@ const SCHOOLS: SchoolSeed[] = [
     founderName: "Abu Mansur al-Maturidi",
     founderEra: "m. 333 AH / 944",
     history:
-      "Courant théologique fondé par Abu Mansur al-Maturidi a Samarcande, developpe indépendamment de l'ash'arisme mais a la même époque et dans un esprit méthodologique proche, historiquement associé a l'école juridique hanafite dont il partage souvent le contexte geographique. Répandu en Asie centrale, en Turquie et dans les Balkans, il constitue avec l'ash'arisme l'une des deux grandes écoles de théologie sunnite reconnues comme orthodoxes par la tradition classique.",
+      "Courant théologique fondé par Abu Mansur al-Maturidi à Samarcande, développé indépendamment de l'ash'arisme mais à la même époque et dans un esprit méthodologique proche, historiquement associé à l'école juridique hanafite dont il partage souvent le contexte géographique. Répandu en Asie centrale, en Turquie et dans les Balkans, il constitue avec l'ash'arisme l'une des deux grandes écoles de théologie sunnite reconnues comme orthodoxes par la tradition classique.",
     principles:
       "Proche de l'ash'arisme sur la plupart des questions doctrinales fondamentales (unicité divine, attributs, prophétie, eschatologie), avec quelques divergences notables, notamment sur le rôle de la raison dans la connaissance du bien et du mal : les maturidites considèrent que la raison humaine peut, dans une certaine mesure, discerner par elle-même certaines obligations morales de base indépendamment de la révélation, alors que les ash'arites tendent à faire dépendre entièrement la notion de bien et de mal de ce que la révélation désigne comme tel.",
     sourcesUsed: "Coran, Sunna, raisonnement rationnel (kalam).",
@@ -129,10 +129,10 @@ const SCHOOLS: SchoolSeed[] = [
     founderName: "Wasil ibn Ata (figure fondatrice traditionnelle)",
     founderEra: "80-131 AH / 699-748",
     history:
-      "Courant théologique rationaliste apparu a Bassora, traditionnellement rattache a la rupture de Wasil ibn Ata avec son maitre Al-Hasan al-Basri sur la question du statut du croyant ayant commis un peche grave. Le mu'tazilisme devint doctrine officielle du califat abbasside sous Al-Ma'mun et ses deux successeurs immediats au IXe siècle, période durant laquelle une inquisition (mihna) fut imposee aux savants refusant d'adherer a la thèse mu'tazilite du Coran créé - résistance a laquelle Ahmad ibn Hanbal doit une grande partie de sa notoriete. Le mouvement decline ensuite face a la contre-offensive ash'arite et hanbalite, et demeure aujourd'hui minoritaire, bien qu'historiquement déterminant dans le développement des outils et du vocabulaire du kalam islamique, y compris chez ses adversaires théologiques.",
+      "Courant théologique rationaliste apparu à Bassora, traditionnellement rattaché à la rupture de Wasil ibn Ata avec son maître Al-Hasan al-Basri sur la question du statut du croyant ayant commis un péché grave. Le mu'tazilisme devint doctrine officielle du califat abbasside sous Al-Ma'mun et ses deux successeurs immédiats au IXe siècle, période durant laquelle une inquisition (mihna) fut imposée aux savants refusant d'adhérer à la thèse mu'tazilite du Coran créé - résistance à laquelle Ahmad ibn Hanbal doit une grande partie de sa notoriété. Le mouvement décline ensuite face à la contre-offensive ash'arite et hanbalite, et demeure aujourd'hui minoritaire, bien qu'historiquement déterminant dans le développement des outils et du vocabulaire du kalam islamique, y compris chez ses adversaires théologiques.",
     principles:
       "Accorde une place centrale à la raison, considérée capable de déterminer indépendamment certaines vérités morales et théologiques, notamment sur des questions comme la justice divine (Dieu ne peut, selon cette école, agir injustement par définition rationnelle de la justice) et le libre arbitre humain (l'être humain est l'auteur réel de ses actes, contrairement à la lecture plus déterministe dominante chez les ash'arites). Position minoritaire et distincte du courant sunnite majoritaire également sur la nature du Coran, considéré créé et non incréé, et sur le statut du croyant ayant commis un grand péché, placé dans une position intermédiaire entre croyant et mécréant.",
-    sourcesUsed: "Coran interprète à la lumiere du raisonnement rationnel (kalam).",
+    sourcesUsed: "Coran interprété à la lumière du raisonnement rationnel (kalam).",
     era: "IIe siècle AH / VIIIe siècle",
   },
 ];
@@ -151,27 +151,27 @@ const FIQH_TOPICS: FiqhTopicSeed[] = [
     title: "Position des mains pendant la prière",
     slug: "position-des-mains-priere",
     category: "Prière (Salat)",
-    description: "Ou et comment placer les mains durant la station debout (qiyam) de la prière.",
+    description: "Où et comment placer les mains durant la station debout (qiyam) de la prière.",
     positions: [
       { schoolSlug: "malikite", text: "Dans la position la plus connue de l'école, les mains sont laissées le long du corps (sadl) plutôt que croisées, bien que certains malikites rapportent aussi la position croisée." },
       { schoolSlug: "hanafite", text: "La main droite est placée sur la main gauche, sous le nombril." },
       { schoolSlug: "shafiite", text: "La main droite est placée sur la main gauche, sur la poitrine." },
       { schoolSlug: "hanbalite", text: "La main droite est placée sur la main gauche, généralement sous le nombril, position proche de celle des hanafites." },
     ],
-    divergenceExplanation: "La divergence provient de la diversité des hadiths rapportes sur ce point et de la manière dont chaque école a évalue leur authenticité et leur portée, ainsi que du poids accorde à la pratique observee dans chaque région (Médine pour les malikites, Kufa pour les hanafites, etc.).",
+    divergenceExplanation: "La divergence provient de la diversité des hadiths rapportés sur ce point et de la manière dont chaque école a évalué leur authenticité et leur portée, ainsi que du poids accordé à la pratique observée dans chaque région (Médine pour les malikites, Kufa pour les hanafites, etc.).",
   },
   {
     title: "Lever les mains (raf' al-yadayn) durant la prière",
     slug: "rafi-al-yadayn",
     category: "Prière (Salat)",
-    description: "A quels moments de la prière il est recommande de lever les mains au niveau des epaules ou des oreilles.",
+    description: "À quels moments de la prière il est recommandé de lever les mains au niveau des épaules ou des oreilles.",
     positions: [
-      { schoolSlug: "malikite", text: "Le lever des mains est généralement limite au takbir d'ouverture de la prière (takbirat al-ihram)." },
+      { schoolSlug: "malikite", text: "Le lever des mains est généralement limité au takbir d'ouverture de la prière (takbirat al-ihram)." },
       { schoolSlug: "hanafite", text: "Le lever des mains est prescrit au takbir d'ouverture ; les positions varient ensuite selon les rapporteurs pour les inclinaisons." },
       { schoolSlug: "shafiite", text: "Le lever des mains est prescrit à l'ouverture, avant et après l'inclinaison (ruku')." },
       { schoolSlug: "hanbalite", text: "Le lever des mains est prescrit à l'ouverture, avant et après l'inclinaison (ruku'), position proche de celle des shafi'ites." },
     ],
-    divergenceExplanation: "Plusieurs hadiths authentiques decrivent des pratiques du Prophète ﷺ a des moments différents ; les écoles divergent sur la manière de les concilier ou de determiner lesquels refletent la pratique la plus établie.",
+    divergenceExplanation: "Plusieurs hadiths authentiques décrivent des pratiques du Prophète ﷺ à des moments différents ; les écoles divergent sur la manière de les concilier ou de déterminer lesquels reflètent la pratique la plus établie.",
   },
   {
     title: "Récitation de la Basmala à voix haute",
@@ -184,7 +184,7 @@ const FIQH_TOPICS: FiqhTopicSeed[] = [
       { schoolSlug: "shafiite", text: "La Basmala est considérée comme un verset de la Fatiha et est récitée à voix haute dans les prières concernées." },
       { schoolSlug: "hanbalite", text: "La Basmala est récitée à voix basse, position proche de celle des hanafites." },
     ],
-    divergenceExplanation: "La divergence tient à la question de savoir si la Basmala fait partie integrante du texte de la sourate Al-Fatiha, question sur laquelle les hadiths et les lectures coraniques rapportées varient.",
+    divergenceExplanation: "La divergence tient à la question de savoir si la Basmala fait partie intégrante du texte de la sourate Al-Fatiha, question sur laquelle les hadiths et les lectures coraniques rapportées varient.",
   },
   {
     title: "Ce qui annule les petites ablutions (wudu)",
@@ -197,7 +197,7 @@ const FIQH_TOPICS: FiqhTopicSeed[] = [
       { schoolSlug: "shafiite", text: "Tout contact direct de peau à peau entre un homme et une femme non mahram annule le wudu, indépendamment de l'intention." },
       { schoolSlug: "hanbalite", text: "Le contact avec plaisir ou désir annule le wudu ; position proche de celle des malikites." },
     ],
-    divergenceExplanation: "La divergence provient d'interprétations différentes du verset coranique évoquant le fait d'avoir \"touche les femmes\" (Coran 4:43 et 5:6) - certaines écoles y voient une allusion euphemique aux rapports intimes, d'autres un sens plus littéral incluant le simple contact.",
+    divergenceExplanation: "La divergence provient d'interprétations différentes du verset coranique évoquant le fait d'avoir \"touché les femmes\" (Coran 4:43 et 5:6) - certaines écoles y voient une allusion euphémique aux rapports intimes, d'autres un sens plus littéral incluant le simple contact.",
   },
   {
     title: "Sujud as-sahw (prosternation de l'oubli) : avant ou après le salam",
@@ -218,7 +218,7 @@ const FIQH_TOPICS: FiqhTopicSeed[] = [
     category: "Prière (Salat)",
     description: "Combien de personnes doivent être réunies, en plus de l'imam, pour que la prière du vendredi puisse valablement remplacer la prière de la mi-journée (dhuhr).",
     positions: [
-      { schoolSlug: "malikite", text: "La position la plus connue de l'école exigé au moins douze hommes adultes en plus de l'imam, résidents du lieu où se tient la prière." },
+      { schoolSlug: "malikite", text: "La position la plus connue de l'école exige au moins douze hommes adultes en plus de l'imam, résidents du lieu où se tient la prière." },
       { schoolSlug: "hanafite", text: "Un nombre réduit suffit, généralement autour de trois personnes en plus de l'imam selon les rapporteurs de l'école les plus suivis." },
       { schoolSlug: "shafiite", text: "Quarante hommes adultes, libres et résidents permanents du lieu (mustawtinun) sont requis en plus de l'imam." },
       { schoolSlug: "hanbalite", text: "Position proche de celle des shafi'ites : quarante hommes résidents permanents sont requis." },
@@ -244,7 +244,7 @@ const FIQH_TOPICS: FiqhTopicSeed[] = [
     category: "Jeûne (Sawm)",
     description: "Si le fait de pratiquer ou de recevoir une ventouse thérapeutique (hijama) rompt le jeûne du Ramadan.",
     positions: [
-      { schoolSlug: "malikite", text: "La ventouse n'annule pas le jeûne, sauf si elle provoqué une faiblesse importante poussant la personne à rompre volontairement pour une autre raison." },
+      { schoolSlug: "malikite", text: "La ventouse n'annule pas le jeûne, sauf si elle provoque une faiblesse importante poussant la personne à rompre volontairement pour une autre raison." },
       { schoolSlug: "hanafite", text: "La ventouse n'annule pas le jeûne." },
       { schoolSlug: "shafiite", text: "La ventouse n'annule pas le jeûne." },
       { schoolSlug: "hanbalite", text: "La ventouse annule le jeûne, aussi bien pour celui qui la pratique que pour celui qui la reçoit, conformément à un hadith explicite retenu par l'école sur ce point." },
@@ -288,7 +288,7 @@ const FIQH_TOPICS: FiqhTopicSeed[] = [
       { schoolSlug: "shafiite", text: "Les bijoux à usage personnel licite, dans une mesure raisonnable, ne sont pas soumis à la zakat." },
       { schoolSlug: "hanbalite", text: "Position proche de celle des malikites et shafi'ites : pas de zakat sur les bijoux à usage personnel licite." },
     ],
-    divergenceExplanation: "La divergence tient à la portée donnée aux hadiths généraux sur la zakat de l'or et de l'argent : l'école hanafite les appliqué sans exception à toute quantité atteignant le nisab, tandis que les trois autres écoles y voient une exception implicite pour les bijoux destinés à un usage personnel licite, considérés comme un bien d'usage plutôt qu'un bien thésaurisé.",
+    divergenceExplanation: "La divergence tient à la portée donnée aux hadiths généraux sur la zakat de l'or et de l'argent : l'école hanafite les applique sans exception à toute quantité atteignant le nisab, tandis que les trois autres écoles y voient une exception implicite pour les bijoux destinés à un usage personnel licite, considérés comme un bien d'usage plutôt qu'un bien thésaurisé.",
   },
   {
     title: "Zakat al-fitr : nourriture ou équivalent monétaire",
@@ -385,7 +385,7 @@ const FIQH_TOPICS: FiqhTopicSeed[] = [
     title: "Le riba al-fadl s'étend-il à toutes les denrées alimentaires ?",
     slug: "etendue-riba-al-fadl",
     category: "Commerce et transactions (Mu'amalat)",
-    description: "Un hadith cité six biens précis (or, argent, blé, orge, dattes, sel) pour lesquels un échange inégal entre biens de même nature est interdit (riba al-fadl) ; la question est de savoir si cette règle se limite à ces six biens ou s'étend par analogie à d'autres denrées.",
+    description: "Un hadith cite six biens précis (or, argent, blé, orge, dattes, sel) pour lesquels un échange inégal entre biens de même nature est interdit (riba al-fadl) ; la question est de savoir si cette règle se limite à ces six biens ou s'étend par analogie à d'autres denrées.",
     positions: [
       { schoolSlug: "malikite", text: "La règle s'étend par analogie à toute denrée alimentaire de base, conservable et servant normalement de nourriture principale, au-delà des six biens explicitement cités." },
       { schoolSlug: "hanafite", text: "La règle s'étend à tout bien mesuré par le poids ou le volume, l'école retenant le mode de mesure (plutôt que la nature alimentaire) comme cause ('illa) commune justifiant l'analogie." },
@@ -413,7 +413,7 @@ const FIQH_TOPICS: FiqhTopicSeed[] = [
     category: "Hajj et 'Umra",
     description: "Si les circumambulations autour de la Kaaba (tawaf) doivent obligatoirement être accomplies en état de pureté rituelle (ayant fait le wudu), à l'image de la prière, ou si la pureté n'en est qu'une condition recommandée.",
     positions: [
-      { schoolSlug: "malikite", text: "La pureté rituelle est une condition stricte de validité du tawaf, à l'image de la prière ; un tawaf accompli en état d'impureture mineure doit être recommencé." },
+      { schoolSlug: "malikite", text: "La pureté rituelle est une condition stricte de validité du tawaf, à l'image de la prière ; un tawaf accompli en état d'impureté mineure doit être recommencé." },
       { schoolSlug: "hanafite", text: "La pureté rituelle est obligatoire (wajib) mais pas une condition stricte de validité : un tawaf accompli sans elle reste valide, bien qu'un sacrifice compensatoire (dam) soit alors dû." },
       { schoolSlug: "shafiite", text: "Position identique à celle des malikites : la pureté rituelle est une condition de validité du tawaf, qui est directement assimilé à la prière sur ce point par un hadith rapporté par At-Tirmidhi." },
       { schoolSlug: "hanbalite", text: "Position identique à celle des malikites et shafi'ites : la pureté est une condition de validité, non une simple recommandation." },
@@ -531,7 +531,7 @@ export async function seedSchools(db: Database): Promise<void> {
 
   const schoolIdBySlug = new Map<string, string>();
   for (const s of SCHOOLS) {
-    // La figure fondatrice est enregistree comme `author` (référence croisee
+    // La figure fondatrice est enregistrée comme `author` (référence croisée
     // future avec le module Savants), même si non liée ici via founderScholarId.
     await db.insert(authors).values({ name: s.founderName, era: s.founderEra }).onConflictDoNothing();
 
