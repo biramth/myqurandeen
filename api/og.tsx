@@ -139,7 +139,7 @@ export default async function handler(req: Request) {
       {
         width: 1200,
         height: 630,
-        fonts: hasArabic
+        fonts: fontData
           ? [{ name: "arabic", data: fontData, weight: 400, style: "normal" }]
           : undefined,
         headers: {
