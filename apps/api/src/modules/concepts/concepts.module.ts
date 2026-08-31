@@ -5,5 +5,6 @@ import { ConceptsService } from "./concepts.service";
 @Module({
   controllers: [ConceptsController],
   providers: [ConceptsService],
+  exports: [ConceptsService],
 })
 export class ConceptsModule {}

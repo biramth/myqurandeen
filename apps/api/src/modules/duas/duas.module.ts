@@ -5,5 +5,6 @@ import { DuasService } from "./duas.service";
 @Module({
   controllers: [DuasController],
   providers: [DuasService],
+  exports: [DuasService],
 })
 export class DuasModule {}

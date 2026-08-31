@@ -5,5 +5,6 @@ import { QuranService } from "./quran.service";
 @Module({
   controllers: [QuranController],
   providers: [QuranService],
+  exports: [QuranService],
 })
 export class QuranModule {}
