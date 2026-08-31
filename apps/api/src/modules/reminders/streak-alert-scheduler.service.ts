@@ -6,6 +6,10 @@ import type { Database } from "../../database/database.module";
 import { pushSubscriptions, streakAlertSettings, userStreaks, users } from "../../database/schema";
 import { WebPushProvider } from "../notifications/web-push.provider";
 import { GRACE_MINUTES, localClock, minutesSince } from "./reminder-scheduler.service";
+import { SchedulerLockService } from "./scheduler-lock.service";
+
+/** Cle arbitraire du verrou consultatif Postgres pour ce planificateur (voir SchedulerLockService). */
+const LOCK_KEY = 483920003;
 
 const ALERT_TITLES: Record<string, string> = {
   fr: "Garde ta série !",
@@ -53,6 +57,7 @@ export class StreakAlertSchedulerService implements OnApplicationBootstrap {
   constructor(
     @Inject(DRIZZLE) private readonly db: Database,
     private readonly webPush: WebPushProvider,
+    private readonly schedulerLock: SchedulerLockService,
   ) {}
 
   async onApplicationBootstrap() {
@@ -62,11 +67,13 @@ export class StreakAlertSchedulerService implements OnApplicationBootstrap {
   @Cron(CronExpression.EVERY_MINUTE)
   async tick() {
     if (!this.webPush.isConfigured) return;
-    try {
-      await this.process();
-    } catch (error) {
-      this.logger.error(`Echec du tick d'alerte de serie : ${(error as Error).message}`);
-    }
+    await this.schedulerLock.withLock(LOCK_KEY, async () => {
+      try {
+        await this.process();
+      } catch (error) {
+        this.logger.error(`Echec du tick d'alerte de serie : ${(error as Error).message}`);
+      }
+    });
   }
 
   private async process() {
@@ -83,29 +90,33 @@ export class StreakAlertSchedulerService implements OnApplicationBootstrap {
       .where(eq(streakAlertSettings.isActive, true));
 
     for (const { setting, locale, currentStreak, lastActiveDate } of rows) {
-      const clock = localClock(setting.timezone);
-      if (!clock) continue;
-      // Pas de serie a proteger, deja actif aujourd'hui, ou pas encore l'heure.
-      if (!currentStreak || currentStreak < 1) continue;
-      if (lastActiveDate === clock.dateKey) continue;
-      const since = minutesSince(clock.hhmm, setting.timeOfDay);
-      if (since < 0 || since > GRACE_MINUTES) continue;
-      if (setting.lastSentAt && localClock(setting.timezone, setting.lastSentAt)?.dateKey === clock.dateKey) {
-        continue; // deja alerte aujourd'hui
-      }
+      try {
+        const clock = localClock(setting.timezone);
+        if (!clock) continue;
+        // Pas de serie a proteger, deja actif aujourd'hui, ou pas encore l'heure.
+        if (!currentStreak || currentStreak < 1) continue;
+        if (lastActiveDate === clock.dateKey) continue;
+        const since = minutesSince(clock.hhmm, setting.timeOfDay);
+        if (since < 0 || since > GRACE_MINUTES) continue;
+        if (setting.lastSentAt && localClock(setting.timezone, setting.lastSentAt)?.dateKey === clock.dateKey) {
+          continue; // deja alerte aujourd'hui
+        }
 
-      // Le clic sur la notification ouvre simplement l'app : l'objectif est
-      // une action minimale (lire un verset) avant la fin de la journee.
-      const sent = await this.notifyUser(setting.userId, {
-        title: alertTitle(locale),
-        body: alertBody(locale, currentStreak),
-        url: "/",
-      });
-      if (sent) {
-        await this.db
-          .update(streakAlertSettings)
-          .set({ lastSentAt: new Date() })
-          .where(eq(streakAlertSettings.userId, setting.userId));
+        // Le clic sur la notification ouvre simplement l'app : l'objectif est
+        // une action minimale (lire un verset) avant la fin de la journee.
+        const sent = await this.notifyUser(setting.userId, {
+          title: alertTitle(locale),
+          body: alertBody(locale, currentStreak),
+          url: "/",
+        });
+        if (sent) {
+          await this.db
+            .update(streakAlertSettings)
+            .set({ lastSentAt: new Date() })
+            .where(eq(streakAlertSettings.userId, setting.userId));
+        }
+      } catch (error) {
+        this.logger.error(`Echec de l'alerte de serie pour l'utilisateur ${setting.userId} : ${(error as Error).message}`);
       }
     }
   }
@@ -117,11 +128,8 @@ export class StreakAlertSchedulerService implements OnApplicationBootstrap {
 
     let anySent = false;
     for (const sub of subs) {
-      const result = await this.webPush.send(sub, payload);
+      const result = await this.webPush.sendAndCleanup(sub, payload);
       if (result === "sent") anySent = true;
-      if (result === "gone") {
-        await this.db.delete(pushSubscriptions).where(eq(pushSubscriptions.id, sub.id));
-      }
     }
     return anySent;
   }

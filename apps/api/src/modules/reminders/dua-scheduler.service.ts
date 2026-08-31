@@ -6,6 +6,10 @@ import type { Database } from "../../database/database.module";
 import { duaCategories, duaScheduleSettings, duas, pushSubscriptions, users } from "../../database/schema";
 import { WebPushProvider } from "../notifications/web-push.provider";
 import { GRACE_MINUTES, localClock, minutesSince } from "./reminder-scheduler.service";
+import { SchedulerLockService } from "./scheduler-lock.service";
+
+/** Cle arbitraire du verrou consultatif Postgres pour ce planificateur (voir SchedulerLockService). */
+const LOCK_KEY = 483920002;
 
 /** Corps localise du rappel, par creneau (matin / soir). */
 const DUA_BODIES: Record<"matin" | "soir", Record<string, string>> = {
@@ -50,6 +54,7 @@ export class DuaSchedulerService implements OnApplicationBootstrap {
   constructor(
     @Inject(DRIZZLE) private readonly db: Database,
     private readonly webPush: WebPushProvider,
+    private readonly schedulerLock: SchedulerLockService,
   ) {}
 
   async onApplicationBootstrap() {
@@ -59,11 +64,13 @@ export class DuaSchedulerService implements OnApplicationBootstrap {
   @Cron(CronExpression.EVERY_MINUTE)
   async tick() {
     if (!this.webPush.isConfigured) return;
-    try {
-      await this.process();
-    } catch (error) {
-      this.logger.error(`Echec du tick de duas automatiques : ${(error as Error).message}`);
-    }
+    await this.schedulerLock.withLock(LOCK_KEY, async () => {
+      try {
+        await this.process();
+      } catch (error) {
+        this.logger.error(`Echec du tick de duas automatiques : ${(error as Error).message}`);
+      }
+    });
   }
 
   private async process() {
@@ -74,8 +81,19 @@ export class DuaSchedulerService implements OnApplicationBootstrap {
       .where(eq(duaScheduleSettings.isActive, true));
 
     for (const { setting, locale } of rows) {
-      await this.trySendSlot(setting, locale, "matin", setting.morningTime);
-      await this.trySendSlot(setting, locale, "soir", setting.eveningTime);
+      // Chaque creneau est isole individuellement : un echec sur le matin ne
+      // doit pas empecher la tentative du soir pour le meme utilisateur, ni
+      // interrompre la boucle pour les autres utilisateurs.
+      try {
+        await this.trySendSlot(setting, locale, "matin", setting.morningTime);
+      } catch (error) {
+        this.logger.error(`Echec du dua du matin pour l'utilisateur ${setting.userId} : ${(error as Error).message}`);
+      }
+      try {
+        await this.trySendSlot(setting, locale, "soir", setting.eveningTime);
+      } catch (error) {
+        this.logger.error(`Echec du dua du soir pour l'utilisateur ${setting.userId} : ${(error as Error).message}`);
+      }
     }
   }
 
@@ -131,11 +149,8 @@ export class DuaSchedulerService implements OnApplicationBootstrap {
 
     let anySent = false;
     for (const sub of subs) {
-      const result = await this.webPush.send(sub, payload);
+      const result = await this.webPush.sendAndCleanup(sub, payload);
       if (result === "sent") anySent = true;
-      if (result === "gone") {
-        await this.db.delete(pushSubscriptions).where(eq(pushSubscriptions.id, sub.id));
-      }
     }
     return anySent;
   }

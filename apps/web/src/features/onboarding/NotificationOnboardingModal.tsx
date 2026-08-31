@@ -78,7 +78,7 @@ export function NotificationOnboardingModal() {
   const [denied, setDenied] = React.useState(false);
 
   React.useEffect(() => {
-    if (!eligible || !authLoading || open) return;
+    if (!eligible || authLoading || open) return;
     const timer = window.setTimeout(() => {
       setOpen(true);
       track("onboard_view");

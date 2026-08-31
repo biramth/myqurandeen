@@ -1,6 +1,10 @@
-import { Injectable, Logger } from "@nestjs/common";
+import { Inject, Injectable, Logger } from "@nestjs/common";
 import { ConfigService } from "@nestjs/config";
+import { eq } from "drizzle-orm";
 import * as webpush from "web-push";
+import { DRIZZLE } from "../../database/database.constants";
+import type { Database } from "../../database/database.module";
+import { pushSubscriptions } from "../../database/schema";
 
 export interface PushPayload {
   title: string;
@@ -25,7 +29,10 @@ export class WebPushProvider {
   /** Dernier passage du planificateur de rappels (diagnostic : savoir si le cron tourne bien en prod). */
   lastTickAt: Date | null = null;
 
-  constructor(config: ConfigService) {
+  constructor(
+    config: ConfigService,
+    @Inject(DRIZZLE) private readonly db: Database,
+  ) {
     const publicKey = config.get<string>("VAPID_PUBLIC_KEY", "");
     const privateKey = config.get<string>("VAPID_PRIVATE_KEY", "");
     const subject = config.get<string>("VAPID_SUBJECT", "");
@@ -59,5 +66,21 @@ export class WebPushProvider {
       this.logger.error(`Echec d'envoi push (${statusCode ?? "?"}) : ${(error as Error).message}`);
       return "error";
     }
+  }
+
+  /**
+   * Comme `send()`, mais supprime automatiquement l'abonnement en base s'il
+   * est revoque (404/410) - factorise la logique de nettoyage identique
+   * repetee dans les 3 planificateurs et le test manuel.
+   */
+  async sendAndCleanup(
+    subscription: { id: string; endpoint: string; p256dh: string; auth: string },
+    payload: PushPayload,
+  ): Promise<PushSendResult> {
+    const result = await this.send(subscription, payload);
+    if (result === "gone") {
+      await this.db.delete(pushSubscriptions).where(eq(pushSubscriptions.id, subscription.id));
+    }
+    return result;
   }
 }

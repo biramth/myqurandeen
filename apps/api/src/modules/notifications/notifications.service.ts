@@ -62,7 +62,7 @@ export class NotificationsService {
     let sent = 0;
     const devices: unknown[] = [];
     for (const sub of subs) {
-      const result = await this.webPush.send(sub, {
+      const result = await this.webPush.sendAndCleanup(sub, {
         title: "myQurandeen",
         body: "Test notification.",
         url: "/",
@@ -74,9 +74,6 @@ export class NotificationsService {
         sentAt: result === "sent" ? new Date().toISOString() : null,
       });
       if (result === "sent") sent += 1;
-      if (result === "gone") {
-        await this.db.delete(pushSubscriptions).where(eq(pushSubscriptions.id, sub.id));
-      }
     }
     return { sent, total: subs.length, devices };
   }

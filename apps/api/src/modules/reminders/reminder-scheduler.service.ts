@@ -5,6 +5,10 @@ import { DRIZZLE } from "../../database/database.constants";
 import type { Database } from "../../database/database.module";
 import { pushSubscriptions, quranSurahs, readingRotationSettings, reminders, users } from "../../database/schema";
 import { WebPushProvider } from "../notifications/web-push.provider";
+import { SchedulerLockService } from "./scheduler-lock.service";
+
+/** Cle arbitraire du verrou consultatif Postgres pour ce planificateur (voir SchedulerLockService). */
+const LOCK_KEY = 483920001;
 
 interface LocalClock {
   hhmm: string;
@@ -115,6 +119,7 @@ export class ReminderSchedulerService implements OnApplicationBootstrap {
   constructor(
     @Inject(DRIZZLE) private readonly db: Database,
     private readonly webPush: WebPushProvider,
+    private readonly schedulerLock: SchedulerLockService,
   ) {}
 
   /**
@@ -130,12 +135,14 @@ export class ReminderSchedulerService implements OnApplicationBootstrap {
   async tick() {
     if (!this.webPush.isConfigured) return;
     this.webPush.lastTickAt = new Date();
-    try {
-      await this.processReminders();
-      await this.processRotation();
-    } catch (error) {
-      this.logger.error(`Echec du tick de rappels : ${(error as Error).message}`);
-    }
+    await this.schedulerLock.withLock(LOCK_KEY, async () => {
+      try {
+        await this.processReminders();
+        await this.processRotation();
+      } catch (error) {
+        this.logger.error(`Echec du tick de rappels : ${(error as Error).message}`);
+      }
+    });
   }
 
   private async processReminders() {
@@ -146,21 +153,27 @@ export class ReminderSchedulerService implements OnApplicationBootstrap {
       .where(eq(reminders.isActive, true));
 
     for (const { reminder, locale } of active) {
-      const clock = localClock(reminder.timezone);
-      if (!clock || !reminder.daysOfWeek.includes(clock.dayOfWeek)) continue;
-      const since = minutesSince(clock.hhmm, reminder.timeOfDay);
-      if (since < 0 || since > GRACE_MINUTES) continue;
-      if (reminder.lastSentAt && localClock(reminder.timezone, reminder.lastSentAt)?.dateKey === clock.dateKey) {
-        continue; // deja envoye aujourd'hui (evite un double envoi si le tick chevauche)
-      }
+      try {
+        const clock = localClock(reminder.timezone);
+        if (!clock || !reminder.daysOfWeek.includes(clock.dayOfWeek)) continue;
+        const since = minutesSince(clock.hhmm, reminder.timeOfDay);
+        if (since < 0 || since > GRACE_MINUTES) continue;
+        if (reminder.lastSentAt && localClock(reminder.timezone, reminder.lastSentAt)?.dateKey === clock.dateKey) {
+          continue; // deja envoye aujourd'hui (evite un double envoi si le tick chevauche)
+        }
 
-      const sent = await this.notifyUser(reminder.userId, {
-        title: reminder.label,
-        body: bodyFor(reminder.targetType as "dua" | "dua_category" | "surah", locale),
-        url: reminder.href,
-      });
-      if (sent) {
-        await this.db.update(reminders).set({ lastSentAt: new Date() }).where(eq(reminders.id, reminder.id));
+        const sent = await this.notifyUser(reminder.userId, {
+          title: reminder.label,
+          body: bodyFor(reminder.targetType as "dua" | "dua_category" | "surah", locale),
+          url: reminder.href,
+        });
+        if (sent) {
+          await this.db.update(reminders).set({ lastSentAt: new Date() }).where(eq(reminders.id, reminder.id));
+        }
+      } catch (error) {
+        // Isole l'echec a cet utilisateur : sans ce try/catch, une exception
+        // ici interromprait le reste de la boucle pour tous les autres.
+        this.logger.error(`Echec du rappel pour l'utilisateur ${reminder.userId} : ${(error as Error).message}`);
       }
     }
   }
@@ -173,32 +186,36 @@ export class ReminderSchedulerService implements OnApplicationBootstrap {
       .where(eq(readingRotationSettings.isActive, true));
 
     for (const { setting, locale } of active) {
-      const clock = localClock(setting.timezone);
-      if (!clock || !setting.daysOfWeek.includes(clock.dayOfWeek)) continue;
-      const since = minutesSince(clock.hhmm, setting.timeOfDay);
-      if (since < 0 || since > GRACE_MINUTES) continue;
-      if (setting.lastSentAt && localClock(setting.timezone, setting.lastSentAt)?.dateKey === clock.dateKey) {
-        continue;
-      }
+      try {
+        const clock = localClock(setting.timezone);
+        if (!clock || !setting.daysOfWeek.includes(clock.dayOfWeek)) continue;
+        const since = minutesSince(clock.hhmm, setting.timeOfDay);
+        if (since < 0 || since > GRACE_MINUTES) continue;
+        if (setting.lastSentAt && localClock(setting.timezone, setting.lastSentAt)?.dateKey === clock.dateKey) {
+          continue;
+        }
 
-      const nextNumber = ((setting.lastSurahNumber ?? 0) % 114) + 1;
-      const [surah] = await this.db
-        .select({ number: quranSurahs.number, name: quranSurahs.nameTransliterated })
-        .from(quranSurahs)
-        .where(eq(quranSurahs.number, nextNumber))
-        .limit(1);
-      if (!surah) continue;
+        const nextNumber = ((setting.lastSurahNumber ?? 0) % 114) + 1;
+        const [surah] = await this.db
+          .select({ number: quranSurahs.number, name: quranSurahs.nameTransliterated })
+          .from(quranSurahs)
+          .where(eq(quranSurahs.number, nextNumber))
+          .limit(1);
+        if (!surah) continue;
 
-      const sent = await this.notifyUser(setting.userId, {
-        title: surah.name,
-        body: bodyFor("surah", locale),
-        url: `/quran/${surah.number}`,
-      });
-      if (sent) {
-        await this.db
-          .update(readingRotationSettings)
-          .set({ lastSurahNumber: surah.number, lastSentAt: new Date() })
-          .where(eq(readingRotationSettings.id, setting.id));
+        const sent = await this.notifyUser(setting.userId, {
+          title: surah.name,
+          body: bodyFor("surah", locale),
+          url: `/quran/${surah.number}`,
+        });
+        if (sent) {
+          await this.db
+            .update(readingRotationSettings)
+            .set({ lastSurahNumber: surah.number, lastSentAt: new Date() })
+            .where(eq(readingRotationSettings.id, setting.id));
+        }
+      } catch (error) {
+        this.logger.error(`Echec de la rotation de sourate pour l'utilisateur ${setting.userId} : ${(error as Error).message}`);
       }
     }
   }
@@ -210,11 +227,8 @@ export class ReminderSchedulerService implements OnApplicationBootstrap {
 
     let anySent = false;
     for (const sub of subs) {
-      const result = await this.webPush.send(sub, payload);
+      const result = await this.webPush.sendAndCleanup(sub, payload);
       if (result === "sent") anySent = true;
-      if (result === "gone") {
-        await this.db.delete(pushSubscriptions).where(eq(pushSubscriptions.id, sub.id));
-      }
     }
     return anySent;
   }

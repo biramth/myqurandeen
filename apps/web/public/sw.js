@@ -88,6 +88,8 @@ self.addEventListener("push", (event) => {
   event.waitUntil(
     self.registration.showNotification(title || "myQurandeen", {
       body: body || "",
+      icon: "/icon-192.png",
+      badge: "/icon-192.png",
       data: { url: url || "/" },
       tag: url, // une nouvelle notif pour la meme cible remplace l'ancienne plutot que de s'empiler
     }),

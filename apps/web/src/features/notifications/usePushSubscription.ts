@@ -94,7 +94,12 @@ export function usePushSubscription() {
         }));
 
       const json = subscription.toJSON();
-      if (!json.endpoint || !json.keys?.p256dh || !json.keys?.auth) return;
+      if (!json.endpoint || !json.keys?.p256dh || !json.keys?.auth) {
+        // Cas rare (navigateur retourne un abonnement partiel) : on echoue
+        // explicitement plutot que de resoudre silencieusement, sinon l'UI
+        // affiche "abonne" sans jamais avoir appele le backend.
+        throw new Error("INCOMPLETE_SUBSCRIPTION");
+      }
       await notificationsApi.subscribe({
         endpoint: json.endpoint,
         p256dh: json.keys.p256dh,

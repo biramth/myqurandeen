@@ -1,4 +1,4 @@
-import { Body, Controller, Delete, Get, Post, Query } from "@nestjs/common";
+import { BadRequestException, Body, Controller, Delete, Get, Post, Query } from "@nestjs/common";
 import { ApiTags } from "@nestjs/swagger";
 import { Public } from "../../common/decorators/public.decorator";
 import { CurrentUser } from "../../common/decorators/current-user.decorator";
@@ -30,6 +30,9 @@ export class NotificationsController {
 
   @Delete("subscribe")
   unsubscribe(@CurrentUser() user: RequestUser, @Query("endpoint") endpoint: string) {
+    if (!endpoint || !endpoint.trim()) {
+      throw new BadRequestException("Le parametre 'endpoint' est requis.");
+    }
     return this.notificationsService.unsubscribe(user.sub, endpoint);
   }
 

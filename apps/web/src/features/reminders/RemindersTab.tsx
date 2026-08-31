@@ -100,6 +100,26 @@ function RotationSettingsCard() {
     }
   }, [settings]);
 
+  // Le fuseau est capture une seule fois a l'activation et ne bouge plus
+  // ensuite : si l'utilisateur voyage (fuseau reel de l'appareil different
+  // de celui enregistre), les rappels partiraient a la mauvaise heure locale
+  // reelle. Resynchronisation silencieuse (pas de toast, best-effort) des
+  // qu'on detecte l'ecart, sans attendre une modification manuelle.
+  React.useEffect(() => {
+    if (!settings?.isActive) return;
+    const currentTimezone = Intl.DateTimeFormat().resolvedOptions().timeZone;
+    if (settings.timezone === currentTimezone) return;
+    remindersApi
+      .upsertRotationSettings({
+        timeOfDay: settings.timeOfDay,
+        daysOfWeek: settings.daysOfWeek,
+        timezone: currentTimezone,
+        isActive: true,
+      })
+      .then(() => queryClient.invalidateQueries({ queryKey: ["reminders", "rotation-settings"] }))
+      .catch(() => {});
+  }, [settings, queryClient]);
+
   const upsertMutation = useMutation({
     mutationFn: (isActive: boolean) =>
       remindersApi.upsertRotationSettings({
@@ -199,6 +219,20 @@ function StreakAlertCard() {
     if (settings) setTimeOfDay(settings.timeOfDay);
   }, [settings]);
 
+  // Meme resynchronisation silencieuse que RotationSettingsCard - voir son
+  // commentaire. Ici l'ecart importe d'autant plus que le planificateur
+  // compare ce fuseau a l'activite reelle de l'utilisateur (userStreaks) :
+  // un fuseau perime peut declencher une alerte redondante ou manquee.
+  React.useEffect(() => {
+    if (!settings?.isActive) return;
+    const currentTimezone = Intl.DateTimeFormat().resolvedOptions().timeZone;
+    if (settings.timezone === currentTimezone) return;
+    remindersApi
+      .upsertStreakAlertSettings({ timeOfDay: settings.timeOfDay, timezone: currentTimezone, isActive: true })
+      .then(() => queryClient.invalidateQueries({ queryKey: ["reminders", "streak-alert-settings"] }))
+      .catch(() => {});
+  }, [settings, queryClient]);
+
   const upsertMutation = useMutation({
     mutationFn: (isActive: boolean) =>
       remindersApi.upsertStreakAlertSettings({
@@ -280,6 +314,22 @@ function DuaScheduleCard() {
       setEveningTime(settings.eveningTime);
     }
   }, [settings]);
+
+  // Meme resynchronisation silencieuse que RotationSettingsCard - voir son commentaire.
+  React.useEffect(() => {
+    if (!settings?.isActive) return;
+    const currentTimezone = Intl.DateTimeFormat().resolvedOptions().timeZone;
+    if (settings.timezone === currentTimezone) return;
+    remindersApi
+      .upsertDuaScheduleSettings({
+        timezone: currentTimezone,
+        morningTime: settings.morningTime,
+        eveningTime: settings.eveningTime,
+        isActive: true,
+      })
+      .then(() => queryClient.invalidateQueries({ queryKey: ["reminders", "dua-schedule-settings"] }))
+      .catch(() => {});
+  }, [settings, queryClient]);
 
   const upsertMutation = useMutation({
     mutationFn: (isActive: boolean) =>

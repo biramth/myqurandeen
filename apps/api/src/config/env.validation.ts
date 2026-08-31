@@ -99,6 +99,18 @@ export const envSchema = z
         message: "WEB_URL doit etre l'URL publique de l'app en production (base des liens email et CORS).",
       });
     }
+    // VAPID_SUBJECT est passe tel quel a `webpush.setVapidDetails()` qui
+    // exige un mailto: ou une URL https - une valeur mal formee ferait
+    // planter le demarrage de l'app (exception non rattrapee dans
+    // WebPushProvider) au lieu d'etre simplement ignoree comme les deux
+    // autres cles VAPID absentes.
+    if (env.VAPID_SUBJECT && !/^mailto:|^https?:\/\//.test(env.VAPID_SUBJECT)) {
+      ctx.addIssue({
+        code: z.ZodIssueCode.custom,
+        path: ["VAPID_SUBJECT"],
+        message: "VAPID_SUBJECT doit commencer par 'mailto:' ou 'https://' (exige par la librairie web-push).",
+      });
+    }
   });
 
 export type EnvConfig = z.infer<typeof envSchema>;
