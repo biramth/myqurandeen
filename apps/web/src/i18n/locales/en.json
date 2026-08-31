@@ -229,8 +229,7 @@
     "twitter": "X",
     "instagram": "Instagram",
     "shortcutsLabel": "Quick share",
-    "instagramFallbackHint": "Image copied - open Instagram and paste it into your story.",
-    "instagramUnsupported": "Not supported on this browser - use \"Copy link\" or \"Download image\" instead.",
+    "imageCopied": "Image copied - paste it into the chat.",
     "error": "Something went wrong."
   },
   "reminders": {

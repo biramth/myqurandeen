@@ -8,7 +8,7 @@ import { Breadcrumbs } from "@/components/shared/Breadcrumbs";
 import { ContentUserActions } from "@/components/shared/ContentUserActions";
 import { ProseText } from "@/components/shared/ProseText";
 import { historyApi } from "@/features/history/api";
-import { PageMeta, SITE_URL } from "@/components/shared/PageMeta";
+import { PageMeta, SITE_URL, buildOgImage } from "@/components/shared/PageMeta";
 
 export function HistoryEventPage() {
   const { slug } = useParams<{ slug: string }>();
@@ -24,7 +24,15 @@ export function HistoryEventPage() {
 
   return (
     <div className="mx-auto max-w-2xl px-4 py-8">
-      <PageMeta title={data?.event.title} description={data?.event.description} />
+      <PageMeta
+        title={data?.event.title}
+        description={data?.event.description}
+        image={
+          data?.event
+            ? buildOgImage({ title: data.event.title, body: data.event.description, source: data.period?.name })
+            : undefined
+        }
+      />
       <Breadcrumbs
         items={[
           { label: t("history.title"), href: "/history" },

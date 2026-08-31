@@ -8,7 +8,7 @@ import { Callout } from "@/components/shared/Callout";
 import { ContentUserActions } from "@/components/shared/ContentUserActions";
 import { ProseText } from "@/components/shared/ProseText";
 import { conceptsApi } from "@/features/concepts/api";
-import { PageMeta, SITE_URL } from "@/components/shared/PageMeta";
+import { PageMeta, SITE_URL, buildOgImage } from "@/components/shared/PageMeta";
 
 export function ConceptPage() {
   const { slug } = useParams<{ slug: string }>();
@@ -24,7 +24,15 @@ export function ConceptPage() {
 
   return (
     <div className="mx-auto max-w-2xl px-4 py-8">
-      <PageMeta title={data?.term} description={data?.definition} />
+      <PageMeta
+        title={data?.term}
+        description={data?.definition}
+        image={
+          data
+            ? buildOgImage({ title: data.term, arabicText: data.termArabic ?? undefined, body: data.definition })
+            : undefined
+        }
+      />
       <Breadcrumbs
         items={[{ label: t("concepts.title"), href: "/concepts" }, ...(data ? [{ label: data.term }] : [])]}
       />

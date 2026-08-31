@@ -9,7 +9,7 @@ import { ContentUserActions } from "@/components/shared/ContentUserActions";
 import { hadithApi } from "@/features/hadith/api";
 import { useStreakPing } from "@/features/streaks/useStreak";
 import { useGamificationEvent } from "@/features/gamification/useGamification";
-import { PageMeta, SITE_URL } from "@/components/shared/PageMeta";
+import { PageMeta, SITE_URL, buildOgImage } from "@/components/shared/PageMeta";
 
 export function HadithDetailPage() {
   const { collection: slug, number } = useParams<{ collection: string; number: string }>();
@@ -33,6 +33,16 @@ export function HadithDetailPage() {
       <PageMeta
         title={data ? `${data.collection.name} ${data.hadith.number}` : undefined}
         description={data?.hadith.textTranslation}
+        image={
+          data
+            ? buildOgImage({
+                title: `${data.collection.name} ${data.hadith.number}`,
+                arabicText: data.hadith.textArabic ?? undefined,
+                body: data.hadith.textTranslation,
+                source: data.book ? `${data.collection.name} — ${data.book.title}` : data.collection.name,
+              })
+            : undefined
+        }
       />
       <Breadcrumbs
         items={[

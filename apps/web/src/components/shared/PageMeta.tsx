@@ -14,6 +14,30 @@ export const SITE_URL = "https://myqurandeen.vercel.app";
 const DEFAULT_DESCRIPTION =
   "myQurandeen - plateforme open-source d'étude du Coran, du hadith, du tafsir, du fiqh et de l'histoire de l'Islam.";
 
+/**
+ * Construit l'URL de l'image OG/Twitter dynamique (endpoint Edge /api/og,
+ * rendu cote serveur via @vercel/og) pour un contenu donne - la version
+ * "carte visuelle" que les crawleurs d'apercu de lien (WhatsApp, X, Discord,
+ * Slack...) verront quand on colle le lien, au lieu de l'icone statique.
+ * Les champs sont encodes en query string ; vide si aucun contenu (champ
+ * optionnel, PageMeta retombe alors sur l'icone de marque).
+ */
+export function buildOgImage(params: {
+  title?: string;
+  arabicText?: string;
+  transliteration?: string;
+  body?: string;
+  source?: string;
+}): string {
+  const search = new URLSearchParams();
+  if (params.title) search.set("title", params.title);
+  if (params.arabicText) search.set("arabic", params.arabicText);
+  if (params.transliteration) search.set("transliteration", params.transliteration);
+  if (params.body) search.set("body", params.body);
+  if (params.source) search.set("source", params.source);
+  return `${SITE_URL}/api/og?${search.toString()}`;
+}
+
 interface PageMetaProps {
   /** Titre de la page (sans le suffixe " · myQurandeen", ajoute automatiquement). */
   title?: string | null;

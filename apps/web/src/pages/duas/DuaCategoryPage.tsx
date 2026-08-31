@@ -14,7 +14,7 @@ import { duasApi } from "@/features/duas/api";
 import { getDuaCategoryIcon } from "@/features/duas/icons";
 import { useStreakPing } from "@/features/streaks/useStreak";
 import { useGamificationEvent } from "@/features/gamification/useGamification";
-import { PageMeta, SITE_URL } from "@/components/shared/PageMeta";
+import { PageMeta, SITE_URL, buildOgImage } from "@/components/shared/PageMeta";
 
 export function DuaCategoryPage() {
   const { slug } = useParams<{ slug: string }>();
@@ -37,7 +37,15 @@ export function DuaCategoryPage() {
 
   return (
     <div className="mx-auto max-w-2xl px-4 py-8">
-      <PageMeta title={data?.category.name} description={data?.category.description ?? undefined} />
+      <PageMeta
+        title={data?.category.name}
+        description={data?.category.description ?? undefined}
+        image={
+          data?.category
+            ? buildOgImage({ title: data.category.name, body: data.category.description ?? undefined, source: t("duas.title") })
+            : undefined
+        }
+      />
       <Button variant="ghost" size="sm" asChild className="mb-4 -ml-2">
         <Link to="/duas">
           <ArrowLeft className="h-4 w-4" />

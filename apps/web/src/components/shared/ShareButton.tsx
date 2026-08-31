@@ -107,47 +107,53 @@ export function ShareButton({ content, size }: { content: ShareContent; size?: "
     }
   };
 
-  /**
-   * Raccourci Instagram Stories : copie l'image dans le presse-papiers puis
-   * ouvre le schema d'URL `instagram-stories://share`, qui reprend
-   * automatiquement une image presente dans le presse-papiers systeme comme
-   * fond de story (comportement iOS documente par Meta, deja utilise par
-   * plusieurs sites - ex. le partage web de Spotify). Non officiel/non
-   * garanti (aucune API publique equivalente) et fonctionne uniquement sur
-   * iOS Safari avec Instagram installe - Android n'a pas d'equivalent web
-   * fiable. `new ClipboardItem({ "image/png": blobPromise })` avec une
-   * PROMESSE (pas un blob deja resolu) : ecrire dans le presse-papiers doit
-   * rester synchrone dans le gestionnaire de clic pour garder l'autorisation
-   * ("user activation") du navigateur - le blob, lui, peut arriver plus tard.
+  /** Un des raccourcis reseaux (WhatsApp/Instagram/X) : partage la VRAIE image,
+   *  comme Spotify, et pas seulement un lien texte/URL.
+   *
+   *  - Mobile avec navigator.share+fichier : feuille de partage native avec la
+   *    carte PNG jointe - l'utilisateur choisit l'app cible (WhatsApp, Instagram,
+   *    X, Messages...). C'est l'effet recherche (image transmise, pas un lien).
+   *  - Desktop sans partage de fichier : impossible d'attacher un fichier via un
+   *    schema d'URL web, on copie donc l'image dans le presse-papiers puis on
+   *    ouvre l'app en mode web (WhatsApp Web / X) pour que l'utilisateur la
+   *    colle lui-meme - un lien seul partirait sans image. Pour Instagram
+   *    (pas d'equivalent web) on ne copie que dans le presse-papiers avec un
+   *    toast invitant a l'ouvrir.
+   *  - Dernier recours (pas de clip.image du tout) : lien seul, mieux que rien.
    */
-  const handleInstagramStory = () => {
-    if (typeof ClipboardItem === "undefined" || !navigator.clipboard?.write) {
-      toast.error(t("share.instagramUnsupported"));
-      return;
-    }
+  const handleShortcutShare = async (platform: "whatsapp" | "instagram" | "twitter") => {
     setPreparing(true);
-    const item = new ClipboardItem({ "image/png": captureBlob() });
-    navigator.clipboard
-      .write([item])
-      .then(() => {
-        const wasHidden = document.hidden;
-        window.location.href = "instagram-stories://share";
-        // Aucun moyen fiable de savoir si Instagram s'est reellement ouvert
-        // (pas d'evenement pour un schema d'URL) : heuristique par delai -
-        // si l'onglet n'a pas ete masque (l'app ne s'est pas mise au premier
-        // plan) apres 1.5s, on suppose l'echec (pas installe, Android...) et
-        // on previent plutot que de laisser un clic sans effet visible.
-        window.setTimeout(() => {
-          setPreparing(false);
-          if (!document.hidden && !wasHidden) {
-            toast.info(t("share.instagramFallbackHint"));
-          }
-        }, 1500);
-      })
-      .catch(() => {
-        setPreparing(false);
+    try {
+      const blob = await captureBlob();
+      const file = new File([blob], "myqurandeen.png", { type: "image/png" });
+
+      if (navigator.canShare?.({ files: [file] }) && navigator.share) {
+        await navigator.share({ files: [file], title: content.title, text: content.title, url: content.url });
+        return;
+      }
+
+      // Desktop : pas de partage de fichier - passer par le presse-papiers.
+      if (typeof ClipboardItem !== "undefined" && navigator.clipboard?.write) {
+        await navigator.clipboard.write([new ClipboardItem({ "image/png": blob })]);
+        toast.info(t("share.imageCopied"));
+        if (platform === "instagram") {
+          return;
+        }
+        const dest = platform === "whatsapp" ? whatsappUrl : twitterUrl;
+        window.open(dest, "_blank", "noopener,noreferrer");
+        return;
+      }
+
+      // Dernier recours : lien seul.
+      const dest = platform === "whatsapp" ? whatsappUrl : twitterUrl;
+      window.open(dest, "_blank", "noopener,noreferrer");
+    } catch (error) {
+      if ((error as Error)?.name !== "AbortError") {
         toast.error(t("share.error"));
-      });
+      }
+    } finally {
+      setPreparing(false);
+    }
   };
 
   const shareMessage = `${content.title} ${content.url}`;
@@ -194,26 +200,20 @@ export function ShareButton({ content, size }: { content: ShareContent; size?: "
             <Link2 className="mr-2 h-4 w-4" aria-hidden="true" />
             {t("share.copyLink")}
           </Button>
-          {/* Acces direct : evite de rouvrir la feuille de partage native et
-              d'y rechercher l'app a chaque fois. WhatsApp/X ne transportent
-              que le lien (limitation de plateforme, aucun moyen web de
-              joindre un fichier a ces deux-la) ; Instagram tente de joindre
-              la vraie image (voir handleInstagramStory) - d'ou le libelle
-              distinct pour ne pas laisser croire que les trois se comportent pareil. */}
+          {/* Acces direct : partage la vraie image (feuille native sur mobile,
+              presse-papiers + app web sur desktop) au lieu de rouvrir la feuille
+              de partage depuis le bouton principal. Les trois raccourcis
+              transmettent la carte PNG generee, pas seulement un lien. */}
           <p className="pt-1 text-center text-xs text-muted-foreground">{t("share.shortcutsLabel")}</p>
           <div className="flex w-full gap-2">
-            <Button type="button" variant="ghost" size="sm" className="flex-1" asChild>
-              <a href={whatsappUrl} target="_blank" rel="noopener noreferrer">
-                {t("share.whatsapp")}
-              </a>
+            <Button type="button" variant="ghost" size="sm" className="flex-1" onClick={() => handleShortcutShare("whatsapp")} disabled={preparing}>
+              {t("share.whatsapp")}
             </Button>
-            <Button type="button" variant="ghost" size="sm" className="flex-1" onClick={handleInstagramStory} disabled={preparing}>
+            <Button type="button" variant="ghost" size="sm" className="flex-1" onClick={() => handleShortcutShare("instagram")} disabled={preparing}>
               {t("share.instagram")}
             </Button>
-            <Button type="button" variant="ghost" size="sm" className="flex-1" asChild>
-              <a href={twitterUrl} target="_blank" rel="noopener noreferrer">
-                {t("share.twitter")}
-              </a>
+            <Button type="button" variant="ghost" size="sm" className="flex-1" onClick={() => handleShortcutShare("twitter")} disabled={preparing}>
+              {t("share.twitter")}
             </Button>
           </div>
         </DialogFooter>

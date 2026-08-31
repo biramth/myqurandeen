@@ -9,7 +9,7 @@ import { ContentUserActions } from "@/components/shared/ContentUserActions";
 import { quranApi } from "@/features/quran/api";
 import { useStreakPing } from "@/features/streaks/useStreak";
 import { useGamificationEvent } from "@/features/gamification/useGamification";
-import { PageMeta, SITE_URL } from "@/components/shared/PageMeta";
+import { PageMeta, SITE_URL, buildOgImage } from "@/components/shared/PageMeta";
 
 export function VersePage() {
   const { surah: surahParam, verse: verseParam } = useParams<{ surah: string; verse: string }>();
@@ -37,6 +37,17 @@ export function VersePage() {
       <PageMeta
         title={data ? `${data.surah.nameTransliterated} ${data.verse.numberInSurah}` : undefined}
         description={data?.translations[0]?.text}
+        image={
+          data
+            ? buildOgImage({
+                title: `${data.surah.nameTransliterated} ${data.verse.numberInSurah}`,
+                arabicText: data.verse.textArabic,
+                transliteration: data.verse.textTransliterated ?? undefined,
+                body: data.translations[0]?.text,
+                source: `${data.surah.nameTransliterated} — ${t("quran.verses")} ${data.verse.numberInSurah}`,
+              })
+            : undefined
+        }
       />
       <Breadcrumbs
         items={[
