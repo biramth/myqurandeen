@@ -8,7 +8,7 @@ import { Breadcrumbs } from "@/components/shared/Breadcrumbs";
 import { ContentUserActions } from "@/components/shared/ContentUserActions";
 import { ProseText } from "@/components/shared/ProseText";
 import { historyApi } from "@/features/history/api";
-import { PageMeta, SITE_URL, buildOgImage } from "@/components/shared/PageMeta";
+import { PageMeta, SITE_URL, buildOgImage, withShareUtm } from "@/components/shared/PageMeta";
 
 export function HistoryEventPage() {
   const { slug } = useParams<{ slug: string }>();
@@ -68,7 +68,7 @@ export function HistoryEventPage() {
               title: data.event.title,
               body: data.event.description,
               source: data.period?.name,
-              url: `${SITE_URL}/history/event/${slug}`,
+              url: withShareUtm(`${SITE_URL}/history/event/${slug}`, "content"),
             }}
           />
 

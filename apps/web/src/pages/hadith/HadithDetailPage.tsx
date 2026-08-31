@@ -9,7 +9,7 @@ import { ContentUserActions } from "@/components/shared/ContentUserActions";
 import { hadithApi } from "@/features/hadith/api";
 import { useStreakPing } from "@/features/streaks/useStreak";
 import { useGamificationEvent } from "@/features/gamification/useGamification";
-import { PageMeta, SITE_URL, buildOgImage } from "@/components/shared/PageMeta";
+import { PageMeta, SITE_URL, buildOgImage, withShareUtm } from "@/components/shared/PageMeta";
 
 export function HadithDetailPage() {
   const { collection: slug, number } = useParams<{ collection: string; number: string }>();
@@ -87,7 +87,7 @@ export function HadithDetailPage() {
               arabicText: data.hadith.textArabic ?? undefined,
               body: data.hadith.textTranslation,
               source: data.book ? `${data.collection.name} — ${data.book.title}` : data.collection.name,
-              url: `${SITE_URL}/hadith/${slug}/${number}`,
+              url: withShareUtm(`${SITE_URL}/hadith/${slug}/${number}`, "content"),
             }}
           />
 

@@ -15,10 +15,11 @@ const DEFAULT_DESCRIPTION =
   "myQurandeen - plateforme open-source d'étude du Coran, du hadith, du tafsir, du fiqh et de l'histoire de l'Islam.";
 
 /**
- * Construit l'URL de l'image OG/Twitter dynamique (endpoint Edge /api/og,
- * rendu cote serveur via @vercel/og) pour un contenu donne - la version
- * "carte visuelle" que les crawleurs d'apercu de lien (WhatsApp, X, Discord,
- * Slack...) verront quand on colle le lien, au lieu de l'icone statique.
+ * Construit l'URL de l'image OG/Twitter dynamique (endpoint /api/og, reecrit
+ * par Vercel vers le backend NestJS qui genere la carte cote serveur avec
+ * satori+sharp) pour un contenu donne - la version "carte visuelle" que les
+ * crawleurs d'apercu de lien (WhatsApp, X, Discord, Slack...) verront quand
+ * on colle le lien, au lieu de l'icone statique.
  * Les champs sont encodes en query string ; vide si aucun contenu (champ
  * optionnel, PageMeta retombe alors sur l'icone de marque).
  */
@@ -36,6 +37,20 @@ export function buildOgImage(params: {
   if (params.body) search.set("body", params.body);
   if (params.source) search.set("source", params.source);
   return `${SITE_URL}/api/og?${search.toString()}`;
+}
+
+/**
+ * Marque une URL partagee avec des parametres UTM - sans ca, impossible de
+ * distinguer dans les statistiques le trafic venu d'un partage (in-app,
+ * façon Spotify) du reste. `medium` distingue la surface (contenu, serie,
+ * succes...) pour affiner l'analyse plus tard.
+ */
+export function withShareUtm(url: string, medium: string): string {
+  const parsed = new URL(url);
+  parsed.searchParams.set("utm_source", "share");
+  parsed.searchParams.set("utm_medium", medium);
+  parsed.searchParams.set("utm_campaign", "content_share");
+  return parsed.toString();
 }
 
 interface PageMetaProps {

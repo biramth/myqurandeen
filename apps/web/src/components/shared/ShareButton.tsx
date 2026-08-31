@@ -5,16 +5,20 @@ import { domToBlob } from "modern-screenshot";
 import { Share2, Download, Link2, Loader2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogFooter, DialogTrigger } from "@/components/ui/dialog";
-import { ShareCard } from "./ShareCard";
 
-export interface ShareContent {
+/** Ce que ShareButton lit lui-meme (partage natif, lien copie, raccourcis) - independant de la carte visuelle affichee. */
+export interface ShareMeta {
   title: string;
+  /** URL absolue (avec domaine) - utilisee pour le lien copie et le partage natif. */
+  url: string;
+}
+
+/** Forme historique (carte de citation ShareCard) - ContentUserActions continue de l'utiliser telle quelle. */
+export interface ShareContent extends ShareMeta {
   body?: string;
   arabicText?: string;
   transliteration?: string;
   source?: string;
-  /** URL absolue (avec domaine) - utilisee pour le lien copie et le partage natif. */
-  url: string;
 }
 
 /**
@@ -47,10 +51,21 @@ function downloadBlob(blob: Blob, filename: string): void {
 
 /**
  * Bouton "Partager" façon Spotify (carte visuelle générée puis transmise à
- * la feuille de partage native OS) - voir ShareCard pour le rendu, et le
- * commentaire ci-dessus pour la course de chargement des polices.
+ * la feuille de partage native OS) - le rendu de la carte elle-meme est
+ * fourni par l'appelant via `renderCard` (ShareCard pour une citation de
+ * contenu, StatShareCard pour une serie/un succes...), ce composant ne gere
+ * que le dialogue/la capture/le partage - voir le commentaire plus haut pour
+ * la course de chargement des polices (qui s'applique quelle que soit la carte).
  */
-export function ShareButton({ content, size }: { content: ShareContent; size?: "default" | "sm" }) {
+export function ShareButton({
+  content,
+  size,
+  renderCard,
+}: {
+  content: ShareMeta;
+  size?: "default" | "sm";
+  renderCard: (ref: React.Ref<HTMLDivElement>) => React.ReactNode;
+}) {
   const { t } = useTranslation();
   const [open, setOpen] = React.useState(false);
   const [preparing, setPreparing] = React.useState(false);
@@ -174,16 +189,7 @@ export function ShareButton({ content, size }: { content: ShareContent; size?: "
           <DialogTitle>{t("share.dialogTitle")}</DialogTitle>
         </DialogHeader>
 
-        <div className="flex justify-center overflow-hidden rounded-xl shadow-lg">
-          <ShareCard
-            ref={cardRef}
-            title={content.title}
-            body={content.body}
-            arabicText={content.arabicText}
-            transliteration={content.transliteration}
-            source={content.source}
-          />
-        </div>
+        <div className="flex justify-center overflow-hidden rounded-xl shadow-lg">{renderCard(cardRef)}</div>
 
         <DialogFooter className="flex-col gap-2 sm:flex-col">
           <Button type="button" onClick={handleShare} disabled={preparing} className="w-full">

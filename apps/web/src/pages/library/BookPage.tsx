@@ -8,7 +8,7 @@ import { Breadcrumbs } from "@/components/shared/Breadcrumbs";
 import { ContentUserActions } from "@/components/shared/ContentUserActions";
 import { libraryApi } from "@/features/library/api";
 import { useStreakPing } from "@/features/streaks/useStreak";
-import { PageMeta } from "@/components/shared/PageMeta";
+import { PageMeta, SITE_URL, buildOgImage, withShareUtm } from "@/components/shared/PageMeta";
 
 export function BookPage() {
   const { slug } = useParams<{ slug: string }>();
@@ -24,7 +24,11 @@ export function BookPage() {
 
   return (
     <div className="mx-auto max-w-2xl px-4 py-8">
-      <PageMeta title={data?.title} description={data?.description ?? undefined} />
+      <PageMeta
+        title={data?.title}
+        description={data?.description ?? undefined}
+        image={data ? buildOgImage({ title: data.title, body: data.description ?? undefined }) : undefined}
+      />
       <Breadcrumbs
         items={[{ label: t("library.title"), href: "/library" }, ...(data ? [{ label: data.title }] : [])]}
       />
@@ -52,7 +56,17 @@ export function BookPage() {
             {data.publicDomain && <Badge variant="outline">{t("library.publicDomain")}</Badge>}
           </div>
 
-          <ContentUserActions targetType="book" targetId={data.id} className="mb-4" />
+          <ContentUserActions
+            targetType="book"
+            targetId={data.id}
+            className="mb-4"
+            shareContent={{
+              title: data.title,
+              body: data.description ?? undefined,
+              source: data.author ? `${data.author.name}${data.author.era ? ` — ${data.author.era}` : ""}` : undefined,
+              url: withShareUtm(`${SITE_URL}/library/${slug}`, "content"),
+            }}
+          />
 
           {data.description && <p className="mb-6 text-sm leading-relaxed">{data.description}</p>}
 

@@ -9,7 +9,7 @@ import { Breadcrumbs } from "@/components/shared/Breadcrumbs";
 import { Callout } from "@/components/shared/Callout";
 import { ContentUserActions } from "@/components/shared/ContentUserActions";
 import { schoolsApi } from "@/features/schools/api";
-import { PageMeta } from "@/components/shared/PageMeta";
+import { PageMeta, SITE_URL, buildOgImage, withShareUtm } from "@/components/shared/PageMeta";
 
 export function FiqhTopicPage() {
   const { slug } = useParams<{ slug: string }>();
@@ -25,7 +25,11 @@ export function FiqhTopicPage() {
 
   return (
     <div className="mx-auto max-w-2xl px-4 py-8">
-      <PageMeta title={data?.topic.title} description={data?.topic.description ?? undefined} />
+      <PageMeta
+        title={data?.topic.title}
+        description={data?.topic.description ?? undefined}
+        image={data ? buildOgImage({ title: data.topic.title, body: data.topic.description ?? undefined }) : undefined}
+      />
       <Button variant="ghost" size="sm" asChild className="mb-4 -ml-2">
         <Link to="/fiqh">
           <ArrowLeft className="h-4 w-4" />
@@ -48,7 +52,16 @@ export function FiqhTopicPage() {
           <h1 className="mb-1 text-xl font-semibold">{data.topic.title}</h1>
           {data.topic.description && <p className="mb-4 text-sm text-muted-foreground">{data.topic.description}</p>}
 
-          <ContentUserActions targetType="fiqh_topic" targetId={data.topic.id} className="mb-6" />
+          <ContentUserActions
+            targetType="fiqh_topic"
+            targetId={data.topic.id}
+            className="mb-6"
+            shareContent={{
+              title: data.topic.title,
+              body: data.topic.description ?? undefined,
+              url: withShareUtm(`${SITE_URL}/fiqh/${slug}`, "content"),
+            }}
+          />
 
           <div className="space-y-3">
             {data.positions.map((position) => (

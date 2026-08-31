@@ -8,7 +8,7 @@ import { Callout } from "@/components/shared/Callout";
 import { ContentUserActions } from "@/components/shared/ContentUserActions";
 import { ProseText } from "@/components/shared/ProseText";
 import { conceptsApi } from "@/features/concepts/api";
-import { PageMeta, SITE_URL, buildOgImage } from "@/components/shared/PageMeta";
+import { PageMeta, SITE_URL, buildOgImage, withShareUtm } from "@/components/shared/PageMeta";
 
 export function ConceptPage() {
   const { slug } = useParams<{ slug: string }>();
@@ -60,7 +60,7 @@ export function ConceptPage() {
               title: data.term,
               arabicText: data.termArabic ?? undefined,
               body: data.definition,
-              url: `${SITE_URL}/concepts/${slug}`,
+              url: withShareUtm(`${SITE_URL}/concepts/${slug}`, "content"),
             }}
           />
 

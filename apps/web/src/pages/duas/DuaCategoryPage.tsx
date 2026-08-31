@@ -14,7 +14,7 @@ import { duasApi } from "@/features/duas/api";
 import { getDuaCategoryIcon } from "@/features/duas/icons";
 import { useStreakPing } from "@/features/streaks/useStreak";
 import { useGamificationEvent } from "@/features/gamification/useGamification";
-import { PageMeta, SITE_URL, buildOgImage } from "@/components/shared/PageMeta";
+import { PageMeta, SITE_URL, buildOgImage, withShareUtm } from "@/components/shared/PageMeta";
 
 export function DuaCategoryPage() {
   const { slug } = useParams<{ slug: string }>();
@@ -93,7 +93,7 @@ export function DuaCategoryPage() {
                         transliteration: dua.transliteration ?? undefined,
                         body: dua.translation,
                         source: dua.sourceTitle ?? data.category.name,
-                        url: `${SITE_URL}/duas/${slug}`,
+                        url: withShareUtm(`${SITE_URL}/duas/${slug}`, "content"),
                       }}
                     />
                   </div>

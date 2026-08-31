@@ -15,8 +15,11 @@ import {
 } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
+import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogFooter } from "@/components/ui/dialog";
 import { cn } from "@/lib/utils";
+import { ShareButton } from "@/components/shared/ShareButton";
+import { StatShareCard } from "@/components/shared/StatShareCard";
+import { SITE_URL, withShareUtm } from "@/components/shared/PageMeta";
 import { useGamificationStatus } from "./useGamification";
 import type { AchievementEntry } from "./api";
 
@@ -156,6 +159,30 @@ export function GamificationCard() {
                     : t("gamification.locked")}
                 </p>
               </div>
+              {selected.unlocked && (
+                <DialogFooter>
+                  <ShareButton
+                    content={{
+                      title: t(`gamification.achievements.${selected.key}.name`, { defaultValue: selected.key }),
+                      url: withShareUtm(SITE_URL, "achievement"),
+                    }}
+                    renderCard={(ref) => {
+                      const Icon = ICONS[selected.icon] ?? Trophy;
+                      return (
+                        <StatShareCard
+                          ref={ref}
+                          icon={Icon}
+                          headline={t(`gamification.achievements.${selected.key}.name`, { defaultValue: selected.key })}
+                          description={t(`gamification.achievements.${selected.key}.description`, { defaultValue: "" })}
+                          source={t("gamification.unlockedAt", {
+                            date: new Date(selected.unlockedAt!).toLocaleDateString(i18n.language),
+                          })}
+                        />
+                      );
+                    }}
+                  />
+                </DialogFooter>
+              )}
             </>
           )}
         </DialogContent>

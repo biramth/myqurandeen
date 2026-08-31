@@ -11,7 +11,8 @@ import { QuizBlock } from "@/features/learning/QuizBlock";
 import { useAuth } from "@/features/auth/auth-context";
 import { useStreakPing } from "@/features/streaks/useStreak";
 import { useGamificationEvent } from "@/features/gamification/useGamification";
-import { PageMeta } from "@/components/shared/PageMeta";
+import { ContentUserActions } from "@/components/shared/ContentUserActions";
+import { PageMeta, SITE_URL, buildOgImage, withShareUtm } from "@/components/shared/PageMeta";
 
 export function LearningLessonPage() {
   const { slug, order } = useParams<{ slug: string; order: string }>();
@@ -91,7 +92,11 @@ export function LearningLessonPage() {
 
   return (
     <div className="mx-auto max-w-2xl px-4 py-8">
-      <PageMeta title={lesson?.title} description={paragraphs[0]} />
+      <PageMeta
+        title={lesson?.title}
+        description={paragraphs[0]}
+        image={lesson ? buildOgImage({ title: lesson.title, body: lesson.keyTakeaways?.join(" · ") ?? paragraphs[0] }) : undefined}
+      />
       <Button variant="ghost" size="sm" asChild className="mb-4 -ml-2">
         <Link to={`/learn/${slug}`}>
           <ArrowLeft className="h-4 w-4" />
@@ -137,6 +142,17 @@ export function LearningLessonPage() {
               </ul>
             </div>
           )}
+
+          <ContentUserActions
+            targetType="lesson"
+            targetId={lesson.id}
+            className="mt-4"
+            shareContent={{
+              title: lesson.title,
+              body: lesson.keyTakeaways?.length ? lesson.keyTakeaways.join(" · ") : paragraphs[0],
+              url: withShareUtm(`${SITE_URL}/learn/${slug}/lessons/${order}`, "content"),
+            }}
+          />
 
           {lesson.references && lesson.references.length > 0 && (
             <div className="mt-3 flex flex-wrap items-center gap-x-1.5 gap-y-1 text-xs">

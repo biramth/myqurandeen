@@ -6,7 +6,9 @@ import { Skeleton } from "@/components/ui/skeleton";
 import { Breadcrumbs } from "@/components/shared/Breadcrumbs";
 import { ProseText } from "@/components/shared/ProseText";
 import { prophetsApi } from "@/features/prophets/api";
-import { PageMeta } from "@/components/shared/PageMeta";
+import { PageMeta, SITE_URL, buildOgImage, withShareUtm } from "@/components/shared/PageMeta";
+import { ShareButton } from "@/components/shared/ShareButton";
+import { ShareCard } from "@/components/shared/ShareCard";
 
 export function ProphetPage() {
   const { slug } = useParams<{ slug: string }>();
@@ -22,7 +24,11 @@ export function ProphetPage() {
 
   return (
     <div className="mx-auto max-w-2xl px-4 py-8">
-      <PageMeta title={data?.name} description={data?.description} />
+      <PageMeta
+        title={data?.name}
+        description={data?.description}
+        image={data ? buildOgImage({ title: data.name, arabicText: data.nameArabic ?? undefined, body: data.description }) : undefined}
+      />
       <Breadcrumbs
         items={[{ label: t("prophets.title"), href: "/prophets" }, ...(data ? [{ label: data.name }] : [])]}
       />
@@ -82,6 +88,19 @@ export function ProphetPage() {
             {t("prophets.narrative")}
           </h2>
           <ProseText text={data.description} />
+
+          {/* Pas de ContentUserActions ici : "prophet" n'a pas de TargetType
+              dedie (favoris/notes absents de cette page, lacune preexistante
+              et hors sujet) - bouton de partage autonome. */}
+          <div className="mt-4">
+            <ShareButton
+              size="sm"
+              content={{ title: data.name, url: withShareUtm(`${SITE_URL}/prophets/${slug}`, "content") }}
+              renderCard={(ref) => (
+                <ShareCard ref={ref} title={data.name} arabicText={data.nameArabic ?? undefined} body={data.description} />
+              )}
+            />
+          </div>
         </>
       )}
     </div>

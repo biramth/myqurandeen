@@ -8,7 +8,7 @@ import { Breadcrumbs } from "@/components/shared/Breadcrumbs";
 import { ContentUserActions } from "@/components/shared/ContentUserActions";
 import { ProseText } from "@/components/shared/ProseText";
 import { scholarsApi } from "@/features/scholars/api";
-import { PageMeta } from "@/components/shared/PageMeta";
+import { PageMeta, SITE_URL, buildOgImage, withShareUtm } from "@/components/shared/PageMeta";
 
 export function ScholarPage() {
   const { slug } = useParams<{ slug: string }>();
@@ -24,7 +24,11 @@ export function ScholarPage() {
 
   return (
     <div className="mx-auto max-w-2xl px-4 py-8">
-      <PageMeta title={data?.name} description={data?.bio ?? undefined} />
+      <PageMeta
+        title={data?.name}
+        description={data?.bio ?? undefined}
+        image={data ? buildOgImage({ title: data.name, arabicText: data.nameArabic ?? undefined, body: data.bio ?? undefined }) : undefined}
+      />
       <Breadcrumbs
         items={[
           { label: t("scholars.title"), href: "/scholars" },
@@ -82,7 +86,18 @@ export function ScholarPage() {
             </>
           )}
 
-          <ContentUserActions targetType="scholar" targetId={data.id} className="mb-6" />
+          <ContentUserActions
+            targetType="scholar"
+            targetId={data.id}
+            className="mb-6"
+            shareContent={{
+              title: data.name,
+              arabicText: data.nameArabic ?? undefined,
+              body: data.bio ?? undefined,
+              source: [data.bornYear, data.diedYear].some(Boolean) ? `${data.bornYear ?? "?"} - ${data.diedYear ?? "?"}` : undefined,
+              url: withShareUtm(`${SITE_URL}/scholars/${slug}`, "content"),
+            }}
+          />
 
           {data.schools.length > 0 && (
             <section>

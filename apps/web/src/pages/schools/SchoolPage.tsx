@@ -8,7 +8,9 @@ import { Skeleton } from "@/components/ui/skeleton";
 import { Breadcrumbs } from "@/components/shared/Breadcrumbs";
 import { ProseText } from "@/components/shared/ProseText";
 import { schoolsApi } from "@/features/schools/api";
-import { PageMeta } from "@/components/shared/PageMeta";
+import { PageMeta, SITE_URL, buildOgImage, withShareUtm } from "@/components/shared/PageMeta";
+import { ShareButton } from "@/components/shared/ShareButton";
+import { ShareCard } from "@/components/shared/ShareCard";
 
 export function SchoolPage() {
   const { slug } = useParams<{ slug: string }>();
@@ -24,7 +26,11 @@ export function SchoolPage() {
 
   return (
     <div className="mx-auto max-w-2xl px-4 py-8">
-      <PageMeta title={data?.name} description={data?.history ?? data?.principles ?? undefined} />
+      <PageMeta
+        title={data?.name}
+        description={data?.history ?? data?.principles ?? undefined}
+        image={data ? buildOgImage({ title: data.name, body: data.history ?? data.principles ?? undefined }) : undefined}
+      />
       <Button variant="ghost" size="sm" asChild className="mb-4 -ml-2">
         <Link to="/schools">
           <ArrowLeft className="h-4 w-4" />
@@ -46,6 +52,19 @@ export function SchoolPage() {
             {data.type === "theological" && <Badge variant="secondary">{t("schools.theological")}</Badge>}
           </div>
           {data.era && <p className="mb-4 text-sm text-muted-foreground">{data.era}</p>}
+
+          {/* Pas de ContentUserActions ici : "school" n'a pas de TargetType
+              dedie (favoris/notes absents de cette page, lacune preexistante
+              et hors sujet) - bouton de partage autonome. */}
+          <div className="mb-5">
+            <ShareButton
+              size="sm"
+              content={{ title: data.name, url: withShareUtm(`${SITE_URL}/schools/${slug}`, "content") }}
+              renderCard={(ref) => (
+                <ShareCard ref={ref} title={data.name} body={data.history ?? data.principles ?? undefined} />
+              )}
+            />
+          </div>
 
           {data.history && (
             <section className="mb-5">

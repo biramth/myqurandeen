@@ -3,6 +3,7 @@ import { BookmarkButton } from "./BookmarkButton";
 import { AddToCollectionButton } from "./AddToCollectionButton";
 import { NoteWidget } from "./NoteWidget";
 import { ShareButton, type ShareContent } from "./ShareButton";
+import { ShareCard } from "./ShareCard";
 import type { TargetType } from "@/features/user-data/types";
 
 interface ContentUserActionsProps {
@@ -30,7 +31,22 @@ export function ContentUserActions({ targetType, targetId, className, size = "de
       <div className="flex flex-wrap items-center gap-2">
         <BookmarkButton targetType={targetType} targetId={targetId} size={size} />
         <AddToCollectionButton targetType={targetType} targetId={targetId} size={size} />
-        {shareContent && <ShareButton content={shareContent} size={size} />}
+        {shareContent && (
+          <ShareButton
+            content={shareContent}
+            size={size}
+            renderCard={(ref) => (
+              <ShareCard
+                ref={ref}
+                title={shareContent.title}
+                body={shareContent.body}
+                arabicText={shareContent.arabicText}
+                transliteration={shareContent.transliteration}
+                source={shareContent.source}
+              />
+            )}
+          />
+        )}
       </div>
       <div className="mt-2 flex flex-wrap items-center gap-2">
         <NoteWidget targetType={targetType} targetId={targetId} />
