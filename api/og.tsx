@@ -1,11 +1,16 @@
-import { ImageResponse } from "@vercel/og";
+import satori from "satori";
+import sharp from "sharp";
 
-export const config = { runtime: "edge" };
+// Runtime NODE, pas edge : @vercel/og (et sa couche wasm resvg/yoga) ne se
+// bundle pas proprement dans une fonction du dossier api/ (erreur de deploy
+// "unsupported modules: @vercel: module" - voir historique). Ici on evite le
+// paquet wrapper : satori generent le SVG (avec la police arabe), sharp le
+// convertit en PNG - deux bibliotheques fiables en runtime nodejs serverless.
+export const config = { runtime: "nodejs" };
 
 // IMPORTANT : utiliser le WOFF, pas le WOFF2. Le parseur de police embarque
-// dans Satori (@shuding/opentype.js, utilise par @vercel/og) ne lit pas le
-// format WOFF2 ("Unsupported OpenType signature wOF2") et ferait echouer le
-// rendu -> repli sur l'image generique. Le WOFF, lui, fonctionne.
+// dans Satori (@shuding/opentype.js) ne lit pas le format WOFF2 ("Unsupported
+// OpenType signature wOF2") ; le WOFF, lui, fonctionne.
 const FONT_URL = "https://myqurandeen.vercel.app/fonts/amiri-arabic-400-normal.woff";
 let fontCache: ArrayBuffer | undefined;
 
@@ -13,8 +18,7 @@ const ARABIC_REGEX = /[\u0600-\u06FF\u0750-\u077F\u08A0-\u08FF\uFB50-\uFDFF\uFE7
 
 // Logo "BookOpen" lucide, embarque en SVG data-URI (pas de fetch externe) pour
 // la ligne de marque en bas de carte - meme langage visuel que l'app. Satori
-// rend les <img> en SVG inline via data URI, sans police emoji (qui, elle,
-// serait du tofu).
+// rend les <img> en SVG inline via data URI, sans police emoji (qui serait du tofu).
 const BOOK_ICON =
   "data:image/svg+xml," +
   encodeURIComponent(
@@ -46,128 +50,120 @@ function truncate(text: string, limit: number): string {
   return `${(lastSpace > 0 ? cut.slice(0, lastSpace) : cut).trimEnd()}…`;
 }
 
+function Card({
+  hasArabic,
+  arabic,
+  transliteration,
+  title,
+  body,
+  source,
+}: {
+  hasArabic: boolean;
+  arabic: string;
+  transliteration?: string;
+  title: string;
+  body?: string;
+  source?: string;
+}) {
+  return (
+    <div
+      style={{
+        width: 1200,
+        height: 630,
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "center",
+        justifyContent: "center",
+        gap: 16,
+        padding: 80,
+        background: "linear-gradient(160deg, #1d726b 0%, #123f3b 100%)",
+        color: "#ffffff",
+        fontFamily: hasArabic ? "arabic" : "system-ui",
+      }}
+    >
+      <div
+        style={{
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "center",
+          justifyContent: "center",
+          textAlign: "center",
+          gap: 14,
+        }}
+      >
+        {hasArabic && (
+          <div style={{ display: "flex", direction: "rtl", color: "#ffffff", fontWeight: 700, fontSize: 56, lineHeight: 1.7 }}>
+            {arabic}
+          </div>
+        )}
+        {transliteration && (
+          <div style={{ display: "flex", color: "rgba(255,255,255,0.8)", fontSize: 30, fontStyle: "italic", lineHeight: 1.5 }}>
+            {transliteration}
+          </div>
+        )}
+        {!hasArabic && (
+          <div style={{ display: "flex", color: "#ffffff", fontWeight: 700, fontSize: 48, lineHeight: 1.3 }}>{title}</div>
+        )}
+        {body && (
+          <div style={{ display: "flex", color: "rgba(255,255,255,0.92)", fontWeight: 500, fontSize: 28, lineHeight: 1.5 }}>
+            {body}
+          </div>
+        )}
+      </div>
+
+      <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: 12, marginTop: 20 }}>
+        {source && (
+          <>
+            <div style={{ display: "flex", width: 80, height: 1, background: "rgba(255,255,255,0.25)" }} />
+            <div style={{ display: "flex", color: "rgba(255,255,255,0.7)", fontSize: 22, fontWeight: 500, textAlign: "center" }}>
+              {source}
+            </div>
+          </>
+        )}
+        <div style={{ display: "flex", alignItems: "center", gap: 10, color: "rgba(255,255,255,0.9)", fontWeight: 700, fontSize: 26 }}>
+          <img src={BOOK_ICON} width={34} height={34} />
+          myQurandeen
+        </div>
+        <div style={{ display: "flex", color: "rgba(255,255,255,0.5)", fontSize: 16 }}>myqurandeen.vercel.app</div>
+      </div>
+    </div>
+  );
+}
+
 export default async function handler(req: Request) {
   const url = new URL(req.url);
-  const title = decode(url.searchParams.get("title"));
-  const arabicText = decode(url.searchParams.get("arabic"));
-  const transliteration = decode(url.searchParams.get("transliteration"));
-  const body = decode(url.searchParams.get("body"));
+  const title = decode(url.searchParams.get("title")) ?? "";
+  const arabicText = truncate(decode(url.searchParams.get("arabic")) ?? "", 500);
+  const transliteration = truncate(decode(url.searchParams.get("transliteration")) ?? "", 400);
+  const body = truncate(decode(url.searchParams.get("body")) ?? "", 400);
   const source = decode(url.searchParams.get("source"));
 
-  const safeArabic = truncate(arabicText ?? "", 500);
-  const safeTransliteration = truncate(transliteration ?? "", 400);
-  const safeBody = truncate(body ?? "", 400);
-
-  const hasArabic = ARABIC_REGEX.test(safeArabic);
+  const hasArabic = ARABIC_REGEX.test(arabicText.trim());
 
   try {
     const fontData = hasArabic ? await loadFont() : undefined;
 
-    return new ImageResponse(
-      (
-        <div
-          style={{
-            width: 1200,
-            height: 630,
-            display: "flex",
-            flexDirection: "column",
-            alignItems: "center",
-            justifyContent: "center",
-            gap: 16,
-            padding: 80,
-            background: "linear-gradient(160deg, #1d726b 0%, #123f3b 100%)",
-            color: "#ffffff",
-            fontFamily: hasArabic ? "arabic" : "system-ui",
-          }}
-        >
-          <div
-            style={{
-              display: "flex",
-              flexDirection: "column",
-              alignItems: "center",
-              justifyContent: "center",
-              textAlign: "center",
-              gap: 14,
-            }}
-          >
-            {hasArabic && (
-              <div
-                style={{
-                  display: "flex",
-                  direction: "rtl",
-                  color: "#ffffff",
-                  fontWeight: 700,
-                  fontSize: 56,
-                  lineHeight: 1.7,
-                }}
-              >
-                {safeArabic}
-              </div>
-            )}
-            {safeTransliteration && (
-              <div style={{ display: "flex", color: "rgba(255,255,255,0.8)", fontSize: 30, fontStyle: "italic", lineHeight: 1.5 }}>
-                {safeTransliteration}
-              </div>
-            )}
-            {!hasArabic && title && (
-              <div style={{ display: "flex", color: "#ffffff", fontWeight: 700, fontSize: 48, lineHeight: 1.3 }}>{title}</div>
-            )}
-            {safeBody && (
-              <div style={{ display: "flex", color: "rgba(255,255,255,0.92)", fontWeight: 500, fontSize: 28, lineHeight: 1.5 }}>
-                {safeBody}
-              </div>
-            )}
-          </div>
-
-          <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: 12, marginTop: 20 }}>
-            {source && (
-              <>
-                <div style={{ display: "flex", width: 80, height: 1, background: "rgba(255,255,255,0.25)" }} />
-                <div style={{ display: "flex", color: "rgba(255,255,255,0.7)", fontSize: 22, fontWeight: 500, textAlign: "center" }}>
-                  {source}
-                </div>
-              </>
-            )}
-            <div style={{ display: "flex", alignItems: "center", gap: 10, color: "rgba(255,255,255,0.9)", fontWeight: 700, fontSize: 26 }}>
-              <img src={BOOK_ICON} width={34} height={34} />
-              myQurandeen
-            </div>
-            <div style={{ display: "flex", color: "rgba(255,255,255,0.5)", fontSize: 16 }}>myqurandeen.vercel.app</div>
-          </div>
-        </div>
-      ),
+    const svg = await satori(
+      Card({ hasArabic, arabic: arabicText, transliteration, title, body, source }),
       {
         width: 1200,
         height: 630,
-        fonts: fontData
-          ? [{ name: "arabic", data: fontData, weight: 400, style: "normal" }]
-          : undefined,
-        headers: {
-          "Cache-Control": "public, max-age=86400, s-maxage=86400",
-        },
+        fonts:
+          fontData && hasArabic
+            ? [{ name: "arabic", data: fontData, weight: 400, style: "normal" }]
+            : [],
       },
     );
+
+    const png = await sharp(Buffer.from(svg)).png().toBuffer();
+
+    return new Response(png, {
+      headers: {
+        "Content-Type": "image/png",
+        "Cache-Control": "public, max-age=86400, s-maxage=86400",
+      },
+    });
   } catch (error) {
-    return new ImageResponse(
-      (
-        <div
-          style={{
-            width: 1200,
-            height: 630,
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-            gap: 12,
-            background: "linear-gradient(160deg, #1d726b 0%, #123f3b 100%)",
-            color: "#ffffff",
-            fontSize: 44,
-            fontWeight: 700,
-          }}
-        >
-          myQurandeen
-        </div>
-      ),
-      { width: 1200, height: 630 },
-    );
+    return new Response("Erreur generation image OG", { status: 500 });
   }
 }

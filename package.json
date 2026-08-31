@@ -33,10 +33,13 @@
     "db:seed:duas": "npm run db:seed:duas -w apps/api"
   },
   "devDependencies": {
-    "@vercel/og": "^1.0.2",
     "concurrently": "^9.0.1"
   },
   "engines": {
     "node": ">=20"
+  },
+  "dependencies": {
+    "satori": "^0.33.4",
+    "sharp": "^0.35.4"
   }
 }
