@@ -164,6 +164,11 @@ export default async function handler(req: Request) {
       },
     });
   } catch (error) {
-    return new Response("Erreur generation image OG", { status: 500 });
+    console.error("[og] generation error", error);
+    const message = error instanceof Error ? error.message : String(error);
+    return new Response(`Erreur generation image OG: ${message}`, {
+      status: 500,
+      headers: { "Content-Type": "text/plain" },
+    });
   }
 }
