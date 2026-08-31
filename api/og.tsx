@@ -1,5 +1,7 @@
-import satori from "satori";
-import sharp from "sharp";
+// les imports satori/sharp sont DYNAMIQUES (a l'interieur du handler, dans
+// le try) : si un import echoue au chargement (ex. asset wasm de harfbuzz ou
+// binding natif de sharp mal bundle), l'erreur est capturee et renvoyee en
+// clair au lieu d'un "FUNCTION_INVOCATION_FAILED" a l'import top-level.
 
 // Runtime NODE, pas edge : @vercel/og (et sa couche wasm resvg/yoga) ne se
 // bundle pas proprement dans une fonction du dossier api/ (erreur de deploy
@@ -142,6 +144,11 @@ export default async function handler(req: Request) {
 
   try {
     const fontData = hasArabic ? await loadFont() : undefined;
+
+    const [{ default: satori }, { default: sharp }] = await Promise.all([
+      import("satori"),
+      import("sharp"),
+    ]);
 
     const svg = await satori(
       Card({ hasArabic, arabic: arabicText, transliteration, title, body, source }),
