@@ -227,6 +227,10 @@
     "linkCopied": "Lien copié !",
     "whatsapp": "WhatsApp",
     "twitter": "X",
+    "instagram": "Instagram",
+    "shortcutsLabel": "Accès direct",
+    "instagramFallbackHint": "Image copiée - ouvre Instagram et colle-la dans ta story.",
+    "instagramUnsupported": "Non pris en charge sur ce navigateur - utilise \"Copier le lien\" ou \"Télécharger l'image\".",
     "error": "Une erreur est survenue."
   },
   "reminders": {
