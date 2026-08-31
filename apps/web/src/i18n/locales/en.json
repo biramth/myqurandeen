@@ -601,7 +601,7 @@
     "marketing": "Marketing",
     "marketingTab": {
       "title": "New version announcement",
-      "description": "Send the \"new version\" campaign email to every active account that hasn't opted out of marketing emails (verified address or not).",
+      "description": "Send the \"new version\" campaign email to active accounts that haven't opted out of marketing emails (verified address or not).",
       "checkEligible": "Check recipients",
       "eligibleCount_one": "{{count}} eligible recipient.",
       "eligibleCount_other": "{{count}} eligible recipients.",
@@ -613,7 +613,43 @@
       "sendAllSuccess_one": "Campaign sent: {{sent}} email sent, {{failed}} failure(s).",
       "sendAllSuccess_other": "Campaign sent: {{sent}} emails sent, {{failed}} failure(s).",
       "sendAllNeedsCheck": "Check recipients first.",
-      "error": "Something went wrong."
+      "error": "Something went wrong.",
+      "target": {
+        "label": "Campaign target",
+        "all": "All eligible recipients"
+      },
+      "recipients": {
+        "title": "Recipients",
+        "description": "Active accounts that can receive marketing emails.",
+        "searchPlaceholder": "Search by name or email...",
+        "empty": "No recipients found.",
+        "verified": "Verified",
+        "unverified": "Unverified",
+        "optedOut": "Unsubscribed",
+        "count_one": "{{count}} recipient",
+        "count_other": "{{count}} recipients"
+      },
+      "groups": {
+        "title": "Groups",
+        "description": "Segment your recipients to target a campaign at a specific group.",
+        "create": "Create a group",
+        "namePlaceholder": "Group name",
+        "descriptionPlaceholder": "Description (optional)",
+        "empty": "No groups yet.",
+        "members_one": "{{count}} member",
+        "members_other": "{{count}} members",
+        "manageMembers": "Manage members",
+        "deleteConfirm": "Delete the group \"{{name}}\"? Recipients themselves won't be deleted.",
+        "createSuccess": "Group created.",
+        "deleteSuccess": "Group deleted.",
+        "nameRequired": "Name is required."
+      },
+      "membersDialog": {
+        "title": "Members of \"{{name}}\"",
+        "description": "Check the recipients to include in this group.",
+        "searchPlaceholder": "Search...",
+        "close": "Close"
+      }
     }
   },
   "assistant": {

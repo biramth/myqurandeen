@@ -126,7 +126,15 @@ export class AuthService {
 
   async verifyEmail(token: string): Promise<{ emailVerified: boolean }> {
     const userId = await this.authTokensService.consume(token, "email_verify");
+    // Lu avant la mise a jour : c'est le seul moment ou on peut distinguer
+    // une premiere verification (envoie le mail de bienvenue) d'un rejeu
+    // (jeton d'une ancienne demande sur un compte deja verifie entre temps).
+    const before = await this.usersService.findById(userId);
+    const isFirstVerification = Boolean(before) && !before?.emailVerifiedAt;
     await this.usersService.markEmailVerified(userId);
+    if (isFirstVerification && before) {
+      await this.sendWelcomeEmail(before.email, before.displayName);
+    }
     return { emailVerified: true };
   }
 
@@ -258,10 +266,25 @@ export class AuthService {
 
   private async issueTokensForUser(
     user: NonNullable<Awaited<ReturnType<UsersService["findByEmail"]>>>,
-    _created: boolean,
+    created: boolean,
   ): Promise<{ user: ReturnType<UsersService["toPublicProfile"]>; roleName: RoleName; tokens: AuthTokens }> {
+    // Compte Google : cree deja verifie (pas de passage par verifyEmail), donc
+    // c'est ici qu'on declenche le mail de bienvenue pour une premiere creation.
+    if (created) {
+      await this.sendWelcomeEmail(user.email, user.displayName);
+    }
     const { tokens, roleName } = await this.issueTokens(user.id, user.email, user.roleId);
     return { user: this.usersService.toPublicProfile(user, roleName), roleName, tokens };
+  }
+
+  /** Un echec d'envoi ne doit jamais faire echouer la verification/connexion elle-meme. */
+  private async sendWelcomeEmail(email: string, displayName: string) {
+    try {
+      const { subject, html } = this.mailService.buildWelcomeEmail(displayName);
+      await this.mailService.send(email, subject, html);
+    } catch (error) {
+      this.logger.error(`Echec d'envoi de l'email de bienvenue (${email})`, error instanceof Error ? error.stack : error);
+    }
   }
 
   private decodeIdTokenProfile(idToken: string): GoogleUserProfile {

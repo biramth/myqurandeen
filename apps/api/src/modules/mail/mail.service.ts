@@ -3,6 +3,7 @@ import { ConfigService } from "@nestjs/config";
 import { verificationEmailTemplate } from "./templates/verification.template";
 import { resetPasswordEmailTemplate } from "./templates/reset-password.template";
 import { announcementEmailTemplate, type AnnouncementEmailOptions } from "./templates/announcement.template";
+import { welcomeEmailTemplate } from "./templates/welcome.template";
 
 /**
  * Fine couche autour de l'API transactionnelle Brevo (ex-Sendinblue) pour
@@ -91,5 +92,9 @@ export class MailService {
 
   buildAnnouncementEmail(options: Omit<AnnouncementEmailOptions, "webUrl">): { subject: string; html: string } {
     return announcementEmailTemplate({ webUrl: this.webUrl, ...options });
+  }
+
+  buildWelcomeEmail(displayName: string): { subject: string; html: string } {
+    return welcomeEmailTemplate(this.webUrl, displayName);
   }
 }

@@ -717,7 +717,7 @@
     "marketing": "Marketing",
     "marketingTab": {
       "title": "Annonce de la nouvelle version",
-      "description": "Envoie l'email de campagne \"nouvelle version\" à tous les comptes actifs qui n'ont pas demandé à être exclus des emails marketing (adresse vérifiée ou non).",
+      "description": "Envoie l'email de campagne \"nouvelle version\" aux comptes actifs qui n'ont pas demandé à être exclus des emails marketing (adresse vérifiée ou non).",
       "checkEligible": "Vérifier les destinataires",
       "eligibleCount_one": "{{count}} destinataire éligible.",
       "eligibleCount_other": "{{count}} destinataires éligibles.",
@@ -729,7 +729,43 @@
       "sendAllSuccess_one": "Campagne envoyée : {{sent}} email envoyé, {{failed}} échec(s).",
       "sendAllSuccess_other": "Campagne envoyée : {{sent}} emails envoyés, {{failed}} échec(s).",
       "sendAllNeedsCheck": "Vérifie d'abord les destinataires.",
-      "error": "Une erreur est survenue."
+      "error": "Une erreur est survenue.",
+      "target": {
+        "label": "Cible de la campagne",
+        "all": "Tous les destinataires éligibles"
+      },
+      "recipients": {
+        "title": "Destinataires",
+        "description": "Comptes actifs pouvant recevoir des emails marketing.",
+        "searchPlaceholder": "Rechercher par nom ou email...",
+        "empty": "Aucun destinataire trouvé.",
+        "verified": "Vérifié",
+        "unverified": "Non vérifié",
+        "optedOut": "Désabonné",
+        "count_one": "{{count}} destinataire",
+        "count_other": "{{count}} destinataires"
+      },
+      "groups": {
+        "title": "Groupes",
+        "description": "Segmente tes destinataires pour cibler une campagne à un groupe précis.",
+        "create": "Créer un groupe",
+        "namePlaceholder": "Nom du groupe",
+        "descriptionPlaceholder": "Description (optionnel)",
+        "empty": "Aucun groupe pour l'instant.",
+        "members_one": "{{count}} membre",
+        "members_other": "{{count}} membres",
+        "manageMembers": "Gérer les membres",
+        "deleteConfirm": "Supprimer le groupe \"{{name}}\" ? Les destinataires eux-mêmes ne seront pas supprimés.",
+        "createSuccess": "Groupe créé.",
+        "deleteSuccess": "Groupe supprimé.",
+        "nameRequired": "Le nom est requis."
+      },
+      "membersDialog": {
+        "title": "Membres de \"{{name}}\"",
+        "description": "Coche les destinataires à inclure dans ce groupe.",
+        "searchPlaceholder": "Rechercher...",
+        "close": "Fermer"
+      }
     }
   },
   "assistant": {

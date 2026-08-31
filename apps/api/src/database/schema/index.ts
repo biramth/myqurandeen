@@ -18,3 +18,4 @@ export * from "./streaks";
 export * from "./streak-alerts";
 export * from "./dua-schedule";
 export * from "./gamification";
+export * from "./marketing";

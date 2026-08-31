@@ -1,4 +1,4 @@
-import { IsBoolean, IsEmail, IsOptional } from "class-validator";
+import { IsBoolean, IsEmail, IsOptional, IsUUID } from "class-validator";
 
 export class SendAnnouncementDto {
   /**
@@ -14,4 +14,9 @@ export class SendAnnouncementDto {
   @IsOptional()
   @IsEmail({}, { message: "Email invalide" })
   testEmail?: string;
+
+  /** Restreint la campagne aux membres de ce groupe plutot qu'a toute la base. */
+  @IsOptional()
+  @IsUUID()
+  groupId?: string;
 }

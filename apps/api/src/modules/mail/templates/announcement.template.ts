@@ -1,20 +1,10 @@
-import { BRAND, emailButton, emailLayout } from "./layout";
+import { BRAND, emailBenefit, emailButton, emailLayout } from "./layout";
 
 export interface AnnouncementEmailOptions {
   webUrl: string;
   displayName: string;
   /** Lien de desabonnement propre a ce destinataire (jeton signe, voir MarketingService). */
   unsubscribeUrl: string;
-}
-
-function benefit(emoji: string, title: string, text: string): string {
-  return `<tr>
-    <td style="padding:14px 16px;background:${BRAND.tint};border-radius:12px;">
-      <p style="margin:0 0 4px;font-weight:600;color:${BRAND.primaryDark};">${emoji} ${title}</p>
-      <p style="margin:0;font-size:14px;color:${BRAND.body};">${text}</p>
-    </td>
-  </tr>
-  <tr><td style="height:10px;line-height:10px;font-size:0;">&nbsp;</td></tr>`;
 }
 
 /**
@@ -45,9 +35,9 @@ export function announcementEmailTemplate(options: AnnouncementEmailOptions): { 
         <p style="margin:0 0 20px;">On vient de mettre en ligne une nouvelle version de myQurandeen, et elle change vraiment l'expérience au quotidien :</p>
 
         <table role="presentation" width="100%" cellspacing="0" cellpadding="0" style="margin-bottom:6px;">
-          ${benefit("⚡", "Beaucoup plus rapide", "L'appli s'ouvre quasi instantanément, même quand tu y reviens plus tard dans la journée.")}
-          ${benefit("📱", "Installable sur ton téléphone", "Ajoute myQurandeen à ton écran d'accueil et ouvre-la comme une vraie application, en un tap.")}
-          ${benefit("📚", "Un contenu encore plus soigné", "Concepts, histoire de l'Islam, écoles de fiqh... relus et peaufinés de bout en bout, pour une lecture impeccable.")}
+          ${emailBenefit("⚡", "Beaucoup plus rapide", "L'appli s'ouvre quasi instantanément, même quand tu y reviens plus tard dans la journée.")}
+          ${emailBenefit("📱", "Installable sur ton téléphone", "Ajoute myQurandeen à ton écran d'accueil et ouvre-la comme une vraie application, en un tap.")}
+          ${emailBenefit("📚", "Un contenu encore plus soigné", "Concepts, histoire de l'Islam, écoles de fiqh... relus et peaufinés de bout en bout, pour une lecture impeccable.")}
         </table>
 
         ${emailButton("Découvrir la nouvelle version", appUrl)}

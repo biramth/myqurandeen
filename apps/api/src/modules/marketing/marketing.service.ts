@@ -1,10 +1,10 @@
-import { Inject, Injectable, Logger, NotFoundException, UnauthorizedException } from "@nestjs/common";
+import { ConflictException, Inject, Injectable, Logger, NotFoundException, UnauthorizedException } from "@nestjs/common";
 import { ConfigService } from "@nestjs/config";
 import { createHmac, timingSafeEqual } from "node:crypto";
-import { and, eq } from "drizzle-orm";
+import { and, desc, eq, ilike, or, sql } from "drizzle-orm";
 import { DRIZZLE } from "../../database/database.constants";
 import type { Database } from "../../database/database.module";
-import { users } from "../../database/schema";
+import { marketingGroupMembers, marketingGroups, users } from "../../database/schema";
 import { MailService } from "../mail/mail.service";
 
 export interface AnnouncementRecipient {
@@ -20,6 +20,32 @@ export interface SendAnnouncementResult {
   failed: number;
   eligible: number;
 }
+
+export interface MarketingRecipient {
+  id: string;
+  email: string;
+  displayName: string;
+  emailVerifiedAt: Date | null;
+  marketingOptOut: boolean;
+  createdAt: Date;
+}
+
+export interface MarketingGroupSummary {
+  id: string;
+  name: string;
+  description: string | null;
+  createdAt: Date;
+  memberCount: number;
+}
+
+const RECIPIENT_COLUMNS = {
+  id: users.id,
+  email: users.email,
+  displayName: users.displayName,
+  emailVerifiedAt: users.emailVerifiedAt,
+  marketingOptOut: users.marketingOptOut,
+  createdAt: users.createdAt,
+} as const;
 
 /**
  * Campagnes email (annonces, nouvelle version...) - distinctes des emails
@@ -96,8 +122,23 @@ export class MarketingService {
    * Comptes actifs n'ayant pas demande a etre exclus des emails marketing,
    * emails verifies ou non : l'utilisateur s'est inscrit avec cette adresse,
    * il peut recevoir une annonce meme avant d'avoir confirme sa verification.
+   * `groupId` restreint aux membres de ce groupe (toujours filtres actifs +
+   * non desabonnes).
    */
-  async listEligibleRecipients(): Promise<AnnouncementRecipient[]> {
+  async listEligibleRecipients(groupId?: string): Promise<AnnouncementRecipient[]> {
+    if (groupId) {
+      return this.db
+        .select({ id: users.id, email: users.email, displayName: users.displayName })
+        .from(marketingGroupMembers)
+        .innerJoin(users, eq(users.id, marketingGroupMembers.userId))
+        .where(
+          and(
+            eq(marketingGroupMembers.groupId, groupId),
+            eq(users.isActive, true),
+            eq(users.marketingOptOut, false),
+          ),
+        );
+    }
     const rows = await this.db.query.users.findMany({
       where: and(eq(users.isActive, true), eq(users.marketingOptOut, false)),
       columns: { id: true, email: true, displayName: true },
@@ -106,13 +147,105 @@ export class MarketingService {
   }
 
   /**
+   * Liste complete pour l'onglet admin ("a qui j'envoie des mails") : comptes
+   * actifs, verifies ou non, avec leur statut de desabonnement visible (pas
+   * seulement les eligibles) - `search` filtre par email/nom.
+   */
+  async listRecipients(search?: string): Promise<MarketingRecipient[]> {
+    const conditions = [eq(users.isActive, true)];
+    const term = search?.trim();
+    if (term) {
+      const pattern = `%${term}%`;
+      conditions.push(or(ilike(users.email, pattern), ilike(users.displayName, pattern))!);
+    }
+    return this.db
+      .select(RECIPIENT_COLUMNS)
+      .from(users)
+      .where(and(...conditions))
+      .orderBy(desc(users.createdAt));
+  }
+
+  /** Groupes de segmentation avec leur nombre de membres. */
+  async listGroups(): Promise<MarketingGroupSummary[]> {
+    return this.db
+      .select({
+        id: marketingGroups.id,
+        name: marketingGroups.name,
+        description: marketingGroups.description,
+        createdAt: marketingGroups.createdAt,
+        memberCount: sql<number>`count(${marketingGroupMembers.userId})`.mapWith(Number),
+      })
+      .from(marketingGroups)
+      .leftJoin(marketingGroupMembers, eq(marketingGroupMembers.groupId, marketingGroups.id))
+      .groupBy(marketingGroups.id)
+      .orderBy(desc(marketingGroups.createdAt));
+  }
+
+  async createGroup(name: string, description?: string) {
+    const existing = await this.db.query.marketingGroups.findFirst({ where: eq(marketingGroups.name, name.trim()) });
+    if (existing) {
+      throw new ConflictException("Un groupe porte deja ce nom");
+    }
+    const [group] = await this.db
+      .insert(marketingGroups)
+      .values({ name: name.trim(), description: description?.trim() || null })
+      .returning();
+    return group;
+  }
+
+  async deleteGroup(groupId: string): Promise<void> {
+    const [deleted] = await this.db.delete(marketingGroups).where(eq(marketingGroups.id, groupId)).returning({ id: marketingGroups.id });
+    if (!deleted) {
+      throw new NotFoundException("Groupe introuvable");
+    }
+  }
+
+  /** Groupe + ses membres (utilise par l'UI pour cocher les destinataires deja dans le groupe). */
+  async getGroupWithMembers(groupId: string): Promise<{ group: MarketingGroupSummary; members: MarketingRecipient[] }> {
+    const group = await this.db.query.marketingGroups.findFirst({ where: eq(marketingGroups.id, groupId) });
+    if (!group) {
+      throw new NotFoundException("Groupe introuvable");
+    }
+    const memberRows = await this.db
+      .select(RECIPIENT_COLUMNS)
+      .from(marketingGroupMembers)
+      .innerJoin(users, eq(users.id, marketingGroupMembers.userId))
+      .where(eq(marketingGroupMembers.groupId, groupId))
+      .orderBy(desc(users.createdAt));
+    const [{ memberCount }] = await this.db
+      .select({ memberCount: sql<number>`count(*)`.mapWith(Number) })
+      .from(marketingGroupMembers)
+      .where(eq(marketingGroupMembers.groupId, groupId));
+    return { group: { ...group, memberCount }, members: memberRows };
+  }
+
+  async addGroupMembers(groupId: string, userIds: string[]): Promise<{ added: number }> {
+    const group = await this.db.query.marketingGroups.findFirst({ where: eq(marketingGroups.id, groupId) });
+    if (!group) {
+      throw new NotFoundException("Groupe introuvable");
+    }
+    await this.db
+      .insert(marketingGroupMembers)
+      .values(userIds.map((userId) => ({ groupId, userId })))
+      .onConflictDoNothing();
+    return { added: userIds.length };
+  }
+
+  async removeGroupMember(groupId: string, userId: string): Promise<void> {
+    await this.db
+      .delete(marketingGroupMembers)
+      .where(and(eq(marketingGroupMembers.groupId, groupId), eq(marketingGroupMembers.userId, userId)));
+  }
+
+  /**
    * Envoie la campagne "nouvelle version". `dryRun` (par defaut true) ne
    * fait que compter les destinataires eligibles. `testEmail` envoie un
    * unique exemplaire a une adresse donnee (apercu reel dans une boite mail)
    * sans toucher a la base utilisateur ni au flag de desabonnement.
+   * `groupId` restreint l'envoi (ou le comptage) aux membres de ce groupe.
    */
-  async sendAnnouncement(options: { dryRun?: boolean; testEmail?: string }): Promise<SendAnnouncementResult> {
-    const eligible = await this.listEligibleRecipients();
+  async sendAnnouncement(options: { dryRun?: boolean; testEmail?: string; groupId?: string }): Promise<SendAnnouncementResult> {
+    const eligible = await this.listEligibleRecipients(options.groupId);
 
     if (options.testEmail) {
       const { subject, html } = this.mailService.buildAnnouncementEmail({

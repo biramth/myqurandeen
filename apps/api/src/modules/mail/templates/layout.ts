@@ -17,6 +17,17 @@ export const BRAND = {
   border: "#e4e4e7",
 } as const;
 
+/** Bloc "carte" mis en avant (icone + titre + texte), reutilise par plusieurs emails. */
+export function emailBenefit(emoji: string, title: string, text: string): string {
+  return `<tr>
+    <td style="padding:14px 16px;background:${BRAND.tint};border-radius:12px;">
+      <p style="margin:0 0 4px;font-weight:600;color:${BRAND.primaryDark};">${emoji} ${title}</p>
+      <p style="margin:0;font-size:14px;color:${BRAND.body};">${text}</p>
+    </td>
+  </tr>
+  <tr><td style="height:10px;line-height:10px;font-size:0;">&nbsp;</td></tr>`;
+}
+
 /** Bouton d'action principal, identique sur tous les emails. */
 export function emailButton(label: string, url: string): string {
   return `<table role="presentation" cellspacing="0" cellpadding="0" style="margin:24px 0;">
