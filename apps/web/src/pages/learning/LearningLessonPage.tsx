@@ -11,7 +11,7 @@ import { QuizBlock } from "@/features/learning/QuizBlock";
 import { useAuth } from "@/features/auth/auth-context";
 import { useStreakPing } from "@/features/streaks/useStreak";
 import { useGamificationEvent } from "@/features/gamification/useGamification";
-import { useDocumentTitle } from "@/hooks/useDocumentTitle";
+import { PageMeta } from "@/components/shared/PageMeta";
 
 export function LearningLessonPage() {
   const { slug, order } = useParams<{ slug: string; order: string }>();
@@ -36,7 +36,6 @@ export function LearningLessonPage() {
   });
 
   const lesson = path?.lessons.find((l) => l.order === orderNum);
-  useDocumentTitle(lesson?.title);
 
   const { data: quiz } = useQuery({
     queryKey: ["learning", "lesson-quiz", lesson?.id],
@@ -92,6 +91,7 @@ export function LearningLessonPage() {
 
   return (
     <div className="mx-auto max-w-2xl px-4 py-8">
+      <PageMeta title={lesson?.title} description={paragraphs[0]} />
       <Button variant="ghost" size="sm" asChild className="mb-4 -ml-2">
         <Link to={`/learn/${slug}`}>
           <ArrowLeft className="h-4 w-4" />

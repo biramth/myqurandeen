@@ -6,11 +6,10 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Skeleton } from "@/components/ui/skeleton";
 import { schoolsApi } from "@/features/schools/api";
-import { useDocumentTitle } from "@/hooks/useDocumentTitle";
+import { PageMeta } from "@/components/shared/PageMeta";
 
 export function SchoolsPage() {
   const { t } = useTranslation();
-  useDocumentTitle(t("schools.title"));
   const { data: schools, isLoading, isError } = useQuery({
     queryKey: ["schools"],
     queryFn: schoolsApi.listSchools,
@@ -21,6 +20,7 @@ export function SchoolsPage() {
 
   return (
     <div className="mx-auto max-w-3xl px-4 py-10">
+      <PageMeta title={t("schools.title")} description={t("schools.subtitle")} />
       <div className="mb-8 flex items-center gap-3">
         <Scale className="h-7 w-7 text-primary" aria-hidden="true" />
         <div>

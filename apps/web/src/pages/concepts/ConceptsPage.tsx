@@ -5,11 +5,10 @@ import { Lightbulb } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Skeleton } from "@/components/ui/skeleton";
 import { conceptsApi } from "@/features/concepts/api";
-import { useDocumentTitle } from "@/hooks/useDocumentTitle";
+import { PageMeta } from "@/components/shared/PageMeta";
 
 export function ConceptsPage() {
   const { t } = useTranslation();
-  useDocumentTitle(t("concepts.title"));
   const { data: concepts, isLoading, isError } = useQuery({
     queryKey: ["concepts"],
     queryFn: conceptsApi.listConcepts,
@@ -17,6 +16,7 @@ export function ConceptsPage() {
 
   return (
     <div className="mx-auto max-w-3xl px-4 py-10">
+      <PageMeta title={t("concepts.title")} description={t("concepts.subtitle")} />
       <div className="mb-8 flex items-center gap-3">
         <Lightbulb className="h-7 w-7 text-primary" aria-hidden="true" />
         <div>

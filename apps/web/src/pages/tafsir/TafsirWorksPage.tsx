@@ -6,11 +6,10 @@ import { Badge } from "@/components/ui/badge";
 import { Skeleton } from "@/components/ui/skeleton";
 import { tafsirApi } from "@/features/tafsir/api";
 import { languageLabel } from "@/lib/languages";
-import { useDocumentTitle } from "@/hooks/useDocumentTitle";
+import { PageMeta } from "@/components/shared/PageMeta";
 
 export function TafsirWorksPage() {
   const { t } = useTranslation();
-  useDocumentTitle(t("comingSoon.tafsir.title"));
   const { data: works, isLoading, isError } = useQuery({
     queryKey: ["tafsir", "works"],
     queryFn: tafsirApi.listWorks,
@@ -18,6 +17,7 @@ export function TafsirWorksPage() {
 
   return (
     <div className="mx-auto max-w-3xl px-4 py-10">
+      <PageMeta title={t("comingSoon.tafsir.title")} description={t("comingSoon.tafsir.description")} />
       <div className="mb-8 flex items-center gap-3">
         <BookMarked className="h-7 w-7 text-primary" aria-hidden="true" />
         <div>

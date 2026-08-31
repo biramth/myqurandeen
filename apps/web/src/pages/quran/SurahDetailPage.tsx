@@ -15,7 +15,7 @@ import { QuickReminderButton } from "@/features/reminders/QuickReminderButton";
 import { useStreakPing } from "@/features/streaks/useStreak";
 import { useGamificationEvent } from "@/features/gamification/useGamification";
 import { isRtlLanguage } from "@/lib/rtl";
-import { useDocumentTitle } from "@/hooks/useDocumentTitle";
+import { PageMeta } from "@/components/shared/PageMeta";
 
 export function SurahDetailPage() {
   const { surah: surahParam } = useParams<{ surah: string }>();
@@ -42,7 +42,6 @@ export function SurahDetailPage() {
     queryFn: () => quranApi.getSurah(surahNumber),
     enabled: Number.isInteger(surahNumber) && surahNumber > 0,
   });
-  useDocumentTitle(surah?.nameTransliterated);
   React.useEffect(() => {
     if (surah) track("verse_read");
   }, [surah, track]);
@@ -115,6 +114,10 @@ export function SurahDetailPage() {
 
   return (
     <div className="mx-auto max-w-3xl px-4 py-8">
+      <PageMeta
+        title={surah?.nameTransliterated}
+        description={surah ? translatedSurahName(t, surah.number, surah.nameTranslated) : undefined}
+      />
       <div className="mb-4 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
         <Button variant="ghost" size="sm" asChild className="-ml-2 self-start">
           <Link to="/quran">

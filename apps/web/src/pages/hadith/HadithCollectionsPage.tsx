@@ -5,11 +5,10 @@ import { ScrollText } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Skeleton } from "@/components/ui/skeleton";
 import { hadithApi } from "@/features/hadith/api";
-import { useDocumentTitle } from "@/hooks/useDocumentTitle";
+import { PageMeta } from "@/components/shared/PageMeta";
 
 export function HadithCollectionsPage() {
   const { t } = useTranslation();
-  useDocumentTitle(t("hadith.title"));
   const { data: collections, isLoading, isError } = useQuery({
     queryKey: ["hadith", "collections"],
     queryFn: hadithApi.listCollections,
@@ -17,6 +16,7 @@ export function HadithCollectionsPage() {
 
   return (
     <div className="mx-auto max-w-3xl px-4 py-10">
+      <PageMeta title={t("hadith.title")} description={t("hadith.subtitle")} />
       <div className="mb-8 flex items-center gap-3">
         <ScrollText className="h-7 w-7 text-primary" aria-hidden="true" />
         <div>

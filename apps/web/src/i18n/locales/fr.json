@@ -218,6 +218,17 @@
     "activeTodayMessage": "Bravo, tu es à jour aujourd'hui !",
     "reminderMessage": "N'oublie pas de lire aujourd'hui pour garder ta série."
   },
+  "share": {
+    "button": "Partager",
+    "dialogTitle": "Partager",
+    "shareAction": "Partager",
+    "download": "Télécharger l'image",
+    "copyLink": "Copier le lien",
+    "linkCopied": "Lien copié !",
+    "whatsapp": "WhatsApp",
+    "twitter": "X",
+    "error": "Une erreur est survenue."
+  },
   "reminders": {
     "pushUnsupported": "Les notifications ne sont pas prises en charge par ce navigateur.",
     "pushUnconfigured": "Les notifications ne sont pas encore configurées sur ce serveur.",

@@ -8,7 +8,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Skeleton } from "@/components/ui/skeleton";
 import { SearchBox } from "@/components/shared/SearchBox";
 import { searchApi } from "@/features/search/api";
-import { useDocumentTitle } from "@/hooks/useDocumentTitle";
+import { PageMeta } from "@/components/shared/PageMeta";
 import type { SearchResults } from "@/features/search/types";
 import { cn } from "@/lib/utils";
 
@@ -81,7 +81,6 @@ export function SearchPage() {
   const initialQuery = searchParams.get("q") ?? "";
   const [inputValue, setInputValue] = React.useState(initialQuery);
   const [activeFilter, setActiveFilter] = React.useState<FilterKey>("all");
-  useDocumentTitle(t("search.title"));
 
   const { data, isFetching, isError } = useQuery({
     queryKey: ["search", initialQuery],
@@ -103,6 +102,9 @@ export function SearchPage() {
 
   return (
     <div className="mx-auto max-w-3xl px-4 py-10">
+      {/* noindex : page de resultats a facettes/parametres dynamiques, pas un
+          contenu stable a indexer (evite le contenu fin/duplique en SERP). */}
+      <PageMeta title={t("search.title")} noindex />
       <div className="mb-8 flex items-center gap-3">
         <SearchIcon className="h-7 w-7 text-primary" aria-hidden="true" />
         <h1 className="text-2xl font-semibold tracking-tight">{t("search.title")}</h1>

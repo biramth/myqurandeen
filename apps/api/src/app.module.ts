@@ -30,6 +30,7 @@ import { DuasModule } from "./modules/duas/duas.module";
 import { LibraryModule } from "./modules/library/library.module";
 import { LearningModule } from "./modules/learning/learning.module";
 import { SearchModule } from "./modules/search/search.module";
+import { SitemapModule } from "./modules/sitemap/sitemap.module";
 import { UserDataModule } from "./modules/user-data/user-data.module";
 import { ReportsModule } from "./modules/reports/reports.module";
 import { FiqhSuggestionsModule } from "./modules/fiqh-suggestions/fiqh-suggestions.module";
@@ -84,6 +85,7 @@ import { GamificationModule } from "./modules/gamification/gamification.module";
     LibraryModule,
     LearningModule,
     SearchModule,
+    SitemapModule,
     UserDataModule,
     ReportsModule,
     FiqhSuggestionsModule,

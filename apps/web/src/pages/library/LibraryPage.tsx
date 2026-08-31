@@ -8,11 +8,10 @@ import { Badge } from "@/components/ui/badge";
 import { Skeleton } from "@/components/ui/skeleton";
 import { libraryApi } from "@/features/library/api";
 import type { LibraryBookSummary } from "@/features/library/types";
-import { useDocumentTitle } from "@/hooks/useDocumentTitle";
+import { PageMeta } from "@/components/shared/PageMeta";
 
 export function LibraryPage() {
   const { t } = useTranslation();
-  useDocumentTitle(t("library.title"));
   const { data: books, isLoading, isError } = useQuery({
     queryKey: ["library", "books"],
     queryFn: libraryApi.listBooks,
@@ -34,6 +33,7 @@ export function LibraryPage() {
 
   return (
     <div className="mx-auto max-w-3xl px-4 py-10">
+      <PageMeta title={t("library.title")} description={t("library.subtitle")} />
       <div className="mb-8 flex items-center gap-3">
         <Library className="h-7 w-7 text-primary" aria-hidden="true" />
         <div>

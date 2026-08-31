@@ -8,7 +8,7 @@ import { Callout } from "@/components/shared/Callout";
 import { ContentUserActions } from "@/components/shared/ContentUserActions";
 import { ProseText } from "@/components/shared/ProseText";
 import { conceptsApi } from "@/features/concepts/api";
-import { useDocumentTitle } from "@/hooks/useDocumentTitle";
+import { PageMeta, SITE_URL } from "@/components/shared/PageMeta";
 
 export function ConceptPage() {
   const { slug } = useParams<{ slug: string }>();
@@ -19,12 +19,12 @@ export function ConceptPage() {
     queryFn: () => conceptsApi.getConcept(slug!),
     enabled: Boolean(slug),
   });
-  useDocumentTitle(data?.term);
 
   if (!slug) return <Navigate to="/concepts" replace />;
 
   return (
     <div className="mx-auto max-w-2xl px-4 py-8">
+      <PageMeta title={data?.term} description={data?.definition} />
       <Breadcrumbs
         items={[{ label: t("concepts.title"), href: "/concepts" }, ...(data ? [{ label: data.term }] : [])]}
       />
@@ -44,7 +44,17 @@ export function ConceptPage() {
           </div>
           <p className="mb-4 text-sm font-medium text-muted-foreground">{data.definition}</p>
 
-          <ContentUserActions targetType="concept" targetId={data.id} className="mb-4" />
+          <ContentUserActions
+            targetType="concept"
+            targetId={data.id}
+            className="mb-4"
+            shareContent={{
+              title: data.term,
+              arabicText: data.termArabic ?? undefined,
+              body: data.definition,
+              url: `${SITE_URL}/concepts/${slug}`,
+            }}
+          />
 
           {data.origin && (
             <section className="mb-5">

@@ -9,7 +9,7 @@ import { ContentUserActions } from "@/components/shared/ContentUserActions";
 import { hadithApi } from "@/features/hadith/api";
 import { useStreakPing } from "@/features/streaks/useStreak";
 import { useGamificationEvent } from "@/features/gamification/useGamification";
-import { useDocumentTitle } from "@/hooks/useDocumentTitle";
+import { PageMeta, SITE_URL } from "@/components/shared/PageMeta";
 
 export function HadithDetailPage() {
   const { collection: slug, number } = useParams<{ collection: string; number: string }>();
@@ -25,12 +25,15 @@ export function HadithDetailPage() {
   useEffect(() => {
     if (data) track("hadith_read");
   }, [data, track]);
-  useDocumentTitle(data ? `${data.collection.name} ${data.hadith.number}` : undefined);
 
   if (!slug || !number) return <Navigate to="/hadith" replace />;
 
   return (
     <div className="mx-auto max-w-2xl px-4 py-8">
+      <PageMeta
+        title={data ? `${data.collection.name} ${data.hadith.number}` : undefined}
+        description={data?.hadith.textTranslation}
+      />
       <Breadcrumbs
         items={[
           { label: t("hadith.title"), href: "/hadith" },
@@ -65,7 +68,18 @@ export function HadithDetailPage() {
 
           <p className="rounded-lg border p-5 text-sm leading-relaxed">{data.hadith.textTranslation}</p>
 
-          <ContentUserActions targetType="hadith" targetId={data.hadith.id} className="mt-4" />
+          <ContentUserActions
+            targetType="hadith"
+            targetId={data.hadith.id}
+            className="mt-4"
+            shareContent={{
+              title: `${data.collection.name} ${data.hadith.number}`,
+              arabicText: data.hadith.textArabic ?? undefined,
+              body: data.hadith.textTranslation,
+              source: data.book ? `${data.collection.name} — ${data.book.title}` : data.collection.name,
+              url: `${SITE_URL}/hadith/${slug}/${number}`,
+            }}
+          />
 
           {data.translations.length > 0 && (
             <div className="mt-6 space-y-3">

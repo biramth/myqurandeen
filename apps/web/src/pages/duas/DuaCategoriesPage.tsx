@@ -6,11 +6,10 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Skeleton } from "@/components/ui/skeleton";
 import { duasApi } from "@/features/duas/api";
 import { getDuaCategoryIcon } from "@/features/duas/icons";
-import { useDocumentTitle } from "@/hooks/useDocumentTitle";
+import { PageMeta } from "@/components/shared/PageMeta";
 
 export function DuaCategoriesPage() {
   const { t } = useTranslation();
-  useDocumentTitle(t("duas.title"));
   const { data: categories, isLoading, isError } = useQuery({
     queryKey: ["duas", "categories"],
     queryFn: duasApi.listCategories,
@@ -18,6 +17,7 @@ export function DuaCategoriesPage() {
 
   return (
     <div className="mx-auto max-w-3xl px-4 py-10">
+      <PageMeta title={t("duas.title")} description={t("duas.subtitle")} />
       <div className="mb-8 flex items-center gap-3">
         <HandHeart className="h-7 w-7 text-primary" aria-hidden="true" />
         <div>

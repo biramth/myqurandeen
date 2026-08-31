@@ -8,7 +8,7 @@ import { Breadcrumbs } from "@/components/shared/Breadcrumbs";
 import { ContentUserActions } from "@/components/shared/ContentUserActions";
 import { libraryApi } from "@/features/library/api";
 import { useStreakPing } from "@/features/streaks/useStreak";
-import { useDocumentTitle } from "@/hooks/useDocumentTitle";
+import { PageMeta } from "@/components/shared/PageMeta";
 
 export function BookPage() {
   const { slug } = useParams<{ slug: string }>();
@@ -20,12 +20,11 @@ export function BookPage() {
     queryFn: () => libraryApi.getBook(slug!),
     enabled: Boolean(slug),
   });
-  useDocumentTitle(data?.title);
-
   if (!slug) return <Navigate to="/library" replace />;
 
   return (
     <div className="mx-auto max-w-2xl px-4 py-8">
+      <PageMeta title={data?.title} description={data?.description ?? undefined} />
       <Breadcrumbs
         items={[{ label: t("library.title"), href: "/library" }, ...(data ? [{ label: data.title }] : [])]}
       />

@@ -5,6 +5,7 @@
   "outputDirectory": "apps/web/dist",
   "rewrites": [
     { "source": "/api/(.*)", "destination": "https://myqurandeen-api.onrender.com/$1" },
+    { "source": "/sitemap.xml", "destination": "https://myqurandeen-api.onrender.com/sitemap.xml" },
     { "source": "/(.*)", "destination": "/index.html" }
   ],
   "headers": [

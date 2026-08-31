@@ -6,14 +6,13 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { marketingApi } from "@/features/marketing/api";
 import { ApiError } from "@/lib/api-client";
-import { useDocumentTitle } from "@/hooks/useDocumentTitle";
+import { PageMeta } from "@/components/shared/PageMeta";
 
 type UnsubscribeState = { status: "loading" } | { status: "success" } | { status: "error"; message: string };
 
 export function UnsubscribePage() {
   const { t } = useTranslation();
   const [searchParams] = useSearchParams();
-  useDocumentTitle(t("marketing.unsubscribe.title"));
   const [state, setState] = React.useState<UnsubscribeState>({ status: "loading" });
   const requested = React.useRef(false);
 
@@ -38,6 +37,7 @@ export function UnsubscribePage() {
 
   return (
     <div className="mx-auto flex min-h-[70vh] max-w-md items-center px-4">
+      <PageMeta title={t("marketing.unsubscribe.title")} noindex />
       <Card className="w-full">
         <CardHeader>
           <CardTitle>{t("marketing.unsubscribe.title")}</CardTitle>

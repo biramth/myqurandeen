@@ -7,7 +7,7 @@ import { Skeleton } from "@/components/ui/skeleton";
 import { Breadcrumbs } from "@/components/shared/Breadcrumbs";
 import { ProseText } from "@/components/shared/ProseText";
 import { historyApi } from "@/features/history/api";
-import { useDocumentTitle } from "@/hooks/useDocumentTitle";
+import { PageMeta } from "@/components/shared/PageMeta";
 
 export function HistoryPeriodPage() {
   const { period: slug } = useParams<{ period: string }>();
@@ -18,12 +18,12 @@ export function HistoryPeriodPage() {
     queryFn: () => historyApi.getPeriod(slug!),
     enabled: Boolean(slug),
   });
-  useDocumentTitle(data?.name);
 
   if (!slug) return <Navigate to="/history" replace />;
 
   return (
     <div className="mx-auto max-w-3xl px-4 py-8">
+      <PageMeta title={data?.name} description={data?.description ?? undefined} />
       <Breadcrumbs
         items={[{ label: t("history.title"), href: "/history" }, ...(data ? [{ label: data.name }] : [])]}
       />

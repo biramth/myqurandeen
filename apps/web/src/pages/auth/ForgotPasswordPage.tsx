@@ -10,12 +10,11 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { forgotPasswordSchema, type ForgotPasswordValues } from "@/features/auth/schemas";
 import { authApi } from "@/features/auth/api";
 import { ApiError } from "@/lib/api-client";
-import { useDocumentTitle } from "@/hooks/useDocumentTitle";
+import { PageMeta } from "@/components/shared/PageMeta";
 import { Link } from "react-router-dom";
 
 export function ForgotPasswordPage() {
   const { t } = useTranslation();
-  useDocumentTitle(t("auth.forgotPassword.title"));
   const [sent, setSent] = React.useState(false);
   const [serverError, setServerError] = React.useState<string | null>(null);
 
@@ -39,6 +38,7 @@ export function ForgotPasswordPage() {
 
   return (
     <div className="mx-auto flex min-h-[70vh] max-w-md items-center px-4">
+      <PageMeta title={t("auth.forgotPassword.title")} noindex />
       <Card className="w-full">
         <CardHeader>
           <CardTitle>{t("auth.forgotPassword.title")}</CardTitle>

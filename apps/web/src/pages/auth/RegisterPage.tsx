@@ -13,14 +13,13 @@ import { GoogleButton } from "@/features/auth/GoogleButton";
 import { ApiError } from "@/lib/api-client";
 import { authApi } from "@/features/auth/api";
 import { PasswordInput } from "@/components/shared/PasswordInput";
-import { useDocumentTitle } from "@/hooks/useDocumentTitle";
+import { PageMeta } from "@/components/shared/PageMeta";
 import { MailCheck } from "lucide-react";
 
 export function RegisterPage() {
   const { register: registerUser } = useAuth();
   const [searchParams] = useSearchParams();
   const { t } = useTranslation();
-  useDocumentTitle(t("auth.register.title"));
   const [registeredEmail, setRegisteredEmail] = React.useState<string | null>(null);
   const [serverError, setServerError] = React.useState<string | null>(null);
   const [googleEnabled, setGoogleEnabled] = React.useState(false);
@@ -58,6 +57,7 @@ export function RegisterPage() {
   if (registeredEmail) {
     return (
       <div className="mx-auto flex min-h-[70vh] max-w-md items-center px-4">
+        <PageMeta title={t("auth.register.title")} noindex />
         <Card className="w-full">
           <CardContent className="flex flex-col items-center gap-4 pt-8 text-center">
             <MailCheck className="h-12 w-12 text-primary" />
@@ -73,6 +73,7 @@ export function RegisterPage() {
 
   return (
     <div className="mx-auto flex min-h-[70vh] max-w-md items-center px-4">
+      <PageMeta title={t("auth.register.title")} noindex />
       <Card className="w-full">
         <CardHeader>
           <CardTitle>{t("auth.register.title")}</CardTitle>

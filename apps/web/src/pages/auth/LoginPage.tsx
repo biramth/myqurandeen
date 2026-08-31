@@ -14,14 +14,13 @@ import { GoogleButton } from "@/features/auth/GoogleButton";
 import { ApiError } from "@/lib/api-client";
 import { authApi } from "@/features/auth/api";
 import { PasswordInput } from "@/components/shared/PasswordInput";
-import { useDocumentTitle } from "@/hooks/useDocumentTitle";
+import { PageMeta } from "@/components/shared/PageMeta";
 
 export function LoginPage() {
   const { login } = useAuth();
   const navigate = useNavigate();
   const [searchParams] = useSearchParams();
   const { t } = useTranslation();
-  useDocumentTitle(t("auth.login.title"));
   const [serverError, setServerError] = React.useState<string | null>(null);
   const [emailForResend, setEmailForResend] = React.useState<string | null>(null);
   const [resendSent, setResendSent] = React.useState(false);
@@ -76,6 +75,7 @@ export function LoginPage() {
 
   return (
     <div className="mx-auto flex min-h-[70vh] max-w-md items-center px-4">
+      <PageMeta title={t("auth.login.title")} noindex />
       <Card className="w-full">
         <CardHeader>
           <CardTitle>{t("auth.login.title")}</CardTitle>

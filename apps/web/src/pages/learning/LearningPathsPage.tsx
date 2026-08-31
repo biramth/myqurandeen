@@ -6,13 +6,12 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Skeleton } from "@/components/ui/skeleton";
 import { learningApi } from "@/features/learning/api";
-import { useDocumentTitle } from "@/hooks/useDocumentTitle";
+import { PageMeta } from "@/components/shared/PageMeta";
 
 const LEVEL_KEYS = { beginner: "learning.beginner", intermediate: "learning.intermediate", advanced: "learning.advanced" } as const;
 
 export function LearningPathsPage() {
   const { t } = useTranslation();
-  useDocumentTitle(t("learning.title"));
   const { data: paths, isLoading, isError } = useQuery({
     queryKey: ["learning", "paths"],
     queryFn: learningApi.listPaths,
@@ -20,6 +19,7 @@ export function LearningPathsPage() {
 
   return (
     <div className="mx-auto max-w-3xl px-4 py-10">
+      <PageMeta title={t("learning.title")} description={t("learning.subtitle")} />
       <div className="mb-8 flex items-center gap-3">
         <RouteIcon className="h-7 w-7 text-primary" aria-hidden="true" />
         <div>

@@ -10,7 +10,7 @@ import { useAuth } from "@/features/auth/auth-context";
 import { aiApi } from "@/features/ai/api";
 import { resolveSourceLink } from "@/features/ai/source-links";
 import type { AiQueryResult } from "@/features/ai/types";
-import { useDocumentTitle } from "@/hooks/useDocumentTitle";
+import { PageMeta } from "@/components/shared/PageMeta";
 
 interface Exchange {
   id: string;
@@ -22,7 +22,6 @@ interface Exchange {
 export function AssistantPage() {
   const { t } = useTranslation();
   const { user } = useAuth();
-  useDocumentTitle(t("assistant.title"));
   const [question, setQuestion] = React.useState("");
   const [exchanges, setExchanges] = React.useState<Exchange[]>([]);
 
@@ -58,6 +57,7 @@ export function AssistantPage() {
 
   return (
     <div className="mx-auto max-w-2xl px-4 py-10">
+      <PageMeta title={t("assistant.title")} noindex />
       <div className="mb-2 flex items-center gap-3">
         <Sparkles className="h-7 w-7 text-primary" aria-hidden="true" />
         <div>

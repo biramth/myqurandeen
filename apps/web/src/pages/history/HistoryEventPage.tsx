@@ -8,7 +8,7 @@ import { Breadcrumbs } from "@/components/shared/Breadcrumbs";
 import { ContentUserActions } from "@/components/shared/ContentUserActions";
 import { ProseText } from "@/components/shared/ProseText";
 import { historyApi } from "@/features/history/api";
-import { useDocumentTitle } from "@/hooks/useDocumentTitle";
+import { PageMeta, SITE_URL } from "@/components/shared/PageMeta";
 
 export function HistoryEventPage() {
   const { slug } = useParams<{ slug: string }>();
@@ -19,12 +19,12 @@ export function HistoryEventPage() {
     queryFn: () => historyApi.getEvent(slug!),
     enabled: Boolean(slug),
   });
-  useDocumentTitle(data?.event.title);
 
   if (!slug) return <Navigate to="/history" replace />;
 
   return (
     <div className="mx-auto max-w-2xl px-4 py-8">
+      <PageMeta title={data?.event.title} description={data?.event.description} />
       <Breadcrumbs
         items={[
           { label: t("history.title"), href: "/history" },
@@ -52,7 +52,17 @@ export function HistoryEventPage() {
           </div>
           <ProseText text={data.event.description} className="mt-4" />
 
-          <ContentUserActions targetType="event" targetId={data.event.id} className="mt-5" />
+          <ContentUserActions
+            targetType="event"
+            targetId={data.event.id}
+            className="mt-5"
+            shareContent={{
+              title: data.event.title,
+              body: data.event.description,
+              source: data.period?.name,
+              url: `${SITE_URL}/history/event/${slug}`,
+            }}
+          />
 
           {data.sources.length > 0 && (
             <div className="mt-6">

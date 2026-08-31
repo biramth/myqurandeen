@@ -9,7 +9,7 @@ import { Breadcrumbs } from "@/components/shared/Breadcrumbs";
 import { Callout } from "@/components/shared/Callout";
 import { ContentUserActions } from "@/components/shared/ContentUserActions";
 import { schoolsApi } from "@/features/schools/api";
-import { useDocumentTitle } from "@/hooks/useDocumentTitle";
+import { PageMeta } from "@/components/shared/PageMeta";
 
 export function FiqhTopicPage() {
   const { slug } = useParams<{ slug: string }>();
@@ -20,12 +20,12 @@ export function FiqhTopicPage() {
     queryFn: () => schoolsApi.getFiqhTopicComparison(slug!),
     enabled: Boolean(slug),
   });
-  useDocumentTitle(data?.topic.title);
 
   if (!slug) return <Navigate to="/fiqh" replace />;
 
   return (
     <div className="mx-auto max-w-2xl px-4 py-8">
+      <PageMeta title={data?.topic.title} description={data?.topic.description ?? undefined} />
       <Button variant="ghost" size="sm" asChild className="mb-4 -ml-2">
         <Link to="/fiqh">
           <ArrowLeft className="h-4 w-4" />

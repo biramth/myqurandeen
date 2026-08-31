@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { ApiError } from "@/lib/api-client";
 import { useAuth } from "@/features/auth/auth-context";
-import { useDocumentTitle } from "@/hooks/useDocumentTitle";
+import { PageMeta } from "@/components/shared/PageMeta";
 
 /**
  * Page de retour du flux Google OAuth : l'API a pose le cookie refresh httpOnly
@@ -16,7 +16,6 @@ export function GoogleCallbackPage() {
   const { t } = useTranslation();
   const navigate = useNavigate();
   const { refreshSession } = useAuth();
-  useDocumentTitle(t("auth.oauth.title"));
   const [error, setError] = React.useState(false);
   const done = React.useRef(false);
 
@@ -35,7 +34,17 @@ export function GoogleCallbackPage() {
   }, [navigate, refreshSession]);
 
   if (error) {
-    return <div className="px-4 py-16 text-center text-sm text-muted-foreground">{t("auth.oauth.error")}</div>;
+    return (
+      <div className="px-4 py-16 text-center text-sm text-muted-foreground">
+        <PageMeta title={t("auth.oauth.title")} noindex />
+        {t("auth.oauth.error")}
+      </div>
+    );
   }
-  return <div className="px-4 py-16 text-center text-sm text-muted-foreground">{t("auth.oauth.connecting")}</div>;
+  return (
+    <div className="px-4 py-16 text-center text-sm text-muted-foreground">
+      <PageMeta title={t("auth.oauth.title")} noindex />
+      {t("auth.oauth.connecting")}
+    </div>
+  );
 }

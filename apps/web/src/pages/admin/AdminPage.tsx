@@ -10,7 +10,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { useAuth } from "@/features/auth/auth-context";
 import { adminApi } from "@/features/admin/api";
-import { useDocumentTitle } from "@/hooks/useDocumentTitle";
+import { PageMeta } from "@/components/shared/PageMeta";
 import { MarketingTab } from "./MarketingTab";
 import {
   FIQH_SUGGESTION_STATUSES,
@@ -342,7 +342,6 @@ function AuditLogTab() {
 export function AdminPage() {
   const { t } = useTranslation();
   const { user, isLoading } = useAuth();
-  useDocumentTitle(t("admin.title"));
 
   if (isLoading) return <Skeleton className="mx-auto mt-10 h-64 w-full max-w-3xl" />;
   // Garde cote client (UX uniquement) : chaque endpoint /admin/* est de toute
@@ -351,6 +350,7 @@ export function AdminPage() {
 
   return (
     <div className="mx-auto max-w-3xl px-4 py-10">
+      <PageMeta title={t("admin.title")} noindex />
       <div className="mb-6 flex items-center gap-3">
         <ShieldCheck className="h-7 w-7 text-primary" aria-hidden="true" />
         <h1 className="text-2xl font-semibold tracking-tight">{t("admin.title")}</h1>

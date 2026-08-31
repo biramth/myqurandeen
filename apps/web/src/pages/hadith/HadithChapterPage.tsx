@@ -9,7 +9,7 @@ import { Separator } from "@/components/ui/separator";
 import { Skeleton } from "@/components/ui/skeleton";
 import { Breadcrumbs } from "@/components/shared/Breadcrumbs";
 import { hadithApi } from "@/features/hadith/api";
-import { useDocumentTitle } from "@/hooks/useDocumentTitle";
+import { PageMeta } from "@/components/shared/PageMeta";
 
 export function HadithChapterPage() {
   const { collection: slug, bookNumber: bookNumberParam } = useParams<{ collection: string; bookNumber: string }>();
@@ -22,8 +22,6 @@ export function HadithChapterPage() {
     queryFn: () => hadithApi.getBookHadiths(slug!, bookNumber, page),
     enabled: Boolean(slug) && Number.isInteger(bookNumber),
   });
-  useDocumentTitle(data ? `${data.book.number}. ${data.book.title}` : undefined);
-
   const { data: collection } = useQuery({
     queryKey: ["hadith", "collection", slug],
     queryFn: () => hadithApi.getCollection(slug!),
@@ -57,6 +55,7 @@ export function HadithChapterPage() {
 
   return (
     <div className="mx-auto max-w-3xl px-4 py-8">
+      <PageMeta title={data ? `${data.book.number}. ${data.book.title}` : undefined} />
       <Breadcrumbs
         items={[
           { label: t("hadith.title"), href: "/hadith" },

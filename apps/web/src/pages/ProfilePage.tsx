@@ -16,7 +16,7 @@ import { userDataApi } from "@/features/user-data/api";
 import { RemindersTab } from "@/features/reminders/RemindersTab";
 import { StreakCard } from "@/features/streaks/StreakCard";
 import { GamificationCard } from "@/features/gamification/GamificationCard";
-import { useDocumentTitle } from "@/hooks/useDocumentTitle";
+import { PageMeta } from "@/components/shared/PageMeta";
 
 function EmptyState({ icon: Icon, label }: { icon: typeof Bookmark; label: string }) {
   return (
@@ -324,7 +324,6 @@ function CollectionsTab() {
 export function ProfilePage() {
   const { user, isLoading, logout } = useAuth();
   const { t, i18n } = useTranslation();
-  useDocumentTitle(user?.displayName ?? t("nav.profile"));
   const [resendState, setResendState] = React.useState<"idle" | "sent" | "error">("idle");
 
   const handleResendVerification = async () => {
@@ -348,6 +347,7 @@ export function ProfilePage() {
 
   return (
     <div className="mx-auto max-w-2xl px-4 py-12">
+      <PageMeta title={user.displayName ?? t("nav.profile")} noindex />
       {!user.emailVerified && (
         <div className="mb-4 flex flex-wrap items-center justify-between gap-2 rounded-md border border-amber-300 bg-amber-50 px-4 py-3 dark:border-amber-500/30 dark:bg-amber-950/30">
           <p className="text-sm text-amber-800 dark:text-amber-200">{t("profile.emailNotVerified")}</p>

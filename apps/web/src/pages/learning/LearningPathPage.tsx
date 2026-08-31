@@ -7,7 +7,7 @@ import { Badge } from "@/components/ui/badge";
 import { Skeleton } from "@/components/ui/skeleton";
 import { learningApi } from "@/features/learning/api";
 import { useAuth } from "@/features/auth/auth-context";
-import { useDocumentTitle } from "@/hooks/useDocumentTitle";
+import { PageMeta } from "@/components/shared/PageMeta";
 
 const LEVEL_KEYS = { beginner: "learning.beginner", intermediate: "learning.intermediate", advanced: "learning.advanced" } as const;
 
@@ -21,8 +21,6 @@ export function LearningPathPage() {
     queryFn: () => learningApi.getPath(slug!),
     enabled: Boolean(slug),
   });
-  useDocumentTitle(data?.title);
-
   const { data: completedLessonIds } = useQuery({
     queryKey: ["learning", "progress"],
     queryFn: learningApi.getProgress,
@@ -36,6 +34,7 @@ export function LearningPathPage() {
 
   return (
     <div className="mx-auto max-w-2xl px-4 py-8">
+      <PageMeta title={data?.title} description={data?.description ?? undefined} />
       <Button variant="ghost" size="sm" asChild className="mb-4 -ml-2">
         <Link to="/learn">
           <ArrowLeft className="h-4 w-4" />

@@ -8,7 +8,7 @@ import { Breadcrumbs } from "@/components/shared/Breadcrumbs";
 import { ContentUserActions } from "@/components/shared/ContentUserActions";
 import { ProseText } from "@/components/shared/ProseText";
 import { scholarsApi } from "@/features/scholars/api";
-import { useDocumentTitle } from "@/hooks/useDocumentTitle";
+import { PageMeta } from "@/components/shared/PageMeta";
 
 export function ScholarPage() {
   const { slug } = useParams<{ slug: string }>();
@@ -19,12 +19,12 @@ export function ScholarPage() {
     queryFn: () => scholarsApi.getScholar(slug!),
     enabled: Boolean(slug),
   });
-  useDocumentTitle(data?.name);
 
   if (!slug) return <Navigate to="/scholars" replace />;
 
   return (
     <div className="mx-auto max-w-2xl px-4 py-8">
+      <PageMeta title={data?.name} description={data?.bio ?? undefined} />
       <Breadcrumbs
         items={[
           { label: t("scholars.title"), href: "/scholars" },

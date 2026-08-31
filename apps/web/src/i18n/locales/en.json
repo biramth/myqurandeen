@@ -218,6 +218,17 @@
     "activeTodayMessage": "Nice, you're up to date today!",
     "reminderMessage": "Don't forget to read today to keep your streak."
   },
+  "share": {
+    "button": "Share",
+    "dialogTitle": "Share",
+    "shareAction": "Share",
+    "download": "Download image",
+    "copyLink": "Copy link",
+    "linkCopied": "Link copied!",
+    "whatsapp": "WhatsApp",
+    "twitter": "X",
+    "error": "Something went wrong."
+  },
   "reminders": {
     "pushUnsupported": "Notifications aren't supported by this browser.",
     "pushUnconfigured": "Notifications aren't configured on this server yet.",

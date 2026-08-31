@@ -6,7 +6,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Skeleton } from "@/components/ui/skeleton";
 import { hadithApi } from "@/features/hadith/api";
-import { useDocumentTitle } from "@/hooks/useDocumentTitle";
+import { PageMeta } from "@/components/shared/PageMeta";
 
 export function HadithCollectionPage() {
   const { collection: slug } = useParams<{ collection: string }>();
@@ -17,12 +17,12 @@ export function HadithCollectionPage() {
     queryFn: () => hadithApi.getCollection(slug!),
     enabled: Boolean(slug),
   });
-  useDocumentTitle(data?.name);
 
   if (!slug) return <Navigate to="/hadith" replace />;
 
   return (
     <div className="mx-auto max-w-3xl px-4 py-8">
+      <PageMeta title={data?.name} description={data?.description ?? undefined} />
       <Button variant="ghost" size="sm" asChild className="mb-4 -ml-2">
         <Link to="/hadith">
           <ArrowLeft className="h-4 w-4" />

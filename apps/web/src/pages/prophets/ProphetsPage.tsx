@@ -5,11 +5,10 @@ import { Users } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Skeleton } from "@/components/ui/skeleton";
 import { prophetsApi } from "@/features/prophets/api";
-import { useDocumentTitle } from "@/hooks/useDocumentTitle";
+import { PageMeta } from "@/components/shared/PageMeta";
 
 export function ProphetsPage() {
   const { t } = useTranslation();
-  useDocumentTitle(t("prophets.title"));
   const { data: prophets, isLoading, isError } = useQuery({
     queryKey: ["prophets"],
     queryFn: prophetsApi.listProphets,
@@ -17,6 +16,7 @@ export function ProphetsPage() {
 
   return (
     <div className="mx-auto max-w-3xl px-4 py-10">
+      <PageMeta title={t("prophets.title")} description={t("prophets.subtitle")} />
       <div className="mb-8 flex items-center gap-3">
         <Users className="h-7 w-7 text-primary" aria-hidden="true" />
         <div>

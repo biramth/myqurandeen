@@ -7,7 +7,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { authApi } from "@/features/auth/api";
 import { useAuth } from "@/features/auth/auth-context";
 import { ApiError } from "@/lib/api-client";
-import { useDocumentTitle } from "@/hooks/useDocumentTitle";
+import { PageMeta } from "@/components/shared/PageMeta";
 
 type VerifyState = { status: "loading" } | { status: "success" } | { status: "error"; message: string };
 
@@ -16,7 +16,6 @@ export function VerifyEmailPage() {
   const [searchParams] = useSearchParams();
   const navigate = useNavigate();
   const { refreshSession } = useAuth();
-  useDocumentTitle(t("auth.verifyEmail.title"));
   const [state, setState] = React.useState<VerifyState>({ status: "loading" });
   const consumed = React.useRef(false);
 
@@ -48,6 +47,7 @@ export function VerifyEmailPage() {
 
   return (
     <div className="mx-auto flex min-h-[70vh] max-w-md items-center px-4">
+      <PageMeta title={t("auth.verifyEmail.title")} noindex />
       <Card className="w-full">
         <CardHeader>
           <CardTitle>{t("auth.verifyEmail.title")}</CardTitle>

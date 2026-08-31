@@ -9,7 +9,7 @@ import { ContentUserActions } from "@/components/shared/ContentUserActions";
 import { quranApi } from "@/features/quran/api";
 import { useStreakPing } from "@/features/streaks/useStreak";
 import { useGamificationEvent } from "@/features/gamification/useGamification";
-import { useDocumentTitle } from "@/hooks/useDocumentTitle";
+import { PageMeta, SITE_URL } from "@/components/shared/PageMeta";
 
 export function VersePage() {
   const { surah: surahParam, verse: verseParam } = useParams<{ surah: string; verse: string }>();
@@ -27,7 +27,6 @@ export function VersePage() {
   useEffect(() => {
     if (data) track("verse_read");
   }, [data, track]);
-  useDocumentTitle(data ? `${data.surah.nameTransliterated} ${data.verse.numberInSurah}` : undefined);
 
   if (!Number.isInteger(surahNumber) || !Number.isInteger(verseNumber)) {
     return <Navigate to="/quran" replace />;
@@ -35,6 +34,10 @@ export function VersePage() {
 
   return (
     <div className="mx-auto max-w-2xl px-4 py-8">
+      <PageMeta
+        title={data ? `${data.surah.nameTransliterated} ${data.verse.numberInSurah}` : undefined}
+        description={data?.translations[0]?.text}
+      />
       <Breadcrumbs
         items={[
           { label: t("quran.title"), href: "/quran" },
@@ -60,7 +63,18 @@ export function VersePage() {
             )}
           </div>
 
-          <ContentUserActions targetType="verse" targetId={data.verse.id} className="mt-4" />
+          <ContentUserActions
+            targetType="verse"
+            targetId={data.verse.id}
+            className="mt-4"
+            shareContent={{
+              title: `${data.surah.nameTransliterated} ${data.verse.numberInSurah}`,
+              arabicText: data.verse.textArabic,
+              body: data.translations[0]?.text,
+              source: `${data.surah.nameTransliterated} — ${t("quran.verses")} ${data.verse.numberInSurah}`,
+              url: `${SITE_URL}/quran/${surahNumber}/${verseNumber}`,
+            }}
+          />
 
           <h2 className="mb-3 mt-8 text-sm font-semibold uppercase tracking-wide text-muted-foreground">
             {t("quran.comparisonTitle")}

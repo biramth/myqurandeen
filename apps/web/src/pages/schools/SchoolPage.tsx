@@ -8,7 +8,7 @@ import { Skeleton } from "@/components/ui/skeleton";
 import { Breadcrumbs } from "@/components/shared/Breadcrumbs";
 import { ProseText } from "@/components/shared/ProseText";
 import { schoolsApi } from "@/features/schools/api";
-import { useDocumentTitle } from "@/hooks/useDocumentTitle";
+import { PageMeta } from "@/components/shared/PageMeta";
 
 export function SchoolPage() {
   const { slug } = useParams<{ slug: string }>();
@@ -19,12 +19,12 @@ export function SchoolPage() {
     queryFn: () => schoolsApi.getSchool(slug!),
     enabled: Boolean(slug),
   });
-  useDocumentTitle(data?.name);
 
   if (!slug) return <Navigate to="/schools" replace />;
 
   return (
     <div className="mx-auto max-w-2xl px-4 py-8">
+      <PageMeta title={data?.name} description={data?.history ?? data?.principles ?? undefined} />
       <Button variant="ghost" size="sm" asChild className="mb-4 -ml-2">
         <Link to="/schools">
           <ArrowLeft className="h-4 w-4" />

@@ -1,0 +1,14 @@
+User-agent: *
+Allow: /
+Disallow: /login
+Disallow: /register
+Disallow: /verify-email
+Disallow: /forgot-password
+Disallow: /reset-password
+Disallow: /oauth/google/callback
+Disallow: /profile
+Disallow: /admin
+Disallow: /assistant
+Disallow: /desabonnement
+
+Sitemap: https://myqurandeen.vercel.app/sitemap.xml

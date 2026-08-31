@@ -6,7 +6,7 @@ import { Button } from "@/components/ui/button";
 import { Skeleton } from "@/components/ui/skeleton";
 import { learningApi } from "@/features/learning/api";
 import { QuizBlock } from "@/features/learning/QuizBlock";
-import { useDocumentTitle } from "@/hooks/useDocumentTitle";
+import { PageMeta } from "@/components/shared/PageMeta";
 
 export function LearningQuizPage() {
   const { slug } = useParams<{ slug: string }>();
@@ -17,7 +17,6 @@ export function LearningQuizPage() {
     queryFn: () => learningApi.getPath(slug!),
     enabled: Boolean(slug),
   });
-  useDocumentTitle(t("learning.finalQuiz"));
 
   const { data: quiz, isLoading, isError } = useQuery({
     queryKey: ["learning", "path-quiz", slug],
@@ -29,6 +28,7 @@ export function LearningQuizPage() {
 
   return (
     <div className="mx-auto max-w-2xl px-4 py-8">
+      <PageMeta title={t("learning.finalQuiz")} />
       <Button variant="ghost" size="sm" asChild className="mb-4 -ml-2">
         <Link to={`/learn/${slug}`}>
           <ArrowLeft className="h-4 w-4" />

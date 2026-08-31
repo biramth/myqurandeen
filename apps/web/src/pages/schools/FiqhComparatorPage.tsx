@@ -7,7 +7,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Skeleton } from "@/components/ui/skeleton";
 import { schoolsApi } from "@/features/schools/api";
 import type { FiqhTopicSummary } from "@/features/schools/types";
-import { useDocumentTitle } from "@/hooks/useDocumentTitle";
+import { PageMeta } from "@/components/shared/PageMeta";
 import { SuggestFiqhQuestionButton } from "@/features/fiqh-suggestions/SuggestFiqhQuestionButton";
 
 // Ordre de lecture privilegie (culte puis transactions) plutot que l'ordre
@@ -44,7 +44,6 @@ function groupByCategory(topics: FiqhTopicSummary[]): [string, FiqhTopicSummary[
 
 export function FiqhComparatorPage() {
   const { t } = useTranslation();
-  useDocumentTitle(t("schools.comparatorTitle"));
   const { data: topics, isLoading, isError } = useQuery({
     queryKey: ["schools", "fiqh-topics"],
     queryFn: schoolsApi.listFiqhTopics,
@@ -53,6 +52,7 @@ export function FiqhComparatorPage() {
 
   return (
     <div className="mx-auto max-w-3xl px-4 py-10">
+      <PageMeta title={t("schools.comparatorTitle")} description={t("schools.comparatorSubtitle")} />
       <Button variant="ghost" size="sm" asChild className="mb-4 -ml-2">
         <Link to="/schools">
           <ArrowLeft className="h-4 w-4" />

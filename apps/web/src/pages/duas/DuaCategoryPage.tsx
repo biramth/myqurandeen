@@ -14,7 +14,7 @@ import { duasApi } from "@/features/duas/api";
 import { getDuaCategoryIcon } from "@/features/duas/icons";
 import { useStreakPing } from "@/features/streaks/useStreak";
 import { useGamificationEvent } from "@/features/gamification/useGamification";
-import { useDocumentTitle } from "@/hooks/useDocumentTitle";
+import { PageMeta, SITE_URL } from "@/components/shared/PageMeta";
 
 export function DuaCategoryPage() {
   const { slug } = useParams<{ slug: string }>();
@@ -30,7 +30,6 @@ export function DuaCategoryPage() {
   useEffect(() => {
     if (data) track("dua_read");
   }, [data, track]);
-  useDocumentTitle(data?.category.name);
 
   if (!slug) return <Navigate to="/duas" replace />;
 
@@ -38,6 +37,7 @@ export function DuaCategoryPage() {
 
   return (
     <div className="mx-auto max-w-2xl px-4 py-8">
+      <PageMeta title={data?.category.name} description={data?.category.description ?? undefined} />
       <Button variant="ghost" size="sm" asChild className="mb-4 -ml-2">
         <Link to="/duas">
           <ArrowLeft className="h-4 w-4" />
@@ -79,6 +79,13 @@ export function DuaCategoryPage() {
                       size="sm"
                       className="mt-1.5"
                       extra={<QuickReminderButton targetType="dua" targetId={dua.id} size="sm" />}
+                      shareContent={{
+                        title: dua.title,
+                        arabicText: dua.arabicText ?? undefined,
+                        body: dua.translation,
+                        source: dua.sourceTitle ?? data.category.name,
+                        url: `${SITE_URL}/duas/${slug}`,
+                      }}
                     />
                   </div>
 

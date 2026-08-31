@@ -6,7 +6,7 @@ import { Skeleton } from "@/components/ui/skeleton";
 import { Breadcrumbs } from "@/components/shared/Breadcrumbs";
 import { ProseText } from "@/components/shared/ProseText";
 import { prophetsApi } from "@/features/prophets/api";
-import { useDocumentTitle } from "@/hooks/useDocumentTitle";
+import { PageMeta } from "@/components/shared/PageMeta";
 
 export function ProphetPage() {
   const { slug } = useParams<{ slug: string }>();
@@ -17,12 +17,12 @@ export function ProphetPage() {
     queryFn: () => prophetsApi.getProphet(slug!),
     enabled: Boolean(slug),
   });
-  useDocumentTitle(data?.name);
 
   if (!slug) return <Navigate to="/prophets" replace />;
 
   return (
     <div className="mx-auto max-w-2xl px-4 py-8">
+      <PageMeta title={data?.name} description={data?.description} />
       <Breadcrumbs
         items={[{ label: t("prophets.title"), href: "/prophets" }, ...(data ? [{ label: data.name }] : [])]}
       />

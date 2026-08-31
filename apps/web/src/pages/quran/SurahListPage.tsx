@@ -7,11 +7,10 @@ import { Badge } from "@/components/ui/badge";
 import { Skeleton } from "@/components/ui/skeleton";
 import { quranApi } from "@/features/quran/api";
 import { translatedSurahName } from "@/features/quran/surah-names";
-import { useDocumentTitle } from "@/hooks/useDocumentTitle";
+import { PageMeta } from "@/components/shared/PageMeta";
 
 export function SurahListPage() {
   const { t } = useTranslation();
-  useDocumentTitle(t("quran.title"));
   const { data: surahs, isLoading, isError } = useQuery({
     queryKey: ["quran", "surahs"],
     queryFn: quranApi.listSurahs,
@@ -19,6 +18,7 @@ export function SurahListPage() {
 
   return (
     <div className="mx-auto max-w-4xl px-4 py-10">
+      <PageMeta title={t("quran.title")} description={t("quran.subtitle")} />
       <div className="mb-8 flex items-center gap-3">
         <BookOpen className="h-7 w-7 text-primary" aria-hidden="true" />
         <div>

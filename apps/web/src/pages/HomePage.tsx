@@ -17,7 +17,7 @@ import {
 } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
 import { SearchBox } from "@/components/shared/SearchBox";
-import { useDocumentTitle } from "@/hooks/useDocumentTitle";
+import { PageMeta } from "@/components/shared/PageMeta";
 
 const CATEGORY_ICONS = {
   quran: BookOpen,
@@ -53,7 +53,6 @@ export function HomePage() {
   const navigate = useNavigate();
   const { t } = useTranslation();
   const [query, setQuery] = React.useState("");
-  useDocumentTitle();
 
   const handleSearch = (submitted: string) => {
     navigate(submitted ? `/search?q=${encodeURIComponent(submitted)}` : "/search");
@@ -63,6 +62,7 @@ export function HomePage() {
 
   return (
     <div className="mx-auto max-w-4xl px-4 py-14">
+      <PageMeta title={null} description={t("home.subtitle")} />
       <div className="text-center">
         <h1 className="text-3xl font-semibold tracking-tight sm:text-4xl">{t("home.title")}</h1>
         <p className="mt-3 text-muted-foreground">{t("home.subtitle")}</p>

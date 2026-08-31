@@ -1,12 +1,59 @@
 <!doctype html>
-<html lang="fr">
+<!-- lang="en" neutre (pas "fr") : c'est ce que voit un crawler qui n'execute
+     pas le JS (voir commentaire OG plus bas) - la vraie langue, elle, est
+     posee cote client par PageMeta/i18n selon la preference de l'utilisateur. -->
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-    <meta
-      name="description"
+    <!-- Repli statique sitewide (description/OG/Twitter) : PageMeta.tsx pose
+         des balises equivalentes par page cote client (react-helmet-async),
+         mais un crawler qui n'execute pas de JS - la plupart des robots
+         d'apercu de lien (WhatsApp, X, Facebook, Discord, Slack...), a la
+         difference de Googlebot qui rend le JS - ne verra jamais que CE
+         qui suit. Volontairement generique (pas de contenu par page) : une
+         vraie parite d'apercu par page demanderait du SSR/prerendering, hors
+         perimetre pour l'instant (le partage in-app avec image generee cote
+         client, voir ShareButton, contourne cette limite differemment en
+         transmettant directement un fichier plutot qu'un lien a "unfurl").
+         data-rh-fallback : marque ces balises pour que PageMeta les retire
+         des le premier montage (voir son useEffect) - sinon elles resteraient
+         les PREMIERES du <head> en DOM (Helmet ne fait qu'ajouter les
+         siennes ensuite, jamais retirer du HTML statique), et Google ne
+         retient que la premiere balise description/OG rencontree : sans ce
+         retrait, la version generique gagnerait toujours sur celle, plus
+         specifique, posee par la page. -->
+    <meta name="description" data-rh-fallback="true"
       content="myQurandeen - plateforme open-source d'étude du Coran, du hadith, du tafsir, du fiqh et de l'histoire de l'Islam."
     />
+    <meta property="og:site_name" content="myQurandeen" data-rh-fallback="true" />
+    <meta property="og:title" content="myQurandeen" data-rh-fallback="true" />
+    <meta
+      property="og:description" data-rh-fallback="true"
+      content="Plateforme open-source d'étude du Coran, du hadith, du tafsir, du fiqh et de l'histoire de l'Islam."
+    />
+    <meta property="og:image" content="https://myqurandeen.vercel.app/icon-512.png" data-rh-fallback="true" />
+    <meta property="og:type" content="website" data-rh-fallback="true" />
+    <meta name="twitter:card" content="summary_large_image" data-rh-fallback="true" />
+    <meta name="twitter:title" content="myQurandeen" data-rh-fallback="true" />
+    <meta
+      name="twitter:description" data-rh-fallback="true"
+      content="Plateforme open-source d'étude du Coran, du hadith, du tafsir, du fiqh et de l'histoire de l'Islam."
+    />
+    <meta name="twitter:image" content="https://myqurandeen.vercel.app/icon-512.png" data-rh-fallback="true" />
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "name": "myQurandeen",
+        "url": "https://myqurandeen.vercel.app",
+        "potentialAction": {
+          "@type": "SearchAction",
+          "target": "https://myqurandeen.vercel.app/search?q={search_term_string}",
+          "query-input": "required name=search_term_string"
+        }
+      }
+    </script>
     <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)" />
     <meta name="theme-color" content="#0f121a" media="(prefers-color-scheme: dark)" />
     <!-- Precharge la police arabe (texte coranique/hadith, present sur

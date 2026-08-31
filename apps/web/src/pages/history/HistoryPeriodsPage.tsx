@@ -5,11 +5,10 @@ import { History as HistoryIcon } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Skeleton } from "@/components/ui/skeleton";
 import { historyApi } from "@/features/history/api";
-import { useDocumentTitle } from "@/hooks/useDocumentTitle";
+import { PageMeta } from "@/components/shared/PageMeta";
 
 export function HistoryPeriodsPage() {
   const { t } = useTranslation();
-  useDocumentTitle(t("history.title"));
   const { data: periods, isLoading, isError } = useQuery({
     queryKey: ["history", "periods"],
     queryFn: historyApi.listPeriods,
@@ -17,6 +16,7 @@ export function HistoryPeriodsPage() {
 
   return (
     <div className="mx-auto max-w-3xl px-4 py-10">
+      <PageMeta title={t("history.title")} description={t("history.subtitle")} />
       <div className="mb-8 flex items-center gap-3">
         <HistoryIcon className="h-7 w-7 text-primary" aria-hidden="true" />
         <div>
