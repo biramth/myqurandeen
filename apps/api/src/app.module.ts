@@ -13,6 +13,7 @@ import { PermissionsGuard } from "./common/guards/permissions.guard";
 import { DatabaseModule } from "./database/database.module";
 
 import { HealthModule } from "./modules/health/health.module";
+import { OgModule } from "./modules/og/og.module";
 import { RbacModule } from "./modules/rbac/rbac.module";
 import { UsersModule } from "./modules/users/users.module";
 import { AuthModule } from "./modules/auth/auth.module";
@@ -68,6 +69,7 @@ import { GamificationModule } from "./modules/gamification/gamification.module";
     DatabaseModule,
 
     HealthModule,
+    OgModule,
     RbacModule,
     UsersModule,
     AuthModule,

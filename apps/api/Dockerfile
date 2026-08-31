@@ -23,6 +23,8 @@ COPY --from=build /app/packages/shared ./packages/shared
 COPY --from=build /app/apps/api/package.json ./apps/api/package.json
 COPY --from=build /app/apps/api/dist ./apps/api/dist
 COPY --from=build /app/apps/api/drizzle ./apps/api/drizzle
+# Police Amiri (WOFF OG) - nest build ne copie pas les assets non-code.
+COPY --from=build /app/apps/api/assets ./apps/api/assets
 # npm hoiste la plupart des dependances a la racine, mais choisit parfois de
 # garder un paquet niche dans apps/api/node_modules (son propre algorithme,
 # pas toujours previsible) - sans cette ligne, "Cannot find module" au

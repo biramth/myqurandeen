@@ -37,9 +37,5 @@
   },
   "engines": {
     "node": ">=20"
-  },
-  "dependencies": {
-    "satori": "^0.33.4",
-    "sharp": "^0.35.4"
   }
 }
