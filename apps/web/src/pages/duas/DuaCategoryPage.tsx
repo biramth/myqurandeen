@@ -82,6 +82,7 @@ export function DuaCategoryPage() {
                       shareContent={{
                         title: dua.title,
                         arabicText: dua.arabicText ?? undefined,
+                        transliteration: dua.transliteration ?? undefined,
                         body: dua.translation,
                         source: dua.sourceTitle ?? data.category.name,
                         url: `${SITE_URL}/duas/${slug}`,

@@ -70,6 +70,7 @@ export function VersePage() {
             shareContent={{
               title: `${data.surah.nameTransliterated} ${data.verse.numberInSurah}`,
               arabicText: data.verse.textArabic,
+              transliteration: data.verse.textTransliterated ?? undefined,
               body: data.translations[0]?.text,
               source: `${data.surah.nameTransliterated} — ${t("quran.verses")} ${data.verse.numberInSurah}`,
               url: `${SITE_URL}/quran/${surahNumber}/${verseNumber}`,

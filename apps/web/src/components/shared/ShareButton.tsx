@@ -11,6 +11,7 @@ export interface ShareContent {
   title: string;
   body?: string;
   arabicText?: string;
+  transliteration?: string;
   source?: string;
   /** URL absolue (avec domaine) - utilisee pour le lien copie et le partage natif. */
   url: string;
@@ -58,7 +59,17 @@ export function ShareButton({ content, size }: { content: ShareContent; size?: "
   const captureBlob = async (): Promise<Blob> => {
     if (!cardRef.current) throw new Error("Carte non prete");
     await ensureFontsLoaded();
-    return domToBlob(cardRef.current, { width: 1080, height: 1920, scale: 3 });
+    // IMPORTANT : ne jamais passer width/height ici. Ce ne sont pas des
+    // dimensions de sortie mais des dimensions appliquees AU NOEUD avant le
+    // rendu ("Width/Height in pixels to be applied to node before
+    // rendering", doc modern-screenshot) - les passer (ex. 1080x1920) forcait
+    // la carte (360x640 en CSS) a etre redimensionnee de force avant capture,
+    // alors que son padding/texte restent en unites fixes (px/rem) : le
+    // conteneur grossissait mais pas son contenu, produisant une image
+    // visuellement cassee. `scale` seul augmente la resolution de sortie
+    // sans toucher a la mise en page - c'est la bonne (et seule) option a
+    // utiliser ici.
+    return domToBlob(cardRef.current, { scale: 3 });
   };
 
   const handleShare = async () => {
@@ -115,7 +126,14 @@ export function ShareButton({ content, size }: { content: ShareContent; size?: "
         </DialogHeader>
 
         <div className="flex justify-center overflow-hidden rounded-xl shadow-lg">
-          <ShareCard ref={cardRef} title={content.title} body={content.body} arabicText={content.arabicText} source={content.source} />
+          <ShareCard
+            ref={cardRef}
+            title={content.title}
+            body={content.body}
+            arabicText={content.arabicText}
+            transliteration={content.transliteration}
+            source={content.source}
+          />
         </div>
 
         <DialogFooter className="flex-col gap-2 sm:flex-col">
@@ -133,18 +151,26 @@ export function ShareButton({ content, size }: { content: ShareContent; size?: "
             <Link2 className="mr-2 h-4 w-4" aria-hidden="true" />
             {t("share.copyLink")}
           </Button>
-          <div className="flex w-full gap-2">
-            <Button type="button" variant="ghost" size="sm" className="flex-1" asChild>
-              <a href={whatsappUrl} target="_blank" rel="noopener noreferrer">
-                {t("share.whatsapp")}
-              </a>
-            </Button>
-            <Button type="button" variant="ghost" size="sm" className="flex-1" asChild>
-              <a href={twitterUrl} target="_blank" rel="noopener noreferrer">
-                {t("share.twitter")}
-              </a>
-            </Button>
-          </div>
+          {/* Ces liens ne transportent que le texte/URL (aucune image jointe
+              possible via wa.me/intent Twitter) - les afficher a cote du
+              bouton "Partager" natif (qui, lui, joint la vraie image sur
+              mobile) preterait a confusion : on ne les propose donc qu'en
+              dernier recours, quand navigator.share n'existe pas du tout
+              (desktop non supporte). */}
+          {!canNativeShare && (
+            <div className="flex w-full gap-2">
+              <Button type="button" variant="ghost" size="sm" className="flex-1" asChild>
+                <a href={whatsappUrl} target="_blank" rel="noopener noreferrer">
+                  {t("share.whatsapp")}
+                </a>
+              </Button>
+              <Button type="button" variant="ghost" size="sm" className="flex-1" asChild>
+                <a href={twitterUrl} target="_blank" rel="noopener noreferrer">
+                  {t("share.twitter")}
+                </a>
+              </Button>
+            </div>
+          )}
         </DialogFooter>
       </DialogContent>
     </Dialog>

@@ -6,39 +6,35 @@ export interface ShareCardProps {
   title: string;
   body?: string;
   arabicText?: string;
+  transliteration?: string;
   source?: string;
 }
 
 /**
- * Coupe a la limite de mot la plus proche (jamais en plein milieu d'un mot -
- * evite aussi tout risque de couper une sequence de diacritiques arabes).
+ * Paliers de taille du plus grand au plus petit - voir le mecanisme
+ * d'auto-ajustement plus bas. Descendre les paliers rétrécit le texte sans
+ * jamais le tronquer : le contenu partagé doit rester lisible dans son
+ * intégralité (arabe + translitteration + traduction), pas une version
+ * coupée. Seul un contenu vraiment demesure (voir SAFETY_CAP) est encore
+ * coupe, en tout dernier recours.
  */
-function truncateAtWord(text: string, maxLength: number): string {
-  if (text.length <= maxLength) return text;
-  const cut = text.slice(0, maxLength);
+const TIERS = [
+  { arabic: "text-3xl leading-loose", transliteration: "text-lg italic leading-relaxed", body: "text-xl leading-relaxed" },
+  { arabic: "text-2xl leading-loose", transliteration: "text-base italic leading-relaxed", body: "text-lg leading-relaxed" },
+  { arabic: "text-xl leading-relaxed", transliteration: "text-sm italic leading-relaxed", body: "text-base leading-relaxed" },
+  { arabic: "text-lg leading-relaxed", transliteration: "text-sm italic leading-relaxed", body: "text-sm leading-relaxed" },
+  { arabic: "text-base leading-relaxed", transliteration: "text-xs italic leading-relaxed", body: "text-sm leading-relaxed" },
+  { arabic: "text-sm leading-relaxed", transliteration: "text-xs italic leading-relaxed", body: "text-xs leading-relaxed" },
+  { arabic: "text-xs leading-relaxed", transliteration: "text-[10px] italic leading-relaxed", body: "text-[11px] leading-relaxed" },
+] as const;
+
+/** Filet de securite pour un contenu vraiment demesure (pas le comportement normal) - coupe a la limite de mot. */
+const SAFETY_CAP = 1200;
+function safetyTruncate(text: string): string {
+  if (text.length <= SAFETY_CAP) return text;
+  const cut = text.slice(0, SAFETY_CAP);
   const lastSpace = cut.lastIndexOf(" ");
   return `${(lastSpace > 0 ? cut.slice(0, lastSpace) : cut).trimEnd()}…`;
-}
-
-/**
- * Echelle typographique par paliers de longueur plutot qu'un `clamp()`
- * fluide : le comportement RTL/arabe sous scaling continu est imprevisible
- * avec ce type de capture DOM-vers-image (voir modern-screenshot). 4 paliers,
- * du dua court (gros texte) a la longue traduction de hadith (petit texte).
- */
-function heroSizeClass(text: string): string {
-  const len = text.length;
-  if (len <= 40) return "text-4xl leading-loose";
-  if (len <= 120) return "text-2xl leading-loose";
-  if (len <= 280) return "text-lg leading-relaxed";
-  return "text-base leading-relaxed";
-}
-
-function companionSizeClass(text: string): string {
-  const len = text.length;
-  if (len <= 60) return "text-lg leading-relaxed";
-  if (len <= 160) return "text-base leading-relaxed";
-  return "text-sm leading-relaxed";
 }
 
 /**
@@ -47,20 +43,66 @@ function companionSizeClass(text: string): string {
  * cible 1080x1920) et capturee avec un facteur d'echelle x3, plutot que
  * layoutee directement en pleine taille.
  *
+ * Auto-ajustement de la taille du texte : le contenu (arabe + translitteration
+ * + traduction) doit rester ENTIER, jamais coupe - on mesure la hauteur reelle
+ * du bloc de texte apres rendu et on redescend d'un palier de taille tant que
+ * ca deborde, plutot que de tronquer par nombre de caracteres (heuristique
+ * peu fiable : la largeur d'un caractere arabe/latin varie trop pour bien
+ * deviner sans mesurer). `useLayoutEffect` : le reglage se stabilise avant la
+ * peinture du navigateur, aucun scintillement visible entre paliers.
+ *
  * CSS volontairement limite a flexbox + fond en degrade (pas de
  * backdrop-filter/grid complexe) : points de fragilite connus de la famille
  * de librairies de capture DOM-vers-image (foreignObject SVG) sur Safari/iOS.
  */
 export const ShareCard = React.forwardRef<HTMLDivElement, ShareCardProps>(function ShareCard(
-  { title, body, arabicText, source },
+  { title, body, arabicText, transliteration, source },
   ref,
 ) {
-  // Budget de longueur combine quand arabe + traduction coexistent (cas du
-  // hadith) : la traduction est tronquee en premier (texte secondaire),
-  // l'arabe seulement si le total reste trop long malgre tout.
-  const hasBoth = Boolean(arabicText && body);
-  const truncatedBody = body ? truncateAtWord(body, hasBoth ? 180 : 280) : undefined;
-  const truncatedArabic = arabicText ? truncateAtWord(arabicText, 280) : undefined;
+  const safeArabic = arabicText ? safetyTruncate(arabicText) : undefined;
+  const safeTransliteration = transliteration ? safetyTruncate(transliteration) : undefined;
+  const safeBody = body ? safetyTruncate(body) : undefined;
+  const hasAnyText = safeArabic || safeTransliteration || safeBody;
+
+  const contentRef = React.useRef<HTMLDivElement>(null);
+  const [tierIndex, setTierIndex] = React.useState(0);
+
+  // La police arabe (sous-ensemble custom, @font-face brut dans index.css)
+  // peut ne pas encore etre chargee au premier rendu : mesurer avant qu'elle
+  // arrive utiliserait les metriques de la police de repli (generalement
+  // plus etroite), sous-estimant l'espace reellement necessaire. On
+  // re-declenche donc une mesure des que les polices sont pretes.
+  const [fontsReady, setFontsReady] = React.useState(false);
+  React.useEffect(() => {
+    let cancelled = false;
+    Promise.all([document.fonts.load("700 32px Amiri"), document.fonts.load("500 16px Inter"), document.fonts.ready])
+      .catch(() => {})
+      .finally(() => {
+        if (!cancelled) setFontsReady(true);
+      });
+    return () => {
+      cancelled = true;
+    };
+  }, []);
+
+  // Reinitialise au plus grand palier des que le contenu partage change
+  // (autre page/dua) - sinon un reglage etroit reste de la fois precedente.
+  React.useLayoutEffect(() => {
+    setTierIndex(0);
+  }, [safeArabic, safeTransliteration, safeBody]);
+
+  // Ne retrecit jamais que d'un cran par re-mesure : on ne "regrandit" pas
+  // une fois retreci (evite tout risque d'oscillation), ce qui est sans
+  // consequence pratique ici (seul un depassement reel declenche un cran).
+  React.useLayoutEffect(() => {
+    const el = contentRef.current;
+    if (!el) return;
+    if (el.scrollHeight > el.clientHeight && tierIndex < TIERS.length - 1) {
+      setTierIndex((i) => i + 1);
+    }
+  }, [tierIndex, safeArabic, safeTransliteration, safeBody, fontsReady]);
+
+  const tier = TIERS[tierIndex];
 
   return (
     <div
@@ -68,20 +110,15 @@ export const ShareCard = React.forwardRef<HTMLDivElement, ShareCardProps>(functi
       className="flex h-[640px] w-[360px] flex-col justify-between overflow-hidden p-8 text-white"
       style={{ background: "linear-gradient(160deg, #1d726b 0%, #123f3b 100%)" }}
     >
-      <div />
-
-      <div className="flex flex-1 flex-col items-center justify-center gap-5 text-center">
-        {truncatedArabic && (
-          <p dir="rtl" lang="ar" className={`font-arabic font-bold ${heroSizeClass(truncatedArabic)}`}>
-            {truncatedArabic}
+      <div ref={contentRef} className="flex flex-1 flex-col items-center justify-center gap-3 overflow-hidden text-center">
+        {safeArabic && (
+          <p dir="rtl" lang="ar" className={`font-arabic font-bold ${tier.arabic}`}>
+            {safeArabic}
           </p>
         )}
-        {truncatedBody && (
-          <p className={`font-medium text-white/90 ${!truncatedArabic ? heroSizeClass(truncatedBody) : companionSizeClass(truncatedBody)}`}>
-            {truncatedBody}
-          </p>
-        )}
-        {!truncatedArabic && !truncatedBody && <p className="text-2xl font-semibold leading-loose">{title}</p>}
+        {safeTransliteration && <p className={`text-white/80 ${tier.transliteration}`}>{safeTransliteration}</p>}
+        {safeBody && <p className={`font-medium text-white/90 ${tier.body}`}>{safeBody}</p>}
+        {!hasAnyText && <p className="text-2xl font-semibold leading-loose">{title}</p>}
       </div>
 
       <div className="flex flex-col items-center gap-4">
