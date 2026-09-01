@@ -53,6 +53,7 @@ services:
       WEB_URL: ${WEB_URL:-http://localhost:5173}
       JWT_ACCESS_SECRET: ${JWT_ACCESS_SECRET:-change-me-access-secret}
       JWT_REFRESH_SECRET: ${JWT_REFRESH_SECRET:-change-me-refresh-secret}
+      REMINDER_RUN_TOKEN: ${REMINDER_RUN_TOKEN:-}
       AI_BACKEND: ${AI_BACKEND:-gemini}
       AI_EMBEDDING_DIM: ${AI_EMBEDDING_DIM:-768}
       GEMINI_API_KEY: ${GEMINI_API_KEY:-}

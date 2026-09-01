@@ -52,6 +52,12 @@ export const envSchema = z
   VAPID_PRIVATE_KEY: z.string().optional(),
   VAPID_SUBJECT: z.string().optional(),
 
+  // Jeton secret partage avec le cron externe (cron-job.org, Render Cron
+  // Job...) qui declenche POST /reminders/run. Exige un minimum de longueur
+  // pour eviter une cle trivialement devinable qui permettrait d'envoyer des
+  // notifications de masse a tous les abonnes sans permission.
+  REMINDER_RUN_TOKEN: z.string().min(16, "REMINDER_RUN_TOKEN doit faire au moins 16 caracteres").optional(),
+
   // Emails (verification, reset de mot de passe) via Brevo - optionnels :
   // sans BREVO_API_KEY, l'envoi est simule et journalise (logs) plutot que
   // d'echouer, pour permettre le developpement sans cle.
