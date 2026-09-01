@@ -27,7 +27,7 @@ function saveCache(coords: Coordinates) {
   }
 }
 
-export type GeolocationStatus = "idle" | "loading" | "granted" | "denied" | "error" | "unsupported";
+export type GeolocationStatus = "idle" | "loading" | "granted" | "denied" | "unavailable" | "timeout" | "unsupported";
 
 /** Detecte si l'app est ouverte en mode standalone (PWA installee). */
 function detectStandalone(): boolean {
@@ -38,15 +38,16 @@ function detectStandalone(): boolean {
   );
 }
 
-/** Detecte iOS (Safari ou navigueurs constraint sur iOS). */
+/** Detecte iOS (Safari ou navigateurs contraints sur iOS). */
 function detectIOS(): boolean {
   if (typeof navigator === "undefined") return false;
   return /iphone|ipad|ipod/i.test(navigator.userAgent);
 }
 
 /**
- * iOS standalone : la permission de localisation ne peut PAS etre demandee
- * via le prompt natif dans la PWA - elle est heritee de Safari (navigateur).
+ * iOS standalone : le prompt natif de localisation peut ne jamais s'afficher
+ * (bug connu - il "cible le mauvais onglet") et getCurrentPosition ne
+ * declenche ALCUN callback, meme pas le timeout des PositionOptions.
  * Cette combinaison necessite une UI de guidage specifique.
  */
 function detectIOSStandalone(): boolean {
@@ -56,18 +57,39 @@ function detectIOSStandalone(): boolean {
 /**
  * Demande la position GPS via l'API Geolocation.
  * Retourne les coordonnes arrondies a 3 decimales (~110m).
+ *
+ * Garde-fou : sur iOS en PWA standalone, un appel peut rester SANS reponse
+ * (ni succes, ni erreur, meme le timeout des PositionOptions ne se de-
+ * clenche pas). On court-circuite ca avec un watchdog JavaScript : s'il
+ * gagne la course, on echoue avec un code 3 (TIMEOUT) pour remonter un
+ * etat exploitable par l'UI.
  */
 function fetchPosition(): Promise<Coordinates> {
   return new Promise((resolve, reject) => {
+    let settled = false;
+    const watchdog = window.setTimeout(() => {
+      if (settled) return;
+      settled = true;
+      reject(Object.assign(new Error("Geolocation sans reponse (bug iOS PWA standalone)"), { code: 3 }));
+    }, 12_000);
+
     navigator.geolocation.getCurrentPosition(
       (position) => {
+        if (settled) return;
+        settled = true;
+        window.clearTimeout(watchdog);
         resolve({
           latitude: Math.round(position.coords.latitude * 1000) / 1000,
           longitude: Math.round(position.coords.longitude * 1000) / 1000,
         });
       },
-      (error) => reject(error),
-      { enableHighAccuracy: false, maximumAge: 10 * 60 * 1000, timeout: 10000 },
+      (error) => {
+        if (settled) return;
+        settled = true;
+        window.clearTimeout(watchdog);
+        reject(error);
+      },
+      { enableHighAccuracy: false, maximumAge: 10 * 60 * 1000, timeout: 10_000 },
     );
   });
 }
@@ -99,6 +121,24 @@ export function useGeolocation() {
     setStatus("granted");
   }, []);
 
+  /**
+   * Classe l'erreur Geolocation en statut exploitable par l'UI :
+   *  - code 1 : permission refusee (a re-active via les reglages)
+   *  - code 2 : position indisponible (services de localisation coupes)
+   *  - code 3 : timeout / pas de reponse (bug iOS PWA standalone)
+   */
+  const classifyError = React.useCallback((error: unknown) => {
+    const geolocationError = error as GeolocationPositionError | undefined;
+    const code = geolocationError?.code;
+    if (code === 1) {
+      setStatus("denied");
+    } else if (code === 2) {
+      setStatus("unavailable");
+    } else {
+      setStatus("timeout");
+    }
+  }, []);
+
   const request = React.useCallback(() => {
     if (typeof navigator === "undefined" || !("geolocation" in navigator)) {
       setStatus("unsupported");
@@ -107,16 +147,8 @@ export function useGeolocation() {
     setStatus("loading");
     fetchPosition()
       .then(applyCoords)
-      .catch((error: GeolocationPositionError) => {
-        setStatus(error.code === error.PERMISSION_DENIED ? "denied" : "error");
-      });
-  }, [applyCoords]);
-
-  /** Classe l'erreur Geolocation en statut "denied" ou "error". */
-  const classifyError = React.useCallback((error: unknown) => {
-    const geolocationError = error as GeolocationPositionError | undefined;
-    setStatus(geolocationError && geolocationError.code === geolocationError.PERMISSION_DENIED ? "denied" : "error");
-  }, []);
+      .catch(classifyError);
+  }, [applyCoords, classifyError]);
 
   /** Applique une position saisie manuellement (aucune permission necessaire). */
   const setManualCoords = React.useCallback(

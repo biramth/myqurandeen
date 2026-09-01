@@ -109,7 +109,7 @@ export function PrayerTimesPage() {
           <CardContent className="flex flex-col items-center gap-3 p-6 text-center">
             <MapPin className="h-8 w-8 text-muted-foreground" aria-hidden="true" />
             {isIOSStandalone ? (
-              locationStatus === "denied" || locationStatus === "error" || locationStatus === "unsupported" ? (
+              locationStatus === "denied" || locationStatus === "unavailable" || locationStatus === "timeout" || locationStatus === "unsupported" ? (
                 <>
                   <p className="text-sm font-medium">{t("prayerTimes.locationIosHeading")}</p>
                   <div className="space-y-1.5 rounded-md border bg-muted/40 p-4 text-left text-xs text-muted-foreground">
@@ -131,14 +131,15 @@ export function PrayerTimesPage() {
               <Button type="button" onClick={requestLocation} disabled={locationStatus === "loading"}>
                 {locationStatus === "loading" ? t("prayerTimes.locationLoading") : t("prayerTimes.enableLocation")}
               </Button>
-              {(locationStatus === "denied" || locationStatus === "error" || locationStatus === "unsupported") && (
+              {(locationStatus === "denied" || locationStatus === "unavailable" || locationStatus === "timeout" || locationStatus === "unsupported") && (
                 <Button type="button" variant="outline" size="sm" onClick={requestLocation}>
                   {t("prayerTimes.locationRetry")}
                 </Button>
               )}
             </div>
             {locationStatus === "denied" && <p className="text-xs text-destructive">{t("prayerTimes.locationDenied")}</p>}
-            {locationStatus === "error" && <p className="text-xs text-destructive">{t("prayerTimes.locationError")}</p>}
+            {locationStatus === "unavailable" && <p className="text-xs text-destructive">{t("prayerTimes.locationUnavailable")}</p>}
+            {locationStatus === "timeout" && <p className="text-xs text-destructive">{t("prayerTimes.locationTimeout")}</p>}
             {locationStatus === "unsupported" && <p className="text-xs text-destructive">{t("prayerTimes.locationUnsupported")}</p>}
             <Button
               type="button"
