@@ -1,5 +1,6 @@
 import { BadRequestException, Body, Controller, Delete, Get, Post, Query } from "@nestjs/common";
 import { ApiTags } from "@nestjs/swagger";
+import { Throttle } from "@nestjs/throttler";
 import { Public } from "../../common/decorators/public.decorator";
 import { CurrentUser } from "../../common/decorators/current-user.decorator";
 import type { RequestUser } from "../../common/types/authenticated-request";
@@ -41,6 +42,8 @@ export class NotificationsController {
     return this.notificationsService.removeAll(user.sub);
   }
 
+  /** Envoie un vrai push via un service externe (web-push) : limite dediee pour ne pas en abuser au-dela d'un usage de test occasionnel. */
+  @Throttle({ default: { limit: 5, ttl: 60_000 } })
   @Post("test")
   sendTest(@CurrentUser() user: RequestUser) {
     return this.notificationsService.sendTest(user.sub);

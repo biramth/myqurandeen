@@ -25,25 +25,42 @@ Convention : `[ ]` = à faire, `[~]` = décision à prendre avant de commencer,
 
 ## Phase 0 — Fondations techniques
 
-### 0.1 Rate limiting (S/M)
+### 0.1 Rate limiting (S/M) — ✅ audit fait le 2026-09-01
 
-**Contexte** : `@nestjs/throttler` est déjà utilisé (ex. `/ai/query` à
-15/min, `/ai/index` à 3/min), mais l'app n'a pas d'audit systématique de ce
-qui est protégé.
+**Contexte** : `@nestjs/throttler` était déjà utilisé (ex. `/ai/query` à
+15/min, `/ai/index` à 3/min) **et une limite globale existait déjà**
+(`ThrottlerModule.forRoot([{ ttl: 60_000, limit: 120 }])` dans
+`app.module.ts`, 120 req/min/IP par défaut) — contrairement à ce que ce
+document supposait. L'audit a donc porté sur les trous restants plutôt que
+sur une mise en place complète.
 
-- [ ] Vérifier si `ThrottlerModule.forRoot()` pose une limite globale par
-      défaut dans `apps/api/src/app.module.ts` — sinon en ajouter une
-      raisonnable (ex. 100 req/min/IP) qui s'applique à tout endpoint sans
-      annotation spécifique.
-- [ ] Lister tous les contrôleurs publics (`quran`, `hadith`, `tafsir`,
-      `search`, `duas`, `schools`, `history`, `concepts`, `scholars`,
-      `library`, `learning`) et vérifier qu'aucun n'est totalement nu face
-      au scraping massif.
-- [ ] Cas particulier `search` : c'est l'endpoint le plus coûteux
-      (FTS Postgres sur plusieurs tables) — mérite une limite dédiée plus
-      stricte que la valeur globale.
-- [ ] Ajouter une limite sur les endpoints d'écriture non déjà couverts
-      (notes, bookmarks, collections, reports) pour éviter le spam.
+- [x] Limite globale déjà en place (120/min/IP), vérifiée.
+- [x] Audit des contrôleurs publics : tous cachés en mémoire
+      (`CacheInterceptor`) sauf `learning` (mélange volontairement contenu
+      public + progression par utilisateur dans le même contrôleur — ne pas
+      ajouter `CacheInterceptor` au niveau contrôleur ici, ça mettrait en
+      cache la progression d'un utilisateur pour un autre).
+- [x] `search` : limite dédiée à 30/min (`search.controller.ts`) — c'était
+      bien le seul endpoint public sans limite spécifique et coûteux.
+- [x] **Trouvé en marge de l'audit et corrigé** : `SearchService.search()`
+      lançait 12 requêtes SQL en parallèle par appel (2×`Promise.all`). Le
+      pool Postgres partagé par toute l'API est borné à 15 connexions
+      (`DatabaseModule`) — 2 recherches simultanées suffisaient à le
+      saturer et faisaient échouer en cascade **le reste de l'API**, pas
+      seulement la recherche (`EMAXCONNSESSION`). Corrigé par un semaphore
+      partagé (`Semaphore`/`withConcurrencyLimit` dans `search.service.ts`,
+      6 requêtes concurrentes max, tous appels confondus) — vérifié en
+      conditions réelles : 16 recherches simultanées sans aucune erreur.
+- [x] Incohérence trouvée sur `/auth` : `forgot-password`/
+      `resend-verification` (qui *demandent* un token) étaient limités à
+      5/min, mais `verify-email`/`reset-password` (qui le *consomment*) ne
+      l'étaient pas du tout. Alignés à 5/min également.
+- [x] `/notifications/test` (envoie un vrai push externe) limité à 5/min —
+      n'avait pas de limite dédiée.
+- [ ] Reste à faire : limite dédiée sur les endpoints d'écriture
+      utilisateur (notes, bookmarks, collections) si le comportement en
+      production le justifie — laissés au défaut global (120/min) pour
+      l'instant, pas de signal d'abus observé.
 - [ ] Documenter les limites choisies dans `apps/api/README.md` ou un doc
       dédié, pour que l'équipe API publique (phase 6) parte d'une base
       claire.

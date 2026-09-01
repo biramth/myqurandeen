@@ -28,6 +28,73 @@ import {
 const RESULT_LIMIT = 8;
 /** Seuil de similarite trigramme (pg_trgm) sous lequel une correspondance approximative n'est pas retenue. */
 const FUZZY_THRESHOLD = 0.25;
+/**
+ * Nombre max de requetes SQL de recherche pouvant tourner EN MEME TEMPS,
+ * tous appels confondus (pas juste au sein d'un seul appel). Le pool
+ * Postgres partage par toute l'API est borne a 15 connexions
+ * (DatabaseModule) : une recherche transverse declenche naturellement 12
+ * requetes independantes (une par type de contenu). Une limite posee
+ * seulement par appel ne suffit pas - plusieurs recherches en meme temps
+ * peuvent quand meme saturer le pool a elles seules et faire echouer en
+ * cascade le reste de l'API (EMAXCONNSESSION), pas seulement la recherche.
+ * D'ou un semaphore PARTAGE par toutes les recherches en cours plutot
+ * qu'un simple degre de parallelisme local a un appel.
+ */
+const SEARCH_CONCURRENT_QUERIES = 6;
+
+/** Semaphore classique : `permits` jetons, `acquire()` attend qu'un jeton soit libre, `release()` le rend (au prochain en attente s'il y en a). */
+class Semaphore {
+  private available: number;
+  private readonly waiters: Array<() => void> = [];
+
+  constructor(permits: number) {
+    this.available = permits;
+  }
+
+  async acquire(): Promise<void> {
+    if (this.available > 0) {
+      this.available--;
+      return;
+    }
+    await new Promise<void>((resolve) => this.waiters.push(resolve));
+  }
+
+  release(): void {
+    const next = this.waiters.shift();
+    if (next) {
+      next(); // jeton transmis directement au suivant, `available` ne change pas
+    } else {
+      this.available++;
+    }
+  }
+}
+
+const searchQuerySemaphore = new Semaphore(SEARCH_CONCURRENT_QUERIES);
+
+/**
+ * Execute des taches asynchrones en respectant le semaphore partage
+ * ci-dessus, en conservant l'ordre des resultats. Les taches ne doivent PAS
+ * etre deja demarrees (des thunks, pas des promesses) : un query builder
+ * Drizzle est un "thenable" qui declenche sa requete des qu'on
+ * l'awaite/le `.then()` - le passer directement dans un tableau (comme
+ * `Promise.all`) demarrerait donc toutes les requetes immediatement, avant
+ * meme d'acquerir un jeton.
+ */
+async function withConcurrencyLimit<T extends readonly (() => Promise<unknown>)[]>(
+  tasks: readonly [...T],
+): Promise<{ -readonly [K in keyof T]: Awaited<ReturnType<T[K]>> }> {
+  const results = await Promise.all(
+    tasks.map(async (task) => {
+      await searchQuerySemaphore.acquire();
+      try {
+        return await task();
+      } finally {
+        searchQuerySemaphore.release();
+      }
+    }),
+  );
+  return results as { -readonly [K in keyof T]: Awaited<ReturnType<T[K]>> };
+}
 
 /**
  * Recherche transverse multi-entites. Les resultats FTS sont classes par
@@ -102,89 +169,96 @@ export class SearchService {
       textTransliterated: quranVerses.textTransliterated,
     };
 
-    const [arabicVerseRows, translationVerseRows, hadithRows, tafsirRows, bookRows] = await Promise.all([
-      // Versets en arabe
-      this.db
-        .select({
-          ...verseColumns,
-          rank: sql<number>`ts_rank(${quranVerses.textSearch}, ${tsQuery})`,
-        })
-        .from(quranVerses)
-        .innerJoin(quranSurahs, eq(quranSurahs.id, quranVerses.surahId))
-        .where(sql`${quranVerses.textSearch} @@ ${tsQuery}`)
-        .orderBy(sql`ts_rank(${quranVerses.textSearch}, ${tsQuery}) desc`)
-        .limit(RESULT_LIMIT),
-      // Versets trouves via les traductions (fr, en, ...) - dedoublonnes ensuite.
-      this.db
-        .select({
-          ...verseColumns,
-          rank: sql<number>`max(ts_rank(${verseTranslations.textSearch}, ${tsQuery}))`,
-        })
-        .from(verseTranslations)
-        .innerJoin(quranVerses, eq(quranVerses.id, verseTranslations.verseId))
-        .innerJoin(quranSurahs, eq(quranSurahs.id, quranVerses.surahId))
-        .where(sql`${verseTranslations.textSearch} @@ ${tsQuery}`)
-        .groupBy(
-          quranVerses.id,
-          quranSurahs.number,
-          quranSurahs.nameTransliterated,
-          quranVerses.numberInSurah,
-          quranVerses.textArabic,
-          quranVerses.textTransliterated,
-        )
-        .orderBy(sql`max(ts_rank(${verseTranslations.textSearch}, ${tsQuery})) desc`)
-        .limit(RESULT_LIMIT),
-      // Hadiths
-      this.db
-        .select({
-          id: hadiths.id,
-          collectionSlug: hadithCollections.slug,
-          collectionName: hadithCollections.name,
-          bookNumber: hadithBooks.number,
-          number: hadiths.number,
-          numberInCollection: hadiths.numberInCollection,
-          textTranslation: hadiths.textTranslation,
-          rank: sql<number>`ts_rank(${hadiths.textSearch}, ${tsQuery})`,
-        })
-        .from(hadiths)
-        .innerJoin(hadithCollections, eq(hadithCollections.id, hadiths.collectionId))
-        .innerJoin(hadithBooks, eq(hadithBooks.id, hadiths.hadithBookId))
-        .where(sql`${hadiths.textSearch} @@ ${tsQuery}`)
-        .orderBy(sql`ts_rank(${hadiths.textSearch}, ${tsQuery}) desc`)
-        .limit(RESULT_LIMIT),
-      // Tafsir
-      this.db
-        .select({
-          id: tafsirEntries.id,
-          workTitle: tafsirSources.title,
-          surahNumber: quranSurahs.number,
-          numberInSurah: quranVerses.numberInSurah,
-          content: tafsirEntries.content,
-          rank: sql<number>`ts_rank(${tafsirEntries.textSearch}, ${tsQuery})`,
-        })
-        .from(tafsirEntries)
-        .innerJoin(tafsirSources, eq(tafsirSources.id, tafsirEntries.tafsirSourceId))
-        .innerJoin(quranVerses, eq(quranVerses.id, tafsirEntries.verseStartId))
-        .innerJoin(quranSurahs, eq(quranSurahs.id, quranVerses.surahId))
-        .where(sql`${tafsirEntries.textSearch} @@ ${tsQuery}`)
-        .orderBy(sql`ts_rank(${tafsirEntries.textSearch}, ${tsQuery}) desc`)
-        .limit(RESULT_LIMIT),
-      // Livres de la bibliotheque
-      this.db
-        .select({
-          id: books.id,
-          title: books.title,
-          slug: books.slug,
-          description: books.description,
-          authorName: authors.name,
-          rank: sql<number>`ts_rank(${books.textSearch}, ${tsQuery})`,
-        })
-        .from(books)
-        .leftJoin(authors, eq(authors.id, books.authorId))
-        .where(sql`${books.textSearch} @@ ${tsQuery}`)
-        .orderBy(sql`ts_rank(${books.textSearch}, ${tsQuery}) desc`)
-        .limit(RESULT_LIMIT),
-    ]);
+    const [arabicVerseRows, translationVerseRows, hadithRows, tafsirRows, bookRows] = await withConcurrencyLimit(
+      [
+        // Versets en arabe
+        () =>
+          this.db
+            .select({
+              ...verseColumns,
+              rank: sql<number>`ts_rank(${quranVerses.textSearch}, ${tsQuery})`,
+            })
+            .from(quranVerses)
+            .innerJoin(quranSurahs, eq(quranSurahs.id, quranVerses.surahId))
+            .where(sql`${quranVerses.textSearch} @@ ${tsQuery}`)
+            .orderBy(sql`ts_rank(${quranVerses.textSearch}, ${tsQuery}) desc`)
+            .limit(RESULT_LIMIT),
+        // Versets trouves via les traductions (fr, en, ...) - dedoublonnes ensuite.
+        () =>
+          this.db
+            .select({
+              ...verseColumns,
+              rank: sql<number>`max(ts_rank(${verseTranslations.textSearch}, ${tsQuery}))`,
+            })
+            .from(verseTranslations)
+            .innerJoin(quranVerses, eq(quranVerses.id, verseTranslations.verseId))
+            .innerJoin(quranSurahs, eq(quranSurahs.id, quranVerses.surahId))
+            .where(sql`${verseTranslations.textSearch} @@ ${tsQuery}`)
+            .groupBy(
+              quranVerses.id,
+              quranSurahs.number,
+              quranSurahs.nameTransliterated,
+              quranVerses.numberInSurah,
+              quranVerses.textArabic,
+              quranVerses.textTransliterated,
+            )
+            .orderBy(sql`max(ts_rank(${verseTranslations.textSearch}, ${tsQuery})) desc`)
+            .limit(RESULT_LIMIT),
+        // Hadiths
+        () =>
+          this.db
+            .select({
+              id: hadiths.id,
+              collectionSlug: hadithCollections.slug,
+              collectionName: hadithCollections.name,
+              bookNumber: hadithBooks.number,
+              number: hadiths.number,
+              numberInCollection: hadiths.numberInCollection,
+              textTranslation: hadiths.textTranslation,
+              rank: sql<number>`ts_rank(${hadiths.textSearch}, ${tsQuery})`,
+            })
+            .from(hadiths)
+            .innerJoin(hadithCollections, eq(hadithCollections.id, hadiths.collectionId))
+            .innerJoin(hadithBooks, eq(hadithBooks.id, hadiths.hadithBookId))
+            .where(sql`${hadiths.textSearch} @@ ${tsQuery}`)
+            .orderBy(sql`ts_rank(${hadiths.textSearch}, ${tsQuery}) desc`)
+            .limit(RESULT_LIMIT),
+        // Tafsir
+        () =>
+          this.db
+            .select({
+              id: tafsirEntries.id,
+              workTitle: tafsirSources.title,
+              surahNumber: quranSurahs.number,
+              numberInSurah: quranVerses.numberInSurah,
+              content: tafsirEntries.content,
+              rank: sql<number>`ts_rank(${tafsirEntries.textSearch}, ${tsQuery})`,
+            })
+            .from(tafsirEntries)
+            .innerJoin(tafsirSources, eq(tafsirSources.id, tafsirEntries.tafsirSourceId))
+            .innerJoin(quranVerses, eq(quranVerses.id, tafsirEntries.verseStartId))
+            .innerJoin(quranSurahs, eq(quranSurahs.id, quranVerses.surahId))
+            .where(sql`${tafsirEntries.textSearch} @@ ${tsQuery}`)
+            .orderBy(sql`ts_rank(${tafsirEntries.textSearch}, ${tsQuery}) desc`)
+            .limit(RESULT_LIMIT),
+        // Livres de la bibliotheque
+        () =>
+          this.db
+            .select({
+              id: books.id,
+              title: books.title,
+              slug: books.slug,
+              description: books.description,
+              authorName: authors.name,
+              rank: sql<number>`ts_rank(${books.textSearch}, ${tsQuery})`,
+            })
+            .from(books)
+            .leftJoin(authors, eq(authors.id, books.authorId))
+            .where(sql`${books.textSearch} @@ ${tsQuery}`)
+            .orderBy(sql`ts_rank(${books.textSearch}, ${tsQuery}) desc`)
+            .limit(RESULT_LIMIT),
+      ],
+    );
 
     // Fusion arabe + traductions : on garde le meilleur rang par verset.
     const verseByKey = new Map<string, (typeof arabicVerseRows)[number]>();
@@ -206,85 +280,95 @@ export class SearchService {
     const schoolsMatch = this.fuzzyMatch([schools.name, schools.history], like, trimmed);
     const duasMatch = this.fuzzyMatch([duas.title, duas.translation, duas.transliteration], like, trimmed);
 
-    const [conceptRows, scholarRows, prophetRows, eventRows, fiqhTopicRows, schoolRows, duaRows] = await Promise.all([
-      this.db
-        .select({
-          id: concepts.id,
-          term: concepts.term,
-          slug: concepts.slug,
-          definition: concepts.definition,
-          rank: conceptsMatch.rank,
-        })
-        .from(concepts)
-        .where(conceptsMatch.where)
-        .orderBy(sql`${conceptsMatch.rank} desc`)
-        .limit(RESULT_LIMIT),
-      this.db
-        .select({ id: scholars.id, name: scholars.name, slug: scholars.slug, bio: scholars.bio, rank: scholarsMatch.rank })
-        .from(scholars)
-        .where(scholarsMatch.where)
-        .orderBy(sql`${scholarsMatch.rank} desc`)
-        .limit(RESULT_LIMIT),
-      this.db
-        .select({
-          id: prophets.id,
-          name: prophets.name,
-          slug: prophets.slug,
-          description: prophets.description,
-          rank: prophetsMatch.rank,
-        })
-        .from(prophets)
-        .where(prophetsMatch.where)
-        .orderBy(sql`${prophetsMatch.rank} desc`)
-        .limit(RESULT_LIMIT),
-      this.db
-        .select({
-          id: historicalEvents.id,
-          title: historicalEvents.title,
-          slug: historicalEvents.slug,
-          periodSlug: historicalPeriods.slug,
-          description: historicalEvents.description,
-          rank: sql<number>`ts_rank(${historicalEvents.textSearch}, ${tsQuery})`,
-        })
-        .from(historicalEvents)
-        .innerJoin(historicalPeriods, eq(historicalPeriods.id, historicalEvents.periodId))
-        .where(sql`${historicalEvents.textSearch} @@ ${tsQuery}`)
-        .orderBy(sql`ts_rank(${historicalEvents.textSearch}, ${tsQuery}) desc`)
-        .limit(RESULT_LIMIT),
-      this.db
-        .select({
-          id: fiqhTopics.id,
-          title: fiqhTopics.title,
-          slug: fiqhTopics.slug,
-          description: fiqhTopics.description,
-          rank: fiqhTopicsMatch.rank,
-        })
-        .from(fiqhTopics)
-        .where(fiqhTopicsMatch.where)
-        .orderBy(sql`${fiqhTopicsMatch.rank} desc`)
-        .limit(RESULT_LIMIT),
-      this.db
-        .select({ id: schools.id, name: schools.name, slug: schools.slug, type: schools.type, rank: schoolsMatch.rank })
-        .from(schools)
-        .where(schoolsMatch.where)
-        .orderBy(sql`${schoolsMatch.rank} desc`)
-        .limit(RESULT_LIMIT),
-      // Duas et dhikr
-      this.db
-        .select({
-          id: duas.id,
-          title: duas.title,
-          translation: duas.translation,
-          categorySlug: duaCategories.slug,
-          categoryName: duaCategories.name,
-          rank: duasMatch.rank,
-        })
-        .from(duas)
-        .innerJoin(duaCategories, eq(duaCategories.id, duas.categoryId))
-        .where(duasMatch.where)
-        .orderBy(sql`${duasMatch.rank} desc`)
-        .limit(RESULT_LIMIT),
-    ]);
+    const [conceptRows, scholarRows, prophetRows, eventRows, fiqhTopicRows, schoolRows, duaRows] =
+      await withConcurrencyLimit(
+        [
+          () =>
+            this.db
+              .select({
+                id: concepts.id,
+                term: concepts.term,
+                slug: concepts.slug,
+                definition: concepts.definition,
+                rank: conceptsMatch.rank,
+              })
+              .from(concepts)
+              .where(conceptsMatch.where)
+              .orderBy(sql`${conceptsMatch.rank} desc`)
+              .limit(RESULT_LIMIT),
+          () =>
+            this.db
+              .select({ id: scholars.id, name: scholars.name, slug: scholars.slug, bio: scholars.bio, rank: scholarsMatch.rank })
+              .from(scholars)
+              .where(scholarsMatch.where)
+              .orderBy(sql`${scholarsMatch.rank} desc`)
+              .limit(RESULT_LIMIT),
+          () =>
+            this.db
+              .select({
+                id: prophets.id,
+                name: prophets.name,
+                slug: prophets.slug,
+                description: prophets.description,
+                rank: prophetsMatch.rank,
+              })
+              .from(prophets)
+              .where(prophetsMatch.where)
+              .orderBy(sql`${prophetsMatch.rank} desc`)
+              .limit(RESULT_LIMIT),
+          () =>
+            this.db
+              .select({
+                id: historicalEvents.id,
+                title: historicalEvents.title,
+                slug: historicalEvents.slug,
+                periodSlug: historicalPeriods.slug,
+                description: historicalEvents.description,
+                rank: sql<number>`ts_rank(${historicalEvents.textSearch}, ${tsQuery})`,
+              })
+              .from(historicalEvents)
+              .innerJoin(historicalPeriods, eq(historicalPeriods.id, historicalEvents.periodId))
+              .where(sql`${historicalEvents.textSearch} @@ ${tsQuery}`)
+              .orderBy(sql`ts_rank(${historicalEvents.textSearch}, ${tsQuery}) desc`)
+              .limit(RESULT_LIMIT),
+          () =>
+            this.db
+              .select({
+                id: fiqhTopics.id,
+                title: fiqhTopics.title,
+                slug: fiqhTopics.slug,
+                description: fiqhTopics.description,
+                rank: fiqhTopicsMatch.rank,
+              })
+              .from(fiqhTopics)
+              .where(fiqhTopicsMatch.where)
+              .orderBy(sql`${fiqhTopicsMatch.rank} desc`)
+              .limit(RESULT_LIMIT),
+          () =>
+            this.db
+              .select({ id: schools.id, name: schools.name, slug: schools.slug, type: schools.type, rank: schoolsMatch.rank })
+              .from(schools)
+              .where(schoolsMatch.where)
+              .orderBy(sql`${schoolsMatch.rank} desc`)
+              .limit(RESULT_LIMIT),
+          // Duas et dhikr
+          () =>
+            this.db
+              .select({
+                id: duas.id,
+                title: duas.title,
+                translation: duas.translation,
+                categorySlug: duaCategories.slug,
+                categoryName: duaCategories.name,
+                rank: duasMatch.rank,
+              })
+              .from(duas)
+              .innerJoin(duaCategories, eq(duaCategories.id, duas.categoryId))
+              .where(duasMatch.where)
+              .orderBy(sql`${duasMatch.rank} desc`)
+              .limit(RESULT_LIMIT),
+        ],
+      );
 
     return {
       verses,
