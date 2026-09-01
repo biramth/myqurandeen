@@ -5,7 +5,6 @@ import { toast } from "sonner";
 import { Clock3, Compass as CompassIcon, MapPin, Sunrise } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import { Input } from "@/components/ui/input";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Skeleton } from "@/components/ui/skeleton";
 import { cn } from "@/lib/utils";
@@ -13,6 +12,7 @@ import { PageMeta, SITE_URL } from "@/components/shared/PageMeta";
 import { SignUpPromptPopover } from "@/components/shared/SignUpPromptPopover";
 import { useAuth } from "@/features/auth/auth-context";
 import { useGeolocation } from "@/features/prayer-times/useGeolocation";
+import { CitySearchInput } from "@/features/prayer-times/CitySearchInput";
 import { prayerAlertApi } from "@/features/prayer-times/api";
 import { QiblaCompass } from "@/features/prayer-times/QiblaCompass";
 import {
@@ -51,16 +51,13 @@ function formatCountdown(target: Date, now: Date): string {
 }
 
 export function PrayerTimesPage() {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
   const { user } = useAuth();
   const { coords, status: locationStatus, request: requestLocation, setManualCoords, isStandalone, isIOSStandalone } =
     useGeolocation();
   const [method, setMethod] = React.useState<PrayerCalculationMethod>(() => loadStoredMethod());
   const [now, setNow] = React.useState(() => new Date());
   const [manualOpen, setManualOpen] = React.useState(false);
-  const [manualLat, setManualLat] = React.useState("");
-  const [manualLng, setManualLng] = React.useState("");
-  const [manualError, setManualError] = React.useState(false);
 
   React.useEffect(() => {
     const interval = window.setInterval(() => setNow(new Date()), 60_000);
@@ -90,18 +87,6 @@ export function PrayerTimesPage() {
         { name: "isha", time: times.isha },
       ]
     : [];
-
-  const handleManualSubmit = () => {
-    const lat = Number.parseFloat(manualLat.replace(",", "."));
-    const lng = Number.parseFloat(manualLng.replace(",", "."));
-    if (Number.isNaN(lat) || Number.isNaN(lng) || Math.abs(lat) > 90 || Math.abs(lng) > 180) {
-      setManualError(true);
-      return;
-    }
-    setManualError(false);
-    setManualCoords({ latitude: lat, longitude: lng });
-    setManualOpen(false);
-  };
 
   return (
     <div className="mx-auto max-w-2xl px-4 py-10">
@@ -168,32 +153,13 @@ export function PrayerTimesPage() {
             {manualOpen && (
               <div className="mt-2 w-full max-w-sm space-y-3 rounded-md border p-4 text-left">
                 <p className="text-xs text-muted-foreground">{t("prayerTimes.manualDescription")}</p>
-                <label className="block">
-                  <span className="text-xs font-medium">{t("prayerTimes.manualLatitude")}</span>
-                  <Input
-                    type="text"
-                    inputMode="decimal"
-                    value={manualLat}
-                    onChange={(e) => setManualLat(e.target.value)}
-                    placeholder="48.8566"
-                    className="mt-1"
-                  />
-                </label>
-                <label className="block">
-                  <span className="text-xs font-medium">{t("prayerTimes.manualLongitude")}</span>
-                  <Input
-                    type="text"
-                    inputMode="decimal"
-                    value={manualLng}
-                    onChange={(e) => setManualLng(e.target.value)}
-                    placeholder="2.3522"
-                    className="mt-1"
-                  />
-                </label>
-                {manualError && <p className="text-xs text-destructive">{t("prayerTimes.manualInvalid")}</p>}
-                <Button type="button" size="sm" onClick={handleManualSubmit}>
-                  {t("prayerTimes.manualApply")}
-                </Button>
+                <CitySearchInput
+                  locale={i18n.language}
+                  onSelect={(place) => {
+                    setManualCoords({ latitude: place.latitude, longitude: place.longitude });
+                    setManualOpen(false);
+                  }}
+                />
               </div>
             )}
           </CardContent>
