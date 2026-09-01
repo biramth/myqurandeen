@@ -5,6 +5,7 @@ import { toast } from "sonner";
 import { Clock3, Compass as CompassIcon, MapPin, Sunrise } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
+import { Input } from "@/components/ui/input";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Skeleton } from "@/components/ui/skeleton";
 import { cn } from "@/lib/utils";
@@ -52,9 +53,14 @@ function formatCountdown(target: Date, now: Date): string {
 export function PrayerTimesPage() {
   const { t } = useTranslation();
   const { user } = useAuth();
-  const { coords, status: locationStatus, request: requestLocation } = useGeolocation();
+  const { coords, status: locationStatus, request: requestLocation, setManualCoords, isStandalone, isIOSStandalone } =
+    useGeolocation();
   const [method, setMethod] = React.useState<PrayerCalculationMethod>(() => loadStoredMethod());
   const [now, setNow] = React.useState(() => new Date());
+  const [manualOpen, setManualOpen] = React.useState(false);
+  const [manualLat, setManualLat] = React.useState("");
+  const [manualLng, setManualLng] = React.useState("");
+  const [manualError, setManualError] = React.useState(false);
 
   React.useEffect(() => {
     const interval = window.setInterval(() => setNow(new Date()), 60_000);
@@ -85,6 +91,18 @@ export function PrayerTimesPage() {
       ]
     : [];
 
+  const handleManualSubmit = () => {
+    const lat = Number.parseFloat(manualLat.replace(",", "."));
+    const lng = Number.parseFloat(manualLng.replace(",", "."));
+    if (Number.isNaN(lat) || Number.isNaN(lng) || Math.abs(lat) > 90 || Math.abs(lng) > 180) {
+      setManualError(true);
+      return;
+    }
+    setManualError(false);
+    setManualCoords({ latitude: lat, longitude: lng });
+    setManualOpen(false);
+  };
+
   return (
     <div className="mx-auto max-w-2xl px-4 py-10">
       <PageMeta
@@ -105,13 +123,79 @@ export function PrayerTimesPage() {
         <Card>
           <CardContent className="flex flex-col items-center gap-3 p-6 text-center">
             <MapPin className="h-8 w-8 text-muted-foreground" aria-hidden="true" />
-            <p className="text-sm text-muted-foreground">{t("prayerTimes.locationPrompt")}</p>
-            <Button type="button" onClick={requestLocation} disabled={locationStatus === "loading"}>
-              {locationStatus === "loading" ? t("prayerTimes.locationLoading") : t("prayerTimes.enableLocation")}
-            </Button>
+            {isIOSStandalone ? (
+              locationStatus === "denied" || locationStatus === "error" || locationStatus === "unsupported" ? (
+                <>
+                  <p className="text-sm font-medium">{t("prayerTimes.locationIosHeading")}</p>
+                  <div className="space-y-1.5 rounded-md border bg-muted/40 p-4 text-left text-xs text-muted-foreground">
+                    <p>{t("prayerTimes.locationIosStep1")}</p>
+                    <p>{t("prayerTimes.locationIosStep2")}</p>
+                    <p>{t("prayerTimes.locationIosStep3")}</p>
+                    <p>{t("prayerTimes.locationIosStep4")}</p>
+                  </div>
+                </>
+              ) : (
+                <p className="text-sm text-muted-foreground">{t("prayerTimes.locationTapToEnable")}</p>
+              )
+            ) : (
+              <p className="text-sm text-muted-foreground">
+                {isStandalone ? t("prayerTimes.locationPromptStandalone") : t("prayerTimes.locationPrompt")}
+              </p>
+            )}
+            <div className="flex flex-wrap items-center justify-center gap-2">
+              <Button type="button" onClick={requestLocation} disabled={locationStatus === "loading"}>
+                {locationStatus === "loading" ? t("prayerTimes.locationLoading") : t("prayerTimes.enableLocation")}
+              </Button>
+              {(locationStatus === "denied" || locationStatus === "error" || locationStatus === "unsupported") && (
+                <Button type="button" variant="outline" size="sm" onClick={requestLocation}>
+                  {t("prayerTimes.locationRetry")}
+                </Button>
+              )}
+            </div>
             {locationStatus === "denied" && <p className="text-xs text-destructive">{t("prayerTimes.locationDenied")}</p>}
             {locationStatus === "error" && <p className="text-xs text-destructive">{t("prayerTimes.locationError")}</p>}
             {locationStatus === "unsupported" && <p className="text-xs text-destructive">{t("prayerTimes.locationUnsupported")}</p>}
+            <Button
+              type="button"
+              variant="link"
+              size="sm"
+              className="text-muted-foreground underline"
+              onClick={() => setManualOpen((open) => !open)}
+            >
+              {t("prayerTimes.manualTitle")}
+            </Button>
+
+            {manualOpen && (
+              <div className="mt-2 w-full max-w-sm space-y-3 rounded-md border p-4 text-left">
+                <p className="text-xs text-muted-foreground">{t("prayerTimes.manualDescription")}</p>
+                <label className="block">
+                  <span className="text-xs font-medium">{t("prayerTimes.manualLatitude")}</span>
+                  <Input
+                    type="text"
+                    inputMode="decimal"
+                    value={manualLat}
+                    onChange={(e) => setManualLat(e.target.value)}
+                    placeholder="48.8566"
+                    className="mt-1"
+                  />
+                </label>
+                <label className="block">
+                  <span className="text-xs font-medium">{t("prayerTimes.manualLongitude")}</span>
+                  <Input
+                    type="text"
+                    inputMode="decimal"
+                    value={manualLng}
+                    onChange={(e) => setManualLng(e.target.value)}
+                    placeholder="2.3522"
+                    className="mt-1"
+                  />
+                </label>
+                {manualError && <p className="text-xs text-destructive">{t("prayerTimes.manualInvalid")}</p>}
+                <Button type="button" size="sm" onClick={handleManualSubmit}>
+                  {t("prayerTimes.manualApply")}
+                </Button>
+              </div>
+            )}
           </CardContent>
         </Card>
       )}
