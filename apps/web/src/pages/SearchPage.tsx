@@ -8,6 +8,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Skeleton } from "@/components/ui/skeleton";
 import { SearchBox } from "@/components/shared/SearchBox";
 import { searchApi } from "@/features/search/api";
+import { splitBasmala } from "@/features/quran/basmala";
 import { PageMeta } from "@/components/shared/PageMeta";
 import type { SearchResults } from "@/features/search/types";
 import { cn } from "@/lib/utils";
@@ -152,7 +153,9 @@ export function SearchPage() {
 
           {showSection("verses") && (
             <ResultSection title={t("nav.quran")} count={data.verses.length}>
-              {data.verses.map((v) => (
+              {data.verses.map((v) => {
+                const { text: verseArabic } = splitBasmala(v.surahNumber, v.numberInSurah, v.textArabic);
+                return (
                 <Link key={v.id} to={`/quran/${v.surahNumber}/${v.numberInSurah}`}>
                   <Card className={cn("transition-colors hover:border-primary/50")}>
                     <CardContent className="p-3">
@@ -160,7 +163,7 @@ export function SearchPage() {
                         {v.surahName} {v.surahNumber}:{v.numberInSurah}
                       </p>
                       <p dir="rtl" className="mt-1 font-arabic text-lg">
-                        {v.textArabic}
+                        {verseArabic}
                       </p>
                       {v.textTransliterated && (
                         <p className="mt-0.5 text-xs italic text-muted-foreground">{v.textTransliterated}</p>
@@ -168,7 +171,8 @@ export function SearchPage() {
                     </CardContent>
                   </Card>
                 </Link>
-              ))}
+                );
+              })}
             </ResultSection>
           )}
 

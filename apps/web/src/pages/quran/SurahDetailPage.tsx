@@ -10,6 +10,7 @@ import { Skeleton } from "@/components/ui/skeleton";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { quranApi } from "@/features/quran/api";
 import { translatedSurahName } from "@/features/quran/surah-names";
+import { splitBasmala } from "@/features/quran/basmala";
 import { tafsirApi } from "@/features/tafsir/api";
 import { QuickReminderButton } from "@/features/reminders/QuickReminderButton";
 import { useStreakPing } from "@/features/streaks/useStreak";
@@ -193,16 +194,23 @@ export function SurahDetailPage() {
           </header>
 
           <div className="space-y-1 rounded-lg border bg-reading text-reading-foreground">
-            {surah.verses.map((verse, i) => (
+            {surah.verses.map((verse, i) => {
+              const { basmala, text: verseArabic } = splitBasmala(surah.number, verse.numberInSurah, verse.textArabic);
+              return (
               <React.Fragment key={verse.id}>
                 {i > 0 && <Separator className="opacity-50" />}
+                {basmala && (
+                  <p dir="rtl" lang="ar" className="border-b px-5 py-4 text-center font-arabic text-2xl leading-loose text-primary">
+                    {basmala}
+                  </p>
+                )}
                 <div className="flex items-start gap-4 p-5">
                   <span className="mt-1 flex h-7 w-7 shrink-0 items-center justify-center rounded-full border text-xs font-medium">
                     {verse.numberInSurah}
                   </span>
                   <div className="flex-1">
                     <p dir="rtl" lang="ar" className="font-arabic text-2xl leading-loose">
-                      {verse.textArabic}
+                      {verseArabic}
                     </p>
 
                     {verse.textTransliterated && (
@@ -251,7 +259,7 @@ export function SurahDetailPage() {
                       <Button
                         variant="ghost"
                         size="sm"
-                        onClick={() => handleCopy(verse.numberInSurah, verse.textArabic)}
+                        onClick={() => handleCopy(verse.numberInSurah, verseArabic)}
                       >
                         <Copy className="h-3.5 w-3.5" />
                         {copiedVerse === verse.numberInSurah ? t("quran.copied") : t("quran.copy")}
@@ -270,7 +278,8 @@ export function SurahDetailPage() {
                   </div>
                 </div>
               </React.Fragment>
-            ))}
+              );
+            })}
           </div>
         </>
       )}
