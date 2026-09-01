@@ -3,6 +3,7 @@
     "quran": "Quran",
     "hadith": "Hadith",
     "duas": "Dua & Dhikr",
+    "prayerTimes": "Prayer times",
     "fiqh": "Fiqh",
     "history": "History",
     "library": "Library",
@@ -189,7 +190,8 @@
     "bookmarkDescription": "to save this content to your bookmarks.",
     "collectionDescription": "to organize this content into custom collections.",
     "noteDescription": "to take personal notes on this content.",
-    "reminderDescription": "to get a reminder at the time you choose."
+    "reminderDescription": "to get a reminder at the time you choose.",
+    "prayerAlertDescription": "to get a notification at every prayer time."
   },
   "profile": {
     "loading": "Loading...",
@@ -394,6 +396,45 @@
     "counterTap": "Count",
     "counterDone": "Done",
     "counterReset": "Reset the counter"
+  },
+  "prayerTimes": {
+    "title": "Prayer times",
+    "subtitle": "The 5 daily prayer times computed for your location, the Qibla direction, and notifications at every prayer time.",
+    "locationPrompt": "Allow location access to see your prayer times and the Qibla direction.",
+    "enableLocation": "Allow location",
+    "locationLoading": "Locating...",
+    "refreshLocation": "Refresh location",
+    "locationDenied": "Location denied. Allow it in your browser settings to see your prayer times.",
+    "locationError": "Could not get your location.",
+    "locationUnsupported": "Geolocation is not available on this device.",
+    "nextPrayer": "Next prayer",
+    "inTime": "in {{time}}",
+    "qiblaTitle": "Qibla direction",
+    "qiblaDegrees": "{{degrees}}° from north",
+    "enableCompass": "Enable compass",
+    "compassUnsupported": "Compass unavailable on this device - fixed direction shown above.",
+    "compassDenied": "Compass access denied - fixed direction shown above.",
+    "compassStaticHint": "Enable the compass for a live orientation.",
+    "notificationsTitle": "Notifications",
+    "notificationsDescription": "Get a notification at every prayer time.",
+    "enableNotifications": "Enable notifications",
+    "disableNotifications": "Disable",
+    "prayers": {
+      "fajr": "Fajr",
+      "sunrise": "Sunrise",
+      "dhuhr": "Dhuhr",
+      "asr": "Asr",
+      "maghrib": "Maghrib",
+      "isha": "Isha"
+    },
+    "methods": {
+      "MuslimWorldLeague": "Muslim World League",
+      "Egyptian": "Egyptian Authority",
+      "UmmAlQura": "Umm al-Qura (Mecca)",
+      "NorthAmerica": "ISNA (North America)",
+      "Karachi": "Karachi",
+      "Turkey": "Turkey (Diyanet)"
+    }
   },
   "quran": {
     "title": "The Quran",

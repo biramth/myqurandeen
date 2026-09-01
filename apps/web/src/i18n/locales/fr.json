@@ -3,6 +3,7 @@
     "quran": "Coran",
     "hadith": "Hadith",
     "duas": "Dua & Dhikr",
+    "prayerTimes": "Horaires de prière",
     "fiqh": "Fiqh",
     "history": "Histoire",
     "library": "Bibliothèque",
@@ -189,7 +190,8 @@
     "bookmarkDescription": "pour enregistrer ce contenu dans vos favoris.",
     "collectionDescription": "pour organiser ce contenu dans des collections personnalisées.",
     "noteDescription": "pour prendre des notes personnelles sur ce contenu.",
-    "reminderDescription": "pour recevoir un rappel personnalisé à l'heure de votre choix."
+    "reminderDescription": "pour recevoir un rappel personnalisé à l'heure de votre choix.",
+    "prayerAlertDescription": "pour recevoir une notification à l'heure de chaque prière."
   },
   "profile": {
     "loading": "Chargement...",
@@ -394,6 +396,45 @@
     "counterTap": "Compter",
     "counterDone": "Terminé",
     "counterReset": "Réinitialiser le compteur"
+  },
+  "prayerTimes": {
+    "title": "Horaires de prière",
+    "subtitle": "Les 5 horaires calculés pour votre position, la direction de la Qibla, et des notifications à l'heure de chaque prière.",
+    "locationPrompt": "Autorisez la localisation pour afficher vos horaires de prière et la direction de la Qibla.",
+    "enableLocation": "Autoriser la localisation",
+    "locationLoading": "Localisation...",
+    "refreshLocation": "Actualiser la position",
+    "locationDenied": "Localisation refusée. Autorisez-la dans les réglages de votre navigateur pour voir vos horaires.",
+    "locationError": "Impossible d'obtenir votre position.",
+    "locationUnsupported": "La géolocalisation n'est pas disponible sur cet appareil.",
+    "nextPrayer": "Prochaine prière",
+    "inTime": "dans {{time}}",
+    "qiblaTitle": "Direction de la Qibla",
+    "qiblaDegrees": "{{degrees}}° depuis le nord",
+    "enableCompass": "Activer la boussole",
+    "compassUnsupported": "Boussole non disponible sur cet appareil - direction fixe affichée ci-dessus.",
+    "compassDenied": "Accès à la boussole refusé - direction fixe affichée ci-dessus.",
+    "compassStaticHint": "Activez la boussole pour une orientation en direct.",
+    "notificationsTitle": "Notifications",
+    "notificationsDescription": "Recevez une notification à l'heure de chaque prière.",
+    "enableNotifications": "Activer les notifications",
+    "disableNotifications": "Désactiver",
+    "prayers": {
+      "fajr": "Fajr",
+      "sunrise": "Lever du soleil",
+      "dhuhr": "Dhuhr",
+      "asr": "Asr",
+      "maghrib": "Maghrib",
+      "isha": "Isha"
+    },
+    "methods": {
+      "MuslimWorldLeague": "Ligue islamique mondiale",
+      "Egyptian": "Autorité égyptienne",
+      "UmmAlQura": "Umm al-Qura (La Mecque)",
+      "NorthAmerica": "ISNA (Amérique du Nord)",
+      "Karachi": "Karachi",
+      "Turkey": "Turquie (Diyanet)"
+    }
   },
   "quran": {
     "title": "Le Coran",

@@ -5,11 +5,13 @@ import type { Database } from "../../database/database.module";
 import {
   duaCategories,
   duas,
+  prayerAlertSettings,
   quranSurahs,
   readingRotationSettings,
   reminders,
   streakAlertSettings,
 } from "../../database/schema";
+import type { PrayerCalculationMethodKey, PrayerName } from "./prayer-times";
 import type { ReminderTargetType } from "@qurandeen/shared";
 
 interface ResolvedTarget {
@@ -181,6 +183,44 @@ export class RemindersService {
 
   async deleteStreakAlertSettings(userId: string) {
     await this.db.delete(streakAlertSettings).where(eq(streakAlertSettings.userId, userId));
+    return { deleted: true };
+  }
+
+  // --- Notifications aux heures de priere ---
+
+  async getPrayerAlertSettings(userId: string) {
+    const [row] = await this.db
+      .select()
+      .from(prayerAlertSettings)
+      .where(eq(prayerAlertSettings.userId, userId))
+      .limit(1);
+    return row ?? null;
+  }
+
+  async upsertPrayerAlertSettings(
+    userId: string,
+    input: {
+      latitude: number;
+      longitude: number;
+      timezone: string;
+      calculationMethod: PrayerCalculationMethodKey;
+      enabledPrayers: PrayerName[];
+      isActive: boolean;
+    },
+  ) {
+    const [row] = await this.db
+      .insert(prayerAlertSettings)
+      .values({ userId, ...input })
+      .onConflictDoUpdate({
+        target: prayerAlertSettings.userId,
+        set: { ...input, updatedAt: new Date() },
+      })
+      .returning();
+    return row;
+  }
+
+  async deletePrayerAlertSettings(userId: string) {
+    await this.db.delete(prayerAlertSettings).where(eq(prayerAlertSettings.userId, userId));
     return { deleted: true };
   }
 }

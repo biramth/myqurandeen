@@ -81,6 +81,9 @@ const LearningLessonPage = React.lazy(() =>
 const LearningQuizPage = React.lazy(() =>
   import("@/pages/learning/LearningQuizPage").then((m) => ({ default: m.LearningQuizPage })),
 );
+const PrayerTimesPage = React.lazy(() =>
+  import("@/pages/PrayerTimesPage").then((m) => ({ default: m.PrayerTimesPage })),
+);
 const LibraryPage = React.lazy(() => import("@/pages/library/LibraryPage").then((m) => ({ default: m.LibraryPage })));
 const BookPage = React.lazy(() => import("@/pages/library/BookPage").then((m) => ({ default: m.BookPage })));
 const AdminPage = React.lazy(() => import("@/pages/admin/AdminPage").then((m) => ({ default: m.AdminPage })));
@@ -141,6 +144,8 @@ export function AppRouter() {
 
           <Route path="/duas" element={<DuaCategoriesPage />} />
           <Route path="/duas/:slug" element={<DuaCategoryPage />} />
+
+          <Route path="/prayer-times" element={<PrayerTimesPage />} />
 
           <Route path="/history" element={<HistoryPeriodsPage />} />
           <Route path="/history/event/:slug" element={<HistoryEventPage />} />

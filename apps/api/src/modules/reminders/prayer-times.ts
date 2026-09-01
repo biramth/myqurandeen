@@ -1,6 +1,33 @@
 import { CalculationMethod, Coordinates, PrayerTimes } from "adhan";
 import { TIMEZONE_COORDINATES } from "./timezone-coordinates";
 
+/**
+ * Methodes de calcul exposees a l'utilisateur (sous-ensemble curated des
+ * methodes disponibles dans `adhan` - la liste complete est trop longue pour
+ * un simple menu deroulant). Cles partagees telles quelles avec le frontend
+ * (UpsertPrayerAlertSettingsDto valide contre ce meme tableau).
+ */
+export const PRAYER_CALCULATION_METHODS = [
+  "MuslimWorldLeague",
+  "Egyptian",
+  "UmmAlQura",
+  "NorthAmerica",
+  "Karachi",
+  "Turkey",
+] as const;
+
+export type PrayerCalculationMethodKey = (typeof PRAYER_CALCULATION_METHODS)[number];
+
+export const DEFAULT_PRAYER_CALCULATION_METHOD: PrayerCalculationMethodKey = "MuslimWorldLeague";
+
+export function isPrayerCalculationMethod(value: string): value is PrayerCalculationMethodKey {
+  return (PRAYER_CALCULATION_METHODS as readonly string[]).includes(value);
+}
+
+/** Les 5 prieres obligatoires, utilisees comme cle pour les reglages de notification. */
+export const PRAYER_NAMES = ["fajr", "dhuhr", "asr", "maghrib", "isha"] as const;
+export type PrayerName = (typeof PRAYER_NAMES)[number];
+
 /** Formate un timestamp ISO en "hh:mm" dans un fuseau IANA (tolere "24" -> "00"). */
 export function formatHhmm(iso: string, timeZone: string): string | null {
   try {
@@ -48,7 +75,7 @@ function localDateParts(timeZone: string, at: Date = new Date()): LocalClockLike
 /**
  * Horaires de priere (Fajr, Isha, ...) d'un utilisateur pour "aujourd'hui"
  * dans son fuseau local, calcules avec adhan (methode Muslim World League
- * 18°/17°).
+ * 18°/17° par defaut - voir `method` pour les autres methodes disponibles).
  *
  * La date calendaire locale est utilisee comme jour de reference (adhan lit
  * les composants locaux du Date passe). Les dates absolues (ISO) renvoyees
@@ -63,6 +90,7 @@ export function twoPrayerTimes(
   latitude: number | null | undefined,
   longitude: number | null | undefined,
   at: Date = new Date(),
+  method: PrayerCalculationMethodKey = DEFAULT_PRAYER_CALCULATION_METHOD,
 ): PrayerTimes | null {
   const parts = localDateParts(timeZone, at);
   if (!parts) return null;
@@ -76,11 +104,7 @@ export function twoPrayerTimes(
     coords = new Coordinates(fallback[0], fallback[1]);
   }
 
-  return new PrayerTimes(
-    coords,
-    new Date(parts.year, parts.month - 1, parts.day, 12, 0, 0),
-    CalculationMethod.MuslimWorldLeague(),
-  );
+  return new PrayerTimes(coords, new Date(parts.year, parts.month - 1, parts.day, 12, 0, 0), CalculationMethod[method]());
 }
 
 /** "hh:mm" local du Fajr et de l'Isha pour un utilisateur aujourd'hui. */

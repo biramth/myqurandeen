@@ -9,6 +9,7 @@ import {
   Route,
   Users,
   Lightbulb,
+  Compass,
   type LucideIcon,
 } from "lucide-react";
 
@@ -38,6 +39,7 @@ export const NAV_GROUPS: NavGroup[] = [
       { labelKey: "nav.quran", href: "/quran", icon: BookOpen },
       { labelKey: "nav.hadith", href: "/hadith", icon: ScrollText },
       { labelKey: "nav.duas", href: "/duas", icon: HandHeart },
+      { labelKey: "nav.prayerTimes", href: "/prayer-times", icon: Compass },
     ],
   },
   {

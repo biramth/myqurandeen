@@ -7,6 +7,7 @@ import { CreateReminderDto } from "./dto/create-reminder.dto";
 import { UpdateReminderDto } from "./dto/update-reminder.dto";
 import { UpsertRotationSettingsDto } from "./dto/upsert-rotation-settings.dto";
 import { UpsertStreakAlertSettingsDto } from "./dto/upsert-streak-alert-settings.dto";
+import { UpsertPrayerAlertSettingsDto } from "./dto/upsert-prayer-alert-settings.dto";
 
 /**
  * Rappels notification de l'utilisateur connecte - JwtAuthGuard global
@@ -48,6 +49,21 @@ export class RemindersController {
   @Delete("streak-alert-settings")
   deleteStreakAlertSettings(@CurrentUser() user: RequestUser) {
     return this.remindersService.deleteStreakAlertSettings(user.sub);
+  }
+
+  @Get("prayer-alert-settings")
+  getPrayerAlertSettings(@CurrentUser() user: RequestUser) {
+    return this.remindersService.getPrayerAlertSettings(user.sub);
+  }
+
+  @Put("prayer-alert-settings")
+  upsertPrayerAlertSettings(@CurrentUser() user: RequestUser, @Body() dto: UpsertPrayerAlertSettingsDto) {
+    return this.remindersService.upsertPrayerAlertSettings(user.sub, dto);
+  }
+
+  @Delete("prayer-alert-settings")
+  deletePrayerAlertSettings(@CurrentUser() user: RequestUser) {
+    return this.remindersService.deletePrayerAlertSettings(user.sub);
   }
 
   @Get()

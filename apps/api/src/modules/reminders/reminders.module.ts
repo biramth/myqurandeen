@@ -6,6 +6,7 @@ import { RemindersService } from "./reminders.service";
 import { ReminderSchedulerService } from "./reminder-scheduler.service";
 import { StreakAlertSchedulerService } from "./streak-alert-scheduler.service";
 import { DuaSchedulerService } from "./dua-scheduler.service";
+import { PrayerAlertSchedulerService } from "./prayer-alert-scheduler.service";
 import { SchedulerLockService } from "./scheduler-lock.service";
 import { NotificationsModule } from "../notifications/notifications.module";
 
@@ -17,6 +18,7 @@ import { NotificationsModule } from "../notifications/notifications.module";
     ReminderSchedulerService,
     StreakAlertSchedulerService,
     DuaSchedulerService,
+    PrayerAlertSchedulerService,
     SchedulerLockService,
     CronTokenGuard,
   ],
