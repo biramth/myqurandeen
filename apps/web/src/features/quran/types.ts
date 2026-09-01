@@ -46,3 +46,21 @@ export interface SurahTranslationRow {
   numberInSurah: number;
   text: string;
 }
+
+export interface Reciter {
+  id: string;
+  slug: string;
+  nameArabic: string;
+  nameTransliterated: string;
+  style: string;
+  bitrate: number;
+}
+
+export interface VerseAudioReciter extends Reciter {
+  url: string;
+  durationSec: number | null;
+}
+
+export interface VerseAudioResponse {
+  items: VerseAudioReciter[];
+}

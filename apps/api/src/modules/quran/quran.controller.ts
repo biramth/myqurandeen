@@ -1,6 +1,6 @@
 import { CacheInterceptor } from "@nestjs/cache-manager";
 import { Controller, Get, Param, ParseIntPipe, UseInterceptors } from "@nestjs/common";
-import { ApiTags } from "@nestjs/swagger";
+import { ApiOperation, ApiTags } from "@nestjs/swagger";
 import { Public } from "../../common/decorators/public.decorator";
 import { QuranService } from "./quran.service";
 
@@ -43,5 +43,20 @@ export class QuranController {
   @Get("translations")
   listTranslations() {
     return this.quranService.listTranslations();
+  }
+
+  @ApiOperation({ summary: "Liste des recitateurs disponibles (recitation audio)" })
+  @Get("reciters")
+  listReciters() {
+    return this.quranService.listReciters();
+  }
+
+  @ApiOperation({ summary: "URLs de recitation audio par verset et recitateur" })
+  @Get("surahs/:number/verses/:verseNumber/audio")
+  getVerseAudio(
+    @Param("number", ParseIntPipe) number: number,
+    @Param("verseNumber", ParseIntPipe) verseNumber: number,
+  ) {
+    return this.quranService.getVerseAudio(number, verseNumber);
   }
 }

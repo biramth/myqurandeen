@@ -323,9 +323,9 @@ fait ses preuves.
 
 ## Phase 4 — Mode Ramadan
 
-**Dépendance** : s'appuie sur le module horaires de prière déjà en
-construction (`prayer-times`, calcul `adhan`, géolocalisation) pour les
-horaires iftar/suhoor.
+**Dépendance** : s'appuie sur le module horaires de prière (`prayer-times`,
+calcul `adhan`) ; la position est définie par la ville choisie par
+l'utilisateur via la recherche (voir 2.x — plus de géolocalisation).
 
 - [ ] Bascule d'affichage saisonnière : détection automatique de la
       période de Ramadan (calendrier hijri — bibliothèque de conversion
@@ -350,38 +350,33 @@ horaires iftar/suhoor.
 
 ## Phase 5 — Récitation audio
 
-**[~] Décisions à trancher avant de commencer** :
-1. Récitateur(s) : commencer par un seul (licence libre/permissive
-   claire à vérifier, ex. certains enregistrements EveryAyah sont
-   librement redistribuables — à confirmer précisément par récitateur).
-2. Hébergement : fichiers audio potentiellement volumineux (Coran complet
-   ≈ plusieurs Go selon qualité) — stockage objet (S3-compatible,
-   Cloudflare R2 pour éviter les coûts de sortie) plutôt que servi
-   directement par le backend NestJS.
-3. Granularité : audio par verset (plus flexible, plus de fichiers) vs par
-   sourate (moins de fichiers, moins pratique pour naviguer verset par
-   verset) — recommandé : par verset, c'est le standard des apps Coran et
-   ça permet la mise en avant du "verset du jour" en audio.
+**[~] Décisions tranchées** :
+1. Récitateurs : **plusieurs dès le lancement** — 5 récitateurs importés
+   (Alafasy, Husary, Minshawi, Maher Al-Muaiqly, Abdul Basit), éditions
+   librement distribuables du CDN Al Quran Cloud (Islamic Network).
+2. Hébergement : **CDN externe** — on ne stocke que les URLs
+   (pattern `https://cdn.islamic.network/quran/audio/{bitrate}/{edition}/{ayahGlobal}.mp3`),
+   pas les fichiers ; stockage objet jugé non nécessaire au lancement.
+3. Granularité : **par verset** (numéro de verset global 1..6236) — lecture
+   continue verset à verset + mise en avant possible du "verset du jour".
 
-- [ ] Trancher les 3 décisions ci-dessus.
-- [ ] Schéma : table `quran_verse_audio` (verseId, reciterId, url, durée) +
+- [x] Trancher les 3 décisions ci-dessus.
+- [x] Schéma : table `quran_verse_audio` (verseId, reciterId, url, durée) +
       table `quran_reciters` (nom, style de récitation, source/licence).
-- [ ] Script d'import (téléchargement en masse depuis la source choisie,
-      upload vers le stockage objet, écriture des métadonnées en base) —
-      prévoir un mode reprise (idempotent, ne re-télécharge pas l'existant)
-      vu le volume.
-- [ ] Backend : endpoint qui renvoie l'URL audio (signée si le stockage le
-      demande) pour un verset/récitateur donné.
-- [ ] Frontend : lecteur audio inline sur `VersePage`/`SurahDetailPage`
-      avec lecture en continu (verset suivant automatique) — composant à
-      concevoir pour rester utilisable au clavier/lecteur d'écran.
+- [x] Script d'import idempotent (upsert des récitateurs par slug, calcul des
+      offsets globaux, insert par lots — pas de doublons en cas de reprise).
+- [x] Backend : `GET /quran/reciters` + `GET /quran/surahs/:number/verses/:verseNumber/audio`
+      (publics, cache HTTP actif).
+- [x] Frontend : lecteur audio inline (composant `AudioRecitation`) sur
+      `VersePage`/`SurahDetailPage` — lecture en continu (verset suivant
+      automatique), boutons précédent/suivant, sélecteur de récitateur
+      persisté en localStorage, utilisable au clavier/lecteur d'écran.
 - [ ] Téléchargement hors-ligne de l'audio : à articuler avec le cache
       hors-ligne texte (3.2), mais séparément (l'audio est nettement plus
       lourd, ne doit pas être inclus par défaut dans le téléchargement
       "texte complet").
-- [ ] Sélecteur de récitateur si plusieurs sont ajoutés par la suite —
-      prévoir le schéma pour plusieurs récitateurs dès le départ même si
-      un seul est importé au lancement.
+- [x] Sélecteur de récitateur actif dès le lancement (5 récitateurs) —
+      schéma prévu pour en ajouter d'autres, import idempotent.
 
 ---
 

@@ -7,6 +7,7 @@ import { Skeleton } from "@/components/ui/skeleton";
 import { Breadcrumbs } from "@/components/shared/Breadcrumbs";
 import { ContentUserActions } from "@/components/shared/ContentUserActions";
 import { quranApi } from "@/features/quran/api";
+import { AudioRecitation } from "@/features/quran/AudioRecitation";
 import { splitBasmala } from "@/features/quran/basmala";
 import { useStreakPing } from "@/features/streaks/useStreak";
 import { useGamificationEvent } from "@/features/gamification/useGamification";
@@ -85,6 +86,8 @@ export function VersePage() {
               <p className="mt-3 text-sm italic leading-relaxed text-muted-foreground">{data.verse.textTransliterated}</p>
             )}
           </div>
+
+          <AudioRecitation surahNumber={surahNumber} verseNumber={verseNumber} className="mt-4" />
 
           <ContentUserActions
             targetType="verse"

@@ -457,6 +457,13 @@
     "noTranslation": "Aucune traduction importée pour ce verset pour le moment.",
     "tafsirTitle": "Tafsir",
     "noTafsir": "Aucun tafsir importé pour ce verset pour le moment.",
+    "audioListen": "Écouter",
+    "audioPause": "Pause",
+    "audioReciter": "Récitateur",
+    "audioPrevious": "Verset précédent",
+    "audioNext": "Verset suivant",
+    "audioError": "Impossible de charger la récitation.",
+    "audioEmpty": "Aucune récitation disponible pour ce verset.",
     "surahNames": {
       "1": "L'Ouverture",
       "2": "La Vache",

@@ -2,13 +2,14 @@ import * as React from "react";
 import { Link, Navigate, useParams } from "react-router-dom";
 import { useQuery } from "@tanstack/react-query";
 import { useTranslation } from "react-i18next";
-import { ArrowLeft, BookMarked, Copy, Languages } from "lucide-react";
+import { ArrowLeft, BookMarked, Copy, Languages, Play } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Separator } from "@/components/ui/separator";
 import { Skeleton } from "@/components/ui/skeleton";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { quranApi } from "@/features/quran/api";
+import { AudioRecitation } from "@/features/quran/AudioRecitation";
 import { translatedSurahName } from "@/features/quran/surah-names";
 import { splitBasmala } from "@/features/quran/basmala";
 import { tafsirApi } from "@/features/tafsir/api";
@@ -16,6 +17,7 @@ import { QuickReminderButton } from "@/features/reminders/QuickReminderButton";
 import { useStreakPing } from "@/features/streaks/useStreak";
 import { useGamificationEvent } from "@/features/gamification/useGamification";
 import { isRtlLanguage } from "@/lib/rtl";
+import { cn } from "@/lib/utils";
 import { PageMeta } from "@/components/shared/PageMeta";
 
 export function SurahDetailPage() {
@@ -27,6 +29,10 @@ export function SurahDetailPage() {
   const [copiedVerse, setCopiedVerse] = React.useState<number | null>(null);
   const [showTranslation, setShowTranslation] = React.useState(false);
   const [selectedTafsirId, setSelectedTafsirId] = React.useState<string | null>(null);
+  // Verset lu par le lecteur audio (lecture continue) + signal pour lancer
+  // la lecture quand on choisit un verset dans la liste.
+  const [activeVerse, setActiveVerse] = React.useState(1);
+  const [autoPlaySignal, setAutoPlaySignal] = React.useState(0);
   // Versets dont le tafsir est deplie - affichage direct sous le verset
   // plutot que dans un panneau lateral (Sheet) separe du texte.
   const [expandedTafsirVerses, setExpandedTafsirVerses] = React.useState<Set<number>>(new Set());
@@ -193,6 +199,15 @@ export function SurahDetailPage() {
             </div>
           </header>
 
+          <AudioRecitation
+            surahNumber={surah.number}
+            verseNumber={activeVerse}
+            totalVerses={surah.versesCount}
+            onNavigate={setActiveVerse}
+            autoPlaySignal={autoPlaySignal}
+            className="mb-6"
+          />
+
           <div className="space-y-1 rounded-lg border bg-reading text-reading-foreground">
             {surah.verses.map((verse, i) => {
               const { basmala, text: verseArabic } = splitBasmala(surah.number, verse.numberInSurah, verse.textArabic);
@@ -204,7 +219,12 @@ export function SurahDetailPage() {
                     {basmala}
                   </p>
                 )}
-                <div className="flex items-start gap-4 p-5">
+                <div
+                  className={cn(
+                    "flex items-start gap-4 p-5",
+                    activeVerse === verse.numberInSurah && "bg-primary/5",
+                  )}
+                >
                   <span className="mt-1 flex h-7 w-7 shrink-0 items-center justify-center rounded-full border text-xs font-medium">
                     {verse.numberInSurah}
                   </span>
@@ -256,6 +276,18 @@ export function SurahDetailPage() {
                     )}
 
                     <div className="mt-2 flex items-center gap-1">
+                      <Button
+                        variant={activeVerse === verse.numberInSurah ? "secondary" : "ghost"}
+                        size="sm"
+                        aria-label={t("quran.audioListen", { verse: verse.numberInSurah })}
+                        onClick={() => {
+                          setActiveVerse(verse.numberInSurah);
+                          setAutoPlaySignal((signal) => signal + 1);
+                        }}
+                      >
+                        <Play className="h-3.5 w-3.5" />
+                        {t("quran.audioListen")}
+                      </Button>
                       <Button
                         variant="ghost"
                         size="sm"

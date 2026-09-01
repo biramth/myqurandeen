@@ -246,6 +246,13 @@
       "when": 1788254348901,
       "tag": "0034_empty_baron_strucker",
       "breakpoints": true
+    },
+    {
+      "idx": 35,
+      "version": "7",
+      "when": 1788275134760,
+      "tag": "0035_next_black_widow",
+      "breakpoints": true
     }
   ]
 }

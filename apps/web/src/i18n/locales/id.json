@@ -349,7 +349,14 @@
     "comparisonTitle": "Perbandingan terjemahan",
     "noTranslation": "Belum ada terjemahan yang diimpor untuk ayat ini.",
     "tafsirTitle": "Tafsir",
-    "noTafsir": "Belum ada tafsir yang diimpor untuk ayat ini."
+    "noTafsir": "Belum ada tafsir yang diimpor untuk ayat ini.",
+    "audioListen": "Dengarkan",
+    "audioPause": "Jeda",
+    "audioReciter": "Qari",
+    "audioPrevious": "Ayat sebelumnya",
+    "audioNext": "Ayat berikutnya",
+    "audioError": "Tidak dapat memuat bacaan.",
+    "audioEmpty": "Tidak ada bacaan untuk ayat ini.",
   },
   "hadith": {
     "title": "Hadis",

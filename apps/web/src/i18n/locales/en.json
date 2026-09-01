@@ -456,7 +456,14 @@
     "comparisonTitle": "Translation comparison",
     "noTranslation": "No translation imported for this verse yet.",
     "tafsirTitle": "Tafsir",
-    "noTafsir": "No tafsir imported for this verse yet."
+    "noTafsir": "No tafsir imported for this verse yet.",
+    "audioListen": "Listen",
+    "audioPause": "Pause",
+    "audioReciter": "Reciter",
+    "audioPrevious": "Previous verse",
+    "audioNext": "Next verse",
+    "audioError": "Unable to load the recitation.",
+    "audioEmpty": "No recitation available for this verse.",
   },
   "hadith": {
     "title": "Hadith",

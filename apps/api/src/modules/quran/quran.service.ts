@@ -2,7 +2,15 @@ import { Inject, Injectable, NotFoundException } from "@nestjs/common";
 import { and, asc, eq } from "drizzle-orm";
 import { DRIZZLE } from "../../database/database.constants";
 import type { Database } from "../../database/database.module";
-import { authors, quranSurahs, quranVerses, translations, verseTranslations } from "../../database/schema";
+import {
+  authors,
+  quranReciters,
+  quranSurahs,
+  quranVerseAudio,
+  quranVerses,
+  translations,
+  verseTranslations,
+} from "../../database/schema";
 
 @Injectable()
 export class QuranService {
@@ -96,5 +104,51 @@ export class QuranService {
       .leftJoin(authors, eq(authors.id, translations.translatorAuthorId))
       .groupBy(translations.id, translations.name, translations.language, authors.name)
       .orderBy(asc(translations.language));
+  }
+
+  async listReciters() {
+    return this.db
+      .select({
+        id: quranReciters.id,
+        slug: quranReciters.slug,
+        nameArabic: quranReciters.nameArabic,
+        nameTransliterated: quranReciters.nameTransliterated,
+        style: quranReciters.style,
+        bitrate: quranReciters.bitrate,
+      })
+      .from(quranReciters)
+      .orderBy(asc(quranReciters.slug));
+  }
+
+  async getVerseAudio(surahNumber: number, verseNumber: number) {
+    const surah = await this.db.query.quranSurahs.findFirst({ where: eq(quranSurahs.number, surahNumber) });
+    if (!surah) {
+      throw new NotFoundException(`Sourate ${surahNumber} introuvable`);
+    }
+
+    const verse = await this.db.query.quranVerses.findFirst({
+      where: and(eq(quranVerses.surahId, surah.id), eq(quranVerses.numberInSurah, verseNumber)),
+    });
+    if (!verse) {
+      throw new NotFoundException(`Verset ${surahNumber}:${verseNumber} introuvable`);
+    }
+
+    const items = await this.db
+      .select({
+        reciterId: quranReciters.id,
+        slug: quranReciters.slug,
+        nameArabic: quranReciters.nameArabic,
+        nameTransliterated: quranReciters.nameTransliterated,
+        style: quranReciters.style,
+        bitrate: quranReciters.bitrate,
+        url: quranVerseAudio.url,
+        durationSec: quranVerseAudio.durationSec,
+      })
+      .from(quranVerseAudio)
+      .innerJoin(quranReciters, eq(quranReciters.id, quranVerseAudio.reciterId))
+      .where(eq(quranVerseAudio.verseId, verse.id))
+      .orderBy(asc(quranReciters.slug));
+
+    return { items };
   }
 }

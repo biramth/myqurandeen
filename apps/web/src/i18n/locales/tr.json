@@ -354,7 +354,14 @@
     "comparisonTitle": "Ceviri karsilastirmasi",
     "noTranslation": "Bu ayet icin henuz ceviri aktarilmadi.",
     "tafsirTitle": "Tefsir",
-    "noTafsir": "Bu ayet icin henuz tefsir aktarilmadi."
+    "noTafsir": "Bu ayet icin henuz tefsir aktarilmadi.",
+    "audioListen": "Dinle",
+    "audioPause": "Duraklat",
+    "audioReciter": "Kari",
+    "audioPrevious": "Önceki ayet",
+    "audioNext": "Sonraki ayet",
+    "audioError": "Tilavet yüklenemedi.",
+    "audioEmpty": "Bu ayet için tilavet bulunmuyor.",
   },
   "hadith": {
     "title": "Hadis",

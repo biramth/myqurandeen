@@ -354,7 +354,14 @@
     "comparisonTitle": "Comparacion de traducciones",
     "noTranslation": "Ninguna traduccion importada para este versiculo todavia.",
     "tafsirTitle": "Tafsir",
-    "noTafsir": "Ningun tafsir importado para este versiculo todavia."
+    "noTafsir": "Ningun tafsir importado para este versiculo todavia.",
+    "audioListen": "Escuchar",
+    "audioPause": "Pausa",
+    "audioReciter": "Recitador",
+    "audioPrevious": "Versículo anterior",
+    "audioNext": "Versículo siguiente",
+    "audioError": "No se pudo cargar la recitación.",
+    "audioEmpty": "No hay recitación disponible para este versículo.",
   },
   "hadith": {
     "title": "Hadiz",

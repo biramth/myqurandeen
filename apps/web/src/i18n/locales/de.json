@@ -354,7 +354,14 @@
     "comparisonTitle": "Ubersetzungsvergleich",
     "noTranslation": "Noch keine Ubersetzung fur diesen Vers importiert.",
     "tafsirTitle": "Tafsir",
-    "noTafsir": "Noch kein Tafsir fur diesen Vers importiert."
+    "noTafsir": "Noch kein Tafsir fur diesen Vers importiert.",
+    "audioListen": "Anhören",
+    "audioPause": "Pause",
+    "audioReciter": "Rezitator",
+    "audioPrevious": "Vorheriger Vers",
+    "audioNext": "Nächster Vers",
+    "audioError": "Die Rezitation konnte nicht geladen werden.",
+    "audioEmpty": "Keine Rezitation für diesen Vers verfügbar.",
   },
   "hadith": {
     "title": "Hadith",

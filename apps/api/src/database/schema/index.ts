@@ -1,6 +1,7 @@
 export * from "./identity";
 export * from "./sources";
 export * from "./quran";
+export * from "./quran-audio";
 export * from "./hadith";
 export * from "./schools";
 export * from "./scholars";
