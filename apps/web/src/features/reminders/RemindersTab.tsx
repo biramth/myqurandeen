@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { useTranslation } from "react-i18next";
 import { toast } from "sonner";
-import { Bell, BellOff, BellRing, Flame, Moon, Sun, Trash2 } from "lucide-react";
+import { Bell, BellOff, BellRing, Flame, Trash2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Skeleton } from "@/components/ui/skeleton";
@@ -297,125 +297,6 @@ function StreakAlertCard() {
   );
 }
 
-function DuaScheduleCard() {
-  const { t } = useTranslation();
-  const queryClient = useQueryClient();
-  const { data: settings, isLoading } = useQuery({
-    queryKey: ["reminders", "dua-schedule-settings"],
-    queryFn: remindersApi.getDuaScheduleSettings,
-  });
-
-  const [morningTime, setMorningTime] = React.useState("07:00");
-  const [eveningTime, setEveningTime] = React.useState("19:00");
-
-  React.useEffect(() => {
-    if (settings) {
-      setMorningTime(settings.morningTime);
-      setEveningTime(settings.eveningTime);
-    }
-  }, [settings]);
-
-  // Meme resynchronisation silencieuse que RotationSettingsCard - voir son commentaire.
-  React.useEffect(() => {
-    if (!settings?.isActive) return;
-    const currentTimezone = Intl.DateTimeFormat().resolvedOptions().timeZone;
-    if (settings.timezone === currentTimezone) return;
-    remindersApi
-      .upsertDuaScheduleSettings({
-        timezone: currentTimezone,
-        morningTime: settings.morningTime,
-        eveningTime: settings.eveningTime,
-        isActive: true,
-      })
-      .then(() => queryClient.invalidateQueries({ queryKey: ["reminders", "dua-schedule-settings"] }))
-      .catch(() => {});
-  }, [settings, queryClient]);
-
-  const upsertMutation = useMutation({
-    mutationFn: (isActive: boolean) =>
-      remindersApi.upsertDuaScheduleSettings({
-        timezone: Intl.DateTimeFormat().resolvedOptions().timeZone,
-        morningTime,
-        eveningTime,
-        isActive,
-      }),
-    onSuccess: () => {
-      queryClient.invalidateQueries({ queryKey: ["reminders", "dua-schedule-settings"] });
-      toast.success(t("reminders.updated"));
-    },
-    onError: () => toast.error(t("reminders.error")),
-  });
-
-  if (isLoading) return <Skeleton className="h-24 w-full" />;
-
-  const isActive = settings?.isActive ?? false;
-  const changed =
-    !settings || morningTime !== settings.morningTime || eveningTime !== settings.eveningTime;
-
-  return (
-    <div className="rounded-md border p-3">
-      <div className="flex items-center justify-between gap-3">
-        <div>
-          <p className="flex items-center gap-1.5 text-sm font-medium">
-            <BellRing className="h-4 w-4 text-primary" aria-hidden="true" />
-            {t("reminders.duaScheduleTitle")}
-          </p>
-          <p className="text-xs text-muted-foreground">{t("reminders.duaScheduleDescription")}</p>
-        </div>
-        <Button
-          type="button"
-          size="sm"
-          variant={isActive ? "outline" : "default"}
-          disabled={upsertMutation.isPending}
-          onClick={() => upsertMutation.mutate(!isActive)}
-        >
-          {isActive ? t("reminders.duaScheduleDisable") : t("reminders.duaScheduleEnable")}
-        </Button>
-      </div>
-
-      {isActive && (
-        <div className="mt-3 space-y-2">
-          <div className="flex items-center justify-between gap-3">
-            <span className="flex items-center gap-1.5 text-sm">
-              <Sun className="h-4 w-4 text-amber-400" aria-hidden="true" />
-              {t("reminders.duaScheduleMorning")}
-            </span>
-            <Input
-              type="time"
-              value={morningTime}
-              onChange={(e) => setMorningTime(e.target.value)}
-              className="h-9 w-28"
-            />
-          </div>
-          <div className="flex items-center justify-between gap-3">
-            <span className="flex items-center gap-1.5 text-sm">
-              <Moon className="h-4 w-4 text-indigo-400" aria-hidden="true" />
-              {t("reminders.duaScheduleEvening")}
-            </span>
-            <Input
-              type="time"
-              value={eveningTime}
-              onChange={(e) => setEveningTime(e.target.value)}
-              className="h-9 w-28"
-            />
-          </div>
-          {changed && (
-            <Button
-              type="button"
-              size="sm"
-              variant="secondary"
-              disabled={upsertMutation.isPending}
-              onClick={() => upsertMutation.mutate(true)}
-            >
-              {t("reminders.save")}
-            </Button>
-          )}
-        </div>
-      )}
-    </div>
-  );
-}
-
 export function RemindersTab() {
   const { t, i18n } = useTranslation();
   const queryClient = useQueryClient();
@@ -447,8 +328,6 @@ export function RemindersTab() {
       <RotationSettingsCard />
 
       <StreakAlertCard />
-
-      <DuaScheduleCard />
 
       <div>
         <div className="mb-3 flex items-center justify-between">

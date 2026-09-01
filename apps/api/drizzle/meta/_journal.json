@@ -225,6 +225,20 @@
       "when": 1788164434574,
       "tag": "0031_lying_tomorrow_man",
       "breakpoints": true
+    },
+    {
+      "idx": 32,
+      "version": "7",
+      "when": 1788252565863,
+      "tag": "0032_dua_schedule_geolocation",
+      "breakpoints": true
+    },
+    {
+      "idx": 33,
+      "version": "7",
+      "when": 1788252671630,
+      "tag": "0033_dua_schedule_drop_legacy_times",
+      "breakpoints": true
     }
   ]
 }

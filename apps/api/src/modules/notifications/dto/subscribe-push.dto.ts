@@ -1,4 +1,4 @@
-import { IsOptional, IsString, IsUrl, MinLength } from "class-validator";
+import { IsNumber, IsOptional, IsString, IsUrl, Max, Min, MinLength } from "class-validator";
 
 export class SubscribePushDto {
   @IsUrl({ require_tld: false })
@@ -20,4 +20,17 @@ export class SubscribePushDto {
   @IsOptional()
   @IsString()
   timezone?: string;
+
+  /** Position WGS84 capturee cote client (geoloc navigateur au moment de l'autorisation push). */
+  @IsOptional()
+  @IsNumber()
+  @Min(-90)
+  @Max(90)
+  latitude?: number;
+
+  @IsOptional()
+  @IsNumber()
+  @Min(-180)
+  @Max(180)
+  longitude?: number;
 }

@@ -40,6 +40,7 @@
     "@nestjs/swagger": "^11.1.0",
     "@nestjs/throttler": "^6.2.1",
     "@qurandeen/shared": "*",
+    "adhan": "^4.4.6",
     "argon2": "^0.41.1",
     "cache-manager": "^7.2.9",
     "class-transformer": "^0.5.1",

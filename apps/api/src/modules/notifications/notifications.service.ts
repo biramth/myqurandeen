@@ -80,7 +80,15 @@ export class NotificationsService {
 
   async subscribe(
     userId: string,
-    input: { endpoint: string; p256dh: string; auth: string; userAgent?: string; timezone?: string },
+    input: {
+      endpoint: string;
+      p256dh: string;
+      auth: string;
+      userAgent?: string;
+      timezone?: string;
+      latitude?: number;
+      longitude?: number;
+    },
   ) {
     // Un meme endpoint peut deja exister si l'utilisateur s'etait deja
     // abonne (re-souscription silencieuse du navigateur) - on rafraichit
@@ -95,7 +103,7 @@ export class NotificationsService {
 
     // Rention "zero configuration" : des le premier abonnement push, on active
     // automatiquement les duas du matin/soir et l'alerte "garde ta serie".
-    await this.ensureDefaultSchedules(userId, input.timezone ?? "UTC");
+    await this.ensureDefaultSchedules(userId, input.timezone ?? "UTC", input.latitude, input.longitude);
     await this.sendWelcome(userId, input.endpoint);
 
     return { subscribed: true };
@@ -103,16 +111,31 @@ export class NotificationsService {
 
   /**
    * Cree (si absent) le planning "dua du matin/du soir" actif par defaut avec
-   * les horaires 07:00 / 19:00 ainsi que l'alerte "garde ta serie" a 20:00,
-   * tous deux dans le fuseau horaire de l'utilisateur. `onConflictDoNothing`
-   * rend la re-souscription idempotente (ne remet pas a zero des horaires
-   * deja personnalises).
+   * les horaires Fajr / Isha calcules depuis la position de l'utilisateur,
+   * ainsi que l'alerte "garde ta serie" a 20:00, tous deux dans le fuseau
+   * horaire de l'utilisateur. `onConflictDoNothing` rend la re-souscription
+   * idempotente. Les lors d'une re-souscription, on rafraichit tout de meme la
+   * position geographique si elle est fournie (elle a pu changer) et le fuseau
+   * si aucune ligne n'existe encore.
    */
-  private async ensureDefaultSchedules(userId: string, timezone: string) {
+  private async ensureDefaultSchedules(
+    userId: string,
+    timezone: string,
+    latitude?: number,
+    longitude?: number,
+  ) {
     await this.db
       .insert(duaScheduleSettings)
-      .values({ userId, timezone })
-      .onConflictDoNothing({ target: duaScheduleSettings.userId });
+      .values({ userId, timezone, latitude, longitude })
+      .onConflictDoUpdate({
+        target: duaScheduleSettings.userId,
+        set: {
+          timezone,
+          ...(typeof latitude === "number" ? { latitude } : {}),
+          ...(typeof longitude === "number" ? { longitude } : {}),
+          updatedAt: new Date(),
+        },
+      });
     await this.db
       .insert(streakAlertSettings)
       .values({ userId, timeOfDay: "20:00", timezone, isActive: true })

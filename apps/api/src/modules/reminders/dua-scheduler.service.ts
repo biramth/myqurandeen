@@ -5,7 +5,8 @@ import { DRIZZLE } from "../../database/database.constants";
 import type { Database } from "../../database/database.module";
 import { duaCategories, duaScheduleSettings, duas, pushSubscriptions, users } from "../../database/schema";
 import { WebPushProvider } from "../notifications/web-push.provider";
-import { GRACE_MINUTES, localClock, minutesSince } from "./reminder-scheduler.service";
+import { duaPrayerTimes } from "./prayer-times";
+import { alreadySentToday, GRACE_MINUTES, localClock, minutesSince } from "./reminder-scheduler.service";
 import { SchedulerLockService } from "./scheduler-lock.service";
 
 /** Cle arbitraire du verrou consultatif Postgres pour ce planificateur (voir SchedulerLockService). */
@@ -41,10 +42,10 @@ function duaBody(slot: "matin" | "soir", locale: string): string {
 
 /**
  * "Duas automatiques" : active par defaut des le premier abonnement push.
- * Deux envois par jour (matin ~07:00, soir ~19:00, dans le fuseau local de
- * l'utilisateur) tirant un dua reel de la base (categories "matin"/"soir").
- * Comme les autres planificateurs : un seul envoi par creneau et par jour
- * calendaire local (morningSentAt/eveningSentAt), fenetre de grace de 45 min.
+ * Deux envois par jour : le matin au Fajr et le soir a l'Isha (horaires de
+ * priere calcules avec adhan, methode Muslim World League) dans le fuseau
+ * local de l'utilisateur, puis une fenetre de grace de 45 min. Un seul envoi
+ * par creneau et par jour calendaire local (morningSentAt/eveningSentAt).
  * Deploiement mono-instance : meme note que ReminderSchedulerService.
  */
 @Injectable()
@@ -81,18 +82,26 @@ export class DuaSchedulerService implements OnApplicationBootstrap {
       .where(eq(duaScheduleSettings.isActive, true));
 
     for (const { setting, locale } of rows) {
+      // Les horaires dependent du jour local (Fajr/Isha changent chaque jour) :
+      // on les calcule une seule fois par utilisateur et par tick.
+      const { fajr, isha } = duaPrayerTimes(setting.timezone, setting.latitude, setting.longitude);
+
       // Chaque creneau est isole individuellement : un echec sur le matin ne
       // doit pas empecher la tentative du soir pour le meme utilisateur, ni
       // interrompre la boucle pour les autres utilisateurs.
-      try {
-        await this.trySendSlot(setting, locale, "matin", setting.morningTime);
-      } catch (error) {
-        this.logger.error(`Echec du dua du matin pour l'utilisateur ${setting.userId} : ${(error as Error).message}`);
+      if (fajr) {
+        try {
+          await this.trySendSlot(setting, locale, "matin", fajr);
+        } catch (error) {
+          this.logger.error(`Echec du dua du matin pour l'utilisateur ${setting.userId} : ${(error as Error).message}`);
+        }
       }
-      try {
-        await this.trySendSlot(setting, locale, "soir", setting.eveningTime);
-      } catch (error) {
-        this.logger.error(`Echec du dua du soir pour l'utilisateur ${setting.userId} : ${(error as Error).message}`);
+      if (isha) {
+        try {
+          await this.trySendSlot(setting, locale, "soir", isha);
+        } catch (error) {
+          this.logger.error(`Echec du dua du soir pour l'utilisateur ${setting.userId} : ${(error as Error).message}`);
+        }
       }
     }
   }
@@ -110,8 +119,8 @@ export class DuaSchedulerService implements OnApplicationBootstrap {
     if (since < 0 || since > GRACE_MINUTES) return; // pas encore l'heure / fenetre depassee
 
     const sentAt = slot === "matin" ? setting.morningSentAt : setting.eveningSentAt;
-    if (sentAt && localClock(setting.timezone, sentAt)?.dateKey === clock.dateKey) {
-      return; // deja envoye aujourd'hui
+    if (sentAt && alreadySentToday(setting.timezone, sentAt, timeOfDay, clock)) {
+      return; // deja envoye aujourd'hui a (ou apres) l'heure cible courante
     }
 
     const dua = await this.randomDua(slot);

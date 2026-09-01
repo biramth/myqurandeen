@@ -5,7 +5,7 @@ import { DRIZZLE } from "../../database/database.constants";
 import type { Database } from "../../database/database.module";
 import { pushSubscriptions, streakAlertSettings, userStreaks, users } from "../../database/schema";
 import { WebPushProvider } from "../notifications/web-push.provider";
-import { GRACE_MINUTES, localClock, minutesSince } from "./reminder-scheduler.service";
+import { alreadySentToday, GRACE_MINUTES, localClock, minutesSince } from "./reminder-scheduler.service";
 import { SchedulerLockService } from "./scheduler-lock.service";
 
 /** Cle arbitraire du verrou consultatif Postgres pour ce planificateur (voir SchedulerLockService). */
@@ -98,8 +98,8 @@ export class StreakAlertSchedulerService implements OnApplicationBootstrap {
         if (lastActiveDate === clock.dateKey) continue;
         const since = minutesSince(clock.hhmm, setting.timeOfDay);
         if (since < 0 || since > GRACE_MINUTES) continue;
-        if (setting.lastSentAt && localClock(setting.timezone, setting.lastSentAt)?.dateKey === clock.dateKey) {
-          continue; // deja alerte aujourd'hui
+        if (setting.lastSentAt && alreadySentToday(setting.timezone, setting.lastSentAt, setting.timeOfDay, clock)) {
+          continue; // deja alerte aujourd'hui a (ou apres) l'heure cible courante
         }
 
         // Le clic sur la notification ouvre simplement l'app : l'objectif est

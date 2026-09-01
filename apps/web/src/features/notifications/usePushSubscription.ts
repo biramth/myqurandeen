@@ -19,6 +19,33 @@ function urlBase64ToUint8Array(base64: string): Uint8Array<ArrayBuffer> {
   return output;
 }
 
+/**
+ * Position WGS84 optionnelle pour le calcul des horaires de priere (dua du
+ * matin a l'aube, dua du soir a l'Isha). Best effort : jamais bloquant, jamais
+ * remonte en erreur. Si la geolocalisation est indisponible ou refusee, le
+ * serveur utilise le repli du fuseau horaire.
+ */
+function getCoordinates(): Promise<{ latitude: number; longitude: number } | null> {
+  return new Promise((resolve) => {
+    if (typeof navigator === "undefined" || !("geolocation" in navigator)) {
+      resolve(null);
+      return;
+    }
+    const timeout = window.setTimeout(() => resolve(null), 5000);
+    navigator.geolocation.getCurrentPosition(
+      (pos) => {
+        window.clearTimeout(timeout);
+        resolve({ latitude: pos.coords.latitude, longitude: pos.coords.longitude });
+      },
+      () => {
+        window.clearTimeout(timeout);
+        resolve(null);
+      },
+      { enableHighAccuracy: false, maximumAge: 10 * 60 * 1000 },
+    );
+  });
+}
+
 export type PushSupport = "unsupported" | "unconfigured" | "ready";
 
 /**
@@ -100,12 +127,14 @@ export function usePushSubscription() {
         // affiche "abonne" sans jamais avoir appele le backend.
         throw new Error("INCOMPLETE_SUBSCRIPTION");
       }
+      const coords = await getCoordinates();
       await notificationsApi.subscribe({
         endpoint: json.endpoint,
         p256dh: json.keys.p256dh,
         auth: json.keys.auth,
         userAgent: navigator.userAgent,
         timezone: Intl.DateTimeFormat().resolvedOptions().timeZone,
+        ...(coords ? { latitude: coords.latitude, longitude: coords.longitude } : {}),
       });
     },
     onSuccess: () => queryClient.invalidateQueries({ queryKey: ["notifications", "subscribed"] }),

@@ -192,11 +192,11 @@ export function NotificationOnboardingModal() {
             </div>
             <div className="space-y-2 text-center">
               <div className="flex items-center justify-center gap-2 text-sm">
-                <span className="rounded-md bg-card px-2 py-1">07:00</span>
+                <span className="rounded-md bg-card px-2 py-1">{t("onboarding.benefitFajr")}</span>
                 <span>{t("onboarding.benefitMorning")}</span>
               </div>
               <div className="flex items-center justify-center gap-2 text-sm">
-                <span className="rounded-md bg-card px-2 py-1">19:00</span>
+                <span className="rounded-md bg-card px-2 py-1">{t("onboarding.benefitIsha")}</span>
                 <span>{t("onboarding.benefitEvening")}</span>
               </div>
               <div className="flex items-center justify-center gap-2 text-sm">

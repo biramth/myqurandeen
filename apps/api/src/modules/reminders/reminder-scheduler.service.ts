@@ -58,6 +58,31 @@ export function minutesSince(nowHhmm: string, targetHhmm: string): number {
 }
 
 /**
+ * Anti-doublon "deja envoye" pour un creneau (rappel, rotation, dua matin/soir,
+ * alerte serie) : renvoie vrai si le dernier envoi a eu lieu aujourd'hui (meme
+ * jour calendaire local) ET apres l'heure cible actuelle du creneau.
+ *
+ * La simple comparaison du jour (dateKey) suffisait quand l'heure d'un creneau
+ * etait immuable. Mais si l'utilisateur deplace l'heure du creneau vers plus
+ * tard dans la meme journee (ex. matin de 06:00 a 08:05), l'ancien envoi de
+ * 06:00 doit etre considere comme ne couvrant PAS la nouvelle cible 08:05 :
+ * sans cette verif d'heure, le creneau restait marque "fait" pour toute la
+ * journee et la notification n'etait jamais envoyee.
+ */
+export function alreadySentToday(
+  timezone: string,
+  lastSentAt: Date,
+  targetHhmm: string,
+  clock: LocalClock,
+): boolean {
+  const sentClock = localClock(timezone, lastSentAt);
+  if (!sentClock || sentClock.dateKey !== clock.dateKey) return false;
+  // La cible est "couverte" si l'envoi a eu lieu a l'heure cible ou apres :
+  // dans ce cas, on ne re-envoie pas. Sinon (envoi avant la cible), on envoie.
+  return minutesSince(sentClock.hhmm, targetHhmm) >= 0;
+}
+
+/**
  * Fenetre de tolerantance pour les notifications : si l'instance s'est
  * reveillee tard (service endormi, deploiement...), on envoie quand meme les
  * rappels dont l'heure est passee de moins de GRACE_MINUTES. Au-dela, on
@@ -158,8 +183,8 @@ export class ReminderSchedulerService implements OnApplicationBootstrap {
         if (!clock || !reminder.daysOfWeek.includes(clock.dayOfWeek)) continue;
         const since = minutesSince(clock.hhmm, reminder.timeOfDay);
         if (since < 0 || since > GRACE_MINUTES) continue;
-        if (reminder.lastSentAt && localClock(reminder.timezone, reminder.lastSentAt)?.dateKey === clock.dateKey) {
-          continue; // deja envoye aujourd'hui (evite un double envoi si le tick chevauche)
+        if (reminder.lastSentAt && alreadySentToday(reminder.timezone, reminder.lastSentAt, reminder.timeOfDay, clock)) {
+          continue; // deja envoye aujourd'hui a (ou apres) l'heure cible courante
         }
 
         const sent = await this.notifyUser(reminder.userId, {
@@ -191,7 +216,7 @@ export class ReminderSchedulerService implements OnApplicationBootstrap {
         if (!clock || !setting.daysOfWeek.includes(clock.dayOfWeek)) continue;
         const since = minutesSince(clock.hhmm, setting.timeOfDay);
         if (since < 0 || since > GRACE_MINUTES) continue;
-        if (setting.lastSentAt && localClock(setting.timezone, setting.lastSentAt)?.dateKey === clock.dateKey) {
+        if (setting.lastSentAt && alreadySentToday(setting.timezone, setting.lastSentAt, setting.timeOfDay, clock)) {
           continue;
         }
 

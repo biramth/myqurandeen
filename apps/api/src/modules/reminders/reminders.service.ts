@@ -4,7 +4,6 @@ import { DRIZZLE } from "../../database/database.constants";
 import type { Database } from "../../database/database.module";
 import {
   duaCategories,
-  duaScheduleSettings,
   duas,
   quranSurahs,
   readingRotationSettings,
@@ -183,37 +182,5 @@ export class RemindersService {
   async deleteStreakAlertSettings(userId: string) {
     await this.db.delete(streakAlertSettings).where(eq(streakAlertSettings.userId, userId));
     return { deleted: true };
-  }
-
-  // --- Duas quotidiens automatiques ---
-
-  async getDuaScheduleSettings(userId: string) {
-    const [row] = await this.db
-      .select()
-      .from(duaScheduleSettings)
-      .where(eq(duaScheduleSettings.userId, userId))
-      .limit(1);
-    return row ?? null;
-  }
-
-  async upsertDuaScheduleSettings(
-    userId: string,
-    input: { timezone: string; morningTime?: string; eveningTime?: string; isActive?: boolean },
-  ) {
-    const [row] = await this.db
-      .insert(duaScheduleSettings)
-      .values({
-        userId,
-        timezone: input.timezone,
-        morningTime: input.morningTime ?? "07:00",
-        eveningTime: input.eveningTime ?? "19:00",
-        isActive: input.isActive ?? true,
-      })
-      .onConflictDoUpdate({
-        target: duaScheduleSettings.userId,
-        set: { ...input, updatedAt: new Date() },
-      })
-      .returning();
-    return row;
   }
 }
