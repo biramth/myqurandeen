@@ -5,7 +5,6 @@
   "start_url": "/",
   "scope": "/",
   "display": "standalone",
-  "permissions": ["geolocation"],
   "background_color": "#ffffff",
   "theme_color": "#1d726b",
   "lang": "fr",

@@ -11,7 +11,7 @@ import { cn } from "@/lib/utils";
 import { PageMeta, SITE_URL } from "@/components/shared/PageMeta";
 import { SignUpPromptPopover } from "@/components/shared/SignUpPromptPopover";
 import { useAuth } from "@/features/auth/auth-context";
-import { useGeolocation } from "@/features/prayer-times/useGeolocation";
+import { usePrayerLocation } from "@/features/prayer-times/usePrayerLocation";
 import { CitySearchInput } from "@/features/prayer-times/CitySearchInput";
 import { prayerAlertApi } from "@/features/prayer-times/api";
 import { QiblaCompass } from "@/features/prayer-times/QiblaCompass";
@@ -53,11 +53,10 @@ function formatCountdown(target: Date, now: Date): string {
 export function PrayerTimesPage() {
   const { t, i18n } = useTranslation();
   const { user } = useAuth();
-  const { coords, status: locationStatus, request: requestLocation, setManualCoords, isStandalone, isIOSStandalone } =
-    useGeolocation();
+  const { coords, setCoords } = usePrayerLocation();
   const [method, setMethod] = React.useState<PrayerCalculationMethod>(() => loadStoredMethod());
   const [now, setNow] = React.useState(() => new Date());
-  const [manualOpen, setManualOpen] = React.useState(false);
+  const [searchOpen, setSearchOpen] = React.useState(false);
 
   React.useEffect(() => {
     const interval = window.setInterval(() => setNow(new Date()), 60_000);
@@ -108,60 +107,29 @@ export function PrayerTimesPage() {
         <Card>
           <CardContent className="flex flex-col items-center gap-3 p-6 text-center">
             <MapPin className="h-8 w-8 text-muted-foreground" aria-hidden="true" />
-            {isIOSStandalone ? (
-              locationStatus === "denied" || locationStatus === "unavailable" || locationStatus === "timeout" || locationStatus === "unsupported" ? (
-                <>
-                  <p className="text-sm font-medium">{t("prayerTimes.locationIosHeading")}</p>
-                  <div className="space-y-1.5 rounded-md border bg-muted/40 p-4 text-left text-xs text-muted-foreground">
-                    <p>{t("prayerTimes.locationIosStep1")}</p>
-                    <p>{t("prayerTimes.locationIosStep2")}</p>
-                    <p>{t("prayerTimes.locationIosStep3")}</p>
-                    <p>{t("prayerTimes.locationIosStep4")}</p>
-                  </div>
-                </>
-              ) : (
-                <p className="text-sm text-muted-foreground">{t("prayerTimes.locationTapToEnable")}</p>
-              )
-            ) : (
-              <p className="text-sm text-muted-foreground">
-                {isStandalone ? t("prayerTimes.locationPromptStandalone") : t("prayerTimes.locationPrompt")}
-              </p>
-            )}
-            <div className="flex flex-wrap items-center justify-center gap-2">
-              <Button type="button" onClick={requestLocation} disabled={locationStatus === "loading"}>
-                {locationStatus === "loading" ? t("prayerTimes.locationLoading") : t("prayerTimes.enableLocation")}
-              </Button>
-              {(locationStatus === "denied" || locationStatus === "unavailable" || locationStatus === "timeout" || locationStatus === "unsupported") && (
-                <Button type="button" variant="outline" size="sm" onClick={requestLocation}>
-                  {t("prayerTimes.locationRetry")}
-                </Button>
-              )}
-            </div>
-            {locationStatus === "denied" && <p className="text-xs text-destructive">{t("prayerTimes.locationDenied")}</p>}
-            {locationStatus === "unavailable" && <p className="text-xs text-destructive">{t("prayerTimes.locationUnavailable")}</p>}
-            {locationStatus === "timeout" && <p className="text-xs text-destructive">{t("prayerTimes.locationTimeout")}</p>}
-            {locationStatus === "unsupported" && <p className="text-xs text-destructive">{t("prayerTimes.locationUnsupported")}</p>}
-            <Button
-              type="button"
-              variant="link"
-              size="sm"
-              className="text-muted-foreground underline"
-              onClick={() => setManualOpen((open) => !open)}
-            >
-              {t("prayerTimes.manualTitle")}
-            </Button>
+            <p className="text-sm font-medium">{t("prayerTimes.chooseLocationTitle")}</p>
+            <p className="text-sm text-muted-foreground">{t("prayerTimes.chooseLocationDescription")}</p>
 
-            {manualOpen && (
+            {searchOpen ? (
               <div className="mt-2 w-full max-w-sm space-y-3 rounded-md border p-4 text-left">
                 <p className="text-xs text-muted-foreground">{t("prayerTimes.manualDescription")}</p>
                 <CitySearchInput
                   locale={i18n.language}
                   onSelect={(place) => {
-                    setManualCoords({ latitude: place.latitude, longitude: place.longitude });
-                    setManualOpen(false);
+                    setCoords({ latitude: place.latitude, longitude: place.longitude });
+                    setSearchOpen(false);
                   }}
                 />
               </div>
+            ) : (
+              <Button
+                type="button"
+                onClick={() => setSearchOpen(true)}
+                className="mt-1"
+              >
+                <MapPin className="mr-1.5 h-4 w-4" aria-hidden="true" />
+                {t("prayerTimes.chooseLocationButton")}
+              </Button>
             )}
           </CardContent>
         </Card>
@@ -170,7 +138,7 @@ export function PrayerTimesPage() {
       {coords && times && (
         <div className="space-y-6">
           <div className="flex flex-wrap items-center justify-between gap-3">
-            <Button type="button" variant="ghost" size="sm" onClick={requestLocation} disabled={locationStatus === "loading"}>
+            <Button type="button" variant="ghost" size="sm" onClick={() => setSearchOpen(true)}>
               <MapPin className="mr-1.5 h-4 w-4" aria-hidden="true" />
               {t("prayerTimes.refreshLocation")}
             </Button>
@@ -187,6 +155,19 @@ export function PrayerTimesPage() {
               </SelectContent>
             </Select>
           </div>
+
+          {searchOpen && (
+            <div className="w-full max-w-sm space-y-3 rounded-md border p-4 text-left">
+              <p className="text-xs text-muted-foreground">{t("prayerTimes.manualDescription")}</p>
+              <CitySearchInput
+                locale={i18n.language}
+                onSelect={(place) => {
+                  setCoords({ latitude: place.latitude, longitude: place.longitude });
+                  setSearchOpen(false);
+                }}
+              />
+            </div>
+          )}
 
           {upcoming && (
             <Card className="border-primary/30 bg-primary/5">
