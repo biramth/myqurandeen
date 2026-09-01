@@ -463,7 +463,7 @@
     "audioPrevious": "Previous verse",
     "audioNext": "Next verse",
     "audioError": "Unable to load the recitation.",
-    "audioEmpty": "No recitation available for this verse.",
+    "audioEmpty": "No recitation available for this verse."
   },
   "hadith": {
     "title": "Hadith",

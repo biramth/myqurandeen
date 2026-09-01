@@ -361,7 +361,7 @@
     "audioPrevious": "Vorheriger Vers",
     "audioNext": "Nächster Vers",
     "audioError": "Die Rezitation konnte nicht geladen werden.",
-    "audioEmpty": "Keine Rezitation für diesen Vers verfügbar.",
+    "audioEmpty": "Keine Rezitation für diesen Vers verfügbar."
   },
   "hadith": {
     "title": "Hadith",

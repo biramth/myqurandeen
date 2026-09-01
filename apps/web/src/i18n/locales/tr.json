@@ -361,7 +361,7 @@
     "audioPrevious": "Önceki ayet",
     "audioNext": "Sonraki ayet",
     "audioError": "Tilavet yüklenemedi.",
-    "audioEmpty": "Bu ayet için tilavet bulunmuyor.",
+    "audioEmpty": "Bu ayet için tilavet bulunmuyor."
   },
   "hadith": {
     "title": "Hadis",

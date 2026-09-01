@@ -356,7 +356,7 @@
     "audioPrevious": "Ayat sebelumnya",
     "audioNext": "Ayat berikutnya",
     "audioError": "Tidak dapat memuat bacaan.",
-    "audioEmpty": "Tidak ada bacaan untuk ayat ini.",
+    "audioEmpty": "Tidak ada bacaan untuk ayat ini."
   },
   "hadith": {
     "title": "Hadis",

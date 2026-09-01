@@ -361,7 +361,7 @@
     "audioPrevious": "Versículo anterior",
     "audioNext": "Versículo siguiente",
     "audioError": "No se pudo cargar la recitación.",
-    "audioEmpty": "No hay recitación disponible para este versículo.",
+    "audioEmpty": "No hay recitación disponible para este versículo."
   },
   "hadith": {
     "title": "Hadiz",
