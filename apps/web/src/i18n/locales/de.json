@@ -172,7 +172,13 @@
     "downloadingTranslations": "Übersetzungen werden gespeichert...",
     "done": "Herunterladen abgeschlossen. Sie können jetzt offline lesen.",
     "remove": "Herunterladen entfernen",
-    "downloadError": "Herunterladen fehlgeschlagen. Bitte versuchen Sie es erneut."
+    "downloadError": "Herunterladen fehlgeschlagen. Bitte versuchen Sie es erneut.",
+    "chooseTranslationsTitle": "Optionale Übersetzungen",
+    "noTranslations": "Zurzeit sind keine Übersetzungen verfügbar.",
+    "estimatedSize": "Geschätzte Größe",
+    "translationsDownloaded_one": "{{count}} Übersetzung heruntergeladen",
+    "translationsDownloaded_other": "{{count}} Übersetzungen heruntergeladen",
+    "updateAvailable": "Eine aktualisierte Version des Inhalts ist verfügbar. Entfernen Sie und laden Sie erneut herunter, um zu aktualisieren."
   },
   "streak": {
     "badgeLabel_one": "{{count}} Tag in Folge",

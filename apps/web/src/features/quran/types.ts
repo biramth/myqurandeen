@@ -85,6 +85,7 @@ export interface VerseExportRow {
 }
 
 export interface ExportBulkResponse {
+  version: string;
   surahs: SurahExportRow[];
   verses: VerseExportRow[];
 }
@@ -96,5 +97,16 @@ export interface TranslationExportRow {
 }
 
 export interface ExportTranslationResponse {
+  version: string;
   items: TranslationExportRow[];
+}
+
+export interface ExportVersionResponse {
+  version: string;
+}
+
+export interface OfflineSizesResponse {
+  version: string;
+  quranBytes: number;
+  translationsBytes: Record<string, number>;
 }

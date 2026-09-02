@@ -172,7 +172,13 @@
     "downloadingTranslations": "Çeviriler kaydediliyor...",
     "done": "İndirme tamamlandı. Artık çevrimdışı okuyabilirsiniz.",
     "remove": "İndirmeyi kaldır",
-    "downloadError": "İndirme başarısız. Lütfen tekrar deneyin."
+    "downloadError": "İndirme başarısız. Lütfen tekrar deneyin.",
+    "chooseTranslationsTitle": "İsteğe bağlı çeviriler",
+    "noTranslations": "Şu anda kullanılabilir çeviri yok.",
+    "estimatedSize": "Tahmini boyut",
+    "translationsDownloaded_one": "{{count}} çeviri indirildi",
+    "translationsDownloaded_other": "{{count}} çeviri indirildi",
+    "updateAvailable": "İçeriğin güncel bir sürümü mevcut. Yenilemek için silip tekrar indirin."
   },
   "streak": {
     "badgeLabel_one": "{{count}} günlük seri",

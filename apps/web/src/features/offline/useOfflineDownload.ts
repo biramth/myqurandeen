@@ -7,18 +7,20 @@ export type DownloadStage = "idle" | "quran" | "translations" | "done" | "error"
 
 export interface UseOfflineDownloadResult {
   isQuranDownloaded: boolean;
+  downloadedTranslationIds: string[];
   started: boolean;
   stage: DownloadStage;
   quranLoaded: boolean;
   progress: number;
   error: string | null;
-  download: (translationIds?: string[]) => Promise<void>;
+  download: (translationIds: string[]) => Promise<void>;
   remove: () => Promise<void>;
 }
 
 export function useOfflineDownload(): UseOfflineDownloadResult {
   const queryClient = useQueryClient();
   const [isQuranDownloaded, setIsQuranDownloaded] = React.useState(false);
+  const [downloadedTranslationIds, setDownloadedTranslationIds] = React.useState<string[]>([]);
   const [started, setStarted] = React.useState(false);
   const [stage, setStage] = React.useState<DownloadStage>("idle");
   const [quranLoaded, setQuranLoaded] = React.useState(false);
@@ -26,10 +28,17 @@ export function useOfflineDownload(): UseOfflineDownloadResult {
   const [error, setError] = React.useState<string | null>(null);
 
   React.useEffect(() => {
-    offlineDb.isQuranDownloaded().then(setIsQuranDownloaded).catch(() => undefined);
+    offlineDb
+      .isQuranDownloaded()
+      .then(setIsQuranDownloaded)
+      .catch(() => undefined);
+    offlineDb
+      .getDownloadedTranslations()
+      .then(setDownloadedTranslationIds)
+      .catch(() => undefined);
   }, []);
 
-  const download = async (translationIds: string[] = []) => {
+  const download = async (translationIds: string[]) => {
     setStarted(true);
     setError(null);
     setProgress(0);
@@ -57,20 +66,17 @@ export function useOfflineDownload(): UseOfflineDownloadResult {
         textTransliterated: v.textTransliterated,
       }));
 
-      const quranStart = performance.now();
       await offlineDb.transaction("rw", offlineDb.surahs, offlineDb.verses, async () => {
         await offlineDb.surahs.bulkPut(surahRows);
         await offlineDb.verses.bulkPut(verseRows);
       });
-      const quranMs = performance.now() - quranStart;
-      void quranMs;
 
       setQuranLoaded(true);
       setStage("translations");
 
-      // 2. Traductions selectionnees
+      // 2. Traductions selectionnees (on ecrase le stock precedent)
+      await offlineDb.translations.clear();
       if (translationIds.length > 0) {
-        await offlineDb.translations.clear();
         const translationInserts: Array<{
           id: string;
           surahNumber: number;
@@ -94,14 +100,14 @@ export function useOfflineDownload(): UseOfflineDownloadResult {
         }
         setProgress(90);
         await offlineDb.translations.bulkPut(translationInserts);
-      } else {
-        await offlineDb.translations.clear();
       }
+      await offlineDb.setDownloadedTranslations(translationIds);
 
-      await offlineDb.setQuranVersion("1");
       setProgress(100);
       setStage("done");
       setIsQuranDownloaded(true);
+      setDownloadedTranslationIds(translationIds);
+      await offlineDb.setQuranVersion(bulk.version);
       queryClient.invalidateQueries({ queryKey: ["offline"] });
     } catch {
       setStage("error");
@@ -114,11 +120,22 @@ export function useOfflineDownload(): UseOfflineDownloadResult {
     await offlineDb.clearQuran();
     setIsQuranDownloaded(false);
     setQuranLoaded(false);
+    setDownloadedTranslationIds([]);
     setStage("idle");
     setStarted(false);
     setProgress(0);
     queryClient.invalidateQueries({ queryKey: ["offline"] });
   };
 
-  return { isQuranDownloaded, started, stage, quranLoaded, progress, error, download, remove };
+  return {
+    isQuranDownloaded,
+    downloadedTranslationIds,
+    started,
+    stage,
+    quranLoaded,
+    progress,
+    error,
+    download,
+    remove,
+  };
 }

@@ -1,5 +1,5 @@
 import { Inject, Injectable, NotFoundException } from "@nestjs/common";
-import { and, asc, eq } from "drizzle-orm";
+import { and, asc, eq, sql } from "drizzle-orm";
 import { DRIZZLE } from "../../database/database.constants";
 import type { Database } from "../../database/database.module";
 import {
@@ -11,6 +11,11 @@ import {
   translations,
   verseTranslations,
 } from "../../database/schema";
+
+// Version du format d'export hors-ligne. A incremente quand le contenu ou la
+// forme de l'export change (ex. nouvelle traduction, colonne ajoutee) pour
+// forcer le client a retelecharger son cache hors-ligne.
+export const QURAN_EXPORT_VERSION = "1";
 
 @Injectable()
 export class QuranService {
@@ -179,7 +184,7 @@ export class QuranService {
       .innerJoin(quranSurahs, eq(quranSurahs.id, quranVerses.surahId))
       .orderBy(asc(quranSurahs.number), asc(quranVerses.numberInSurah));
 
-    return { surahs, verses };
+    return { version: QURAN_EXPORT_VERSION, surahs, verses };
   }
 
   async exportTranslation(translationId: string) {
@@ -200,6 +205,43 @@ export class QuranService {
       .where(eq(verseTranslations.translationId, translationId))
       .orderBy(asc(quranSurahs.number), asc(quranVerses.numberInSurah));
 
-    return { items };
+    return { version: QURAN_EXPORT_VERSION, items };
+  }
+
+  getExportVersion() {
+    return { version: QURAN_EXPORT_VERSION };
+  }
+
+  /**
+   * Estimation en octets du volume a telecharger pour le cache hors-ligne :
+   * texte coranique + chaque traduction. Sert a afficher une taille avant de
+   * demander confirmation (connexions limitees / data mobile).
+   */
+  async getOfflineSizes() {
+    const [quran] = await this.db
+      .select({
+        bytes: sql`coalesce(sum(octet_length(${quranVerses.textArabic}) + octet_length(coalesce(${quranVerses.textTransliterated}, ''))), 0)::int`,
+      })
+      .from(quranVerses);
+
+    const translationRows = await this.db
+      .select({
+        translationId: translations.id,
+        bytes: sql`coalesce(sum(octet_length(${verseTranslations.text})), 0)::int`,
+      })
+      .from(verseTranslations)
+      .innerJoin(translations, eq(translations.id, verseTranslations.translationId))
+      .groupBy(translations.id);
+
+    const translationsSizes: Record<string, number> = {};
+    for (const row of translationRows) {
+      translationsSizes[row.translationId] = Number(row.bytes);
+    }
+
+    return {
+      version: QURAN_EXPORT_VERSION,
+      quranBytes: Number(quran?.bytes ?? 0),
+      translationsBytes: translationsSizes,
+    };
   }
 }

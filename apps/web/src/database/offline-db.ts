@@ -63,11 +63,32 @@ class OfflineDatabase extends Dexie {
     await this.metadata.put({ key: "quran-version", value: version });
   }
 
+  async getDownloadedTranslationIds(): Promise<string[]> {
+    const rows = await this.translations.orderBy("translationId").toArray();
+    return Array.from(new Set(rows.map((row) => row.translationId)));
+  }
+
+  async setDownloadedTranslations(ids: string[]): Promise<void> {
+    await this.metadata.put({ key: "downloaded-translations", value: JSON.stringify(ids) });
+  }
+
+  async getDownloadedTranslations(): Promise<string[]> {
+    const row = await this.metadata.get("downloaded-translations");
+    if (!row?.value) return [];
+    try {
+      const parsed = JSON.parse(row.value) as unknown;
+      return Array.isArray(parsed) ? parsed.filter((x): x is string => typeof x === "string") : [];
+    } catch {
+      return [];
+    }
+  }
+
   async clearQuran(): Promise<void> {
     await this.surahs.clear();
     await this.verses.clear();
     await this.translations.clear();
     await this.metadata.delete("quran-version");
+    await this.metadata.delete("downloaded-translations");
   }
 }
 

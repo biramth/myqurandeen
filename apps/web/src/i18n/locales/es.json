@@ -172,7 +172,13 @@
     "downloadingTranslations": "Guardando traducciones...",
     "done": "Descarga completada. Ya puedes leer sin conexión.",
     "remove": "Quitar descarga",
-    "downloadError": "Error en la descarga. Inténtalo de nuevo."
+    "downloadError": "Error en la descarga. Inténtalo de nuevo.",
+    "chooseTranslationsTitle": "Traducciones opcionales",
+    "noTranslations": "No hay traducciones disponibles por ahora.",
+    "estimatedSize": "Tamaño estimado",
+    "translationsDownloaded_one": "{{count}} traducción descargada",
+    "translationsDownloaded_other": "{{count}} traducciones descargadas",
+    "updateAvailable": "Hay disponible una versión actualizada del contenido. Elimínela y vuelva a descargarla para actualizar."
   },
   "streak": {
     "badgeLabel_one": "{{count}} día seguido",

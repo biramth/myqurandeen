@@ -172,7 +172,13 @@
     "downloadingTranslations": "Сохранение переводов...",
     "done": "Загрузка завершена. Теперь вы можете читать офлайн.",
     "remove": "Удалить загрузку",
-    "downloadError": "Не удалось загрузить. Попробуйте ещё раз."
+    "downloadError": "Не удалось загрузить. Попробуйте ещё раз.",
+    "chooseTranslationsTitle": "Дополнительные переводы",
+    "noTranslations": "Сейчас переводы недоступны.",
+    "estimatedSize": "Расчётный размер",
+    "translationsDownloaded_one": "{{count}} перевод загружен",
+    "translationsDownloaded_other": "{{count}} перевода загружено",
+    "updateAvailable": "Доступна обновлённая версия содержимого. Удалите и загрузите заново, чтобы обновить."
   },
   "streak": {
     "badgeLabel_one": "{{count}} день подряд",

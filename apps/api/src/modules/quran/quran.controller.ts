@@ -71,4 +71,16 @@ export class QuranController {
   exportTranslation(@Param("translationId") translationId: string) {
     return this.quranService.exportTranslation(translationId);
   }
+
+  @ApiOperation({ summary: "Version du format d'export hors-ligne" })
+  @Get("export/version")
+  exportVersion() {
+    return this.quranService.getExportVersion();
+  }
+
+  @ApiOperation({ summary: "Estimation des tailles du cache hors-ligne (texte + traductions)" })
+  @Get("export/sizes")
+  offlineSizes() {
+    return this.quranService.getOfflineSizes();
+  }
 }

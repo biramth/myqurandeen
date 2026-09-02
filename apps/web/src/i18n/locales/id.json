@@ -172,7 +172,13 @@
     "downloadingTranslations": "Menyimpan terjemahan...",
     "done": "Unduhan selesai. Anda kini dapat membaca luring.",
     "remove": "Hapus unduhan",
-    "downloadError": "Unduhan gagal. Coba lagi."
+    "downloadError": "Unduhan gagal. Coba lagi.",
+    "chooseTranslationsTitle": "Terjemahan opsional",
+    "noTranslations": "Tidak ada terjemahan yang tersedia saat ini.",
+    "estimatedSize": "Perkiraan ukuran",
+    "translationsDownloaded_one": "{{count}} terjemahan diunduh",
+    "translationsDownloaded_other": "{{count}} terjemahan diunduh",
+    "updateAvailable": "Versi konten yang diperbarui tersedia. Hapus dan unduh lagi untuk memperbarui."
   },
   "streak": {
     "badgeLabel_other": "{{count}} hari beruntun",

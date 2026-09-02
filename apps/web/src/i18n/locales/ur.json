@@ -172,7 +172,13 @@
     "downloadingTranslations": "تراجم محفوظ ہو رہے ہیں...",
     "done": "ڈاؤن لوڈ مکمل۔ اب آپ آف لائن پڑھ سکتے ہیں۔",
     "remove": "ڈاؤن لوڈ ہٹائیں",
-    "downloadError": "ڈاؤن لوڈ ناکام۔ دوبارہ کوشش کریں۔"
+    "downloadError": "ڈاؤن لوڈ ناکام۔ دوبارہ کوشش کریں۔",
+    "chooseTranslationsTitle": "اختیاری تراجم",
+    "noTranslations": "فی الحال کوئی ترجمہ دستیاب نہیں۔",
+    "estimatedSize": "تخمینی حجم",
+    "translationsDownloaded_one": "{{count}} ترجمہ ڈاؤن لوڈ ہوا",
+    "translationsDownloaded_other": "{{count}} تراجم ڈاؤن لوڈ ہوئے",
+    "updateAvailable": "مواد کا نیا ورژن دستیاب ہے۔ تازہ کاری کے لیے حذف کر کے دوبارہ ڈاؤن لوڈ کریں۔"
   },
   "streak": {
     "badgeLabel_one": "{{count}} دن کا سلسلہ",
