@@ -219,7 +219,13 @@
     "downloadingTranslations": "Enregistrement des traductions...",
     "done": "Téléchargement terminé. Vous pouvez maintenant lire hors ligne.",
     "remove": "Supprimer le téléchargement",
-    "downloadError": "Échec du téléchargement. Veuillez réessayer."
+    "downloadError": "Échec du téléchargement. Veuillez réessayer.",
+    "chooseTranslationsTitle": "Traductions facultatives",
+    "noTranslations": "Aucune traduction disponible pour le moment.",
+    "estimatedSize": "Taille estimée",
+    "translationsDownloaded_one": "{{count}} traduction téléchargée",
+    "translationsDownloaded_other": "{{count}} traductions téléchargées",
+    "updateAvailable": "Une version mise à jour du contenu est disponible. Supprimez puis retéléchargez pour rafraîchir."
   },
   "streak": {
     "badgeLabel_one": "{{count}} jour d'affilée",
@@ -463,6 +469,9 @@
     "backToList": "Toutes les sourates",
     "copy": "Copier",
     "copied": "Copié",
+    "arabicFontSize": "Taille du texte arabe",
+    "arabicFontDecrease": "Réduire la taille du texte arabe",
+    "arabicFontIncrease": "Augmenter la taille du texte arabe",
     "compare": "Comparer toutes les traductions",
     "errorSurah": "Impossible de charger cette sourate.",
     "backToSurah": "Retour à la sourate",

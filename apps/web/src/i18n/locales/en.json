@@ -219,7 +219,13 @@
     "downloadingTranslations": "Saving translations...",
     "done": "Download complete. You can now read offline.",
     "remove": "Remove download",
-    "downloadError": "Download failed. Please try again."
+    "downloadError": "Download failed. Please try again.",
+    "chooseTranslationsTitle": "Optional translations",
+    "noTranslations": "No translations available right now.",
+    "estimatedSize": "Estimated size",
+    "translationsDownloaded_one": "{{count}} translation downloaded",
+    "translationsDownloaded_other": "{{count}} translations downloaded",
+    "updateAvailable": "An updated version of the content is available. Remove and download again to refresh."
   },
   "streak": {
     "badgeLabel_one": "{{count}} day streak",
@@ -463,6 +469,9 @@
     "backToList": "All surahs",
     "copy": "Copy",
     "copied": "Copied",
+    "arabicFontSize": "Arabic text size",
+    "arabicFontDecrease": "Decrease Arabic text size",
+    "arabicFontIncrease": "Increase Arabic text size",
     "compare": "Compare all translations",
     "errorSurah": "Unable to load this surah.",
     "backToSurah": "Back to the surah",

@@ -9,6 +9,7 @@ import { Skeleton } from "@/components/ui/skeleton";
 import { SearchBox } from "@/components/shared/SearchBox";
 import { searchApi } from "@/features/search/api";
 import { splitBasmala } from "@/features/quran/basmala";
+import { arabicFontSizeStyle } from "@/components/shared/arabic-font-size-provider";
 import { PageMeta } from "@/components/shared/PageMeta";
 import type { SearchResults } from "@/features/search/types";
 import { cn } from "@/lib/utils";
@@ -162,7 +163,7 @@ export function SearchPage() {
                       <p className="text-xs text-muted-foreground">
                         {v.surahName} {v.surahNumber}:{v.numberInSurah}
                       </p>
-                      <p dir="rtl" className="mt-1 font-arabic text-lg">
+                      <p dir="rtl" className="mt-1 font-arabic" style={arabicFontSizeStyle(1.125)}>
                         {verseArabic}
                       </p>
                       {v.textTransliterated && (

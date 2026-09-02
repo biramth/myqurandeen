@@ -10,6 +10,7 @@ import { quranApi } from "@/features/quran/api";
 import { AudioRecitation } from "@/features/quran/AudioRecitation";
 import { splitBasmala } from "@/features/quran/basmala";
 import { getOfflineVerse } from "@/features/quran/offline-quran";
+import { arabicFontSizeStyle } from "@/components/shared/arabic-font-size-provider";
 import { useOffline } from "@/features/offline/OfflineContext";
 import { useStreakPing } from "@/features/streaks/useStreak";
 import { useGamificationEvent } from "@/features/gamification/useGamification";
@@ -95,11 +96,16 @@ export function VersePage() {
           </p>
           <div className="rounded-lg border bg-reading p-6 text-reading-foreground">
             {basmala && (
-              <p dir="rtl" lang="ar" className="mb-4 border-b pb-4 text-center font-arabic text-2xl leading-loose text-primary">
+              <p
+                dir="rtl"
+                lang="ar"
+                className="mb-4 border-b pb-4 text-center font-arabic leading-loose text-primary"
+                style={arabicFontSizeStyle(1.5)}
+              >
                 {basmala}
               </p>
             )}
-            <p dir="rtl" lang="ar" className="font-arabic text-3xl leading-loose">
+            <p dir="rtl" lang="ar" className="font-arabic leading-loose" style={arabicFontSizeStyle(1.875)}>
               {verseArabic}
             </p>
             {data.verse.textTransliterated && (

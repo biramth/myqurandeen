@@ -7,6 +7,7 @@ import { Skeleton } from "@/components/ui/skeleton";
 import { Breadcrumbs } from "@/components/shared/Breadcrumbs";
 import { ContentUserActions } from "@/components/shared/ContentUserActions";
 import { hadithApi } from "@/features/hadith/api";
+import { arabicFontSizeStyle } from "@/components/shared/arabic-font-size-provider";
 import { useStreakPing } from "@/features/streaks/useStreak";
 import { useGamificationEvent } from "@/features/gamification/useGamification";
 import { PageMeta, SITE_URL, buildOgImage, withShareUtm } from "@/components/shared/PageMeta";
@@ -70,7 +71,8 @@ export function HadithDetailPage() {
             <p
               dir="rtl"
               lang="ar"
-              className="mb-4 rounded-lg border bg-reading p-5 font-arabic text-xl leading-loose text-reading-foreground"
+              className="mb-4 rounded-lg border bg-reading p-5 font-arabic leading-loose text-reading-foreground"
+              style={arabicFontSizeStyle(1.25)}
             >
               {data.hadith.textArabic}
             </p>

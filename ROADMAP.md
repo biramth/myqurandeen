@@ -193,17 +193,30 @@ position avant de dupliquer un mécanisme.
       (mosquées/assos) et comme contenu de référence pour la présence
       réseaux sociaux (phase 2).
 
-### 1.4 Taille de police Arabe réglable (S)
+### 1.4 Taille de police Arabe réglable (S) — ✅ fait le 2026-09-01
 
-- [ ] Contrôle utilisateur (slider ou 3-4 tailles prédéfinies) persistée en
-      `localStorage`, appliquée via une variable CSS (`--arabic-font-size`)
-      lue par toutes les classes `font-arabic` déjà utilisées
-      (`SurahDetailPage`, `VersePage`, `SearchPage`, hadith).
-- [ ] Accessible depuis la page de sourate (bouton discret près du
-      sélecteur de traduction/tafsir) plutôt qu'enfoui dans un réglage
-      profil — c'est là que le besoin se fait sentir.
-- [ ] Vérifier le rendu aux tailles extrêmes (line-height, présence de
-      marques de récitation) pour éviter un texte tronqué/chevauché.
+- [x] Contrôle utilisateur : 5 paliers prédéfinis (85/100/115/130/150%),
+      boutons -/+ plutôt qu'un slider (plus simple, pas de gain réel pour 5
+      valeurs discrètes). Persisté en `localStorage`
+      (`ArabicFontSizeProvider`, même pattern que `ThemeProvider`), appliqué
+      via une variable CSS (`--arabic-font-scale`) posée sur `<html>` dès le
+      montage de l'app (`AppProviders`) — pas seulement pendant que la page
+      sourate est affichée.
+- [x] **Ajustement par rapport au plan initial** : plutôt qu'une classe
+      `font-arabic` globalement réglable (qui aurait aussi fait grossir les
+      noms arabes courts affichés un peu partout - savants, concepts,
+      prophètes...), la variable est lue via `arabicFontSizeStyle(baseRem)`
+      appliquée explicitement sur les 5 éléments de lecture visés
+      (`SurahDetailPage` et `VersePage` : verset + basmala,
+      `HadithDetailPage`, `HadithChapterPage`, `SearchPage`), chacun gardant
+      sa propre taille de base (verset isolé plus grand qu'une liste de
+      versets, etc.) multipliée par le même réglage global.
+- [x] Bouton accessible sur la page de sourate, à côté du sélecteur de
+      tafsir/traduction — pas dans un réglage de profil.
+- [x] Vérifié en direct : bascule 100%→130% sur la page de sourate, persiste
+      en naviguant vers un verset isolé et une page de hadith (mêmes
+      tailles de base préservées, juste multipliées) ; confirmé que les
+      noms arabes décoratifs (ex. nom d'un savant) ne bougent pas.
 
 ---
 
@@ -322,14 +335,15 @@ données Coran elles-mêmes.
 - [x] Stockage côté client : IndexedDB via **Dexie** (`offline-db.ts`) — un
       store global par entité (`surahs`, `verses`, `translations`,
       `metadata`).
-- [~] UI : bouton "Télécharger pour hors-ligne" (onglet "Hors-ligne" du
-      profil) avec barre de progression — indicateur de taille estimée et
-      sélection de traductions pas encore exposés.
+- [x] UI : bouton "Télécharger pour hors-ligne" (onglet "Hors-ligne" du
+      profil) avec barre de progression, sélection des traductions et
+      indicateur de taille estimée avant confirmation.
 - [x] Adapter les hooks de lecture (`quranApi.getSurah`, etc.) pour lire
       depuis IndexedDB quand le réseau est indisponible
       (`useOffline` + fallback sur `navigator.onLine`).
-- [~] Gestion de mise à jour : version stockée localement (`quran-version`)
-      mais pas encore de comparaison côté serveur.
+- [x] Gestion de mise à jour : `GET /quran/export/version` comparée à la
+      version stockée localement (`quran-version`) — signale un cache à
+      rafraîchir quand le contenu serveur change.
 - [~] Tester explicitement le scénario "mode avion" de bout en bout avant
       de considérer la fonctionnalité terminée.
 

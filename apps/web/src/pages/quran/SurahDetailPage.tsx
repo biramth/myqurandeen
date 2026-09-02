@@ -8,6 +8,8 @@ import { Badge } from "@/components/ui/badge";
 import { Separator } from "@/components/ui/separator";
 import { Skeleton } from "@/components/ui/skeleton";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+import { ArabicFontSizeControl } from "@/components/shared/ArabicFontSizeControl";
+import { arabicFontSizeStyle } from "@/components/shared/arabic-font-size-provider";
 import { quranApi } from "@/features/quran/api";
 import { AudioRecitation } from "@/features/quran/AudioRecitation";
 import { translatedSurahName } from "@/features/quran/surah-names";
@@ -163,6 +165,8 @@ export function SurahDetailPage() {
         </Button>
 
         <div className="flex flex-wrap items-center gap-2">
+          <ArabicFontSizeControl />
+
           {activeTranslation && (
             <Button
               variant={showTranslation ? "secondary" : "outline"}
@@ -244,7 +248,12 @@ export function SurahDetailPage() {
               <React.Fragment key={verse.id}>
                 {i > 0 && <Separator className="opacity-50" />}
                 {basmala && (
-                  <p dir="rtl" lang="ar" className="border-b px-5 py-4 text-center font-arabic text-2xl leading-loose text-primary">
+                  <p
+                    dir="rtl"
+                    lang="ar"
+                    className="border-b px-5 py-4 text-center font-arabic leading-loose text-primary"
+                    style={arabicFontSizeStyle(1.5)}
+                  >
                     {basmala}
                   </p>
                 )}
@@ -258,7 +267,7 @@ export function SurahDetailPage() {
                     {verse.numberInSurah}
                   </span>
                   <div className="flex-1">
-                    <p dir="rtl" lang="ar" className="font-arabic text-2xl leading-loose">
+                    <p dir="rtl" lang="ar" className="font-arabic leading-loose" style={arabicFontSizeStyle(1.5)}>
                       {verseArabic}
                     </p>
 

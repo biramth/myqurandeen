@@ -9,6 +9,7 @@ import { Separator } from "@/components/ui/separator";
 import { Skeleton } from "@/components/ui/skeleton";
 import { Breadcrumbs } from "@/components/shared/Breadcrumbs";
 import { hadithApi } from "@/features/hadith/api";
+import { arabicFontSizeStyle } from "@/components/shared/arabic-font-size-provider";
 import { PageMeta } from "@/components/shared/PageMeta";
 
 export function HadithChapterPage() {
@@ -86,7 +87,7 @@ export function HadithChapterPage() {
                   </div>
 
                   {hadith.textArabic && (
-                    <p dir="rtl" lang="ar" className="mb-3 font-arabic text-xl leading-loose">
+                    <p dir="rtl" lang="ar" className="mb-3 font-arabic leading-loose" style={arabicFontSizeStyle(1.25)}>
                       {hadith.textArabic}
                     </p>
                   )}
