@@ -191,6 +191,38 @@
       "error": "Sign in with Google failed. Try again or use your email and password."
     }
   },
+  "footer": {
+    "about": "Why myQurandeen"
+  },
+  "about": {
+    "title": "Why myQurandeen?",
+    "subtitle": "A free, ad-free digital library on Islam - built to last.",
+    "sections": {
+      "free": {
+        "title": "Free and ad-free, for real",
+        "body": "myQurandeen carries no advertising and sells no data. No consent banner to dodge: the only usage measurement in place is privacy-friendly, with no tracking cookie. The goal is durable access to the content, not ad revenue."
+      },
+      "sources": {
+        "title": "Verifiable sources, always",
+        "body": "No verse, hadith, quote, legal position, or historical event is invented. Every significant piece of content is linked to a traceable source (author, work, edition). When several views exist - schools of fiqh, tafsir editions, theological currents - they are all shown side by side, with none singled out as \"the\" truth."
+      },
+      "ai": {
+        "title": "An AI assistant that invents nothing",
+        "body": "The site's AI assistant only answers from already-sourced excerpts present on the platform and always cites its sources. It is never allowed to invent religious content, even to appear more helpful."
+      },
+      "neutrality": {
+        "title": "Neutral on points of disagreement",
+        "body": "On questions where scholars or schools disagree, myQurandeen presents the positions side by side rather than imposing a single one. The site's role is to give access to what was said and by whom, not to decide for the reader."
+      },
+      "openSource": {
+        "title": "Open and transparent",
+        "body": "The code is open-source (MIT license): anyone can inspect, fix, or improve it. Imported religious content keeps its own license or status (public domain, authorized source)."
+      }
+    },
+    "githubLink": "View the code on GitHub",
+    "contributingLink": "How to contribute",
+    "backHome": "Back to home"
+  },
   "authPrompt": {
     "title": "Create a free account",
     "bookmarkDescription": "to save this content to your bookmarks.",

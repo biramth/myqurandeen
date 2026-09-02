@@ -221,18 +221,22 @@ position avant de dupliquer un mécanisme.
       position globale ou une par type de contenu (recommandé : une par
       type, affichage des 2-3 plus récentes).
 
-### 1.3 Page "Pourquoi myQurandeen" (S)
+### 1.3 Page "Pourquoi myQurandeen" (S) — ✅ fait le 2026-09-02
 
-- [ ] Nouvelle page statique `/pourquoi` (ou `/about`), contenu i18n
-      complet (fr/en au moins) : sans publicité, open-source, sourcing
-      systématique (renvoyer vers `CONTRIBUTING.md`/le principe de sources
-      vérifiables déjà documenté), toutes les positions présentées sans
-      hiérarchie de "vérité" sur les sujets à divergence.
-- [ ] Lien visible dans le footer et/ou le menu, pas seulement accessible
-      par URL directe.
+- [x] Nouvelle page `/about` (slug anglais, cohérent avec `/quran`,
+      `/schools`... déjà tous des noms anglais malgré une UI en français par
+      défaut), contenu i18n complet (fr/en) : 5 sections — gratuit et
+      sans publicité (mesure d'audience sans cookie), sources vérifiables
+      systématiques, l'IA qui n'invente rien, neutralité sur les sujets de
+      divergence, open-source (licence MIT). Liens sortants vers le dépôt
+      GitHub et `CONTRIBUTING.md`.
+- [x] Nouveau composant `Footer.tsx` (n'existait pas du tout avant),
+      rendu sur tout le site via `AppLayout` : lien vers `/about` + GitHub —
+      plus seulement accessible par URL directe. Positionné pour ne jamais
+      chevaucher la barre de navigation mobile fixe (`BottomNav`).
 - [ ] Réutiliser cette page comme pitch pour les partenariats
       (mosquées/assos) et comme contenu de référence pour la présence
-      réseaux sociaux (phase 2).
+      réseaux sociaux (phase 2) — pas fait ici, dépend de ces chantiers.
 
 ### 1.4 Taille de police Arabe réglable (S) — ✅ fait le 2026-09-01
 

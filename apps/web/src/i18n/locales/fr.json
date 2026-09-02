@@ -191,6 +191,38 @@
       "error": "La connexion via Google a échoué. Réessayez ou utilisez votre email et votre mot de passe."
     }
   },
+  "footer": {
+    "about": "Pourquoi myQurandeen"
+  },
+  "about": {
+    "title": "Pourquoi myQurandeen ?",
+    "subtitle": "Une bibliothèque numérique gratuite, sans publicité, sur l'Islam - construite pour durer.",
+    "sections": {
+      "free": {
+        "title": "Gratuit et sans publicité, pour de vrai",
+        "body": "myQurandeen ne contient aucune publicité et ne revend aucune donnée. Pas de bandeau de consentement à contourner : la seule mesure d'audience utilisée est respectueuse de la vie privée, sans cookie de suivi. L'objectif est un accès durable au contenu, pas des revenus publicitaires."
+      },
+      "sources": {
+        "title": "Sources vérifiables, toujours",
+        "body": "Aucun verset, hadith, citation, position juridique ou événement historique n'est inventé. Chaque contenu significatif est relié à une source traçable (auteur, ouvrage, édition). Quand plusieurs avis existent - écoles de fiqh, éditions de tafsir, courants théologiques - ils sont tous présentés côte à côte, sans qu'aucun ne soit désigné comme « la » vérité."
+      },
+      "ai": {
+        "title": "Un assistant IA qui n'invente rien",
+        "body": "L'assistant IA du site ne répond qu'à partir des extraits déjà sourcés présents sur la plateforme et cite systématiquement ses sources. Il n'a jamais le droit d'inventer du contenu religieux, même pour paraître plus utile."
+      },
+      "neutrality": {
+        "title": "Neutre sur les sujets de divergence",
+        "body": "Sur les questions où les savants ou les écoles ne s'accordent pas, myQurandeen présente les positions les unes à côté des autres plutôt que d'en imposer une seule. Le rôle du site est de donner accès à ce qui a été dit et par qui, pas de trancher à la place du lecteur."
+      },
+      "openSource": {
+        "title": "Ouvert et transparent",
+        "body": "Le code est open-source (licence MIT) : n'importe qui peut l'inspecter, le corriger ou l'améliorer. Le contenu religieux importé conserve sa propre licence ou son propre statut (domaine public, source autorisée)."
+      }
+    },
+    "githubLink": "Voir le code sur GitHub",
+    "contributingLink": "Comment contribuer",
+    "backHome": "Retour à l'accueil"
+  },
   "authPrompt": {
     "title": "Créez un compte gratuit",
     "bookmarkDescription": "pour enregistrer ce contenu dans vos favoris.",

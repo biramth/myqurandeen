@@ -3,6 +3,7 @@ import { Outlet, useNavigate } from "react-router-dom";
 import { Header } from "./Header";
 import { Sidebar } from "./Sidebar";
 import { BottomNav } from "./BottomNav";
+import { Footer } from "./Footer";
 import { CelebrationHost } from "@/features/gamification/CelebrationHost";
 import { InstallPrompt } from "@/features/pwa/InstallPrompt";
 import { NotificationOnboardingModal } from "@/features/onboarding/NotificationOnboardingModal";
@@ -42,8 +43,11 @@ export function AppLayout() {
       <CelebrationHost />
       <div className="flex flex-1">
         <Sidebar />
-        <main className="min-w-0 flex-1 pb-[calc(4rem+env(safe-area-inset-bottom))] md:pb-0">
-          <Outlet />
+        <main className="flex min-w-0 flex-1 flex-col pb-[calc(4rem+env(safe-area-inset-bottom))] md:pb-0">
+          <div className="flex-1">
+            <Outlet />
+          </div>
+          <Footer />
         </main>
       </div>
       <BottomNav />

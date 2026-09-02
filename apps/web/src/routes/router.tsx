@@ -85,6 +85,7 @@ const PrayerTimesPage = React.lazy(() =>
   import("@/pages/PrayerTimesPage").then((m) => ({ default: m.PrayerTimesPage })),
 );
 const LibraryPage = React.lazy(() => import("@/pages/library/LibraryPage").then((m) => ({ default: m.LibraryPage })));
+const AboutPage = React.lazy(() => import("@/pages/AboutPage").then((m) => ({ default: m.AboutPage })));
 const BookPage = React.lazy(() => import("@/pages/library/BookPage").then((m) => ({ default: m.BookPage })));
 const AdminPage = React.lazy(() => import("@/pages/admin/AdminPage").then((m) => ({ default: m.AdminPage })));
 const AssistantPage = React.lazy(() =>
@@ -172,6 +173,8 @@ export function AppRouter() {
 
           <Route path="/library" element={<LibraryPage />} />
           <Route path="/library/:slug" element={<BookPage />} />
+
+          <Route path="/about" element={<AboutPage />} />
 
           <Route path="/admin" element={<AdminPage />} />
 
