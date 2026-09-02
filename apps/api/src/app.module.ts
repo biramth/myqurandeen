@@ -18,6 +18,7 @@ import { RbacModule } from "./modules/rbac/rbac.module";
 import { UsersModule } from "./modules/users/users.module";
 import { AuthModule } from "./modules/auth/auth.module";
 import { QuranModule } from "./modules/quran/quran.module";
+import { DailyModule } from "./modules/daily/daily.module";
 import { ProphetsModule } from "./modules/prophets/prophets.module";
 
 import { SourcesModule } from "./modules/sources/sources.module";
@@ -74,6 +75,7 @@ import { GamificationModule } from "./modules/gamification/gamification.module";
     UsersModule,
     AuthModule,
     QuranModule,
+    DailyModule,
     ProphetsModule,
 
     SourcesModule,

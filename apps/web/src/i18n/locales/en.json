@@ -29,6 +29,12 @@
     "subtitle": "An open digital library on the Quran, hadith, fiqh, and Islamic history - verifiable sources.",
     "searchPlaceholder": "Search a verse, a hadith, a concept...",
     "searchButton": "Search",
+    "dailyVerse": {
+      "label": "Verse of the day"
+    },
+    "dailyHadith": {
+      "label": "Hadith of the day"
+    },
     "categories": {
       "quran": {
         "label": "Quran",

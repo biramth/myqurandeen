@@ -1,6 +1,7 @@
 import * as React from "react";
 import { useNavigate, Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
+import { useQuery } from "@tanstack/react-query";
 import {
   BookOpen,
   ScrollText,
@@ -17,7 +18,9 @@ import {
 } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
 import { SearchBox } from "@/components/shared/SearchBox";
-import { PageMeta } from "@/components/shared/PageMeta";
+import { PageMeta, buildOgImage } from "@/components/shared/PageMeta";
+import { DailyContentSection } from "@/features/daily/DailyContentSection";
+import { dailyApi } from "@/features/daily/api";
 
 const CATEGORY_ICONS = {
   quran: BookOpen,
@@ -54,6 +57,15 @@ export function HomePage() {
   const { t } = useTranslation();
   const [query, setQuery] = React.useState("");
 
+  // Meme cle de requete que DailyContentSection : React Query mutualise
+  // l'appel reseau, ceci ne sert qu'a alimenter l'image OG dynamique de la
+  // page d'accueil (fraicheur perçue par les crawlers/reseaux sociaux).
+  const { data: daily } = useQuery({
+    queryKey: ["daily"],
+    queryFn: dailyApi.get,
+    staleTime: 30 * 60 * 1000,
+  });
+
   const handleSearch = (submitted: string) => {
     navigate(submitted ? `/search?q=${encodeURIComponent(submitted)}` : "/search");
   };
@@ -62,7 +74,21 @@ export function HomePage() {
 
   return (
     <div className="mx-auto max-w-4xl px-4 py-14">
-      <PageMeta title={null} description={t("home.subtitle")} />
+      <PageMeta
+        title={null}
+        description={t("home.subtitle")}
+        image={
+          daily?.verse
+            ? buildOgImage({
+                title: `${daily.verse.surahNameTransliterated} ${daily.verse.numberInSurah}`,
+                arabicText: daily.verse.textArabic,
+                transliteration: daily.verse.textTransliterated ?? undefined,
+                body: daily.verse.translation?.text,
+                source: `${daily.verse.surahNameTransliterated} — ${daily.verse.numberInSurah}`,
+              })
+            : undefined
+        }
+      />
       <div className="text-center">
         <h1 className="text-3xl font-semibold tracking-tight sm:text-4xl">{t("home.title")}</h1>
         <p className="mt-3 text-muted-foreground">{t("home.subtitle")}</p>
@@ -71,6 +97,8 @@ export function HomePage() {
       <div className="mx-auto mt-8 max-w-xl">
         <SearchBox value={query} onChange={setQuery} onSubmit={handleSearch} />
       </div>
+
+      <DailyContentSection />
 
       <div className="mt-12 grid grid-cols-2 gap-3 sm:grid-cols-3">
         {categories.map((key) => {

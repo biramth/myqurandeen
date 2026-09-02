@@ -29,6 +29,12 @@
     "subtitle": "Bibliothèque numérique ouverte sur le Coran, le hadith, le fiqh et l'histoire de l'Islam - sources vérifiables.",
     "searchPlaceholder": "Rechercher un verset, un hadith, un concept...",
     "searchButton": "Rechercher",
+    "dailyVerse": {
+      "label": "Verset du jour"
+    },
+    "dailyHadith": {
+      "label": "Hadith du jour"
+    },
     "categories": {
       "quran": {
         "label": "Coran",

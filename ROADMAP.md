@@ -143,23 +143,25 @@ silencieuse qui grandit avec la taille du code.
 
 ## Phase 1 — Gains rapides
 
-### 1.1 Verset/hadith du jour en page d'accueil (S/M)
+### 1.1 Verset/hadith du jour en page d'accueil (S/M) — ✅ fait le 2026-09-02
 
-- [ ] Backend : nouvel endpoint `GET /daily/verse` et `GET /daily/hadith`
-      (ou un seul `GET /daily` renvoyant les deux) — sélection déterministe
-      par date (ex. hash de la date UTC modulo le nombre total de
-      versets/hadiths) pour que tous les visiteurs voient le même contenu
-      le même jour, sans état à stocker.
-- [ ] Frontend : nouveau composant sur `HomePage.tsx`, réutilise
-      `PageMeta`/`buildOgImage` pour que le contenu du jour soit aussi
-      l'image OG par défaut de la page d'accueil (fraîcheur perçue par les
-      crawlers/réseaux sociaux).
-- [ ] Ajouter un bouton de partage direct dessus (`ShareButton` existant) —
-      c'est le point d'entrée le plus naturel pour la diffusion virale
-      quotidienne.
-- [ ] i18n : clés `home.dailyVerse.*`/`home.dailyHadith.*`, fr/en d'abord.
-- [ ] Option ultérieure : alterner verset/hadith/dua/concept par jour de la
-      semaine pour varier le contenu affiché.
+- [x] Backend : un seul endpoint `GET /daily` renvoyant `{ verse, hadith }` —
+      sélection déterministe par hachage de la date UTC ("AAAA-MM-JJ")
+      modulo le nombre total de versets/hadiths (`count(*)`, puis
+      `ORDER BY id LIMIT 1 OFFSET index` — stable d'un appel à l'autre pour
+      un jeu de données inchangé, pas besoin d'un ordre "naturel"). Nouveau
+      module `apps/api/src/modules/daily/`, public, mis en cache comme le
+      reste du contenu de référence (`CacheInterceptor`, TTL global 1h).
+- [x] Frontend : `DailyContentSection` sur `HomePage.tsx`, sous la barre de
+      recherche. Réutilise `PageMeta`/`buildOgImage` (image OG dynamique
+      = verset du jour) et `ShareButton`/`ShareCard` existants pour le
+      partage — aucune nouvelle brique de partage à construire.
+- [x] i18n : `home.dailyVerse.label`/`home.dailyHadith.label`, fr/en.
+- [x] Vérifié en direct : contenu réel affiché (Yusuf 12:21 + un hadith
+      Abu Dawud lors du test), lien vers la page du verset/hadith correct,
+      balise `og:image` reflétant bien le verset du jour.
+- [ ] Option ultérieure, non faite : alterner verset/hadith/dua/concept par
+      jour de la semaine pour varier le contenu affiché.
 
 ### 1.2 "Reprendre où j'en étais" (S/M)
 
