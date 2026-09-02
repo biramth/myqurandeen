@@ -22,4 +22,4 @@ export const streakAlertSettings = pgTable("streak_alert_settings", {
   isActive: boolean("is_active").notNull().default(false),
   lastSentAt: timestamp("last_sent_at", { withTimezone: true }),
   ...timestamps,
-});
+}).enableRLS();

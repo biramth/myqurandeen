@@ -31,4 +31,4 @@ export const duaScheduleSettings = pgTable("dua_schedule_settings", {
   morningSentAt: timestamp("morning_sent_at", { withTimezone: true }),
   eveningSentAt: timestamp("evening_sent_at", { withTimezone: true }),
   ...timestamps,
-});
+}).enableRLS();

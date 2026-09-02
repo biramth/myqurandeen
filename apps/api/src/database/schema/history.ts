@@ -25,7 +25,7 @@ export const historicalPeriods = pgTable("historical_periods", {
   region: varchar("region", { length: 150 }),
   description: text("description"),
   ...timestamps,
-});
+}).enableRLS();
 
 export const historicalEvents = pgTable(
   "historical_events",
@@ -50,7 +50,7 @@ export const historicalEvents = pgTable(
     index("historical_events_text_search_gin_idx").using("gin", t.textSearch),
     index("historical_events_period_id_idx").on(t.periodId),
   ],
-);
+).enableRLS();
 
 export const eventSources = pgTable(
   "event_sources",
@@ -63,7 +63,7 @@ export const eventSources = pgTable(
       .references(() => sources.id, { onDelete: "cascade" }),
   },
   (t) => [primaryKey({ columns: [t.eventId, t.sourceId] })],
-);
+).enableRLS();
 
 export const scholarEvents = pgTable(
   "scholar_events",
@@ -76,4 +76,4 @@ export const scholarEvents = pgTable(
       .references(() => historicalEvents.id, { onDelete: "cascade" }),
   },
   (t) => [primaryKey({ columns: [t.scholarId, t.eventId] })],
-);
+).enableRLS();

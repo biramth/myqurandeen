@@ -17,7 +17,7 @@ export const reports = pgTable(
     ...timestamps,
   },
   (t) => [index("reports_status_idx").on(t.status)],
-);
+).enableRLS();
 
 export const reportHistory = pgTable(
   "report_history",
@@ -32,7 +32,7 @@ export const reportHistory = pgTable(
     ...timestamps,
   },
   (t) => [index("report_history_report_id_idx").on(t.reportId)],
-);
+).enableRLS();
 
 export const auditLogs = pgTable(
   "audit_logs",
@@ -48,4 +48,4 @@ export const auditLogs = pgTable(
     ...timestamps,
   },
   (t) => [index("audit_logs_created_at_idx").on(t.createdAt)],
-);
+).enableRLS();

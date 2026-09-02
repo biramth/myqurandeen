@@ -15,7 +15,7 @@ export const scholars = pgTable("scholars", {
   expertise: text("expertise").array(),
   sourceId: uuid("source_id").references(() => sources.id, { onDelete: "set null" }),
   ...timestamps,
-});
+}).enableRLS();
 
 export const scholarSchools = pgTable(
   "scholar_schools",
@@ -28,7 +28,7 @@ export const scholarSchools = pgTable(
       .references(() => schools.id, { onDelete: "cascade" }),
   },
   (t) => [primaryKey({ columns: [t.scholarId, t.schoolId] })],
-);
+).enableRLS();
 
 export const scholarBooks = pgTable(
   "scholar_books",
@@ -41,4 +41,4 @@ export const scholarBooks = pgTable(
       .references(() => books.id, { onDelete: "cascade" }),
   },
   (t) => [primaryKey({ columns: [t.scholarId, t.bookId] })],
-);
+).enableRLS();

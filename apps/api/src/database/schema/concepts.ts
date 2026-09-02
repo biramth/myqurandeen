@@ -14,7 +14,7 @@ export const concepts = pgTable("concepts", {
   sourceId: uuid("source_id").references(() => sources.id, { onDelete: "set null" }),
   createdBy: uuid("created_by").references(() => users.id, { onDelete: "set null" }),
   ...timestamps,
-});
+}).enableRLS();
 
 export const conceptRelations = pgTable(
   "concept_relations",
@@ -28,7 +28,7 @@ export const conceptRelations = pgTable(
     relationType: varchar("relation_type", { length: 60 }),
   },
   (t) => [primaryKey({ columns: [t.conceptId, t.relatedConceptId] })],
-);
+).enableRLS();
 
 export const conceptDivergences = pgTable(
   "concept_divergences",
@@ -42,4 +42,4 @@ export const conceptDivergences = pgTable(
     ...timestamps,
   },
   (t) => [index("concept_divergences_concept_id_idx").on(t.conceptId)],
-);
+).enableRLS();

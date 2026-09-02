@@ -20,4 +20,4 @@ export const userStreaks = pgTable("user_streaks", {
   longestStreak: smallint("longest_streak").notNull().default(0),
   lastActiveDate: date("last_active_date", { mode: "string" }),
   ...timestamps,
-});
+}).enableRLS();

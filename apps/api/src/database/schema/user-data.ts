@@ -18,7 +18,7 @@ export const notes = pgTable(
     ...timestamps,
   },
   (t) => [index("notes_user_id_idx").on(t.userId), index("notes_target_idx").on(t.targetType, t.targetId)],
-);
+).enableRLS();
 
 export const bookmarks = pgTable(
   "bookmarks",
@@ -32,7 +32,7 @@ export const bookmarks = pgTable(
     ...timestamps,
   },
   (t) => [unique("bookmarks_user_target_uidx").on(t.userId, t.targetType, t.targetId)],
-);
+).enableRLS();
 
 export const collections = pgTable(
   "collections",
@@ -46,7 +46,7 @@ export const collections = pgTable(
     ...timestamps,
   },
   (t) => [index("collections_user_id_idx").on(t.userId)],
-);
+).enableRLS();
 
 export const collectionItems = pgTable(
   "collection_items",
@@ -60,4 +60,4 @@ export const collectionItems = pgTable(
     ...timestamps,
   },
   (t) => [unique("collection_items_collection_target_uidx").on(t.collectionId, t.targetType, t.targetId)],
-);
+).enableRLS();

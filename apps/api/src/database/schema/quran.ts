@@ -31,7 +31,7 @@ export const quranSurahs = pgTable("quran_surahs", {
   generalInfo: text("general_info"),
   themes: text("themes").array(),
   ...timestamps,
-});
+}).enableRLS();
 
 export const quranVerses = pgTable(
   "quran_verses",
@@ -52,7 +52,7 @@ export const quranVerses = pgTable(
     unique("quran_verses_surah_number_uidx").on(t.surahId, t.numberInSurah),
     index("quran_verses_text_search_gin_idx").using("gin", t.textSearch),
   ],
-);
+).enableRLS();
 
 /** Une "edition" de traduction (ex. "Traduction Hamidullah, FR"). */
 export const translations = pgTable("translations", {
@@ -64,7 +64,7 @@ export const translations = pgTable("translations", {
   }),
   sourceId: uuid("source_id").references(() => sources.id, { onDelete: "set null" }),
   ...timestamps,
-});
+}).enableRLS();
 
 export const verseTranslations = pgTable(
   "verse_translations",
@@ -86,7 +86,7 @@ export const verseTranslations = pgTable(
     unique("verse_translations_verse_translation_uidx").on(t.verseId, t.translationId),
     index("verse_translations_text_search_gin_idx").using("gin", t.textSearch),
   ],
-);
+).enableRLS();
 
 export const tafsirSources = pgTable("tafsir_sources", {
   id: id(),
@@ -97,7 +97,7 @@ export const tafsirSources = pgTable("tafsir_sources", {
   description: text("description"),
   sourceId: uuid("source_id").references(() => sources.id, { onDelete: "set null" }),
   ...timestamps,
-});
+}).enableRLS();
 
 export const tafsirEntries = pgTable(
   "tafsir_entries",
@@ -122,4 +122,4 @@ export const tafsirEntries = pgTable(
     index("tafsir_entries_tafsir_source_id_idx").on(t.tafsirSourceId),
     index("tafsir_entries_verse_start_id_idx").on(t.verseStartId),
   ],
-);
+).enableRLS();

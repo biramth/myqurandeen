@@ -20,7 +20,7 @@ export const pushSubscriptions = pgTable("push_subscriptions", {
   auth: text("auth").notNull(),
   userAgent: text("user_agent"),
   ...timestamps,
-});
+}).enableRLS();
 
 /**
  * Rappel recurrent choisi par l'utilisateur : "fais cette dua" ou "lis cette
@@ -55,7 +55,7 @@ export const reminders = pgTable(
     // Le planificateur (@Cron EVERY_MINUTE) filtre sur isActive a chaque tick.
     index("reminders_is_active_idx").on(t.isActive),
   ],
-);
+).enableRLS();
 
 /**
  * Reglage unique par utilisateur pour la rotation automatique de sourates
@@ -77,4 +77,4 @@ export const readingRotationSettings = pgTable("reading_rotation_settings", {
   lastSurahNumber: smallint("last_surah_number"),
   lastSentAt: timestamp("last_sent_at", { withTimezone: true }),
   ...timestamps,
-});
+}).enableRLS();

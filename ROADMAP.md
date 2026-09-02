@@ -142,6 +142,42 @@ silencieuse qui grandit avec la taille du code.
       s'accompagner d'un test — pas d'objectif de couverture globale
       arbitraire, plutôt une discipline sur le code neuf.
 
+### 0.4 Row-Level Security Postgres (Supabase) — ✅ fait le 2026-09-02
+
+**Contexte** : alerte Supabase (hors roadmap initiale, remontée directement
+par le tableau de bord) — **les 70 tables du schéma `public` avaient RLS
+désactivée**. Supabase provisionne automatiquement une API REST
+(PostgREST) pour chaque projet, accessible avec la clé publique `anon` :
+sans RLS, n'importe qui connaissant l'URL du projet + cette clé pouvait
+lire/modifier/supprimer **toutes les données de toutes les tables**
+(`users.password_hash` compris) via cette API, entièrement en dehors du
+backend NestJS et de son authentification/RBAC.
+
+- [x] Vérifié avant toute action : le rôle de connexion de l'app
+      (`postgres`, utilisé par `DATABASE_URL`) a `rolbypassrls = true` —
+      activer RLS ne casse donc rien côté application (confirmé par un
+      test de lecture réel après migration).
+- [x] Ajouté `.enableRLS()` (API native de `drizzle-orm` depuis peu,
+      `pgTable(...).enableRLS()`) sur les 70 définitions de table, dans les
+      24 fichiers de `apps/api/src/database/schema/` — via un script AST
+      (`typescript` compiler API) plutôt qu'un regex, pour ne pas se faire
+      piéger par les parenthèses imbriquées dans les colonnes générées
+      (ex. `quranVerses.textSearch`).
+- [x] Migration générée par `db:generate` (70 `ALTER TABLE ... ENABLE ROW
+      LEVEL SECURITY`, une par table, aucune autre modification) et
+      appliquée. Volontairement **aucune policy ajoutée** : RLS activée
+      sans policy = accès totalement bloqué pour les rôles `anon`/
+      `authenticated` de PostgREST, exactement le comportement voulu
+      puisque l'app n'utilise jamais cette API (aucune clé Supabase
+      cliente dans le projet, uniquement une connexion Postgres directe).
+- [x] Vérifié en conditions réelles : 0/70 table sans RLS après migration,
+      lecture normale toujours fonctionnelle (`quran_verses`, 6236 lignes),
+      endpoints publics (`/quran/surahs`, `/hadith/collections`, `/daily`,
+      `/search`) et protégés (`/auth/me`) inchangés.
+- [ ] Si l'app adopte un jour l'API PostgREST/Supabase Auth pour un usage
+      réel (actuellement non prévu), il faudra alors écrire de vraies
+      policies par table plutôt que le blocage total actuel.
+
 ---
 
 ## Phase 1 — Gains rapides

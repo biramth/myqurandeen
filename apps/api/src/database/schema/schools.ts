@@ -16,7 +16,7 @@ export const schools = pgTable("schools", {
   sourcesUsed: text("sources_used"),
   era: varchar("era", { length: 100 }),
   ...timestamps,
-});
+}).enableRLS();
 
 export const fiqhTopics = pgTable("fiqh_topics", {
   id: id(),
@@ -25,7 +25,7 @@ export const fiqhTopics = pgTable("fiqh_topics", {
   description: text("description"),
   category: varchar("category", { length: 100 }),
   ...timestamps,
-});
+}).enableRLS();
 
 /** Coeur du comparateur d'ecoles : position structuree, pas generee. */
 export const fiqhPositions = pgTable(
@@ -44,7 +44,7 @@ export const fiqhPositions = pgTable(
     ...timestamps,
   },
   (t) => [unique("fiqh_positions_topic_school_uidx").on(t.fiqhTopicId, t.schoolId)],
-);
+).enableRLS();
 
 export const fiqhDivergenceNotes = pgTable(
   "fiqh_divergence_notes",
@@ -58,7 +58,7 @@ export const fiqhDivergenceNotes = pgTable(
     ...timestamps,
   },
   (t) => [index("fiqh_divergence_notes_fiqh_topic_id_idx").on(t.fiqhTopicId)],
-);
+).enableRLS();
 
 /**
  * Suggestions d'utilisateurs pour de nouveaux sujets du comparateur de fiqh
@@ -77,4 +77,4 @@ export const fiqhSuggestions = pgTable("fiqh_suggestions", {
   adminNote: text("admin_note"),
   handledBy: uuid("handled_by").references(() => users.id, { onDelete: "set null" }),
   ...timestamps,
-});
+}).enableRLS();

@@ -20,7 +20,7 @@ export const quranReciters = pgTable("quran_reciters", {
   sourceUrl: text("source_url").notNull(),
   license: text("license").notNull(),
   ...timestamps,
-});
+}).enableRLS();
 
 /** URL de recitation pour un verset et un recitateur donne. */
 export const quranVerseAudio = pgTable(
@@ -38,4 +38,4 @@ export const quranVerseAudio = pgTable(
     ...timestamps,
   },
   (t) => [unique("quran_verse_audio_verse_reciter_uidx").on(t.verseId, t.reciterId)],
-);
+).enableRLS();

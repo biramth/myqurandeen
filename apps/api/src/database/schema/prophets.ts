@@ -23,4 +23,4 @@ export const prophets = pgTable("prophets", {
   sourceId: uuid("source_id").references(() => sources.id, { onDelete: "set null" }),
   createdBy: uuid("created_by").references(() => users.id, { onDelete: "set null" }),
   ...timestamps,
-});
+}).enableRLS();

@@ -28,4 +28,4 @@ export const authTokens = pgTable(
     index("auth_tokens_user_idx").on(t.userId),
     index("auth_tokens_token_type_idx").on(t.tokenHash, t.type),
   ],
-);
+).enableRLS();

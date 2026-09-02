@@ -19,7 +19,7 @@ export const duaCategories = pgTable("dua_categories", {
   description: text("description"),
   orderIndex: smallint("order_index").notNull(),
   ...timestamps,
-});
+}).enableRLS();
 
 export const duas = pgTable("duas", {
   id: id(),
@@ -43,4 +43,4 @@ export const duas = pgTable("duas", {
   sourceId: uuid("source_id").references(() => sources.id, { onDelete: "set null" }),
   createdBy: uuid("created_by").references(() => users.id, { onDelete: "set null" }),
   ...timestamps,
-});
+}).enableRLS();

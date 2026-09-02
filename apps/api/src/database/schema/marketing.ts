@@ -13,7 +13,7 @@ export const marketingGroups = pgTable("marketing_groups", {
   name: varchar("name", { length: 120 }).notNull().unique(),
   description: text("description"),
   ...timestamps,
-});
+}).enableRLS();
 
 export const marketingGroupMembers = pgTable(
   "marketing_group_members",
@@ -27,4 +27,4 @@ export const marketingGroupMembers = pgTable(
     addedAt: timestamp("added_at", { withTimezone: true }).defaultNow().notNull(),
   },
   (t) => [primaryKey({ columns: [t.groupId, t.userId] })],
-);
+).enableRLS();

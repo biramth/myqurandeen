@@ -38,4 +38,4 @@ export const prayerAlertSettings = pgTable("prayer_alert_settings", {
   maghribSentAt: timestamp("maghrib_sent_at", { withTimezone: true }),
   ishaSentAt: timestamp("isha_sent_at", { withTimezone: true }),
   ...timestamps,
-});
+}).enableRLS();

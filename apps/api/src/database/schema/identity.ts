@@ -7,7 +7,7 @@ export const roles = pgTable("roles", {
   name: varchar("name", { length: 32 }).notNull().unique(),
   description: text("description"),
   ...timestamps,
-});
+}).enableRLS();
 
 /** Permission granulaire au format "resource:action" (voir @qurandeen/shared). */
 export const permissions = pgTable("permissions", {
@@ -17,7 +17,7 @@ export const permissions = pgTable("permissions", {
   action: varchar("action", { length: 64 }).notNull(),
   description: text("description"),
   ...timestamps,
-});
+}).enableRLS();
 
 export const rolePermissions = pgTable(
   "role_permissions",
@@ -30,7 +30,7 @@ export const rolePermissions = pgTable(
       .references(() => permissions.id, { onDelete: "cascade" }),
   },
   (t) => [primaryKey({ columns: [t.roleId, t.permissionId] })],
-);
+).enableRLS();
 
 export const users = pgTable("users", {
   id: id(),
@@ -50,4 +50,4 @@ export const users = pgTable("users", {
   // envoyes puisqu'ils sont necessaires au fonctionnement du compte.
   marketingOptOut: boolean("marketing_opt_out").default(false).notNull(),
   ...timestamps,
-});
+}).enableRLS();

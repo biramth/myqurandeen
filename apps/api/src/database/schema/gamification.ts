@@ -19,7 +19,7 @@ export const userGamification = pgTable(
     level: smallint("level").notNull().default(1),
     ...timestamps,
   },
-);
+).enableRLS();
 
 /** Compteurs cumulés des actions significatives - une ligne par utilisateur. */
 export const userStats = pgTable("user_stats", {
@@ -34,7 +34,7 @@ export const userStats = pgTable("user_stats", {
   notesCreated: integer("notes_created").notNull().default(0),
   bookmarksAdded: integer("bookmarks_added").notNull().default(0),
   ...timestamps,
-});
+}).enableRLS();
 
 /** Succès débloqué par un utilisateur (clé = identifiant du succès défini dans GamificationService). */
 export const userAchievements = pgTable(
@@ -48,7 +48,7 @@ export const userAchievements = pgTable(
     unlockedAt: timestamp("unlocked_at", { withTimezone: true }).defaultNow().notNull(),
   },
   (t) => [uniqueIndex("user_achievements_user_key_unique").on(t.userId, t.key)],
-);
+).enableRLS();
 
 /** Nombre d'actions par jour calendaire local (alimente l'objectif du jour). Une ligne par (utilisateur, date). */
 export const userDailyActions = pgTable(
@@ -64,4 +64,4 @@ export const userDailyActions = pgTable(
     ...timestamps,
   },
   (t) => [uniqueIndex("user_daily_actions_user_date_unique").on(t.userId, t.dateKey)],
-);
+).enableRLS();

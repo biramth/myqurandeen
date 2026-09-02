@@ -20,7 +20,7 @@ export const hadithCollections = pgTable("hadith_collections", {
   description: text("description"),
   sourceId: uuid("source_id").references(() => sources.id, { onDelete: "set null" }),
   ...timestamps,
-});
+}).enableRLS();
 
 export const hadithBooks = pgTable(
   "hadith_books",
@@ -34,7 +34,7 @@ export const hadithBooks = pgTable(
     ...timestamps,
   },
   (t) => [unique("hadith_books_collection_number_uidx").on(t.collectionId, t.number)],
-);
+).enableRLS();
 
 export const hadiths = pgTable(
   "hadiths",
@@ -77,7 +77,7 @@ export const hadiths = pgTable(
     index("hadiths_text_search_gin_idx").using("gin", t.textSearch),
     index("hadiths_hadith_book_id_idx").on(t.hadithBookId),
   ],
-);
+).enableRLS();
 
 /**
  * Classification d'authenticite telle que rapportee, par savant/verificateur
@@ -96,7 +96,7 @@ export const hadithGrades = pgTable(
     ...timestamps,
   },
   (t) => [unique("hadith_grades_hadith_grader_uidx").on(t.hadithId, t.graderName)],
-);
+).enableRLS();
 
 /**
  * Traductions alternatives d'un hadith (reutilise la table `translations`,
@@ -116,13 +116,13 @@ export const hadithTranslations = pgTable(
     ...timestamps,
   },
   (t) => [unique("hadith_translations_hadith_translation_uidx").on(t.hadithId, t.translationId)],
-);
+).enableRLS();
 
 export const hadithTopics = pgTable("hadith_topics", {
   id: id(),
   name: varchar("name", { length: 150 }).notNull().unique(),
   ...timestamps,
-});
+}).enableRLS();
 
 export const hadithTopicLinks = pgTable(
   "hadith_topic_links",
@@ -135,4 +135,4 @@ export const hadithTopicLinks = pgTable(
       .references(() => hadithTopics.id, { onDelete: "cascade" }),
   },
   (t) => [primaryKey({ columns: [t.hadithId, t.topicId] })],
-);
+).enableRLS();

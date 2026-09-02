@@ -10,7 +10,7 @@ export const learningPaths = pgTable("learning_paths", {
   level: varchar("level", { length: 16, enum: LEARNING_LEVELS }).notNull(),
   description: text("description"),
   ...timestamps,
-});
+}).enableRLS();
 
 export const learningLessons = pgTable("learning_lessons", {
   id: id(),
@@ -29,7 +29,7 @@ export const learningLessons = pgTable("learning_lessons", {
   references: jsonb("references"),
   isPublished: boolean("is_published").default(false).notNull(),
   ...timestamps,
-});
+}).enableRLS();
 
 export const userProgress = pgTable(
   "user_progress",
@@ -43,7 +43,7 @@ export const userProgress = pgTable(
     completedAt: timestamp("completed_at", { withTimezone: true }).defaultNow().notNull(),
   },
   (t) => [primaryKey({ columns: [t.userId, t.lessonId] })],
-);
+).enableRLS();
 
 /**
  * Question de quiz d'auto-evaluation, deterministe (redigee par l'équipe
@@ -66,7 +66,7 @@ export const learningQuizQuestions = pgTable(
     index("learning_quiz_questions_lesson_id_idx").on(t.lessonId),
     index("learning_quiz_questions_path_id_idx").on(t.pathId),
   ],
-);
+).enableRLS();
 
 export const learningQuizOptions = pgTable(
   "learning_quiz_options",
@@ -80,4 +80,4 @@ export const learningQuizOptions = pgTable(
     order: smallint("order").notNull(),
   },
   (t) => [index("learning_quiz_options_question_id_idx").on(t.questionId)],
-);
+).enableRLS();

@@ -20,7 +20,7 @@ export const authors = pgTable("authors", {
   bio: text("bio"),
   era: varchar("era", { length: 100 }),
   ...timestamps,
-});
+}).enableRLS();
 
 export const sources = pgTable("sources", {
   id: id(),
@@ -30,13 +30,13 @@ export const sources = pgTable("sources", {
   url: text("url"),
   language: varchar("language", { length: 8 }),
   ...timestamps,
-});
+}).enableRLS();
 
 export const bookCategories = pgTable("book_categories", {
   id: id(),
   name: varchar("name", { length: 100 }).notNull().unique(),
   ...timestamps,
-});
+}).enableRLS();
 
 export const books = pgTable(
   "books",
@@ -59,7 +59,7 @@ export const books = pgTable(
     ...timestamps,
   },
   (t) => [index("books_text_search_gin_idx").using("gin", t.textSearch)],
-);
+).enableRLS();
 
 export const bookEditions = pgTable("book_editions", {
   id: id(),
@@ -70,7 +70,7 @@ export const bookEditions = pgTable("book_editions", {
   year: varchar("year", { length: 16 }),
   isbn: varchar("isbn", { length: 32 }),
   ...timestamps,
-});
+}).enableRLS();
 
 export const bookCategoryLinks = pgTable(
   "book_category_links",
@@ -83,4 +83,4 @@ export const bookCategoryLinks = pgTable(
       .references(() => bookCategories.id, { onDelete: "cascade" }),
   },
   (t) => [primaryKey({ columns: [t.bookId, t.categoryId] })],
-);
+).enableRLS();

@@ -32,7 +32,7 @@ export const aiEmbeddings = pgTable(
     index("ai_embeddings_content_type_idx").on(t.contentType),
     index("ai_embeddings_content_id_idx").on(t.contentId),
   ],
-);
+).enableRLS();
 
 /**
  * Type brut d'une ligne d'embedding (avant mapping Drizzle).
