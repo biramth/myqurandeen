@@ -5,7 +5,7 @@ import { DRIZZLE } from "../../database/database.constants";
 import type { Database } from "../../database/database.module";
 import { pushSubscriptions, streakAlertSettings, userStreaks, users } from "../../database/schema";
 import { WebPushProvider } from "../notifications/web-push.provider";
-import { alreadySentToday, GRACE_MINUTES, localClock, minutesSince } from "./reminder-scheduler.service";
+import { alreadySentToday, GRACE_MINUTES, localClock, minutesSince } from "./scheduling-logic";
 import { SchedulerLockService } from "./scheduler-lock.service";
 
 /** Cle arbitraire du verrou consultatif Postgres pour ce planificateur (voir SchedulerLockService). */

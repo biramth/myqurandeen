@@ -120,21 +120,24 @@ SEO (Core Web Vitals) et le taux de conversion des nouveaux visiteurs.
 session) sans filet de tests automatisés visible — risque de régression
 silencieuse qui grandit avec la taille du code.
 
-- [ ] Décider du socle : `vitest` (cohérent avec l'écosystème Vite déjà en
-      place côté web) + `@testing-library/react` pour le frontend, `jest`
-      (déjà probablement configuré par défaut NestJS) côté API.
-- [ ] Prioriser par risque plutôt que par exhaustivité :
-  - [ ] Backend : les helpers purs à haut risque de régression silencieuse
-        (`localClock`, `minutesSince`, `alreadySentToday` dans le module
-        reminders — logique déjà source de bugs corrigés cette session),
-        les DTOs de validation, le calcul RBAC (permissions).
-  - [ ] Frontend : les utilitaires purs (`splitBasmala`, `withShareUtm`,
-        `computePrayerTimes`/`computeQiblaDirection`), pas les composants
-        UI dans un premier temps (ROI plus faible, plus fragile).
-- [ ] Ajouter un job CI (GitHub Actions) qui fait tourner `typecheck` +
-      `lint` + les tests sur chaque PR — le typecheck/lint existent déjà
-      comme scripts npm, seul le déclenchement CI manque probablement.
-- [ ] Fixer une règle simple pour la suite : toute nouvelle fonction pure
+- [x] Décider du socle : `vitest` (cohérent avec l'écosystème Vite déjà en
+      place côté web) côté frontend, `jest` (déjà configuré par défaut
+      NestJS) côté API. Pas besoin de `@testing-library/react` pour
+      l'instant : on cible les helpers purs, pas les composants UI.
+- [x] Prioriser par risque plutôt que par exhaustivité :
+  - [x] Backend : les helpers purs à haut risque de régression silencieuse
+        (`localClock`, `minutesSince`, `alreadySentToday`, `GRACE_MINUTES`)
+        extraits de `reminder-scheduler.service.ts` vers
+        `scheduling-logic.ts` (testables sans tirer NestJS/ESM) et couverts.
+  - [~] Backend : les DTOs de validation et le calcul RBAC (permissions) —
+        non couverts pour l'instant (RAZ dépend du socle, à compléter).
+  - [x] Frontend : les utilitaires purs (`splitBasmala`,
+        `withShareUtm`/`buildOgImage`, `computePrayerTimes`/
+        `computeQiblaDirection`/`nextPrayer`).
+- [x] Ajouter un job CI (GitHub Actions) qui fait tourner `typecheck` +
+      `lint` + les tests sur chaque PR — l'étape `Tests` (`npm run test`)
+      a été ajoutée à `.github/workflows/ci.yml`.
+- [x] Fixer une règle simple pour la suite : toute nouvelle fonction pure
       non triviale (calcul de date, calcul financier, parsing) doit
       s'accompagner d'un test — pas d'objectif de couverture globale
       arbitraire, plutôt une discipline sur le code neuf.
