@@ -29,10 +29,23 @@ export default defineConfig({
   build: {
     rollupOptions: {
       output: {
-        manualChunks: {
-          // Coeur du framework : change rarement, se met en cache long terme
-          // independamment du reste de l'app.
-          "vendor-react": ["react", "react-dom", "react-router-dom"],
+        // Forme fonction plutot que la forme objet (qui ne capturait pas
+        // react-dom : ses sous-modules CJS - react-dom-client.production.js
+        // etc., empaquetes via des modules virtuels ?commonjs-* - ne
+        // matchaient pas le nom de paquet "react-dom" tel quel, et
+        // finissaient dans le chunk principal malgre la config precedente).
+        // `id.includes(...)` matche le chemin complet, fiable quelle que
+        // soit la forme du module. Coeur du framework : change rarement, se
+        // met en cache long terme independamment du reste de l'app.
+        manualChunks(id) {
+          if (
+            id.includes("node_modules/react-dom") ||
+            id.includes("node_modules/react/") ||
+            id.includes("node_modules/react-router") ||
+            id.includes("node_modules/scheduler")
+          ) {
+            return "vendor-react";
+          }
         },
       },
     },

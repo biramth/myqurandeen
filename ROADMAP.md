@@ -65,31 +65,54 @@ sur une mise en place complète.
       dédié, pour que l'équipe API publique (phase 6) parte d'une base
       claire.
 
-### 0.2 Bundle JS principal (~750 Ko) (M)
+### 0.2 Bundle JS principal (~750 Ko) (M) — ✅ fait le 2026-09-01
 
-**Contexte** : le dernier build montre un chunk `index-*.js` de 752 Ko
-(gzip 222 Ko) alors que le reste est déjà bien scindé par page
+**Contexte** : le dernier build montrait un chunk `index-*.js` de 752 Ko
+(gzip 222 Ko) alors que le reste était déjà bien scindé par page
 (`React.lazy` par route). Ce chunk pèse sur le LCP/TTI mobile, donc sur le
 SEO (Core Web Vitals) et le taux de conversion des nouveaux visiteurs.
 
-- [ ] Générer une visualisation du bundle (`rollup-plugin-visualizer` ou
-      `vite-bundle-visualizer`) pour voir précisément ce qui compose ce
-      chunk avant d'optimiser à l'aveugle.
-- [ ] Vérifier si des dépendances lourdes (ex. `lucide-react` importé sans
-      tree-shaking correct, une lib de date, `zod` côté client) finissent
-      dans le chunk principal au lieu d'être scindées.
-- [ ] Ajouter des `manualChunks` ciblés dans `apps/web/vite.config.ts`
-      (`build.rollupOptions.output.manualChunks`) pour séparer les grosses
-      libs tierces du code applicatif partagé (layout, providers, router).
-- [ ] Vérifier que les composants lourds mais rarement utilisés à froid
-      (éditeur de notes riche, dashboard admin, assistant IA) sont bien en
-      `React.lazy` — l'admin l'est déjà (`AdminPage-*.js` séparé), à
-      confirmer pour le reste.
-- [ ] Fixer un budget de taille dans `vite.config.ts`
-      (`build.chunkSizeWarningLimit`) une fois la cible atteinte, pour
-      détecter toute régression future en CI.
-- [ ] Mesurer avant/après avec Lighthouse (mobile, réseau throttled) et
-      noter le gain concret sur LCP/TBT.
+- [x] Visualisation du bundle : `rollup-plugin-visualizer` était déjà
+      câblé (`ANALYZE=1 npm run build -w apps/web` → `dist/stats.html`),
+      pas besoin de l'ajouter.
+- [x] **Cause principale trouvée, sans rapport avec le decoupage de
+      chunks** : le `.env` racine (partagé avec l'API) contient
+      `NODE_ENV=development`. Vite le lit aussi via `envDir` (pointé sur la
+      racine du repo) et `vite build` livrait donc le **bundle
+      développement de React** (React DOM dev + `react/jsx-dev-runtime`,
+      normalement jamais expédié en production). À lui seul, ce point
+      représentait ~230 Ko du chunk principal. Comme `.env` est ignoré par
+      git, tout contributeur ou déploiement auto-hébergé qui copie
+      `.env.example` (qui a le même `NODE_ENV=development`) reproduirait le
+      bug — corrigé de façon durable et multiplateforme via `cross-env` :
+      `"build": "tsc -b && cross-env NODE_ENV=production vite build"`
+      (`apps/web/package.json`), indépendant de tout `.env` ambiant.
+- [x] `manualChunks` de `vite.config.ts` (forme objet) ne capturait pas
+      `react-dom` du tout : ses sous-modules CJS
+      (`react-dom-client.production.js` etc., empaquetés via des modules
+      virtuels `?commonjs-*`) ne matchaient pas le nom de paquet tel quel et
+      restaient dans le chunk principal. Remplacé par la forme fonction
+      (`manualChunks(id) { if (id.includes(...)) return "vendor-react" }`),
+      qui matche le chemin complet de façon fiable.
+- [x] `canvas-confetti` (~7 Ko gzip) chargé par `CelebrationHost.tsx` (monté
+      une fois dans `AppLayout`, donc sur chaque page) alors que la
+      confetti ne se déclenche que sur un événement de célébration, rare —
+      passé en `import()` dynamique, chargé à la demande seulement.
+- [x] **Résultat mesuré** : chunk principal 752,55 Ko → **430,92 Ko**
+      (gzip 222,56 Ko → **137,10 Ko**), soit **-43% / -38%**. Plus aucun
+      chunk au-dessus du seuil d'alerte de 500 Ko (donc rien à ajuster sur
+      `chunkSizeWarningLimit`).
+- [ ] Reste à faire si besoin plus tard : regrouper d'autres libs tierces
+      stables partout utilisées (i18next, tailwind-merge, sonner, le
+      cluster radix-ui/floating-ui) dans un chunk vendor dédié — gain de
+      cache sur les futurs déploiements (pas de re-téléchargement si ces
+      libs ne changent pas), pas un gain de poids au premier chargement.
+      Non fait ici : effort/risque plus élevé pour un gain différent de
+      celui visé (LCP au premier chargement, déjà résolu).
+- [ ] Mesurer avec Lighthouse (mobile, réseau throttled) sur le site
+      déployé pour confirmer le gain concret sur LCP/TBT en conditions
+      réelles (fait ici uniquement via la taille des fichiers, pas un
+      profil Lighthouse complet).
 
 ### 0.3 Couverture de tests (L, continu)
 
