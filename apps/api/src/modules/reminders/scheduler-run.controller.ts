@@ -1,4 +1,4 @@
-import { Controller, Post, UseGuards } from "@nestjs/common";
+import { Controller, HttpCode, HttpStatus, Post, UseGuards } from "@nestjs/common";
 import { ApiBearerAuth, ApiOperation, ApiTags } from "@nestjs/swagger";
 import { Public } from "../../common/decorators/public.decorator";
 import { CronTokenGuard } from "../../common/guards/cron-token.guard";
@@ -38,6 +38,7 @@ export class SchedulerRunController {
   @Public()
   @UseGuards(CronTokenGuard)
   @Post("run")
+  @HttpCode(HttpStatus.NO_CONTENT)
   @ApiOperation({ summary: "Declenche une passe complete des planificateurs de notifications (cron externe)" })
   async run() {
     await Promise.all([
@@ -46,9 +47,5 @@ export class SchedulerRunController {
       this.streakAlertScheduler.tick(),
       this.prayerAlertScheduler.tick(),
     ]);
-    return {
-      ok: true,
-      tickedAt: new Date().toISOString(),
-    };
   }
 }
