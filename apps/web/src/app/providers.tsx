@@ -5,6 +5,7 @@ import { Analytics } from "@vercel/analytics/react";
 import { HelmetProvider } from "react-helmet-async";
 import { ThemeProvider } from "@/components/shared/theme-provider";
 import { AuthProvider } from "@/features/auth/auth-context";
+import { OfflineProvider } from "@/features/offline/OfflineContext";
 import { AppToaster } from "@/components/shared/AppToaster";
 
 const queryClient = new QueryClient({
@@ -28,10 +29,12 @@ export function AppProviders({ children }: { children: React.ReactNode }) {
     <HelmetProvider>
       <QueryClientProvider client={queryClient}>
         <ThemeProvider>
-          <BrowserRouter>
-            <AuthProvider>{children}</AuthProvider>
-            <AppToaster />
-          </BrowserRouter>
+          <OfflineProvider>
+            <BrowserRouter>
+              <AuthProvider>{children}</AuthProvider>
+              <AppToaster />
+            </BrowserRouter>
+          </OfflineProvider>
           {/* N'envoie des donnees que sur un deploiement Vercel reel (silencieux
               en local/autre hebergeur) - aucun cookie, conforme RGPD sans bandeau. */}
           <Analytics />

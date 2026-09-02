@@ -7,13 +7,17 @@ import { Badge } from "@/components/ui/badge";
 import { Skeleton } from "@/components/ui/skeleton";
 import { quranApi } from "@/features/quran/api";
 import { translatedSurahName } from "@/features/quran/surah-names";
+import { getOfflineSurahs } from "@/features/quran/offline-quran";
+import { useOffline } from "@/features/offline/OfflineContext";
 import { PageMeta } from "@/components/shared/PageMeta";
 
 export function SurahListPage() {
   const { t } = useTranslation();
+  const { offline } = useOffline();
   const { data: surahs, isLoading, isError } = useQuery({
     queryKey: ["quran", "surahs"],
-    queryFn: quranApi.listSurahs,
+    queryFn: offline ? getOfflineSurahs : quranApi.listSurahs,
+    networkMode: offline ? "always" : undefined,
   });
 
   return (

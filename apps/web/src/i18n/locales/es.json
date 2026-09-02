@@ -157,8 +157,22 @@
       "bookmarks": "Favoritos",
       "notes": "Notas",
       "collections": "Colecciones",
-      "reminders": "Recordatorios"
+      "reminders": "Recordatorios",
+      "offline": "Sin conexión"
     }
+  },
+  "offline": {
+    "banner": "Estás sin conexión. Solo se lee el contenido descargado.",
+    "description": "Descarga el texto del Corán (y las traducciones) para seguir leyendo sin conexión a internet.",
+    "needConnection": "Necesitas una conexión a internet para descargar contenido.",
+    "quranTextTitle": "Texto del Corán",
+    "quranTextDescription": "Las 114 suras con sus versículos.",
+    "download": "Descargar para sin conexión",
+    "downloadingQuran": "Descargando el Corán...",
+    "downloadingTranslations": "Guardando traducciones...",
+    "done": "Descarga completada. Ya puedes leer sin conexión.",
+    "remove": "Quitar descarga",
+    "downloadError": "Error en la descarga. Inténtalo de nuevo."
   },
   "streak": {
     "badgeLabel_one": "{{count}} día seguido",

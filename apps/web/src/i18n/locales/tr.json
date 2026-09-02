@@ -157,8 +157,22 @@
       "bookmarks": "Yer imleri",
       "notes": "Notlar",
       "collections": "Koleksiyonlar",
-      "reminders": "Hatırlatıcılar"
+      "reminders": "Hatırlatıcılar",
+      "offline": "Çevrimdışı"
     }
+  },
+  "offline": {
+    "banner": "Çevrimdışısınız. Yalnızca indirilen içerik okunuyor.",
+    "description": "İnternet bağlantısı olmadan okumaya devam etmek için Kur'an metnini (ve çevirileri) indirin.",
+    "needConnection": "İçerik indirmek için internet bağlantısı gerekir.",
+    "quranTextTitle": "Kur'an metni",
+    "quranTextDescription": "Ayetleriyle birlikte 114 sure.",
+    "download": "Çevrimdışı için indir",
+    "downloadingQuran": "Kur'an indiriliyor...",
+    "downloadingTranslations": "Çeviriler kaydediliyor...",
+    "done": "İndirme tamamlandı. Artık çevrimdışı okuyabilirsiniz.",
+    "remove": "İndirmeyi kaldır",
+    "downloadError": "İndirme başarısız. Lütfen tekrar deneyin."
   },
   "streak": {
     "badgeLabel_one": "{{count}} günlük seri",

@@ -204,8 +204,22 @@
       "bookmarks": "Favoris",
       "notes": "Notes",
       "collections": "Collections",
-      "reminders": "Rappels"
+      "reminders": "Rappels",
+      "offline": "Hors ligne"
     }
+  },
+  "offline": {
+    "banner": "Vous êtes hors ligne. Lecture du contenu téléchargé uniquement.",
+    "description": "Téléchargez le texte du Coran (et les traductions) pour continuer à lire sans connexion internet.",
+    "needConnection": "Une connexion internet est nécessaire pour télécharger du contenu.",
+    "quranTextTitle": "Texte du Coran",
+    "quranTextDescription": "Les 114 sourates avec leurs versets.",
+    "download": "Télécharger pour hors ligne",
+    "downloadingQuran": "Téléchargement du Coran en cours...",
+    "downloadingTranslations": "Enregistrement des traductions...",
+    "done": "Téléchargement terminé. Vous pouvez maintenant lire hors ligne.",
+    "remove": "Supprimer le téléchargement",
+    "downloadError": "Échec du téléchargement. Veuillez réessayer."
   },
   "streak": {
     "badgeLabel_one": "{{count}} jour d'affilée",

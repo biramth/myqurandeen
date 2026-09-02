@@ -6,6 +6,8 @@ import { BottomNav } from "./BottomNav";
 import { CelebrationHost } from "@/features/gamification/CelebrationHost";
 import { InstallPrompt } from "@/features/pwa/InstallPrompt";
 import { NotificationOnboardingModal } from "@/features/onboarding/NotificationOnboardingModal";
+import { OfflineBanner } from "@/features/offline/OfflineBanner";
+import { useOfflineServiceWorker } from "@/features/offline/useOfflineServiceWorker";
 
 /**
  * Un clic sur une notification push ne peut pas naviguer directement dans
@@ -29,10 +31,12 @@ function useServiceWorkerNavigation() {
 
 export function AppLayout() {
   useServiceWorkerNavigation();
+  useOfflineServiceWorker();
 
   return (
     <div className="flex min-h-screen flex-col">
       <Header />
+      <OfflineBanner />
       <InstallPrompt />
       <NotificationOnboardingModal />
       <CelebrationHost />

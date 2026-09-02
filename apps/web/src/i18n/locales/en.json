@@ -204,8 +204,22 @@
       "bookmarks": "Bookmarks",
       "notes": "Notes",
       "collections": "Collections",
-      "reminders": "Reminders"
+      "reminders": "Reminders",
+      "offline": "Offline"
     }
+  },
+  "offline": {
+    "banner": "You are offline. Reading previously downloaded content only.",
+    "description": "Download the Quran text (and translations) to keep reading without an internet connection.",
+    "needConnection": "You need an internet connection to download content.",
+    "quranTextTitle": "Quran text",
+    "quranTextDescription": "All 114 surahs with their verses.",
+    "download": "Download for offline",
+    "downloadingQuran": "Downloading the Quran...",
+    "downloadingTranslations": "Saving translations...",
+    "done": "Download complete. You can now read offline.",
+    "remove": "Remove download",
+    "downloadError": "Download failed. Please try again."
   },
   "streak": {
     "badgeLabel_one": "{{count}} day streak",

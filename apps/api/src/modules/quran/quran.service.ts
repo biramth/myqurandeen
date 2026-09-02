@@ -151,4 +151,55 @@ export class QuranService {
 
     return { items };
   }
+
+  async exportBulk() {
+    const surahs = await this.db
+      .select({
+        id: quranSurahs.id,
+        number: quranSurahs.number,
+        nameArabic: quranSurahs.nameArabic,
+        nameTransliterated: quranSurahs.nameTransliterated,
+        nameTranslated: quranSurahs.nameTranslated,
+        versesCount: quranSurahs.versesCount,
+        revelationPlace: quranSurahs.revelationPlace,
+        generalInfo: quranSurahs.generalInfo,
+        themes: quranSurahs.themes,
+      })
+      .from(quranSurahs)
+      .orderBy(asc(quranSurahs.number));
+
+    const verses = await this.db
+      .select({
+        surahNumber: quranSurahs.number,
+        numberInSurah: quranVerses.numberInSurah,
+        textArabic: quranVerses.textArabic,
+        textTransliterated: quranVerses.textTransliterated,
+      })
+      .from(quranVerses)
+      .innerJoin(quranSurahs, eq(quranSurahs.id, quranVerses.surahId))
+      .orderBy(asc(quranSurahs.number), asc(quranVerses.numberInSurah));
+
+    return { surahs, verses };
+  }
+
+  async exportTranslation(translationId: string) {
+    const translation = await this.db.query.translations.findFirst({ where: eq(translations.id, translationId) });
+    if (!translation) {
+      throw new NotFoundException(`Traduction ${translationId} introuvable`);
+    }
+
+    const items = await this.db
+      .select({
+        surahNumber: quranSurahs.number,
+        numberInSurah: quranVerses.numberInSurah,
+        text: verseTranslations.text,
+      })
+      .from(verseTranslations)
+      .innerJoin(quranVerses, eq(quranVerses.id, verseTranslations.verseId))
+      .innerJoin(quranSurahs, eq(quranSurahs.id, quranVerses.surahId))
+      .where(eq(verseTranslations.translationId, translationId))
+      .orderBy(asc(quranSurahs.number), asc(quranVerses.numberInSurah));
+
+    return { items };
+  }
 }

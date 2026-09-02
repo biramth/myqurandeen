@@ -157,8 +157,22 @@
       "bookmarks": "Favorit",
       "notes": "Catatan",
       "collections": "Koleksi",
-      "reminders": "Pengingat"
+      "reminders": "Pengingat",
+      "offline": "Luring"
     }
+  },
+  "offline": {
+    "banner": "Anda sedang luring. Hanya membaca konten yang sudah diunduh.",
+    "description": "Unduh teks Al-Qur'an (dan terjemahan) untuk terus membaca tanpa koneksi internet.",
+    "needConnection": "Anda perlu koneksi internet untuk mengunduh konten.",
+    "quranTextTitle": "Teks Al-Qur'an",
+    "quranTextDescription": "114 surah beserta ayat-ayatnya.",
+    "download": "Unduh untuk luring",
+    "downloadingQuran": "Mengunduh Al-Qur'an...",
+    "downloadingTranslations": "Menyimpan terjemahan...",
+    "done": "Unduhan selesai. Anda kini dapat membaca luring.",
+    "remove": "Hapus unduhan",
+    "downloadError": "Unduhan gagal. Coba lagi."
   },
   "streak": {
     "badgeLabel_other": "{{count}} hari beruntun",

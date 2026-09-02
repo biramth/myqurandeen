@@ -59,4 +59,16 @@ export class QuranController {
   ) {
     return this.quranService.getVerseAudio(number, verseNumber);
   }
+
+  @ApiOperation({ summary: "Export masse du texte coranique (surates + versets) pour le cache hors-ligne" })
+  @Get("export")
+  exportBulk() {
+    return this.quranService.exportBulk();
+  }
+
+  @ApiOperation({ summary: "Export masse d'une traduction pour le cache hors-ligne" })
+  @Get("export/translations/:translationId")
+  exportTranslation(@Param("translationId") translationId: string) {
+    return this.quranService.exportTranslation(translationId);
+  }
 }

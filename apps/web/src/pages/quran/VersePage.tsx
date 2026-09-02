@@ -9,6 +9,8 @@ import { ContentUserActions } from "@/components/shared/ContentUserActions";
 import { quranApi } from "@/features/quran/api";
 import { AudioRecitation } from "@/features/quran/AudioRecitation";
 import { splitBasmala } from "@/features/quran/basmala";
+import { getOfflineVerse } from "@/features/quran/offline-quran";
+import { useOffline } from "@/features/offline/OfflineContext";
 import { useStreakPing } from "@/features/streaks/useStreak";
 import { useGamificationEvent } from "@/features/gamification/useGamification";
 import { PageMeta, SITE_URL, buildOgImage, withShareUtm } from "@/components/shared/PageMeta";
@@ -20,11 +22,29 @@ export function VersePage() {
   const { t } = useTranslation();
   useStreakPing();
   const track = useGamificationEvent();
+  const { offline } = useOffline();
 
   const { data, isLoading, isError } = useQuery({
-    queryKey: ["quran", "verse", surahNumber, verseNumber],
-    queryFn: () => quranApi.getVerse(surahNumber, verseNumber),
+    queryKey: ["quran", "verse", surahNumber, verseNumber, offline],
+    queryFn: async () => {
+      if (offline) {
+        const verse = await getOfflineVerse(surahNumber, verseNumber);
+        if (!verse) throw new Error("offline.missing");
+        return {
+          surah: { number: surahNumber, nameArabic: "", nameTransliterated: "" },
+          verse: {
+            id: verse.id,
+            numberInSurah: verse.numberInSurah,
+            textArabic: verse.textArabic,
+            textTransliterated: verse.textTransliterated,
+          },
+          translations: [],
+        };
+      }
+      return quranApi.getVerse(surahNumber, verseNumber);
+    },
     enabled: Number.isInteger(surahNumber) && Number.isInteger(verseNumber),
+    networkMode: offline ? "always" : undefined,
   });
   useEffect(() => {
     if (data) track("verse_read");

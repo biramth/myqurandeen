@@ -64,3 +64,37 @@ export interface VerseAudioReciter extends Reciter {
 export interface VerseAudioResponse {
   items: VerseAudioReciter[];
 }
+
+export interface SurahExportRow {
+  id: string;
+  number: number;
+  nameArabic: string;
+  nameTransliterated: string;
+  nameTranslated: string | null;
+  versesCount: number;
+  revelationPlace: "mecca" | "medina" | "uncertain" | null;
+  generalInfo: string | null;
+  themes: string[] | null;
+}
+
+export interface VerseExportRow {
+  surahNumber: number;
+  numberInSurah: number;
+  textArabic: string;
+  textTransliterated: string | null;
+}
+
+export interface ExportBulkResponse {
+  surahs: SurahExportRow[];
+  verses: VerseExportRow[];
+}
+
+export interface TranslationExportRow {
+  surahNumber: number;
+  numberInSurah: number;
+  text: string;
+}
+
+export interface ExportTranslationResponse {
+  items: TranslationExportRow[];
+}

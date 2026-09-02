@@ -316,24 +316,21 @@ l'exigence de sourcing du projet.
 stale-while-revalidate pour les assets — il ne couvre pas encore les
 données Coran elles-mêmes.
 
-- [ ] Nouvel endpoint API `GET /quran/export` (ou par sourate) optimisé
-      pour un téléchargement en masse (texte Arabe + translittération +
-      traductions actives), évitant 114+ requêtes individuelles.
-- [ ] Stockage côté client : IndexedDB (pas `localStorage`, trop petit et
-      synchrone) — un store par sourate ou un store global selon la
-      taille réelle mesurée.
-- [ ] UI : bouton "Télécharger pour hors-ligne" (page Coran ou réglages),
-      avec barre de progression et indicateur de taille estimée avant
-      confirmation (respecter les connexions limitées/data mobile).
-- [ ] Adapter les hooks de lecture (`quranApi.getSurah`, etc.) pour lire
-      depuis IndexedDB en priorité si les données hors-ligne existent et
-      que le réseau est indisponible (`navigator.onLine` + fallback sur
-      échec de fetch).
-- [ ] Gestion de mise à jour : invalider/rafraîchir le cache local si le
-      contenu serveur change (peu probable pour le texte coranique lui-même,
-      plus probable si de nouvelles traductions sont ajoutées) — un simple
-      numéro de version comparé au téléchargement suffit.
-- [ ] Tester explicitement le scénario "mode avion" de bout en bout avant
+- [x] Nouvel endpoint API `GET /quran/export` (texte Arabe + translittération
+      en une requête) + `GET /quran/export/translations/:id` pour les
+      traductions, évitant 114+ requêtes individuelles.
+- [x] Stockage côté client : IndexedDB via **Dexie** (`offline-db.ts`) — un
+      store global par entité (`surahs`, `verses`, `translations`,
+      `metadata`).
+- [~] UI : bouton "Télécharger pour hors-ligne" (onglet "Hors-ligne" du
+      profil) avec barre de progression — indicateur de taille estimée et
+      sélection de traductions pas encore exposés.
+- [x] Adapter les hooks de lecture (`quranApi.getSurah`, etc.) pour lire
+      depuis IndexedDB quand le réseau est indisponible
+      (`useOffline` + fallback sur `navigator.onLine`).
+- [~] Gestion de mise à jour : version stockée localement (`quran-version`)
+      mais pas encore de comparaison côté serveur.
+- [~] Tester explicitement le scénario "mode avion" de bout en bout avant
       de considérer la fonctionnalité terminée.
 
 ### 3.3 Recherche par racine arabe (L)

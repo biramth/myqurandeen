@@ -16,6 +16,8 @@ import { tafsirApi } from "@/features/tafsir/api";
 import { QuickReminderButton } from "@/features/reminders/QuickReminderButton";
 import { useStreakPing } from "@/features/streaks/useStreak";
 import { useGamificationEvent } from "@/features/gamification/useGamification";
+import { useOffline } from "@/features/offline/OfflineContext";
+import { getOfflineSurahDetail, getOfflineSurahTranslation, getOfflineDownloadedTranslationIds } from "@/features/quran/offline-quran";
 import { isRtlLanguage } from "@/lib/rtl";
 import { cn } from "@/lib/utils";
 import { PageMeta } from "@/components/shared/PageMeta";
@@ -26,6 +28,7 @@ export function SurahDetailPage() {
   const { t, i18n } = useTranslation();
   useStreakPing();
   const track = useGamificationEvent();
+  const { offline } = useOffline();
   const [copiedVerse, setCopiedVerse] = React.useState<number | null>(null);
   const [showTranslation, setShowTranslation] = React.useState(false);
   const [selectedTafsirId, setSelectedTafsirId] = React.useState<string | null>(null);
@@ -45,9 +48,10 @@ export function SurahDetailPage() {
     });
 
   const { data: surah, isLoading, isError } = useQuery({
-    queryKey: ["quran", "surah", surahNumber],
-    queryFn: () => quranApi.getSurah(surahNumber),
+    queryKey: ["quran", "surah", surahNumber, offline],
+    queryFn: offline ? () => getOfflineSurahDetail(surahNumber) : () => quranApi.getSurah(surahNumber),
     enabled: Number.isInteger(surahNumber) && surahNumber > 0,
+    networkMode: offline ? "always" : undefined,
   });
   React.useEffect(() => {
     if (surah) track("verse_read");
@@ -58,14 +62,39 @@ export function SurahDetailPage() {
     queryFn: quranApi.listTranslations,
   });
 
+  const [offlineTranslationIds, setOfflineTranslationIds] = React.useState<string[]>([]);
+  React.useEffect(() => {
+    if (!offline) return;
+    getOfflineDownloadedTranslationIds()
+      .then(setOfflineTranslationIds)
+      .catch(() => setOfflineTranslationIds([]));
+  }, [offline]);
+
   // La traduction affichee suit automatiquement la langue de l'interface -
   // pas de selecteur local (voir Header : selecteur de langue global).
-  const activeTranslation = translations?.find((t2) => t2.language === i18n.language);
+  // Hors-ligne, on reutilise la langue stockee si elle fait partie des
+  // traductions telechargees, sinon la premiere traduction hors-ligne.
+  const activeTranslation = React.useMemo(() => {
+    if (!offline) {
+      return translations?.find((t2) => t2.language === i18n.language);
+    }
+    if (offlineTranslationIds.length === 0) return undefined;
+    const byLang = translations?.find((t2) => t2.language === i18n.language);
+    if (byLang && offlineTranslationIds.includes(byLang.id)) return byLang;
+    const stored = translations?.find((t2) => offlineTranslationIds.includes(t2.id));
+    return stored ?? translations?.[0];
+  }, [offline, translations, offlineTranslationIds, i18n.language]);
 
   const { data: translationRows, isFetching: isTranslationLoading } = useQuery({
-    queryKey: ["quran", "surah-translation", surahNumber, activeTranslation?.id],
-    queryFn: () => quranApi.getSurahTranslation(surahNumber, activeTranslation!.id),
+    queryKey: ["quran", "surah-translation", surahNumber, activeTranslation?.id, offline],
+    queryFn: () => {
+      if (offline && activeTranslation) {
+        return getOfflineSurahTranslation(surahNumber, activeTranslation.id);
+      }
+      return quranApi.getSurahTranslation(surahNumber, activeTranslation!.id);
+    },
     enabled: Number.isInteger(surahNumber) && Boolean(activeTranslation) && showTranslation,
+    networkMode: offline ? "always" : undefined,
   });
 
   const translationByVerseNumber = React.useMemo(() => {

@@ -3,7 +3,7 @@ import { Link, Navigate } from "react-router-dom";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { useTranslation } from "react-i18next";
 import { toast } from "sonner";
-import { Bookmark, FolderOpen, NotebookPen, Trash2, ArrowLeft, Plus, BellRing } from "lucide-react";
+import { Bookmark, FolderOpen, NotebookPen, Trash2, ArrowLeft, Plus, BellRing, Download } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Skeleton } from "@/components/ui/skeleton";
@@ -14,6 +14,7 @@ import { useAuth } from "@/features/auth/auth-context";
 import { authApi } from "@/features/auth/api";
 import { userDataApi } from "@/features/user-data/api";
 import { RemindersTab } from "@/features/reminders/RemindersTab";
+import { OfflineTab } from "@/features/offline/OfflineTab";
 import { StreakCard } from "@/features/streaks/StreakCard";
 import { GamificationCard } from "@/features/gamification/GamificationCard";
 import { PageMeta } from "@/components/shared/PageMeta";
@@ -395,6 +396,10 @@ export function ProfilePage() {
             <BellRing className="h-4 w-4" aria-hidden="true" />
             {t("profile.tabs.reminders")}
           </TabsTrigger>
+          <TabsTrigger value="offline">
+            <Download className="h-4 w-4" aria-hidden="true" />
+            {t("profile.tabs.offline")}
+          </TabsTrigger>
         </TabsList>
         <TabsContent value="bookmarks">
           <BookmarksTab />
@@ -407,6 +412,9 @@ export function ProfilePage() {
         </TabsContent>
         <TabsContent value="reminders">
           <RemindersTab />
+        </TabsContent>
+        <TabsContent value="offline">
+          <OfflineTab />
         </TabsContent>
       </Tabs>
     </div>

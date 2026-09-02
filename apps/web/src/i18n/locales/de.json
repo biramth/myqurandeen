@@ -157,8 +157,22 @@
       "bookmarks": "Lesezeichen",
       "notes": "Notizen",
       "collections": "Sammlungen",
-      "reminders": "Erinnerungen"
+      "reminders": "Erinnerungen",
+      "offline": "Offline"
     }
+  },
+  "offline": {
+    "banner": "Sie sind offline. Es werden nur heruntergeladene Inhalte gelesen.",
+    "description": "Laden Sie den Korantext (und Übersetzungen) herunter, um ohne Internetverbindung weiterzulesen.",
+    "needConnection": "Zum Herunterladen ist eine Internetverbindung erforderlich.",
+    "quranTextTitle": "Korantext",
+    "quranTextDescription": "Alle 114 Suren mit ihren Versen.",
+    "download": "Für offline herunterladen",
+    "downloadingQuran": "Der Koran wird heruntergeladen...",
+    "downloadingTranslations": "Übersetzungen werden gespeichert...",
+    "done": "Herunterladen abgeschlossen. Sie können jetzt offline lesen.",
+    "remove": "Herunterladen entfernen",
+    "downloadError": "Herunterladen fehlgeschlagen. Bitte versuchen Sie es erneut."
   },
   "streak": {
     "badgeLabel_one": "{{count}} Tag in Folge",
