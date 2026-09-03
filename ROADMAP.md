@@ -86,6 +86,19 @@ sur une mise en place complète.
       200 de façon fiable, y compris en rafales concurrentes (5 requêtes
       simultanées, répété plusieurs fois). Tests ajoutés
       (`db-query-semaphore.spec.ts`).
+- [x] **Deuxième correction le 2026-09-03** (Search Console, nouveau
+      signalement après la première correction ci-dessus) :
+      `sitemap-data/hadith.xml` (~33 500 URLs, 3,5 Mo) mettait ~9s à se
+      générer sur l'instance Render gratuite - au-delà du délai d'attente du
+      crawler de Google ("impossible de récupérer le sitemap" alors même que
+      la réponse finissait par arriver). `SitemapController` mis en cache
+      comme le reste du contenu de référence (`CacheInterceptor`, TTL global
+      1h déjà défini dans `AppModule`) : seule la toute première requête
+      après un redémarrage/expiration paie ce coût, les suivantes (dont les
+      nouvelles tentatives de Google) sont quasi instantanées (~10-15ms au
+      lieu de plusieurs secondes, vérifié en local). Réduit aussi
+      mécaniquement la pression sur le pool Postgres partagé, en plus du fix
+      précédent.
 
 ### 0.2 Bundle JS principal (~750 Ko) (M) — ✅ fait le 2026-09-01
 
