@@ -7,6 +7,16 @@ export interface OAuth1Credentials {
   accessSecret: string;
 }
 
+/**
+ * Parametres injectables pour rendre la signature deterministe (tests) :
+ * sans eux, `nonce` et `timestamp` sont generes a chaque appel (RFC 5849
+ * l'exige pour la securite), ce qui interdit tout vecteur de test fige.
+ */
+export interface OAuth1SignOptions {
+  nonce?: string;
+  timestamp?: string;
+}
+
 /** RFC 3986 percent-encoding (RFC 5849 l'exige explicitement) - `encodeURIComponent` seul laisse `!*'()` non encodes. */
 function percentEncode(value: string): string {
   return encodeURIComponent(value).replace(/[!*'()]/g, (c) => "%" + c.charCodeAt(0).toString(16).toUpperCase());
@@ -27,14 +37,19 @@ function percentEncode(value: string): string {
  * (RFC 5849 section 3.4.1.3 : seul ce dernier type de corps entre dans la
  * base de signature).
  */
-export function buildOAuth1Header(method: string, url: string, credentials: OAuth1Credentials): string {
+export function buildOAuth1Header(
+  method: string,
+  url: string,
+  credentials: OAuth1Credentials,
+  options: OAuth1SignOptions = {},
+): string {
   const [baseUrl, query] = url.split("?");
 
   const oauthParams: Record<string, string> = {
     oauth_consumer_key: credentials.consumerKey,
-    oauth_nonce: crypto.randomBytes(16).toString("hex"),
+    oauth_nonce: options.nonce ?? crypto.randomBytes(16).toString("hex"),
     oauth_signature_method: "HMAC-SHA1",
-    oauth_timestamp: String(Math.floor(Date.now() / 1000)),
+    oauth_timestamp: options.timestamp ?? String(Math.floor(Date.now() / 1000)),
     oauth_token: credentials.accessToken,
     oauth_version: "1.0",
   };
