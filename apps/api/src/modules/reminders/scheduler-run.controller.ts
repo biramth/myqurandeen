@@ -36,19 +36,42 @@ export class SchedulerRunController {
     private readonly socialPoster: SocialPosterService,
   ) {}
 
-  /** Declenche une passe complete des rappels, duas automatiques, alertes de serie, alertes de priere et publications reseaux sociaux. */
+  /**
+   * Declenche une passe complete des rappels, duas automatiques, alertes de
+   * serie, alertes de priere et publications reseaux sociaux.
+   *
+   * Ne PAS `await` le travail : chaque `tick()` enchaîne des envois push
+   * externes (Web Push, reseaux sociaux) qui peuvent prendre plusieurs
+   * secondes, et le cron externe (cron-job.org) impose une fenetre courte
+   * (~60 s). Si la requete attendait tout le travail, un pic d'utilisateurs
+   * ou un service externe lent ferait echouer le cron (Timeout), devenant
+   * meme la cause d'un delai en cascade. On lance le travail en arriere-plan
+   * et on repond 204 immediatement.
+   *
+   * C'est sur malgre le retour immediat : chaque planificateur a son propre
+   * verrou consultatif Postgres (pg_try_advisory_lock, non bloquant) et une
+   * dedoublonnage (`lastSentAt`/`dateKey`) - un tick qui se chevauche ou
+   * repasse saute simplement le travail deja fait. L'instance Render reste
+   * eveillee par la requete du cron elle-meme, donc le travail en
+   * arriere-plan se termine bien avant la prochaine sollicitation.
+   */
   @Public()
   @UseGuards(CronTokenGuard)
   @Post("run")
   @HttpCode(HttpStatus.NO_CONTENT)
   @ApiOperation({ summary: "Declenche une passe complete des planificateurs de notifications (cron externe)" })
   async run() {
-    await Promise.all([
+    const jobs = [
       this.reminderScheduler.tick(),
       this.duaScheduler.tick(),
       this.streakAlertScheduler.tick(),
       this.prayerAlertScheduler.tick(),
       this.socialPoster.tick(),
-    ]);
+    ];
+    // Fire-and-forget : chaque tick() isole deja ses propres erreurs ; on ne
+    // laisse aucun rejet echapper a la boucle d'evenements.
+    for (const job of jobs) {
+      job.catch(() => undefined);
+    }
   }
 }

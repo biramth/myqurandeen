@@ -15,6 +15,17 @@ export interface PushPayload {
 export type PushSendResult = "sent" | "gone" | "error";
 
 /**
+ * Duree maximale d'un envoi push individuel. Le cron externe
+ * (`POST /reminders/run`, cron-job.org) attend une reponse rapide, et les
+ * planificateurs enchaînent un envoi par abonnement dans une boucle : sans
+ * echeance, un seul endpoint push lent (ou un abonnement qui ne repond plus)
+ * ferait traîner le tick complet et, au-dela de la fenetre du cron, echouer
+ * la requete (Timeout). `web-push` soutient une option `timeout` qui annule
+ * la requete HTTP apres ce delai.
+ */
+const PUSH_TIMEOUT_MS = 10_000;
+
+/**
  * Fine couche autour de `web-push`. La fonctionnalite entiere reste
  * desactivee (silencieusement, pas d'erreur) tant que les cles VAPID ne sont
  * pas configurees - meme principe que le backend IA (voir ai.module.ts) :
@@ -56,6 +67,7 @@ export class WebPushProvider {
       await webpush.sendNotification(
         { endpoint: subscription.endpoint, keys: { p256dh: subscription.p256dh, auth: subscription.auth } },
         JSON.stringify(payload),
+        { timeout: PUSH_TIMEOUT_MS },
       );
       return "sent";
     } catch (error) {
