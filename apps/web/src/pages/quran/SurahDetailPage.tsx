@@ -11,6 +11,9 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { ArabicFontSizeControl } from "@/components/shared/ArabicFontSizeControl";
 import { arabicFontSizeStyle } from "@/components/shared/arabic-font-size-provider";
 import { quranApi } from "@/features/quran/api";
+import { TajweedControl } from "@/features/quran/TajweedControl";
+import { TajweedText } from "@/features/quran/TajweedText";
+import { useTajweedToggle } from "@/features/quran/useTajweedToggle";
 import { AudioRecitation } from "@/features/quran/AudioRecitation";
 import { translatedSurahName } from "@/features/quran/surah-names";
 import { splitBasmala } from "@/features/quran/basmala";
@@ -28,6 +31,7 @@ export function SurahDetailPage() {
   const { surah: surahParam } = useParams<{ surah: string }>();
   const surahNumber = Number(surahParam);
   const { t, i18n } = useTranslation();
+  const [tajweedEnabled] = useTajweedToggle();
   useStreakPing();
   const track = useGamificationEvent();
   const { offline } = useOffline();
@@ -166,6 +170,7 @@ export function SurahDetailPage() {
 
         <div className="flex flex-wrap items-center gap-2">
           <ArabicFontSizeControl />
+          <TajweedControl />
 
           {activeTranslation && (
             <Button
@@ -268,7 +273,7 @@ export function SurahDetailPage() {
                   </span>
                   <div className="flex-1">
                     <p dir="rtl" lang="ar" className="font-arabic leading-loose" style={arabicFontSizeStyle(1.5)}>
-                      {verseArabic}
+                      {tajweedEnabled ? <TajweedText text={verseArabic} /> : verseArabic}
                     </p>
 
                     {verse.textTransliterated && (

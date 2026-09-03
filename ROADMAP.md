@@ -367,30 +367,69 @@ sociaux de son choix (X, Instagram, Facebook, TikTok...).
 
 ## Phase 3 — Lecture enrichie
 
-### 3.1 Tajwid coloré (M/L)
+### 3.1 Tajwid coloré (M/L) — ✅ fait le 2026-09-03
 
-**[~] Décision** : utiliser le texte Tajweed annoté fourni par Tanzil (déjà
-la source du texte Arabe actuel) plutôt que de recalculer les règles de
-tajwid soi-même — à vérifier : format exact du fichier Tanzil Tajweed
-(balisage par règle) et licence de redistribution, cohérent avec
-l'exigence de sourcing du projet.
+**[~] Décision, revue en cours de chantier** : la piste initiale (texte
+Tajweed annoté importé, façon Tanzil) a été **écartée après vérification** :
+Tanzil.net ne publie en réalité aucun texte tajwid annoté (page absente de
+sa doc), et le seul jeu de données libre trouvé avec une couverture complète
+vérifiée ([cpfair/quran-tajweed](https://github.com/cpfair/quran-tajweed),
+CC BY 4.0, 6236/6236 versets) a un **bug de décalage connu et non résolu**
+(issue #2 du dépôt) entre ses positions — calculées sur une copie 2017 du
+texte Tanzil "Uthmani + pause/sajda" — et le texte Tanzil actuel :
+l'utiliser tel quel aurait produit une coloration **fausse** sur de vrais
+versets. L'alternative technique propre (texte déjà balisé de
+Quran.com/Quran Foundation) a des conditions d'utilisation qui interdisent
+le stockage en base sans accord commercial écrit, en plus d'exiger un
+compte développeur. **Décision retenue** : calculer les règles nous-mêmes
+par analyse directe de notre propre texte arabe déjà en base (déjà
+vérifié, déjà licencié) — élimine à la fois le risque de décalage (aucune
+dépendance à un fichier externe) et le risque de licence (règles de
+grammaire tajwid publiques, pas une redistribution de données tierces).
+Aucun changement de schéma/import nécessaire : tout se calcule côté client,
+à l'affichage.
 
-- [ ] Récupérer/valider la source de données tajwid (Tanzil ou équivalent
-      libre) et son format de balisage par règle (ghunna, idgham, qalqala,
-      etc.).
-- [ ] Étendre le schéma : soit une colonne dédiée sur `quran_verses`
-      (texte Arabe déjà segmenté en règles), soit une table séparée
-      `quran_verse_tajweed` si le balisage est volumineux — éviter de
-      complexifier `textArabic` qui sert aussi à la recherche/l'export.
-- [ ] Script d'import dédié (miroir de `quran-import.ts`), idempotent.
-- [ ] Composant frontend qui découpe le texte en segments colorés (palette
-      définie une fois, cohérente entre thème clair/sombre) plutôt que
-      d'injecter du HTML brut non maîtrisé.
-- [ ] Interrupteur "Tajwid" à côté du sélecteur de traduction/tafsir
-      existant sur `SurahDetailPage.tsx`, désactivé par défaut (le tajwid
-      coloré peut nuire à la lisibilité pour qui n'en a pas l'habitude).
-- [ ] Légende des couleurs/règles accessible (tooltip ou page dédiée) —
-      sans ça la fonctionnalité est un mur de couleurs pour un débutant.
+- [x] Nouveau module pur [apps/web/src/features/quran/tajweed.ts](apps/web/src/features/quran/tajweed.ts)
+      (`computeTajweedSegments`) : découpe un texte arabe Uthmani en segments
+      `{text, rule}` par analyse caractère par caractère (lettres de base vs
+      diacritiques/marques décoratives). Couvre noun/tanwin sakinah
+      (idgham avec/sans ghunna, iqlab, ikhfa, idhar halqi), mim sakinah
+      (ikhfa shafawi, idgham shafawi, idhar shafawi), qalqalah (y compris
+      "kubra" en fin de verset), ghunna (chadda sur noun/mim) et lam
+      shamsiyya — avec gestion de l'exception "الدنيا" (pas d'idgham à
+      l'intérieur d'un même mot) et de l'alif de soutien muet du tanwin fath.
+      **Hors scope assumé** : les règles de madd (plusieurs sous-types selon
+      le contexte au-delà des limites du mot/verset, risque réel de
+      classification fausse si approximées) — à traiter dans une itération
+      dédiée.
+- [x] 18 tests unitaires ([tajweed.test.ts](apps/web/src/features/quran/tajweed.test.ts))
+      sur des chaînes construites à la main, un par règle + cas négatifs +
+      invariant de reconstruction (aucun caractère perdu/dupliqué).
+- [x] Composant [TajweedText.tsx](apps/web/src/features/quran/TajweedText.tsx)
+      (mémoïsé) + interrupteur [TajweedControl.tsx](apps/web/src/features/quran/TajweedControl.tsx)
+      avec légende (popover, 9 règles + pastille de couleur) — persisté en
+      `localStorage`, partagé entre `SurahDetailPage.tsx` et `VersePage.tsx`.
+      Désactivé par défaut.
+- [x] Palette de 9 couleurs dédiées (`--tajweed-*` dans `index.css`, variantes
+      clair/sombre) — palette propre au projet, pas la reproduction d'un
+      code couleur de mushaf existant (il en existe plusieurs, tous
+      différents).
+- [x] Vérifié en conditions réelles (navigateur, données de production) :
+      Al-Fatiha entière (7 versets) — 3 lam shamsiyya sur "الله"/"الرحمن"/
+      "الرحيم" (répété), 1 sur "الدين", 1 sur "الصراط", correctement absents
+      sur "الحمد"/"لله"/"العالمين"/"المستقيم" (lettres lunaires ou pas
+      d'alif précédent) ; Ayat al-Kursi (2:255) — idgham ghunna correct sur
+      "سِنَةٌ وَلَا" et "بِشَيْءٍ مِّنْ", idgham sans ghunna correct sur
+      "نَوْمٌ ۚ لَّهُ" (à travers la marque de pause), ghunna correcte sur
+      "مِّنْ".
+
+### 3.1bis Coloration tajwid — pistes non retenues dans cette itération
+
+- [ ] Règles de madd (allongement) — voir décision ci-dessus.
+- [ ] Import d'un jeu de données tiers si une source fiable et bien
+      maintenue apparaît un jour (couverture complète + alignement garanti
+      avec notre texte + licence compatible) — non nécessaire tant que le
+      calcul maison suffit.
 
 ### 3.2 Cache hors-ligne complet du Coran (M/L)
 

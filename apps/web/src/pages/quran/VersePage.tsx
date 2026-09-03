@@ -10,6 +10,9 @@ import { quranApi } from "@/features/quran/api";
 import { AudioRecitation } from "@/features/quran/AudioRecitation";
 import { splitBasmala } from "@/features/quran/basmala";
 import { getOfflineVerse } from "@/features/quran/offline-quran";
+import { TajweedControl } from "@/features/quran/TajweedControl";
+import { TajweedText } from "@/features/quran/TajweedText";
+import { useTajweedToggle } from "@/features/quran/useTajweedToggle";
 import { arabicFontSizeStyle } from "@/components/shared/arabic-font-size-provider";
 import { useOffline } from "@/features/offline/OfflineContext";
 import { useStreakPing } from "@/features/streaks/useStreak";
@@ -22,6 +25,7 @@ export function VersePage() {
   const surahNumber = Number(surahParam);
   const verseNumber = Number(verseParam);
   const { t } = useTranslation();
+  const [tajweedEnabled] = useTajweedToggle();
   useStreakPing();
   const track = useGamificationEvent();
   const recordLastRead = useRecordLastRead();
@@ -121,9 +125,12 @@ export function VersePage() {
 
       {data && (
         <>
-          <p className="mb-2 text-sm text-muted-foreground">
-            {data.surah.nameTransliterated} - {t("quran.verses")} {data.verse.numberInSurah}
-          </p>
+          <div className="mb-2 flex flex-wrap items-center justify-between gap-2">
+            <p className="text-sm text-muted-foreground">
+              {data.surah.nameTransliterated} - {t("quran.verses")} {data.verse.numberInSurah}
+            </p>
+            <TajweedControl />
+          </div>
           <div className="rounded-lg border bg-reading p-6 text-reading-foreground">
             {basmala && (
               <p
@@ -136,7 +143,7 @@ export function VersePage() {
               </p>
             )}
             <p dir="rtl" lang="ar" className="font-arabic leading-loose" style={arabicFontSizeStyle(1.875)}>
-              {verseArabic}
+              {tajweedEnabled ? <TajweedText text={verseArabic} /> : verseArabic}
             </p>
             {data.verse.textTransliterated && (
               <p className="mt-3 text-sm italic leading-relaxed text-muted-foreground">{data.verse.textTransliterated}</p>
