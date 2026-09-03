@@ -7,6 +7,7 @@ import {
   duas,
   prayerAlertSettings,
   quranSurahs,
+  ramadanAlertSettings,
   readingRotationSettings,
   reminders,
   streakAlertSettings,
@@ -221,6 +222,37 @@ export class RemindersService {
 
   async deletePrayerAlertSettings(userId: string) {
     await this.db.delete(prayerAlertSettings).where(eq(prayerAlertSettings.userId, userId));
+    return { deleted: true };
+  }
+
+  // --- Notification quotidienne pendant le Ramadan ---
+
+  async getRamadanAlertSettings(userId: string) {
+    const [row] = await this.db
+      .select()
+      .from(ramadanAlertSettings)
+      .where(eq(ramadanAlertSettings.userId, userId))
+      .limit(1);
+    return row ?? null;
+  }
+
+  async upsertRamadanAlertSettings(
+    userId: string,
+    input: { timeOfDay: string; timezone: string; isActive: boolean },
+  ) {
+    const [row] = await this.db
+      .insert(ramadanAlertSettings)
+      .values({ userId, ...input })
+      .onConflictDoUpdate({
+        target: ramadanAlertSettings.userId,
+        set: { ...input, updatedAt: new Date() },
+      })
+      .returning();
+    return row;
+  }
+
+  async deleteRamadanAlertSettings(userId: string) {
+    await this.db.delete(ramadanAlertSettings).where(eq(ramadanAlertSettings.userId, userId));
     return { deleted: true };
   }
 }

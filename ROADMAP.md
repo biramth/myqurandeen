@@ -565,30 +565,70 @@ fait ses preuves.
 
 ---
 
-## Phase 4 — Mode Ramadan
+## Phase 4 — Mode Ramadan — ✅ fait le 2026-09-03
 
 **Dépendance** : s'appuie sur le module horaires de prière (`prayer-times`,
 calcul `adhan`) ; la position est définie par la ville choisie par
 l'utilisateur via la recherche (voir 2.x — plus de géolocalisation).
 
-- [ ] Bascule d'affichage saisonnière : détection automatique de la
-      période de Ramadan (calendrier hijri — bibliothèque de conversion
-      grégorien/hijri à introduire, ex. `hijri-date` ou calcul manuel) avec
-      activation manuelle possible en réglage pour tester/anticiper.
-- [ ] Horaires iftar (= Maghrib) / suhoor (= juste avant Fajr) réutilisant
-      directement `computePrayerTimes` du module prayer-times, affichés en
-      priorité sur la page d'accueil pendant la période.
-- [ ] Suivi de khatm (lecture complète du Coran sur le mois) : nouvelle
-      table `user_khatm_progress` (userId, dernière sourate/verset, date de
-      début), objectif calculé automatiquement (Coran ÷ jours restants du
-      mois) avec rappel quotidien de la portion du jour.
-- [ ] Contenu dédié : duas spécifiques au Ramadan déjà présentes dans les
-      catégories existantes ? à vérifier et compléter sinon.
-- [ ] Notification quotidienne dédiée pendant le mois (réutilise l'infra
-      push existante), désactivable indépendamment des autres rappels.
-- [ ] Élément de partage dédié (façon `StatShareCard` déjà utilisée pour
-      séries/succès) : "J'ai terminé le Coran ce Ramadan" — bon candidat
-      viral saisonnier à fort effet de groupe.
+- [x] **Bascule d'affichage saisonnière.** Bibliothèque de conversion
+      hijri écartée au profit d'un calcul maison (`features/ramadan/
+      hijri-calendar.ts`, dupliqué côté API pour le planificateur - même
+      convention que `prayer-times.ts`) : algorithme tabulaire/civil
+      arithmétique (époque JDN 1948440), formules vérifiées contre
+      l'implémentation de référence de `ext/calendar` de PHP et contre deux
+      dates de Ramadan largement documentées (1447 AH, 1448 AH). Aucune
+      dépendance externe, aucune question de licence - même raisonnement
+      que le moteur de tajwid maison (3.1). 10 tests unitaires (aller-retour
+      Grégorien↔JDN↔Hijri, époque, bornes du mois). Réglage d'activation
+      manuelle (`useRamadanMode.ts`, `auto`/`on`/`off`, persisté en
+      `localStorage`) pour tester/anticiper hors saison - **le calendrier
+      tabulaire est une approximation arithmétique, pas une observation
+      réelle du croissant lunaire : le début/la fin réels sont annoncés
+      localement et peuvent différer de +-1 jour, disclaimer affiché dans
+      l'UI**.
+- [x] Horaires iftar (Maghrib) / suhoor (Fajr) réutilisant directement
+      `computePrayerTimes` et la position déjà enregistrée par l'utilisateur
+      (`usePrayerLocation`, partagée avec la page horaires de prière) - zéro
+      nouvelle brique de calcul. Affichés sur la nouvelle page `/ramadan`
+      et en bannière sur la page d'accueil quand le mode est actif.
+- [x] Suivi de khatm : nouvelle table `khatm_progress` (une ligne par
+      utilisateur, réinitialisée automatiquement à chaque nouvelle année
+      hijri). La position (`lastSurahNumber`/`lastVerseNumber`) est marquée
+      par l'utilisateur - même geste que "reprendre où j'en étais" (1.2) -
+      et `versesCompleted` calculé côté serveur (jamais saisi directement),
+      vérifié en conditions réelles contre la base de production (somme des
+      versets des sourates précédentes + position - retombe exactement sur
+      6236 pour Sourate 114 Verset 6, le dernier verset du Coran). Objectif
+      quotidien (versets restants ÷ jours restants du mois) calculé côté
+      client, comme le reste du calendrier hijri.
+- [x] Contenu dédié : catégorie de duas "Ramadan" déjà présente et sourcée
+      (`duas-seed.ts`, Iftar + Laylat al-Qadr) - rien à importer, lien
+      ajouté depuis la page Ramadan (`/duas/ramadan`).
+- [x] Notification quotidienne (`RamadanAlertSchedulerService`, même
+      squelette que les 4 autres planificateurs de `reminders/`) -
+      désactivable indépendamment des autres rappels
+      (`ramadan_alert_settings`, même structure que `streak_alert_settings`).
+      Message adapté selon qu'un khatm est en cours ou non (objectif du
+      jour vs message générique), dans les 8 langues déjà supportées.
+- [x] Élément de partage (réutilise `StatShareCard`/`ShareButton` déjà en
+      place pour séries/succès, aucun nouveau composant visuel) : "J'ai
+      terminé le Coran ce Ramadan", déclenché quand `completedAt` est
+      renseigné (6236/6236 versets).
+- [x] Vérifié : `typecheck`/`lint`/`build`/tests (68 API + 57 web) au vert ;
+      migration `khatm_progress`/`ramadan_alert_settings` générée, relue et
+      appliquée (RLS activée automatiquement) ; page `/ramadan` vérifiée en
+      direct (bascule auto/forcé, horaires iftar/suhoor avec une position
+      réelle, états connecté/non connecté) ; calcul `versesCompleted`
+      vérifié directement en base (voir ci-dessus). Non vérifié en direct
+      dans le navigateur : le flux authentifié complet (création de compte
+      + vérification email) - couvert à la place par une vérification
+      directe de la requête SQL sous-jacente, identique à celle exécutée
+      par le service.
+- [ ] Pas fait : bouton pour réinitialiser/recommencer un khatm en cours
+      volontairement (le changement automatique d'année hijri suffit pour
+      le cas normal) ; pas d'ajout de nouveau contenu dua au-delà de ce qui
+      existait déjà.
 
 ---
 

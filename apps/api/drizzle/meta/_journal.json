@@ -281,6 +281,13 @@
       "when": 1788443408177,
       "tag": "0039_optimal_fantastic_four",
       "breakpoints": true
+    },
+    {
+      "idx": 40,
+      "version": "7",
+      "when": 1788471366247,
+      "tag": "0040_dapper_iceman",
+      "breakpoints": true
     }
   ]
 }

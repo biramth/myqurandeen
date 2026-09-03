@@ -6,6 +6,7 @@ import { DuaSchedulerService } from "./dua-scheduler.service";
 import { ReminderSchedulerService } from "./reminder-scheduler.service";
 import { StreakAlertSchedulerService } from "./streak-alert-scheduler.service";
 import { PrayerAlertSchedulerService } from "./prayer-alert-scheduler.service";
+import { RamadanAlertSchedulerService } from "./ramadan-alert-scheduler.service";
 
 /**
  * Point d'entree du cron externe (cron-job.org, Render Cron Job, Github
@@ -32,6 +33,7 @@ export class SchedulerRunController {
     private readonly duaScheduler: DuaSchedulerService,
     private readonly streakAlertScheduler: StreakAlertSchedulerService,
     private readonly prayerAlertScheduler: PrayerAlertSchedulerService,
+    private readonly ramadanAlertScheduler: RamadanAlertSchedulerService,
   ) {}
 
   /**
@@ -64,6 +66,7 @@ export class SchedulerRunController {
       this.duaScheduler.tick(),
       this.streakAlertScheduler.tick(),
       this.prayerAlertScheduler.tick(),
+      this.ramadanAlertScheduler.tick(),
     ];
     // Fire-and-forget : chaque tick() isole deja ses propres erreurs ; on ne
     // laisse aucun rejet echapper a la boucle d'evenements.

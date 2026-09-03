@@ -22,6 +22,7 @@ import { PageMeta, buildOgImage } from "@/components/shared/PageMeta";
 import { DailyContentSection } from "@/features/daily/DailyContentSection";
 import { dailyApi } from "@/features/daily/api";
 import { ResumeReading } from "@/features/user-data/ResumeReading";
+import { RamadanBanner } from "@/features/ramadan/RamadanBanner";
 
 const CATEGORY_ICONS = {
   quran: BookOpen,
@@ -100,6 +101,8 @@ export function HomePage() {
       </div>
 
       <DailyContentSection />
+
+      <RamadanBanner />
 
       <ResumeReading />
 

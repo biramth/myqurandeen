@@ -84,6 +84,7 @@ const LearningQuizPage = React.lazy(() =>
 const PrayerTimesPage = React.lazy(() =>
   import("@/pages/PrayerTimesPage").then((m) => ({ default: m.PrayerTimesPage })),
 );
+const RamadanPage = React.lazy(() => import("@/pages/RamadanPage").then((m) => ({ default: m.RamadanPage })));
 const LibraryPage = React.lazy(() => import("@/pages/library/LibraryPage").then((m) => ({ default: m.LibraryPage })));
 const AboutPage = React.lazy(() => import("@/pages/AboutPage").then((m) => ({ default: m.AboutPage })));
 const EmbedDailyVersePage = React.lazy(() =>
@@ -150,6 +151,7 @@ export function AppRouter() {
           <Route path="/duas/:slug" element={<DuaCategoryPage />} />
 
           <Route path="/prayer-times" element={<PrayerTimesPage />} />
+          <Route path="/ramadan" element={<RamadanPage />} />
 
           <Route path="/history" element={<HistoryPeriodsPage />} />
           <Route path="/history/event/:slug" element={<HistoryEventPage />} />

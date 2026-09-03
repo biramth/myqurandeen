@@ -1,9 +1,11 @@
 import { apiClient } from "@/lib/api-client";
 import type {
   CreateReminderInput,
+  RamadanAlertSettings,
   Reminder,
   RotationSettings,
   StreakAlertSettings,
+  UpsertRamadanAlertSettingsInput,
   UpsertRotationSettingsInput,
   UpsertStreakAlertSettingsInput,
 } from "./types";
@@ -23,4 +25,8 @@ export const remindersApi = {
   getStreakAlertSettings: () => apiClient.get<StreakAlertSettings | null>("/reminders/streak-alert-settings"),
   upsertStreakAlertSettings: (input: UpsertStreakAlertSettingsInput) =>
     apiClient.put<StreakAlertSettings>("/reminders/streak-alert-settings", input),
+
+  getRamadanAlertSettings: () => apiClient.get<RamadanAlertSettings | null>("/reminders/ramadan-alert-settings"),
+  upsertRamadanAlertSettings: (input: UpsertRamadanAlertSettingsInput) =>
+    apiClient.put<RamadanAlertSettings>("/reminders/ramadan-alert-settings", input),
 };

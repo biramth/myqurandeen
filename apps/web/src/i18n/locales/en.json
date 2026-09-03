@@ -4,6 +4,7 @@
     "hadith": "Hadith",
     "duas": "Dua & Dhikr",
     "prayerTimes": "Prayer times",
+    "ramadan": "Ramadan",
     "fiqh": "Fiqh",
     "history": "History",
     "library": "Library",
@@ -235,7 +236,8 @@
     "collectionDescription": "to organize this content into custom collections.",
     "noteDescription": "to take personal notes on this content.",
     "reminderDescription": "to get a reminder at the time you choose.",
-    "prayerAlertDescription": "to get a notification at every prayer time."
+    "prayerAlertDescription": "to get a notification at every prayer time.",
+    "ramadanDescription": "to track your khatm and get a daily reminder during Ramadan."
   },
   "profile": {
     "loading": "Loading...",
@@ -501,6 +503,42 @@
       "Karachi": "Karachi",
       "Turkey": "Turkey (Diyanet)"
     }
+  },
+  "ramadan": {
+    "title": "Ramadan",
+    "subtitle": "Iftar/suhoor times, khatm tracking, and a daily reminder during the month of Ramadan.",
+    "bannerTitle": "It's Ramadan!",
+    "overrideLabel": "Display:",
+    "override": {
+      "auto": "Automatic",
+      "on": "Force on",
+      "off": "Force off"
+    },
+    "notActive": "It's not Ramadan right now. Use the display setting above to preview or test this page ahead of time.",
+    "dayCounter": "Day {{day}} of Ramadan",
+    "approximationNotice": "Date computed by approximation (tabular hijri calendar) - the real start/end are announced locally and may differ by +-1 day.",
+    "iftarSuhoorTitle": "Iftar & Suhoor",
+    "iftar": "Iftar (Maghrib)",
+    "suhoorUntil": "Suhoor until",
+    "noLocation": "No saved location.",
+    "setLocationLink": "Choose my city",
+    "khatmTitle": "Khatm tracking",
+    "khatmCompleted": "Mabrouk, you finished the Quran this Ramadan!",
+    "khatmShareTitle": "I finished the Quran this Ramadan!",
+    "khatmShareDescription": "Khatm {{year}} AH completed on myQurandeen.",
+    "khatmProgress": "{{completed}} / {{total}} verses ({{percent}}%)",
+    "khatmDailyTarget": "Today's goal: {{count}} verse(s) to finish the Quran this month.",
+    "khatmCurrentPosition": "Last position: surah {{surah}}, verse {{verse}}.",
+    "khatmSurahPlaceholder": "Surah",
+    "khatmVersePlaceholder": "Verse",
+    "khatmUpdateButton": "Mark my position",
+    "khatmUpdated": "Position updated.",
+    "khatmError": "Something went wrong.",
+    "alertTitle": "Daily Ramadan reminder",
+    "alertDescription": "A notification every day during Ramadan, including your khatm goal if you have one.",
+    "signUpPrompt": "Sign in to track your khatm and get a daily reminder during Ramadan.",
+    "signUpButton": "Sign in",
+    "duasLink": "See Ramadan duas"
   },
   "quran": {
     "title": "The Quran",

@@ -53,3 +53,17 @@ export interface UpsertStreakAlertSettingsInput {
   timezone: string;
   isActive: boolean;
 }
+
+export interface RamadanAlertSettings {
+  id: string;
+  timeOfDay: string;
+  timezone: string;
+  isActive: boolean;
+  lastSentAt: string | null;
+}
+
+export interface UpsertRamadanAlertSettingsInput {
+  timeOfDay: string;
+  timezone: string;
+  isActive: boolean;
+}

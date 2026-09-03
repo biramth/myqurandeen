@@ -4,6 +4,7 @@
     "hadith": "Hadith",
     "duas": "Dua & Dhikr",
     "prayerTimes": "Horaires de prière",
+    "ramadan": "Ramadan",
     "fiqh": "Fiqh",
     "history": "Histoire",
     "library": "Bibliothèque",
@@ -235,7 +236,8 @@
     "collectionDescription": "pour organiser ce contenu dans des collections personnalisées.",
     "noteDescription": "pour prendre des notes personnelles sur ce contenu.",
     "reminderDescription": "pour recevoir un rappel personnalisé à l'heure de votre choix.",
-    "prayerAlertDescription": "pour recevoir une notification à l'heure de chaque prière."
+    "prayerAlertDescription": "pour recevoir une notification à l'heure de chaque prière.",
+    "ramadanDescription": "pour suivre ton khatm et recevoir un rappel quotidien pendant le Ramadan."
   },
   "profile": {
     "loading": "Chargement...",
@@ -501,6 +503,42 @@
       "Karachi": "Karachi",
       "Turkey": "Turquie (Diyanet)"
     }
+  },
+  "ramadan": {
+    "title": "Ramadan",
+    "subtitle": "Horaires iftar/suhoor, suivi de khatm et rappel quotidien pendant le mois de Ramadan.",
+    "bannerTitle": "C'est le Ramadan !",
+    "overrideLabel": "Affichage :",
+    "override": {
+      "auto": "Automatique",
+      "on": "Forcer activé",
+      "off": "Forcer désactivé"
+    },
+    "notActive": "Nous ne sommes pas en Ramadan actuellement. Utilise le réglage d'affichage ci-dessus pour anticiper ou tester cette page.",
+    "dayCounter": "Jour {{day}} du Ramadan",
+    "approximationNotice": "Date calculée par approximation (calendrier hijri tabulaire) - le début/la fin réels sont annoncés localement et peuvent différer de +-1 jour.",
+    "iftarSuhoorTitle": "Iftar & Suhoor",
+    "iftar": "Iftar (Maghrib)",
+    "suhoorUntil": "Suhoor jusqu'à",
+    "noLocation": "Aucune position enregistrée.",
+    "setLocationLink": "Choisir ma ville",
+    "khatmTitle": "Suivi de khatm",
+    "khatmCompleted": "Mabrouk, tu as terminé le Coran ce Ramadan !",
+    "khatmShareTitle": "J'ai terminé le Coran ce Ramadan !",
+    "khatmShareDescription": "Khatm {{year}} AH complété sur myQurandeen.",
+    "khatmProgress": "{{completed}} / {{total}} versets ({{percent}}%)",
+    "khatmDailyTarget": "Objectif du jour : {{count}} verset(s) pour terminer le Coran ce mois-ci.",
+    "khatmCurrentPosition": "Dernière position : sourate {{surah}}, verset {{verse}}.",
+    "khatmSurahPlaceholder": "Sourate",
+    "khatmVersePlaceholder": "Verset",
+    "khatmUpdateButton": "Marquer ma position",
+    "khatmUpdated": "Position mise à jour.",
+    "khatmError": "Une erreur est survenue.",
+    "alertTitle": "Rappel quotidien du Ramadan",
+    "alertDescription": "Une notification chaque jour pendant le Ramadan, avec ton objectif de khatm si tu en as un.",
+    "signUpPrompt": "Connecte-toi pour suivre ton khatm et recevoir un rappel quotidien pendant le Ramadan.",
+    "signUpButton": "Se connecter",
+    "duasLink": "Voir les duas du Ramadan"
   },
   "quran": {
     "title": "Le Coran",

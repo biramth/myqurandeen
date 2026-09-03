@@ -8,6 +8,7 @@ import { UpdateReminderDto } from "./dto/update-reminder.dto";
 import { UpsertRotationSettingsDto } from "./dto/upsert-rotation-settings.dto";
 import { UpsertStreakAlertSettingsDto } from "./dto/upsert-streak-alert-settings.dto";
 import { UpsertPrayerAlertSettingsDto } from "./dto/upsert-prayer-alert-settings.dto";
+import { UpsertRamadanAlertSettingsDto } from "./dto/upsert-ramadan-alert-settings.dto";
 
 /**
  * Rappels notification de l'utilisateur connecte - JwtAuthGuard global
@@ -64,6 +65,21 @@ export class RemindersController {
   @Delete("prayer-alert-settings")
   deletePrayerAlertSettings(@CurrentUser() user: RequestUser) {
     return this.remindersService.deletePrayerAlertSettings(user.sub);
+  }
+
+  @Get("ramadan-alert-settings")
+  getRamadanAlertSettings(@CurrentUser() user: RequestUser) {
+    return this.remindersService.getRamadanAlertSettings(user.sub);
+  }
+
+  @Put("ramadan-alert-settings")
+  upsertRamadanAlertSettings(@CurrentUser() user: RequestUser, @Body() dto: UpsertRamadanAlertSettingsDto) {
+    return this.remindersService.upsertRamadanAlertSettings(user.sub, dto);
+  }
+
+  @Delete("ramadan-alert-settings")
+  deleteRamadanAlertSettings(@CurrentUser() user: RequestUser) {
+    return this.remindersService.deleteRamadanAlertSettings(user.sub);
   }
 
   @Get()

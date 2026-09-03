@@ -45,6 +45,7 @@ import { MailModule } from "./modules/mail/mail.module";
 import { MarketingModule } from "./modules/marketing/marketing.module";
 import { StreaksModule } from "./modules/streaks/streaks.module";
 import { GamificationModule } from "./modules/gamification/gamification.module";
+import { RamadanModule } from "./modules/ramadan/ramadan.module";
 
 @Module({
   imports: [
@@ -102,6 +103,7 @@ import { GamificationModule } from "./modules/gamification/gamification.module";
     MarketingModule,
     StreaksModule,
     GamificationModule,
+    RamadanModule,
   ],
   providers: [
     { provide: APP_FILTER, useClass: HttpExceptionFilter },

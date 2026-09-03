@@ -21,3 +21,4 @@ export * from "./dua-schedule";
 export * from "./prayer-alerts";
 export * from "./gamification";
 export * from "./marketing";
+export * from "./ramadan";
