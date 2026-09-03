@@ -211,24 +211,29 @@ backend NestJS et de son authentification/RBAC.
 - [ ] Option ultérieure, non faite : alterner verset/hadith/dua/concept par
       jour de la semaine pour varier le contenu affiché.
 
-### 1.2 "Reprendre où j'en étais" (S/M)
+### 1.2 "Reprendre où j'en étais" (S/M) — ✅ fait le 2026-09-03
 
 **Contexte** : `useStreakPing`/`useGamificationEvent` trackent déjà la
 lecture (`verse_read`) — vérifier s'il existe déjà une table de dernière
 position avant de dupliquer un mécanisme.
 
-- [ ] Vérifier l'existant (`user_streaks`, `user_daily_actions`) : y a-t-il
-      déjà une trace de "dernier contenu consulté" réutilisable ?
-- [ ] Si non : nouvelle table légère `user_last_read` (userId unique,
-      targetType, targetId/surahNumber/verseNumber, href, updatedAt) mise à
-      jour à chaque `verse_read`/lecture de leçon.
-- [ ] Endpoint `GET /user-data/last-read`.
-- [ ] Widget sur la page d'accueil (visiteur connecté) et/ou le profil :
-      "Reprendre : Al-Baqara, verset 45" avec lien direct.
-- [ ] Cas limite : plusieurs types de contenu consultés en parallèle
-      (Coran + un parcours d'apprentissage) — décider si on garde une seule
-      position globale ou une par type de contenu (recommandé : une par
-      type, affichage des 2-3 plus récentes).
+- [x] Vérifier l'existant (`user_streaks`, `user_daily_actions`) : aucune
+      trace de "dernier contenu consulté" réutilisable — on crée la
+      table dédiée.
+- [x] Nouvelle table `user_last_read` (`user-data.ts`) : userId, targetType,
+      targetId, updatedAt — une seule position par (userId, targetType) via
+      contrainte unique, mise à jour (upsert) à chaque lecture verse/hadith/
+      leçon.
+- [x] Endpoints `POST /user-data/last-read` (enregistre/écrase la position
+      du type) et `GET /user-data/last-read?limit=` (les 3 plus récentes,
+      résolues en titre + lien via `resolveTargets`).
+- [x] Widget `ResumeReading` sur la page d'accueil (visiteur connecté) :
+      "Reprendre : Al-Baqara, verset 45" avec lien direct, 2-3 positions
+      récentes.
+- [x] Cas limite multi-types : **une position par type de contenu**
+      (recommandation de la roadmap) — lecture d'un verset puis d'une leçon
+      garde les deux, affichage des 2-3 plus récentes. DTO validé dans
+      `dto.spec.ts`.
 
 ### 1.3 Page "Pourquoi myQurandeen" (S) — ✅ fait le 2026-09-02
 
