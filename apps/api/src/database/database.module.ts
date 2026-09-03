@@ -1,4 +1,4 @@
-import { Global, Module, OnModuleDestroy } from "@nestjs/common";
+import { Global, Logger, Module, OnModuleDestroy } from "@nestjs/common";
 import { ConfigService } from "@nestjs/config";
 import { drizzle, NodePgDatabase } from "drizzle-orm/node-postgres";
 import { Pool } from "pg";
@@ -6,6 +6,8 @@ import { DRIZZLE } from "./database.constants";
 import * as schema from "./schema";
 
 export type Database = NodePgDatabase<typeof schema>;
+
+const logger = new Logger("DatabasePool");
 
 @Global()
 @Module({
@@ -37,6 +39,21 @@ export type Database = NodePgDatabase<typeof schema>;
           idleTimeoutMillis: 30_000,
           connectionTimeoutMillis: 10_000,
           statement_timeout: 15_000,
+        });
+        // OBLIGATOIRE avec `pg.Pool` : sans ecouteur sur son evenement
+        // `error`, la moindre connexion IDLE qui tombe (reseau, pooler
+        // Supabase qui recycle une session, cf. EMAXCONNSESSION sous forte
+        // charge) devient une exception non rattrapee qui FAIT PLANTER TOUT
+        // LE PROCESSUS Node (comportement documente de `pg`/`pg-pool` - un
+        // EventEmitter sans ecouteur sur `error` la relance en exception).
+        // Deja observe en conditions reelles : crash complet de l'API en
+        // dev ET des 502 intermittents en prod (Render redemarre le
+        // processus) pendant le meme episode que le fix EMAXCONNSESSION du
+        // sitemap (voir ROADMAP.md 0.1) - la connexion en cause n'etait pas
+        // forcement celle qui venait de servir une requete, d'ou l'absence
+        // de tout log applicatif au moment du crash.
+        pool.on("error", (error) => {
+          logger.error(`Connexion pool inattendue perdue (client idle) : ${error.message}`, error.stack);
         });
         return drizzle(pool, { schema });
       },

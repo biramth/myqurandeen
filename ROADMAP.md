@@ -99,6 +99,21 @@ sur une mise en place complète.
       lieu de plusieurs secondes, vérifié en local). Réduit aussi
       mécaniquement la pression sur le pool Postgres partagé, en plus du fix
       précédent.
+- [x] **Cause racine trouvée en creusant les deux fix ci-dessus** : le
+      `pg.Pool` de `DatabaseModule` n'avait **aucun écouteur sur son
+      événement `error`** - un `EventEmitter` Node sans écouteur sur
+      `error` relance l'erreur en exception non rattrapée, ce qui **fait
+      planter tout le processus** (comportement documenté de `pg`/
+      `pg-pool`, pas un bug applicatif). Observé en conditions réelles
+      pendant cette investigation : crash complet de l'API en dev (log
+      `Unhandled 'error' event` / `Connection terminated unexpectedly`) et
+      502 intermittents en prod (Render redémarrant le processus) - ce qui
+      explique aussi pourquoi le cache du fix précédent semblait "ne pas
+      tenir" (un redémarrage vide le cache mémoire). Corrigé par
+      `pool.on("error", ...)` dans `database.module.ts` (log + pas de
+      crash) - la charge du sitemap (plusieurs requêtes en rafale) rendait
+      ce risque latent bien plus probable, mais le problème concernait
+      potentiellement **toute l'API**, pas seulement le sitemap.
 
 ### 0.2 Bundle JS principal (~750 Ko) (M) — ✅ fait le 2026-09-01
 
