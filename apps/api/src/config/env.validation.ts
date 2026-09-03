@@ -79,6 +79,17 @@ export const envSchema = z
   // reinitialisation de mot de passe.
   VERIFY_TOKEN_TTL_SECONDS: z.coerce.number().int().positive().default(3600),
   RESET_TOKEN_TTL_SECONDS: z.coerce.number().int().positive().default(3600),
+
+  // Publication automatique reseaux sociaux (verset/hadith du jour, voir
+  // SocialPosterService) - chaque plateforme est optionnelle et independante
+  // : desactivee silencieusement tant que ses cles ne sont pas fournies,
+  // meme principe que VAPID/BREVO_API_KEY/GEMINI_API_KEY ci-dessus.
+  TWITTER_API_KEY: z.string().optional(),
+  TWITTER_API_SECRET: z.string().optional(),
+  TWITTER_ACCESS_TOKEN: z.string().optional(),
+  TWITTER_ACCESS_SECRET: z.string().optional(),
+  FACEBOOK_PAGE_ID: z.string().optional(),
+  FACEBOOK_PAGE_ACCESS_TOKEN: z.string().optional(),
   })
   .superRefine((env, ctx) => {
     // WEB_URL sert de base a tous les liens des emails (verification, reset,

@@ -6,6 +6,7 @@ import { DuaSchedulerService } from "./dua-scheduler.service";
 import { ReminderSchedulerService } from "./reminder-scheduler.service";
 import { StreakAlertSchedulerService } from "./streak-alert-scheduler.service";
 import { PrayerAlertSchedulerService } from "./prayer-alert-scheduler.service";
+import { SocialPosterService } from "../social/social-poster.service";
 
 /**
  * Point d'entree du cron externe (cron-job.org, Render Cron Job, Github
@@ -32,9 +33,10 @@ export class SchedulerRunController {
     private readonly duaScheduler: DuaSchedulerService,
     private readonly streakAlertScheduler: StreakAlertSchedulerService,
     private readonly prayerAlertScheduler: PrayerAlertSchedulerService,
+    private readonly socialPoster: SocialPosterService,
   ) {}
 
-  /** Declenche une passe complete des rappels, duas automatiques, alertes de serie et alertes de priere. */
+  /** Declenche une passe complete des rappels, duas automatiques, alertes de serie, alertes de priere et publications reseaux sociaux. */
   @Public()
   @UseGuards(CronTokenGuard)
   @Post("run")
@@ -46,6 +48,7 @@ export class SchedulerRunController {
       this.duaScheduler.tick(),
       this.streakAlertScheduler.tick(),
       this.prayerAlertScheduler.tick(),
+      this.socialPoster.tick(),
     ]);
   }
 }

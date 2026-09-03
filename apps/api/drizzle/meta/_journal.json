@@ -267,6 +267,13 @@
       "when": 1788372280990,
       "tag": "0037_yellow_runaways",
       "breakpoints": true
+    },
+    {
+      "idx": 38,
+      "version": "7",
+      "when": 1788440883788,
+      "tag": "0038_elite_monster_badoon",
+      "breakpoints": true
     }
   ]
 }
