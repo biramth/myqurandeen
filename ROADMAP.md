@@ -281,7 +281,7 @@ position avant de dupliquer un mécanisme.
 
 ## Phase 2 — SEO & distribution
 
-### 2.1 SEO sur les pages de contenu (M/L)
+### 2.1 SEO sur les pages de contenu (M/L) — ✅ fait le 2026-09-03 (sauf soumission Search Console/Bing, nécessite ton compte)
 
 **Contexte** : `PageMeta`/`buildOgImage` existent déjà et couvrent
 title/description/OG/Twitter. Il manque la couche indexation/données
@@ -301,21 +301,52 @@ structurées.
       Infrastructure réutilisable `jsonLd`/`breadcrumbs` + helpers purs
       (`buildBreadcrumbList`, `serializeJsonLd`) testés dans
       `PageMeta.test.ts`.
-- [ ] Vérifier que les pages de contenu sont **crawlables sans exécution
-      JS** — le système de pré-rendu Edge pour l'OG (déjà construit pour
-      les crawlers de partage) est un bon point de départ ; voir s'il peut
-      être étendu au HTML complet pour les moteurs de recherche (SSR/SSG
-      partiel), sinon au minimum confirmer que Googlebot exécute le JS
-      correctement sur ces routes (Search Console → Inspection d'URL).
-- [ ] Soumettre le sitemap à Google Search Console et Bing Webmaster
-      Tools ; suivre l'indexation dans les semaines qui suivent.
+- [x] **Vérifié : crawlabilité sans JS.** Le site est une SPA 100% rendue
+      client (`apps/web/index.html` est un shell vide, `<div id="root">`),
+      confirmé volontairement **hors scope** d'un vrai SSR/SSG par un choix
+      déjà documenté (commentaire de `middleware.ts`) : le pré-rendu Edge
+      existant ne cible QUE les robots d'aperçu de lien (WhatsApp, X,
+      Discord...), jamais Googlebot, précisément pour ne pas dégrader
+      l'indexation réelle — l'étendre à Googlebot remplacerait un contenu
+      riche (texte complet, JSON-LD, fil d'Ariane) par un stub minimal
+      titre+description. Confirmé correct : Google exécute fiablement le JS
+      des SPA React depuis plusieurs années (Web Rendering Service),
+      contrairement à la plupart des robots de partage — d'où la distinction
+      déjà faite dans le code. **Risque identifié, spécifique à cet
+      hébergement** : l'API tourne sur le **tier gratuit de Render**, qui met
+      l'instance en veille après ~15 min d'inactivité (cause déjà connue et
+      traitée pour les notifications, voir `reminders/scheduler-run.controller.ts`)
+      — si Googlebot crawle une page pendant que l'instance dort, le budget
+      de rendu de Google pourrait expirer avant la réponse de l'API et
+      indexer une page vide. Le cron externe existant (`POST /reminders/run`,
+      cron-job.org) maintient déjà l'instance éveillée s'il tourne à un
+      intervalle inférieur à ~15 min — **à vérifier côté tableau de bord
+      cron-job.org** (hors du dépôt, je n'y ai pas accès) : si l'intervalle
+      configuré est bien de l'ordre de la minute (cohérent avec
+      `@Cron(EVERY_MINUTE)` côté code), ce risque est déjà couvert sans rien
+      changer.
+- [ ] **Reste à faire, nécessite ton propre compte (je n'ai pas d'accès)** :
+      soumettre `https://myqurandeen.vercel.app/sitemap.xml` à
+      [Google Search Console](https://search.google.com/search-console)
+      (Sitemaps → coller l'URL) et à
+      [Bing Webmaster Tools](https://www.bing.com/webmasters) (qui alimente
+      aussi DuckDuckGo/Yahoo) — les deux exigent une vérification de
+      propriété du domaine au préalable. Une fois fait, l'inspection d'URL de
+      Search Console confirmerait directement le point ci-dessus (Google
+      voit-il le contenu complet ou une page vide ?) — vérification que je
+      ne peux pas faire moi-même sans accès à ce compte.
 - [x] `robots.txt` vérifié : autorise tout le contenu public, bloque
       `/admin`, `/profile`, `/login`, `/register`, les routes auth et
       marketing de désabonnement (déjà en place).
-- [ ] Balises `hreflang` si le contenu multilingue doit être indexé
-      séparément par langue (à trancher : une seule URL par verset avec
-      langue via préférence utilisateur, ou des URLs par langue — impact
-      SEO différent selon le choix).
+- [x] **Décidé : pas de balises `hreflang`.** L'architecture actuelle sert
+      **une seule URL par contenu** quelle que soit la langue (la traduction
+      affichée dépend de la préférence client, jamais encodée dans l'URL —
+      confirmé, aucune route `:lang` n'existe dans `router.tsx`) : `hreflang`
+      n'a de sens qu'entre plusieurs URLs alternatives pour un même contenu,
+      qui n'existent pas ici. Passer à des URLs par langue serait un
+      changement structurel majeur (routing, sitemap, liens internes) sans
+      bénéfice clair vu que le contenu principal (texte arabe) est identique
+      quelle que soit la langue de l'interface — non retenu pour l'instant.
 
 ### 2.2 Widget "verset du jour" embarquable (M) — ✅ fait le 2026-09-03
 
