@@ -414,8 +414,12 @@ données Coran elles-mêmes.
 - [x] Gestion de mise à jour : `GET /quran/export/version` comparée à la
       version stockée localement (`quran-version`) — signale un cache à
       rafraîchir quand le contenu serveur change.
-- [~] Tester explicitement le scénario "mode avion" de bout en bout avant
-      de considérer la fonctionnalité terminée.
+- [x] Tester explicitement le scénario "mode avion" de bout en bout
+      (`apps/web/src/features/offline/offline-mode.test.ts`, via
+      `fake-indexeddb`) : téléchargement → lecture hors-ligne — liste des
+      sourates, détail d'une sourate, verset, traduction — depuis IndexedDB
+      **sans aucun réseau**, détection de mise à jour par version, et
+      nettoyage complet par `clearQuran`.
 
 ### 3.3 Recherche par racine arabe (L)
 
