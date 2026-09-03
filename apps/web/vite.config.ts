@@ -46,6 +46,37 @@ export default defineConfig({
           ) {
             return "vendor-react";
           }
+          // Bibliotheques tierces stables, utilisees sur de nombreuses pages :
+          // regroupes en chunks vendor dedies pour un cache HTTP long terme
+          // (pas de re-telechargement si ces libs ne changent pas d'un
+          // deploiement a l'autre - l'app elle-meme porte alors un hash
+          // different sans invalider ce cache). Ne change pas le poids du
+          // premier chargement (le total est identique), seulement sa
+          // repartition entre fichiers.
+          if (id.includes("node_modules/i18next") || id.includes("node_modules/react-i18next")) {
+            return "vendor-i18n";
+          }
+          if (
+            id.includes("node_modules/tailwind-merge") ||
+            id.includes("node_modules/clsx") ||
+            id.includes("node_modules/class-variance-authority") ||
+            id.includes("node_modules/sonner") ||
+            id.includes("node_modules/@radix-ui") ||
+            id.includes("node_modules/@floating-ui") ||
+            id.includes("node_modules/lucide-react")
+          ) {
+            return "vendor-ui";
+          }
+          if (
+            id.includes("node_modules/react-hook-form") ||
+            id.includes("node_modules/@hookform") ||
+            id.includes("node_modules/zod")
+          ) {
+            return "vendor-forms";
+          }
+          if (id.includes("node_modules/@tanstack/react-query")) {
+            return "vendor-query";
+          }
         },
       },
     },

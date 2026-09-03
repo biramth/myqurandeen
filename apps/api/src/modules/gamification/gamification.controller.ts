@@ -1,5 +1,6 @@
 import { Body, Controller, Get, HttpCode, HttpStatus, Post, Query } from "@nestjs/common";
 import { ApiTags } from "@nestjs/swagger";
+import { Throttle } from "@nestjs/throttler";
 import { CurrentUser } from "../../common/decorators/current-user.decorator";
 import type { RequestUser } from "../../common/types/authenticated-request";
 import { GamificationService } from "./gamification.service";
@@ -18,6 +19,7 @@ export class GamificationController {
   }
 
   /** Enregistre une action significative (lecture, leçon, note...) et renvoie ce que ça déclenche (XP, niveau, succès). */
+  @Throttle({ default: { limit: 60, ttl: 60_000 } })
   @Post("events")
   @HttpCode(HttpStatus.OK)
   recordEvent(@CurrentUser() user: RequestUser, @Body() dto: RecordEventDto) {

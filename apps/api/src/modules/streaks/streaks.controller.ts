@@ -1,5 +1,6 @@
 import { Body, Controller, Get, HttpCode, HttpStatus, Post, Query } from "@nestjs/common";
 import { ApiTags } from "@nestjs/swagger";
+import { Throttle } from "@nestjs/throttler";
 import { CurrentUser } from "../../common/decorators/current-user.decorator";
 import type { RequestUser } from "../../common/types/authenticated-request";
 import { StreaksService } from "./streaks.service";
@@ -17,6 +18,7 @@ export class StreaksController {
   }
 
   /** Enregistre une activite pour aujourd'hui (idempotent) - appele quand l'utilisateur lit du contenu (Coran, hadith, dua...). */
+  @Throttle({ default: { limit: 60, ttl: 60_000 } })
   @Post("ping")
   @HttpCode(HttpStatus.OK)
   ping(@CurrentUser() user: RequestUser, @Body() dto: PingStreakDto) {
