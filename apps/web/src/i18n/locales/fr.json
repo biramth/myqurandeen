@@ -217,10 +217,16 @@
       "openSource": {
         "title": "Ouvert et transparent",
         "body": "Le code est open-source (licence MIT) : n'importe qui peut l'inspecter, le corriger ou l'améliorer. Le contenu religieux importé conserve sa propre licence ou son propre statut (domaine public, source autorisée)."
+      },
+      "widget": {
+        "title": "Widget « verset du jour » pour votre site",
+        "body": "Affichez le verset du jour de myQurandeen sur votre propre site en collant ce code où vous voulez qu'il apparaisse - il se met à jour automatiquement chaque jour, sans rien à faire de votre côté."
       }
     },
     "githubLink": "Voir le code sur GitHub",
     "contributingLink": "Comment contribuer",
+    "widgetCopy": "Copier le code",
+    "widgetCopied": "Copié",
     "backHome": "Retour à l'accueil"
   },
   "authPrompt": {

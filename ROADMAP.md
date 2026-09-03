@@ -57,13 +57,14 @@ sur une mise en place complète.
       l'étaient pas du tout. Alignés à 5/min également.
 - [x] `/notifications/test` (envoie un vrai push externe) limité à 5/min —
       n'avait pas de limite dédiée.
-- [ ] Reste à faire : limite dédiée sur les endpoints d'écriture
-      utilisateur (notes, bookmarks, collections) si le comportement en
-      production le justifie — laissés au défaut global (120/min) pour
-      l'instant, pas de signal d'abus observé.
-- [ ] Documenter les limites choisies dans `apps/api/README.md` ou un doc
-      dédié, pour que l'équipe API publique (phase 6) parte d'une base
-      claire.
+- [x] Limite dédiée ajoutée sur les endpoints d'écriture utilisateur
+      (notes/bookmarks à 30/min, collections à 20/min, `last-read` à
+      30/min, `streaks/ping` et `gamification/events` à 60/min) —
+      défensives, mises en place sans signal d'abus observé
+      (`user-data`/`streaks`/`gamification` controllers).
+- [x] Documenter les limites choisies dans `apps/api/README.md` (tableau
+      complet par route, mécanisme, principes + note pour la future API
+      publique de la phase 6).
 
 ### 0.2 Bundle JS principal (~750 Ko) (M) — ✅ fait le 2026-09-01
 
@@ -102,17 +103,25 @@ SEO (Core Web Vitals) et le taux de conversion des nouveaux visiteurs.
       (gzip 222,56 Ko → **137,10 Ko**), soit **-43% / -38%**. Plus aucun
       chunk au-dessus du seuil d'alerte de 500 Ko (donc rien à ajuster sur
       `chunkSizeWarningLimit`).
-- [ ] Reste à faire si besoin plus tard : regrouper d'autres libs tierces
-      stables partout utilisées (i18next, tailwind-merge, sonner, le
-      cluster radix-ui/floating-ui) dans un chunk vendor dédié — gain de
-      cache sur les futurs déploiements (pas de re-téléchargement si ces
-      libs ne changent pas), pas un gain de poids au premier chargement.
-      Non fait ici : effort/risque plus élevé pour un gain différent de
-      celui visé (LCP au premier chargement, déjà résolu).
+- [x] Regroupement des autres libs tierces stables dans des chunks vendor
+      dédiés (`vendor-i18n`: i18next/react-i18next, `vendor-ui`:
+      tailwind-merge/clsx/cva/sonner/radix-ui/floating-ui/lucide,
+      `vendor-forms`: react-hook-form/hookform/zod, `vendor-query`:
+      @tanstack/react-query) — gain de cache sur les déploiements futurs
+      (pas de re-téléchargement si ces libs ne changent pas), pas un gain
+      de poids au premier chargement. Résultat mesuré : chunk principal
+      `index` à 177 Ko (gzip 57 Ko), tous les chunks sous 500 Ko.
 - [ ] Mesurer avec Lighthouse (mobile, réseau throttled) sur le site
       déployé pour confirmer le gain concret sur LCP/TBT en conditions
       réelles (fait ici uniquement via la taille des fichiers, pas un
       profil Lighthouse complet).
+- [x] **Trouvé en marge et corrigé** : le build web ne passait plus (`tsc`
+      bloquait) sur 3 erreurs préexistantes d'une fonctionnalité en cours
+      ("reprendre où j'en étais", 1.2) et d'une page learning :
+      `ResumeReading.tsx` et `useRecordLastRead.ts` importaient `React`/
+      `useMutation` sans les utiliser, et `LearningLessonPage.tsx`
+      utilisait `useEffect` sans l'importer. Corrigé — le build
+      (`npm run build -w apps/web`) recompile à nouveau.
 
 ### 0.3 Couverture de tests (L, continu)
 
@@ -129,8 +138,8 @@ silencieuse qui grandit avec la taille du code.
         (`localClock`, `minutesSince`, `alreadySentToday`, `GRACE_MINUTES`)
         extraits de `reminder-scheduler.service.ts` vers
         `scheduling-logic.ts` (testables sans tirer NestJS/ESM) et couverts.
-  - [~] Backend : les DTOs de validation et le calcul RBAC (permissions) —
-        non couverts pour l'instant (RAZ dépend du socle, à compléter).
+  - [x] Backend : les DTOs de validation et le calcul RBAC (permissions) —
+        couverts (voir 0.5).
   - [x] Frontend : les utilitaires purs (`splitBasmala`,
         `withShareUtm`/`buildOgImage`, `computePrayerTimes`/
         `computeQiblaDirection`/`nextPrayer`).
@@ -297,24 +306,34 @@ structurées.
       langue via préférence utilisateur, ou des URLs par langue — impact
       SEO différent selon le choix).
 
-### 2.2 Widget "verset du jour" embarquable (M)
+### 2.2 Widget "verset du jour" embarquable (M) — ✅ fait le 2026-09-03
 
-- [ ] Nouvelle route publique dédiée à l'embed, ex. `/embed/daily-verse`,
-      **sans** layout applicatif (pas de sidebar/nav), CSS minimal en
-      ligne, pensée pour tourner dans une `<iframe>` sur un site tiers.
-- [ ] Réutilise l'endpoint `GET /daily/verse` de la section 1.1.
-- [ ] Générer un snippet `<iframe>` prêt à copier-coller (avec dimensions
-      recommandées) sur la page "Pourquoi myQurandeen" ou une page dédiée
-      `/widgets`.
-- [ ] En-têtes HTTP à vérifier : `X-Frame-Options`/`Content-Security-Policy
-      frame-ancestors` doivent explicitement autoriser l'embed pour cette
-      route précise (le reste du site doit rester protégé contre le
-      clickjacking).
-- [ ] Option JS (`<script>` qui injecte le widget sans iframe) pour un
-      rendu mieux intégré visuellement chez l'hébergeur — plus complexe,
+- [x] Nouvelle route publique `/embed/daily-verse` (`EmbedDailyVersePage.tsx`),
+      déclarée en dehors de la route `<AppLayout/>` dans `router.tsx` (route
+      sœur, pas un enfant) : aucune sidebar/header/footer/nav. Toujours dans
+      le même bundle SPA, donc le thème clair/sombre suit automatiquement la
+      préférence système du visiteur (`ThemeProvider` inchangé).
+- [x] Réutilise l'endpoint `GET /daily` déjà existant (section 1.1 a
+      finalement livré un seul endpoint combiné verset+hadith plutôt que
+      deux séparés) — aucun changement backend nécessaire pour ce chantier.
+- [x] Snippet `<iframe>` prêt à copier-coller (dimensions recommandées
+      400×240) ajouté à la page "Pourquoi myQurandeen" avec bouton copier.
+- [x] En-tête HTTP ajouté : `Content-Security-Policy: frame-ancestors *;`
+      sur `/embed/(.*)` dans `vercel.json`, en plus de la règle de cache
+      déjà présente sur `/assets/`. **Non vérifiable en local** (le serveur
+      de dev Vite n'applique pas `vercel.json` — à confirmer une fois
+      déployé, ex. avec `curl -I https://.../embed/daily-verse`). Le reste
+      du site n'a par ailleurs **aucune** protection `X-Frame-Options`
+      aujourd'hui (ni avant ni après ce chantier) — durcissement séparé,
+      plus large que ce widget, à traiter à part.
+- [x] Lien de la carte + lien "myQurandeen →" du widget marqués
+      `withShareUtm(..., "widget")` — traçable séparément des autres
+      canaux de partage dans les statistiques.
+- [ ] Option JS (`<script>` qui injecte le widget sans iframe) — pas fait,
       à ne considérer qu'après un retour d'usage sur la version iframe.
 - [ ] Suivre les domaines qui embarquent le widget (referrer côté
-      analytics) pour mesurer la traction réelle.
+      analytics) pour mesurer la traction réelle — pas instrumenté au-delà
+      du tag UTM déjà en place.
 
 ### 2.3 Automatiser la présence réseaux sociaux (M)
 

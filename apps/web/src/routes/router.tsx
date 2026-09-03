@@ -86,6 +86,9 @@ const PrayerTimesPage = React.lazy(() =>
 );
 const LibraryPage = React.lazy(() => import("@/pages/library/LibraryPage").then((m) => ({ default: m.LibraryPage })));
 const AboutPage = React.lazy(() => import("@/pages/AboutPage").then((m) => ({ default: m.AboutPage })));
+const EmbedDailyVersePage = React.lazy(() =>
+  import("@/pages/EmbedDailyVersePage").then((m) => ({ default: m.EmbedDailyVersePage })),
+);
 const BookPage = React.lazy(() => import("@/pages/library/BookPage").then((m) => ({ default: m.BookPage })));
 const AdminPage = React.lazy(() => import("@/pages/admin/AdminPage").then((m) => ({ default: m.AdminPage })));
 const AssistantPage = React.lazy(() =>
@@ -201,6 +204,10 @@ export function AppRouter() {
 
           <Route path="*" element={<ComingSoonRoute i18nKey="notFound" />} />
         </Route>
+
+        {/* Hors AppLayout (pas de sidebar/header/footer/nav) : concu pour tourner
+            dans une <iframe> sur un site tiers, voir EmbedDailyVersePage. */}
+        <Route path="/embed/daily-verse" element={<EmbedDailyVersePage />} />
       </Routes>
     </React.Suspense>
   );

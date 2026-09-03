@@ -217,10 +217,16 @@
       "openSource": {
         "title": "Open and transparent",
         "body": "The code is open-source (MIT license): anyone can inspect, fix, or improve it. Imported religious content keeps its own license or status (public domain, authorized source)."
+      },
+      "widget": {
+        "title": "\"Verse of the day\" widget for your site",
+        "body": "Show myQurandeen's verse of the day on your own site by pasting this code wherever you want it to appear - it updates automatically every day, nothing to do on your end."
       }
     },
     "githubLink": "View the code on GitHub",
     "contributingLink": "How to contribute",
+    "widgetCopy": "Copy the code",
+    "widgetCopied": "Copied",
     "backHome": "Back to home"
   },
   "authPrompt": {

@@ -1,10 +1,47 @@
+import * as React from "react";
 import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
-import { BadgeCheck, Github, Heart, Scale, Sparkles } from "lucide-react";
-import { PageMeta } from "@/components/shared/PageMeta";
+import { BadgeCheck, Check, Code2, Copy, Github, Heart, Scale, Sparkles } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { PageMeta, SITE_URL } from "@/components/shared/PageMeta";
 
 const GITHUB_URL = "https://github.com/biramth/myqurandeen";
 const CONTRIBUTING_URL = `${GITHUB_URL}/blob/main/CONTRIBUTING.md`;
+const EMBED_SNIPPET = `<iframe src="${SITE_URL}/embed/daily-verse" width="400" height="240" style="border:0;border-radius:8px;" loading="lazy" title="myQurandeen - verset du jour"></iframe>`;
+
+function WidgetSnippetSection() {
+  const { t } = useTranslation();
+  const [copied, setCopied] = React.useState(false);
+
+  const handleCopy = async () => {
+    try {
+      await navigator.clipboard.writeText(EMBED_SNIPPET);
+      setCopied(true);
+      setTimeout(() => setCopied(false), 1500);
+    } catch {
+      // Presse-papiers indisponible (permissions navigateur) - echec silencieux.
+    }
+  };
+
+  return (
+    <section>
+      <h2 className="flex items-center gap-2 text-lg font-semibold">
+        <Code2 className="h-5 w-5 text-primary" aria-hidden="true" />
+        {t("about.sections.widget.title")}
+      </h2>
+      <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{t("about.sections.widget.body")}</p>
+      <div className="mt-3 space-y-2">
+        <pre className="overflow-x-auto rounded-md border bg-muted/30 p-3 text-xs">
+          <code>{EMBED_SNIPPET}</code>
+        </pre>
+        <Button type="button" variant="outline" size="sm" onClick={handleCopy}>
+          {copied ? <Check className="h-3.5 w-3.5" /> : <Copy className="h-3.5 w-3.5" />}
+          {copied ? t("about.widgetCopied") : t("about.widgetCopy")}
+        </Button>
+      </div>
+    </section>
+  );
+}
 
 interface Section {
   icon: typeof Heart;
@@ -63,6 +100,8 @@ export function AboutPage() {
             </a>
           </div>
         </section>
+
+        <WidgetSnippetSection />
       </div>
 
       <div className="mt-14 text-center">
