@@ -346,64 +346,22 @@ structurées.
       analytics) pour mesurer la traction réelle — pas instrumenté au-delà
       du tag UTM déjà en place.
 
-### 2.3 Automatiser la présence réseaux sociaux (M) — ✅ fait le 2026-09-03
+### 2.3 Automatiser la présence réseaux sociaux (M) — ❌ retirée le 2026-09-03
 
-- [x] Plateformes de départ : **X (Twitter) et Facebook** — les deux ont une
-      API de publication utilisable sans review d'app pour publier sur son
-      propre compte/sa propre Page. Instagram (review d'app + compte
-      Business obligatoires) et TikTok (pas d'API de publication grand
-      public) restent hors scope, publication manuelle uniquement pour
-      l'instant — cohérent avec la contrainte notée initialement.
-- [x] Nouveau module `apps/api/src/modules/social/` : `SocialPosterService`
-      (planificateur), `TwitterPublisherService`, `FacebookPublisherService`.
-      Réutilise **exactement** le contenu de `DailyService` (module `daily`,
-      1.1) — le verset/hadith publié un jour donné est garanti identique à
-      celui affiché ce jour-là sur la page d'accueil — et **`OgService`**
-      (module `og`) pour l'image générée (aucune nouvelle brique de rendu).
-      Alterne verset/hadith par parité du jour de l'année (UTC).
-- [x] Câblé sur le **même point d'entrée cron externe déjà configuré**
-      (`POST /reminders/run`, cf. `SchedulerRunController`) plutôt que de
-      demander un second cron-job.org au projet — `SocialModule` importé
-      dans `RemindersModule` malgré la différence de nature (publication
-      publique vs rappel utilisateur), avec un commentaire expliquant ce
-      choix pragmatique.
-- [x] Chaque plateforme **indépendamment optionnelle** : désactivée
-      silencieusement tant que ses clés d'environnement ne sont pas fournies
-      (même principe que `WebPushProvider`/Brevo/Gemini — voir
-      `env.validation.ts` et `.env.example`, section dédiée avec instructions
-      pas-à-pas pour obtenir chaque jeu de clés). **Aucune clé n'a été créée
-      par Claude** (création de compte développeur explicitement hors de ce
-      qu'un agent peut faire) — la fonctionnalité est livrée complète et
-      testée par le typecheck/build/tests, mais **restera inactive tant que
-      l'utilisateur n'aura pas lui-même créé les apps développeur X/Facebook
-      et renseigné les clés en production**.
-- [x] Anti-doublon : nouvelle table `social_posts` (`platform`, `date_key`,
-      contrainte unique composite) plutôt qu'un verrou consultatif Postgres
-      partagé avec les autres planificateurs — évite un import croisé entre
-      modules `social`/`reminders`, et sert aussi de journal d'audit (quoi a
-      été publié, quand). Une ligne du jour est réservée par insert
-      (`onConflictDoNothing`) avant la tentative réelle de publication ; un
-      échec libère la réservation pour permettre une nouvelle tentative au
-      tick suivant.
-- [x] Lien systématique vers la page correspondante avec paramètres UTM
-      (même convention que `withShareUtm` côté frontend, `medium` = nom de
-      la plateforme) pour mesurer le trafic réellement généré par chaque
-      canal.
-- [x] Vérifié : `typecheck`/`lint`/`build`/tests (53/53) passent ; migration
-      générée et relue avant application (`0038_elite_monster_badoon.sql` —
-      une seule table, RLS activée automatiquement comme sur les 70 autres
-      tables, cf. 0.4). **Non vérifiable en conditions réelles** sans clés
-      X/Facebook valides (aucune ne peut être créée par un agent) — la
-      publication effective est donc à confirmer par l'utilisateur une fois
-      les clés renseignées (les logs API indiqueront clairement un échec
-      éventuel, chaque appel HTTP étant journalisé avec son code d'erreur).
-- [ ] Variante "portrait" des cartes générées — pas faite : les deux
-      plateformes livrées (X, Facebook) affichent bien une image paysage,
-      seul un ajout futur d'Instagram (format story) la rendrait nécessaire.
-- [ ] Boucle de contenu élargie (citation d'un savant, rappel de série façon
-      Duolingo) — pas faite : seules verset/hadith existent aujourd'hui comme
-      contenu "du jour" déterministe réutilisable ; à étendre si `DailyService`
-      gagne d'autres types de contenu.
+**Décision utilisateur** : l'automatisation X/Facebook a été **entièrement
+retirée** — l'utilisateur préfère publier le verset/hadith du jour **à la main**
+via des comptes normaux. Le module `apps/api/src/modules/social/` (services,
+planificateur), le schéma `social_posts`, les variables
+`TWITTER_*`/`FACEBOOK_*` (`.env.example` + `env.validation.ts`) et la table
+`social_posts` en base (migration `0039`) ont été supprimés.
+
+Une implémentation initiale avait été livrée puis testée (utilisation du même
+contenu déterministe que `DailyService`/`OgService` de la page d'accueil,
+anti-doublon par table unique, chaque plateforme optionnelle sans clé) — mais
+elle ne correspondait pas à la méthode de publication souhaitée par
+l'utilisateur, d'où son retrait complet. Publication désormais **manuelle** :
+copier le contenu du jour affiché sur la page d'accueil vers les réseaux
+sociaux de son choix (X, Instagram, Facebook, TikTok...).
 
 ---
 

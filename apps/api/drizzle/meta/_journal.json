@@ -274,6 +274,13 @@
       "when": 1788440883788,
       "tag": "0038_elite_monster_badoon",
       "breakpoints": true
+    },
+    {
+      "idx": 39,
+      "version": "7",
+      "when": 1788443408177,
+      "tag": "0039_optimal_fantastic_four",
+      "breakpoints": true
     }
   ]
 }

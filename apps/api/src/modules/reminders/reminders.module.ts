@@ -9,14 +9,9 @@ import { DuaSchedulerService } from "./dua-scheduler.service";
 import { PrayerAlertSchedulerService } from "./prayer-alert-scheduler.service";
 import { SchedulerLockService } from "./scheduler-lock.service";
 import { NotificationsModule } from "../notifications/notifications.module";
-import { SocialModule } from "../social/social.module";
 
 @Module({
-  // SocialModule : le planificateur de publication reseaux sociaux
-  // (SocialPosterService) n'a rien d'un "rappel", mais reutilise ici le
-  // meme point d'entree externe (POST /reminders/run) plutot que de faire
-  // configurer un second cron-job.org au projet - voir SchedulerRunController.
-  imports: [NotificationsModule, SocialModule],
+  imports: [NotificationsModule],
   controllers: [RemindersController, SchedulerRunController],
   providers: [
     RemindersService,

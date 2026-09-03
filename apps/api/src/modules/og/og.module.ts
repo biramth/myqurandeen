@@ -14,8 +14,6 @@ import { OgService } from "./og.service";
   imports: [QuranModule, HadithModule, DuasModule, HistoryModule, ConceptsModule, ScholarsModule],
   controllers: [OgController, OgPageController],
   providers: [OgService, OgPageService],
-  // OgService : reutilise par SocialModule pour generer l'image des
-  // publications reseaux sociaux (meme rendu que les cartes de partage).
   exports: [OgPageService, OgService],
 })
 export class OgModule {}

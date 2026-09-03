@@ -6,7 +6,6 @@ import { DuaSchedulerService } from "./dua-scheduler.service";
 import { ReminderSchedulerService } from "./reminder-scheduler.service";
 import { StreakAlertSchedulerService } from "./streak-alert-scheduler.service";
 import { PrayerAlertSchedulerService } from "./prayer-alert-scheduler.service";
-import { SocialPosterService } from "../social/social-poster.service";
 
 /**
  * Point d'entree du cron externe (cron-job.org, Render Cron Job, Github
@@ -33,18 +32,17 @@ export class SchedulerRunController {
     private readonly duaScheduler: DuaSchedulerService,
     private readonly streakAlertScheduler: StreakAlertSchedulerService,
     private readonly prayerAlertScheduler: PrayerAlertSchedulerService,
-    private readonly socialPoster: SocialPosterService,
   ) {}
 
   /**
-   * Declenche une passe complete des rappels, duas automatiques, alertes de
-   * serie, alertes de priere et publications reseaux sociaux.
-   *
-   * Ne PAS `await` le travail : chaque `tick()` enchaîne des envois push
-   * externes (Web Push, reseaux sociaux) qui peuvent prendre plusieurs
-   * secondes, et le cron externe (cron-job.org) impose une fenetre courte
-   * (~60 s). Si la requete attendait tout le travail, un pic d'utilisateurs
-   * ou un service externe lent ferait echouer le cron (Timeout), devenant
+* Declenche une passe complete des rappels, duas automatiques, alertes de
+     * serie et alertes de priere.
+     *
+     * Ne PAS `await` le travail : chaque `tick()` enchaîne des envois push
+     * externes (Web Push) qui peuvent prendre plusieurs
+     * secondes, et le cron externe (cron-job.org) impose une fenetre courte
+     * (~60 s). Si la requete attendait tout le travail, un pic d'utilisateurs
+     * ou un service externe lent ferait echouer le cron (Timeout), devenant
    * meme la cause d'un delai en cascade. On lance le travail en arriere-plan
    * et on repond 204 immediatement.
    *
@@ -66,7 +64,6 @@ export class SchedulerRunController {
       this.duaScheduler.tick(),
       this.streakAlertScheduler.tick(),
       this.prayerAlertScheduler.tick(),
-      this.socialPoster.tick(),
     ];
     // Fire-and-forget : chaque tick() isole deja ses propres erreurs ; on ne
     // laisse aucun rejet echapper a la boucle d'evenements.
