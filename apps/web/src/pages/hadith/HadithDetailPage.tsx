@@ -10,6 +10,7 @@ import { hadithApi } from "@/features/hadith/api";
 import { arabicFontSizeStyle } from "@/components/shared/arabic-font-size-provider";
 import { useStreakPing } from "@/features/streaks/useStreak";
 import { useGamificationEvent } from "@/features/gamification/useGamification";
+import { useRecordLastRead } from "@/features/user-data/useRecordLastRead";
 import { PageMeta, SITE_URL, buildOgImage, withShareUtm } from "@/components/shared/PageMeta";
 
 export function HadithDetailPage() {
@@ -17,6 +18,7 @@ export function HadithDetailPage() {
   const { t } = useTranslation();
   useStreakPing();
   const track = useGamificationEvent();
+  const recordLastRead = useRecordLastRead();
 
   const { data, isLoading, isError } = useQuery({
     queryKey: ["hadith", "detail", slug, number],
@@ -26,6 +28,9 @@ export function HadithDetailPage() {
   useEffect(() => {
     if (data) track("hadith_read");
   }, [data, track]);
+  useEffect(() => {
+    if (data) recordLastRead("hadith", data.hadith.id);
+  }, [data, recordLastRead]);
 
   if (!slug || !number) return <Navigate to="/hadith" replace />;
 

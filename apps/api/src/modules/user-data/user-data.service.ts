@@ -22,6 +22,7 @@ import {
   quranVerses,
   scholars,
   tafsirEntries,
+  userLastRead,
 } from "../../database/schema";
 import { StreaksService } from "../streaks/streaks.service";
 
@@ -379,5 +380,43 @@ export class UserDataService {
     if (!collection) throw new NotFoundException("Collection introuvable");
     if (collection.userId !== userId) throw new ForbiddenException("Cette collection ne vous appartient pas");
     return collection;
+  }
+
+  // --- Derniere position de lecture ("Reprendre ou j'en etais") ---
+
+  /**
+   * Enregistre (ou met a jour) la position de lecture pour un type de contenu
+   * donne. Une seule position par (utilisateur, type) est gardee (upsert sur
+   * la contrainte unique userId+targetType) : a chaque lecture on ecrase la
+   * precedente. `updatedAt` est force par le serveur pour que le tri "plus
+   * recent" reste fiable meme si le client a un horloge decalee.
+   */
+  async recordLastRead(userId: string, targetType: TargetType, targetId: string) {
+    const [row] = await this.db
+      .insert(userLastRead)
+      .values({ userId, targetType, targetId })
+      .onConflictDoUpdate({
+        target: [userLastRead.userId, userLastRead.targetType],
+        set: { targetId, updatedAt: new Date() },
+      })
+      .returning();
+    return row;
+  }
+
+  /**
+   * Les 3 positions de lecture les plus recentes, resolues en un titre et un
+   * lien affichables (reutilise `resolveTargets`). Chaque type de contenu
+   * n'apparait qu'une fois (une position par type).
+   */
+  async listLastRead(userId: string, limit = 3) {
+    const rows = await this.db
+      .select()
+      .from(userLastRead)
+      .where(eq(userLastRead.userId, userId))
+      .orderBy(desc(userLastRead.updatedAt))
+      .limit(limit);
+    if (rows.length === 0) return [];
+    const resolved = await this.resolveTargets(rows);
+    return this.attachTargetInfo(rows, resolved);
   }
 }

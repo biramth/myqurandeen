@@ -1,6 +1,6 @@
 import { apiClient } from "@/lib/api-client";
 import { getLocalDateString } from "@/lib/local-date";
-import type { Bookmark, Collection, CollectionDetail, Note, TargetType } from "./types";
+import type { Bookmark, Collection, CollectionDetail, LastRead, Note, TargetType } from "./types";
 
 export const userDataApi = {
   listBookmarks: () => apiClient.get<Bookmark[]>("/user-data/bookmarks"),
@@ -45,4 +45,8 @@ export const userDataApi = {
     }),
   removeCollectionItem: (collectionId: string, itemId: string) =>
     apiClient.delete<void>(`/user-data/collections/${collectionId}/items/${itemId}`),
+
+  recordLastRead: (targetType: TargetType, targetId: string) =>
+    apiClient.post<LastRead>("/user-data/last-read", { targetType, targetId }),
+  listLastRead: (limit = 3) => apiClient.get<LastRead[]>(`/user-data/last-read?limit=${limit}`),
 };

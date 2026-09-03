@@ -51,3 +51,10 @@ export interface CollectionItem extends TargetInfo {
 export interface CollectionDetail extends Collection {
   items: CollectionItem[];
 }
+
+export interface LastRead extends TargetInfo {
+  id: string;
+  targetType: TargetType;
+  targetId: string;
+  updatedAt: string;
+}

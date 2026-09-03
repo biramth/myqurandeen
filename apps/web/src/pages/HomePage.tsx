@@ -21,6 +21,7 @@ import { SearchBox } from "@/components/shared/SearchBox";
 import { PageMeta, buildOgImage } from "@/components/shared/PageMeta";
 import { DailyContentSection } from "@/features/daily/DailyContentSection";
 import { dailyApi } from "@/features/daily/api";
+import { ResumeReading } from "@/features/user-data/ResumeReading";
 
 const CATEGORY_ICONS = {
   quran: BookOpen,
@@ -99,6 +100,8 @@ export function HomePage() {
       </div>
 
       <DailyContentSection />
+
+      <ResumeReading />
 
       <div className="mt-12 grid grid-cols-2 gap-3 sm:grid-cols-3">
         {categories.map((key) => {

@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { Link, Navigate, useNavigate, useParams } from "react-router-dom";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { useTranslation } from "react-i18next";
@@ -11,6 +12,7 @@ import { QuizBlock } from "@/features/learning/QuizBlock";
 import { useAuth } from "@/features/auth/auth-context";
 import { useStreakPing } from "@/features/streaks/useStreak";
 import { useGamificationEvent } from "@/features/gamification/useGamification";
+import { useRecordLastRead } from "@/features/user-data/useRecordLastRead";
 import { ContentUserActions } from "@/components/shared/ContentUserActions";
 import { PageMeta, SITE_URL, buildOgImage, withShareUtm } from "@/components/shared/PageMeta";
 
@@ -20,6 +22,7 @@ export function LearningLessonPage() {
   const { user } = useAuth();
   useStreakPing();
   const track = useGamificationEvent();
+  const recordLastRead = useRecordLastRead();
   const queryClient = useQueryClient();
   const navigate = useNavigate();
   const orderNum = Number(order);
@@ -37,6 +40,10 @@ export function LearningLessonPage() {
   });
 
   const lesson = path?.lessons.find((l) => l.order === orderNum);
+
+  useEffect(() => {
+    if (lesson) recordLastRead("lesson", lesson.id);
+  }, [lesson, recordLastRead]);
 
   const { data: quiz } = useQuery({
     queryKey: ["learning", "lesson-quiz", lesson?.id],

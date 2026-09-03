@@ -61,3 +61,25 @@ export const collectionItems = pgTable(
   },
   (t) => [unique("collection_items_collection_target_uidx").on(t.collectionId, t.targetType, t.targetId)],
 ).enableRLS();
+
+/**
+ * Derniere position de lecture par type de contenu ("Reprendre ou j'en etais").
+ * Une ligne par (utilisateur, targetType) : a chaque lecture on ecrase la
+ * position de ce type, donc la ligne la plus recente = la position courante.
+ */
+export const userLastRead = pgTable(
+  "user_last_read",
+  {
+    id: id(),
+    userId: uuid("user_id")
+      .notNull()
+      .references(() => users.id, { onDelete: "cascade" }),
+    targetType: varchar("target_type", { length: 32, enum: TARGET_TYPES }).notNull(),
+    targetId: uuid("target_id").notNull(),
+    ...timestamps,
+  },
+  (t) => [
+    unique("user_last_read_user_type_uidx").on(t.userId, t.targetType),
+    index("user_last_read_user_updated_idx").on(t.userId, t.updatedAt),
+  ],
+).enableRLS();

@@ -14,6 +14,7 @@ import { arabicFontSizeStyle } from "@/components/shared/arabic-font-size-provid
 import { useOffline } from "@/features/offline/OfflineContext";
 import { useStreakPing } from "@/features/streaks/useStreak";
 import { useGamificationEvent } from "@/features/gamification/useGamification";
+import { useRecordLastRead } from "@/features/user-data/useRecordLastRead";
 import { PageMeta, SITE_URL, buildOgImage, withShareUtm } from "@/components/shared/PageMeta";
 
 export function VersePage() {
@@ -23,6 +24,7 @@ export function VersePage() {
   const { t } = useTranslation();
   useStreakPing();
   const track = useGamificationEvent();
+  const recordLastRead = useRecordLastRead();
   const { offline } = useOffline();
 
   const { data, isLoading, isError } = useQuery({
@@ -50,6 +52,10 @@ export function VersePage() {
   useEffect(() => {
     if (data) track("verse_read");
   }, [data, track]);
+
+  useEffect(() => {
+    if (data) recordLastRead("verse", data.verse.id);
+  }, [data, recordLastRead]);
 
   if (!Number.isInteger(surahNumber) || !Number.isInteger(verseNumber)) {
     return <Navigate to="/quran" replace />;
