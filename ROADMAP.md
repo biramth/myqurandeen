@@ -65,6 +65,27 @@ sur une mise en place complète.
 - [x] Documenter les limites choisies dans `apps/api/README.md` (tableau
       complet par route, mécanisme, principes + note pour la future API
       publique de la phase 6).
+- [x] **Récidive trouvée et corrigée le 2026-09-03** (signalée par Google
+      Search Console : "le sitemap est un fichier HTML" / sous-sitemaps
+      irrécupérables) : `SitemapService.generatePart("static")` déclenchait
+      **16 requêtes SQL en parallèle** par appel (les 6 requêtes communes à
+      "quran"/"hadith" **en plus** de ses 10 requêtes propres, toutes
+      calculées à chaque appel quel que soit le `part` demandé) — largement
+      au-dessus du pool Postgres (15 connexions), `EMAXCONNSESSION`
+      systématique. Corrigé en deux temps : (1) chaque sous-sitemap ne
+      charge plus que les tables dont il a réellement besoin (`static` :
+      10 requêtes au lieu de 16 ; `quran`/`hadith` inchangés à 2-3) ; (2) le
+      semaphore partagé de `SearchService` (`Semaphore`/
+      `withConcurrencyLimit`, 6 requêtes concurrentes max) a été extrait vers
+      `common/concurrency/db-query-semaphore.ts` et réutilisé par
+      `SitemapService` — un seul semaphore **partagé par toute l'API**
+      plutôt qu'une limite locale par service, cohérente avec la note
+      d'origine de ce fix (deux services bornés indépendamment pourraient
+      quand même cumuler assez de connexions pour saturer le pool). Vérifié
+      en conditions réelles : `/sitemap.xml` + les 3 sous-sitemaps répondent
+      200 de façon fiable, y compris en rafales concurrentes (5 requêtes
+      simultanées, répété plusieurs fois). Tests ajoutés
+      (`db-query-semaphore.spec.ts`).
 
 ### 0.2 Bundle JS principal (~750 Ko) (M) — ✅ fait le 2026-09-01
 

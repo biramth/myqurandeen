@@ -1,6 +1,7 @@
 import { Inject, Injectable } from "@nestjs/common";
 import { eq, sql } from "drizzle-orm";
 import type { PgColumn } from "drizzle-orm/pg-core";
+import { withConcurrencyLimit } from "../../common/concurrency/db-query-semaphore";
 import { DRIZZLE } from "../../database/database.constants";
 import type { Database } from "../../database/database.module";
 import {
@@ -28,73 +29,12 @@ import {
 const RESULT_LIMIT = 8;
 /** Seuil de similarite trigramme (pg_trgm) sous lequel une correspondance approximative n'est pas retenue. */
 const FUZZY_THRESHOLD = 0.25;
-/**
- * Nombre max de requetes SQL de recherche pouvant tourner EN MEME TEMPS,
- * tous appels confondus (pas juste au sein d'un seul appel). Le pool
- * Postgres partage par toute l'API est borne a 15 connexions
- * (DatabaseModule) : une recherche transverse declenche naturellement 12
- * requetes independantes (une par type de contenu). Une limite posee
- * seulement par appel ne suffit pas - plusieurs recherches en meme temps
- * peuvent quand meme saturer le pool a elles seules et faire echouer en
- * cascade le reste de l'API (EMAXCONNSESSION), pas seulement la recherche.
- * D'ou un semaphore PARTAGE par toutes les recherches en cours plutot
- * qu'un simple degre de parallelisme local a un appel.
- */
-const SEARCH_CONCURRENT_QUERIES = 6;
-
-/** Semaphore classique : `permits` jetons, `acquire()` attend qu'un jeton soit libre, `release()` le rend (au prochain en attente s'il y en a). */
-class Semaphore {
-  private available: number;
-  private readonly waiters: Array<() => void> = [];
-
-  constructor(permits: number) {
-    this.available = permits;
-  }
-
-  async acquire(): Promise<void> {
-    if (this.available > 0) {
-      this.available--;
-      return;
-    }
-    await new Promise<void>((resolve) => this.waiters.push(resolve));
-  }
-
-  release(): void {
-    const next = this.waiters.shift();
-    if (next) {
-      next(); // jeton transmis directement au suivant, `available` ne change pas
-    } else {
-      this.available++;
-    }
-  }
-}
-
-const searchQuerySemaphore = new Semaphore(SEARCH_CONCURRENT_QUERIES);
-
-/**
- * Execute des taches asynchrones en respectant le semaphore partage
- * ci-dessus, en conservant l'ordre des resultats. Les taches ne doivent PAS
- * etre deja demarrees (des thunks, pas des promesses) : un query builder
- * Drizzle est un "thenable" qui declenche sa requete des qu'on
- * l'awaite/le `.then()` - le passer directement dans un tableau (comme
- * `Promise.all`) demarrerait donc toutes les requetes immediatement, avant
- * meme d'acquerir un jeton.
- */
-async function withConcurrencyLimit<T extends readonly (() => Promise<unknown>)[]>(
-  tasks: readonly [...T],
-): Promise<{ -readonly [K in keyof T]: Awaited<ReturnType<T[K]>> }> {
-  const results = await Promise.all(
-    tasks.map(async (task) => {
-      await searchQuerySemaphore.acquire();
-      try {
-        return await task();
-      } finally {
-        searchQuerySemaphore.release();
-      }
-    }),
-  );
-  return results as { -readonly [K in keyof T]: Awaited<ReturnType<T[K]>> };
-}
+// Bride le nombre de requetes SQL paralleles (une recherche transverse en
+// declenche naturellement 12) via un semaphore PARTAGE avec le reste de
+// l'API (voir common/concurrency/db-query-semaphore.ts) - une limite locale
+// a ce seul service ne suffit pas, un autre gros consommateur (ex.
+// SitemapService) pourrait quand meme cumuler assez de connexions pour
+// saturer le pool Postgres (15 connexions, DatabaseModule) en meme temps.
 
 /**
  * Recherche transverse multi-entites. Les resultats FTS sont classes par
