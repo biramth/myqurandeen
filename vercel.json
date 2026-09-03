@@ -6,6 +6,7 @@
   "rewrites": [
     { "source": "/api/(.*)", "destination": "https://myqurandeen-api.onrender.com/$1" },
     { "source": "/sitemap.xml", "destination": "https://myqurandeen-api.onrender.com/sitemap.xml" },
+    { "source": "/sitemap-data/(.*)", "destination": "https://myqurandeen-api.onrender.com/sitemap-data/$1" },
     { "source": "/(.*)", "destination": "/index.html" }
   ],
   "headers": [

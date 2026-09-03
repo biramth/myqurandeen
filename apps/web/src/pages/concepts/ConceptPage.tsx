@@ -12,7 +12,7 @@ import { PageMeta, SITE_URL, buildOgImage, withShareUtm } from "@/components/sha
 
 export function ConceptPage() {
   const { slug } = useParams<{ slug: string }>();
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
 
   const { data, isLoading, isError } = useQuery({
     queryKey: ["concepts", "detail", slug],
@@ -31,6 +31,28 @@ export function ConceptPage() {
           data
             ? buildOgImage({ title: data.term, arabicText: data.termArabic ?? undefined, body: data.definition })
             : undefined
+        }
+        breadcrumbs={[
+          { name: t("nav.home"), path: "/" },
+          { name: t("concepts.title"), path: "/concepts" },
+          ...(data ? [{ name: data.term, path: `/concepts/${slug}` }] : []),
+        ]}
+        jsonLd={
+          data
+            ? [
+                {
+                  "@type": "Article",
+                  headline: data.term,
+                  description: data.definition,
+                  inLanguage: i18n.language,
+                  isPartOf: {
+                    "@type": "CreativeWork",
+                    name: "myQurandeen",
+                    url: `${SITE_URL}/concepts`,
+                  },
+                },
+              ]
+            : []
         }
       />
       <Breadcrumbs

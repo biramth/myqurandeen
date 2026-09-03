@@ -282,15 +282,20 @@ position avant de dupliquer un mécanisme.
 title/description/OG/Twitter. Il manque la couche indexation/données
 structurées.
 
-- [ ] `sitemap.xml` généré dynamiquement (endpoint API ou script de build)
-      couvrant toutes les pages de contenu indexables : versets, sourates,
-      hadiths, concepts, savants, sujets de fiqh, livres, prophètes,
-      événements historiques. Avec ~6 200 versets + 33 500 hadiths, prévoir
-      plusieurs fichiers sitemap (limite de 50 000 URL/fichier) + un
-      sitemap index.
-- [ ] Données structurées JSON-LD (`schema.org`) : `Article`/`CreativeWork`
-      pour les pages de contenu, `BreadcrumbList` pour les fils d'Ariane
-      déjà présents (`Breadcrumbs.tsx`), `FAQPage` si une FAQ voit le jour.
+- [x] `sitemap.xml` généré dynamiquement (endpoint API) couvrant toutes les
+      pages de contenu indexables : versets, sourates, hadiths, concepts,
+      savants, sujets de fiqh, livres, prophètes, événements historiques.
+      Shardé en sous-sitemaps (`static`/`quran`/`hadith`, < 50 000 URL chacun,
+      volume actuel ~6 200 versets + ~33 500 hadiths) + index racine, servis
+      par `/sitemap.xml` et `/sitemap-data/{part}.xml` (rewrite Vercel en
+      place). Helpers XML extraits et testés (`sitemap-xml.spec.ts`,
+      `sitemap.service.spec.ts`).
+- [x] Données structurées JSON-LD (`schema.org`) : `Article`/`CreativeWork`
+      pour les pages de contenu (verset, hadith, concept), `BreadcrumbList`
+      généré depuis le fil d'Ariane (`breadcrumbs`) via `PageMeta`.
+      Infrastructure réutilisable `jsonLd`/`breadcrumbs` + helpers purs
+      (`buildBreadcrumbList`, `serializeJsonLd`) testés dans
+      `PageMeta.test.ts`.
 - [ ] Vérifier que les pages de contenu sont **crawlables sans exécution
       JS** — le système de pré-rendu Edge pour l'OG (déjà construit pour
       les crawlers de partage) est un bon point de départ ; voir s'il peut
@@ -299,8 +304,9 @@ structurées.
       correctement sur ces routes (Search Console → Inspection d'URL).
 - [ ] Soumettre le sitemap à Google Search Console et Bing Webmaster
       Tools ; suivre l'indexation dans les semaines qui suivent.
-- [ ] `robots.txt` à vérifier/créer (autoriser tout le contenu public,
-      bloquer `/admin`, `/profile`, les routes authentifiées).
+- [x] `robots.txt` vérifié : autorise tout le contenu public, bloque
+      `/admin`, `/profile`, `/login`, `/register`, les routes auth et
+      marketing de désabonnement (déjà en place).
 - [ ] Balises `hreflang` si le contenu multilingue doit être indexé
       séparément par langue (à trancher : une seule URL par verset avec
       langue via préférence utilisateur, ou des URLs par langue — impact

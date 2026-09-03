@@ -83,6 +83,30 @@ export function VersePage() {
               })
             : undefined
         }
+        breadcrumbs={[
+          { name: t("nav.home"), path: "/" },
+          { name: t("quran.title"), path: "/quran" },
+          ...(data ? [{ name: data.surah.nameTransliterated, path: `/quran/${surahNumber}` }] : []),
+          ...(data ? [{ name: `${t("quran.verses")} ${data.verse.numberInSurah}`, path: `/quran/${surahNumber}/${verseNumber}` }] : []),
+        ]}
+        jsonLd={
+          data
+            ? [
+                {
+                  "@type": "CreativeWork",
+                  name: `${data.surah.nameTransliterated} ${data.verse.numberInSurah}`,
+                  description: data.translations[0]?.text,
+                  inLanguage: "ar",
+                  encodingFormat: "text/plain",
+                  isPartOf: {
+                    "@type": "CreativeWork",
+                    name: data.surah.nameTransliterated,
+                    url: `${SITE_URL}/quran/${surahNumber}`,
+                  },
+                },
+              ]
+            : []
+        }
       />
       <Breadcrumbs
         items={[

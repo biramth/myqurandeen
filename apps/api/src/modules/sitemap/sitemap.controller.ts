@@ -1,7 +1,7 @@
-import { Controller, Get, Header } from "@nestjs/common";
+import { Controller, Get, Header, Param, ParseEnumPipe } from "@nestjs/common";
 import { ApiTags } from "@nestjs/swagger";
 import { Public } from "../../common/decorators/public.decorator";
-import { SitemapService } from "./sitemap.service";
+import { SitemapService, type SitemapPart } from "./sitemap.service";
 
 @ApiTags("sitemap")
 @Controller()
@@ -14,6 +14,15 @@ export class SitemapController {
   @Header("Content-Type", "application/xml; charset=utf-8")
   @Header("Cache-Control", "public, max-age=3600")
   sitemap(): Promise<string> {
-    return this.sitemapService.generate();
+    return this.sitemapService.generateIndex();
+  }
+
+  /** Sous-sitemap par categorie. Route identique au pattern de l'index pour simplifier le rewrite Vercel. */
+  @Public()
+  @Get("sitemap-data/:part.xml")
+  @Header("Content-Type", "application/xml; charset=utf-8")
+  @Header("Cache-Control", "public, max-age=3600")
+  sitemapPart(@Param("part", new ParseEnumPipe(["static", "quran", "hadith"])) part: SitemapPart): Promise<string> {
+    return this.sitemapService.generatePart(part);
   }
 }

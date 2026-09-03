@@ -53,6 +53,36 @@ export function withShareUtm(url: string, medium: string): string {
   return parsed.toString();
 }
 
+/**
+ * Serialise un objet JSON-LD avec le contexte schema.org. Echappe "<" (donc
+ * "</script>") pour ne jamais fermer prematurament la balise <script> dans le
+ * HTML final - recommandation Google pour les donnees structurees.
+ */
+export function serializeJsonLd(data: Record<string, unknown>): string {
+  return JSON.stringify({ "@context": "https://schema.org", ...data }).replace(/</g, "\\u003c");
+}
+
+interface Breadcrumb {
+  name: string;
+  path: string;
+}
+
+/**
+ * Construit un BreadcrumbList schema.org depuis un fil d'Ariane ({name, path}).
+ * Chaque item est positionne de 1..n et pointe vers l'URL absolue du site.
+ */
+export function buildBreadcrumbList(breadcrumbs: Breadcrumb[]): Record<string, unknown> {
+  return {
+    "@type": "BreadcrumbList",
+    itemListElement: breadcrumbs.map((item, index) => ({
+      "@type": "ListItem",
+      position: index + 1,
+      name: item.name,
+      item: `${SITE_URL}${item.path}`,
+    })),
+  };
+}
+
 interface PageMetaProps {
   /** Titre de la page (sans le suffixe " · myQurandeen", ajoute automatiquement). */
   title?: string | null;
@@ -64,6 +94,20 @@ interface PageMetaProps {
   url?: string;
   /** Pages privees (auth, admin, profil...) : empeche l'indexation. */
   noindex?: boolean;
+  /**
+   * Donnees structurees JSON-LD (schema.org) supplementaires pour cette page
+   * (Article/CreativeWork/FAQPage...). Le contexte schema.org est ajoute a
+   * chaque objet automatiquement. Ne pas inclure de "</script>" dans les
+   * valeurs (echappe par le rendu). Utile pour les contenus editorialisables :
+   * voir les pages de verset/hadith/concept.
+   */
+  jsonLd?: Record<string, unknown>[];
+  /**
+   * Fil d'Ariane de la page ({name, path}) : genere un BreadcrumbList JSON-LD.
+   * Correspond aux breadcrumbs visibles (Breadcrumbs.tsx). Le dernier item
+   * (la page courante) doit etre fourni avec son chemin courant si besoin.
+   */
+  breadcrumbs?: { name: string; path: string }[];
 }
 
 /**
@@ -83,7 +127,7 @@ interface PageMetaProps {
  * statique), et Google ne retient que la premiere balise description/OG
  * rencontree - la version generique gagnerait alors toujours.
  */
-export function PageMeta({ title, description, image, url, noindex }: PageMetaProps) {
+export function PageMeta({ title, description, image, url, noindex, jsonLd, breadcrumbs }: PageMetaProps) {
   const { i18n } = useTranslation();
   const location = useLocation();
 
@@ -99,6 +143,14 @@ export function PageMeta({ title, description, image, url, noindex }: PageMetaPr
   // designer separement, pas quelque chose qu'on genere en code). Un logo en
   // og:image reste largement mieux que rien, et remplacable sans toucher au code.
   const resolvedImage = image ?? `${SITE_URL}/icon-512.png`;
+
+  const schemas: Record<string, unknown>[] = [];
+  if (breadcrumbs && breadcrumbs.length > 0) {
+    schemas.push(buildBreadcrumbList(breadcrumbs));
+  }
+  for (const data of jsonLd ?? []) {
+    schemas.push(data);
+  }
 
   return (
     <Helmet htmlAttributes={{ lang: i18n.language }}>
@@ -116,6 +168,11 @@ export function PageMeta({ title, description, image, url, noindex }: PageMetaPr
       <meta name="twitter:description" content={resolvedDescription} />
       <meta name="twitter:image" content={resolvedImage} />
       {noindex && <meta name="robots" content="noindex, nofollow" />}
+      {schemas.map((schema) => (
+        <script key={serializeJsonLd(schema)} type="application/ld+json">
+          {serializeJsonLd(schema)}
+        </script>
+      ))}
     </Helmet>
   );
 }

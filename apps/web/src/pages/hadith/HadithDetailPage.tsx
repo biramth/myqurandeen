@@ -49,6 +49,31 @@ export function HadithDetailPage() {
               })
             : undefined
         }
+        breadcrumbs={[
+          { name: t("nav.home"), path: "/" },
+          { name: t("hadith.title"), path: "/hadith" },
+          ...(data ? [{ name: data.collection.name, path: `/hadith/${slug}` }] : []),
+          ...(data?.book ? [{ name: data.book.title, path: `/hadith/${slug}/book/${data.book.number}` }] : []),
+          ...(data ? [{ name: `${t("hadith.hadithLabel")} ${data.hadith.number}`, path: `/hadith/${slug}/${number}` }] : []),
+        ]}
+        jsonLd={
+          data
+            ? [
+                {
+                  "@type": "CreativeWork",
+                  name: `${data.collection.name} ${data.hadith.number}`,
+                  description: data.hadith.textTranslation,
+                  inLanguage: "ar",
+                  encodingFormat: "text/plain",
+                  isPartOf: {
+                    "@type": "CreativeWork",
+                    name: data.collection.name,
+                    url: `${SITE_URL}/hadith/${slug}`,
+                  },
+                },
+              ]
+            : []
+        }
       />
       <Breadcrumbs
         items={[

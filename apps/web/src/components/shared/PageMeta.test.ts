@@ -1,5 +1,11 @@
 import { describe, expect, it } from "vitest";
-import { buildOgImage, SITE_URL, withShareUtm } from "@/components/shared/PageMeta";
+import {
+  buildBreadcrumbList,
+  buildOgImage,
+  serializeJsonLd,
+  SITE_URL,
+  withShareUtm,
+} from "@/components/shared/PageMeta";
 
 describe("withShareUtm", () => {
   it("appose les parametres UTM sans toucher aux parametres existants", () => {
@@ -55,5 +61,32 @@ describe("buildOgImage", () => {
     const parsed = new URL(url);
     expect(parsed.searchParams.toString()).toBe("");
     expect(parsed.pathname).toBe("/api/og");
+  });
+});
+
+describe("buildBreadcrumbList", () => {
+  it("construit une liste ListItem positionnee de 1..n avec URLs absolues", () => {
+    const list = buildBreadcrumbList([
+      { name: "Accueil", path: "/" },
+      { name: "Coran", path: "/quran" },
+      { name: "Al-Baqarah 255", path: "/quran/2/255" },
+    ]);
+    expect(list["@type"]).toBe("BreadcrumbList");
+    const items = list.itemListElement as { position: number; name: string; item: string }[];
+    expect(items).toHaveLength(3);
+    expect(items[0]).toEqual({ "@type": "ListItem", position: 1, name: "Accueil", item: `${SITE_URL}/` });
+    expect(items[1]).toEqual({ "@type": "ListItem", position: 2, name: "Coran", item: `${SITE_URL}/quran` });
+    expect(items[2]).toEqual({ "@type": "ListItem", position: 3, name: "Al-Baqarah 255", item: `${SITE_URL}/quran/2/255` });
+  });
+});
+
+describe("serializeJsonLd", () => {
+  it("prefixe context schema.org et echappe < pour ne pas casser </script>", () => {
+    const json = serializeJsonLd({ "@type": "Article", headline: "a < b" });
+    expect(json).toContain('"@context":"https://schema.org"');
+    expect(json).toContain('"@type":"Article"');
+    // le "<" est echappe en unicode, pas laisse brut
+    expect(json).toContain("\\u003c");
+    expect(json).not.toContain("</script>");
   });
 });
