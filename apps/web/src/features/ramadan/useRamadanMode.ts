@@ -1,58 +1,22 @@
-import * as React from "react";
 import { getHijriDate, getRamadanDay, isRamadan } from "./hijri-calendar";
 
-const OVERRIDE_STORAGE_KEY = "qurandeen-ramadan-mode-override";
-
-export type RamadanModeOverride = "auto" | "on" | "off";
-
-function loadOverride(): RamadanModeOverride {
-  try {
-    const raw = window.localStorage.getItem(OVERRIDE_STORAGE_KEY);
-    return raw === "on" || raw === "off" ? raw : "auto";
-  } catch {
-    return "auto";
-  }
-}
-
 export interface RamadanModeState {
-  /** Vrai si le mode Ramadan doit s'afficher (detection reelle, ou reglage manuel "on"). */
+  /** Vrai uniquement pendant la periode reelle du Ramadan - aucune activation manuelle possible. */
   active: boolean;
-  /** Jour du Ramadan (1-30), null si `active` est faux ou si force manuellement sans date reelle. */
+  /** Jour du Ramadan (1-30), null si `active` est faux. */
   day: number | null;
   hijriYear: number;
-  override: RamadanModeOverride;
-  setOverride: (value: RamadanModeOverride) => void;
 }
 
 /**
- * Detection du mode Ramadan + reglage d'activation manuelle (ROADMAP.md,
- * phase 4 : "activation manuelle possible en reglage pour tester/
- * anticiper" - utile aussi bien pour un visiteur qui veut se preparer en
- * avance que pour verifier l'affichage hors saison). La detection reelle
- * est une approximation arithmetique (voir hijri-calendar.ts) : le reglage
- * manuel permet de la court-circuiter dans les deux sens.
+ * Detection du mode Ramadan - purement automatique, basee sur la date du
+ * jour (voir hijri-calendar.ts, calendrier tabulaire/civil). Volontairement
+ * AUCUNE activation manuelle possible : le mode ne doit s'afficher qu'en
+ * periode reelle de Ramadan, jamais en avance (retire suite a une demande
+ * explicite - une premiere version proposait un reglage "forcer active"
+ * pour tester/anticiper, mais ce n'est pas le comportement souhaite).
  */
 export function useRamadanMode(): RamadanModeState {
-  const [override, setOverrideState] = React.useState<RamadanModeOverride>(() => loadOverride());
-
-  const setOverride = React.useCallback((value: RamadanModeOverride) => {
-    setOverrideState(value);
-    try {
-      window.localStorage.setItem(OVERRIDE_STORAGE_KEY, value);
-    } catch {
-      // Persistance best-effort - le reglage reste actif pour la session en cours.
-    }
-  }, []);
-
-  return React.useMemo(() => {
-    const hijri = getHijriDate();
-    const realDay = getRamadanDay();
-    if (override === "on") {
-      return { active: true, day: realDay ?? 1, hijriYear: hijri.year, override, setOverride };
-    }
-    if (override === "off") {
-      return { active: false, day: null, hijriYear: hijri.year, override, setOverride };
-    }
-    return { active: isRamadan(hijri), day: realDay, hijriYear: hijri.year, override, setOverride };
-  }, [override, setOverride]);
+  const hijri = getHijriDate();
+  return { active: isRamadan(hijri), day: getRamadanDay(), hijriYear: hijri.year };
 }

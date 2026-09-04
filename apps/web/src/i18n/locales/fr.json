@@ -515,13 +515,7 @@
     "title": "Ramadan",
     "subtitle": "Horaires iftar/suhoor, suivi de khatm et rappel quotidien pendant le mois de Ramadan.",
     "bannerTitle": "C'est le Ramadan !",
-    "overrideLabel": "Affichage :",
-    "override": {
-      "auto": "Automatique",
-      "on": "Forcer activé",
-      "off": "Forcer désactivé"
-    },
-    "notActive": "Nous ne sommes pas en Ramadan actuellement. Utilise le réglage d'affichage ci-dessus pour anticiper ou tester cette page.",
+    "notActive": "Cette page n'est disponible que pendant le mois de Ramadan. Reviens dès son début pour suivre ton khatm et activer le rappel quotidien.",
     "dayCounter": "Jour {{day}} du Ramadan",
     "approximationNotice": "Date calculée par approximation (calendrier hijri tabulaire) - le début/la fin réels sont annoncés localement et peuvent différer de +-1 jour.",
     "iftarSuhoorTitle": "Iftar & Suhoor",

@@ -678,13 +678,18 @@ l'utilisateur via la recherche (voir 2.x — plus de géolocalisation).
       dates de Ramadan largement documentées (1447 AH, 1448 AH). Aucune
       dépendance externe, aucune question de licence - même raisonnement
       que le moteur de tajwid maison (3.1). 10 tests unitaires (aller-retour
-      Grégorien↔JDN↔Hijri, époque, bornes du mois). Réglage d'activation
-      manuelle (`useRamadanMode.ts`, `auto`/`on`/`off`, persisté en
-      `localStorage`) pour tester/anticiper hors saison - **le calendrier
+      Grégorien↔JDN↔Hijri, époque, bornes du mois). **Le calendrier
       tabulaire est une approximation arithmétique, pas une observation
       réelle du croissant lunaire : le début/la fin réels sont annoncés
       localement et peuvent différer de +-1 jour, disclaimer affiché dans
-      l'UI**.
+      l'UI.**
+- [x] **Revu le 2026-09-04, sur demande explicite** : le réglage
+      d'activation manuelle (`auto`/`on`/`off`, pour tester/anticiper hors
+      saison) a été **retiré** - le mode Ramadan (bannière accueil + page
+      `/ramadan`, khatm, notification) ne doit s'afficher **qu'en période
+      réelle de Ramadan**, sans aucune possibilité de l'activer en avance.
+      `useRamadanMode.ts` simplifié en conséquence (calcul pur, plus d'état/
+      persistance).
 - [x] Horaires iftar (Maghrib) / suhoor (Fajr) réutilisant directement
       `computePrayerTimes` et la position déjà enregistrée par l'utilisateur
       (`usePrayerLocation`, partagée avec la page horaires de prière) - zéro

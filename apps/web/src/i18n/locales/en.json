@@ -515,13 +515,7 @@
     "title": "Ramadan",
     "subtitle": "Iftar/suhoor times, khatm tracking, and a daily reminder during the month of Ramadan.",
     "bannerTitle": "It's Ramadan!",
-    "overrideLabel": "Display:",
-    "override": {
-      "auto": "Automatic",
-      "on": "Force on",
-      "off": "Force off"
-    },
-    "notActive": "It's not Ramadan right now. Use the display setting above to preview or test this page ahead of time.",
+    "notActive": "This page is only available during the month of Ramadan. Come back once it starts to track your khatm and enable the daily reminder.",
     "dayCounter": "Day {{day}} of Ramadan",
     "approximationNotice": "Date computed by approximation (tabular hijri calendar) - the real start/end are announced locally and may differ by +-1 day.",
     "iftarSuhoorTitle": "Iftar & Suhoor",

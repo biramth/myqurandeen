@@ -11,7 +11,6 @@ import { computePrayerTimes } from "@/features/prayer-times/prayer-times";
 import { KhatmCard } from "@/features/ramadan/KhatmCard";
 import { RamadanAlertCard } from "@/features/ramadan/RamadanAlertCard";
 import { useRamadanMode } from "@/features/ramadan/useRamadanMode";
-import type { RamadanModeOverride } from "@/features/ramadan/useRamadanMode";
 
 function formatTime(date: Date): string {
   return date.toLocaleTimeString(undefined, { hour: "2-digit", minute: "2-digit" });
@@ -21,9 +20,9 @@ function formatTime(date: Date): string {
  * Page centrale du mode Ramadan (ROADMAP.md, phase 4) : horaires iftar/
  * suhoor (reutilise le module horaires de priere), suivi de khatm,
  * notification quotidienne, lien vers les duas dediees deja presentes
- * (dua-seed.ts, categorie "ramadan"). Accessible a tout moment (pas
- * seulement pendant le vrai Ramadan) - le reglage d'activation manuelle en
- * haut de page sert justement a anticiper/tester hors saison.
+ * (dua-seed.ts, categorie "ramadan"). Le contenu ne s'affiche que pendant la
+ * periode reelle du Ramadan - aucune activation manuelle possible (voir
+ * useRamadanMode.ts).
  */
 export function RamadanPage() {
   const { t } = useTranslation();
@@ -43,21 +42,6 @@ export function RamadanPage() {
           <h1 className="text-2xl font-semibold tracking-tight">{t("ramadan.title")}</h1>
           <p className="text-sm text-muted-foreground">{t("ramadan.subtitle")}</p>
         </div>
-      </div>
-
-      <div className="mb-6 flex flex-wrap items-center gap-2 rounded-md border p-3">
-        <span className="text-sm text-muted-foreground">{t("ramadan.overrideLabel")}</span>
-        {(["auto", "on", "off"] as RamadanModeOverride[]).map((value) => (
-          <Button
-            key={value}
-            type="button"
-            size="sm"
-            variant={ramadan.override === value ? "secondary" : "outline"}
-            onClick={() => ramadan.setOverride(value)}
-          >
-            {t(`ramadan.override.${value}`)}
-          </Button>
-        ))}
       </div>
 
       {!ramadan.active ? (
