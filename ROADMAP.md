@@ -326,6 +326,36 @@ position avant de dupliquer un mécanisme.
       tailles de base préservées, juste multipliées) ; confirmé que les
       noms arabes décoratifs (ex. nom d'un savant) ne bougent pas.
 
+### 1.5 Gestion du vendredi (jumu'a) (S) — ✅ fait le 2026-09-04
+
+**Contexte** : le contenu pédagogique du site indique déjà que la prière du
+vendredi (jumu'a) remplace exceptionnellement le dhuhr ce jour-là
+(`learning-seed.ts`), mais rien dans le module horaires de prière/
+notifications n'en tenait compte — le dhuhr du vendredi était traité comme
+un jour normal.
+
+- [x] Page horaires de prière : le créneau dhuhr affiche "Jumu'a" (au lieu
+      de "Dhuhr") le vendredi, avec une note "Remplace le dhuhr ce
+      vendredi" — même logique reprise pour la carte "prochaine prière".
+      Détection par le jour local du navigateur (`now.getDay() === 5`),
+      cohérent avec le reste de la page qui calcule déjà tout côté client.
+- [x] Notification dhuhr : `PrayerAlertSchedulerService` envoie un titre
+      ("Jumu'a") et un texte dédiés le vendredi (rappelle au passage deux
+      sunnah largement établies : lecture de la sourate Al-Kahf, salawat
+      sur le Prophète ﷺ), dans les 8 langues déjà supportées. Détection par
+      `clock.dayOfWeek` (fuseau local de l'utilisateur, déjà calculé par
+      `localClock()` pour l'anti-doublon).
+- [x] Bannière "C'est vendredi !" sur la page d'accueil (même gabarit que
+      la bannière Ramadan), lien direct vers la sourate Al-Kahf
+      (`/quran/18`) — présentée comme le reste du contenu pédagogique du
+      site (fait largement établi, sans citation de hadith précise
+      attachée, aucune correspondance trouvée dans le corpus hadith importé
+      pour ce fait spécifique).
+- [x] Vérifié en direct (le jour de la vérification tombait justement un
+      vendredi) : bannière accueil + lien vers Al-Kahf, libellé "Jumu'a" et
+      note sur la page horaires de prière, carte "prochaine prière" passant
+      correctement à Asr une fois l'heure du jumu'a dépassée.
+
 ---
 
 ## Phase 2 — SEO & distribution

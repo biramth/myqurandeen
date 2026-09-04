@@ -21,6 +21,9 @@ const PRAYER_LABELS: Record<PrayerName, string> = {
   isha: "Isha",
 };
 
+/** `localClock().dayOfWeek` : 0=dimanche ... 6=samedi (voir scheduling-logic.ts). */
+const FRIDAY = 5;
+
 /** Corps localise de la notification : seul le texte autour du nom de la priere est traduit. */
 const ALERT_BODIES: Record<string, (prayer: string) => string> = {
   fr: (p) => `C'est l'heure de la priere de ${p}.`,
@@ -33,7 +36,33 @@ const ALERT_BODIES: Record<string, (prayer: string) => string> = {
   ur: (p) => `${p} کی نماز کا وقت ہو گیا ہے۔`,
 };
 
-function alertBody(locale: string, prayer: PrayerName): string {
+/**
+ * Le vendredi, la priere du jumu'a remplace exceptionnellement le dhuhr
+ * (fait deja documente dans le contenu pedagogique du site, voir
+ * learning-seed.ts) - le rappel dhuhr du vendredi merite donc un texte
+ * dedie plutot que le message generique "c'est l'heure du dhuhr", et
+ * rappelle au passage deux sunnah du vendredi largement etablies (lecture
+ * de la sourate Al-Kahf, salawat).
+ */
+const JUMUA_ALERT_BODIES: Record<string, string> = {
+  fr: "C'est vendredi : l'heure du jumu'a (remplace le dhuhr). Pense aussi à lire la sourate Al-Kahf et à multiplier les prières sur le Prophète ﷺ.",
+  en: "It's Friday: time for Jumu'ah prayer (replaces dhuhr). Also a good time to read Surah Al-Kahf and increase your salawat upon the Prophet ﷺ.",
+  de: "Es ist Freitag: Zeit für das Jumu'a-Gebet (ersetzt den Dhuhr). Auch eine gute Gelegenheit, Surah Al-Kahf zu lesen und die Salawat zu vermehren.",
+  es: "Es viernes: hora de la oración del yumu'a (reemplaza al dhuhr). También es un buen momento para leer la sura Al-Kahf y multiplicar las oraciones sobre el Profeta ﷺ.",
+  id: "Ini hari Jumat: waktu salat Jumat (menggantikan dzuhur). Juga saat yang baik untuk membaca Surah Al-Kahf dan memperbanyak salawat kepada Nabi ﷺ.",
+  ru: "Сегодня пятница: время пятничной молитвы (заменяет зухр). Также хороший повод прочитать суру Аль-Кахф и чаще произносить салават Пророку ﷺ.",
+  tr: "Bugün Cuma: Cuma namazı vakti (öğleyi yerini alır). Ayrıca Kehf suresini okumak ve salavatı çoğaltmak için güzel bir fırsat.",
+  ur: "آج جمعہ ہے: جمعہ کی نماز کا وقت (ظہر کی جگہ)۔ سورہ کہف پڑھنے اور نبی ﷺ پر درود بھیجنے کا بھی اچھا وقت ہے۔",
+};
+
+function alertTitle(prayer: PrayerName, dayOfWeek: number): string {
+  return prayer === "dhuhr" && dayOfWeek === FRIDAY ? "Jumu'a" : PRAYER_LABELS[prayer];
+}
+
+function alertBody(locale: string, prayer: PrayerName, dayOfWeek: number): string {
+  if (prayer === "dhuhr" && dayOfWeek === FRIDAY) {
+    return JUMUA_ALERT_BODIES[locale] ?? JUMUA_ALERT_BODIES.fr;
+  }
   const factory = ALERT_BODIES[locale] ?? ALERT_BODIES.fr;
   return factory(PRAYER_LABELS[prayer]);
 }
@@ -55,6 +84,11 @@ const SENT_AT_COLUMN: Record<PrayerName, keyof typeof prayerAlertSettings.$infer
  * prieres. Meme squelette que les 3 autres planificateurs du module
  * (verrou, fenetre de grace, anti-doublon par jour calendaire local).
  * Deploiement mono-instance : meme note que ReminderSchedulerService.
+ *
+ * Gestion du vendredi : le jumu'a remplace exceptionnellement le dhuhr ce
+ * jour-la (deja documente dans le contenu pedagogique, learning-seed.ts) -
+ * le rappel dhuhr du vendredi utilise donc un titre/texte dedies
+ * ("Jumu'a"), voir `alertTitle`/`alertBody` ci-dessous.
  */
 @Injectable()
 export class PrayerAlertSchedulerService implements OnApplicationBootstrap {
@@ -147,8 +181,8 @@ export class PrayerAlertSchedulerService implements OnApplicationBootstrap {
     }
 
     const sent = await this.notifyUser(setting.userId, {
-      title: PRAYER_LABELS[prayer],
-      body: alertBody(locale, prayer),
+      title: alertTitle(prayer, clock.dayOfWeek),
+      body: alertBody(locale, prayer, clock.dayOfWeek),
       url: "/prayer-times",
     });
     if (sent) {

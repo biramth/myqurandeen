@@ -76,6 +76,12 @@ export function PrayerTimesPage() {
   const upcoming = coords ? nextPrayer(coords.latitude, coords.longitude, method, now) : null;
   const qiblaDirection = coords ? computeQiblaDirection(coords.latitude, coords.longitude) : null;
 
+  // Le jumu'a remplace exceptionnellement le dhuhr le vendredi (voir
+  // learning-seed.ts) - affiche "Jumu'a" plutot que "Dhuhr" ce jour-la.
+  const isFriday = now.getDay() === 5;
+  const prayerLabel = (name: PrayerName | "sunrise") =>
+    name === "dhuhr" && isFriday ? t("prayerTimes.jumua") : t(`prayerTimes.prayers.${name}`);
+
   const prayerRows: { name: PrayerName | "sunrise"; time: Date }[] = times
     ? [
         { name: "fajr", time: times.fajr },
@@ -174,7 +180,7 @@ export function PrayerTimesPage() {
               <CardContent className="flex items-center justify-between p-4">
                 <div>
                   <p className="text-xs uppercase tracking-wide text-muted-foreground">{t("prayerTimes.nextPrayer")}</p>
-                  <p className="text-lg font-semibold">{t(`prayerTimes.prayers.${upcoming.name}`)}</p>
+                  <p className="text-lg font-semibold">{prayerLabel(upcoming.name)}</p>
                 </div>
                 <div className="text-right">
                   <p className="text-2xl font-bold tabular-nums">{formatTime(upcoming.time)}</p>
@@ -199,7 +205,12 @@ export function PrayerTimesPage() {
                 >
                   <div className="flex items-center gap-2">
                     {isSunrise && <Sunrise className="h-4 w-4" aria-hidden="true" />}
-                    <span className={cn("text-sm", !isSunrise && "font-medium")}>{t(`prayerTimes.prayers.${row.name}`)}</span>
+                    <div>
+                      <span className={cn("text-sm", !isSunrise && "font-medium")}>{prayerLabel(row.name)}</span>
+                      {row.name === "dhuhr" && isFriday && (
+                        <p className="text-xs text-muted-foreground">{t("prayerTimes.jumuaNote")}</p>
+                      )}
+                    </div>
                   </div>
                   <span className="tabular-nums text-sm">{formatTime(row.time)}</span>
                 </div>

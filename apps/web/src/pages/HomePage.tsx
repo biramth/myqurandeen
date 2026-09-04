@@ -23,6 +23,7 @@ import { DailyContentSection } from "@/features/daily/DailyContentSection";
 import { dailyApi } from "@/features/daily/api";
 import { ResumeReading } from "@/features/user-data/ResumeReading";
 import { RamadanBanner } from "@/features/ramadan/RamadanBanner";
+import { FridayBanner } from "@/features/prayer-times/FridayBanner";
 
 const CATEGORY_ICONS = {
   quran: BookOpen,
@@ -103,6 +104,8 @@ export function HomePage() {
       <DailyContentSection />
 
       <RamadanBanner />
+
+      <FridayBanner />
 
       <ResumeReading />
 
