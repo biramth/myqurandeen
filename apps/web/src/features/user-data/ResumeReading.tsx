@@ -8,7 +8,7 @@ import { useAuth } from "@/features/auth/auth-context";
 import { userDataApi } from "./api";
 
 /**
- * "Reprendre o� j'en �tais" : affiche les 2-3 positions de lecture les plus
+ * "Reprendre ou j'en etais" : affiche les 2-3 positions de lecture les plus
  * recentes de l'utilisateur connecte, chacune avec un lien direct vers le
  * contenu. Rend rien pour un visiteur anonyme ou sans historique.
  */

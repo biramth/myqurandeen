@@ -283,6 +283,10 @@ position avant de dupliquer un mécanisme.
       (recommandation de la roadmap) — lecture d'un verset puis d'une leçon
       garde les deux, affichage des 2-3 plus récentes. DTO validé dans
       `dto.spec.ts`.
+- [x] **Bug trouvé et corrigé le 2026-09-04** : la clé i18n
+      `home.resumeReading.label` n'existait dans aucune des deux locales
+      (`fr.json`/`en.json`) — le libellé de la section affichait donc la clé
+      brute au lieu du texte traduit. Ajoutée dans les deux fichiers.
 
 ### 1.3 Page "Pourquoi myQurandeen" (S) — ✅ fait le 2026-09-02
 
@@ -532,6 +536,23 @@ Aucun changement de schéma/import nécessaire : tout se calcule côté client,
       "سِنَةٌ وَلَا" et "بِشَيْءٍ مِّنْ", idgham sans ghunna correct sur
       "نَوْمٌ ۚ لَّهُ" (à travers la marque de pause), ghunna correcte sur
       "مِّنْ".
+- [x] **Bug trouvé et corrigé le 2026-09-04** (signalé par l'utilisateur :
+      "le tajwid coloré ne marche pas") : la vérification "en conditions
+      réelles" ci-dessus était en réalité faussée par la couleur `text-primary`
+      déjà appliquée à la basmala (sans rapport avec le tajwid) - le vrai
+      texte des versets ne recevait jamais aucune coloration. Cause :
+      `useTajweedToggle` reposait sur un `useState` local par composant, or
+      le bouton (`TajweedControl`) et le texte colore (`SurahDetailPage`/
+      `VersePage`) sont des **instances de composants différentes** - cliquer
+      le bouton mettait a jour son propre etat (et `localStorage`) mais
+      jamais celui de la page, qui ne relisait `localStorage` qu'au tout
+      premier montage. Le bouton affichait bien "Tajwid active" sans qu'aucune
+      couleur n'apparaisse jamais. Corrige en remplacant le `useState` local
+      par un store externe partage (`useSyncExternalStore`, React 18) - le
+      mecanisme prevu pour exactement ce cas. Cette fois verifie directement
+      dans le DOM (nombre d'enfants `<span>` par verset, pas juste une
+      capture d'ecran) sur `SurahDetailPage` ET `VersePage` : coloration
+      effective confirmee sur les deux pages, etat bien partage entre elles.
 
 ### 3.1bis Coloration tajwid — pistes non retenues dans cette itération
 
@@ -691,6 +712,15 @@ l'utilisateur via la recherche (voir 2.x — plus de géolocalisation).
       "texte complet").
 - [x] Sélecteur de récitateur actif dès le lancement (5 récitateurs) —
       schéma prévu pour en ajouter d'autres, import idempotent.
+- [x] **Style du lecteur amélioré le 2026-09-04** (`AudioRecitation.tsx`) :
+      barre de progression cliquable (`<input type="range">` natif,
+      `accent-primary`, pas de nouvelle dépendance — cohérent avec le reste
+      du projet qui évite d'ajouter une lib pour un besoin simple) avec
+      temps écoulé/durée sous la barre ; gros bouton lecture/pause circulaire
+      centré, boutons précédent/suivant en icônes de part et d'autre ; nom du
+      récitateur affiché en clair, sélecteur repositionné en en-tête compact
+      (icône seule). Remplace l'ancienne rangée unique de boutons + select
+      qui se comprimait maladroitement (`flex-wrap`) sur petit écran.
 
 ---
 

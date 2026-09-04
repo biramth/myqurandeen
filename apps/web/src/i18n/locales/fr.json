@@ -36,6 +36,9 @@
     "dailyHadith": {
       "label": "Hadith du jour"
     },
+    "resumeReading": {
+      "label": "Reprendre où j'en étais"
+    },
     "categories": {
       "quran": {
         "label": "Coran",
@@ -583,6 +586,7 @@
     "audioListen": "Écouter",
     "audioPause": "Pause",
     "audioReciter": "Récitateur",
+    "audioSeek": "Position de lecture",
     "audioPrevious": "Verset précédent",
     "audioNext": "Verset suivant",
     "audioError": "Impossible de charger la récitation.",

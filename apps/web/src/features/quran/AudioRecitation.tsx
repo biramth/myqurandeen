@@ -4,7 +4,7 @@ import { useTranslation } from "react-i18next";
 import { Pause, Play, SkipBack, SkipForward, Volume2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Skeleton } from "@/components/ui/skeleton";
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+import { Select, SelectContent, SelectItem, SelectTrigger } from "@/components/ui/select";
 import { quranApi } from "@/features/quran/api";
 import { cn } from "@/lib/utils";
 
@@ -135,8 +135,16 @@ export function AudioRecitation({
     return <p className="text-sm text-muted-foreground">{t("quran.audioEmpty")}</p>;
   }
 
+  const seek = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const audio = audioRef.current;
+    if (!audio) return;
+    const value = Number(event.target.value);
+    audio.currentTime = value;
+    setCurrentTime(value);
+  };
+
   return (
-    <div className={cn("rounded-lg border bg-card p-3", className)}>
+    <div className={cn("rounded-lg border bg-card p-4", className)}>
       <audio
         ref={audioRef}
         preload="none"
@@ -146,12 +154,47 @@ export function AudioRecitation({
         onDurationChange={(event) => setDuration(event.currentTarget.duration)}
         onEnded={() => navigateTo(verseNumber + 1)}
       />
-      <div className="flex flex-wrap items-center gap-2">
+
+      <div className="flex items-center justify-between gap-2">
+        <p className="truncate text-xs font-medium text-muted-foreground">{active.nameTransliterated}</p>
+        <Select value={active.slug} onValueChange={selectReciter}>
+          <SelectTrigger className="h-8 w-auto gap-1.5 border-none px-2 text-xs shadow-none hover:bg-accent" aria-label={t("quran.audioReciter")}>
+            <Volume2 className="h-3.5 w-3.5 shrink-0" aria-hidden="true" />
+          </SelectTrigger>
+          <SelectContent align="end">
+            {items.map((item) => (
+              <SelectItem key={item.id} value={item.slug}>
+                {item.nameTransliterated}
+              </SelectItem>
+            ))}
+          </SelectContent>
+        </Select>
+      </div>
+
+      <div className="mt-2">
+        <input
+          type="range"
+          min={0}
+          max={duration || 0}
+          step={0.1}
+          value={Math.min(currentTime, duration || 0)}
+          onChange={seek}
+          disabled={duration === 0}
+          aria-label={t("quran.audioSeek")}
+          className="h-1.5 w-full cursor-pointer appearance-none rounded-full bg-muted accent-primary disabled:cursor-default"
+        />
+        <div className="mt-1 flex justify-between text-xs tabular-nums text-muted-foreground">
+          <span>{formatTime(currentTime)}</span>
+          <span>{formatTime(duration)}</span>
+        </div>
+      </div>
+
+      <div className="mt-1 flex items-center justify-center gap-4">
         {onNavigate && (
           <Button
             type="button"
             variant="ghost"
-            size="sm"
+            size="icon"
             aria-label={t("quran.audioPrevious")}
             title={t("quran.audioPrevious")}
             disabled={verseNumber <= 1}
@@ -161,16 +204,25 @@ export function AudioRecitation({
           </Button>
         )}
 
-        <Button type="button" variant="outline" onClick={togglePlay} aria-label={isPlaying ? t("quran.audioPause") : t("quran.audioListen")}>
-          {isPlaying ? <Pause className="h-4 w-4" aria-hidden="true" /> : <Play className="h-4 w-4" aria-hidden="true" />}
-          {isPlaying ? t("quran.audioPause") : t("quran.audioListen")}
+        <Button
+          type="button"
+          size="icon"
+          className="h-12 w-12 rounded-full"
+          onClick={togglePlay}
+          aria-label={isPlaying ? t("quran.audioPause") : t("quran.audioListen")}
+        >
+          {isPlaying ? (
+            <Pause className="h-5 w-5" aria-hidden="true" />
+          ) : (
+            <Play className="ml-0.5 h-5 w-5" aria-hidden="true" />
+          )}
         </Button>
 
         {onNavigate && (
           <Button
             type="button"
             variant="ghost"
-            size="sm"
+            size="icon"
             aria-label={t("quran.audioNext")}
             title={t("quran.audioNext")}
             disabled={totalVerses !== undefined && verseNumber >= totalVerses}
@@ -179,27 +231,6 @@ export function AudioRecitation({
             <SkipForward className="h-4 w-4" aria-hidden="true" />
           </Button>
         )}
-
-        <div className="ml-auto flex items-center gap-2">
-          {duration > 0 && (
-            <span className="text-xs tabular-nums text-muted-foreground">
-              {formatTime(currentTime)} / {formatTime(duration)}
-            </span>
-          )}
-          <Select value={active.slug} onValueChange={selectReciter}>
-            <SelectTrigger className="h-9 w-44 text-xs sm:w-52 sm:text-sm" aria-label={t("quran.audioReciter")}>
-              <Volume2 className="h-3.5 w-3.5 shrink-0" aria-hidden="true" />
-              <SelectValue />
-            </SelectTrigger>
-            <SelectContent>
-              {items.map((item) => (
-                <SelectItem key={item.id} value={item.slug}>
-                  {item.nameTransliterated}
-                </SelectItem>
-              ))}
-            </SelectContent>
-          </Select>
-        </div>
       </div>
     </div>
   );
