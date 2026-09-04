@@ -614,6 +614,53 @@ fait ses preuves.
 - [ ] Index Postgres adapté (`btree` sur la colonne racine suffit a priori,
       pas besoin de FTS ici).
 
+### 3.4 Cours "Apprendre à lire l'arabe coranique" (L) — ✅ fait le 2026-09-04
+
+**Contexte** : demande explicite de l'utilisateur - un cours "ultra complet",
+pas limité à l'alphabet seul : les formes des lettres selon leur position
+dans le mot, puis des exercices de concaténation progressifs (2 lettres,
+puis mots courts) jusqu'à pouvoir aborder la lecture de vrais versets.
+Nouveau parcours dans l'infrastructure `learning` déjà existante (parcours/
+leçons/quiz, voir phase 1 introduction/pratique de la prière) - aucun
+changement de schéma nécessaire.
+
+- [x] **20 leçons** dans un nouveau parcours `lire-arabe-coranique`
+      ([learning-arabic-reading-seed.ts](apps/api/src/database/seed/learning-arabic-reading-seed.ts),
+      fusionné dans `PATHS` de `learning-seed.ts`) : sens de lecture et
+      écriture cursive (L1) ; les 28 lettres par familles de squelette
+      graphique partagé, la méthode traditionnelle la plus efficace pour les
+      mémoriser (L2-L10, tableau récapitulatif final) ; voyelles courtes,
+      soukoun, chadda (L11-13) ; premiers mots réels de 2-3 lettres (L14) ;
+      voyelles longues et tanwin (L15-16) ; alif de liaison, ta marbouta, lam
+      solaire/lunaire (L17-18) ; application directe sur Al-Fatiha puis
+      Al-Ikhlas/Al-Falaq/An-Nas (L19-20, liens vers les vraies pages de
+      sourate plutôt que du texte coranique retranscrit à la main dans le
+      seed - même principe de sourcing que le reste du site).
+- [x] **Tableaux de formes de lettres interactifs**
+      ([LetterFormsTable.tsx](apps/web/src/features/learning/arabic-reading/LetterFormsTable.tsx)) :
+      isolée/initiale/médiane/finale déduites par tatweel (U+0640) plutôt que
+      saisies à la main via des codepoints Unicode de "presentation forms"
+      (déconseillés, et risque réel d'erreur de transcription) - le moteur
+      de rendu arabe du navigateur choisit la forme connectée exactement
+      comme il le ferait pour un vrai mot.
+- [x] **Exercices de lecture progressifs**
+      ([ReadingDrill.tsx](apps/web/src/features/learning/arabic-reading/ReadingDrill.tsx)) :
+      grille de mots à déchiffrer, translittération masquée par défaut et
+      révélée au clic (par item ou globalement) - pousse à vraiment tenter
+      la lecture avant de vérifier. Branchés par (parcours, ordre de leçon)
+      via `LessonIllustration.tsx`, même mécanisme que les illustrations
+      existantes (postures de prière...).
+- [x] Quiz : 1 question sur la moitié des leçons + quiz final récapitulatif
+      (6 questions) dans `quiz-seed.ts`, même convention que les autres
+      parcours.
+- [x] Vérifié en direct : les 3 types de contenu (tableau de lettres,
+      exercice de lecture avec révélation, quiz) rendus et interactifs sur
+      plusieurs leçons ; tableau récapitulatif des 28 lettres complet et
+      correct (y compris les tirets "—" pour les formes inexistantes des 6
+      lettres non-attachantes) ; parcours visible dans la liste `/learn`.
+      Scripts de seed exécutés avec succès (20 leçons + 185 questions au
+      total, tous parcours confondus).
+
 ---
 
 ## Phase 4 — Mode Ramadan — ✅ fait le 2026-09-03

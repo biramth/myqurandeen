@@ -1,6 +1,7 @@
 import { eq } from "drizzle-orm";
 import type { Database } from "../database.module";
 import { learningLessons, learningPaths } from "../schema";
+import { ARABIC_READING_PATH } from "./learning-arabic-reading-seed";
 
 /**
  * Parcours d'apprentissage déterministes (aucune IA). Chaque leçon est un
@@ -14,12 +15,12 @@ import { learningLessons, learningPaths } from "../schema";
  * religieuse intégrée, pas une simple série d'articles sur le Coran.
  */
 
-interface ReferenceLink {
+export interface ReferenceLink {
   label: string;
   url: string;
 }
 
-interface LessonSeed {
+export interface LessonSeed {
   order: number;
   title: string;
   content: string;
@@ -27,7 +28,7 @@ interface LessonSeed {
   references: ReferenceLink[];
 }
 
-interface PathSeed {
+export interface PathSeed {
   title: string;
   slug: string;
   level: "beginner" | "intermediate" | "advanced";
@@ -1001,6 +1002,7 @@ const PATHS: PathSeed[] = [
       },
     ],
   },
+  ARABIC_READING_PATH,
 ];
 
 export async function seedLearning(db: Database): Promise<void> {

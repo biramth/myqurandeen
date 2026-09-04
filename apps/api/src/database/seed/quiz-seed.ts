@@ -1283,6 +1283,121 @@ const LESSON_QUIZZES: Record<string, Record<number, QuestionSeed[]>> = {
       },
     ],
   },
+  "lire-arabe-coranique": {
+    1: [
+      {
+        question: "Dans quel sens se lit et s'écrit l'arabe ?",
+        options: ["De droite à gauche", "De gauche à droite", "De haut en bas", "Cela dépend du dialecte"],
+        correctIndex: 0,
+        explanation: "L'arabe se lit et s'écrit de droite à gauche, l'inverse du français.",
+      },
+    ],
+    2: [
+      {
+        question: "Combien de lettres ne s'attachent jamais à la lettre suivante ?",
+        options: ["3", "4", "6", "8"],
+        correctIndex: 2,
+        explanation: "Six lettres ne s'attachent jamais à la suivante : ا د ذ ر ز و.",
+      },
+    ],
+    3: [
+      {
+        question: "Qu'est-ce qui distingue ب, ت et ث à l'écrit ?",
+        options: [
+          "Rien, ce sont des variantes libres de la même lettre",
+          "Le nombre et la position des points diacritiques",
+          "La longueur du trait",
+          "La couleur de l'encre traditionnellement utilisée",
+        ],
+        correctIndex: 1,
+        explanation: "Les trois lettres partagent le même squelette ; seul le nombre et la position des points changent.",
+      },
+    ],
+    5: [
+      {
+        question: "Laquelle de ces lettres s'attache à la lettre qui la suit ?",
+        options: ["د", "ر", "ب", "و"],
+        correctIndex: 2,
+        explanation: "ب s'attache normalement ; د, ر et و font partie des 6 lettres non-attachantes.",
+      },
+    ],
+    9: [
+      {
+        question: "Que représente la hamza (ء) ?",
+        options: [
+          "Un arrêt bref de la voix (coup de glotte)",
+          "Une voyelle longue",
+          "Une lettre emphatique",
+          "Le signe du pluriel",
+        ],
+        correctIndex: 0,
+        explanation: "La hamza représente un arrêt bref de la voix, parfois posée sur un alif/waw/ya qui lui sert de support.",
+      },
+    ],
+    11: [
+      {
+        question: "Quel son donne la damma ( ُ ) à une lettre ?",
+        options: ["\"a\"", "\"i\"", "\"ou\" bref", "Aucun son"],
+        correctIndex: 2,
+        explanation: "La damma donne un son \"ou\" bref (transcrit \"u\" par simplicité dans ce parcours).",
+      },
+    ],
+    12: [
+      {
+        question: "Que signifie un soukoun ( ْ ) sur une lettre ?",
+        options: [
+          "La lettre est doublée",
+          "La lettre ne porte aucune voyelle",
+          "La lettre est muette",
+          "La lettre porte un tanwin",
+        ],
+        correctIndex: 1,
+        explanation: "Le soukoun indique que la lettre ne porte aucune voyelle : on prononce sa consonne sèche.",
+      },
+    ],
+    13: [
+      {
+        question: "Que fait la chadda ( ّ ) sur une lettre ?",
+        options: ["Elle la rend muette", "Elle la double", "Elle la transforme en voyelle longue", "Elle ajoute un \"n\" final"],
+        correctIndex: 1,
+        explanation: "La chadda double la lettre : on la prononce plus longuement/appuyée.",
+      },
+    ],
+    15: [
+      {
+        question: "Que se passe-t-il quand un alif suit une lettre portant une fatha ?",
+        options: [
+          "L'alif se prononce comme une consonne à part",
+          "Le son \"a\" de la lettre précédente s'allonge",
+          "L'alif est ignoré à la lecture",
+          "Cela indique un tanwin",
+        ],
+        correctIndex: 1,
+        explanation: "Alif après fatha (comme waw après damma et ya après kasra) allonge le son précédent : ce sont les lettres de madd.",
+      },
+    ],
+    16: [
+      {
+        question: "Comment se lit le tanwin damma ( ٌ ) ?",
+        options: ["\"an\"", "\"in\"", "\"un\"", "\"oun\""],
+        correctIndex: 2,
+        explanation: "Le tanwin damma ( ٌ ) se lit \"un\", comme dans كِتَابٌ (\"kitabun\").",
+      },
+    ],
+    18: [
+      {
+        question: "Dans ٱلشَّمْسُ (\"le soleil\"), pourquoi le lam de l'article ne se prononce-t-il pas ?",
+        options: [
+          "Parce que ش est une lettre solaire, qui absorbe le lam (doublé à sa place)",
+          "Parce que le mot commence une phrase",
+          "Parce que ش porte un soukoun",
+          "Il se prononce normalement, c'est une erreur de l'énoncé",
+        ],
+        correctIndex: 0,
+        explanation: "Devant une lettre solaire, le lam de l'article ne se prononce pas : la lettre solaire est doublée (chadda) à sa place.",
+      },
+    ],
+  },
 };
 
 const FINAL_QUIZZES: Record<string, QuestionSeed[]> = {
@@ -1567,6 +1682,59 @@ const FINAL_QUIZZES: Record<string, QuestionSeed[]> = {
       options: ["Abu Bakr, premier calife", "Ali, son cousin et gendre", "Omar", "Aucun successeur n'est désigné"],
       correctIndex: 0,
       explanation: "Abu Bakr as-Siddiq est désigné premier calife, ouvrant la période rashidun.",
+    },
+  ],
+  "lire-arabe-coranique": [
+    {
+      question: "Dans quel sens se lit et s'écrit l'arabe ?",
+      options: ["De droite à gauche", "De gauche à droite", "De haut en bas", "Cela varie selon les régions"],
+      correctIndex: 0,
+      explanation: "L'arabe se lit et s'écrit de droite à gauche.",
+    },
+    {
+      question: "Pourquoi une même lettre arabe peut-elle avoir 4 formes graphiques différentes ?",
+      options: [
+        "Parce que l'écriture est cursive : la lettre change selon sa position dans le mot",
+        "Parce qu'il existe 4 dialectes principaux",
+        "Par choix esthétique du calligraphe",
+        "Ce n'est vrai que pour 2 lettres de l'alphabet",
+      ],
+      correctIndex: 0,
+      explanation: "L'écriture arabe étant cursive, une lettre s'attache différemment selon qu'elle est isolée, initiale, médiane ou finale.",
+    },
+    {
+      question: "Combien de lettres ne s'attachent jamais à la lettre suivante ?",
+      options: ["3", "6", "9", "12"],
+      correctIndex: 1,
+      explanation: "Six lettres (ا د ذ ر ز و) ne s'attachent jamais à la lettre qui les suit.",
+    },
+    {
+      question: "Quel signe indique qu'une lettre ne porte aucune voyelle ?",
+      options: ["La chadda", "Le tanwin", "Le soukoun", "La hamza"],
+      correctIndex: 2,
+      explanation: "Le soukoun ( ْ ) indique l'absence de voyelle : on prononce la consonne sèche.",
+    },
+    {
+      question: "Que fait un alif, un waw ou un ya sans sa propre voyelle après une lettre déjà voyellée en conséquence ?",
+      options: [
+        "Il se prononce comme une consonne séparée",
+        "Il allonge la voyelle de la lettre précédente",
+        "Il transforme la lettre précédente en tanwin",
+        "Il est simplement une erreur d'orthographe",
+      ],
+      correctIndex: 1,
+      explanation: "Alif après fatha, waw après damma, ya après kasra : ce sont les lettres de madd, qui allongent le son précédent.",
+    },
+    {
+      question: "Dans ٱلْقَمَرُ (\"la lune\"), pourquoi le lam de l'article se prononce-t-il normalement ?",
+      options: [
+        "Parce que ق est une lettre lunaire",
+        "Parce que ق est une lettre solaire",
+        "Parce que le mot commence une phrase",
+        "Parce que ق porte une chadda",
+      ],
+      correctIndex: 0,
+      explanation: "Devant une lettre lunaire comme ق, le lam de l'article se prononce normalement (lam qamariyya).",
     },
   ],
 };
