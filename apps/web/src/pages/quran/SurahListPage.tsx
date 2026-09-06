@@ -9,6 +9,7 @@ import { quranApi } from "@/features/quran/api";
 import { translatedSurahName } from "@/features/quran/surah-names";
 import { getOfflineSurahs } from "@/features/quran/offline-quran";
 import { useOffline } from "@/features/offline/OfflineContext";
+import { QuranOfflineDownloadCard } from "@/features/offline/QuranOfflineDownloadCard";
 import { PageMeta } from "@/components/shared/PageMeta";
 
 export function SurahListPage() {
@@ -30,6 +31,8 @@ export function SurahListPage() {
           <p className="text-sm text-muted-foreground">{t("quran.subtitle")}</p>
         </div>
       </div>
+
+      <QuranOfflineDownloadCard />
 
       {isError && <p className="text-sm text-destructive">{t("quran.errorList")}</p>}
 

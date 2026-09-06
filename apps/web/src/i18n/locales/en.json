@@ -253,8 +253,7 @@
       "bookmarks": "Bookmarks",
       "notes": "Notes",
       "collections": "Collections",
-      "reminders": "Reminders",
-      "offline": "Offline"
+      "reminders": "Reminders"
     }
   },
   "offline": {

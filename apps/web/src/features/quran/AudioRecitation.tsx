@@ -275,29 +275,29 @@ export function AudioRecitation({
       </div>
 
       {onNavigate && !offline && active && (
-        <div className="mt-2 flex flex-wrap items-center justify-center gap-2 text-xs">
+        <div className="mt-3 border-t pt-3">
           {audioDownload.downloaded ? (
-            <>
-              <span className="flex items-center gap-1 text-emerald-600 dark:text-emerald-400">
-                <Check className="h-3.5 w-3.5" aria-hidden="true" />
+            <div className="flex items-center justify-between gap-2 text-sm">
+              <span className="flex items-center gap-1.5 text-emerald-600 dark:text-emerald-400">
+                <Check className="h-4 w-4" aria-hidden="true" />
                 {t("quran.audioDownloadedOffline")}
               </span>
-              <Button type="button" variant="ghost" size="sm" onClick={() => void audioDownload.remove()}>
-                <Trash2 className="h-3.5 w-3.5" aria-hidden="true" />
+              <Button type="button" variant="outline" size="sm" onClick={() => void audioDownload.remove()}>
+                <Trash2 className="h-4 w-4" aria-hidden="true" />
                 {t("offline.remove")}
               </Button>
-            </>
+            </div>
           ) : audioDownload.stage === "downloading" ? (
-            <span className="text-muted-foreground">
+            <p className="text-center text-sm text-muted-foreground">
               {t("quran.audioDownloadingOffline", { progress: audioDownload.progress })}
-            </span>
+            </p>
           ) : (
-            <Button type="button" variant="ghost" size="sm" onClick={() => void audioDownload.download()}>
-              <Download className="h-3.5 w-3.5" aria-hidden="true" />
+            <Button type="button" variant="outline" size="sm" className="w-full" onClick={() => void audioDownload.download()}>
+              <Download className="h-4 w-4" aria-hidden="true" />
               {t("quran.audioDownloadOffline")}
             </Button>
           )}
-          {audioDownload.error && <span className="text-destructive">{t(audioDownload.error)}</span>}
+          {audioDownload.error && <p className="mt-1.5 text-center text-xs text-destructive">{t(audioDownload.error)}</p>}
         </div>
       )}
     </div>

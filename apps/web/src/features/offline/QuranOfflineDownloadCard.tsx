@@ -1,6 +1,6 @@
 import * as React from "react";
 import { useTranslation } from "react-i18next";
-import { useQuery, useQueryClient } from "@tanstack/react-query";
+import { useQuery } from "@tanstack/react-query";
 import { Download, Info, Trash2, WifiOff } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useOfflineDownload } from "@/features/offline/useOfflineDownload";
@@ -15,10 +15,19 @@ function formatBytes(bytes: number): string {
   return `${(kb / 1024).toFixed(1)} Mo`;
 }
 
-export function OfflineTab() {
+/**
+ * Telechargement du texte complet du Coran pour la lecture hors-ligne.
+ * Affiche directement sur la liste des sourates (`/quran`, le contenu
+ * concerne), plutot que dans l'onglet "Hors ligne" du profil - retire de
+ * la suite a une demande explicite : ce controle etait trop cache
+ * (necessitait d'etre connecte puis de naviguer dans les reglages du
+ * profil) et doit etre visible au niveau du contenu telechargeable
+ * lui-meme. Ne necessite pas de compte (le telechargement est purement
+ * cote client, IndexedDB).
+ */
+export function QuranOfflineDownloadCard() {
   const { t } = useTranslation();
   const online = useOnlineStatus();
-  const queryClient = useQueryClient();
   const {
     isQuranDownloaded,
     downloadedTranslationIds,
@@ -58,17 +67,6 @@ export function OfflineTab() {
 
   const busy = started && (stage === "quran" || stage === "translations");
 
-  // Recitation audio telechargee (phase 5) - independant du texte/traductions
-  // ci-dessus, telecharge depuis la page de chaque sourate (AudioRecitation).
-  const { data: audioSurahs } = useQuery({
-    queryKey: ["offline", "audio"],
-    queryFn: () => offlineDb.listDownloadedAudioSurahs(),
-  });
-  const removeAudioSurah = async (reciterSlug: string, surahNumber: number) => {
-    await offlineDb.removeSurahAudio(reciterSlug, surahNumber);
-    queryClient.invalidateQueries({ queryKey: ["offline", "audio"] });
-  };
-
   const toggle = (id: string) => {
     setSelected((prev) => (prev.includes(id) ? prev.filter((x) => x !== id) : [...prev, id]));
   };
@@ -78,9 +76,7 @@ export function OfflineTab() {
     selected.reduce((sum, id) => sum + (sizes?.translationsBytes[id] ?? 0), 0);
 
   return (
-    <div className="space-y-4">
-      <p className="text-sm text-muted-foreground">{t("offline.description")}</p>
-
+    <div className="mb-6 space-y-2">
       {!online && <p className="text-xs text-destructive">{t("offline.needConnection")}</p>}
       {needsUpdate && <p className="text-xs text-amber-600 dark:text-amber-400">{t("offline.updateAvailable")}</p>}
       {isQuranDownloaded && !busy && downloadedTranslationIds.length > 0 && (
@@ -174,37 +170,6 @@ export function OfflineTab() {
         {stage === "done" && <p className="mt-2 text-xs text-emerald-600 dark:text-emerald-400">{t("offline.done")}</p>}
         {error && <p className="mt-2 text-xs text-destructive">{t(error)}</p>}
       </div>
-
-      {audioSurahs && audioSurahs.length > 0 && (
-        <div className="rounded-md border p-4">
-          <p className="text-sm font-medium">{t("offline.audioTitle")}</p>
-          <p className="mb-3 text-xs text-muted-foreground">{t("offline.audioDescription")}</p>
-          <div className="grid gap-1.5">
-            {audioSurahs.map((entry) => (
-              <div
-                key={`${entry.reciterSlug}:${entry.surahNumber}`}
-                className="flex items-center justify-between rounded-md border px-3 py-2 text-sm"
-              >
-                <span className="truncate">
-                  {entry.surahName ?? t("offline.audioSurahFallback", { number: entry.surahNumber })}
-                  <span className="text-muted-foreground"> — {entry.reciterName}</span>
-                </span>
-                <span className="ml-2 flex shrink-0 items-center gap-2 text-xs text-muted-foreground">
-                  {formatBytes(entry.totalBytes)}
-                  <Button
-                    type="button"
-                    variant="ghost"
-                    size="sm"
-                    onClick={() => void removeAudioSurah(entry.reciterSlug, entry.surahNumber)}
-                  >
-                    <Trash2 className="h-3.5 w-3.5" aria-hidden="true" />
-                  </Button>
-                </span>
-              </div>
-            ))}
-          </div>
-        </div>
-      )}
     </div>
   );
 }
