@@ -157,6 +157,73 @@ export class QuranService {
     return { items };
   }
 
+  /**
+   * Metadonnees audio d'une sourate entiere pour un recitateur donne, en une
+   * seule requete (pas 1 par verset) - sert au telechargement hors-ligne de
+   * l'audio (voir useOfflineAudioDownload.ts cote client), meme logique que
+   * exportBulk/exportTranslation pour le texte. `downloadUrl` (relatif, meme
+   * origine que le reste de l'API) plutot que l'URL CDN directe : le CDN
+   * (cdn.islamic.network) n'envoie pas d'en-tete CORS, un `fetch()` cote
+   * navigateur pour stocker le Blob en IndexedDB echoue donc si on lui passe
+   * l'URL brute (le lecteur `<audio src>` en streaming, lui, n'a pas ce
+   * probleme - CORS ne s'applique qu'aux lectures via `fetch`/XHR). Voir
+   * QuranAudioProxyController pour le proxy correspondant.
+   */
+  async getSurahAudio(surahNumber: number, reciterSlug: string) {
+    const surah = await this.db.query.quranSurahs.findFirst({ where: eq(quranSurahs.number, surahNumber) });
+    if (!surah) {
+      throw new NotFoundException(`Sourate ${surahNumber} introuvable`);
+    }
+
+    const reciter = await this.db.query.quranReciters.findFirst({ where: eq(quranReciters.slug, reciterSlug) });
+    if (!reciter) {
+      throw new NotFoundException(`Recitateur ${reciterSlug} introuvable`);
+    }
+
+    const rows = await this.db
+      .select({
+        numberInSurah: quranVerses.numberInSurah,
+        durationSec: quranVerseAudio.durationSec,
+      })
+      .from(quranVerseAudio)
+      .innerJoin(quranVerses, eq(quranVerses.id, quranVerseAudio.verseId))
+      .where(and(eq(quranVerses.surahId, surah.id), eq(quranVerseAudio.reciterId, reciter.id)))
+      .orderBy(asc(quranVerses.numberInSurah));
+
+    const items = rows.map((row) => ({
+      numberInSurah: row.numberInSurah,
+      durationSec: row.durationSec,
+      downloadUrl: `/quran/surahs/${surahNumber}/verses/${row.numberInSurah}/audio/${reciterSlug}/download`,
+    }));
+
+    return { items };
+  }
+
+  /** URL CDN brute d'un verset - reservee au proxy de telechargement (jamais exposee telle quelle au client pour le hors-ligne, voir getSurahAudio). */
+  async getVerseAudioUrl(surahNumber: number, verseNumber: number, reciterSlug: string): Promise<string> {
+    const surah = await this.db.query.quranSurahs.findFirst({ where: eq(quranSurahs.number, surahNumber) });
+    if (!surah) {
+      throw new NotFoundException(`Sourate ${surahNumber} introuvable`);
+    }
+    const verse = await this.db.query.quranVerses.findFirst({
+      where: and(eq(quranVerses.surahId, surah.id), eq(quranVerses.numberInSurah, verseNumber)),
+    });
+    if (!verse) {
+      throw new NotFoundException(`Verset ${surahNumber}:${verseNumber} introuvable`);
+    }
+    const reciter = await this.db.query.quranReciters.findFirst({ where: eq(quranReciters.slug, reciterSlug) });
+    if (!reciter) {
+      throw new NotFoundException(`Recitateur ${reciterSlug} introuvable`);
+    }
+    const row = await this.db.query.quranVerseAudio.findFirst({
+      where: and(eq(quranVerseAudio.verseId, verse.id), eq(quranVerseAudio.reciterId, reciter.id)),
+    });
+    if (!row) {
+      throw new NotFoundException(`Audio introuvable pour ${surahNumber}:${verseNumber} (${reciterSlug})`);
+    }
+    return row.url;
+  }
+
   async exportBulk() {
     const surahs = await this.db
       .select({

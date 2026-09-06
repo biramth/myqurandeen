@@ -765,10 +765,55 @@ l'utilisateur via la recherche (voir 2.x — plus de géolocalisation).
       `VersePage`/`SurahDetailPage` — lecture en continu (verset suivant
       automatique), boutons précédent/suivant, sélecteur de récitateur
       persisté en localStorage, utilisable au clavier/lecteur d'écran.
-- [ ] Téléchargement hors-ligne de l'audio : à articuler avec le cache
-      hors-ligne texte (3.2), mais séparément (l'audio est nettement plus
-      lourd, ne doit pas être inclus par défaut dans le téléchargement
-      "texte complet").
+- [x] **Téléchargement hors-ligne de l'audio, fait le 2026-09-06** : séparé
+      du cache texte (3.2) comme prévu - se déclenche depuis le bouton
+      "Télécharger pour écoute hors-ligne" sous le lecteur, sur la page
+      d'une sourate (pas sur `VersePage`, verset isolé - le hors-ligne
+      n'a de sens qu'à l'échelle d'une sourate entière). Nouvel endpoint
+      `GET /quran/surahs/:number/audio/:reciterSlug` (métadonnées de toute
+      la sourate en un seul appel, comme `exportBulk`/`exportTranslation`
+      pour le texte) puis un `fetch` par verset, stocké en `Blob` dans une
+      nouvelle table Dexie `audioTracks` (`useOfflineAudioDownload.ts`).
+  - [x] **Bug réel trouvé et corrigé en vérifiant en direct** : le CDN
+        audio (`cdn.islamic.network`) n'envoie aucun en-tête CORS - un
+        `fetch()` direct depuis le navigateur pour récupérer le `Blob`
+        échouait systématiquement (`blocked by CORS policy`), alors que la
+        lecture en streaming (`<audio src>`) fonctionne très bien sans CORS
+        (seule une lecture via `fetch`/XHR y est soumise). Corrigé par un
+        petit proxy de téléchargement côté API
+        (`QuranAudioProxyController`, `GET
+        /quran/surahs/:number/verses/:verseNumber/audio/:reciterSlug/download`,
+        streame le fichier CDN sans le charger entièrement en mémoire) -
+        volontairement dans un contrôleur séparé de `QuranController` (pas
+        de `CacheInterceptor` hérité, même raisonnement que le proxy
+        d'image Open Graph déjà existant : réponse binaire streamée, pas
+        une valeur JSON à mettre en cache).
+  - [x] Lecture hors-ligne réellement branchée dans `AudioRecitation.tsx` :
+        quand `useOffline().offline` est vrai, le lecteur lit directement
+        le `Blob` stocké (URL d'objet) pour le récitateur déjà choisi
+        (`localStorage`), pas de sélecteur de récitateur hors-ligne (liste
+        des récitateurs non connue sans réseau) ; message dédié si la
+        sourate/récitateur n'a pas été téléchargé. Même convention que le
+        texte/traductions (bascule sur `useOffline()`, pas de logique
+        propre).
+  - [x] Onglet "Hors-ligne" du profil : nouvelle section listant les
+        sourates audio téléchargées (récitateur, taille réelle calculée
+        depuis les `Blob` stockés, bouton de suppression par sourate).
+  - [x] Vérifié en direct dans le navigateur (pas seulement en test unitaire) :
+        téléchargement réel d'Al-Ikhlas (4 versets, fichiers `audio/mpeg`
+        réels stockés, tailles correctes) ; lecture hors-ligne confirmée en
+        forçant `navigator.onLine = false` - le lecteur charge bien le
+        `Blob` local (`audio.src` commence par `blob:`), la durée réelle du
+        fichier est décodée par le navigateur, la lecture avance
+        (`currentTime` progresse) et l'enchaînement automatique au verset
+        suivant fonctionne encore hors-ligne ; suppression confirmée
+        (le bouton repasse à "Télécharger..."). `typecheck`/`lint`/`build`
+        (API + web) au vert, 4 nouveaux tests unitaires sur les méthodes
+        Dexie ajoutées (`offline-mode.test.ts`, 61/61 au total).
+  - [ ] Non fait volontairement : suppression groupée de tout l'audio en un
+        clic (seulement sourate par sourate) - jugé suffisant, l'audio
+        représentant peu de sourates téléchargées par utilisateur en
+        pratique.
 - [x] Sélecteur de récitateur actif dès le lancement (5 récitateurs) —
       schéma prévu pour en ajouter d'autres, import idempotent.
 - [x] **Style du lecteur amélioré le 2026-09-04** (`AudioRecitation.tsx`) :

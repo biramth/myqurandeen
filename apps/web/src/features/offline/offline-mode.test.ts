@@ -164,3 +164,78 @@ describe("mode avion : lecture du Coran depuis IndexedDB", () => {
     await expect(offlineDb.getQuranVersion()).resolves.toBeNull();
   });
 });
+
+/**
+ * Telechargement hors-ligne de l'audio (phase 5) : meme principe que le
+ * cache texte ci-dessus mais scope par (recitateur, sourate), stockage de
+ * Blob plutot que de texte.
+ */
+describe("mode avion : recitation audio telechargee", () => {
+  beforeEach(async () => {
+    await offlineDb.audioTracks.clear();
+    await offlineDb.surahs.clear();
+  });
+
+  const seedTrack = (reciterSlug: string, surahNumber: number, numberInSurah: number, byteSize = 10) =>
+    offlineDb.putAudioTrack({
+      id: `${reciterSlug}:${surahNumber}:${numberInSurah}`,
+      reciterSlug,
+      reciterName: "Alafasy",
+      surahNumber,
+      numberInSurah,
+      durationSec: 5,
+      blob: new Blob([new Uint8Array(byteSize)]),
+    });
+
+  it("n'est complet qu'une fois tous les versets de la sourate telecharges", async () => {
+    await seedTrack("alafasy", 112, 1);
+    await seedTrack("alafasy", 112, 2);
+
+    await expect(offlineDb.isSurahAudioDownloaded("alafasy", 112, 4)).resolves.toBe(false);
+
+    await seedTrack("alafasy", 112, 3);
+    await seedTrack("alafasy", 112, 4);
+
+    await expect(offlineDb.isSurahAudioDownloaded("alafasy", 112, 4)).resolves.toBe(true);
+  });
+
+  it("lit une piste telechargee et ne mélange pas les recitateurs/sourates", async () => {
+    await seedTrack("alafasy", 112, 1);
+    await seedTrack("husary", 112, 1);
+
+    const track = await offlineDb.getAudioTrack("alafasy", 112, 1);
+    expect(track?.reciterSlug).toBe("alafasy");
+    await expect(offlineDb.getAudioTrack("alafasy", 113, 1)).resolves.toBeUndefined();
+  });
+
+  it("removeSurahAudio ne supprime que la sourate/recitateur cible", async () => {
+    await seedTrack("alafasy", 112, 1);
+    await seedTrack("alafasy", 113, 1);
+
+    await offlineDb.removeSurahAudio("alafasy", 112);
+
+    await expect(offlineDb.getAudioTrack("alafasy", 112, 1)).resolves.toBeUndefined();
+    await expect(offlineDb.getAudioTrack("alafasy", 113, 1)).resolves.not.toBeUndefined();
+  });
+
+  it("listDownloadedAudioSurahs regroupe par (recitateur, sourate) avec la taille totale", async () => {
+    await offlineDb.surahs.put({
+      id: "surah-112",
+      number: 112,
+      nameArabic: "الإخلاص",
+      nameTransliterated: "Al-Ikhlas",
+      nameTranslated: null,
+      versesCount: 4,
+      revelationPlace: "mecca",
+      generalInfo: null,
+      themes: null,
+    });
+    await seedTrack("alafasy", 112, 1, 100);
+    await seedTrack("alafasy", 112, 2, 100);
+
+    const summaries = await offlineDb.listDownloadedAudioSurahs();
+    expect(summaries).toEqual([
+      { reciterSlug: "alafasy", reciterName: "Alafasy", surahNumber: 112, surahName: "Al-Ikhlas", totalBytes: 200 },
+    ]);
+  });
+});

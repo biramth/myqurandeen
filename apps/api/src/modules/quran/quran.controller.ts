@@ -60,6 +60,15 @@ export class QuranController {
     return this.quranService.getVerseAudio(number, verseNumber);
   }
 
+  @ApiOperation({ summary: "Metadonnees audio d'une sourate entiere pour un recitateur - telechargement hors-ligne" })
+  @Get("surahs/:number/audio/:reciterSlug")
+  getSurahAudio(
+    @Param("number", ParseIntPipe) number: number,
+    @Param("reciterSlug") reciterSlug: string,
+  ) {
+    return this.quranService.getSurahAudio(number, reciterSlug);
+  }
+
   @ApiOperation({ summary: "Export masse du texte coranique (surates + versets) pour le cache hors-ligne" })
   @Get("export")
   exportBulk() {

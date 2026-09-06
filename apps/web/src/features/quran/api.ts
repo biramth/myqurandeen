@@ -1,5 +1,5 @@
 import { apiClient } from "@/lib/api-client";
-import type { ExportBulkResponse, ExportTranslationResponse, ExportVersionResponse, OfflineSizesResponse, Reciter, Surah, SurahDetail, SurahTranslationRow, TranslationEdition, VerseAudioResponse, VerseDetail } from "./types";
+import type { ExportBulkResponse, ExportTranslationResponse, ExportVersionResponse, OfflineSizesResponse, Reciter, Surah, SurahAudioResponse, SurahDetail, SurahTranslationRow, TranslationEdition, VerseAudioResponse, VerseDetail } from "./types";
 
 export const quranApi = {
   listSurahs: () => apiClient.get<Surah[]>("/quran/surahs", { skipAuth: true }),
@@ -14,6 +14,8 @@ export const quranApi = {
   listReciters: () => apiClient.get<Reciter[]>("/quran/reciters", { skipAuth: true }),
   getVerseAudio: (surahNumber: number, verseNumber: number) =>
     apiClient.get<VerseAudioResponse>(`/quran/surahs/${surahNumber}/verses/${verseNumber}/audio`, { skipAuth: true }),
+  getSurahAudio: (surahNumber: number, reciterSlug: string) =>
+    apiClient.get<SurahAudioResponse>(`/quran/surahs/${surahNumber}/audio/${reciterSlug}`, { skipAuth: true }),
   exportBulk: () => apiClient.get<ExportBulkResponse>("/quran/export", { skipAuth: true }),
   exportTranslation: (translationId: string) =>
     apiClient.get<ExportTranslationResponse>(`/quran/export/translations/${translationId}`, { skipAuth: true }),

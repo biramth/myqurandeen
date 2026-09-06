@@ -274,7 +274,10 @@
     "estimatedSize": "Taille estimée",
     "translationsDownloaded_one": "{{count}} traduction téléchargée",
     "translationsDownloaded_other": "{{count}} traductions téléchargées",
-    "updateAvailable": "Une version mise à jour du contenu est disponible. Supprimez puis retéléchargez pour rafraîchir."
+    "updateAvailable": "Une version mise à jour du contenu est disponible. Supprimez puis retéléchargez pour rafraîchir.",
+    "audioTitle": "Récitation audio hors-ligne",
+    "audioDescription": "Sourates téléchargées pour écoute sans connexion (voir le bouton de téléchargement sur la page de chaque sourate).",
+    "audioSurahFallback": "Sourate {{number}}"
   },
   "streak": {
     "badgeLabel_one": "{{count}} jour d'affilée",
@@ -585,6 +588,11 @@
     "audioNext": "Verset suivant",
     "audioError": "Impossible de charger la récitation.",
     "audioEmpty": "Aucune récitation disponible pour ce verset.",
+    "audioDownloadOffline": "Télécharger pour écoute hors-ligne",
+    "audioDownloadingOffline": "Téléchargement... {{progress}}%",
+    "audioDownloadedOffline": "Disponible hors-ligne",
+    "audioOfflineUnavailable": "Récitation non disponible hors-ligne. Télécharge cette sourate en étant connecté pour l'écouter sans réseau.",
+    "audioOfflineDownloadError": "Le téléchargement de la récitation a échoué.",
     "surahNames": {
       "1": "L'Ouverture",
       "2": "La Vache",

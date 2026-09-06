@@ -65,6 +65,17 @@ export interface VerseAudioResponse {
   items: VerseAudioReciter[];
 }
 
+export interface SurahAudioItem {
+  numberInSurah: number;
+  durationSec: number | null;
+  /** Chemin relatif (meme origine que l'API) - contourne l'absence de CORS du CDN pour le fetch/Blob hors-ligne. */
+  downloadUrl: string;
+}
+
+export interface SurahAudioResponse {
+  items: SurahAudioItem[];
+}
+
 export interface SurahExportRow {
   id: string;
   number: number;

@@ -274,7 +274,10 @@
     "estimatedSize": "Estimated size",
     "translationsDownloaded_one": "{{count}} translation downloaded",
     "translationsDownloaded_other": "{{count}} translations downloaded",
-    "updateAvailable": "An updated version of the content is available. Remove and download again to refresh."
+    "updateAvailable": "An updated version of the content is available. Remove and download again to refresh.",
+    "audioTitle": "Offline audio recitation",
+    "audioDescription": "Surahs downloaded for offline listening (see the download button on each surah's page).",
+    "audioSurahFallback": "Surah {{number}}"
   },
   "streak": {
     "badgeLabel_one": "{{count}} day streak",
@@ -584,7 +587,12 @@
     "audioPrevious": "Previous verse",
     "audioNext": "Next verse",
     "audioError": "Unable to load the recitation.",
-    "audioEmpty": "No recitation available for this verse."
+    "audioEmpty": "No recitation available for this verse.",
+    "audioDownloadOffline": "Download for offline listening",
+    "audioDownloadingOffline": "Downloading... {{progress}}%",
+    "audioDownloadedOffline": "Available offline",
+    "audioOfflineUnavailable": "Recitation not available offline. Download this surah while connected to listen without a network.",
+    "audioOfflineDownloadError": "Downloading the recitation failed."
   },
   "hadith": {
     "title": "Hadith",

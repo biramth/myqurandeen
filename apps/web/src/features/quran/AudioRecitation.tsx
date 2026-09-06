@@ -1,11 +1,14 @@
 import * as React from "react";
 import { useQuery } from "@tanstack/react-query";
 import { useTranslation } from "react-i18next";
-import { Pause, Play, SkipBack, SkipForward, Volume2 } from "lucide-react";
+import { Check, Download, Pause, Play, SkipBack, SkipForward, Trash2, Volume2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Skeleton } from "@/components/ui/skeleton";
 import { Select, SelectContent, SelectItem, SelectTrigger } from "@/components/ui/select";
 import { quranApi } from "@/features/quran/api";
+import { offlineDb } from "@/database/offline-db";
+import { useOffline } from "@/features/offline/OfflineContext";
+import { useOfflineAudioDownload } from "@/features/quran/useOfflineAudioDownload";
 import { cn } from "@/lib/utils";
 
 const RECITER_STORAGE_KEY = "qurandeen:reciter-slug";
@@ -50,6 +53,7 @@ export function AudioRecitation({
   className,
 }: AudioRecitationProps) {
   const { t } = useTranslation();
+  const { offline } = useOffline();
   const audioRef = React.useRef<HTMLAudioElement | null>(null);
   const shouldPlayRef = React.useRef(false);
   const [reciterSlug, setReciterSlug] = React.useState<string | null>(loadStoredReciter);
@@ -60,11 +64,42 @@ export function AudioRecitation({
   const { data, isLoading, isError } = useQuery({
     queryKey: ["quran", "audio", surahNumber, verseNumber],
     queryFn: () => quranApi.getVerseAudio(surahNumber, verseNumber),
+    enabled: !offline,
   });
 
   const items = React.useMemo(() => data?.items ?? [], [data]);
   const active = items.find((item) => item.slug === reciterSlug) ?? items[0];
-  const activeUrl = active?.url ?? null;
+
+  // Hors-ligne : la liste des recitateurs n'est pas connue (pas de reseau),
+  // on lit directement la piste stockee pour le recitateur deja choisi
+  // (localStorage) - voir useOfflineAudioDownload.ts pour le telechargement.
+  const [offlineTrack, setOfflineTrack] = React.useState<{ url: string; reciterName: string } | null>(null);
+  React.useEffect(() => {
+    if (!offline || !reciterSlug) {
+      setOfflineTrack(null);
+      return;
+    }
+    let cancelled = false;
+    let objectUrl: string | null = null;
+    offlineDb.getAudioTrack(reciterSlug, surahNumber, verseNumber).then((track) => {
+      if (cancelled) return;
+      if (track) {
+        objectUrl = URL.createObjectURL(track.blob);
+        setOfflineTrack({ url: objectUrl, reciterName: track.reciterName });
+      } else {
+        setOfflineTrack(null);
+      }
+    });
+    return () => {
+      cancelled = true;
+      if (objectUrl) URL.revokeObjectURL(objectUrl);
+    };
+  }, [offline, reciterSlug, surahNumber, verseNumber]);
+
+  const activeUrl = offline ? offlineTrack?.url ?? null : active?.url ?? null;
+  const activeReciterName = offline ? offlineTrack?.reciterName : active?.nameTransliterated;
+
+  const audioDownload = useOfflineAudioDownload(surahNumber, totalVerses ?? 0, reciterSlug, active?.nameTransliterated);
 
   React.useEffect(() => {
     if (items.length === 0) return;
@@ -123,16 +158,20 @@ export function AudioRecitation({
     onNavigate(next);
   };
 
-  if (isError) {
-    return <p className="text-sm text-destructive">{t("quran.audioError")}</p>;
+  if (!offline) {
+    if (isError) {
+      return <p className="text-sm text-destructive">{t("quran.audioError")}</p>;
+    }
+    if (isLoading) {
+      return <Skeleton className="h-12 w-full" />;
+    }
+    if (items.length === 0) {
+      return <p className="text-sm text-muted-foreground">{t("quran.audioEmpty")}</p>;
+    }
   }
 
-  if (isLoading) {
-    return <Skeleton className="h-12 w-full" />;
-  }
-
-  if (items.length === 0) {
-    return <p className="text-sm text-muted-foreground">{t("quran.audioEmpty")}</p>;
+  if (offline && !offlineTrack) {
+    return <p className="text-sm text-muted-foreground">{t("quran.audioOfflineUnavailable")}</p>;
   }
 
   const seek = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -156,19 +195,21 @@ export function AudioRecitation({
       />
 
       <div className="flex items-center justify-between gap-2">
-        <p className="truncate text-xs font-medium text-muted-foreground">{active.nameTransliterated}</p>
-        <Select value={active.slug} onValueChange={selectReciter}>
-          <SelectTrigger className="h-8 w-auto gap-1.5 border-none px-2 text-xs shadow-none hover:bg-accent" aria-label={t("quran.audioReciter")}>
-            <Volume2 className="h-3.5 w-3.5 shrink-0" aria-hidden="true" />
-          </SelectTrigger>
-          <SelectContent align="end">
-            {items.map((item) => (
-              <SelectItem key={item.id} value={item.slug}>
-                {item.nameTransliterated}
-              </SelectItem>
-            ))}
-          </SelectContent>
-        </Select>
+        <p className="truncate text-xs font-medium text-muted-foreground">{activeReciterName}</p>
+        {!offline && active && (
+          <Select value={active.slug} onValueChange={selectReciter}>
+            <SelectTrigger className="h-8 w-auto gap-1.5 border-none px-2 text-xs shadow-none hover:bg-accent" aria-label={t("quran.audioReciter")}>
+              <Volume2 className="h-3.5 w-3.5 shrink-0" aria-hidden="true" />
+            </SelectTrigger>
+            <SelectContent align="end">
+              {items.map((item) => (
+                <SelectItem key={item.id} value={item.slug}>
+                  {item.nameTransliterated}
+                </SelectItem>
+              ))}
+            </SelectContent>
+          </Select>
+        )}
       </div>
 
       <div className="mt-2">
@@ -232,6 +273,33 @@ export function AudioRecitation({
           </Button>
         )}
       </div>
+
+      {onNavigate && !offline && active && (
+        <div className="mt-2 flex flex-wrap items-center justify-center gap-2 text-xs">
+          {audioDownload.downloaded ? (
+            <>
+              <span className="flex items-center gap-1 text-emerald-600 dark:text-emerald-400">
+                <Check className="h-3.5 w-3.5" aria-hidden="true" />
+                {t("quran.audioDownloadedOffline")}
+              </span>
+              <Button type="button" variant="ghost" size="sm" onClick={() => void audioDownload.remove()}>
+                <Trash2 className="h-3.5 w-3.5" aria-hidden="true" />
+                {t("offline.remove")}
+              </Button>
+            </>
+          ) : audioDownload.stage === "downloading" ? (
+            <span className="text-muted-foreground">
+              {t("quran.audioDownloadingOffline", { progress: audioDownload.progress })}
+            </span>
+          ) : (
+            <Button type="button" variant="ghost" size="sm" onClick={() => void audioDownload.download()}>
+              <Download className="h-3.5 w-3.5" aria-hidden="true" />
+              {t("quran.audioDownloadOffline")}
+            </Button>
+          )}
+          {audioDownload.error && <span className="text-destructive">{t(audioDownload.error)}</span>}
+        </div>
+      )}
     </div>
   );
 }
