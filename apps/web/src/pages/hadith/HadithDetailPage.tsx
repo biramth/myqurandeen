@@ -15,14 +15,14 @@ import { PageMeta, SITE_URL, buildOgImage, withShareUtm } from "@/components/sha
 
 export function HadithDetailPage() {
   const { collection: slug, number } = useParams<{ collection: string; number: string }>();
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
   useStreakPing();
   const track = useGamificationEvent();
   const recordLastRead = useRecordLastRead();
 
   const { data, isLoading, isError } = useQuery({
-    queryKey: ["hadith", "detail", slug, number],
-    queryFn: () => hadithApi.getHadith(slug!, number!),
+    queryKey: ["hadith", "detail", slug, number, i18n.language],
+    queryFn: () => hadithApi.getHadith(slug!, number!, i18n.language),
     enabled: Boolean(slug) && Boolean(number),
   });
   useEffect(() => {
