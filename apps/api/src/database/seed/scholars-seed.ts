@@ -1,6 +1,6 @@
 import { eq } from "drizzle-orm";
 import type { Database } from "../database.module";
-import { schools, scholars, scholarSchools } from "../schema";
+import { authors, schools, scholars, scholarSchools, sources } from "../schema";
 
 /**
  * Base de savants : figures classiques majeures, avec biographie concise.
@@ -8,7 +8,18 @@ import { schools, scholars, scholarSchools } from "../schema";
  * approximatif, d'après le consensus biographique standard. Les liens vers
  * une école ne sont établis que lorsqu'ils sont incontestés (fondateurs de
  * madhab, affiliations largement documentées).
+ *
+ * Source biographique de référence citée (voir CONTRIBUTING.md) : Siyar
+ * A'lam al-Nubala d'Al-Dhahabi, dictionnaire biographique classique de
+ * référence couvrant Compagnons, savants du hadith, juristes et
+ * théologiens jusqu'à son époque (VIIIe siècle AH / XIVe siècle).
  */
+
+const SCHOLARS_REFERENCE = {
+  title: "Siyar A'lam al-Nubala",
+  authorName: "Al-Dhahabi",
+  authorEra: "673-748 AH / 1274-1348",
+};
 
 interface ScholarSeed {
   name: string;
@@ -224,9 +235,152 @@ const SCHOLARS: ScholarSeed[] = [
     bio: "Éditeur et transmetteur de la biographie du Prophète ﷺ (As-Sira an-Nabawiyya), à partir de la version plus ancienne et plus volumineuse d'Ibn Ishaq (m. 767), aujourd'hui perdue dans sa forme originelle et connue principalement à travers cette édition. Ibn Hisham revisa le texte d'Ibn Ishaq en retirant certains éléments qu'il jugeait peu fiables ou hors sujet (notamment de la poésie préislamique) et en ajoutant ses propres annotations philologiques et géographiques, produisant une version plus concise et mieux structurée. Son ouvrage demeure, avec les chroniques d'At-Tabari, l'une des sources sira les plus anciennes et les plus citées dans l'étude de la vie du Prophète ﷺ.",
     expertise: ["Sira", "Histoire"],
   },
+  {
+    name: "Aisha bint Abi Bakr",
+    nameArabic: "عائشة بنت أبي بكر",
+    slug: "aisha-bint-abi-bakr",
+    bornYear: 614,
+    diedYear: 678,
+    place: "Mecque puis Médine",
+    bio: "Épouse du Prophète ﷺ et fille du premier calife Abu Bakr, elle est l'une des transmetteurs de hadiths les plus prolifiques de toute la tradition islamique, rapportant plus de deux mille traditions qui couvrent aussi bien le droit, la vie quotidienne du Prophète ﷺ que des questions théologiques. Après le décès du Prophète ﷺ, elle devint une référence consultée par de nombreux Compagnons sur des questions de fiqh, en particulier celles touchant à la vie domestique et conjugale qu'elle était la mieux placée à connaître directement. Elle joua également un rôle politique actif lors des premières décennies qui suivirent, notamment lors de la bataille du Chameau (36 AH/656) durant la première fitna, un épisode complexe et débattu de l'historiographie islamique.",
+    expertise: ["Hadith", "Fiqh"],
+  },
+  {
+    name: "Abdullah ibn Abbas",
+    nameArabic: "عبد الله بن عباس",
+    slug: "ibn-abbas",
+    bornYear: 619,
+    diedYear: 687,
+    place: "Mecque puis Ta'if",
+    bio: "Cousin du Prophète ﷺ, surnommé \"turjuman al-Qur'an\" (l'interprète du Coran) et \"hibr al-umma\" (l'érudit de la communauté), il est considéré comme la figure fondatrice de la science du tafsir (exégèse coranique), dont plusieurs générations d'exégètes ultérieurs, dont At-Tabari, citeront abondamment les interprétations. La tradition biographique rapporte que le Prophète ﷺ invoqua spécifiquement en sa faveur pour qu'il acquière une compréhension approfondie de la religion (fiqh fi ad-din) et la maîtrise de l'interprétation coranique (ta'wil), encore enfant au moment du décès du Prophète ﷺ. Il enseigna ensuite à La Mecque pendant des décennies, formant de nombreux disciples qui diffusèrent son enseignement en matière de tafsir et de fiqh.",
+    expertise: ["Tafsir", "Fiqh", "Hadith"],
+  },
+  {
+    name: "Abdullah ibn Mas'ud",
+    nameArabic: "عبد الله بن مسعود",
+    slug: "ibn-masud",
+    bornYear: null,
+    diedYear: 653,
+    place: "Mecque puis Koufa",
+    bio: "Compagnon de la première heure, réputé pour la qualité exceptionnelle de sa récitation du Coran - le Prophète ﷺ lui-même aurait recommandé d'apprendre le Coran auprès de lui parmi quatre Compagnons cités nommément. Envoyé enseigner à Koufa sous le califat d'Umar ibn al-Khattab, il y forma une génération entière d'élèves dont l'enseignement en matière de fiqh influencera, plusieurs générations plus tard, la tradition juridique irakienne dans laquelle s'inscrira Abu Hanifa. Il est également l'auteur d'une des premières compilations connues du texte coranique, antérieure à l'unification officielle sous le calife Uthman.",
+    expertise: ["Coran", "Fiqh", "Hadith"],
+  },
+  {
+    name: "Sufyan ath-Thawri",
+    nameArabic: "سفيان الثوري",
+    slug: "sufyan-ath-thawri",
+    bornYear: 716,
+    diedYear: 778,
+    place: "Koufa",
+    bio: "Juriste, spécialiste du hadith et figure ascétique majeure de son époque, à la tête d'une école juridique indépendante (aujourd'hui éteinte, absorbée par les écoles ultérieures) qui compta de nombreux disciples avant de disparaître faute de systématisation écrite comparable à celle des quatre écoles survivantes. Réputé pour sa rigueur extrême dans l'évaluation des chaînes de transmission des hadiths et pour son refus catégorique de toute fonction officielle proposée par le pouvoir abbasside, y compris celle de juge, préférant se retirer et vivre dans une relative précarité plutôt que de risquer de compromettre son indépendance de jugement.",
+    expertise: ["Fiqh", "Hadith", "Ascétisme"],
+  },
+  {
+    name: "Abu Yusuf",
+    nameArabic: "أبو يوسف",
+    slug: "abu-yusuf",
+    bornYear: 731,
+    diedYear: 798,
+    place: "Koufa puis Bagdad",
+    bio: "Principal disciple d'Abu Hanifa, il devint le premier titulaire de la fonction de grand juge (qadi al-qudat) sous le califat abbasside, sous le règne de Harun ar-Rashid, poste depuis lequel il contribua directement à la diffusion de l'école hanafite dans l'administration judiciaire de l'empire. Il est l'auteur de Kitab al-Kharaj, traité de finances publiques et de fiscalité rédigé à la demande du calife, qui reste une référence historique sur l'organisation économique et administrative du califat abbasside à cette époque.",
+    expertise: ["Fiqh", "Droit public"],
+    schoolSlug: "hanafite",
+  },
+  {
+    name: "Muhammad ash-Shaybani",
+    nameArabic: "محمد بن الحسن الشيباني",
+    slug: "ash-shaybani",
+    bornYear: 749,
+    diedYear: 805,
+    place: "Wasit puis Koufa puis Bagdad",
+    bio: "Second grand disciple d'Abu Hanifa aux côtés d'Abu Yusuf, il étudia également plusieurs années auprès de Malik ibn Anas à Médine, ce qui lui donna une connaissance directe des deux grandes traditions juridiques de son temps. Ses écrits volumineux (regroupés sous le nom de \"Zahir ar-Riwaya\", les rapports les plus fiables de la doctrine hanafite) constituent la base textuelle principale à partir de laquelle l'école hanafite a été systématisée et transmise aux générations suivantes, l'enseignement oral d'Abu Hanifa lui-même n'ayant jamais été couché par écrit de son vivant.",
+    expertise: ["Fiqh"],
+    schoolSlug: "hanafite",
+  },
+  {
+    name: "Al-Ash'ari",
+    nameArabic: "أبو الحسن الأشعري",
+    slug: "al-ashari",
+    bornYear: 874,
+    diedYear: 936,
+    place: "Bassora puis Bagdad",
+    bio: "Fondateur du courant théologique ash'arite (voir École : Ash'arisme), il rompit publiquement avec le mu'tazilisme rationaliste dans lequel il avait été formé auprès de son beau-père Al-Jubba'i, pour développer une voie médiane entre le rationalisme mu'tazilite et le littéralisme strict. Sa rupture, relatée dans la tradition biographique comme un moment public survenu à la grande mosquée de Bassora, marque le point de départ d'un courant qui deviendra l'une des écoles de théologie sunnite les plus largement enseignées, en particulier dans les institutions traditionnelles shafi'ites et malikites.",
+    expertise: ["Théologie", "Kalam"],
+    schoolSlug: "asharisme",
+  },
+  {
+    name: "Al-Maturidi",
+    nameArabic: "أبو منصور الماتريدي",
+    slug: "al-maturidi",
+    bornYear: null,
+    diedYear: 944,
+    place: "Samarcande",
+    bio: "Fondateur du courant théologique maturidite (voir École : Maturidisme), développé à Samarcande de façon largement indépendante de l'ash'arisme naissant à la même époque, mais dans un esprit méthodologique proche, tous deux défendant les croyances sunnites face aux critiques mu'tazilites et philosophiques par des outils de raisonnement rationnel (kalam). Historiquement associé à l'école juridique hanafite, dont il partage le contexte géographique d'Asie centrale, le maturidisme reste aujourd'hui répandu en Turquie, dans les Balkans et en Asie centrale.",
+    expertise: ["Théologie", "Kalam", "Fiqh"],
+    schoolSlug: "maturidisme",
+  },
+  {
+    name: "Ibn Hajar al-Asqalani",
+    nameArabic: "ابن حجر العسقلاني",
+    slug: "ibn-hajar-al-asqalani",
+    bornYear: 1372,
+    diedYear: 1449,
+    place: "Le Caire, Égypte",
+    bio: "Savant shafi'ite spécialiste du hadith, auteur de Fath al-Bari, commentaire du Sahih al-Bukhari considéré comme le plus autorité et le plus complet jamais rédigé sur ce recueil, fruit de plusieurs décennies de travail. Il est également l'auteur d'Al-Isaba fi Tamyiz as-Sahaba, vaste dictionnaire biographique recensant les Compagnons du Prophète ﷺ, et de Tahdhib at-Tahdhib, ouvrage de référence sur la biographie et la fiabilité des transmetteurs de hadiths ('ilm ar-rijal). Il occupa également la fonction de juge en chef (qadi al-qudat) shafi'ite du Caire à plusieurs reprises durant sa carrière.",
+    expertise: ["Sciences du hadith", "Fiqh"],
+    schoolSlug: "shafiite",
+  },
+  {
+    name: "Al-Qurtubi",
+    nameArabic: "القرطبي",
+    slug: "al-qurtubi",
+    bornYear: null,
+    diedYear: 1273,
+    place: "Cordoue puis Égypte",
+    bio: "Exégète malikite né à Cordoue, il quitta l'Andalousie après la prise de la ville par les royaumes chrétiens en 1236 pour s'établir en Égypte, où il rédigea son œuvre majeure, Al-Jami' li-Ahkam al-Qur'an. Ce tafsir se distingue par son attention particulière aux implications juridiques (ahkam) des versets, tout en intégrant des dimensions linguistiques, narratives et spirituelles, ce qui en fait une référence fréquemment citée aux côtés du tafsir d'At-Tabari et d'Ibn Kathir dans les études coraniques ultérieures.",
+    expertise: ["Tafsir", "Fiqh"],
+    schoolSlug: "malikite",
+  },
+  {
+    name: "Ibn Khaldun",
+    nameArabic: "ابن خلدون",
+    slug: "ibn-khaldun",
+    bornYear: 1332,
+    diedYear: 1406,
+    place: "Tunis, puis Fès, Grenade et Le Caire",
+    bio: "Historien, juriste malikite et penseur souvent considéré comme un précurseur de la sociologie et de la philosophie de l'histoire, il occupa diverses fonctions politiques et diplomatiques en Afrique du Nord et en Andalousie avant de se consacrer à l'écriture, puis d'exercer la fonction de juge en chef malikite du Caire à plusieurs reprises. Son œuvre majeure, Al-Muqaddima (\"Prolégomènes\"), introduction méthodologique à son histoire universelle, développe une théorie du cycle des civilisations et de la cohésion sociale ('asabiyya) qui reste étudiée bien au-delà du seul champ des études islamiques, y compris en sciences sociales contemporaines.",
+    expertise: ["Histoire", "Sociologie", "Fiqh"],
+    schoolSlug: "malikite",
+  },
+  {
+    name: "Abd al-Qadir al-Jilani",
+    nameArabic: "عبد القادر الجيلاني",
+    slug: "abd-al-qadir-al-jilani",
+    bornYear: 1077,
+    diedYear: 1166,
+    place: "Bagdad (originaire du Gilan, actuel Iran)",
+    bio: "Juriste hanbalite et maître spirituel dont l'enseignement donna naissance à la Qadiriyya, l'une des confréries soufies les plus anciennes et les plus répandues du monde musulman, aujourd'hui présente sur tous les continents. Ses sermons et écrits, notamment Al-Ghunya li-Talibi Tariq al-Haqq, associent une exigence de rigueur dans l'observance du fiqh à un enseignement spirituel centré sur la purification du cœur et la proximité avec Dieu, ce qui lui vaut une vénération largement partagée y compris au-delà des seuls cercles soufis.",
+    expertise: ["Spiritualité", "Fiqh"],
+    schoolSlug: "hanbalite",
+  },
 ];
 
 export async function seedScholars(db: Database): Promise<void> {
+  const [refAuthor] = await db
+    .insert(authors)
+    .values({ name: SCHOLARS_REFERENCE.authorName, era: SCHOLARS_REFERENCE.authorEra })
+    .onConflictDoNothing()
+    .returning();
+  const refAuthorRow = refAuthor ?? (await db.query.authors.findFirst({ where: eq(authors.name, SCHOLARS_REFERENCE.authorName) }));
+
+  const [refSource] = await db
+    .insert(sources)
+    .values({ title: SCHOLARS_REFERENCE.title, type: "book", authorId: refAuthorRow?.id, language: "ar" })
+    .onConflictDoNothing()
+    .returning();
+  const refSourceRow = refSource ?? (await db.query.sources.findFirst({ where: eq(sources.title, SCHOLARS_REFERENCE.title) }));
+  if (!refSourceRow) throw new Error("Impossible de créer la source de référence savants");
+
   let count = 0;
   let linkCount = 0;
 
@@ -242,6 +396,7 @@ export async function seedScholars(db: Database): Promise<void> {
         place: s.place,
         bio: s.bio,
         expertise: s.expertise,
+        sourceId: refSourceRow.id,
       })
       .onConflictDoUpdate({
         target: scholars.slug,
@@ -253,6 +408,7 @@ export async function seedScholars(db: Database): Promise<void> {
           place: s.place,
           bio: s.bio,
           expertise: s.expertise,
+          sourceId: refSourceRow.id,
         },
       })
       .returning();

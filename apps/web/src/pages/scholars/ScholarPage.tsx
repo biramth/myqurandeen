@@ -83,6 +83,7 @@ export function ScholarPage() {
                 {t("scholars.biography")}
               </h2>
               <ProseText text={data.bio} className="mb-5" />
+              {data.sourceTitle && <p className="-mt-4 mb-5 text-xs text-muted-foreground">{data.sourceTitle}</p>}
             </>
           )}
 

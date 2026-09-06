@@ -2,7 +2,7 @@ import { Inject, Injectable, NotFoundException } from "@nestjs/common";
 import { asc, eq } from "drizzle-orm";
 import { DRIZZLE } from "../../database/database.constants";
 import type { Database } from "../../database/database.module";
-import { scholars, scholarSchools, schools } from "../../database/schema";
+import { scholars, scholarSchools, schools, sources } from "../../database/schema";
 
 @Injectable()
 export class ScholarsService {
@@ -29,12 +29,17 @@ export class ScholarsService {
       throw new NotFoundException(`Savant "${slug}" introuvable`);
     }
 
-    const relatedSchools = await this.db
-      .select({ id: schools.id, name: schools.name, slug: schools.slug })
-      .from(scholarSchools)
-      .innerJoin(schools, eq(schools.id, scholarSchools.schoolId))
-      .where(eq(scholarSchools.scholarId, scholar.id));
+    const [relatedSchools, [sourceRow]] = await Promise.all([
+      this.db
+        .select({ id: schools.id, name: schools.name, slug: schools.slug })
+        .from(scholarSchools)
+        .innerJoin(schools, eq(schools.id, scholarSchools.schoolId))
+        .where(eq(scholarSchools.scholarId, scholar.id)),
+      scholar.sourceId
+        ? this.db.select({ title: sources.title }).from(sources).where(eq(sources.id, scholar.sourceId))
+        : Promise.resolve([]),
+    ]);
 
-    return { ...scholar, schools: relatedSchools };
+    return { ...scholar, schools: relatedSchools, sourceTitle: sourceRow?.title ?? null };
   }
 }
