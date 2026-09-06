@@ -160,10 +160,17 @@ SEO (Core Web Vitals) et le taux de conversion des nouveaux visiteurs.
       (pas de re-téléchargement si ces libs ne changent pas), pas un gain
       de poids au premier chargement. Résultat mesuré : chunk principal
       `index` à 177 Ko (gzip 57 Ko), tous les chunks sous 500 Ko.
-- [ ] Mesurer avec Lighthouse (mobile, réseau throttled) sur le site
-      déployé pour confirmer le gain concret sur LCP/TBT en conditions
-      réelles (fait ici uniquement via la taille des fichiers, pas un
-      profil Lighthouse complet).
+- [x] **Mesuré le 2026-09-06** via PageSpeed Insights (Lighthouse réel,
+      émulation Moto G Power + connexion 4G lente, sur
+      `https://myqurandeen.vercel.app`) : **Performances 85/100**, FCP 2,5 s,
+      **LCP 3,3 s**, **TBT 0 ms** (confirme directement le gain du travail
+      sur le bundle - plus aucune tâche JS longue au chargement bloquant le
+      thread principal), CLS 0.009, Speed Index 5,4 s. Accessibilité 100,
+      Bonnes pratiques 96, SEO 100. Pistes d'amélioration restantes signalées
+      par l'outil, non traitées ici (hors scope de ce point qui visait à
+      *mesurer* le gain déjà fait, pas à optimiser davantage) : ~600 ms
+      d'économie possible sur les requêtes bloquant le rendu, ~73 Kio de JS
+      inutilisé, 1 tâche longue détectée sur une page secondaire.
 - [x] **Trouvé en marge et corrigé** : le build web ne passait plus (`tsc`
       bloquait) sur 3 erreurs préexistantes d'une fonctionnalité en cours
       ("reprendre où j'en étais", 1.2) et d'une page learning :
