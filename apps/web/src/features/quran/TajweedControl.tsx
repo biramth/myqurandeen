@@ -23,9 +23,10 @@ export function TajweedControl() {
         variant={enabled ? "secondary" : "outline"}
         size="sm"
         onClick={() => setEnabled(!enabled)}
+        aria-label={enabled ? t("quran.tajweedOn") : t("quran.tajweedOff")}
       >
         <Palette className="h-4 w-4" />
-        {enabled ? t("quran.tajweedOn") : t("quran.tajweedOff")}
+        <span className="hidden sm:inline">{enabled ? t("quran.tajweedOn") : t("quran.tajweedOff")}</span>
       </Button>
 
       {enabled && (

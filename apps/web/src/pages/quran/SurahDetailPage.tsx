@@ -177,9 +177,12 @@ export function SurahDetailPage() {
               variant={showTranslation ? "secondary" : "outline"}
               size="sm"
               onClick={() => setShowTranslation((v) => !v)}
+              aria-label={showTranslation ? t("common.hideTranslation") : t("common.showTranslation")}
             >
               <Languages className="h-4 w-4" />
-              {showTranslation ? t("common.hideTranslation") : t("common.showTranslation")}
+              <span className="hidden sm:inline">
+                {showTranslation ? t("common.hideTranslation") : t("common.showTranslation")}
+              </span>
             </Button>
           )}
 

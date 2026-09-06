@@ -2,7 +2,16 @@ import { Inject, Injectable } from "@nestjs/common";
 import { count, eq } from "drizzle-orm";
 import { DRIZZLE } from "../../database/database.constants";
 import type { Database } from "../../database/database.module";
-import { authors, hadithCollections, hadiths, quranSurahs, quranVerses, translations, verseTranslations } from "../../database/schema";
+import {
+  authors,
+  hadithCollections,
+  hadithTranslations,
+  hadiths,
+  quranSurahs,
+  quranVerses,
+  translations,
+  verseTranslations,
+} from "../../database/schema";
 
 /**
  * Cle de date UTC stable ("AAAA-MM-JJ") : le verset/hadith du jour change au
@@ -80,7 +89,16 @@ export class DailyService {
     return { ...verse, translation };
   }
 
-  /** Hadith du jour : meme principe de selection que le verset du jour. */
+  /**
+   * Hadith du jour : meme principe de selection que le verset du jour. La
+   * colonne `hadiths.textTranslation` est la traduction d'origine importee
+   * (toujours en anglais) - on prefere ici une traduction francaise via
+   * `hadithTranslations` quand elle existe (comme pour le verset), sinon on
+   * retombe sur cette traduction anglaise par defaut. Corrige une
+   * incoherence reelle : cette carte affichait de l'anglais brut sur une
+   * page par ailleurs entierement en francais, alors que la couverture
+   * francaise des hadiths est large (~88% des hadiths a ce jour).
+   */
   async getDailyHadith() {
     const [{ value: total }] = await this.db.select({ value: count() }).from(hadiths);
     if (total === 0) return null;
@@ -102,7 +120,16 @@ export class DailyService {
       .orderBy(hadiths.id)
       .limit(1)
       .offset(index);
+    if (!hadith) return null;
 
-    return hadith ?? null;
+    const translationRows = await this.db
+      .select({ language: translations.language, text: hadithTranslations.text })
+      .from(hadithTranslations)
+      .innerJoin(translations, eq(translations.id, hadithTranslations.translationId))
+      .where(eq(hadithTranslations.hadithId, hadith.id));
+
+    const preferred = translationRows.find((row) => row.language === "fr") ?? translationRows.find((row) => row.language === "en");
+
+    return { ...hadith, textTranslation: preferred?.text ?? hadith.textTranslation };
   }
 }

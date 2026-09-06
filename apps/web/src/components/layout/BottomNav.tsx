@@ -95,10 +95,10 @@ export function BottomNav() {
                       key={item.href}
                       to={item.href}
                       onClick={() => setMenuOpen(false)}
-                      className="flex items-center gap-2 rounded-md px-3 py-2 text-sm hover:bg-accent"
+                      className="flex items-start gap-2 rounded-md px-3 py-2 text-sm hover:bg-accent"
                     >
-                      <item.icon className="h-4 w-4 shrink-0 text-muted-foreground" aria-hidden="true" />
-                      <span className="truncate">{t(item.labelKey)}</span>
+                      <item.icon className="mt-0.5 h-4 w-4 shrink-0 text-muted-foreground" aria-hidden="true" />
+                      <span className="leading-snug">{t(item.labelKey)}</span>
                     </Link>
                   ))}
                 </div>
