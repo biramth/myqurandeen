@@ -598,28 +598,16 @@ données Coran elles-mêmes.
       **sans aucun réseau**, détection de mise à jour par version, et
       nettoyage complet par `clearQuran`.
 
-### 3.3 Recherche par racine arabe (L)
+### 3.3 Recherche par racine arabe — ❌ annulée le 2026-09-06
 
-**[~] Décision** : démarrer sur le Coran uniquement (un jeu de données
-racine/lemme par mot existe pour le Coran, ex. Quranic Arabic Corpus —
-**vérifier la licence exacte avant tout import**, cohérent avec l'exigence
-de sourcing du projet) plutôt que sur tout le corpus Arabe (hadith compris),
-qui demanderait un analyseur morphologique Arabe complet — chantier
-nettement plus lourd, à considérer séparément si la version Coran seule
-fait ses preuves.
-
-- [ ] Valider la source de données racine/lemme et sa licence.
-- [ ] Nouvelle table `quran_word_roots` (verseId, position du mot dans le
-      verset, forme, racine, lemme) — import idempotent par script dédié.
-- [ ] Endpoint de recherche dédié `GET /quran/search-by-root?root=...`
-      (distinct de la recherche FTS existante, qui reste utile pour la
-      recherche littérale).
-- [ ] UI : sur `SurahDetailPage`/`VersePage`, un mot arabe cliquable ouvre
-      "voir tous les versets partageant cette racine" — c'est l'usage le
-      plus naturel pour un lecteur, pas une simple barre de recherche à
-      part.
-- [ ] Index Postgres adapté (`btree` sur la colonne racine suffit a priori,
-      pas besoin de FTS ici).
+Envisagée sur la base du Quranic Arabic Corpus (corpus.quran.com) : licence
+compatible (copie verbatim + travaux dérivés autorisés avec attribution et
+lien vers la source, modification du fichier brut interdite), mais leur
+téléchargement officiel est bloqué par un formulaire demandant une adresse
+email (pas quelque chose à soumettre au nom de l'utilisateur). Sur demande
+explicite, ce chantier est annulé plutôt que reporté - à reconsidérer
+seulement si une source de données racine/lemme directement récupérable se
+présente.
 
 ### 3.4 Cours "Apprendre à lire l'arabe coranique" (L) — ✅ fait le 2026-09-04
 
