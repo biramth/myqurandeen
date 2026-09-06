@@ -1,4 +1,4 @@
-import { Navigate, useParams } from "react-router-dom";
+import { Link, Navigate, useParams } from "react-router-dom";
 import { useQuery } from "@tanstack/react-query";
 import { useTranslation } from "react-i18next";
 import { History } from "lucide-react";
@@ -82,6 +82,21 @@ export function HistoryEventPage() {
                   <li key={source.title}>{source.title}</li>
                 ))}
               </ul>
+            </div>
+          )}
+
+          {data.relatedScholars.length > 0 && (
+            <div className="mt-6">
+              <h2 className="mb-2 text-sm font-semibold uppercase tracking-wide text-muted-foreground">
+                {t("history.relatedScholars")}
+              </h2>
+              <div className="flex flex-wrap gap-2">
+                {data.relatedScholars.map((scholar) => (
+                  <Link key={scholar.id} to={`/scholars/${scholar.slug}`}>
+                    <Badge variant="secondary">{scholar.name}</Badge>
+                  </Link>
+                ))}
+              </div>
             </div>
           )}
         </>

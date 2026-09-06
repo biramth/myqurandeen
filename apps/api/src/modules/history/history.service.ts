@@ -2,7 +2,7 @@ import { Inject, Injectable, NotFoundException } from "@nestjs/common";
 import { asc, eq } from "drizzle-orm";
 import { DRIZZLE } from "../../database/database.constants";
 import type { Database } from "../../database/database.module";
-import { eventSources, historicalEvents, historicalPeriods, sources } from "../../database/schema";
+import { eventSources, historicalEvents, historicalPeriods, scholarEvents, scholars, sources } from "../../database/schema";
 
 @Injectable()
 export class HistoryService {
@@ -43,15 +43,25 @@ export class HistoryService {
       throw new NotFoundException(`Evenement "${slug}" introuvable`);
     }
 
-    const [period, eventSourceRows] = await Promise.all([
+    const [period, eventSourceRows, relatedScholars] = await Promise.all([
       this.db.query.historicalPeriods.findFirst({ where: eq(historicalPeriods.id, event.periodId) }),
       this.db
         .select({ title: sources.title, url: sources.url })
         .from(eventSources)
         .innerJoin(sources, eq(sources.id, eventSources.sourceId))
         .where(eq(eventSources.eventId, event.id)),
+      this.db
+        .select({ id: scholars.id, name: scholars.name, slug: scholars.slug })
+        .from(scholarEvents)
+        .innerJoin(scholars, eq(scholars.id, scholarEvents.scholarId))
+        .where(eq(scholarEvents.eventId, event.id)),
     ]);
 
-    return { event, period: period ? { slug: period.slug, name: period.name } : null, sources: eventSourceRows };
+    return {
+      event,
+      period: period ? { slug: period.slug, name: period.name } : null,
+      sources: eventSourceRows,
+      relatedScholars,
+    };
   }
 }

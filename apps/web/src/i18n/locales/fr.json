@@ -738,7 +738,8 @@
     "events": "Événements",
     "errorEvent": "Impossible de charger cet événement.",
     "sources": "Sources",
-    "back": "Retour"
+    "back": "Retour",
+    "relatedScholars": "Savants liés"
   },
   "prophets": {
     "title": "Prophètes",
@@ -838,7 +839,8 @@
     "errorDetail": "Impossible de charger cette fiche.",
     "backToList": "Tous les savants",
     "schools": "École",
-    "biography": "Biographie"
+    "biography": "Biographie",
+    "relatedEvents": "Événements historiques liés"
   },
   "concepts": {
     "title": "Concepts islamiques",

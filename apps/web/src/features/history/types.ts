@@ -32,4 +32,5 @@ export interface HistoricalEventDetail {
   };
   period: { slug: string; name: string } | null;
   sources: { title: string; url: string | null }[];
+  relatedScholars: { id: string; name: string; slug: string }[];
 }

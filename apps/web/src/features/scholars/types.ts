@@ -13,4 +13,5 @@ export interface ScholarDetail extends ScholarSummary {
   bio: string | null;
   schools: { id: string; name: string; slug: string }[];
   sourceTitle: string | null;
+  events: { id: string; title: string; slug: string }[];
 }

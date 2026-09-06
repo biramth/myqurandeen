@@ -101,7 +101,7 @@ export function ScholarPage() {
           />
 
           {data.schools.length > 0 && (
-            <section>
+            <section className="mb-6">
               <h2 className="mb-2 text-sm font-semibold uppercase tracking-wide text-muted-foreground">
                 {t("scholars.schools")}
               </h2>
@@ -109,6 +109,21 @@ export function ScholarPage() {
                 {data.schools.map((school) => (
                   <Link key={school.id} to={`/schools/${school.slug}`}>
                     <Badge>{school.name}</Badge>
+                  </Link>
+                ))}
+              </div>
+            </section>
+          )}
+
+          {data.events.length > 0 && (
+            <section>
+              <h2 className="mb-2 text-sm font-semibold uppercase tracking-wide text-muted-foreground">
+                {t("scholars.relatedEvents")}
+              </h2>
+              <div className="flex flex-wrap gap-2">
+                {data.events.map((event) => (
+                  <Link key={event.id} to={`/history/event/${event.slug}`}>
+                    <Badge variant="secondary">{event.title}</Badge>
                   </Link>
                 ))}
               </div>

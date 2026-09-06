@@ -622,7 +622,8 @@
     "events": "Events",
     "errorEvent": "Unable to load this event.",
     "sources": "Sources",
-    "back": "Back"
+    "back": "Back",
+    "relatedScholars": "Related scholars"
   },
   "prophets": {
     "title": "Prophets",
@@ -722,7 +723,8 @@
     "errorDetail": "Unable to load this page.",
     "backToList": "All scholars",
     "schools": "School",
-    "biography": "Biography"
+    "biography": "Biography",
+    "relatedEvents": "Related historical events"
   },
   "concepts": {
     "title": "Islamic concepts",

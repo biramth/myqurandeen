@@ -1,6 +1,6 @@
 import { eq } from "drizzle-orm";
 import type { Database } from "../database.module";
-import { authors, eventSources, historicalEvents, historicalPeriods, sources } from "../schema";
+import { authors, eventSources, historicalEvents, historicalPeriods, scholarEvents, scholars, sources } from "../schema";
 
 /**
  * Chronologie de référence, compilée (pas importée d'une API - aucune
@@ -60,6 +60,8 @@ interface EventSeed {
   eventType: string;
   description: string;
   source: SourceRef;
+  /** Lien optionnel vers un savant deja seede (scholars-seed.ts), quand un lien direct et incontestable existe. */
+  scholarSlug?: string;
 }
 
 interface PeriodSeed {
@@ -377,6 +379,25 @@ const PERIODS: PeriodSeed[] = [
         source: BIDAYA_IBN_KATHIR,
       },
       {
+        title: "Bataille de Talas",
+        slug: "bataille-de-talas",
+        dateApprox: "751",
+        eventType: "battle",
+        description:
+          "Aux confins de l'Asie centrale, les forces abbassides, alliées à des contingents turcs qarlouks, défont une armée de la dynastie chinoise des Tang près de la rivière Talas, mettant un coup d'arrêt à l'expansion chinoise vers l'ouest et consolidant l'influence musulmane sur les routes commerciales d'Asie centrale. La tradition historiographique rapporte que des artisans chinois faits prisonniers lors de la bataille auraient introduit dans le monde musulman la technique de fabrication du papier, dont la diffusion ultérieure vers Bagdad puis l'Andalousie et l'Europe aura une influence culturelle durable, bien au-delà de la portée militaire immédiate de l'affrontement.",
+        source: TARIKH_TABARI,
+      },
+      {
+        title: "La Mihna, l'inquisition mu'tazilite",
+        slug: "mihna-inquisition-mutazilite",
+        dateApprox: "833-848",
+        eventType: "event",
+        description:
+          "Le calife Al-Ma'mun, puis ses deux successeurs immédiats, imposent par la contrainte à l'ensemble des juges et savants la doctrine mu'tazilite selon laquelle le Coran serait \"créé\" et non incréé, dans une politique d'inquisition doctrinale (mihna) inédite dans l'histoire islamique. La plupart des savants se soumettent, au moins en apparence, mais l'imam Ahmad ibn Hanbal refuse catégoriquement de céder malgré des flagellations et un emprisonnement prolongé, devenant une figure de résistance largement célébrée par la suite. La mihna est officiellement abandonnée sous le calife Al-Mutawakkil en 848, marquant le déclin politique définitif du mu'tazilisme comme doctrine d'État.",
+        source: TARIKH_TABARI,
+        scholarSlug: "ahmad-ibn-hanbal",
+      },
+      {
         title: "Âge d'or abbasside sous Harun al-Rashid et Al-Ma'mun",
         slug: "age-d-or-abbasside",
         dateApprox: "786-833",
@@ -505,6 +526,16 @@ const PERIODS: PeriodSeed[] = [
         description:
           "Les forces mameloukes du sultan Al-Ashraf Khalil prennent Acre, dernier grand bastion des États croisés fondés deux siècles plus tôt lors de la première croisade. La chute de la ville met fin à la présence politique et militaire organisée des croisés au Levant, les derniers points d'appui mineurs étant évacués dans les mois suivants.",
         source: SULUK_AL_MAQRIZI,
+      },
+      {
+        title: "Bataille de Shaqhab et résistance à l'invasion mongole de Syrie",
+        slug: "bataille-de-shaqhab",
+        dateApprox: "1303",
+        eventType: "battle",
+        description:
+          "Près de Shaqhab, au sud de Damas, l'armée mamelouke défait une nouvelle offensive mongole ilkhanide en Syrie, dernière tentative sérieuse de l'Ilkhanat mongol de Perse de reprendre l'expansion stoppée quatre décennies plus tôt à Ayn Jalut. Le savant hanbalite Ibn Taymiyyah, alors influent à Damas, s'implique activement dans la mobilisation en faveur de la résistance militaire, notamment par des positions juridiques encourageant la population locale à soutenir l'effort de guerre mamelouk, un épisode fréquemment cité comme illustration de son engagement au-delà du seul champ théorique.",
+        source: SULUK_AL_MAQRIZI,
+        scholarSlug: "ibn-taymiyyah",
       },
       {
         title: "Conquête ottomane de l'Égypte",
@@ -639,6 +670,15 @@ const PERIODS: PeriodSeed[] = [
         source: CAMBRIDGE_HISTORY_ISLAM,
       },
       {
+        title: "Fondation de l'empire du Mali par Soundiata Keita",
+        slug: "fondation-empire-du-mali",
+        dateApprox: "~1235",
+        eventType: "event",
+        description:
+          "Soundiata Keita, figure fondatrice largement transmise par la tradition orale mandingue (l'épopée de Soundiata), unifie plusieurs royaumes mandingues après sa victoire sur le royaume voisin de Sosso et fonde l'empire du Mali, qui succède progressivement à l'empire du Ghana comme principale puissance politique et commerciale du Sahel occidental. Bâti sur le contrôle des routes commerciales de l'or et du sel, cet empire atteindra son apogée territoriale et économique un siècle plus tard sous le règne de Mansa Musa.",
+        source: CAMBRIDGE_HISTORY_ISLAM,
+      },
+      {
         title: "Pèlerinage de Mansa Musa",
         slug: "pelerinage-mansa-musa",
         dateApprox: "1324",
@@ -703,6 +743,15 @@ const PERIODS: PeriodSeed[] = [
           "L'islamisation de l'île de Java, cœur démographique de l'actuelle Indonésie, est traditionnellement associée à neuf figures missionnaires (Wali Songo, \"les neuf saints\") qui auraient combiné prédication religieuse et adaptation aux formes culturelles et artistiques locales - notamment le théâtre d'ombres wayang - pour faciliter la conversion progressive des populations javanaises, jusque-là largement hindou-bouddhistes. Cette approche syncrétique sur le plan culturel, tout en préservant l'orthodoxie religieuse de fond, caractérise durablement l'Islam de l'archipel indonésien.",
         source: CAMBRIDGE_HISTORY_ISLAM,
       },
+      {
+        title: "Essor du sultanat d'Aceh face aux Portugais",
+        slug: "essor-sultanat-daceh",
+        dateApprox: "XVIe siècle",
+        eventType: "event",
+        description:
+          "Sur la pointe nord de Sumatra, le sultanat d'Aceh s'impose au XVIe siècle comme la principale puissance commerciale et militaire musulmane de la région, en partie en réaction directe à la prise de Malacca par les Portugais en 1511, dont il conteste durablement la présence dans le détroit. Devenu également un centre religieux et intellectuel de premier plan accueillant des savants de tout le monde musulman, Aceh continuera de résister aux puissances coloniales européennes bien après cette période, jusqu'à sa conquête néerlandaise beaucoup plus tardive à la fin du XIXe siècle.",
+        source: CAMBRIDGE_HISTORY_ISLAM,
+      },
     ],
   },
 ];
@@ -735,6 +784,7 @@ export async function seedHistory(db: Database): Promise<void> {
 
   let periodCount = 0;
   let eventCount = 0;
+  let scholarLinkCount = 0;
 
   for (const periodSeed of PERIODS) {
     const [period] = await db
@@ -786,8 +836,16 @@ export async function seedHistory(db: Database): Promise<void> {
       eventCount++;
 
       await db.insert(eventSources).values({ eventId: event.id, sourceId }).onConflictDoNothing();
+
+      if (eventSeed.scholarSlug) {
+        const scholar = await db.query.scholars.findFirst({ where: eq(scholars.slug, eventSeed.scholarSlug) });
+        if (scholar) {
+          await db.insert(scholarEvents).values({ scholarId: scholar.id, eventId: event.id }).onConflictDoNothing();
+          scholarLinkCount++;
+        }
+      }
     }
   }
 
-  console.log(`Histoire: ${periodCount} périodes, ${eventCount} événements seedes.`);
+  console.log(`Histoire: ${periodCount} périodes, ${eventCount} événements, ${scholarLinkCount} liens vers des savants seedes.`);
 }
