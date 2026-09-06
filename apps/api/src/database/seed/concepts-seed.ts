@@ -871,6 +871,86 @@ const CONCEPTS: ConceptSeed[] = [
       "Le terme salaf désigne, au sens le plus courant, les trois premières générations de musulmans après le Prophète ﷺ - ses Compagnons, puis leurs successeurs directs (tabi'un) et les successeurs de ces derniers - considérées par la tradition comme les meilleures générations en raison de leur proximité avec l'enseignement prophétique. Différents courants théologiques et juridiques revendiquent une fidélité méthodologique à leur compréhension, sans qu'il existe un consensus unique sur les implications précises de cette référence.",
     relatedSlugs: ["sunnah", "umma"],
   },
+  {
+    term: "Jihad (Effort, lutte)",
+    termArabic: "الجهاد",
+    slug: "jihad",
+    definition: "L'effort soutenu fourni dans la voie de Dieu, sous des formes multiples allant de la lutte intérieure contre soi-même à la défense armée strictement encadrée.",
+    origin: "Racine arabe j-h-d, évoquant l'effort soutenu et la peine que l'on se donne.",
+    explanation:
+      "Le terme jihad recouvre, dans son sens le plus large attesté par le Coran et le hadith, tout effort soutenu accompli dans la voie de Dieu : la lutte intérieure contre ses propres défauts et penchants (jihad an-nafs), l'effort d'apprentissage et de transmission de la religion, l'engagement social pour la justice, ou encore la défense armée de la communauté. Un hadith rapporté par Al-Bayhaqi, dont l'authenticité est discutée par les spécialistes du hadith, désigne cette lutte intérieure comme le \"plus grand jihad\" (al-jihad al-akbar) par contraste avec le combat armé.\n\nLe sens juridique restreint (qital, le combat armé) fait l'objet, en fiqh classique, de conditions précises et restrictives : il ne peut être déclaré que par une autorité légitime reconnue, jamais par une initiative individuelle, et s'accompagne de règles strictes de conduite, comme l'illustrent les instructions attribuées au premier calife Abu Bakr interdisant explicitement de tuer femmes, enfants et religieux non-combattants, ou de détruire arbres fruitiers et habitations. Ce cadre juridique restrictif contraste fortement avec l'usage du terme dans certains discours contemporains, qu'ils soient militants ou hostiles à l'Islam, qui tendent l'un comme l'autre à le réduire à sa seule dimension armée.",
+    relatedSlugs: ["sabr", "umma"],
+  },
+  {
+    term: "Al-Ahkam al-Khamsa (Les cinq qualifications juridiques)",
+    termArabic: "الأحكام الخمسة",
+    slug: "ahkam-al-khamsa",
+    definition: "Le cadre classique de classification de tout acte humain en cinq catégories juridiques, du strictement obligatoire au strictement interdit.",
+    origin: "Terminologie d'usul al-fiqh (méthodologie du droit islamique).",
+    explanation:
+      "Le fiqh classique classe tout acte humain selon cinq qualifications juridiques (al-ahkam al-khamsa) : le fard/wajib (obligatoire, dont l'abandon est fautif), le mandub/mustahabb (recommandé, dont l'accomplissement est récompensé sans que l'abandon soit fautif), le mubah (neutre, ni récompensé ni sanctionné), le makruh (déconseillé, sans sanction stricte) et le haram (interdit, dont la commission est fautive). Ce cadre en cinq catégories fournit la grille de lecture de base à partir de laquelle les juristes qualifient chaque question de fiqh traitée sur cette plateforme (voir le comparateur des écoles).\n\nCertaines écoles juridiques, notamment hanafite, distinguent en outre le wajib du fard : le fard reposant sur une preuve textuelle certaine et non sujette à interprétation, le wajib sur une preuve légèrement moins définitive - une distinction que les trois autres écoles sunnites ne reconnaissent généralement pas comme catégorie séparée.",
+    relatedSlugs: ["fiqh", "haram", "halal"],
+  },
+  {
+    term: "Fatwa (Avis juridique)",
+    termArabic: "الفتوى",
+    slug: "fatwa",
+    definition: "Un avis juridique religieux rendu par un savant qualifié en réponse à une question précise.",
+    origin: "Racine arabe f-t-w, liée à la clarification d'une question.",
+    explanation:
+      "Une fatwa est une réponse juridique donnée par un savant reconnu (mufti) à une question posée par un particulier ou une institution, portant sur un cas précis plutôt que sur une règle générale abstraite. Contrairement à un jugement de tribunal (rendu par un qadi), une fatwa n'a pas de force contraignante : elle a valeur de conseil éclairé et d'avis juridique, que le demandeur reste libre de suivre ou non selon les écoles.\n\nUne même question peut recevoir des fatwas différentes selon le savant consulté, son école juridique, et les circonstances précises exposées, ce qui explique la coexistence normale de fatwas divergentes sur une même question sans que l'une invalide nécessairement l'autre - un principe directement lié à celui de l'ikhtilaf (divergence licite).",
+    relatedSlugs: ["ijtihad", "qiyas", "ikhtilaf"],
+  },
+  {
+    term: "Khutbah (Sermon)",
+    termArabic: "الخطبة",
+    slug: "khutbah",
+    definition: "Le sermon prononcé notamment avant la prière collective du vendredi et lors des deux fêtes annuelles.",
+    origin: "Racine arabe kh-t-b, évoquant le discours adressé à une assemblée.",
+    explanation:
+      "La khutbah désigne le sermon prononcé par un orateur (khatib) devant l'assemblée des fidèles, le plus souvent avant la prière collective du vendredi (jumu'a) et lors des prières des deux fêtes annuelles (Aïd al-Fitr et Aïd al-Adha). Elle comprend traditionnellement une exhortation à la piété, un rappel de versets coraniques et de hadiths, et porte fréquemment sur des questions pratiques ou d'actualité concernant la communauté locale.\n\nSa structure et ses conditions de validité (nombre de sermons, éléments obligatoires, langue de récitation) varient selon les écoles juridiques, mais son statut de condition de validité de la prière du vendredi elle-même fait l'objet d'un large consensus parmi les juristes sunnites.",
+    relatedSlugs: ["salah"],
+  },
+  {
+    term: "Wali (Ami de Dieu)",
+    termArabic: "الولي",
+    slug: "wali-allah",
+    definition: "Une personne pieuse considérée comme proche de Dieu en raison de sa foi et de sa droiture, sans statut surnaturel officiel.",
+    origin: "Racine arabe w-l-y, évoquant la proximité et l'assistance.",
+    explanation:
+      "Le Coran (sourate Yunus, 10:62-64) affirme que les \"alliés de Dieu\" (awliya Allah) sont ceux qui croient et se prémunissent du mal, leur promettant une bonne nouvelle dans la vie présente et dans l'au-delà, sans qu'aucune procédure de reconnaissance officielle ne soit associée à ce statut dans la théologie sunnite classique - à la différence, par exemple, de la canonisation dans d'autres traditions religieuses. La notion est distincte du sens juridique du même mot employé pour le tuteur matrimonial (voir le comparateur de fiqh).\n\nDans la spiritualité islamique (tasawwuf), certaines figures historiques sont traditionnellement désignées comme awliya en raison de leur piété reconnue et, parfois, d'évènements extraordinaires (karamat) qui leur sont attribués par la tradition biographique ; cette vénération, largement répandue dans le monde musulman, fait toutefois l'objet de débats théologiques quant à ses limites, notamment sur les pratiques entourant certains lieux de sépulture.",
+    relatedSlugs: ["ghayb", "barakah"],
+  },
+  {
+    term: "Bay'ah (Serment d'allégeance)",
+    termArabic: "البيعة",
+    slug: "bayah",
+    definition: "Le serment d'allégeance prêté à un dirigeant, reconnaissant son autorité en échange d'un engagement réciproque à gouverner selon la loi islamique.",
+    origin: "Racine arabe b-y-', liée à l'idée de transaction, de pacte conclu entre deux parties.",
+    explanation:
+      "La bay'ah désigne le pacte d'allégeance par lequel une communauté reconnaît l'autorité d'un dirigeant (calife, imam, chef local), en échange de l'engagement de ce dernier à gouverner conformément à la loi islamique et à l'intérêt de la communauté. La pratique remonte aux serments prêtés directement au Prophète ﷺ, notamment lors des serments d'Aqaba précédant l'Hégire, puis à la désignation de chacun des quatre premiers califes (rashidun).\n\nLes juristes et théologiens classiques ont débattu des modalités de désignation légitime d'un dirigeant (élection par un conseil restreint, désignation par le prédécesseur, bay'ah populaire directe) et des conditions dans lesquelles une allégeance déjà prêtée peut être retirée en cas d'injustice manifeste du dirigeant, sans qu'un consensus unique n'émerge sur ce dernier point.",
+    relatedSlugs: ["shura", "khilafa"],
+  },
+  {
+    term: "Qadi (Juge)",
+    termArabic: "القاضي",
+    slug: "qadi",
+    definition: "Le juge chargé de trancher les litiges et de rendre des jugements contraignants selon le droit islamique.",
+    origin: "Racine arabe q-d-y, évoquant le fait de trancher, d'accomplir ou de décider.",
+    explanation:
+      "Le qadi est le juge officiellement mandaté par l'autorité politique pour trancher les litiges entre particuliers et rendre des jugements contraignants selon le fiqh, à la différence du mufti dont la fatwa reste un avis consultatif sans force exécutoire. Dès les premiers siècles de l'Islam, la fonction s'est structurée en une institution distincte de l'autorité politique elle-même, certains juges comme Abu Yusuf ayant occupé la fonction suprême de qadi al-qudat (grand juge) auprès des califes.\n\nLes traités classiques de fiqh consacrent des chapitres entiers aux conditions requises pour exercer cette fonction (compétence juridique, intégrité morale) et aux règles de preuve et de procédure devant le tribunal, un corpus qui constitue l'une des branches les plus anciennes et les plus développées du droit islamique.",
+    relatedSlugs: ["adl", "fiqh"],
+  },
+  {
+    term: "Adhan (Appel à la prière)",
+    termArabic: "الأذان",
+    slug: "adhan",
+    definition: "L'appel rituel annonçant l'entrée de chacune des cinq heures de prière quotidiennes.",
+    origin: "Racine arabe a-dh-n, évoquant le fait d'informer ou d'annoncer publiquement.",
+    explanation:
+      "L'adhan est l'appel rituel, composé de formules fixes proclamant la grandeur de Dieu et invitant à la prière et à la réussite, lancé publiquement à l'entrée de chacune des cinq heures de prière quotidiennes. Son institution est traditionnellement rattachée à un rêve rapporté par un Compagnon, Abdullah ibn Zayd, validé ensuite par le Prophète ﷺ qui choisit Bilal ibn Rabah, à la voix particulièrement portante, comme premier muezzin de l'histoire islamique.\n\nSa formulation exacte connaît de légères variantes entre écoles sunnites (répétition de certaines formules) et davantage entre sunnisme et chiisme, mais sa fonction essentielle - annoncer publiquement l'entrée du temps de la prière - fait l'objet d'un large consensus depuis l'époque prophétique.",
+    relatedSlugs: ["salah"],
+  },
 ];
 
 export async function seedConcepts(db: Database): Promise<void> {
