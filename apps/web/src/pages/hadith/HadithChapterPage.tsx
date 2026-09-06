@@ -19,8 +19,8 @@ export function HadithChapterPage() {
   const { t, i18n } = useTranslation();
 
   const { data, isLoading, isError, isFetching } = useQuery({
-    queryKey: ["hadith", "book", slug, bookNumber, page],
-    queryFn: () => hadithApi.getBookHadiths(slug!, bookNumber, page),
+    queryKey: ["hadith", "book", slug, bookNumber, page, i18n.language],
+    queryFn: () => hadithApi.getBookHadiths(slug!, bookNumber, page, i18n.language),
     enabled: Boolean(slug) && Number.isInteger(bookNumber),
   });
   const { data: collection } = useQuery({

@@ -40,12 +40,13 @@ export class HadithController {
     @Param("slug") slug: string,
     @Param("bookNumber", ParseIntPipe) bookNumber: number,
     @Query("page") page?: string,
+    @Query("lang") lang?: string,
   ) {
-    return this.hadithService.getBookHadiths(slug, bookNumber, page ? Number(page) : undefined);
+    return this.hadithService.getBookHadiths(slug, bookNumber, page ? Number(page) : undefined, undefined, lang);
   }
 
   @Get("collections/:slug/hadiths/:number")
-  getHadith(@Param("slug") slug: string, @Param("number") number: string) {
-    return this.hadithService.getHadithDetail(slug, number);
+  getHadith(@Param("slug") slug: string, @Param("number") number: string, @Query("lang") lang?: string) {
+    return this.hadithService.getHadithDetail(slug, number, lang);
   }
 }
