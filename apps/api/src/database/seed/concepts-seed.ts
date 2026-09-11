@@ -5696,6 +5696,67 @@ const CONCEPTS: ConceptSeed[] = [
       "L'ecole zahirite, dont Ibn Hazm demeure le representant le plus connu, rejetait le recours au raisonnement analogique (qiyas) et a l'opinion personnelle (ra'y) au profit d'une lecture strictement litterale (zahir) des textes du Coran et de la Sunna, une methode qu'il defendit avec une rigueur polemique notable dans son ouvrage juridique majeur, Al-Muhalla. Bien que n'ayant pas survecu comme ecole organisee jusqu'a aujourd'hui, contrairement aux quatre ecoles sunnites majoritaires, sa pensee demeure etudiee pour sa methodologie distinctive.",
     relatedSlugs: ["qiyas", "ijtihad"],
   },
+  // --- Lieux et figures complementaires de la vie prophetique ---
+  {
+    term: "Waraqa ibn Nawfal",
+    termArabic: "ورقة بن نوفل",
+    slug: "waraqa-ibn-nawfal",
+    definition: "Un cousin de Khadija, chretien lettre, qui reconnut le prophete Muhammad comme un prophete des les premiers instants de la revelation.",
+    origin: "Cousin de Khadija, converti au christianisme et connaisseur des ecritures anterieures (Torah et Evangile).",
+    explanation:
+      "Lorsque Khadija, troublee, lui rapporta le recit de la premiere rencontre de son epoux avec l'ange Jibril, Waraqa identifia immediatement cet evenement comme la meme forme de revelation (an-namus) recue par Moise, annoncant a Muhammad qu'il serait rejete par son propre peuple comme le furent les prophetes avant lui ; il mourut peu apres, avant le debut de la mission publique du Prophete.",
+    relatedSlugs: ["khadija", "wahy"],
+  },
+  {
+    term: "Al-Buraq",
+    termArabic: "البراق",
+    slug: "al-buraq",
+    definition: "La monture celeste sur laquelle le prophete Muhammad aurait voyage lors de son voyage nocturne (isra) de La Mecque a Jerusalem.",
+    origin: "Nom non coranique, etabli par la tradition prophetique, derive de la racine b-r-q evoquant l'eclair.",
+    explanation:
+      "Plusieurs hadiths decrivent Al-Buraq comme une monture d'une rapidite extraordinaire, plus grande qu'un ane mais plus petite qu'un mulet, ayant transporte le Prophete durant l'ensemble du trajet de l'isra depuis La Mecque jusqu'a Jerusalem en une fraction de la nuit.",
+    relatedSlugs: ["isra-wal-miraj", "al-masjid-al-aqsa"],
+  },
+  {
+    term: "Masjid Quba",
+    termArabic: "مسجد قباء",
+    slug: "masjid-quba",
+    definition: "La toute premiere mosquee construite dans l'histoire de l'islam, edifiee par le prophete Muhammad a son arrivee pres de Medine.",
+    origin: "Toponyme du village de Quba, situe a la peripherie de Medine.",
+    explanation:
+      "Construite lors d'une halte du Prophete durant son emigration (hijra) vers Medine, avant meme son entree dans la ville elle-meme, cette mosquee est mentionnee par le Coran comme fondee \"des le premier jour sur la piete\" (sourate At-Tawba, 9:108) ; plusieurs hadiths rapportent le merite particulier attache a s'y rendre pour y prier, notamment le jour du samedi.",
+    relatedSlugs: ["masjid-an-nabawi", "mihrab"],
+  },
+  {
+    term: "Masjid an-Nabawi (La Mosquee du Prophete)",
+    termArabic: "المسجد النبوي",
+    slug: "masjid-an-nabawi",
+    definition: "La mosquee construite par le prophete Muhammad a Medine, deuxieme lieu le plus saint de l'islam apres la Grande Mosquee de La Mecque.",
+    origin: "Fondee par le Prophete lui-meme peu apres son arrivee a Medine en l'an 1 de l'hegire.",
+    explanation:
+      "Construite initialement comme un espace simple servant a la fois de lieu de priere, de residence du Prophete et de centre de vie communautaire, elle abrite depuis sa mort son tombeau, ainsi que ceux d'Abu Bakr et d'Omar ; un hadith rapporte que prier dans cette mosquee equivaut a mille prieres accomplies ailleurs, a l'exception de la Grande Mosquee de La Mecque.",
+    relatedSlugs: ["masjid-quba", "al-haramayn"],
+  },
+  {
+    term: "Ar-Rawda (Le Jardin)",
+    termArabic: "الروضة",
+    slug: "ar-rawda",
+    definition: "L'espace situe dans la Mosquee du Prophete a Medine, entre son tombeau et son ancien minbar, decrit par un hadith comme un jardin du Paradis.",
+    origin: "Terme arabe signifiant litteralement \"jardin\", \"parterre\".",
+    explanation:
+      "Un hadith rapporte que le Prophete ﷺ designa lui-meme cet espace precis, entre sa maison (devenue son tombeau) et son minbar, comme \"un jardin parmi les jardins du Paradis\", en faisant un lieu particulierement recherche par les pelerins et visiteurs pour y prier lorsque cela leur est possible.",
+    relatedSlugs: ["masjid-an-nabawi", "jannah"],
+  },
+  {
+    term: "Qubbat as-Sakhra (Le Dome du Rocher)",
+    termArabic: "قبة الصخرة",
+    slug: "qubbat-as-sakhra",
+    definition: "Un edifice a coupole dore situe sur l'esplanade d'Al-Aqsa a Jerusalem, construit a la fin du VIIe siecle sous le califat omeyyade.",
+    origin: "Edifie sous l'autorite du calife omeyyade Abd al-Malik ibn Marwan, acheve en 72 AH / 692.",
+    explanation:
+      "Distinct de la mosquee Al-Aqsa elle-meme bien que situe sur la meme esplanade, cet edifice abrite le rocher a partir duquel la tradition situe le depart de l'ascension celeste du Prophete (mi'raj) ; il compte parmi les plus anciens monuments architecturaux islamiques parvenus jusqu'a nous dans un etat largement preserve.",
+    relatedSlugs: ["al-masjid-al-aqsa", "isra-wal-miraj"],
+  },
 ];
 
 export async function seedConcepts(db: Database): Promise<void> {
