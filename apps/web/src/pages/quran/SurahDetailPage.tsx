@@ -10,6 +10,7 @@ import { Skeleton } from "@/components/ui/skeleton";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { ArabicFontSizeControl } from "@/components/shared/ArabicFontSizeControl";
 import { arabicFontSizeStyle } from "@/components/shared/arabic-font-size-provider";
+import { useAppearance } from "@/components/shared/appearance-provider";
 import { quranApi } from "@/features/quran/api";
 import { TajweedControl } from "@/features/quran/TajweedControl";
 import { TajweedText } from "@/features/quran/TajweedText";
@@ -32,6 +33,7 @@ export function SurahDetailPage() {
   const surahNumber = Number(surahParam);
   const { t, i18n } = useTranslation();
   const [tajweedEnabled] = useTajweedToggle();
+  const { decorativeBorders } = useAppearance();
   useStreakPing();
   const track = useGamificationEvent();
   const { offline } = useOffline();
@@ -249,7 +251,12 @@ export function SurahDetailPage() {
             className="mb-6"
           />
 
-          <div className="space-y-1 rounded-lg border bg-reading text-reading-foreground">
+          <div
+            className={cn(
+              "space-y-1 rounded-lg border bg-reading text-reading-foreground",
+              decorativeBorders && "decorative-frame",
+            )}
+          >
             {surah.verses.map((verse, i) => {
               const { basmala, text: verseArabic } = splitBasmala(surah.number, verse.numberInSurah, verse.textArabic);
               return (

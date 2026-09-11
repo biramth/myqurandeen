@@ -14,15 +14,18 @@ import { TajweedControl } from "@/features/quran/TajweedControl";
 import { TajweedText } from "@/features/quran/TajweedText";
 import { useTajweedToggle } from "@/features/quran/useTajweedToggle";
 import { arabicFontSizeStyle } from "@/components/shared/arabic-font-size-provider";
+import { useAppearance } from "@/components/shared/appearance-provider";
 import { useOffline } from "@/features/offline/OfflineContext";
 import { useStreakPing } from "@/features/streaks/useStreak";
 import { useGamificationEvent } from "@/features/gamification/useGamification";
 import { useRecordLastRead } from "@/features/user-data/useRecordLastRead";
 import { PageMeta, SITE_URL, buildOgImage, withShareUtm } from "@/components/shared/PageMeta";
+import { cn } from "@/lib/utils";
 
 export function VersePage() {
   const { surah: surahParam, verse: verseParam } = useParams<{ surah: string; verse: string }>();
   const surahNumber = Number(surahParam);
+  const { decorativeBorders } = useAppearance();
   const verseNumber = Number(verseParam);
   const { t } = useTranslation();
   const [tajweedEnabled] = useTajweedToggle();
@@ -131,7 +134,12 @@ export function VersePage() {
             </p>
             <TajweedControl />
           </div>
-          <div className="rounded-lg border bg-reading p-6 text-reading-foreground">
+          <div
+            className={cn(
+              "rounded-lg border bg-reading p-6 text-reading-foreground",
+              decorativeBorders && "decorative-frame",
+            )}
+          >
             {basmala && (
               <p
                 dir="rtl"

@@ -8,14 +8,17 @@ import { Breadcrumbs } from "@/components/shared/Breadcrumbs";
 import { ContentUserActions } from "@/components/shared/ContentUserActions";
 import { hadithApi } from "@/features/hadith/api";
 import { arabicFontSizeStyle } from "@/components/shared/arabic-font-size-provider";
+import { useAppearance } from "@/components/shared/appearance-provider";
 import { useStreakPing } from "@/features/streaks/useStreak";
 import { useGamificationEvent } from "@/features/gamification/useGamification";
 import { useRecordLastRead } from "@/features/user-data/useRecordLastRead";
 import { PageMeta, SITE_URL, buildOgImage, withShareUtm } from "@/components/shared/PageMeta";
+import { cn } from "@/lib/utils";
 
 export function HadithDetailPage() {
   const { collection: slug, number } = useParams<{ collection: string; number: string }>();
   const { t, i18n } = useTranslation();
+  const { decorativeBorders } = useAppearance();
   useStreakPing();
   const track = useGamificationEvent();
   const recordLastRead = useRecordLastRead();
@@ -101,7 +104,10 @@ export function HadithDetailPage() {
             <p
               dir="rtl"
               lang="ar"
-              className="mb-4 rounded-lg border bg-reading p-5 font-arabic leading-loose text-reading-foreground"
+              className={cn(
+                "mb-4 rounded-lg border bg-reading p-5 font-arabic leading-loose text-reading-foreground",
+                decorativeBorders && "decorative-frame",
+              )}
               style={arabicFontSizeStyle(1.25)}
             >
               {data.hadith.textArabic}

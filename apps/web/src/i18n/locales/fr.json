@@ -25,6 +25,26 @@
     "sidebarLabel": "Navigation principale",
     "bottomNavLabel": "Navigation mobile"
   },
+  "appearance": {
+    "menuLabel": "Personnaliser",
+    "reset": "Réinitialiser",
+    "accentColor": "Couleur d'accent",
+    "accentTeal": "Sarcelle",
+    "accentEmerald": "Émeraude",
+    "accentAzure": "Azur",
+    "accentIndigo": "Indigo",
+    "accentViolet": "Violet",
+    "accentRose": "Rose",
+    "accentAmber": "Ambre",
+    "accentTerracotta": "Terracotta",
+    "accentSlate": "Ardoise",
+    "backgroundPattern": "Motif géométrique en fond",
+    "decorativeBorders": "Cadres décoratifs sur les textes",
+    "displayFont": "Police d'affichage",
+    "fontInter": "Inter (défaut)",
+    "fontMerriweather": "Merriweather (classique)",
+    "fontPoppins": "Poppins (moderne)"
+  },
   "home": {
     "title": "Que souhaitez-vous étudier ?",
     "subtitle": "Bibliothèque numérique ouverte sur le Coran, le hadith, le fiqh et l'histoire de l'Islam - sources vérifiables.",

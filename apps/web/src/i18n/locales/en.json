@@ -25,6 +25,26 @@
     "sidebarLabel": "Main navigation",
     "bottomNavLabel": "Mobile navigation"
   },
+  "appearance": {
+    "menuLabel": "Personalize",
+    "reset": "Reset",
+    "accentColor": "Accent color",
+    "accentTeal": "Teal",
+    "accentEmerald": "Emerald",
+    "accentAzure": "Azure",
+    "accentIndigo": "Indigo",
+    "accentViolet": "Violet",
+    "accentRose": "Rose",
+    "accentAmber": "Amber",
+    "accentTerracotta": "Terracotta",
+    "accentSlate": "Slate",
+    "backgroundPattern": "Geometric background pattern",
+    "decorativeBorders": "Decorative frames on scripture text",
+    "displayFont": "Display font",
+    "fontInter": "Inter (default)",
+    "fontMerriweather": "Merriweather (classic)",
+    "fontPoppins": "Poppins (modern)"
+  },
   "home": {
     "title": "What would you like to study?",
     "subtitle": "An open digital library on the Quran, hadith, fiqh, and Islamic history - verifiable sources.",

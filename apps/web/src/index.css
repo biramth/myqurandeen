@@ -2,6 +2,17 @@
 @import "@fontsource/inter/500.css";
 @import "@fontsource/inter/600.css";
 @import "@fontsource/inter/700.css";
+/* Polices d'affichage alternatives (personnalisation, voir
+   PersonalizationMenu/display-fonts.ts) : un simple @import ne coute rien
+   pour les visiteurs qui ne changent jamais ce reglage, le fichier de police
+   n'etant recupere par le navigateur que si la font-family correspondante
+   est effectivement utilisee dans la page. */
+@import "@fontsource/merriweather/400.css";
+@import "@fontsource/merriweather/700.css";
+@import "@fontsource/poppins/400.css";
+@import "@fontsource/poppins/500.css";
+@import "@fontsource/poppins/600.css";
+@import "@fontsource/poppins/700.css";
 /* Sous-ensembles latin/latin-ext du poids 400 uniquement : le sous-ensemble
    arabe est fourni juste en dessous depuis un chemin public stable (evite de
    livrer deux fois le meme fichier de police, une fois via le fichier hashe
@@ -85,6 +96,14 @@
     --tajweed-idgham-shafawi: 84 55% 32%;
 
     --radius: 0.5rem;
+
+    /* Police d'affichage generale (personnalisation, voir
+       PersonalizationMenu/display-fonts.ts) - valeur par defaut ; surchargee
+       en ligne sur <html> par AppearanceProvider si l'utilisateur choisit une
+       autre police. Toujours definie ici pour que `var(--font-sans)` ne soit
+       jamais invalide (une valeur invalide ferait echouer tout le fallback
+       de la liste font-family de tailwind.config.ts). */
+    --font-sans: "Inter", system-ui, sans-serif;
   }
 
   .dark {
@@ -159,5 +178,22 @@
     textarea {
       font-size: 16px !important;
     }
+  }
+
+  /* Cadre decoratif optionnel (personnalisation, voir PersonalizationMenu) :
+     double liseret evoquant l'enluminure des marges de manuscrits coraniques
+     classiques, applique sur les blocs de lecture (verset, hadith). Un
+     ::before en retrait plutot qu'un simple border : garde le border existant
+     du bloc intact et n'affecte pas sa mise en page (position absolute). */
+  .decorative-frame {
+    position: relative;
+  }
+  .decorative-frame::before {
+    content: "";
+    position: absolute;
+    inset: 5px;
+    border: 1px solid hsl(var(--primary) / 0.35);
+    border-radius: calc(var(--radius) - 3px);
+    pointer-events: none;
   }
 }

@@ -10,13 +10,16 @@ import { Skeleton } from "@/components/ui/skeleton";
 import { Breadcrumbs } from "@/components/shared/Breadcrumbs";
 import { hadithApi } from "@/features/hadith/api";
 import { arabicFontSizeStyle } from "@/components/shared/arabic-font-size-provider";
+import { useAppearance } from "@/components/shared/appearance-provider";
 import { PageMeta } from "@/components/shared/PageMeta";
+import { cn } from "@/lib/utils";
 
 export function HadithChapterPage() {
   const { collection: slug, bookNumber: bookNumberParam } = useParams<{ collection: string; bookNumber: string }>();
   const bookNumber = Number(bookNumberParam);
   const [page, setPage] = React.useState(1);
   const { t, i18n } = useTranslation();
+  const { decorativeBorders } = useAppearance();
 
   const { data, isLoading, isError, isFetching } = useQuery({
     queryKey: ["hadith", "book", slug, bookNumber, page, i18n.language],
@@ -74,7 +77,12 @@ export function HadithChapterPage() {
             {data.book.number}. {data.book.title}
           </h1>
 
-          <div className="space-y-1 rounded-lg border bg-reading text-reading-foreground">
+          <div
+            className={cn(
+              "space-y-1 rounded-lg border bg-reading text-reading-foreground",
+              decorativeBorders && "decorative-frame",
+            )}
+          >
             {data.hadiths.map((hadith, i) => (
               <React.Fragment key={hadith.id}>
                 {i > 0 && <Separator className="opacity-50" />}

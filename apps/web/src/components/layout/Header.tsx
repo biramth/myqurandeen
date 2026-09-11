@@ -3,6 +3,7 @@ import { useTranslation } from "react-i18next";
 import { BookOpen, User } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { ThemeToggle } from "@/components/shared/theme-toggle";
+import { PersonalizationMenu } from "@/components/shared/PersonalizationMenu";
 import { LanguageSwitcher } from "@/components/shared/language-switcher";
 import { useAuth } from "@/features/auth/auth-context";
 import { StreakBadge } from "@/features/streaks/StreakBadge";
@@ -37,6 +38,7 @@ export function Header() {
             </>
           )}
           <LanguageSwitcher />
+          <PersonalizationMenu />
           <ThemeToggle />
           {!isLoading && (
             <Button

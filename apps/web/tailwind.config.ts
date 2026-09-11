@@ -56,8 +56,13 @@ export default {
         sm: "calc(var(--radius) - 4px)",
       },
       fontFamily: {
-        sans: ["Inter", "system-ui", "sans-serif"],
+        // `--font-sans` porte deja sa propre liste de secours (voir index.css) -
+        // surchargee en ligne par AppearanceProvider si l'utilisateur choisit
+        // une autre police d'affichage (personnalisation).
+        sans: ["var(--font-sans)"],
         arabic: ["Amiri", "Traditional Arabic", "serif"],
+        merriweather: ["Merriweather", "Georgia", "serif"],
+        poppins: ["Poppins", "Segoe UI", "system-ui", "sans-serif"],
       },
     },
   },

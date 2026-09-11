@@ -4,7 +4,9 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { Analytics } from "@vercel/analytics/react";
 import { HelmetProvider } from "react-helmet-async";
 import { ThemeProvider } from "@/components/shared/theme-provider";
+import { AppearanceProvider } from "@/components/shared/appearance-provider";
 import { ArabicFontSizeProvider } from "@/components/shared/arabic-font-size-provider";
+import { BackgroundPattern } from "@/components/shared/BackgroundPattern";
 import { AuthProvider } from "@/features/auth/auth-context";
 import { OfflineProvider } from "@/features/offline/OfflineContext";
 import { AppToaster } from "@/components/shared/AppToaster";
@@ -30,17 +32,20 @@ export function AppProviders({ children }: { children: React.ReactNode }) {
     <HelmetProvider>
       <QueryClientProvider client={queryClient}>
         <ThemeProvider>
-          <ArabicFontSizeProvider>
-            <OfflineProvider>
-              <BrowserRouter>
-                <AuthProvider>{children}</AuthProvider>
-                <AppToaster />
-              </BrowserRouter>
-            </OfflineProvider>
-            {/* N'envoie des donnees que sur un deploiement Vercel reel (silencieux
-                en local/autre hebergeur) - aucun cookie, conforme RGPD sans bandeau. */}
-            <Analytics />
-          </ArabicFontSizeProvider>
+          <AppearanceProvider>
+            <ArabicFontSizeProvider>
+              <OfflineProvider>
+                <BrowserRouter>
+                  <AuthProvider>{children}</AuthProvider>
+                  <AppToaster />
+                </BrowserRouter>
+              </OfflineProvider>
+              <BackgroundPattern />
+              {/* N'envoie des donnees que sur un deploiement Vercel reel (silencieux
+                  en local/autre hebergeur) - aucun cookie, conforme RGPD sans bandeau. */}
+              <Analytics />
+            </ArabicFontSizeProvider>
+          </AppearanceProvider>
         </ThemeProvider>
       </QueryClientProvider>
     </HelmetProvider>
