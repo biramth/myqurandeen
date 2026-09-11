@@ -1317,6 +1317,58 @@ const FIQH_TOPICS: FiqhTopicSeed[] = [
     ],
     divergenceExplanation: "La divergence porte sur le fondement meme de la concession accordee au voyageur : les ecoles malikite, shafi'ite et hanbalite la considerent comme une facilite (rukhsa) que Dieu n'accorde pas a celui qui L'a Lui-meme desobei par le motif de son deplacement, tandis que l'ecole hanafite rattache la concession a la realite objective et neutre du voyage (la distance parcourue), independamment de toute appreciation morale de son motif.",
   },
+  {
+    title: "Chaque partie a une vente peut-elle se retracter tant qu'elle ne s'est pas separee de l'autre (khiyar al-majlis) ?",
+    slug: "khiyar-al-majlis-vente",
+    category: "Commerce et transactions (Mu'amalat)",
+    description: "Si l'acheteur et le vendeur disposent d'un droit de retractation tant qu'ils ne se sont pas physiquement separes apres avoir conclu un contrat de vente, independamment de toute clause explicite en ce sens.",
+    positions: [
+      { schoolSlug: "malikite", text: "Le contrat de vente est definitif des l'echange de l'offre et de l'acceptation ; aucun droit de retractation automatique ne subsiste du simple fait que les parties ne se sont pas encore separees." },
+      { schoolSlug: "hanafite", text: "Position identique aux malikites : le contrat est conclu et definitif des l'accord des parties, sans droit de retractation lie a la seule separation physique." },
+      { schoolSlug: "shafiite", text: "Chacune des deux parties dispose d'un droit de retractation (khiyar al-majlis) tant qu'elles ne se sont pas physiquement separees apres la conclusion du contrat, en application litterale du hadith rapporte par Al-Bukhari et Muslim." },
+      { schoolSlug: "hanbalite", text: "Position identique aux shafi'ites : le droit de retractation subsiste jusqu'a la separation physique des deux parties contractantes." },
+    ],
+    divergenceExplanation: "La divergence porte sur la portee du hadith \"les deux parties a une vente disposent d'un droit de choix tant qu'elles ne se sont pas separees\" (rapporte par Al-Bukhari et Muslim) : les ecoles shafi'ite et hanbalite le retiennent au sens litteral comme instituant un droit de retractation general, tandis que les ecoles malikite et hanafite l'interpretent comme visant la separation verbale entre l'offre et l'acceptation plutot que la separation physique des lieux, rendant le contrat definitif des l'accord exprime.",
+  },
+  {
+    title: "Le silence d'une femme sollicitee en mariage vaut-il consentement valide ?",
+    slug: "silence-femme-consentement-mariage",
+    category: "Mariage (Nikah)",
+    description: "Si le silence d'une femme a qui l'on demande son accord pour un mariage, par pudeur plutot que par une reponse verbale explicite, suffit a etablir juridiquement son consentement.",
+    positions: [
+      { schoolSlug: "malikite", text: "Le silence de la femme vierge sollicitee vaut consentement valide ; la femme deja mariee auparavant (thayyib) doit en revanche exprimer verbalement un accord explicite." },
+      { schoolSlug: "hanafite", text: "Position identique aux malikites : silence suffisant pour la vierge, consentement verbal explicite requis pour la femme deja mariee auparavant." },
+      { schoolSlug: "shafiite", text: "Meme principe : le silence de la vierge vaut accord, tandis que la thayyib doit donner un consentement clairement exprime." },
+      { schoolSlug: "hanbalite", text: "Position identique aux trois autres ecoles sur le principe general, en insistant sur le fait que tout signe manifeste de refus (par exemple des pleurs exprimant clairement la tristesse plutot que la pudeur) invalide ce consentement tacite." },
+    ],
+    divergenceExplanation: "Les quatre ecoles s'accordent, en s'appuyant sur un hadith rapporte par Muslim distinguant expressement le statut de la vierge (dont le silence pudique vaut consentement) de celui de la femme deja mariee auparavant (dont l'accord doit etre verbalement exprime) ; ce sujet est inclus pour sa pertinence pratique frequente plutot que pour une reelle divergence entre les quatre ecoles, qui convergent ici sur l'interpretation de ce meme texte.",
+  },
+  {
+    title: "Trouver de l'eau en plein milieu d'une priere accomplie par tayammum invalide-t-il cette priere ?",
+    slug: "eau-trouvee-pendant-priere-tayammum",
+    category: "Purification (Tahara)",
+    description: "Si le fait de trouver de l'eau alors qu'une priere a deja ete entamee sur la base d'un tayammum oblige a interrompre cette priere pour refaire les ablutions, ou si la priere en cours peut etre menee a son terme normalement.",
+    positions: [
+      { schoolSlug: "malikite", text: "La priere entamee par tayammum est menee a son terme normalement ; seule la prochaine priere necessitera les ablutions a l'eau desormais disponible." },
+      { schoolSlug: "hanafite", text: "La decouverte d'eau en cours de priere invalide la priere entamee par tayammum, qui doit etre interrompue et reprise apres avoir accompli les ablutions a l'eau." },
+      { schoolSlug: "shafiite", text: "Position proche des malikites : la priere en cours, valablement entamee par tayammum, est menee a son terme sans interruption." },
+      { schoolSlug: "hanbalite", text: "Position identique aux malikites et shafi'ites : la priere entamee n'est pas invalidee par la decouverte d'eau survenant en son cours." },
+    ],
+    divergenceExplanation: "La divergence porte sur le moment ou s'apprecie la validite du moyen de purification employe : les ecoles malikite, shafi'ite et hanbalite considerent que la validite du tayammum s'apprecie au moment ou la priere est entamee, sans effet retroactif d'un changement de circonstance survenant en cours de priere, tandis que l'ecole hanafite considere que la disparition de la cause meme du tayammum (l'absence d'eau) invalide immediatement le moyen de purification sur lequel repose la priere en cours.",
+  },
+  {
+    title: "Le retard non excuse du rattrapage (qada) du jeune de Ramadan jusqu'au Ramadan suivant entraine-t-il une compensation supplementaire ?",
+    slug: "retard-qada-jeune-ramadan-suivant",
+    category: "Jeûne (Sawm)",
+    description: "Si celui qui n'a pas rattrape, sans excuse valable, des jours de jeune manques du Ramadan precedent avant l'arrivee du Ramadan suivant doit, en plus du rattrapage (qada) toujours du, verser une compensation alimentaire (fidya) pour ce retard.",
+    positions: [
+      { schoolSlug: "malikite", text: "Le rattrapage (qada) demeure du, accompagne d'une fidya (nourrir un pauvre par jour) pour le retard non excuse au-dela du Ramadan suivant." },
+      { schoolSlug: "hanafite", text: "Seul le rattrapage (qada) est du, quel que soit le delai ecoule avant son accomplissement ; aucune fidya supplementaire n'est exigee pour le simple retard." },
+      { schoolSlug: "shafiite", text: "Position proche des malikites : qada accompagne d'une fidya pour chaque jour dont le rattrapage a ete retarde sans excuse au-dela du Ramadan suivant." },
+      { schoolSlug: "hanbalite", text: "Position identique aux malikites et shafi'ites : qada et fidya sont tous deux dus en cas de retard non excuse du rattrapage au-dela du Ramadan suivant." },
+    ],
+    divergenceExplanation: "La divergence s'appuie sur une pratique rapportee de plusieurs compagnons, dont Ibn Abbas et Abu Hurayra, consistant a exiger une fidya en plus du qada en cas de retard non excuse : trois ecoles la retiennent comme fondement d'une obligation supplementaire, tandis que l'ecole hanafite considere que le jeune ne peut etre remplace par une compensation alimentaire que dans les cas explicitement etablis par un texte prophetique direct (vieillesse, maladie chronique), et non par simple analogie a partir d'une pratique de compagnons.",
+  },
 ];
 
 export async function seedSchools(db: Database): Promise<void> {
