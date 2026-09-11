@@ -1837,6 +1837,45 @@ const FIQH_TOPICS: FiqhTopicSeed[] = [
     ],
     divergenceExplanation: "La divergence porte sur la nature juridique du pret a usage ('ariya) : les ecoles malikite et hanafite le traitent comme un depot de confiance (amana), n'engageant la responsabilite de son detenteur qu'en cas de faute averee, tandis que les ecoles shafi'ite et hanbalite le considerent comme engageant par nature la responsabilite de l'emprunteur, en s'appuyant sur un hadith rapportant que le Prophete ﷺ qualifia un pret d'objets de \"garanti et a restituer\" (mad'muna mu'addah) aupres des Banu Sa'd lors de la conquete de La Mecque.",
   },
+  {
+    title: "La priere accomplie sur un terrain vole (usurpe) est-elle valide ?",
+    slug: "priere-terrain-vole-usurpe",
+    category: "Prière (Salat)",
+    description: "Si une priere accomplie sciemment sur un terrain appartenant a autrui, occupe sans son consentement, produit ses effets rituels normaux malgre le peche constitue par cette occupation illegitime.",
+    positions: [
+      { schoolSlug: "malikite", text: "La priere accomplie sur un terrain usurpe n'est pas valide ; elle doit etre reprise sur un lieu legitimement occupe." },
+      { schoolSlug: "hanafite", text: "La priere reste valide sur le plan rituel, bien que l'occupation du terrain constitue un peche distinct et independant de la validite de l'acte d'adoration lui-meme." },
+      { schoolSlug: "shafiite", text: "Position identique aux hanafites : la priere demeure valide, le peche affectant l'occupation du lieu sans invalider l'acte rituel accompli." },
+      { schoolSlug: "hanbalite", text: "Position identique aux malikites : la priere accomplie sur un terrain usurpe n'est pas valide, et doit etre reprise." },
+    ],
+    divergenceExplanation: "Ce sujet illustre, comme celui de la vente conclue durant l'appel a la priere du vendredi, le meme principe general de methodologie juridique : une interdiction portant sur les circonstances d'un acte (ici, l'occupation illegitime du lieu) invalide-t-elle l'acte d'adoration lui-meme qui s'y deroule ? Les ecoles hanafite et shafi'ite distinguent le peche de l'occupation de la validite intrinseque de la priere, tandis que les ecoles malikite et hanbalite considerent que le moyen illegitime employe (le terrain vole) corrompt l'acte d'adoration qui en depend directement.",
+  },
+  {
+    title: "La zakat est-elle due sur les chevaux ?",
+    slug: "zakat-sur-les-chevaux",
+    category: "Zakat",
+    description: "Si les chevaux possedes par un musulman, notamment ceux destines a l'elevage ou au commerce, sont soumis a la zakat au meme titre que le betail (chameaux, bovins, ovins).",
+    positions: [
+      { schoolSlug: "malikite", text: "Aucune zakat n'est due sur les chevaux, quel que soit leur usage." },
+      { schoolSlug: "hanafite", text: "La zakat est due sur les chevaux qui paturent librement (sa'ima) lorsqu'ils sont destines a la reproduction ou au commerce, mele males et femelles." },
+      { schoolSlug: "shafiite", text: "Position identique aux malikites : aucune zakat n'est due sur les chevaux." },
+      { schoolSlug: "hanbalite", text: "Position identique aux malikites et shafi'ites : les chevaux ne sont pas soumis a la zakat." },
+    ],
+    divergenceExplanation: "La divergence porte sur la portee du hadith \"il n'y a pas de zakat due par le musulman sur son esclave ni sur son cheval\" (rapporte par Al-Bukhari et Muslim) : trois ecoles le retiennent comme une exemption generale et absolue, tandis que l'ecole hanafite considere que cette exemption visait le cheval destine a un usage personnel (monture, guerre) plutot que celui eleve dans un but commercial ou reproductif, situation alors soumise au principe general de la zakat sur le betail.",
+  },
+  {
+    title: "Doit-on accomplir les grandes ablutions (ghusl) apres un evanouissement ?",
+    slug: "evanouissement-et-ghusl",
+    category: "Purification (Tahara)",
+    description: "Si la perte de connaissance (evanouissement) oblige a accomplir les grandes ablutions completes au reveil, ou si seules les petites ablutions doivent etre refaites.",
+    positions: [
+      { schoolSlug: "malikite", text: "Seules les petites ablutions doivent etre refaites apres un evanouissement, aucune grande ablution n'etant requise." },
+      { schoolSlug: "hanafite", text: "Position identique aux malikites : l'evanouissement annule les petites ablutions, sans requerir de grande ablution." },
+      { schoolSlug: "shafiite", text: "L'evanouissement oblige a accomplir les grandes ablutions completes (ghusl) au reveil, la perte totale de conscience etant traitee avec une severite superieure a celle du simple sommeil." },
+      { schoolSlug: "hanbalite", text: "Position identique aux shafi'ites : les grandes ablutions sont requises apres un evanouissement." },
+    ],
+    divergenceExplanation: "La divergence porte sur l'analogie a etablir entre l'evanouissement et les autres causes d'impurete : les ecoles shafi'ite et hanbalite le traitent comme une perte de conscience plus profonde et plus incertaine que le simple sommeil, justifiant par prudence une purification complete, tandis que les ecoles malikite et hanafite l'assimilent au sommeil ordinaire dans ses effets, ne requerant que le renouvellement des petites ablutions.",
+  },
 ];
 
 export async function seedSchools(db: Database): Promise<void> {
