@@ -953,6 +953,58 @@ const FIQH_TOPICS: FiqhTopicSeed[] = [
     ],
     divergenceExplanation: "La divergence tient à l'appréciation de la pratique privilégiée par le Prophète ﷺ et ses Compagnons : l'école malikite, s'appuyant sur le fait que le Prophète ﷺ lui-même n'accomplit qu'une seule 'umra par séjour, y voit la pratique la plus méritoire et déconseille la répétition, tandis que les trois autres écoles, s'appuyant sur l'autorisation accordée par le Prophète ﷺ à Aisha de répéter la 'umra lors du pèlerinage d'adieu, n'y voient aucune restriction de principe.",
   },
+  {
+    title: "Le mérite de la récitation du Coran parvient-il à un défunt (isal ath-thawab) ?",
+    slug: "isal-ath-thawab-recitation-defunt",
+    category: "Croyance et actes (Aqida et 'Ibadat)",
+    description: "Si le mérite d'une récitation coranique ou d'une autre bonne action, accomplie par un vivant et dédiée à un défunt, parvient effectivement à celui-ci.",
+    positions: [
+      { schoolSlug: "malikite", text: "Le mérite de la récitation coranique dédiée à un défunt parvient à celui-ci, position largement retenue par les juristes tardifs de l'école bien qu'une réserve plus ancienne existe chez certains d'entre eux." },
+      { schoolSlug: "hanafite", text: "Le mérite de toute bonne action, y compris la récitation du Coran, peut être dédié à un défunt et lui parvient, par analogie avec l'aumône et le jeûne dont l'effet transférable est explicitement établi par le hadith." },
+      { schoolSlug: "shafiite", text: "La position la plus connue et la plus ancienne de l'école, attribuée à Ash-Shafi'i lui-même, est que le mérite de la récitation coranique ne parvient pas au défunt, à la différence de l'aumône ou de la prière d'invocation, explicitement établies par des textes." },
+      { schoolSlug: "hanbalite", text: "Le mérite de la récitation coranique, comme celui de toute bonne action, parvient au défunt lorsqu'elle lui est dédiée, position notamment défendue par Ibn Taymiyyah et Ibn Qayyim al-Jawziyya." },
+    ],
+    divergenceExplanation: "La divergence porte sur la portée analogique à donner aux textes établissant que le mérite de l'aumône, du jeûne rattrapé ou de l'invocation parvient au défunt : trois écoles étendent ce principe à la récitation coranique par analogie, tandis que la position la plus ancienne de l'école shafi'ite s'en tient strictement aux actes explicitement mentionnés par les textes, sans extension par analogie à la simple récitation.",
+  },
+  {
+    title: "La prière derrière un imam notoirement pécheur (fasiq) est-elle valide ?",
+    slug: "priere-derriere-imam-fasiq",
+    category: "Prière (Salat)",
+    description: "Si suivre en prière collective un imam dont la transgression publique et notoire est connue de tous invalide la prière des fidèles qui le suivent.",
+    positions: [
+      { schoolSlug: "malikite", text: "La prière derrière un imam notoirement transgresseur est valide sur le plan strictement juridique, mais fortement déconseillée ; il est recommandé de chercher un autre imam lorsque cela est possible." },
+      { schoolSlug: "hanafite", text: "Position identique : la prière reste valide, la piété personnelle de l'imam n'étant pas une condition stricte de validité de la prière collective, bien que sa désignation dans cette fonction reste déconseillée." },
+      { schoolSlug: "shafiite", text: "Même position que les malikites et hanafites : la validité de la prière du fidèle ne dépend pas de l'état religieux intérieur ou de la conduite de l'imam, inconnaissable avec certitude par les autres." },
+      { schoolSlug: "hanbalite", text: "Position identique aux trois autres écoles sur la validité, tout en insistant fortement, comme les malikites, sur le caractère fortement déconseillé de choisir sciemment un tel imam." },
+    ],
+    divergenceExplanation: "Les quatre écoles s'accordent sur le principe que la validité de la prière du fidèle ne dépend pas de la piété personnelle, invérifiable avec certitude, de l'imam qu'il suit - seule la validité de sa propre prière (état de purification, direction de la qibla...) important juridiquement ; ce point est inclus pour sa pertinence pratique récurrente plutôt que pour une réelle divergence entre écoles, la désapprobation morale d'un tel choix restant largement partagée.",
+  },
+  {
+    title: "Le baiser entre époux pendant la journée du Ramadan rompt-il le jeûne ?",
+    slug: "baiser-epoux-jeune-ramadan",
+    category: "Jeûne (Sawm)",
+    description: "Si un simple baiser ou une caresse entre époux, sans rapport intime, durant les heures de jeûne du Ramadan, invalide celui-ci.",
+    positions: [
+      { schoolSlug: "malikite", text: "Le baiser n'annule pas le jeûne en lui-même, mais est déconseillé pour quiconque craint de ne pouvoir se maîtriser et risquer d'aller plus loin." },
+      { schoolSlug: "hanafite", text: "Position identique : le simple baiser n'invalide pas le jeûne tant qu'aucune émission séminale ne survient, bien qu'il reste déconseillé par prudence." },
+      { schoolSlug: "shafiite", text: "Le baiser est déconseillé de manière plus marquée durant le jeûne, l'école insistant davantage sur le risque qu'il fait courir à la validité du jeûne en cas de perte de maîtrise de soi, sans pour autant l'invalider en tant que tel." },
+      { schoolSlug: "hanbalite", text: "Position proche de celle des malikites et hanafites : licite pour qui se sait capable de maîtrise, déconseillé pour les jeunes gens ou quiconque craint de ne pouvoir se retenir." },
+    ],
+    divergenceExplanation: "Les écoles s'accordent sur le principe general (un baiser n'invalide pas juridiquement le jeûne tant qu'il ne mène pas à une émission ou à un rapport), mais nuancent différemment le degré de réserve à observer : l'école shafi'ite se montre generalement la plus prudente dans ses recommandations pratiques, quand les malikites et hanafites s'appuient plus directement sur des hadiths rapportant que le Prophète ﷺ embrassait ses épouses en état de jeûne.",
+  },
+  {
+    title: "Peut-on regrouper les prières en cas de maladie, en dehors du voyage ?",
+    slug: "regroupement-prieres-maladie",
+    category: "Prière (Salat)",
+    description: "Si un malade, sans être en voyage, peut regrouper deux prières consécutives (dhuhr-asr ou maghrib-isha) en raison de la difficulté que représente pour lui leur accomplissement séparé.",
+    positions: [
+      { schoolSlug: "malikite", text: "Le regroupement pour cause de maladie n'est généralement pas admis en dehors des cas explicitement prévus (voyage, pluie), position la plus restrictive sur ce point." },
+      { schoolSlug: "hanafite", text: "Le regroupement pour maladie seule n'est pas non plus admis par l'école, cohérent avec sa position plus restrictive déjà observée au sujet du regroupement pour cause de pluie." },
+      { schoolSlug: "shafiite", text: "Le regroupement est admis en cas de maladie rendant réellement difficile l'accomplissement séparé des prières à leur heure, par analogie avec les concessions déjà reconnues au voyageur." },
+      { schoolSlug: "hanbalite", text: "Position la plus large sur ce point, notamment défendue par Ibn Taymiyyah : le regroupement est admis chaque fois qu'une réelle difficulté (maladie, mais aussi d'autres empêchements comparables) le justifie, au-delà des seuls cas classiques du voyage et de la pluie." },
+    ],
+    divergenceExplanation: "La divergence porte sur la portée à donner par analogie aux concessions déjà reconnues pour le voyage et la pluie : les écoles malikite et hanafite s'en tiennent strictement aux cas explicitement transmis par les textes, tandis que les écoles shafi'ite et surtout hanbalite (par la voix d'Ibn Taymiyyah) élargissent le principe sous-jacent - éviter une réelle difficulté (mashaqqa) - à d'autres circonstances comparables comme la maladie.",
+  },
 ];
 
 export async function seedSchools(db: Database): Promise<void> {
