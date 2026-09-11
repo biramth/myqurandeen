@@ -3343,6 +3343,260 @@ const CONCEPTS: ConceptSeed[] = [
       "Le wird structure la pratique spirituelle individuelle par une regularite dans le dhikr, une discipline particulierement developpee au sein des confreries soufies (tariqa) ou chaque wird est souvent specifique a l'enseignement du maitre fondateur.",
     relatedSlugs: ["dhikr", "tariqa"],
   },
+  // --- Prophetologie ---
+  {
+    term: "Nabi (Prophete)",
+    termArabic: "النبي",
+    slug: "nabi",
+    definition: "Une personne choisie par Dieu pour recevoir une revelation, sans necessairement porter une nouvelle loi.",
+    origin: "Racine arabe n-b-a, evoquant l'information, l'annonce.",
+    explanation:
+      "Le nabi transmet et confirme generalement un message deja revele a un prophete anterieur, a la difference du rasul qui porte une legislation nouvelle - une distinction classique de la theologie islamique, bien que les deux termes soient parfois employes de maniere interchangeable dans l'usage courant.",
+    relatedSlugs: ["rasul", "nubuwwa"],
+  },
+  {
+    term: "Rasul (Messager)",
+    termArabic: "الرسول",
+    slug: "rasul",
+    definition: "Un prophete charge en outre de transmettre une legislation nouvelle a son peuple.",
+    origin: "Racine arabe r-s-l, evoquant l'envoi, le message.",
+    explanation:
+      "Tout rasul est necessairement nabi, mais tout nabi n'est pas necessairement rasul selon la distinction classique : le rasul porte une revelation legislative destinee a etablir ou reformer une communaute, comme ce fut le cas de Musa, 'Isa ou Muhammad ﷺ.",
+    relatedSlugs: ["nabi", "risala"],
+  },
+  {
+    term: "Risala (Message prophetique)",
+    termArabic: "الرسالة",
+    slug: "risala",
+    definition: "La mission et le message confies par Dieu a un prophete-messager (rasul).",
+    origin: "Racine arabe r-s-l, partagee avec rasul.",
+    explanation:
+      "La risala designe l'ensemble du contenu legislatif et doctrinal confie a un rasul pour sa communaute, la risala de Muhammad ﷺ etant consideree par l'islam comme universelle et destinee a l'ensemble de l'humanite, non a un seul peuple.",
+    relatedSlugs: ["rasul", "nubuwwa"],
+  },
+  {
+    term: "Ulul-Azm (Les prophetes dotes de resolution)",
+    termArabic: "أولو العزم",
+    slug: "ulul-azm",
+    definition: "Un groupe restreint de cinq prophetes distingues par une fermete et une patience exceptionnelles face a l'epreuve.",
+    origin: "Expression coranique (sourate Al-Ahqaf, 46:35).",
+    explanation:
+      "La tradition exegetique identifie generalement Nuh, Ibrahim, Musa, 'Isa et Muhammad ﷺ comme les Ulul-Azm, en raison de l'ampleur des epreuves et de l'opposition qu'ils durent affronter dans l'accomplissement de leur mission prophetique.",
+    relatedSlugs: ["nabi", "sabr"],
+  },
+  {
+    term: "'Isma (Preservation prophetique de l'erreur)",
+    termArabic: "العصمة",
+    slug: "isma",
+    definition: "La protection accordee par Dieu aux prophetes contre toute erreur dans la transmission du message religieux.",
+    origin: "Racine arabe '-s-m, evoquant la protection, la preservation.",
+    explanation:
+      "L''isma garantit specifiquement l'exactitude de la transmission du message divin par les prophetes ; son extension a d'autres aspects de leur vie personnelle (erreurs mineures, jugements humains ordinaires) fait l'objet de nuances variees selon les theologiens, la plupart s'accordant sur son caractere absolu concernant strictement la revelation elle-meme.",
+    relatedSlugs: ["nubuwwa", "nabi"],
+  },
+  {
+    term: "Khatam an-Nubuwwa (Le Sceau de la Prophetie)",
+    termArabic: "خاتم النبوة",
+    slug: "khatam-an-nubuwwa",
+    definition: "La doctrine selon laquelle Muhammad ﷺ est le dernier prophete envoye par Dieu, clôturant le cycle prophetique.",
+    origin: "Expression coranique (sourate Al-Ahzab, 33:40).",
+    explanation:
+      "Cette doctrine, fondement theologique central du consensus sunnite, exclut toute pretention prophetique posterieure a Muhammad ﷺ ; elle a constitue historiquement un critere theologique determinant pour juger de l'orthodoxie de mouvements religieux ulterieurs se reclamant de l'islam.",
+    relatedSlugs: ["nubuwwa", "rasul"],
+  },
+  // --- Rites funeraires ---
+  {
+    term: "Salat al-Janaza (Priere funeraire)",
+    termArabic: "صلاة الجنازة",
+    slug: "salat-al-janaza",
+    definition: "La priere collective accomplie pour un defunt musulman, sans inclinaison ni prosternation.",
+    origin: "Composition arabe de salat (priere) et janaza (le corps du defunt).",
+    explanation:
+      "La salat al-janaza, composee uniquement de takbirs et d'invocations en position debout, est un devoir collectif (fard kifaya) envers tout defunt musulman, son accomplissement par un nombre suffisant de membres de la communaute dispensant les autres de cette obligation.",
+    relatedSlugs: ["fard-kifaya", "ghusl-al-mayyit"],
+  },
+  {
+    term: "Ghusl al-Mayyit (Toilette funeraire)",
+    termArabic: "غسل الميت",
+    slug: "ghusl-al-mayyit",
+    definition: "Le lavage rituel du corps d'un defunt musulman, prealable a son inhumation.",
+    origin: "Racine arabe gh-s-l, partagee avec ghusl.",
+    explanation:
+      "Cette toilette, generalement accomplie par des personnes du meme sexe que le defunt (a l'exception des epoux entre eux), precede l'enveloppement dans le linceul (takfin) et vise a preparer le corps avec dignite pour son dernier voyage.",
+    relatedSlugs: ["ghusl", "takfin"],
+  },
+  {
+    term: "Takfin (Linceul funeraire)",
+    termArabic: "التكفين",
+    slug: "takfin",
+    definition: "L'enveloppement du corps d'un defunt dans un linceul simple, avant son inhumation.",
+    origin: "Racine arabe k-f-n, evoquant le linceul.",
+    explanation:
+      "Le linceul, traditionnellement blanc et depourvu d'ornements, exprime l'egalite absolue de tous les etres humains face a la mort, quelles qu'aient ete leur richesse ou leur condition sociale de leur vivant.",
+    relatedSlugs: ["ghusl-al-mayyit", "salat-al-janaza"],
+  },
+  {
+    term: "Talqin (Instruction donnee au mourant)",
+    termArabic: "التلقين",
+    slug: "talqin",
+    definition: "Le fait de rappeler a une personne a l'agonie la formule d'attestation de foi.",
+    origin: "Racine arabe l-q-n, evoquant l'enseignement transmis oralement.",
+    explanation:
+      "Fonde sur un hadith de Muslim (\"soufflez a vos mourants la ilaha illallah\"), le talqin vise a ce que les dernieres paroles conscientes du mourant soient, si possible, celles de l'attestation de foi.",
+    relatedSlugs: ["tahlil", "shahada"],
+  },
+  {
+    term: "Ta'ziya (Condoleances)",
+    termArabic: "التعزية",
+    slug: "taziya",
+    definition: "La visite et les paroles de reconfort adressees a la famille d'un defunt.",
+    origin: "Racine arabe '-z-y, evoquant le reconfort face a l'epreuve.",
+    explanation:
+      "La ta'ziya, recommandee durant les trois jours suivant le deces, s'accompagne traditionnellement de la preparation de repas pour la famille endeuillee par les proches et voisins, plutot que l'inverse - une pratique sociale d'entraide concrete face au deuil.",
+    relatedSlugs: ["sabr"],
+  },
+  {
+    term: "Sadaqah Jariyah (Aumone continue)",
+    termArabic: "الصدقة الجارية",
+    slug: "sadaqah-jariyah",
+    definition: "Une oeuvre charitable dont le benefice continue de profiter aux autres apres la mort de son auteur.",
+    origin: "Composition arabe de sadaqah (aumone) et jariyah (continue, courante).",
+    explanation:
+      "Un hadith de Muslim identifie trois sources de recompense continue apres la mort : la sadaqah jariyah, le savoir utile transmis (voir 'ilm nafi'), et un enfant vertueux qui invoque pour son parent - fondement religieux direct du waqf et d'autres oeuvres a benefice durable.",
+    relatedSlugs: ["waqf", "ilm-nafi"],
+  },
+  {
+    term: "'Ilm Nafi' (Savoir utile)",
+    termArabic: "العلم النافع",
+    slug: "ilm-nafi",
+    definition: "Une connaissance transmise dont profitent d'autres personnes, generatrice de recompense continue pour celui qui l'a enseignee.",
+    origin: "Composition arabe de 'ilm (savoir) et nafi' (utile, beneficiaire).",
+    explanation:
+      "Cite aux cotes de la sadaqah jariyah dans le meme hadith de Muslim, le savoir utile souligne la valeur particuliere accordee a l'enseignement dans la tradition islamique, sa transmission continuant a beneficier a son auteur bien apres sa mort.",
+    relatedSlugs: ["sadaqah-jariyah"],
+  },
+  // --- Ethique : vertus et vices complementaires ---
+  {
+    term: "Birr al-Walidayn (Piete envers les parents)",
+    termArabic: "بر الوالدين",
+    slug: "birr-al-walidayn",
+    definition: "Le devoir de bonte, de respect et d'obeissance envers ses parents.",
+    origin: "Racine arabe b-r-r, partagee avec Al-Barr.",
+    explanation:
+      "Le Coran associe frequemment le birr al-walidayn directement apres l'adoration de Dieu Lui-meme (sourate Al-Isra, 17:23), en faisant l'une des obligations morales les plus fortement soulignees de l'ethique islamique, maintenue meme envers des parents non musulmans selon la majorite des commentateurs.",
+    relatedSlugs: ["al-barr"],
+  },
+  {
+    term: "Sillat ar-Rahim (Maintien des liens de parente)",
+    termArabic: "صلة الرحم",
+    slug: "sillat-ar-rahim",
+    definition: "Le devoir de maintenir et d'entretenir les liens avec ses proches parents.",
+    origin: "Composition arabe de sila (lien maintenu) et rahim (matrice, parente).",
+    explanation:
+      "Plusieurs hadiths associent le maintien des liens familiaux a l'allongement de la subsistance et de la vie elle-meme, tandis que sa rupture (qati'at ar-rahim) figure parmi les peches les plus severement condamnes, notamment dans un hadith de Bukhari et Muslim.",
+    relatedSlugs: ["birr-al-walidayn", "ukhuwwa"],
+  },
+  {
+    term: "Adab (Bonnes manieres, etiquette)",
+    termArabic: "الأدب",
+    slug: "adab",
+    definition: "L'ensemble des bonnes manieres et du savoir-vivre attendus dans chaque situation de la vie quotidienne.",
+    origin: "Racine arabe a-d-b, evoquant l'education, la civilite.",
+    explanation:
+      "L'adab englobe des regles de politesse tres concretes (manger de la main droite, saluer en entrant, demander la permission avant d'entrer) considerees comme le prolongement pratique de l'ethique islamique dans les gestes les plus ordinaires du quotidien.",
+    relatedSlugs: ["hilm", "hayaa"],
+  },
+  {
+    term: "Tabarruj (Exhibition de la parure)",
+    termArabic: "التبرج",
+    slug: "tabarruj",
+    definition: "Le fait d'exhiber ostensiblement ses attraits physiques ou sa parure en public.",
+    origin: "Terme coranique (sourate Al-Ahzab, 33:33).",
+    explanation:
+      "Le tabarruj est explicitement deconseille par le Coran, dans un verset s'adressant en premier lieu aux epouses du Prophete ﷺ mais generalement etendu par les commentateurs a l'ensemble des croyantes, en lien avec les regles de pudeur (awra).",
+    relatedSlugs: ["awra", "hayaa"],
+  },
+  {
+    term: "Israf (Gaspillage, exces)",
+    termArabic: "الإسراف",
+    slug: "israf",
+    definition: "Le fait de depenser ou consommer au-dela de la mesure raisonnable, meme dans le licite.",
+    origin: "Racine arabe s-r-f, evoquant l'exces, le depassement de la mesure.",
+    explanation:
+      "Le Coran (sourate Al-A'raf, 7:31) condamne l'israf jusque dans la nourriture et la boisson, un principe de moderation qui s'etend a l'ensemble des domaines de la vie materielle, distinct du tabdhir (gaspillage pur et destructeur, encore plus severement condamne).",
+    relatedSlugs: ["qanaa", "zuhd"],
+  },
+  {
+    term: "Bukhl (Avarice)",
+    termArabic: "البخل",
+    slug: "bukhl",
+    definition: "Le refus de depenser ou de partager ses biens au-dela du strict necessaire pour soi-meme.",
+    origin: "Racine arabe b-kh-l, evoquant l'avarice.",
+    explanation:
+      "Le Coran (sourate Al Imran, 3:180) met en garde contre l'illusion que l'avarice profite a celui qui la pratique, presentee au contraire comme un mal pour lui-meme, a l'oppose direct de la generosite (karam) valorisee dans l'ethique islamique.",
+    relatedSlugs: ["al-karim", "sadaqah"],
+  },
+  {
+    term: "Hasad (Envie)",
+    termArabic: "الحسد",
+    slug: "hasad",
+    definition: "Le fait de souhaiter la disparition d'un bienfait accorde a autrui.",
+    origin: "Racine arabe h-s-d, evoquant l'envie, la jalousie.",
+    explanation:
+      "Un hadith de Bukhari et Muslim met en garde contre le hasad comme un feu qui consume les bonnes actions a la maniere dont le feu consume le bois, le distinguant du ghibta (souhait d'obtenir un bien similaire sans vouloir sa perte pour autrui), considere legitime.",
+    relatedSlugs: ["qanaa"],
+  },
+  {
+    term: "Husn Zann (Bonne opinion d'autrui)",
+    termArabic: "حسن الظن",
+    slug: "husn-zann",
+    definition: "Le fait d'interpreter favorablement les actes et intentions d'autrui, en l'absence de preuve contraire.",
+    origin: "Composition arabe de husn (bon) et zann (opinion, supposition).",
+    explanation:
+      "Le Coran (sourate Al-Hujurat, 49:12) met explicitement en garde contre l'exces de suspicion (su' zann), le qualifiant de peche dans certains de ses degres, et invite a preferer une interpretation bienveillante des actes d'autrui tant qu'aucune preuve n'etablit le contraire.",
+    relatedSlugs: ["ghiba", "sidq"],
+  },
+  {
+    term: "Namima (Rapportage malveillant)",
+    termArabic: "النميمة",
+    slug: "namima",
+    definition: "Le fait de rapporter les propos d'une personne a une autre dans l'intention de semer la discorde.",
+    origin: "Racine arabe n-m-m, evoquant le rapportage malveillant.",
+    explanation:
+      "La namima se distingue de la ghiba par son objectif specifique de creer ou attiser un conflit entre deux personnes ; un hadith de Bukhari et Muslim la compte parmi les causes directes du chatiment de la tombe rapportees au sujet de deux defunts.",
+    relatedSlugs: ["ghiba"],
+  },
+  {
+    term: "Kadhib (Mensonge)",
+    termArabic: "الكذب",
+    slug: "kadhib",
+    definition: "Le fait d'affirmer une chose contraire a la realite, sciemment.",
+    origin: "Racine arabe k-dh-b, evoquant le mensonge.",
+    explanation:
+      "Le mensonge est presente par un hadith de Bukhari et Muslim comme une voie menant a la transgression puis au Feu, a l'oppose direct de la sidq (veracite) qui mene a la piete puis au Paradis ; le fiqh classique en admet neanmoins de tres rares exceptions encadrees, comme reconcilier deux personnes en conflit.",
+    relatedSlugs: ["sidq"],
+  },
+  // --- Designation et courants ---
+  {
+    term: "Ahl as-Sunna wal-Jama'a (Les Gens de la Sunna et du Groupe)",
+    termArabic: "أهل السنة والجماعة",
+    slug: "ahl-as-sunna-wal-jamaa",
+    definition: "La designation traditionnelle de la branche majoritaire de l'islam, le sunnisme.",
+    origin: "Composition arabe de ahl (gens), sunna (voie prophetique) et jama'a (le groupe uni).",
+    explanation:
+      "Cette appellation revendique a la fois la fidelite a la Sunna du Prophete ﷺ et l'attachement au consensus (ijma') et a l'unite de la communaute, par opposition historique a des courants juges s'en etre ecartes sur des questions theologiques ou politiques majeures - un terme d'auto-designation plutot qu'une categorie fixee de l'exterieur.",
+    relatedSlugs: ["sunnah", "ijma"],
+  },
+  {
+    term: "Shahada (Attestation de foi)",
+    termArabic: "الشهادة",
+    slug: "shahada",
+    definition: "L'attestation qu'il n'y a de divinite digne d'adoration qu'Allah et que Muhammad est Son messager, premier pilier de l'Islam.",
+    origin: "Racine arabe sh-h-d, partagee avec Ash-Shahid.",
+    explanation:
+      "La shahada, formule la plus courte et la plus fondamentale de la foi islamique, en constitue a la fois la porte d'entree (sa prononciation sincere suffisant a faire d'une personne musulmane) et le rappel constant, integree a l'adhan, a l'iqama et au tashahhud recite dans chaque priere.",
+    relatedSlugs: ["tawhid", "nubuwwa", "tahlil"],
+  },
 ];
 
 export async function seedConcepts(db: Database): Promise<void> {
