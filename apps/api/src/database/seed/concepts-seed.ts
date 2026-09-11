@@ -5635,6 +5635,67 @@ const CONCEPTS: ConceptSeed[] = [
       "Ces campagnes aboutirent a la prise de Jerusalem en 492 AH / 1099 et a l'etablissement de plusieurs Etats croises au Levant, avant la reconquete progressive de ces territoires par des dynasties musulmanes successives, dont celle de Salah ad-Din, qui reprit Jerusalem en 1187, jusqu'a la chute du dernier bastion croise d'Acre en 690 AH / 1291.",
     relatedSlugs: ["salah-ad-din-al-ayyubi", "al-masjid-al-aqsa"],
   },
+  // --- Grandes figures intellectuelles de la civilisation islamique ---
+  {
+    term: "Al-Ghazali",
+    termArabic: "الغزالي",
+    slug: "al-ghazali",
+    definition: "Un theologien, juriste et mystique shafi'ite, auteur de l'un des ouvrages les plus influents de la pensee islamique classique, Ihya Ulum ad-Din.",
+    origin: "Abu Hamid Muhammad al-Ghazali (450-505 AH / 1058-1111), enseignant a la grande madrasa Nizamiyya de Bagdad.",
+    explanation:
+      "Apres une crise spirituelle profonde relatee dans son autobiographie Al-Munqidh min ad-Dalal, il abandonna sa carriere academique prestigieuse pour se consacrer au soufisme, avant de composer Ihya Ulum ad-Din (\"La revivification des sciences de la religion\"), une synthese majeure entre droit, theologie et spiritualite qui a durablement marque l'ash'arisme et la pensee sunnite dans son ensemble.",
+    relatedSlugs: ["asharisme", "ihsan"],
+  },
+  {
+    term: "Ibn Taymiyyah",
+    termArabic: "ابن تيمية",
+    slug: "ibn-taymiyyah",
+    definition: "Un theologien et juriste hanbalite dont les ecrits ont profondement influence le courant atharite et, plus tard, le mouvement salafi contemporain.",
+    origin: "Taqi ad-Din Ahmad ibn Taymiyyah (661-728 AH / 1263-1328), actif a Damas durant une periode marquee par les invasions mongoles.",
+    explanation:
+      "Connu pour son insistance sur le retour direct aux textes scripturaires face aux developpements ulterieurs de la theologie speculative (kalam) et de certaines pratiques soufies qu'il jugeait deviantes, il fut emprisonne a plusieurs reprises pour ses positions et mourut en detention. Son eleve Ibn Qayyim al-Jawziyya prolongea et systematisa une grande partie de son enseignement.",
+    relatedSlugs: ["atharisme", "hanbalite"],
+  },
+  {
+    term: "Ibn Khaldun",
+    termArabic: "ابن خلدون",
+    slug: "ibn-khaldun",
+    definition: "Un historien et penseur nord-africain, auteur de la Muqaddima, une introduction methodologique a l'histoire souvent consideree comme fondatrice de la sociologie.",
+    origin: "Abd ar-Rahman ibn Khaldun (732-808 AH / 1332-1406), ne a Tunis, actif entre le Maghreb, l'Andalousie et l'Egypte.",
+    explanation:
+      "Dans la Muqaddima, introduction a son vaste ouvrage historique Kitab al-'Ibar, il developpa une analyse systematique des dynamiques sociales et politiques des civilisations, notamment son concept d'asabiyya (cohesion sociale de groupe) expliquant l'ascension et le declin cyclique des dynasties, une approche saluee bien au-dela du monde musulman comme precurseur de la sociologie et de la philosophie de l'histoire.",
+    relatedSlugs: ["dawla-abbasside", "al-andalus"],
+  },
+  {
+    term: "Ibn Sina (Avicenne)",
+    termArabic: "ابن سينا",
+    slug: "ibn-sina",
+    definition: "Un philosophe et medecin dont les travaux, notamment Al-Qanun fi at-Tibb (Le Canon de la medecine), ont influence durablement la pensee scientifique et philosophique islamique et europeenne.",
+    origin: "Abu Ali al-Husayn Ibn Sina (370-428 AH / 980-1037), ne pres de Boukhara en Asie centrale.",
+    explanation:
+      "Son Canon de la medecine demeura un ouvrage de reference enseigne dans les universites europeennes jusqu'au XVIIe siecle, tandis que ses travaux philosophiques, notamment sur la notion de l'etre necessaire (wajib al-wujud), influencerent durablement la theologie speculative islamique posterieure, y compris chez des auteurs qui en critiquerent certains aspects, comme Al-Ghazali.",
+    relatedSlugs: ["wajib-al-wujud", "al-ghazali"],
+  },
+  {
+    term: "Ibn Rushd (Averroes)",
+    termArabic: "ابن رشد",
+    slug: "ibn-rushd",
+    definition: "Un philosophe et juriste andalou, reconnu pour ses commentaires detailles de l'oeuvre d'Aristote et pour sa defense de la compatibilite entre raison philosophique et revelation.",
+    origin: "Abu al-Walid Muhammad Ibn Rushd (520-595 AH / 1126-1198), ne a Cordoue en Andalousie, egalement juge (qadi) reconnu de l'ecole malikite.",
+    explanation:
+      "Ses commentaires de l'oeuvre d'Aristote furent traduits et etudies dans l'Europe medievale, ou il fut connu sous le nom d'Averroes et exerca une influence considerable sur la scolastique latine. Sur le plan juridique, il est egalement l'auteur de Bidayat al-Mujtahid, un ouvrage de fiqh compare reconnu pour la rigueur de son analyse des divergences entre ecoles juridiques.",
+    relatedSlugs: ["al-andalus", "ijtihad"],
+  },
+  {
+    term: "Ibn Hazm",
+    termArabic: "ابن حزم",
+    slug: "ibn-hazm",
+    definition: "Un juriste et theologien andalou, principal systematisateur de l'ecole zahirite (litteraliste), aujourd'hui eteinte en tant qu'ecole juridique organisee.",
+    origin: "Abu Muhammad Ali Ibn Hazm (384-456 AH / 994-1064), ne a Cordoue en Andalousie.",
+    explanation:
+      "L'ecole zahirite, dont Ibn Hazm demeure le representant le plus connu, rejetait le recours au raisonnement analogique (qiyas) et a l'opinion personnelle (ra'y) au profit d'une lecture strictement litterale (zahir) des textes du Coran et de la Sunna, une methode qu'il defendit avec une rigueur polemique notable dans son ouvrage juridique majeur, Al-Muhalla. Bien que n'ayant pas survecu comme ecole organisee jusqu'a aujourd'hui, contrairement aux quatre ecoles sunnites majoritaires, sa pensee demeure etudiee pour sa methodologie distinctive.",
+    relatedSlugs: ["qiyas", "ijtihad"],
+  },
 ];
 
 export async function seedConcepts(db: Database): Promise<void> {
