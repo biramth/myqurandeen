@@ -5757,6 +5757,58 @@ const CONCEPTS: ConceptSeed[] = [
       "Distinct de la mosquee Al-Aqsa elle-meme bien que situe sur la meme esplanade, cet edifice abrite le rocher a partir duquel la tradition situe le depart de l'ascension celeste du Prophete (mi'raj) ; il compte parmi les plus anciens monuments architecturaux islamiques parvenus jusqu'a nous dans un etat largement preserve.",
     relatedSlugs: ["al-masjid-al-aqsa", "isra-wal-miraj"],
   },
+  // --- Evenements historiques et vocabulaire complementaires ---
+  {
+    term: "Khums (Le cinquieme)",
+    termArabic: "الخمس",
+    slug: "khums",
+    definition: "La part d'un cinquieme du butin de guerre, prelevee et destinee a des categories specifiques de beneficiaires designees par le Coran.",
+    origin: "Terme coranique (sourate Al-Anfal, 8:41).",
+    explanation:
+      "Le Coran precise que ce cinquieme revient a Dieu, au Prophete, a ses proches, aux orphelins, aux necessiteux et au voyageur demuni (sourate Al-Anfal, 8:41), le reste du butin (les quatre autres cinquiemes) etant partage entre les combattants ayant participe a l'expedition.",
+    relatedSlugs: ["ghanima", "fay"],
+  },
+  {
+    term: "Hurub ar-Ridda (Les guerres de l'apostasie)",
+    termArabic: "حروب الردة",
+    slug: "hurub-ar-ridda",
+    definition: "Une serie de campagnes militaires menees sous le califat d'Abu Bakr contre des tribus arabes ayant rejete l'autorite de Medine apres la mort du Prophete.",
+    origin: "Composition arabe de hurub (pluriel de harb, guerre) et ridda (le fait de revenir en arriere, l'apostasie).",
+    explanation:
+      "A la mort du Prophete, plusieurs tribus arabes cesserent de reconnaitre l'autorite de Medine, certaines rejetant l'islam lui-meme, d'autres refusant seulement de verser la zakat tout en maintenant leur profession de foi, et d'autres encore suivant de faux pretendants a la prophetie. Le calife Abu Bakr mena une serie de campagnes pour retablir l'autorite de l'Etat naissant, une politique fermement soutenue par Omar ibn al-Khattab malgre ses hesitations initiales sur la question de la zakat.",
+    relatedSlugs: ["abu-bakr-as-siddiq", "khilafa"],
+  },
+  {
+    term: "Ghazwat Hunayn (Bataille de Hunayn)",
+    termArabic: "غزوة حنين",
+    slug: "hunayn",
+    definition: "Une bataille livree en l'an 8 de l'hegire, peu apres la conquete de La Mecque, contre les tribus de Hawazin et Thaqif.",
+    origin: "Toponyme d'une vallee situee entre La Mecque et Ta'if, ou se deroula l'affrontement.",
+    explanation:
+      "Malgre la superiorite numerique inhabituelle de l'armee musulmane, un debut de deroute survint face a une embuscade tendue dans la vallee, avant que le Prophete ne parvienne a reunir ses troupes et a renverser le cours de la bataille. Le Coran evoque cet episode en rappelant que la victoire ne depend pas du nombre mais du secours divin (sourate At-Tawba, 9:25-26), notamment par la descente de la sakina.",
+    relatedSlugs: ["sakina", "khilafa"],
+  },
+  // --- Signes eschatologiques complementaires ---
+  {
+    term: "Ad-Dabba (La Bete)",
+    termArabic: "الدابة",
+    slug: "ad-dabba",
+    definition: "Une creature mentionnee dans le Coran comme l'un des signes annonciateurs majeurs precedant la fin des temps.",
+    origin: "Terme coranique (sourate An-Naml, 27:82).",
+    explanation:
+      "Le Coran mentionne brievement qu'une bete surgira de terre pour s'adresser aux hommes au sujet de leur manque de foi en les signes divins (sourate An-Naml, 27:82), sans en preciser davantage la nature exacte ; la tradition prophetique la compte parmi les grands signes annonciateurs de l'approche du Jour dernier.",
+    relatedSlugs: ["qiyamah", "ad-dajjal"],
+  },
+  {
+    term: "Ad-Dukhan (La Fumee)",
+    termArabic: "الدخان",
+    slug: "ad-dukhan",
+    definition: "Un signe annonciateur mentionne dans le Coran, decrit comme une fumee visible enveloppant l'humanite avant la fin des temps.",
+    origin: "Terme coranique, egalement titre de la sourate 44.",
+    explanation:
+      "Le Coran evoque \"le jour ou le ciel apportera une fumee visible\" (sourate Ad-Dukhan, 44:10), un verset dont l'interpretation a varie parmi les commentateurs entre un signe eschatologique futur et un evenement historique deja survenu du vivant du Prophete, sans consensus definitif etabli sur ce point.",
+    relatedSlugs: ["ad-dabba", "qiyamah"],
+  },
 ];
 
 export async function seedConcepts(db: Database): Promise<void> {
