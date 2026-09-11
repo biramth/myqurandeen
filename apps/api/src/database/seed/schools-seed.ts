@@ -1460,6 +1460,58 @@ const FIQH_TOPICS: FiqhTopicSeed[] = [
     ],
     divergenceExplanation: "La divergence porte sur la nature de la capacite juridique (ahliyya) : l'ecole hanafite reconnait au mineur discernant une capacite partielle et progressive, activable par l'autorisation de son tuteur pour des actes usuels et mesures, tandis que les trois autres ecoles considerent la majorite legale (bulugh) comme un seuil unique et necessaire, en deca duquel aucune capacite contractuelle personnelle n'est reconnue, quelle que soit l'autorisation accordee par le tuteur.",
   },
+  {
+    title: "Lorsque l'Aid tombe un vendredi, assister a la priere de l'Aid dispense-t-il de celle du vendredi (Jumu'a) ?",
+    slug: "aid-tombant-vendredi-dispense-jumua",
+    category: "Prière (Salat)",
+    description: "Si les fideles ayant assiste a la priere de l'Aid al-Fitr ou de l'Aid al-Adha, lorsque celle-ci tombe un vendredi, sont dispenses d'assister ensuite a la priere collective du vendredi et peuvent prier le dhuhr individuellement a la place.",
+    positions: [
+      { schoolSlug: "malikite", text: "La priere du vendredi demeure obligatoire pour tous, y compris ceux ayant deja assiste a la priere de l'Aid le meme jour ; celle-ci ne remplace pas celle-la." },
+      { schoolSlug: "hanafite", text: "Position identique aux malikites : la coincidence des deux prieres le meme jour n'exempte personne de l'obligation de la priere du vendredi." },
+      { schoolSlug: "shafiite", text: "Position proche des malikites et hanafites : la priere du vendredi reste due independamment de la priere de l'Aid accomplie le matin du meme jour." },
+      { schoolSlug: "hanbalite", text: "Celui qui a assiste a la priere de l'Aid est dispense de la priere du vendredi et peut prier le dhuhr individuellement a sa place, a l'exception de l'imam qui doit neanmoins tenir la priere du vendredi pour ceux qui souhaitent y assister." },
+    ],
+    divergenceExplanation: "L'ecole hanbalite s'appuie sur un hadith rapporte par Abu Dawud selon lequel le Prophete ﷺ, un jour ou l'Aid tombait un vendredi, autorisa ceux qui le souhaitaient a ne pas assister a la priere du vendredi apres avoir deja prie l'Aid, tout en maintenant celle-ci pour l'imam et les autres fideles, tandis que les trois autres ecoles considerent la priere du vendredi comme une obligation distincte et independante, non affectee par l'accomplissement d'une autre priere le meme jour.",
+  },
+  {
+    title: "Doit-on accomplir la priere de salutation de la mosquee (tahiyyat al-masjid) durant la khutba du vendredi ?",
+    slug: "tahiyyat-al-masjid-pendant-khutba",
+    category: "Prière (Salat)",
+    description: "Si un fidele entrant dans la mosquee alors que le predicateur a deja commence le sermon du vendredi doit accomplir la breve priere de salutation avant de s'asseoir, ou s'asseoir directement pour ecouter la khutba.",
+    positions: [
+      { schoolSlug: "malikite", text: "Le fidele s'assoit directement pour ecouter la khutba sans accomplir de priere, l'obligation d'ecoute attentive primant sur la priere surerogatoire de salutation." },
+      { schoolSlug: "hanafite", text: "Position identique aux malikites : aucune priere n'est accomplie durant la khutba, le fidele s'asseyant immediatement pour ecouter le predicateur." },
+      { schoolSlug: "shafiite", text: "Le fidele accomplit une breve priere de salutation de la mosquee, meme durant la khutba, en s'appuyant sur le hadith rapportant que le Prophete ﷺ ordonna a un compagnon arrive tardivement de prier deux rak'at breves avant de s'asseoir." },
+      { schoolSlug: "hanbalite", text: "Position proche des shafi'ites : la priere de salutation est accomplie brievement, meme durant la khutba, sans que cela ne soit considere comme un manquement a l'obligation d'ecoute." },
+    ],
+    divergenceExplanation: "La divergence porte sur la conciliation entre le hadith ordonnant la priere de salutation de la mosquee en toute circonstance, y compris durant la khutba (rapporte par Muslim, au sujet du compagnon Sulayk al-Ghatafani), et les textes prescrivant le silence et l'ecoute attentive durant le sermon : les ecoles shafi'ite et hanbalite font primer le premier comme exception explicitement etablie, tandis que les ecoles malikite et hanafite font primer l'obligation generale d'ecoute silencieuse du sermon.",
+  },
+  {
+    title: "La vente avec acompte non remboursable en cas de renoncement (bay' al-'urbun) est-elle licite ?",
+    slug: "vente-arbun-acompte-non-rembourse",
+    category: "Commerce et transactions (Mu'amalat)",
+    description: "Si un contrat de vente peut valablement prevoir qu'un acompte verse par l'acheteur reste acquis au vendeur, sans remboursement, si l'acheteur renonce finalement a conclure l'achat.",
+    positions: [
+      { schoolSlug: "malikite", text: "Cette forme de vente n'est pas licite ; l'acompte doit etre integralement rembourse a l'acheteur qui renonce a la transaction." },
+      { schoolSlug: "hanafite", text: "Position identique aux malikites : le vendeur ne peut conserver l'acompte en cas de renoncement, sous peine de percevoir un gain injustifie (akl amwal an-nas bil-batil)." },
+      { schoolSlug: "shafiite", text: "Meme position que les malikites et hanafites : l'acompte non rembourse en cas de renoncement constitue une clause invalidant la vente." },
+      { schoolSlug: "hanbalite", text: "Cette forme de vente est licite : l'acompte verse peut valablement rester acquis au vendeur si l'acheteur renonce finalement a l'achat, la clause etant consideree comme une condition valablement stipulee entre les parties." },
+    ],
+    divergenceExplanation: "L'ecole hanbalite s'appuie sur un rapport, dont l'authenticite est diversement evaluee, attribuant au calife Omar ibn al-Khattab l'autorisation de cette pratique, ainsi que sur le principe general de liberte contractuelle admettant toute clause non explicitement prohibee, tandis que les trois autres ecoles y voient un gain percu sans contrepartie reelle en cas de renoncement, assimilable a un enrichissement injustifie prohibe par le Coran (sourate An-Nisa, 4:29).",
+  },
+  {
+    title: "Le vin qui se transforme naturellement en vinaigre devient-il pur et licite a la consommation ?",
+    slug: "vin-transforme-en-vinaigre",
+    category: "Alimentation (Hilal wa Haram)",
+    description: "Si le vin, substance impure et interdite, devient pur et licite a la consommation lorsqu'il se transforme en vinaigre, et si cela depend de la maniere - spontanee ou provoquee - dont cette transformation survient.",
+    positions: [
+      { schoolSlug: "malikite", text: "Le vinaigre issu d'une transformation spontanee du vin, sans intervention humaine, est pur et licite ; celui resultant d'une transformation deliberement provoquee demeure impur et interdit." },
+      { schoolSlug: "hanafite", text: "Le vinaigre est pur et licite des lors que la transformation chimique reelle du vin en vinaigre est effective, que celle-ci soit survenue spontanement ou ait ete deliberement provoquee." },
+      { schoolSlug: "shafiite", text: "Position proche des malikites : seule la transformation spontanee, sans intervention humaine volontaire, rend le vinaigre resultant pur et licite." },
+      { schoolSlug: "hanbalite", text: "Position identique aux malikites et shafi'ites : le vinaigre issu d'une transformation provoquee demeure impur, seule la transformation spontanee du vin purifiant le liquide obtenu." },
+    ],
+    divergenceExplanation: "La divergence porte sur la portee du principe de l'istihala (la transformation substantielle d'une matiere en une autre de nature differente) comme cause de purification : l'ecole hanafite l'applique pleinement des lors que la nature du vinaigre est effectivement etablie, quelle qu'en soit l'origine, tandis que les trois autres ecoles distinguent selon que cette transformation est intervenue independamment de toute volonte humaine ou qu'elle a ete deliberement recherchee, ce second cas restant selon elles entache de l'origine illicite du produit.",
+  },
 ];
 
 export async function seedSchools(db: Database): Promise<void> {
