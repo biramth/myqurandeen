@@ -1109,6 +1109,58 @@ const FIQH_TOPICS: FiqhTopicSeed[] = [
     ],
     divergenceExplanation: "La divergence porte sur l'interpretation du hadith \"man massa dhakarahu falyatawadda\" (quiconque a touche son sexe doit refaire ses ablutions) : les ecoles shafi'ite et hanbalite en retiennent le sens litteral et general, l'ecole malikite le rapproche par analogie du cas du contact avec une femme (conditionne au desir), tandis que l'ecole hanafite le comprend comme une simple recommandation de purete plutot qu'une annulation effective des ablutions.",
   },
+  {
+    title: "Le sacrifice du jour de l'Aid al-Adha (udhiya) est-il obligatoire ou recommande ?",
+    slug: "udhiya-obligatoire-ou-recommandee",
+    category: "Croyance et actes (Aqida et 'Ibadat)",
+    description: "Si le sacrifice d'un animal accompli le jour de l'Aid al-Adha constitue une obligation stricte pour qui en a les moyens, ou un acte seulement recommande.",
+    positions: [
+      { schoolSlug: "malikite", text: "L'udhiya est un acte fortement recommande (sunna mu'akkada), non obligatoire, sauf pour celui qui l'a rendue obligatoire pour lui-meme par un voeu (nadhr)." },
+      { schoolSlug: "hanafite", text: "L'udhiya est obligatoire (wajib) pour tout musulman resident, libre, atteignant le seuil de richesse equivalent au nisab de la zakat." },
+      { schoolSlug: "shafiite", text: "L'udhiya est un acte fortement recommande (sunna mu'akkada), non obligatoire." },
+      { schoolSlug: "hanbalite", text: "Position proche des malikites et shafi'ites : l'udhiya est une sunna mu'akkada, non obligatoire, bien que fortement encouragee pour qui en a les moyens." },
+    ],
+    divergenceExplanation: "La divergence provient de la lecture du verset \"Accomplis la priere pour ton Seigneur et sacrifie\" (sourate Al-Kawthar, 108:2) : l'ecole hanafite y lit un ordre imperatif etablissant une obligation stricte, tandis que les trois autres ecoles le comprennent comme une recommandation forte, s'appuyant notamment sur des rapports selon lesquels certains compagnons du Prophete ﷺ s'abstenaient parfois du sacrifice sans que cela ne leur soit reproche.",
+  },
+  {
+    title: "Le tayammum reste-t-il valide pour plusieurs prieres, ou doit-il etre renouvele a chaque priere ?",
+    slug: "renouvellement-tayammum-chaque-priere",
+    category: "Purification (Tahara)",
+    description: "Si un tayammum accompli une fois permet d'accomplir plusieurs prieres obligatoires successives, ou doit imperativement etre renouvele avant chaque nouvelle priere.",
+    positions: [
+      { schoolSlug: "malikite", text: "Le tayammum reste valide jusqu'a ce qu'il soit annule par l'une des causes qui rompent habituellement l'etat de purete, ou jusqu'a ce que de l'eau devienne disponible ; il peut donc servir a plusieurs prieres." },
+      { schoolSlug: "hanafite", text: "Position identique aux malikites : le tayammum a le meme statut que le wudu et demeure valide pour plusieurs prieres tant qu'il n'est pas annule." },
+      { schoolSlug: "shafiite", text: "Le tayammum ne permet d'accomplir qu'une seule priere obligatoire ; il doit etre renouvele avant chaque nouvelle priere obligatoire, bien qu'il puisse etre associe a plusieurs prieres surerogatoires accomplies dans la foulee." },
+      { schoolSlug: "hanbalite", text: "Position proche des malikites et hanafites : le tayammum reste valide pour plusieurs prieres tant qu'aucune cause d'annulation ne survient et que le motif ayant justifie son recours persiste." },
+    ],
+    divergenceExplanation: "La divergence tient au statut accorde au tayammum : les ecoles malikite, hanafite et hanbalite le considerent comme une purification a part entiere equivalente au wudu tant que sa cause (absence d'eau) persiste, tandis que l'ecole shafi'ite le considere comme une simple permission d'exception (rukhsa) limitee strictement au besoin ponctuel ayant motive son usage, soit une seule priere obligatoire.",
+  },
+  {
+    title: "Peut-on donner l'aumone legale (zakat) a un non-musulman ?",
+    slug: "zakat-a-un-non-musulman",
+    category: "Zakat",
+    description: "Si les huit categories de beneficiaires de la zakat mentionnees dans le Coran (sourate At-Tawba, 9:60) peuvent inclure des personnes non musulmanes, notamment celle des \"coeurs a reconcilier\".",
+    positions: [
+      { schoolSlug: "malikite", text: "La zakat obligatoire est reservee aux musulmans, a l'exception de la categorie des coeurs a reconcilier (mu'allafat qulubuhum), qui peut inclure des non-musulmans dont on espere ainsi attenuer l'hostilite ou favoriser la conversion." },
+      { schoolSlug: "hanafite", text: "La categorie des coeurs a reconcilier est consideree caduque depuis l'affermissement de l'islam sous le califat de Omar ibn al-Khattab ; la zakat obligatoire est donc reservee exclusivement aux musulmans." },
+      { schoolSlug: "shafiite", text: "Position proche des malikites : la zakat obligatoire est reservee aux musulmans, sauf pour la categorie des coeurs a reconcilier ou la question reste debattue selon les circonstances." },
+      { schoolSlug: "hanbalite", text: "Position proche des malikites et shafi'ites : la categorie des coeurs a reconcilier demeure active et peut, selon les circonstances, beneficier a des non-musulmans dont le ralliement sert l'interet de la communaute." },
+    ],
+    divergenceExplanation: "La divergence porte sur le statut de la categorie des \"coeurs a reconcilier\" (mu'allafat qulubuhum), explicitement mentionnee dans le Coran (sourate At-Tawba, 9:60) : l'ecole hanafite considere que le contexte de faiblesse initiale de l'islam qui justifiait cette categorie a disparu, une position notamment associee a une pratique rapportee du calife Omar, tandis que les trois autres ecoles considerent que le texte coranique demeure applicable chaque fois que les circonstances le justifient a nouveau.",
+  },
+  {
+    title: "La femme enceinte ou allaitante peut-elle rompre le jeune du Ramadan ?",
+    slug: "jeune-femme-enceinte-allaitante",
+    category: "Jeûne (Sawm)",
+    description: "Si une femme enceinte ou allaitante craignant pour sa sante ou celle de son enfant peut s'abstenir de jeuner durant le Ramadan, et ce qu'elle doit en compensation.",
+    positions: [
+      { schoolSlug: "malikite", text: "Elle peut rompre le jeune dans les deux cas ; si la crainte concerne sa propre sante, elle doit uniquement rattraper les jours (qada), tandis que si la crainte concerne uniquement l'enfant, elle doit rattraper les jours et nourrir un pauvre par jour manque (fidya)." },
+      { schoolSlug: "hanafite", text: "Elle peut rompre le jeune dans les deux cas et doit uniquement rattraper les jours manques (qada), sans fidya supplementaire, que la crainte concerne elle-meme ou l'enfant." },
+      { schoolSlug: "shafiite", text: "Position proche des malikites : qada seul si la crainte concerne sa propre sante, qada accompagne d'une fidya si la crainte concerne specifiquement la sante de l'enfant." },
+      { schoolSlug: "hanbalite", text: "Position identique aux malikites et shafi'ites : qada seul pour crainte envers elle-meme, qada et fidya lorsque la crainte porte sur l'enfant." },
+    ],
+    divergenceExplanation: "Les quatre ecoles s'accordent sur le principe general - la maladie ou la crainte justifiee dispensent du jeune avec obligation de rattrapage - mais trois d'entre elles ajoutent une fidya (nourrir un pauvre) lorsque la rupture est motivee par la sante de l'enfant plutot que celle de la mere elle-meme, l'ecole hanafite ne retenant pour sa part que l'obligation generale de rattrapage (qada) sans distinction entre les deux motifs.",
+  },
 ];
 
 export async function seedSchools(db: Database): Promise<void> {
