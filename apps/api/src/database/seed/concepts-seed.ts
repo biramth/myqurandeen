@@ -4433,6 +4433,99 @@ const CONCEPTS: ConceptSeed[] = [
       "Converti tardivement, environ trois ans avant la mort du Prophete, il consacra une grande partie de son temps a accompagner celui-ci et a memoriser ses paroles, ce qui explique le tres grand nombre de hadiths (plusieurs milliers) qui lui sont attribues dans les grands recueils, dont Sahih al-Bukhari et Sahih Muslim.",
     relatedSlugs: ["sahaba", "isnad"],
   },
+  // --- Grands evenements de la vie prophetique ---
+  {
+    term: "Ghazwat Badr (Bataille de Badr)",
+    termArabic: "غزوة بدر",
+    slug: "badr",
+    definition: "La premiere bataille majeure entre les musulmans de Medine et les Mecquois, en l'an 2 de l'hegire.",
+    origin: "Toponyme d'un lieu situe entre La Mecque et Medine, ou se deroula l'affrontement.",
+    explanation:
+      "Une armee musulmane nettement inferieure en nombre (environ 300 combattants) y affronta et vainquit une armee mecquoise bien plus importante, une victoire que le Coran presente comme un secours divin (sourate Al Imran, 3:123) et qui marqua un tournant decisif dans l'affermissement de la jeune communaute de Medine.",
+    relatedSlugs: ["uhud", "muhajirun"],
+  },
+  {
+    term: "Ghazwat Uhud (Bataille de Uhud)",
+    termArabic: "غزوة أحد",
+    slug: "uhud",
+    definition: "Une bataille livree l'an 3 de l'hegire pres du mont Uhud, marquee par un revers militaire des musulmans.",
+    origin: "Toponyme du mont situe pres de Medine, au pied duquel se deroula l'affrontement.",
+    explanation:
+      "Apres un debut favorable, le depart precipite d'un groupe d'archers de leur position, malgre l'ordre contraire du Prophete, permit a la cavalerie mecquoise de contourner les rangs musulmans, causant de lourdes pertes, dont celle de l'oncle du Prophete, Hamza ibn Abd al-Muttalib. Le Coran y revient longuement (sourate Al Imran, 3:121-175), notamment pour souligner l'importance de l'obeissance aux directives donnees.",
+    relatedSlugs: ["badr", "khandaq"],
+  },
+  {
+    term: "Ghazwat al-Khandaq (Bataille du Fosse)",
+    termArabic: "غزوة الخندق",
+    slug: "khandaq",
+    definition: "Le siege de Medine par une coalition de tribus arabes et juives en l'an 5 de l'hegire, repousse grace au creusement d'un fosse defensif.",
+    origin: "Composition arabe de ghazwa (expedition, bataille) et khandaq (fosse), terme d'origine perse adopte selon la tradition sur suggestion du compagnon Salman al-Farisi.",
+    explanation:
+      "Face a une coalition de tribus (al-Ahzab) assiegeant Medine, les musulmans creuserent un large fosse autour des zones vulnerables de la ville, une tactique alors inedite en Arabie qui empecha durablement la cavalerie assiegeante de penetrer, jusqu'a la dispersion de la coalition sans affrontement direct majeur. Une sourate entiere (33, Al-Ahzab) evoque cet episode.",
+    relatedSlugs: ["uhud", "sulh-al-hudaybiyya"],
+  },
+  {
+    term: "Sulh al-Hudaybiyya (Traite de Hudaybiyya)",
+    termArabic: "صلح الحديبية",
+    slug: "sulh-al-hudaybiyya",
+    definition: "Un traite de treve conclu en l'an 6 de l'hegire entre les musulmans de Medine et les Mecquois, initialement percu comme defavorable mais qualifie de victoire manifeste par le Coran.",
+    origin: "Toponyme d'un lieu proche de La Mecque ou fut negocie et signe le traite.",
+    explanation:
+      "Empeches d'accomplir la 'umra qu'ils etaient venus effectuer, les musulmans acceptent une treve de dix ans aux termes en apparence desavantageux, que le Coran qualifie pourtant de \"victoire manifeste\" (sourate Al-Fath, 48:1) : la treve permit en pratique une diffusion pacifique de l'islam sans confrontation armee, menant deux ans plus tard a la conquete pacifique de La Mecque.",
+    relatedSlugs: ["fath-makka", "khandaq"],
+  },
+  {
+    term: "Fath Makka (Conquete de La Mecque)",
+    termArabic: "فتح مكة",
+    slug: "fath-makka",
+    definition: "L'entree pacifique du prophete Muhammad et de ses compagnons a La Mecque en l'an 8 de l'hegire, mettant fin a des annees de conflit.",
+    origin: "Composition arabe de fath (ouverture, conquete) et Makka (La Mecque).",
+    explanation:
+      "Apres la rupture du traite de Hudaybiyya par les allies des Mecquois, le Prophete marcha sur La Mecque avec une force considerable ; la ville se rendit sans veritable combat, et le Prophete accorda une amnistie generale a ses anciens adversaires, ordonnant egalement la destruction des idoles entourant la Kaaba (sourate An-Nasr, 110).",
+    relatedSlugs: ["sulh-al-hudaybiyya", "kaaba"],
+  },
+  // --- Vocabulaire general du fiqh ---
+  {
+    term: "Rukn (Pilier constitutif)",
+    termArabic: "الركن",
+    slug: "rukn",
+    definition: "Un element constitutif essentiel d'un acte d'adoration ou d'un contrat, sans lequel celui-ci n'existe pas.",
+    origin: "Racine arabe r-k-n, evoquant le pilier, le support structurel.",
+    explanation:
+      "Contrairement a une condition (shart), qui est exterieure a l'acte lui-meme, le rukn en fait partie integrante : par exemple, l'inclinaison (ruku') est un rukn de la priere, sans lequel celle-ci n'existe tout simplement pas, quelle que soit par ailleurs la validite des conditions exterieures reunies.",
+    relatedSlugs: ["shart", "salah"],
+  },
+  {
+    term: "Shart (Condition)",
+    termArabic: "الشرط",
+    slug: "shart",
+    definition: "Une condition exterieure requise pour la validite d'un acte d'adoration ou d'un contrat, sans faire partie de sa structure interne.",
+    origin: "Racine arabe sh-r-t, evoquant la condition, la stipulation.",
+    explanation:
+      "A la difference du rukn, qui constitue une partie interne de l'acte, le shart lui est exterieur mais demeure une condition prealable a sa validite : la purete rituelle (wudu) est ainsi une condition (shart) de la priere, sans en etre l'une des composantes internes.",
+    relatedSlugs: ["rukn", "wudu"],
+  },
+  // --- Vocabulaire soufi complementaire ---
+  {
+    term: "Maqam (Station spirituelle)",
+    termArabic: "المقام",
+    slug: "maqam-sufi",
+    definition: "Dans le vocabulaire soufi, un degre spirituel stable atteint par l'effort personnel et la discipline (mujahada) du cheminant.",
+    origin: "Racine arabe q-w-m, evoquant le fait de se tenir debout, une position stable.",
+    explanation:
+      "Contrairement au hal, considere comme un etat passager accorde par grace divine, le maqam est traditionnellement presente par les maitres soufis comme un acquis durable resultant de l'effort, du travail sur soi et de la discipline spirituelle constante, tel que le zuhd (detachement) ou la patience (sabr) pleinement integres.",
+    relatedSlugs: ["hal-sufi", "mujahada"],
+  },
+  {
+    term: "Hal (Etat spirituel)",
+    termArabic: "الحال",
+    slug: "hal-sufi",
+    definition: "Dans le vocabulaire soufi, un etat spirituel passager ressenti par le cheminant, considere comme une grace accordee plutot qu'un acquis stable.",
+    origin: "Racine arabe h-w-l, evoquant l'etat, la condition momentanee.",
+    explanation:
+      "A la difference du maqam, degre stable atteint par l'effort, le hal est traditionnellement decrit comme un don passager (une paix profonde, un ravissement) que le cheminant ne maitrise ni ne provoque a volonte, et qui peut se retirer aussi soudainement qu'il est survenu.",
+    relatedSlugs: ["maqam-sufi", "dhawq"],
+  },
 ];
 
 export async function seedConcepts(db: Database): Promise<void> {
