@@ -1668,6 +1668,45 @@ const FIQH_TOPICS: FiqhTopicSeed[] = [
     ],
     divergenceExplanation: "Les quatre ecoles s'accordent, dans leur position officiellement retenue, sur le fait qu'un divorce prononce pendant les menstrues, bien que constituant un peche et une desobeissance a l'ordre prophetique de le reprendre (rapporte par Al-Bukhari au sujet du divorce d'Ibn Omar), demeure neanmoins juridiquement effectif. Ce sujet est inclus, comme celui du triple talaq prononce en une seule formule, pour sa frequente pertinence pratique et pour signaler l'existence d'une position minoritaire notable de juristes hanbalites tardifs (Ibn Taymiyyah, Ibn Qayyim al-Jawziyya) considerant un tel divorce nul, sans constituer la position officielle d'aucune des quatre ecoles classiques.",
   },
+  {
+    title: "Doit-on prononcer \"amin\" a voix haute ou a voix basse apres la Fatiha en priere ?",
+    slug: "amin-voix-haute-ou-basse",
+    category: "Prière (Salat)",
+    description: "Si la formule \"amin\" prononcee apres la recitation de la sourate Al-Fatiha doit l'etre a voix haute, audible par les fideles suivant l'imam, ou a voix basse.",
+    positions: [
+      { schoolSlug: "malikite", text: "\"Amin\" est prononce a voix basse, y compris dans les prieres recitees a voix haute par l'imam." },
+      { schoolSlug: "hanafite", text: "Position identique aux malikites : \"amin\" est toujours prononce a voix basse, meme derriere un imam recitant a voix haute." },
+      { schoolSlug: "shafiite", text: "\"Amin\" est prononce a voix haute par l'imam et les fideles dans les prieres recitees a voix haute, de maniere audible et si possible simultanee." },
+      { schoolSlug: "hanbalite", text: "Position identique aux shafi'ites : \"amin\" est prononce a voix haute dans les prieres a recitation audible." },
+    ],
+    divergenceExplanation: "La divergence porte sur la portee du hadith rapportant que le Prophete ﷺ, apres avoir recite la Fatiha a voix haute, disait lui-meme \"amin\" de maniere audible : les ecoles shafi'ite et hanbalite en concluent que cette formule doit etre prononcee a voix haute par l'ensemble de l'assemblee, tandis que les ecoles malikite et hanafite la considerent comme une invocation personnelle discrete plutot que comme une composante de la recitation collective a voix haute.",
+  },
+  {
+    title: "Peut-on recevoir un salaire en echange de l'enseignement du Coran ?",
+    slug: "salaire-enseignement-coran",
+    category: "Commerce et transactions (Mu'amalat)",
+    description: "Si un enseignant du Coran peut licitement percevoir une remuneration fixe pour son enseignement, ou si cet enseignement doit demeurer strictement benevole en tant qu'acte d'adoration.",
+    positions: [
+      { schoolSlug: "malikite", text: "Percevoir un salaire pour l'enseignement du Coran est licite." },
+      { schoolSlug: "hanafite", text: "La position ancienne de l'ecole, attribuee a Abu Hanifa lui-meme, deconseillait fortement la remuneration de l'enseignement du Coran, assimile a un acte d'adoration non monnayable ; les juristes tardifs de l'ecole ont neanmoins admis cette remuneration par necessite, pour garantir la continuite de l'enseignement." },
+      { schoolSlug: "shafiite", text: "Percevoir un salaire pour l'enseignement du Coran est licite, en s'appuyant sur le hadith affirmant que \"ce pour quoi vous avez le plus droit a un salaire, c'est le Livre de Dieu\"." },
+      { schoolSlug: "hanbalite", text: "Position identique aux malikites et shafi'ites : la remuneration de l'enseignement du Coran est licite." },
+    ],
+    divergenceExplanation: "La divergence s'appuie sur deux lectures opposees des textes disponibles : les ecoles malikite, shafi'ite et hanbalite retiennent le hadith rapporte par Al-Bukhari autorisant explicitement un salaire pour l'enseignement coranique, tandis que la position ancienne de l'ecole hanafite s'appuyait sur d'autres rapports assimilant tout acte d'adoration, dont l'enseignement du Coran, a un service du a Dieu seul et non monnayable - une prudence progressivement abandonnee dans la pratique effective (fatwa) de l'ecole par necessite.",
+  },
+  {
+    title: "La consommation d'un poisson trouve mort, flottant a la surface de l'eau, est-elle permise ?",
+    slug: "poisson-mort-flottant-tafi",
+    category: "Alimentation (Hilal wa Haram)",
+    description: "Si un poisson trouve mort sans cause apparente, flottant a la surface de l'eau (tafi), plutot que peche vivant ou mort d'une cause identifiable, peut etre licitement consomme.",
+    positions: [
+      { schoolSlug: "malikite", text: "Le poisson trouve mort et flottant est licite a la consommation, comme tout autre poisson mort, en application generale du principe dispensant les animaux aquatiques d'egorgement." },
+      { schoolSlug: "hanafite", text: "Le poisson trouve mort flottant sans cause identifiable est deconseille, par prudence face a un risque d'empoisonnement ou de cause inconnue ; un poisson peche vivant puis mort, ou mort d'une cause visible (echouage, coup), reste pleinement licite." },
+      { schoolSlug: "shafiite", text: "Position identique aux malikites : le poisson mort flottant est licite sans restriction, en s'appuyant sur le hadith rendant licite \"deux charognes\", dont celle du poisson." },
+      { schoolSlug: "hanbalite", text: "Position identique aux malikites et shafi'ites : aucune restriction particuliere ne s'applique au poisson trouve mort et flottant." },
+    ],
+    divergenceExplanation: "La divergence porte sur la portee du hadith rendant licites \"deux charognes\" - celle du poisson et celle de la sauterelle (rapporte par Ibn Majah) : trois ecoles l'appliquent sans restriction a tout poisson mort quelle qu'en soit la cause, tandis que l'ecole hanafite retient par prudence une reserve specifique pour le poisson trouve flottant sans cause identifiable, par crainte qu'il ne soit mort d'une cause nuisible a la sante du consommateur.",
+  },
 ];
 
 export async function seedSchools(db: Database): Promise<void> {
