@@ -2019,6 +2019,19 @@ const FIQH_TOPICS: FiqhTopicSeed[] = [
     ],
     divergenceExplanation: "La divergence porte sur la nature juridique de la raj'a (reprise) : les ecoles malikite, hanafite et hanbalite la traitent comme un acte juridique pouvant se manifester aussi bien par la parole que par un comportement univoque exprimant clairement l'intention de reprendre l'union, tandis que l'ecole shafi'ite exige une declaration verbale explicite, a l'image de la conclusion initiale du mariage lui-meme, qui ne peut se faire par un acte seul sans parole.",
   },
+  {
+    title: "Le tayammum requiert-il une ou deux frappes distinctes sur le sol ?",
+    slug: "tayammum-nombre-de-frappes",
+    category: "Purification (Tahara)",
+    description: "Si le tayammum s'accomplit en frappant le sol une seule fois pour essuyer a la fois le visage et les mains, ou si deux frappes distinctes sont necessaires, l'une pour le visage et l'autre pour les mains.",
+    positions: [
+      { schoolSlug: "malikite", text: "Une seule frappe sur le sol suffit pour essuyer a la fois le visage et les mains." },
+      { schoolSlug: "hanafite", text: "Deux frappes distinctes sont necessaires : la premiere pour essuyer le visage, la seconde pour essuyer les mains jusqu'aux coudes." },
+      { schoolSlug: "shafiite", text: "Position identique aux malikites : une seule frappe suffit pour l'ensemble du tayammum, visage et mains compris." },
+      { schoolSlug: "hanbalite", text: "Position identique aux hanafites : deux frappes distinctes sont requises, l'une pour le visage, l'autre pour les mains." },
+    ],
+    divergenceExplanation: "La divergence porte sur la conciliation de plusieurs hadiths decrivant le tayammum du Prophete ﷺ tantot avec une seule frappe, tantot avec deux : les ecoles malikite et shafi'ite retiennent la version la plus simple a une frappe comme suffisante, tandis que les ecoles hanafite et hanbalite retiennent par prudence la version a deux frappes, etendant par analogie au tayammum l'idee que les mains, comme dans le wudu, doivent etre traitees separement du visage jusqu'aux coudes.",
+  },
 ];
 
 export async function seedSchools(db: Database): Promise<void> {
