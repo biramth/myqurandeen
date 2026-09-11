@@ -1564,6 +1564,58 @@ const FIQH_TOPICS: FiqhTopicSeed[] = [
     ],
     divergenceExplanation: "La divergence porte sur la portee du hadith rapporte par Umm Qays, selon lequel le Prophete ﷺ se contenta d'asperger d'eau le vetement souille par l'urine de son petit-fils encore allaite, sans le laver effectivement : les ecoles shafi'ite et hanbalite en tirent une regle specifique distinguant le nourrisson garcon exclusivement allaite, tandis que les ecoles malikite et hanafite considerent que ce hadith decrit un cas particulier sans en degager une regle generale distincte de purification selon le sexe de l'enfant.",
   },
+  {
+    title: "Manger de la viande de chameau annule-t-il les petites ablutions ?",
+    slug: "viande-chameau-annule-wudu",
+    category: "Purification (Tahara)",
+    description: "Si le fait de consommer de la viande de chameau, contrairement a d'autres viandes comme celle du mouton, oblige a refaire les petites ablutions avant la priere suivante.",
+    positions: [
+      { schoolSlug: "malikite", text: "Manger de la viande de chameau, comme toute autre nourriture, n'annule pas les ablutions." },
+      { schoolSlug: "hanafite", text: "Position identique aux malikites : aucune nourriture, y compris la viande de chameau, n'annule les ablutions." },
+      { schoolSlug: "shafiite", text: "Position identique : la consommation d'aliments, quels qu'ils soient, n'a pas d'effet sur la validite des ablutions deja accomplies." },
+      { schoolSlug: "hanbalite", text: "Manger de la viande de chameau, cuite ou crue, annule les petites ablutions, qui doivent etre refaites avant la priere suivante." },
+    ],
+    divergenceExplanation: "L'ecole hanbalite s'appuie sur un hadith explicite rapporte par Muslim ou le Prophete ﷺ, interroge separement sur les ablutions apres avoir mange de la viande de mouton puis de chameau, repondit par la negative pour le mouton et par l'affirmative pour le chameau, retenant cette instruction au sens litteral, tandis que les trois autres ecoles considerent ce hadith comme une recommandation de precaution plutot qu'une obligation contraignante, notamment en l'absence de consensus rapporte parmi les compagnons sur une application stricte de cette regle.",
+  },
+  {
+    title: "Quelle est la duree maximale reconnue des saignements suivant l'accouchement (nifas) ?",
+    slug: "duree-maximale-nifas",
+    category: "Purification (Tahara)",
+    description: "Le nombre maximal de jours au-dela duquel le saignement suivant un accouchement (nifas) n'est plus considere comme tel, obligeant la femme a reprendre ses prieres meme si le saignement se poursuit.",
+    positions: [
+      { schoolSlug: "malikite", text: "La duree maximale reconnue est de soixante jours ; au-dela, tout saignement persistant est traite comme un saignement irregulier (istihada) plutot que comme du nifas." },
+      { schoolSlug: "hanafite", text: "La duree maximale reconnue est de quarante jours." },
+      { schoolSlug: "shafiite", text: "Position proche des malikites : la duree maximale reconnue est de soixante jours." },
+      { schoolSlug: "hanbalite", text: "Position proche des hanafites : la duree maximale reconnue est de quarante jours." },
+    ],
+    divergenceExplanation: "Aucun texte ne fixe explicitement cette duree maximale, en l'absence de limite mentionnee dans le Coran a ce sujet : les ecoles hanafite et hanbalite s'appuient sur la duree observee dans la pratique rapportee d'un ensemble de femmes companions du Prophete ﷺ interrogees a ce sujet, tandis que les ecoles malikite et shafi'ite retiennent une duree plus longue fondee sur d'autres observations et rapports transmis par la tradition.",
+  },
+  {
+    title: "Le serment prononce sans reflexion, par habitude de langage (laghw al-yamin), engage-t-il une expiation (kaffara) ?",
+    slug: "laghw-al-yamin-serment-inconsidere",
+    category: "Serments et vœux (Ayman)",
+    description: "Si un serment prononce sans intention reelle de jurer, par simple habitude de langage courant (par exemple \"par Dieu, mange !\"), ou concernant un fait cru sincerement vrai mais en realite faux, engage la meme obligation d'expiation qu'un serment deliberement rompu.",
+    positions: [
+      { schoolSlug: "malikite", text: "Le laghw al-yamin designe un serment prete sur un fait passe que l'on croyait sincerement vrai et qui s'avere faux ; aucune expiation n'est due dans ce cas precis." },
+      { schoolSlug: "hanafite", text: "Position identique aux malikites : le laghw al-yamin concerne le serment sincere mais errone sur un fait passe, sans expiation requise ; le serment prononce par habitude de langage sur une intention future reste en revanche pleinement engageant." },
+      { schoolSlug: "shafiite", text: "Le laghw al-yamin englobe plus largement tout serment prononce sans intention reelle de jurer, par simple habitude de langage courant, sans aucune expiation due dans l'un ou l'autre cas." },
+      { schoolSlug: "hanbalite", text: "Position proche des shafi'ites : le laghw al-yamin inclut a la fois le serment sincere mais errone et celui prononce par habitude de langage sans intention reelle, aucun des deux n'engageant d'expiation." },
+    ],
+    divergenceExplanation: "La divergence porte sur la definition exacte du laghw al-yamin mentionne par le Coran comme dispense d'expiation (sourate Al-Baqara, 2:225) : les ecoles malikite et hanafite la restreignent au serment sincere portant sur un fait passe errone, tandis que les ecoles shafi'ite et hanbalite l'etendent plus largement a toute formule de serment prononcee par habitude de langage sans veritable intention de jurer.",
+  },
+  {
+    title: "La consommation de grenouilles est-elle permise ?",
+    slug: "consommation-grenouilles",
+    category: "Alimentation (Hilal wa Haram)",
+    description: "Si la grenouille, animal vivant a la fois dans l'eau et sur terre, peut etre licitement consommee au meme titre que les autres animaux aquatiques.",
+    positions: [
+      { schoolSlug: "malikite", text: "La consommation de la grenouille est permise, comme celle de la plupart des animaux aquatiques, en l'absence de texte l'interdisant explicitement." },
+      { schoolSlug: "hanafite", text: "La consommation de la grenouille est interdite." },
+      { schoolSlug: "shafiite", text: "Position identique aux hanafites : la grenouille est interdite a la consommation, consideree parmi les especes repugnantes (khaba'ith)." },
+      { schoolSlug: "hanbalite", text: "Position identique aux hanafites et shafi'ites : la consommation de la grenouille est interdite." },
+    ],
+    divergenceExplanation: "La divergence s'appuie sur la portee donnee au hadith interdisant de tuer la grenouille (rapporte par Abu Dawud, au sujet d'un medecin ayant demande l'avis du Prophete ﷺ sur son usage en remede) : trois ecoles en deduisent une interdiction de la consommer, la classant parmi les especes repugnantes qu'un texte general du Coran (sourate Al-A'raf, 7:157) interdit egalement, tandis que l'ecole malikite considere que l'interdiction de tuer ne s'etend pas necessairement a une interdiction de consommer, maintenant le principe general de licite en l'absence de texte explicite sur ce point precis.",
+  },
 ];
 
 export async function seedSchools(db: Database): Promise<void> {
