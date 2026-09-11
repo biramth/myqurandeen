@@ -5860,6 +5860,67 @@ const CONCEPTS: ConceptSeed[] = [
       "La formule (\"Me voici, o Dieu, me voici ; Me voici, Tu n'as point d'associe, me voici...\") exprime la reponse du pelerin a l'appel d'Abraham a accomplir le pelerinage, rapporte par la tradition coranique et prophetique, et est traditionnellement recitee a voix haute par les hommes des l'entree en ihram jusqu'au debut des rites a Mina.",
     relatedSlugs: ["ihram", "ibrahim"],
   },
+  // --- Institutions et courants du savoir islamique ---
+  {
+    term: "Madrasa",
+    termArabic: "المدرسة",
+    slug: "madrasa",
+    definition: "Un etablissement d'enseignement religieux et juridique islamique, souvent finance par une fondation pieuse (waqf).",
+    origin: "Racine arabe d-r-s, evoquant l'etude, l'enseignement.",
+    explanation:
+      "Institutionnalisee a grande echelle a partir du Ve siecle de l'hegire, notamment sous l'impulsion du vizir seljoukide Nizam al-Mulk, la madrasa a structure durablement la transmission du savoir religieux dans le monde musulman, offrant generalement le gite et le couvert aux etudiants finances par les revenus d'une fondation pieuse dediee a cet effet.",
+    relatedSlugs: ["waqf", "ulama"],
+  },
+  {
+    term: "Kuttab",
+    termArabic: "الكتاب",
+    slug: "kuttab",
+    definition: "Une ecole traditionnelle de premier niveau consacree a l'apprentissage de la lecture, de l'ecriture et de la memorisation du Coran par les enfants.",
+    origin: "Racine arabe k-t-b, evoquant l'ecrit.",
+    explanation:
+      "Historiquement rattache a une mosquee ou tenu par un enseignant independant, le kuttab a constitue pendant des siecles la premiere etape de l'education de base dans le monde musulman, precedent souvent l'acces a des etudes plus avancees dans une madrasa pour les eleves les plus doues.",
+    relatedSlugs: ["hifz-al-quran", "madrasa"],
+  },
+  {
+    term: "Al-Azhar",
+    termArabic: "الأزهر",
+    slug: "al-azhar",
+    definition: "Une mosquee-universite fondee au Caire en 359 AH / 970, aujourd'hui l'une des institutions d'enseignement religieux sunnite les plus reconnues au monde.",
+    origin: "Fondee sous la dynastie fatimide, puis transformee en centre d'enseignement sunnite majeur apres la chute de celle-ci.",
+    explanation:
+      "Devenue au fil des siecles une reference majeure pour l'enseignement du fiqh, du tafsir et des sciences religieuses selon la methodologie sunnite classique, Al-Azhar continue aujourd'hui de former des savants et d'emettre des avis religieux influents dans une grande partie du monde musulman.",
+    relatedSlugs: ["madrasa", "asharisme"],
+  },
+  {
+    term: "Nizamiyya",
+    termArabic: "النظامية",
+    slug: "nizamiyya",
+    definition: "Un reseau de madrasas fondees au Ve siecle de l'hegire par le vizir seljoukide Nizam al-Mulk, dont la plus celebre se trouvait a Bagdad.",
+    origin: "Nom derive de son fondateur, Nizam al-Mulk (408-485 AH / 1018-1092).",
+    explanation:
+      "La Nizamiyya de Bagdad, ou enseigna notamment Al-Ghazali, est traditionnellement consideree comme l'un des premiers grands reseaux d'enseignement superieur institutionnalise et finance par l'Etat dans le monde musulman, jouant un role determinant dans la consolidation de l'enseignement shafi'ite et ash'arite face au mu'tazilisme et a l'ismaelisme fatimide alors dominants dans certaines regions.",
+    relatedSlugs: ["al-ghazali", "madrasa"],
+  },
+  {
+    term: "Ahl al-Hadith",
+    termArabic: "أهل الحديث",
+    slug: "ahl-al-hadith",
+    definition: "Un courant methodologique classique privilegiant l'attachement strict au hadith authentifie comme source premiere du droit, avec une reserve marquee envers le raisonnement personnel.",
+    origin: "Composition arabe litteralement \"les gens du hadith\", historiquement associe a des centres comme Medine et plus tard Bagdad.",
+    explanation:
+      "Ce courant, dont l'ecole hanbalite constitue l'heritiere la plus directe, privilegiait la collecte et la transmission rigoureuse des hadiths comme fondement premier de la pratique religieuse, se montrant traditionnellement reticent envers un usage extensif du raisonnement analogique (qiyas) lorsque des textes directs sont disponibles, par contraste avec le courant dit ahl ar-ra'y.",
+    relatedSlugs: ["ahl-ar-ray", "hanbalite"],
+  },
+  {
+    term: "Ahl ar-Ra'y",
+    termArabic: "أهل الرأي",
+    slug: "ahl-ar-ray",
+    definition: "Un courant methodologique classique, historiquement associe a Kufa, recourant plus largement au raisonnement personnel et analogique face aux situations non explicitement traitees par les textes.",
+    origin: "Composition arabe litteralement \"les gens de l'opinion (raisonnee)\", historiquement associe a l'ecole hanafite naissante.",
+    explanation:
+      "Face a une disponibilite moindre de hadiths authentifies localement a Kufa comparee a Medine, ce courant, dont l'ecole hanafite constitue l'heritiere la plus directe, developpa un usage plus systematique du raisonnement analogique (qiyas) et de la preference juridique (istihsan) pour repondre aux questions nouvelles, une methode parfois critiquee par le courant ahl al-hadith comme prenant trop de distance avec le texte litteral.",
+    relatedSlugs: ["ahl-al-hadith", "hanafite"],
+  },
 ];
 
 export async function seedConcepts(db: Database): Promise<void> {
