@@ -1421,6 +1421,45 @@ const FIQH_TOPICS: FiqhTopicSeed[] = [
     ],
     divergenceExplanation: "La divergence porte sur l'equilibre a trouver entre deux objectifs concurrents : les ecoles malikite et hanafite privilegient l'unite visible de la communaute autour d'un imam attitre unique par mosquee de quartier, deconseillant toute repetition qui la fragmenterait, tandis que les ecoles shafi'ite et hanbalite privilegient le merite individuel accru de la priere collective par rapport a la priere individuelle, quel que soit le nombre de congregations successives dans un meme lieu.",
   },
+  {
+    title: "Peut-on essuyer le turban plutot que de le retirer pour les petites ablutions ?",
+    slug: "mash-ala-al-imama",
+    category: "Purification (Tahara)",
+    description: "Si le fait de passer une main humide sur un turban porte sur la tete (mash) peut remplacer le lavage ou l'essuyage direct du cuir chevelu lors des petites ablutions.",
+    positions: [
+      { schoolSlug: "malikite", text: "L'essuyage du turban ne remplace pas celui de la tete ; le cuir chevelu ou au moins une partie des cheveux doit etre directement essuye ou lave." },
+      { schoolSlug: "hanafite", text: "L'essuyage complementaire du turban est admis en plus de l'essuyage d'une partie du cuir chevelu, mais ne le remplace pas entierement a lui seul." },
+      { schoolSlug: "shafiite", text: "Position proche des malikites : le turban ne peut se substituer a l'essuyage direct d'au moins une partie du cuir chevelu, requis par le texte coranique." },
+      { schoolSlug: "hanbalite", text: "L'essuyage du turban seul, sans avoir a le retirer, suffit et remplace valablement l'essuyage direct du cuir chevelu, dans des conditions proches de celles admises pour le mash sur les chaussettes en cuir (khuffayn)." },
+    ],
+    divergenceExplanation: "L'ecole hanbalite s'appuie sur plusieurs hadiths rapportant que le Prophete ﷺ essuya son turban sans le retirer lors de ses ablutions, qu'elle traite par analogie directe avec le mash sur les khuffayn, tandis que les trois autres ecoles considerent que le verset coranique prescrivant explicitement d'essuyer \"vos tetes\" (sourate Al-Ma'ida, 5:6) requiert un contact au moins partiel avec le cuir chevelu ou les cheveux eux-memes, insuffisamment satisfait par le seul contact avec un vetement.",
+  },
+  {
+    title: "La priere en congregation (jama'a) est-elle une obligation individuelle pour chaque homme, ou une recommandation forte ?",
+    slug: "priere-jamaa-obligation",
+    category: "Prière (Salat)",
+    description: "Si assister a la priere collective a la mosquee constitue une obligation individuelle stricte (fard 'ayn) pour chaque homme en capacite de le faire, ou seulement un acte fortement recommande ou une obligation collective satisfaite par la seule presence de certains.",
+    positions: [
+      { schoolSlug: "malikite", text: "La priere en congregation est une sunna fortement recommandee (sunna mu'akkada), sans constituer une obligation stricte pour chaque individu." },
+      { schoolSlug: "hanafite", text: "Position proche des malikites : la priere en congregation est une sunna mu'akkada, dont l'abandon systematique est neanmoins fortement blame sans invalider la priere individuelle accomplie seul." },
+      { schoolSlug: "shafiite", text: "La priere en congregation constitue une obligation collective (fard kifaya) : elle doit etre visiblement etablie au sein de chaque communaute, mais l'obligation est satisfaite des lors qu'un nombre suffisant de fideles y participe." },
+      { schoolSlug: "hanbalite", text: "La priere en congregation est une obligation individuelle stricte (fard 'ayn) pour tout homme sain et capable, bien que sa presence ne soit pas retenue comme une condition de validite de la priere accomplie seul par ailleurs." },
+    ],
+    divergenceExplanation: "La divergence porte sur la portee des nombreux hadiths soulignant l'importance de la priere collective, dont celui rapportant que le Prophete ﷺ envisagea de faire bruler les maisons de ceux qui s'en absentaient sans excuse : l'ecole hanbalite y voit la preuve d'une obligation individuelle stricte, l'ecole shafi'ite y voit une obligation portant sur la communaute dans son ensemble plutot que sur chaque individu pris separement, tandis que les ecoles malikite et hanafite retiennent une recommandation tres appuyee sans en faire une obligation au sens strict.",
+  },
+  {
+    title: "Un mineur discernant (mumayyiz) peut-il conclure lui-meme une vente avec l'autorisation de son tuteur ?",
+    slug: "vente-mineur-discernant-autorisation",
+    category: "Commerce et transactions (Mu'amalat)",
+    description: "Si un enfant ayant atteint l'age de discernement, mais n'ayant pas encore atteint la majorite legale (bulugh), peut valablement conclure lui-meme un contrat de vente lorsque son tuteur l'y autorise.",
+    positions: [
+      { schoolSlug: "malikite", text: "Le mineur discernant ne peut conclure valablement de contrat par lui-meme ; le tuteur doit contracter en son nom, la pleine capacite contractuelle etant liee a la majorite." },
+      { schoolSlug: "hanafite", text: "Le mineur discernant autorise par son tuteur peut valablement conclure lui-meme des contrats de vente d'usage courant, sa capacite etant consideree comme partielle mais reelle des lors que le discernement est etabli." },
+      { schoolSlug: "shafiite", text: "Position proche des malikites : le mineur, meme discernant, ne dispose pas de la capacite de contracter par lui-meme ; seul son tuteur peut valablement conclure des actes en son nom." },
+      { schoolSlug: "hanbalite", text: "Position identique aux malikites et shafi'ites : la capacite contractuelle pleine est reservee a la personne ayant atteint la majorite legale, le mineur discernant ne pouvant contracter seul meme avec autorisation." },
+    ],
+    divergenceExplanation: "La divergence porte sur la nature de la capacite juridique (ahliyya) : l'ecole hanafite reconnait au mineur discernant une capacite partielle et progressive, activable par l'autorisation de son tuteur pour des actes usuels et mesures, tandis que les trois autres ecoles considerent la majorite legale (bulugh) comme un seuil unique et necessaire, en deca duquel aucune capacite contractuelle personnelle n'est reconnue, quelle que soit l'autorisation accordee par le tuteur.",
+  },
 ];
 
 export async function seedSchools(db: Database): Promise<void> {
