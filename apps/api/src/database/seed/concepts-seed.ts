@@ -5108,6 +5108,109 @@ const CONCEPTS: ConceptSeed[] = [
       "Le Coran s'adresse directement a cette ame apaisee, l'invitant a retourner vers son Seigneur \"satisfaite et agreee\" (sourate Al-Fajr, 89:27-28), un etat traditionnellement presente comme l'aboutissement du cheminement spirituel, atteint notamment par le rappel constant de Dieu qui, selon un autre verset, apaise les coeurs (sourate Ar-Ra'd, 13:28).",
     relatedSlugs: ["an-nafs-al-lawwama", "dhikr"],
   },
+  // --- Les dix compagnons promis au Paradis (complement aux quatre califes) ---
+  {
+    term: "Talha ibn Ubaydillah",
+    termArabic: "طلحة بن عبيد الله",
+    slug: "talha-ibn-ubaydillah",
+    definition: "Un compagnon parmi les dix promis au Paradis de leur vivant, connu pour sa generosite et son courage au combat.",
+    origin: "Compte parmi les premiers convertis a l'islam a La Mecque.",
+    explanation:
+      "Surnomme \"Talha le genereux\" pour la distribution frequente de ses biens, il se distingua notamment a la bataille de Uhud en protegeant le Prophete ﷺ de son propre corps, y perdant l'usage d'une main. Il perit lors de la bataille du Chameau (36 AH / 656) opposant des compagnons durant la periode de troubles internes (fitna) suivant l'assassinat d'Uthman.",
+    relatedSlugs: ["sahaba", "uthman-ibn-affan"],
+  },
+  {
+    term: "Az-Zubayr ibn al-Awwam",
+    termArabic: "الزبير بن العوام",
+    slug: "zubayr-ibn-al-awwam",
+    definition: "Un compagnon parmi les dix promis au Paradis, cousin du prophete Muhammad et l'un des premiers convertis a l'islam.",
+    origin: "Neveu de Khadija, premiere epouse du Prophete.",
+    explanation:
+      "Reconnu pour sa bravoure militaire lors de plusieurs batailles aux cotes du Prophete, il fut, comme Talha, implique dans la bataille du Chameau contre Ali, avant de se retirer du combat et d'etre tue alors qu'il quittait les lieux, un episode rapporte avec une tristesse particuliere par la tradition historique.",
+    relatedSlugs: ["sahaba", "khadija"],
+  },
+  {
+    term: "Sa'd ibn Abi Waqqas",
+    termArabic: "سعد بن أبي وقاص",
+    slug: "sad-ibn-abi-waqqas",
+    definition: "Un compagnon parmi les dix promis au Paradis, general reconnu pour avoir dirige la conquete de l'empire sassanide de Perse.",
+    origin: "Compte parmi les tout premiers convertis a l'islam, rapporte comme le premier a avoir verse le sang pour la cause de l'islam.",
+    explanation:
+      "Il commanda les forces musulmanes lors de la decisive bataille d'Al-Qadisiyya contre l'empire perse sassanide, une victoire qui ouvrit la voie a la conquete de l'Irak et a l'expansion musulmane vers l'est, et fonda par la suite la ville-garnison de Kufa.",
+    relatedSlugs: ["sahaba", "khilafa"],
+  },
+  {
+    term: "Sa'id ibn Zayd",
+    termArabic: "سعيد بن زيد",
+    slug: "said-ibn-zayd",
+    definition: "Un compagnon parmi les dix promis au Paradis, l'un des tout premiers convertis a l'islam.",
+    origin: "Epoux de Fatima bint al-Khattab, soeur du calife Omar, dont la conversion au foyer du couple precipita, selon la tradition, celle d'Omar lui-meme.",
+    explanation:
+      "Fils de Zayd ibn Amr, une figure recherchant le monotheisme pur (hanif) avant meme la mission prophetique, Sa'id ibn Zayd fut l'un des tout premiers a embrasser l'islam et participa a la plupart des grandes batailles aux cotes du Prophete, a l'exception de Badr.",
+    relatedSlugs: ["sahaba", "fitrah"],
+  },
+  {
+    term: "Abd ar-Rahman ibn Awf",
+    termArabic: "عبد الرحمن بن عوف",
+    slug: "abd-ar-rahman-ibn-awf",
+    definition: "Un compagnon parmi les dix promis au Paradis, reconnu pour sa grande reussite commerciale et sa generosite envers la communaute.",
+    origin: "Compte parmi les tout premiers convertis a l'islam, emigre a Medine avec le Prophete.",
+    explanation:
+      "Devenu l'un des hommes les plus fortunes parmi les compagnons grace a ses activites commerciales, il consacra une part importante de sa richesse a des dons caritatifs, notamment au profit des veuves de compagnons tombes au combat, et fut designe par le calife Omar comme l'un des membres du conseil charge de choisir son successeur.",
+    relatedSlugs: ["sahaba", "sadaqah"],
+  },
+  {
+    term: "Abu Ubayda ibn al-Jarrah",
+    termArabic: "أبو عبيدة بن الجراح",
+    slug: "abu-ubayda-ibn-al-jarrah",
+    definition: "Un compagnon parmi les dix promis au Paradis, surnomme par le Prophete \"le fidele de cette communaute\" (amin hadhihi al-umma).",
+    origin: "Compte parmi les tout premiers convertis a l'islam a La Mecque.",
+    explanation:
+      "General reconnu pour la conquete de la Syrie (Bilad ash-Sham) sous le califat d'Omar, il mourut lors d'une epidemie de peste ayant touche la region, refusant, selon le recit rapporte, de fuir la zone touchee en invoquant la predestination divine plutot que d'abandonner ses troupes.",
+    relatedSlugs: ["sahaba", "qadar"],
+  },
+  // --- Autres grandes expeditions de la vie prophetique ---
+  {
+    term: "Ghazwat Khaybar (Bataille de Khaybar)",
+    termArabic: "غزوة خيبر",
+    slug: "khaybar",
+    definition: "La conquete en l'an 7 de l'hegire d'une oasis fortifiee au nord de Medine, habitee par plusieurs tribus juives.",
+    origin: "Toponyme de l'oasis situee au nord de Medine.",
+    explanation:
+      "Apres le siege et la prise de plusieurs forteresses de l'oasis, un accord fut conclu permettant a une partie de la population juive de continuer a cultiver les terres en echange du partage des recoltes avec les musulmans. La bataille est traditionnellement associee a la bravoure d'Ali ibn Abi Talib, a qui le Prophete confia l'etendard lors de la prise de la principale forteresse.",
+    relatedSlugs: ["ali-ibn-abi-talib", "sulh-al-hudaybiyya"],
+  },
+  {
+    term: "Ghazwat Mu'ta (Bataille de Mu'ta)",
+    termArabic: "غزوة مؤتة",
+    slug: "muta",
+    definition: "Un affrontement en l'an 8 de l'hegire entre une armee musulmane et les forces byzantines et leurs allies arabes, au sud de la Jordanie actuelle.",
+    origin: "Toponyme du lieu de l'affrontement, dans l'actuelle Jordanie.",
+    explanation:
+      "Confrontee a une armee byzantine tres superieure en nombre, l'armee musulmane perdit successivement ses trois commandants designes par le Prophete (Zayd ibn Haritha, Ja'far ibn Abi Talib et Abdullah ibn Rawaha), avant que Khalid ibn al-Walid, prenant alors le commandement, ne parvienne a organiser un repli ordonne evitant l'aneantissement total des forces musulmanes.",
+    relatedSlugs: ["khaybar", "tabuk"],
+  },
+  {
+    term: "Ghazwat Tabuk (Expedition de Tabuk)",
+    termArabic: "غزوة تبوك",
+    slug: "tabuk",
+    definition: "La derniere expedition militaire personnellement menee par le prophete Muhammad, en l'an 9 de l'hegire, face a une invasion byzantine qui ne se concretisa finalement pas.",
+    origin: "Toponyme de la region du nord-ouest de l'Arabie ou l'armee musulmane se rendit.",
+    explanation:
+      "Mobilisee face a des rumeurs de preparatifs militaires byzantins a la frontiere nord, l'expedition, menee dans des conditions climatiques tres difficiles, n'aboutit a aucun affrontement direct, l'armee byzantine ne s'etant finalement pas presentee ; plusieurs versets coraniques (sourate At-Tawba, 9) commentent en detail les reactions contrastees des compagnons face a l'appel a la mobilisation.",
+    relatedSlugs: ["muta", "khaybar"],
+  },
+  // --- Sciences coraniques complementaires ---
+  {
+    term: "Al-Muqatta'at (Les lettres detachees)",
+    termArabic: "الحروف المقطعة",
+    slug: "al-muqattaat",
+    definition: "Les combinaisons de lettres arabes isolees placees au debut de 29 sourates du Coran, dont le sens exact demeure debattu.",
+    origin: "Terme derive de la racine q-t-', evoquant ce qui est detache, segmente.",
+    explanation:
+      "Des combinaisons comme Alif-Lam-Mim (Al-Baqara) ou Ya-Sin (Ya-Sin) ouvrent 29 sourates sans qu'aucune interpretation unique et definitive n'en soit etablie par la tradition ; les commentateurs classiques rapportent plusieurs hypotheses (initiales mystiques, procede rhetorique attirant l'attention des auditeurs, noms de sourates) sans trancher entre elles de maniere consensuelle.",
+    relatedSlugs: ["ijaz-al-quran", "tafsir"],
+  },
 ];
 
 export async function seedConcepts(db: Database): Promise<void> {
