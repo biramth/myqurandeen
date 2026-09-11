@@ -292,7 +292,7 @@ export function AudioRecitation({
               {t("quran.audioDownloadingOffline", { progress: audioDownload.progress })}
             </p>
           ) : (
-            <Button type="button" variant="outline" size="sm" className="w-full" onClick={() => void audioDownload.download()}>
+            <Button type="button" size="sm" className="w-full" onClick={() => void audioDownload.download()}>
               <Download className="h-4 w-4" aria-hidden="true" />
               {t("quran.audioDownloadOffline")}
             </Button>
