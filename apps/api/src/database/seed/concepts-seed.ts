@@ -5564,6 +5564,77 @@ const CONCEPTS: ConceptSeed[] = [
       "Le Coran evoque a plusieurs reprises la descente de la sakina sur le Prophete et les croyants, notamment durant la bataille de Hunayn (sourate At-Tawba, 9:26) et lors du sejour d'Abu Bakr et du Prophete dans la grotte durant l'hégire (sourate At-Tawba, 9:40), la presentant comme un secours divin apaisant l'angoisse face au danger.",
     relatedSlugs: ["tawakkul", "khawf"],
   },
+  // --- Grandes figures militaires et periodes historiques complementaires ---
+  {
+    term: "Khalid ibn al-Walid",
+    termArabic: "خالد بن الوليد",
+    slug: "khalid-ibn-al-walid",
+    definition: "Un general reconnu pour n'avoir jamais perdu une bataille, surnomme \"l'epee degainee de Dieu\" par le prophete Muhammad.",
+    origin: "Ancien commandant mecquois converti a l'islam apres la bataille de Uhud, ou il avait contribue au revers militaire musulman.",
+    explanation:
+      "Ayant precedemment combattu contre les musulmans, sa conversion marqua un tournant reconnu par le Prophete lui-meme, qui lui attribua ce surnom apres son repli habile lors de la bataille de Mu'ta. Il dirigea par la suite les conquetes militaires en Irak et en Syrie sous les califats d'Abu Bakr et d'Omar, notamment la decisive bataille du Yarmouk contre l'empire byzantin.",
+    relatedSlugs: ["muta", "abu-bakr-as-siddiq"],
+  },
+  {
+    term: "Amr ibn al-As",
+    termArabic: "عمرو بن العاص",
+    slug: "amr-ibn-al-as",
+    definition: "Un compagnon et general reconnu pour avoir dirige la conquete musulmane de l'Egypte.",
+    origin: "Ancien adversaire de l'islam a La Mecque, converti peu avant la conquete de la ville.",
+    explanation:
+      "Il dirigea la conquete de l'Egypte sous le califat d'Omar ibn al-Khattab, y fondant la ville de Fustat (aujourd'hui integree au Caire), et joua par la suite un role politique important durant la periode des troubles internes (fitna) ayant suivi l'assassinat d'Uthman.",
+    relatedSlugs: ["umar-ibn-al-khattab", "khilafa"],
+  },
+  {
+    term: "Al-Andalus",
+    termArabic: "الأندلس",
+    slug: "al-andalus",
+    definition: "Le nom donne aux territoires de la peninsule iberique places sous domination musulmane, du VIIIe au XVe siecle.",
+    origin: "Terme arabe designant historiquement l'Espagne et le Portugal musulmans.",
+    explanation:
+      "Fondee a la suite de la conquete du VIIIe siecle, cette civilisation vit se developper des centres majeurs de savoir comme Cordoue et Grenade, reconnus pour leurs contributions aux sciences, a la philosophie, a la medecine et a l'architecture, avant un recul territorial progressif (Reconquista) s'achevant par la chute de Grenade en 897 AH / 1492.",
+    relatedSlugs: ["fath-al-andalus", "dawla-umayyade"],
+  },
+  {
+    term: "Fath al-Andalus (Conquete de l'Andalousie)",
+    termArabic: "فتح الأندلس",
+    slug: "fath-al-andalus",
+    definition: "La conquete musulmane de la peninsule iberique, debutee en 92 AH / 711 sous la direction de Tariq ibn Ziyad.",
+    origin: "Composition arabe de fath (conquete) et Al-Andalus (nom de la region conquise).",
+    explanation:
+      "L'armee musulmane, menee par Tariq ibn Ziyad et renforcee ensuite par Musa ibn Nusayr, traversa le detroit separant l'Afrique du Nord de la peninsule iberique et defit le royaume wisigoth en quelques annees, ouvrant la voie a plusieurs siecles de presence musulmane en Al-Andalus.",
+    relatedSlugs: ["al-andalus", "dawla-umayyade"],
+  },
+  {
+    term: "Dawla Uthmaniyya (Empire ottoman)",
+    termArabic: "الدولة العثمانية",
+    slug: "dawla-uthmaniyya",
+    definition: "Un empire musulman fonde en Anatolie a la fin du XIIIe siecle, qui devint l'une des plus grandes puissances du monde musulman pendant plusieurs siecles.",
+    origin: "Nom derive de son fondateur, Uthman (Osman) Ier.",
+    explanation:
+      "Apres la prise de Constantinople en 857 AH / 1453, marquant la fin de l'empire byzantin, l'empire ottoman s'etendit sur trois continents et revendiqua le titre de califat a partir du XVIe siecle, jouant un role politique majeur dans le monde musulman jusqu'a son abolition officielle en 1924.",
+    relatedSlugs: ["khilafa", "dawla-abbasside"],
+  },
+  {
+    term: "Salah ad-Din al-Ayyubi (Saladin)",
+    termArabic: "صلاح الدين الأيوبي",
+    slug: "salah-ad-din-al-ayyubi",
+    definition: "Un souverain et general d'origine kurde, fondateur de la dynastie ayyoubide, reconnu pour avoir repris Jerusalem aux croises en 583 AH / 1187.",
+    origin: "Officier au service des dynasties zenguide puis fatimide avant de fonder sa propre dynastie en Egypte et en Syrie.",
+    explanation:
+      "Apres avoir unifie l'Egypte et une grande partie de la Syrie sous son autorite, il reprit Jerusalem aux Etats croises lors de la bataille de Hattin puis du siege de la ville, faisant preuve, selon de nombreux recits historiques y compris occidentaux contemporains, d'une clemence notable envers la population chretienne de la ville lors de sa reddition.",
+    relatedSlugs: ["al-masjid-al-aqsa", "hurub-salibiyya"],
+  },
+  {
+    term: "Al-Hurub as-Salibiyya (Les croisades)",
+    termArabic: "الحروب الصليبية",
+    slug: "hurub-salibiyya",
+    definition: "Une serie de campagnes militaires menees par des royaumes chretiens d'Europe occidentale vers le Levant, du XIe au XIIIe siecle, visant notamment le controle de Jerusalem.",
+    origin: "Terme arabe derive de salib (croix), en reference a l'emblème porte par les combattants europeens.",
+    explanation:
+      "Ces campagnes aboutirent a la prise de Jerusalem en 492 AH / 1099 et a l'etablissement de plusieurs Etats croises au Levant, avant la reconquete progressive de ces territoires par des dynasties musulmanes successives, dont celle de Salah ad-Din, qui reprit Jerusalem en 1187, jusqu'a la chute du dernier bastion croise d'Acre en 690 AH / 1291.",
+    relatedSlugs: ["salah-ad-din-al-ayyubi", "al-masjid-al-aqsa"],
+  },
 ];
 
 export async function seedConcepts(db: Database): Promise<void> {
