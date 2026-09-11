@@ -5380,6 +5380,78 @@ const CONCEPTS: ConceptSeed[] = [
       "Marque notamment par le regne d'Harun ar-Rashid et la fondation de la Maison de la Sagesse (Bayt al-Hikma) a Bagdad, centre majeur de traduction et de production scientifique, philosophique et medicale, ce califat vit progressivement son autorite politique effective se fragmenter au profit de dynasties locales, tout en conservant une autorite religieuse largement symbolique jusqu'a la destruction de Bagdad par les Mongols en 656 AH / 1258.",
     relatedSlugs: ["dawla-umayyade", "khilafa"],
   },
+  // --- La famille du Prophete (Ahl al-Bayt) ---
+  {
+    term: "Fatima bint Muhammad",
+    termArabic: "فاطمة بنت محمد",
+    slug: "fatima-bint-muhammad",
+    definition: "La fille du prophete Muhammad et de Khadija, epouse d'Ali ibn Abi Talib et mere de Hasan et Husayn.",
+    origin: "Surnommee Az-Zahra (la rayonnante) et Sayyidat Nisa' al-Alamin (la maitresse des femmes des mondes) par la tradition.",
+    explanation:
+      "Plusieurs hadiths rapportent l'affection particuliere que lui portait son pere, dont celui affirmant qu'elle est \"une partie de moi-meme\". Elle mourut quelques mois seulement apres le Prophete, et sa descendance par ses deux fils Hasan et Husayn constitue la lignee reconnue des sharifs et sayyids a travers le monde musulman.",
+    relatedSlugs: ["ahl-al-bayt", "ali-ibn-abi-talib"],
+  },
+  {
+    term: "Al-Hasan ibn Ali",
+    termArabic: "الحسن بن علي",
+    slug: "hasan-ibn-ali",
+    definition: "Le fils aine d'Ali et de Fatima, petit-fils du prophete Muhammad, qui ceda le califat a Mu'awiya pour preserver l'unite de la communaute.",
+    origin: "Petit-fils du Prophete par sa fille Fatima.",
+    explanation:
+      "Devenu calife a la mort de son pere Ali, il renonca a sa charge quelques mois plus tard au profit de Mu'awiya afin de mettre fin aux troubles internes (fitna) opposant les musulmans, un geste que la tradition rapporte comme ayant accompli une prophetie du Prophete ﷺ annoncant qu'il reconcilierait deux groupes de musulmans.",
+    relatedSlugs: ["ali-ibn-abi-talib", "husayn-ibn-ali"],
+  },
+  {
+    term: "Al-Husayn ibn Ali",
+    termArabic: "الحسين بن علي",
+    slug: "husayn-ibn-ali",
+    definition: "Le second fils d'Ali et de Fatima, petit-fils du prophete Muhammad, tue lors de la bataille de Karbala.",
+    origin: "Petit-fils du Prophete par sa fille Fatima.",
+    explanation:
+      "Il fut tue en 61 AH / 680 a Karbala, en Irak, avec une partie de sa famille et de ses compagnons, alors qu'il s'opposait a la reconnaissance du califat de Yazid ibn Mu'awiya. Sa mort occupe une place centrale dans la memoire religieuse chiite, tout en etant egalement pleuree et commemoree par de nombreux musulmans sunnites comme un evenement tragique frappant la famille du Prophete.",
+    relatedSlugs: ["karbala", "hasan-ibn-ali"],
+  },
+  {
+    term: "Karbala",
+    termArabic: "كربلاء",
+    slug: "karbala",
+    definition: "Le lieu, en Irak actuel, ou Al-Husayn ibn Ali et une partie de sa famille et de ses compagnons furent tues en 61 AH / 680.",
+    origin: "Toponyme d'une ville d'Irak, situee sur la rive de l'Euphrate.",
+    explanation:
+      "L'evenement de Karbala, survenu dans le contexte des troubles politiques suivant le califat de Mu'awiya, occupe une place doctrinale et commemorative centrale dans la tradition chiite, marquee chaque annee lors du dixieme jour de Muharram (Achoura), tout en demeurant un evenement de deuil partage, a des degres divers, par l'ensemble des courants musulmans en raison du statut de la famille du Prophete qui y fut touchee.",
+    relatedSlugs: ["husayn-ibn-ali", "muharram"],
+  },
+  // --- Cosmologie et evenements coraniques complementaires ---
+  {
+    term: "Al-Isra wal-Mi'raj (Le voyage nocturne et l'ascension)",
+    termArabic: "الإسراء والمعراج",
+    slug: "isra-wal-miraj",
+    definition: "Le voyage nocturne du prophete Muhammad de La Mecque a Jerusalem (isra), suivi de son ascension a travers les cieux (mi'raj).",
+    origin: "Terme coranique, le voyage nocturne etant explicitement mentionne (sourate Al-Isra, 17:1).",
+    explanation:
+      "Le Coran atteste le voyage nocturne du Prophete depuis la Grande Mosquee de La Mecque jusqu'a la Mosquee la plus eloignee (Al-Masjid al-Aqsa, sourate Al-Isra, 17:1) ; la tradition prophetique y ajoute le recit detaille de son ascension a travers les sept cieux, sa rencontre avec plusieurs prophetes anterieurs, et l'institution des cinq prieres quotidiennes lors de cet evenement, dont la date precise fait l'objet de divergences historiques parmi les biographes.",
+    relatedSlugs: ["al-masjid-al-aqsa", "salah"],
+  },
+  {
+    term: "Sidrat al-Muntaha (Le lotus de la limite)",
+    termArabic: "سدرة المنتهى",
+    slug: "sidrat-al-muntaha",
+    definition: "Un arbre mentionne dans le Coran marquant, selon la tradition, la limite ultime atteinte par la creation lors de l'ascension du Prophete.",
+    origin: "Terme coranique (sourate An-Najm, 53:14).",
+    explanation:
+      "Le Coran mentionne cet arbre dans le recit du voyage celeste du Prophete lors du mi'raj, comme un point au-dela duquel, selon la tradition, meme l'ange Jibril ne pouvait poursuivre son ascension, marquant une limite de la connaissance et de l'acces accessibles a la creation face a la transcendance divine.",
+    relatedSlugs: ["isra-wal-miraj", "jibril"],
+  },
+  {
+    term: "Al-Bayt al-Ma'mur (La Maison frequentee)",
+    termArabic: "البيت المعمور",
+    slug: "al-bayt-al-mamur",
+    definition: "Un edifice celeste mentionne dans le Coran, traditionnellement decrit comme le pendant celeste de la Kaaba, visite quotidiennement par les anges.",
+    origin: "Terme coranique (sourate At-Tur, 52:4).",
+    explanation:
+      "Selon un hadith rapportant le recit du mi'raj, le Prophete ﷺ aurait vu cet edifice durant son ascension, informe que soixante-dix mille anges y entrent chaque jour pour l'adorer sans jamais y revenir une seconde fois, un nombre illustrant, selon les commentateurs, l'immensite du nombre des creatures angeliques.",
+    relatedSlugs: ["isra-wal-miraj", "kaaba"],
+  },
 ];
 
 export async function seedConcepts(db: Database): Promise<void> {
