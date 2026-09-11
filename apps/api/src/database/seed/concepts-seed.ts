@@ -5211,6 +5211,101 @@ const CONCEPTS: ConceptSeed[] = [
       "Des combinaisons comme Alif-Lam-Mim (Al-Baqara) ou Ya-Sin (Ya-Sin) ouvrent 29 sourates sans qu'aucune interpretation unique et definitive n'en soit etablie par la tradition ; les commentateurs classiques rapportent plusieurs hypotheses (initiales mystiques, procede rhetorique attirant l'attention des auditeurs, noms de sourates) sans trancher entre elles de maniere consensuelle.",
     relatedSlugs: ["ijaz-al-quran", "tafsir"],
   },
+  // --- Compagnons majeurs complementaires ---
+  {
+    term: "Anas ibn Malik",
+    termArabic: "أنس بن مالك",
+    slug: "anas-ibn-malik",
+    definition: "Un compagnon ayant servi le prophete Muhammad durant dix ans a Medine, reconnu comme l'un des narrateurs de hadith les plus prolifiques.",
+    origin: "Confie au service du Prophete des l'age de dix ans par sa mere Umm Sulaym, a l'arrivee du Prophete a Medine.",
+    explanation:
+      "Sa proximite quotidienne et prolongee avec le Prophete lui permit de rapporter un tres grand nombre de details sur sa vie domestique et son comportement personnel, faisant de lui, aux cotes d'Abu Hurayra, l'un des compagnons ayant transmis le plus grand nombre de hadiths ; il vecut jusqu'a un age tres avance, devenant l'un des derniers compagnons survivants de son epoque.",
+    relatedSlugs: ["sahaba", "abu-hurayra"],
+  },
+  {
+    term: "Abdullah ibn Abbas",
+    termArabic: "عبد الله بن عباس",
+    slug: "ibn-abbas",
+    definition: "Un compagnon, cousin du prophete Muhammad, reconnu comme une reference majeure de l'exegese coranique (tafsir).",
+    origin: "Fils d'Al-Abbas, oncle paternel du Prophete.",
+    explanation:
+      "Le Prophete aurait invoque en sa faveur, selon un hadith, que Dieu lui accorde la comprehension approfondie de la religion et l'enseignement de l'interpretation coranique, une invocation dont la tradition retient l'exaucement dans son surnom \"Interprete du Coran\" (Turjuman al-Qur'an) et \"l'ocean de savoir\" (Al-Bahr), du fait de l'etendue de ses connaissances transmises en tafsir.",
+    relatedSlugs: ["tafsir", "sahaba"],
+  },
+  {
+    term: "Abdullah ibn Umar",
+    termArabic: "عبد الله بن عمر",
+    slug: "ibn-umar",
+    definition: "Un compagnon, fils du calife Omar ibn al-Khattab, reconnu pour son attachement scrupuleux a suivre precisement les actes du Prophete.",
+    origin: "Fils du deuxieme calife, converti tres jeune a l'islam.",
+    explanation:
+      "Reconnu pour sa rigueur a reproduire fidelement, jusque dans les moindres details, les gestes et habitudes observes du Prophete, y compris ceux depourvus de signification religieuse explicite, il compte parmi les compagnons ayant transmis le plus grand nombre de hadiths et demeura, apres la mort de son pere, une reference morale respectee durant les troubles internes (fitna) qui suivirent.",
+    relatedSlugs: ["umar-ibn-al-khattab", "sahaba"],
+  },
+  {
+    term: "Mu'adh ibn Jabal",
+    termArabic: "معاذ بن جبل",
+    slug: "muadh-ibn-jabal",
+    definition: "Un compagnon envoye par le prophete Muhammad au Yemen comme juge et enseignant, reconnu pour sa maitrise du licite et de l'illicite.",
+    origin: "Compagnon ansar de Medine, converti tres jeune a l'islam.",
+    explanation:
+      "Un hadith rapporte que le Prophete, avant de l'envoyer au Yemen, lui demanda comment il jugerait les affaires : Mu'adh repondit qu'il se referait d'abord au Coran, puis a la Sunna, puis a son propre effort de raisonnement (ijtihad) en leur absence - un episode souvent cite comme fondement scripturaire du principe methodologique du qiyas et de l'ijtihad en fiqh.",
+    relatedSlugs: ["ijtihad", "qadi"],
+  },
+  {
+    term: "Salman al-Farisi",
+    termArabic: "سلمان الفارسي",
+    slug: "salman-al-farisi",
+    definition: "Un compagnon d'origine perse, converti apres une longue recherche personnelle de la verite religieuse, a qui est attribuee la suggestion du fosse defensif lors de la bataille de Khandaq.",
+    origin: "Originaire de Perse, il aurait successivement explore plusieurs traditions religieuses avant de rencontrer le Prophete a Medine.",
+    explanation:
+      "Sa proposition de creuser un large fosse defensif autour de Medine, inspiree de tactiques militaires perses alors inconnues en Arabie, s'averera decisive lors du siege de la ville par la coalition des tribus (ghazwat al-khandaq) ; le Prophete l'aurait par la suite designe comme faisant partie de sa propre famille (ahl al-bayt) en reconnaissance de son role.",
+    relatedSlugs: ["khandaq", "sahaba"],
+  },
+  {
+    term: "Hamza ibn Abd al-Muttalib",
+    termArabic: "حمزة بن عبد المطلب",
+    slug: "hamza-ibn-abd-al-muttalib",
+    definition: "L'oncle paternel du prophete Muhammad, surnomme \"le lion de Dieu\" pour sa bravoure au combat, tue lors de la bataille de Uhud.",
+    origin: "Oncle du Prophete, de peu son aine, converti a l'islam apres un incident ou il defendit son neveu insulte publiquement.",
+    explanation:
+      "Reconnu pour sa force physique et son courage militaire exceptionnel, il joua un role determinant a la bataille de Badr avant d'etre tue a Uhud, sa mort etant rapportee comme ayant particulierement affecte le Prophete, qui le qualifia de \"maitre des martyrs\" (sayyid ash-shuhada) selon plusieurs hadiths.",
+    relatedSlugs: ["uhud", "badr"],
+  },
+  // --- Figure coranique au statut debattu ---
+  {
+    term: "Dhul-Qarnayn",
+    termArabic: "ذو القرنين",
+    slug: "dhul-qarnayn",
+    definition: "Une figure mentionnee dans le Coran comme un souverain juste et puissant, ayant voyage jusqu'aux extremites orientale et occidentale du monde connu.",
+    origin: "Terme coranique, litteralement \"celui aux deux cornes\" (sourate Al-Kahf, 18:83-98).",
+    explanation:
+      "Le Coran relate qu'il recut de Dieu une autorite et des moyens etendus, qu'il utilisa avec justice, notamment en construisant une grande muraille pour proteger un peuple des exactions de Gog et Magog (Yajuj wa Majuj). Son identification historique precise - frequemment discutee en lien avec Alexandre le Grand, Cyrus le Grand ou un souverain himyarite du Yemen - demeure debattue parmi les commentateurs, de meme que la question de savoir s'il s'agissait d'un prophete ou d'un simple souverain juste.",
+    relatedSlugs: ["yajuj-wa-majuj", "nabi"],
+    divergence:
+      "Les commentateurs classiques divergent sur l'identite historique precise de Dhul-Qarnayn ainsi que sur son statut : certains y voient un prophete, d'autres un roi juste non prophete guide par la sagesse divine, sans qu'aucune de ces positions ne fasse l'objet d'un consensus etabli.",
+  },
+  // --- Institutions et titres complementaires ---
+  {
+    term: "Amir al-Mu'minin (Commandeur des croyants)",
+    termArabic: "أمير المؤمنين",
+    slug: "amir-al-muminin",
+    definition: "Un titre honorifique designant le chef politique et religieux de la communaute musulmane, notamment porte par les califes.",
+    origin: "Composition arabe litteralement \"prince des croyants\".",
+    explanation:
+      "Ce titre aurait ete adopte pour la premiere fois par le calife Omar ibn al-Khattab, en remplacement de la formule plus lourde \"successeur du successeur du Messager de Dieu\", et fut par la suite porte par les califes successifs ainsi que, dans certains contextes historiques ulterieurs, par d'autres dirigeants musulmans revendiquant une autorite religieuse et politique combinee.",
+    relatedSlugs: ["umar-ibn-al-khattab", "khilafa"],
+  },
+  {
+    term: "Diwan",
+    termArabic: "الديوان",
+    slug: "diwan",
+    definition: "Un registre administratif institue sous le califat de Omar ibn al-Khattab pour organiser la distribution des revenus de l'Etat aux musulmans.",
+    origin: "Terme d'origine persane adopte en arabe pour designer un registre ou bureau administratif.",
+    explanation:
+      "Institue face a l'expansion rapide du territoire musulman et a l'afflux de nouvelles ressources, le diwan permit d'organiser une distribution reguliere des revenus publics selon des criteres tels que l'anciennete dans l'islam et les liens avec le Prophete, posant les bases d'une administration financiere structuree qui influenca durablement l'organisation des Etats musulmans posterieurs.",
+    relatedSlugs: ["umar-ibn-al-khattab", "bayt-al-mal"],
+  },
 ];
 
 export async function seedConcepts(db: Database): Promise<void> {
