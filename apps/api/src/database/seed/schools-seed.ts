@@ -1369,6 +1369,58 @@ const FIQH_TOPICS: FiqhTopicSeed[] = [
     ],
     divergenceExplanation: "La divergence s'appuie sur une pratique rapportee de plusieurs compagnons, dont Ibn Abbas et Abu Hurayra, consistant a exiger une fidya en plus du qada en cas de retard non excuse : trois ecoles la retiennent comme fondement d'une obligation supplementaire, tandis que l'ecole hanafite considere que le jeune ne peut etre remplace par une compensation alimentaire que dans les cas explicitement etablis par un texte prophetique direct (vieillesse, maladie chronique), et non par simple analogie a partir d'une pratique de compagnons.",
   },
+  {
+    title: "Le creancier peut-il utiliser le bien mis en gage (rahn) pendant la duree du pret ?",
+    slug: "rahn-usage-gage-creancier",
+    category: "Commerce et transactions (Mu'amalat)",
+    description: "Si le creancier detenant un bien remis en gage (rahn) en garantie d'une dette peut en tirer un usage personnel (monter un animal, boire son lait) durant la periode ou la dette n'est pas encore remboursee.",
+    positions: [
+      { schoolSlug: "malikite", text: "Le creancier ne peut tirer aucun usage du bien mis en gage sans l'autorisation explicite de son proprietaire, tout usage non autorise etant assimile a un avantage indu sur le pret consenti." },
+      { schoolSlug: "hanafite", text: "Position identique aux malikites : le gage est une simple garantie et son usage par le creancier sans autorisation du debiteur n'est pas permis." },
+      { schoolSlug: "shafiite", text: "Position identique : aucun usage du bien gage n'est permis au creancier, le gage etant recu uniquement a titre de garantie et non de jouissance." },
+      { schoolSlug: "hanbalite", text: "Lorsque le bien mis en gage est un animal necessitant un entretien (nourriture, soins), le creancier peut le monter ou consommer son lait, en proportion des frais d'entretien qu'il engage pour cet animal." },
+    ],
+    divergenceExplanation: "L'ecole hanbalite s'appuie sur un hadith rapporte par Al-Bukhari selon lequel \"la monture est montee en echange de sa depense d'entretien lorsqu'elle est en gage\", qu'elle applique specifiquement aux animaux necessitant des soins couteux, tandis que les trois autres ecoles considerent que tout usage du gage par le creancier, meme en echange de son entretien, s'apparente a un avantage retire d'un pret et se rapproche ainsi du riba, qu'elles evitent par principe de prudence.",
+  },
+  {
+    title: "La vente d'un chien dresse est-elle licite ?",
+    slug: "vente-chien-dresse",
+    category: "Commerce et transactions (Mu'amalat)",
+    description: "Si un chien dresse pour la garde, la chasse ou l'elevage peut faire l'objet d'une vente licite, malgre l'interdiction generale rapportee du prix du chien.",
+    positions: [
+      { schoolSlug: "malikite", text: "La vente d'un chien utile (garde, chasse, elevage) est licite, sa valeur d'usage reconnue justifiant sa qualification comme bien commercialisable." },
+      { schoolSlug: "hanafite", text: "Position identique aux malikites : un chien dresse et utile peut etre valablement vendu et achete." },
+      { schoolSlug: "shafiite", text: "La vente d'un chien, quelle que soit son utilite ou son dressage, n'est pas licite ; le hadith interdisant le prix du chien est retenu dans sa portee generale et absolue." },
+      { schoolSlug: "hanbalite", text: "Position identique aux shafi'ites : aucune vente de chien n'est licite, meme dresse pour la garde ou la chasse." },
+    ],
+    divergenceExplanation: "La divergence porte sur la portee du hadith rapportant que \"le prix du chien est vil\" (rapporte par Muslim) : les ecoles shafi'ite et hanbalite le retiennent comme une interdiction generale et absolue, tandis que les ecoles malikite et hanafite le limitent, par analogie avec l'autorisation expresse de la chasse au chien dresse (sourate Al-Ma'ida, 5:4), aux seuls chiens depourvus d'utilite reconnue.",
+  },
+  {
+    title: "Le chat est-il considere comme impur (najis) au meme titre que le chien ?",
+    slug: "chat-statut-purete",
+    category: "Purification (Tahara)",
+    description: "Si le contact avec un chat, ou l'eau qu'il a bue, rend impur au meme titre que le contact avec un chien, ou si le chat beneficie d'un statut de purete distinct.",
+    positions: [
+      { schoolSlug: "malikite", text: "Le chat est pur (tahir) ; son contact, sa salive et l'eau qu'il a bue ne rendent pas impur." },
+      { schoolSlug: "hanafite", text: "Position identique : le chat est pur, a la difference du chien, et n'affecte pas la purete de l'eau ou des vetements qu'il touche." },
+      { schoolSlug: "shafiite", text: "Meme position : le chat est explicitement reconnu pur par le Prophete ﷺ lui-meme dans un hadith rapporte par les quatre recueils de Sunan." },
+      { schoolSlug: "hanbalite", text: "Position identique aux trois autres ecoles : le chat est pur, sans aucune divergence sur ce point entre les quatre ecoles." },
+    ],
+    divergenceExplanation: "Les quatre ecoles s'accordent unanimement sur la purete du chat, en s'appuyant sur le hadith rapportant que le Prophete ﷺ fit ses ablutions avec l'eau restee apres qu'une chatte y eut bu, en precisant explicitement qu'elle \"n'est pas impure, elle fait partie de ceux qui vous entourent [frequemment]\" (rapporte par At-Tirmidhi, Abu Dawud, An-Nasa'i et Ibn Majah) - ce sujet est inclus pour sa tres frequente pertinence pratique plutot que pour une reelle divergence, qui n'existe pas entre les quatre ecoles sur ce point precis.",
+  },
+  {
+    title: "Peut-on former une seconde priere collective dans une mosquee ou la priere a deja ete accomplie une premiere fois ?",
+    slug: "repetition-jamaa-meme-mosquee",
+    category: "Prière (Salat)",
+    description: "Si des fideles arrivant apres qu'une priere collective a deja ete accomplie dans une mosquee dotee d'un imam attitre peuvent former une seconde congregation, ou doivent prier individuellement.",
+    positions: [
+      { schoolSlug: "malikite", text: "Dans une mosquee dotee d'un imam attitre et d'un appel a la priere regulier, il est deconseille de former une seconde congregation ; les arrivants tardifs prient individuellement." },
+      { schoolSlug: "hanafite", text: "Position identique aux malikites : la repetition de la priere collective est deconseillee dans une mosquee de quartier a imam attitre, pour preserver l'unite de la congregation initiale." },
+      { schoolSlug: "shafiite", text: "Les fideles arrives apres la premiere congregation peuvent valablement former une seconde priere collective entre eux, notamment dans une mosquee ouverte au passage plutot que strictement reservee a un quartier." },
+      { schoolSlug: "hanbalite", text: "Position proche des shafi'ites : une seconde congregation peut etre formee par les arrivants tardifs, cette pratique n'etant pas consideree comme blamable." },
+    ],
+    divergenceExplanation: "La divergence porte sur l'equilibre a trouver entre deux objectifs concurrents : les ecoles malikite et hanafite privilegient l'unite visible de la communaute autour d'un imam attitre unique par mosquee de quartier, deconseillant toute repetition qui la fragmenterait, tandis que les ecoles shafi'ite et hanbalite privilegient le merite individuel accru de la priere collective par rapport a la priere individuelle, quel que soit le nombre de congregations successives dans un meme lieu.",
+  },
 ];
 
 export async function seedSchools(db: Database): Promise<void> {
