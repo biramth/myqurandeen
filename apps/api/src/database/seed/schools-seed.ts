@@ -1876,6 +1876,45 @@ const FIQH_TOPICS: FiqhTopicSeed[] = [
     ],
     divergenceExplanation: "La divergence porte sur l'analogie a etablir entre l'evanouissement et les autres causes d'impurete : les ecoles shafi'ite et hanbalite le traitent comme une perte de conscience plus profonde et plus incertaine que le simple sommeil, justifiant par prudence une purification complete, tandis que les ecoles malikite et hanafite l'assimilent au sommeil ordinaire dans ses effets, ne requerant que le renouvellement des petites ablutions.",
   },
+  {
+    title: "Le raccourcissement de la priere (qasr) en voyage est-il obligatoire ou seulement une permission ?",
+    slug: "qasr-obligatoire-ou-permission",
+    category: "Prière (Salat)",
+    description: "Si un voyageur remplissant les conditions du voyage doit imperativement raccourcir sa priere a deux rak'at, ou s'il peut valablement choisir de l'accomplir en entier par prudence ou scrupule personnel.",
+    positions: [
+      { schoolSlug: "malikite", text: "Le raccourcissement est une permission fortement recommandee (sunna mu'akkada) plutot qu'une obligation stricte ; le voyageur qui prie en entier accomplit une priere valide, bien que moins conforme a la pratique preferee." },
+      { schoolSlug: "hanafite", text: "Le raccourcissement de la priere en voyage est obligatoire (wajib) ; un voyageur qui prie ses quatre rak'at habituelles au lieu de deux a commis une erreur qu'il doit corriger." },
+      { schoolSlug: "shafiite", text: "Position proche des malikites : le raccourcissement est une concession (rukhsa) que le voyageur peut choisir ou non d'exercer, sans obligation stricte." },
+      { schoolSlug: "hanbalite", text: "Position proche des malikites et shafi'ites : le raccourcissement demeure une permission, non une obligation stricte, bien que fortement recommandee." },
+    ],
+    divergenceExplanation: "La divergence porte sur la nature meme de la concession du voyage : l'ecole hanafite considere que le raccourcissement constitue la forme normale et obligatoire de la priere du voyageur, l'accomplissement en entier etant alors une erreur a corriger, tandis que les trois autres ecoles la considerent comme une facilite (rukhsa) offerte au voyageur, qu'il demeure libre de ne pas exercer en choisissant la forme complete habituelle de la priere.",
+  },
+  {
+    title: "La vente conclue par une personne sans mandat prealable (bay' al-fuduli) est-elle valide sous reserve de ratification ?",
+    slug: "bay-al-fuduli-vente-sans-mandat",
+    category: "Commerce et transactions (Mu'amalat)",
+    description: "Si un contrat de vente conclu par une personne agissant au nom d'autrui sans en avoir recu de mandat prealable peut devenir valide si le proprietaire du bien vendu le ratifie apres coup, ou si un tel contrat est nul des sa conclusion.",
+    positions: [
+      { schoolSlug: "malikite", text: "La vente conclue sans mandat prealable est suspendue (mawquf) dans l'attente de la decision du proprietaire ; elle devient pleinement valide s'il la ratifie, et nulle s'il la refuse." },
+      { schoolSlug: "hanafite", text: "Position identique aux malikites : la vente est suspendue et sa validite depend entierement de la ratification ulterieure du proprietaire veritable du bien." },
+      { schoolSlug: "shafiite", text: "La vente conclue sans mandat prealable est nulle des sa conclusion ; l'absence de capacite a contracter au nom du proprietaire au moment meme de l'accord ne peut etre corrigee par une ratification posterieure." },
+      { schoolSlug: "hanbalite", text: "Position identique aux shafi'ites : un tel contrat est nul d'emblee, la ratification ulterieure ne pouvant valider retroactivement un contrat conclu sans autorite initiale." },
+    ],
+    divergenceExplanation: "La divergence porte sur le moment ou doit s'apprecier la capacite a contracter au nom d'autrui : les ecoles malikite et hanafite admettent qu'une autorisation posterieure (ijaza) du proprietaire puisse retroactivement valider un contrat initialement conclu sans mandat, tandis que les ecoles shafi'ite et hanbalite exigent que cette autorite existe des le moment meme de la conclusion du contrat, sans possibilite de regularisation ulterieure.",
+  },
+  {
+    title: "Doit-on respecter l'ordre chronologique en rattrapant plusieurs prieres manquees (tartib al-fawa'it) ?",
+    slug: "tartib-rattrapage-prieres-manquees",
+    category: "Prière (Salat)",
+    description: "Si celui qui doit rattraper plusieurs prieres obligatoires manquees doit imperativement les accomplir dans leur ordre chronologique d'origine, ou peut les rattraper dans n'importe quel ordre.",
+    positions: [
+      { schoolSlug: "malikite", text: "Le respect de l'ordre chronologique est obligatoire lorsque le nombre de prieres manquees reste limite ; au-dela d'un nombre important, cette obligation s'attenue par difficulte pratique excessive." },
+      { schoolSlug: "hanafite", text: "Position proche des malikites : l'ordre chronologique est requis pour un nombre limite de prieres manquees, cette exigence disparaissant lorsque leur nombre devient trop important pour etre raisonnablement respecte." },
+      { schoolSlug: "shafiite", text: "Le respect de l'ordre chronologique est simplement recommande, non obligatoire ; les prieres manquees peuvent etre valablement rattrapees dans n'importe quel ordre." },
+      { schoolSlug: "hanbalite", text: "Position proche des malikites et hanafites : l'ordre chronologique est obligatoire pour un nombre limite de prieres manquees." },
+    ],
+    divergenceExplanation: "La divergence porte sur la portee a donner a la pratique rapportee du Prophete ﷺ, qui rattrapa dans l'ordre plusieurs prieres manquees lors de la bataille du Fosse : les ecoles malikite, hanafite et hanbalite en tirent une obligation generale de respecter cet ordre tant que cela reste raisonnablement praticable, tandis que l'ecole shafi'ite considere cet episode comme une pratique particuliere plutot qu'une regle contraignante applicable a tous les cas de rattrapage.",
+  },
 ];
 
 export async function seedSchools(db: Database): Promise<void> {
