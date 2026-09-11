@@ -888,6 +888,71 @@ const FIQH_TOPICS: FiqhTopicSeed[] = [
     ],
     divergenceExplanation: "La divergence porte sur la nature de la condition du hawl : les écoles qui admettent l'anticipation y voient une simple facilité de calcul n'empêchant pas un acte de générosité anticipé, tandis que l'école malikite considère le hawl comme une condition constitutive de l'exigibilité elle-même, rendant un versement trop anticipé assimilable à une simple aumône volontaire plutôt qu'à un acquittement effectif de la zakat.",
   },
+  {
+    title: "Durée de l'essuyage sur les chaussettes en cuir (mash 'ala al-khuffayn)",
+    slug: "duree-mash-al-khuffayn",
+    category: "Purification (Tahara)",
+    description: "Combien de temps un résident et un voyageur peuvent-ils se contenter d'essuyer leurs chaussettes en cuir (khuff) plutôt que de laver les pieds, lors du wudu.",
+    positions: [
+      { schoolSlug: "malikite", text: "Aucune limite de durée n'est fixée : l'essuyage reste valide tant que le khuff n'est pas retiré, position la plus connue de l'école sur ce point." },
+      { schoolSlug: "hanafite", text: "Un jour et une nuit pour le résident, trois jours et trois nuits pour le voyageur, décomptés depuis le premier essuyage suivant l'enfilage en état de purification." },
+      { schoolSlug: "shafiite", text: "Position identique aux hanafites : un jour et une nuit pour le résident, trois jours et trois nuits pour le voyageur." },
+      { schoolSlug: "hanbalite", text: "Position identique aux hanafites et shafi'ites concernant ces mêmes durées." },
+    ],
+    divergenceExplanation: "Trois écoles retiennent les durées précises rapportées dans un hadith de Muslim (un jour pour le résident, trois pour le voyageur), tandis que l'école malikite, s'appuyant sur d'autres rapports ne mentionnant aucune limite explicite, autorise l'essuyage sans limite de durée tant que le khuff reste porté.",
+  },
+  {
+    title: "La prière de l'Aïd est-elle obligatoire ?",
+    slug: "priere-aid-obligatoire",
+    category: "Prière (Salat)",
+    description: "Si la prière collective des deux fêtes annuelles (Aïd al-Fitr et Aïd al-Adha) a un statut juridique obligatoire, ou seulement recommandé.",
+    positions: [
+      { schoolSlug: "malikite", text: "La prière de l'Aïd est une sunna fortement recommandée (mu'akkada), sans atteindre le statut d'obligation stricte." },
+      { schoolSlug: "hanafite", text: "La prière de l'Aïd a le statut d'obligation (wajib) pour chaque individu remplissant les conditions de la prière du vendredi, catégorie intermédiaire propre à l'école." },
+      { schoolSlug: "shafiite", text: "Position identique aux malikites : sunna fortement recommandée, non obligatoire à titre individuel." },
+      { schoolSlug: "hanbalite", text: "La prière de l'Aïd est une obligation collective (fard kifaya) : son accomplissement par un nombre suffisant de la communauté dispense les autres, position distincte des trois autres écoles." },
+    ],
+    divergenceExplanation: "Les quatre écoles divergent sur le degré exact d'obligation de cette prière, chacune s'appuyant sur une lecture différente de la constance avec laquelle le Prophète ﷺ et les premiers califes l'ont maintenue : l'école hanafite y voit une obligation individuelle de sa catégorie intermédiaire du wajib, l'école hanbalite une obligation collective, et les écoles malikite et shafi'ite une sunna fortement recommandée sans caractère obligatoire.",
+  },
+  {
+    title: "Le rire pendant la prière annule-t-il aussi le wudu ?",
+    slug: "rire-priere-annule-wudu",
+    category: "Purification (Tahara)",
+    description: "Si un rire franc et audible (qahqaha) survenu pendant la prière invalide uniquement la prière, ou également l'état de purification (wudu) lui-même.",
+    positions: [
+      { schoolSlug: "malikite", text: "Le rire pendant la prière invalide uniquement la prière elle-même, sans effet sur le wudu, qui reste valide pour une prière ultérieure." },
+      { schoolSlug: "hanafite", text: "Le rire franc et audible pendant une prière comportant inclinaison et prosternation invalide à la fois la prière et le wudu lui-même, position spécifique et bien connue de l'école." },
+      { schoolSlug: "shafiite", text: "Position identique aux malikites : seule la prière est invalidée, le wudu demeurant valide." },
+      { schoolSlug: "hanbalite", text: "Position identique aux malikites et shafi'ites : le rire n'affecte que la prière, pas l'état de purification." },
+    ],
+    divergenceExplanation: "L'école hanafite s'appuie sur un rapport particulier reliant le rire pendant la prière à l'annulation du wudu lui-même, une position que les trois autres écoles ne retiennent pas, considérant que seuls les événements habituellement reconnus comme annulant le wudu (sorties naturelles, sommeil profond, contact...) peuvent l'invalider, à l'exclusion du rire qui reste une faute propre à la prière.",
+  },
+  {
+    title: "Les conditions stipulées par l'épouse dans le contrat de mariage sont-elles contraignantes ?",
+    slug: "conditions-stipulees-contrat-mariage",
+    category: "Mariage (Nikah)",
+    description: "Si une condition posée par l'épouse lors du contrat de mariage (par exemple ne pas être prise comme coépouse, ou pouvoir continuer ses études) engage juridiquement le mari.",
+    positions: [
+      { schoolSlug: "malikite", text: "Certaines conditions sont contraignantes, notamment celle de ne pas prendre de coépouse, dont la violation ouvre à l'épouse un droit à la séparation, mais pas l'ensemble des conditions possibles." },
+      { schoolSlug: "hanafite", text: "Les conditions contraires à l'objet même du mariage ou à l'ordre public ne sont pas contraignantes ; le contrat reste valide mais la condition elle-même est réputée nulle et sans effet." },
+      { schoolSlug: "shafiite", text: "Position proche des hanafites : la plupart des conditions stipulées sont considérées non contraignantes, le mariage restant valide sans que le mari soit lié par elles." },
+      { schoolSlug: "hanbalite", text: "Toute condition licite stipulée dans le contrat est contraignante pour le mari ; sa violation ouvre à l'épouse le droit de demander la dissolution du mariage, position la plus favorable à la validité de ces clauses." },
+    ],
+    divergenceExplanation: "La divergence s'appuie sur des rapports concurrents, notamment un hadith rapporté par Al-Bukhari (\"les conditions que vous êtes le plus en droit de respecter sont celles par lesquelles vous avez rendu licite l'union intime\") : l'école hanbalite lui donne une portée large et contraignante, tandis que les écoles hanafite et shafi'ite restreignent fortement la validité de telles clauses, jugées contraires à la nature même du contrat de mariage tel qu'elles le conçoivent ; l'école malikite adopte une position intermédiaire limitée à certaines conditions bien identifiées.",
+  },
+  {
+    title: "Peut-on répéter la 'Umra plusieurs fois durant un même séjour à Mecque ?",
+    slug: "repeter-umra-meme-sejour",
+    category: "Hajj et 'Umra",
+    description: "Si un pèlerin déjà présent à Mecque peut sortir vers un lieu de sacralisation proche (comme At-Tan'im) pour accomplir une nouvelle 'umra durant le même séjour.",
+    positions: [
+      { schoolSlug: "malikite", text: "Répéter la 'umra durant un même séjour est déconseillé (makruh), l'école privilégiant une 'umra unique par voyage plutôt que leur multiplication artificielle." },
+      { schoolSlug: "hanafite", text: "Répéter la 'umra est permis sans réserve particulière durant un même séjour, à condition de se sacraliser de nouveau depuis un lieu situé hors du territoire sacré (hill)." },
+      { schoolSlug: "shafiite", text: "Position identique aux hanafites : la répétition de la 'umra est permise, chaque 'umra distincte comportant son propre mérite religieux." },
+      { schoolSlug: "hanbalite", text: "Position identique aux hanafites et shafi'ites : aucune restriction particulière à la répétition de la 'umra durant le même séjour." },
+    ],
+    divergenceExplanation: "La divergence tient à l'appréciation de la pratique privilégiée par le Prophète ﷺ et ses Compagnons : l'école malikite, s'appuyant sur le fait que le Prophète ﷺ lui-même n'accomplit qu'une seule 'umra par séjour, y voit la pratique la plus méritoire et déconseille la répétition, tandis que les trois autres écoles, s'appuyant sur l'autorisation accordée par le Prophète ﷺ à Aisha de répéter la 'umra lors du pèlerinage d'adieu, n'y voient aucune restriction de principe.",
+  },
 ];
 
 export async function seedSchools(db: Database): Promise<void> {
