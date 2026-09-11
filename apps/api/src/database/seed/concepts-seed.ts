@@ -4148,6 +4148,200 @@ const CONCEPTS: ConceptSeed[] = [
       "Le Coran rapporte un appel desespere des damnes a Malik, gardien de l'Enfer, lui demandant que leur Seigneur mette fin a leur existence, appel auquel il repond qu'ils demeureront (sourate Az-Zukhruf, 43:77) - passage souvent cite dans les descriptions coraniques du chatiment.",
     relatedSlugs: ["jahannam", "malak-al-mawt"],
   },
+  // --- Prophetes nommement cites dans le Coran ---
+  {
+    term: "Adam",
+    termArabic: "آدم",
+    slug: "adam",
+    definition: "Le premier etre humain et le premier prophete, selon la tradition islamique.",
+    origin: "Nom propre coranique, mentionne des le debut de la sourate Al-Baqara (2:31-37).",
+    explanation:
+      "Le Coran rapporte que Dieu enseigna a Adam le nom de toutes choses, ordonna aux anges de se prosterner devant lui - ce que Iblis (Satan) refusa - puis, apres sa desobeissance concernant l'arbre interdit, accepta son repentir sincere (sourate Al-Baqara, 2:37), un recit souvent oppose dans les commentaires a la notion chretienne de peche originel transmis.",
+    relatedSlugs: ["nabi", "tawba"],
+  },
+  {
+    term: "Nuh (Noe)",
+    termArabic: "نوح",
+    slug: "nuh",
+    definition: "Un prophete envoye a son peuple pour l'appeler au monotheisme, associe au recit coranique du deluge.",
+    origin: "Nom propre coranique ; une sourate entiere (71) porte son nom.",
+    explanation:
+      "Le Coran rapporte que Nuh preacha pendant des siecles a son peuple sans etre suivi que par un petit nombre, avant qu'un deluge ne submerge les mecreants, seuls etant sauves Nuh et ceux qui embarquerent avec lui dans l'arche (sourate Hud, 11:36-48). Il est compte parmi les cinq prophetes dotes d'une determination particuliere (ulul azm).",
+    relatedSlugs: ["ulul-azm", "nubuwwa"],
+  },
+  {
+    term: "Ibrahim (Abraham)",
+    termArabic: "إبراهيم",
+    slug: "ibrahim",
+    definition: "Un prophete majeur, figure fondatrice du monotheisme dans la tradition islamique, pere d'Ismael et d'Isaac.",
+    origin: "Nom propre coranique, mentionne dans de nombreuses sourates ; une sourate (14) porte son nom.",
+    explanation:
+      "Le Coran le designe comme khalil Allah (l'intime de Dieu, sourate An-Nisa, 4:125) et lui attribue, avec son fils Ismael, la (re)construction de la Kaaba (sourate Al-Baqara, 2:127). Sa disposition a sacrifier son fils sur ordre divin, son rejet de l'idolatrie de son pere et de son peuple, et son statut de patriarche commun aux traditions abrahamiques en font une figure centrale du recit coranique.",
+    relatedSlugs: ["kaaba", "ulul-azm"],
+  },
+  {
+    term: "Musa (Moise)",
+    termArabic: "موسى",
+    slug: "musa",
+    definition: "Le prophete le plus souvent mentionne dans le Coran, envoye a Pharaon et a son peuple, destinataire de la Torah.",
+    origin: "Nom propre coranique, revenant dans un tres grand nombre de sourates.",
+    explanation:
+      "Le Coran le designe comme kalim Allah (celui a qui Dieu a parle directement, sourate An-Nisa, 4:164) et rapporte longuement sa confrontation avec Pharaon, la traversee de la mer, la reception de la Torah et les epreuves rencontrees avec son peuple durant la traversee du desert. Il est compte parmi les cinq prophetes ulul azm.",
+    relatedSlugs: ["ulul-azm", "wahy"],
+  },
+  {
+    term: "Isa (Jesus)",
+    termArabic: "عيسى",
+    slug: "isa",
+    definition: "Un prophete ne miraculeusement de Marie sans intervention paternelle, destinataire de l'Evangile (Injil), dont le retour avant la fin des temps est annonce par la tradition.",
+    origin: "Nom propre coranique, mentionne dans plusieurs sourates ; une sourate (19) porte le nom de sa mere Maryam.",
+    explanation:
+      "Le Coran affirme la naissance miraculeuse d'Isa (sourate Maryam, 19:16-34) tout en rejetant explicitement sa divinite et sa filiation divine (sourate Al-Ma'ida, 5:116-117), le presentant comme un serviteur et messager de Dieu. La tradition islamique enseigne qu'il ne fut pas crucifie mais eleve aupres de Dieu (sourate An-Nisa, 4:157-158), et rapporte, via de nombreux hadiths, son retour avant la fin des temps.",
+    relatedSlugs: ["nuzul-isa", "ulul-azm"],
+  },
+  {
+    term: "Dawud (David)",
+    termArabic: "داود",
+    slug: "dawud",
+    definition: "Un prophete-roi, destinataire du Zabur (Psaumes), reconnu pour sa voix et son travail du fer.",
+    origin: "Nom propre coranique, mentionne dans plusieurs sourates.",
+    explanation:
+      "Le Coran rapporte que Dieu accorda a Dawud la royaute, la sagesse, le Zabur (sourate Al-Isra, 17:55) et la capacite de travailler le fer (sourate Saba, 34:10-11), ainsi qu'une voix dont la beaute faisait, selon le texte, resonner montagnes et oiseaux en sa compagnie lors de ses louanges (sourate Saba, 34:10).",
+    relatedSlugs: ["sulayman", "nubuwwa"],
+  },
+  {
+    term: "Sulayman (Salomon)",
+    termArabic: "سليمان",
+    slug: "sulayman",
+    definition: "Un prophete-roi, fils de Dawud, dote d'un pouvoir sur le vent, les djinns et la comprehension du langage des animaux.",
+    origin: "Nom propre coranique, mentionne dans plusieurs sourates.",
+    explanation:
+      "Le Coran rapporte que Sulayman herita de la prophetie et de la royaute de son pere Dawud, obtint autorite sur le vent et sur des djinns mis a son service (sourate Al-Anbiya, 21:81-82), et comprenait le langage des oiseaux et des fourmis, comme l'illustre le recit de la reine de Saba (sourate An-Naml, 27:15-44).",
+    relatedSlugs: ["dawud", "jinn"],
+  },
+  {
+    term: "Yusuf (Joseph)",
+    termArabic: "يوسف",
+    slug: "yusuf",
+    definition: "Un prophete dont le recit, vendu en esclavage par ses freres puis eleve au rang de gouverneur d'Egypte, occupe une sourate entiere du Coran.",
+    origin: "Nom propre coranique ; la sourate 12 porte son nom et raconte integralement son histoire.",
+    explanation:
+      "Le Coran presente le recit de Yusuf comme \"le plus beau des recits\" (sourate Yusuf, 12:3) : trahi par ses freres jaloux, vendu en esclavage, injustement emprisonne en Egypte apres avoir resiste a la tentation, puis eleve par ses talents d'interpretation des songes jusqu'a la gestion des greniers d'Egypte, avant de retrouver et pardonner a sa famille.",
+    relatedSlugs: ["nabi", "sabr"],
+  },
+  // --- Noms coraniques designant le Coran lui-meme ---
+  {
+    term: "Al-Furqan (Le Discernement)",
+    termArabic: "الفرقان",
+    slug: "al-furqan",
+    definition: "Un nom coranique designant le Coran comme ce qui permet de distinguer le vrai du faux.",
+    origin: "Terme coranique, notamment titre de la sourate 25.",
+    explanation:
+      "Le Coran se designe lui-meme comme Al-Furqan, ce qui separe et distingue clairement la verite de l'erreur (sourate Al-Furqan, 25:1), un des noms les plus cites du texte revele avec Al-Kitab et Adh-Dhikr.",
+    relatedSlugs: ["mushaf", "adh-dhikr"],
+  },
+  {
+    term: "Adh-Dhikr (Le Rappel)",
+    termArabic: "الذكر",
+    slug: "adh-dhikr",
+    definition: "Un nom coranique designant le Coran comme rappel adresse a l'humanite.",
+    origin: "Terme coranique (sourate Al-Hijr, 15:9).",
+    explanation:
+      "Le Coran affirme que c'est Dieu Lui-meme qui a fait descendre le Rappel (adh-dhikr) et qu'Il en est le gardien (sourate Al-Hijr, 15:9), un verset frequemment cite comme fondement de la doctrine de la preservation integrale du texte coranique a travers les siecles.",
+    relatedSlugs: ["al-furqan", "mushaf"],
+  },
+  {
+    term: "At-Tanzil (La Revelation descendue)",
+    termArabic: "التنزيل",
+    slug: "at-tanzil",
+    definition: "Un nom coranique designant le Coran comme revelation descendue progressivement depuis Dieu.",
+    origin: "Racine arabe n-z-l, evoquant le fait de descendre.",
+    explanation:
+      "At-Tanzil souligne le caractere descendant de la revelation, faite parvenir depuis Dieu a Ses creatures par l'intermediaire de l'ange Jibril, une designation qui insiste sur l'origine divine du texte plutot que sur son contenu ou sa fonction.",
+    relatedSlugs: ["wahy", "jibril"],
+  },
+  {
+    term: "Al-Huda (La Guidance)",
+    termArabic: "الهدى",
+    slug: "al-huda",
+    definition: "Un nom coranique designant le Coran comme source de guidance pour l'humanite.",
+    origin: "Terme coranique, des l'ouverture de la sourate Al-Baqara (2:2).",
+    explanation:
+      "Le Coran s'ouvre, des sa deuxieme sourate, par l'affirmation qu'il constitue \"une guidance pour les pieux\" (sourate Al-Baqara, 2:2), une fonction de guidance rappelee tout au long du texte comme l'une de ses finalites premieres.",
+    relatedSlugs: ["al-furqan", "taqwa"],
+  },
+  {
+    term: "Al-Kitab (Le Livre)",
+    termArabic: "الكتاب",
+    slug: "al-kitab-nom-coran",
+    definition: "Un nom coranique designant le Coran comme Livre revele, le plus frequemment employe dans le texte lui-meme.",
+    origin: "Racine arabe k-t-b, evoquant l'ecrit.",
+    explanation:
+      "Al-Kitab est le nom le plus recurrent employe par le Coran pour se designer lui-meme, insistant sur son statut d'ecrit revele au meme titre, dans la vision coranique, que les livres reveles aux prophetes anterieurs (Torah, Evangile, Psaumes).",
+    relatedSlugs: ["mushaf", "ahl-al-kitab"],
+  },
+  // --- Architecture et espaces du culte ---
+  {
+    term: "Minbar (Chaire)",
+    termArabic: "المنبر",
+    slug: "minbar",
+    definition: "La chaire surelevee, generalement a quelques marches, depuis laquelle est prononcee la khutba dans une mosquee.",
+    origin: "Racine arabe n-b-r, evoquant l'elevation.",
+    explanation:
+      "Le minbar, introduit selon la tradition du vivant du prophete Muhammad pour lui permettre d'etre mieux vu et entendu lors de ses sermons, est devenu un element architectural standard des mosquees pratiquant la priere du vendredi, place generalement a droite du mihrab.",
+    relatedSlugs: ["khutbah", "jumua"],
+  },
+  {
+    term: "Mihrab (Niche de prière)",
+    termArabic: "المحراب",
+    slug: "mihrab",
+    definition: "La niche murale indiquant la direction de la Kaaba (qibla) a l'interieur d'une mosquee, ou se tient l'imam.",
+    origin: "Racine arabe h-r-b, dont le sens exact applique a l'architecture religieuse est discute par les linguistes.",
+    explanation:
+      "Le mihrab permet aux fideles d'identifier visuellement la direction de la priere sans avoir a la calculer eux-memes, et marque traditionnellement la place occupee par l'imam face a l'assemblee des fideles alignes derriere lui.",
+    relatedSlugs: ["qibla", "salah"],
+  },
+  {
+    term: "Manara (Minaret)",
+    termArabic: "المنارة",
+    slug: "manara",
+    definition: "La tour, generalement attenante a une mosquee, depuis laquelle est traditionnellement lance l'appel a la priere (adhan).",
+    origin: "Racine arabe n-w-r, evoquant la lumiere, le phare.",
+    explanation:
+      "Historiquement utilisee pour que le muezzin puisse lancer l'adhan de maniere audible sur une large portion de la ville avant l'usage de la sonorisation electrique, la manara demeure aujourd'hui un element architectural identitaire des mosquees, meme lorsque l'appel est desormais diffuse par haut-parleurs.",
+    relatedSlugs: ["adhan", "mihrab"],
+  },
+  // --- Sciences du hadith (complements) ---
+  {
+    term: "Sanad (Chaine de transmission)",
+    termArabic: "السند",
+    slug: "sanad",
+    definition: "La chaine des transmetteurs successifs a travers laquelle un hadith a ete rapporte jusqu'a son compilateur.",
+    origin: "Racine arabe s-n-d, evoquant l'appui, le support sur lequel repose une transmission.",
+    explanation:
+      "Terme largement synonyme d'isnad dans l'usage courant, le sanad constitue l'objet central de la critique des sciences du hadith (mustalah al-hadith) : l'authenticite d'un hadith depend directement de la continuite de cette chaine et de la fiabilite de chacun de ses maillons.",
+    relatedSlugs: ["isnad", "jarh-wa-tadil"],
+  },
+  {
+    term: "Rawi (Narrateur de hadith)",
+    termArabic: "الراوي",
+    slug: "rawi",
+    definition: "Chacun des transmetteurs successifs composant la chaine de transmission (isnad) d'un hadith.",
+    origin: "Racine arabe r-w-y, evoquant le fait de rapporter, de transmettre.",
+    explanation:
+      "L'evaluation individuelle de chaque rawi (sa memoire, son honnetete, la continuite de son contact avec le transmetteur precedent) constitue le coeur de la discipline critique du jarh wa ta'dil, dont dependent les classifications sahih, hasan ou daif attribuees a un hadith.",
+    relatedSlugs: ["isnad", "jarh-wa-tadil"],
+  },
+  {
+    term: "Thiqa (Narrateur digne de confiance)",
+    termArabic: "الثقة",
+    slug: "thiqa",
+    definition: "La qualification attribuee a un narrateur de hadith juge fiable, tant par sa droiture morale que par la solidite de sa memoire.",
+    origin: "Racine arabe w-th-q, evoquant la confiance, la fiabilite.",
+    explanation:
+      "Un narrateur qualifie de thiqa reunit les deux conditions requises par les critiques du hadith : l'integrite morale ('adala) et l'exactitude de la memorisation (dabt) ; l'absence de l'une ou l'autre de ces qualites conduit a des classifications degressives jusqu'au daif.",
+    relatedSlugs: ["rawi", "jarh-wa-tadil"],
+  },
 ];
 
 export async function seedConcepts(db: Database): Promise<void> {
