@@ -2615,6 +2615,519 @@ const CONCEPTS: ConceptSeed[] = [
       "L'iqama reprend une forme condensee de l'adhan, prononcee au sein meme de la mosquee juste avant que l'imam ne debute la priere, signalant aux fideles presents de se mettre en rang.",
     relatedSlugs: ["adhan", "salah"],
   },
+  // --- Eschatologie et theologie, au-dela de ce qui est deja traite ---
+  {
+    term: "Qada (Le Decret divin eternel)",
+    termArabic: "القضاء",
+    slug: "qada",
+    definition: "Le decret divin eternel, decide de toute eternite dans la science de Dieu.",
+    origin: "Racine arabe q-d-y, evoquant le fait de trancher, de decider.",
+    explanation:
+      "Qada et qadar sont generalement distingues par les theologiens : le qada designe la decision divine eternelle et globale, tandis que le qadar en est la mise en oeuvre concrete et progressive dans le temps - les deux formant ensemble la croyance au decret divin (al-qada wal-qadar).",
+    relatedSlugs: ["qadar"],
+  },
+  {
+    term: "Lawh al-Mahfuz (La Tablette bien gardee)",
+    termArabic: "اللوح المحفوظ",
+    slug: "lawh-al-mahfuz",
+    definition: "Le support eternel sur lequel serait consigne le decret divin de toute chose.",
+    origin: "Expression coranique (sourate Al-Buruj, 85:22).",
+    explanation:
+      "La tradition islamique decrit le Lawh al-Mahfuz comme le registre eternel ou est consigne le decret divin (qadar) de toute chose, y compris le texte du Coran lui-meme selon certains commentateurs - une image servant a exprimer la connaissance et la determination divines totales, plutot qu'un objet materiel au sens litteral.",
+    relatedSlugs: ["qadar", "al-qalam"],
+  },
+  {
+    term: "Al-Qalam (Le Calame)",
+    termArabic: "القلم",
+    slug: "al-qalam",
+    definition: "Le premier instrument cree, charge d'inscrire le decret divin sur la Tablette bien gardee.",
+    origin: "Terme coranique, donnant son nom a la sourate Al-Qalam.",
+    explanation:
+      "Selon un hadith rapporte par At-Tirmidhi, la premiere chose creee par Dieu fut le Calame, auquel il fut ordonne d'ecrire le devenir de toute chose jusqu'au Jour dernier - une image fondatrice de la croyance au qadar.",
+    relatedSlugs: ["lawh-al-mahfuz", "qadar"],
+  },
+  {
+    term: "Al-'Arsh (Le Trone)",
+    termArabic: "العرش",
+    slug: "al-arsh",
+    definition: "Le Trone divin, mentionne dans le Coran comme surplombant l'ensemble de la creation.",
+    origin: "Terme coranique frequent, notamment le Verset du Trone (Ayat al-Kursi).",
+    explanation:
+      "L'etablissement de Dieu sur le Trone (istawa 'ala al-'Arsh) est affirme par le Coran sans en preciser la modalite ; les atharites l'affirment tel quel sans interpretation ni comparaison, tandis que d'autres courants theologiques privilegient une lecture allegorique - un debat classique deja evoque au sujet de l'atharisme.",
+    relatedSlugs: ["al-kursi", "asma-wa-sifat"],
+  },
+  {
+    term: "Al-Kursi (Le Piedestal)",
+    termArabic: "الكرسي",
+    slug: "al-kursi",
+    definition: "Le Piedestal divin, mentionne dans le celebre Verset du Trone comme embrassant les cieux et la terre.",
+    origin: "Terme coranique (sourate Al-Baqara, 2:255, Ayat al-Kursi).",
+    explanation:
+      "Distinct de l'Arsh dans la plupart des commentaires classiques, le Kursi est associe a une immensite qui embrasse les cieux et la terre, image de la connaissance et de la puissance divines totales rapportee dans le tres largement recite Ayat al-Kursi.",
+    relatedSlugs: ["al-arsh"],
+  },
+  {
+    term: "Barzakh (Le monde intermediaire)",
+    termArabic: "البرزخ",
+    slug: "barzakh",
+    definition: "L'etat intermediaire de l'ame entre la mort et la resurrection.",
+    origin: "Terme coranique (sourate Al-Mu'minun, 23:100), evoquant une barriere, un intervalle.",
+    explanation:
+      "Le barzakh designe la periode qui separe la mort de la resurrection finale, durant laquelle l'ame connaitrait, selon la tradition, un avant-gout de sa destinee future (na'im ou 'adhab al-qabr) en attendant le jugement dernier.",
+    relatedSlugs: ["qiyamah", "akhira"],
+  },
+  {
+    term: "Munkar wa Nakir (Les deux anges de la tombe)",
+    termArabic: "منكر ونكير",
+    slug: "munkar-wa-nakir",
+    definition: "Les deux anges charges, selon la tradition, d'interroger le defunt dans sa tombe.",
+    origin: "Noms rapportes dans plusieurs hadiths, notamment chez At-Tirmidhi.",
+    explanation:
+      "La tradition islamique rapporte que ces deux anges interrogent le defunt sur sa foi, son Prophete et sa religion peu apres l'enterrement, une croyance qui fait partie de l'aqida sunnite classique concernant le barzakh.",
+    relatedSlugs: ["barzakh", "malaika"],
+  },
+  {
+    term: "Al-Mizan (La Balance des actes)",
+    termArabic: "الميزان",
+    slug: "al-mizan",
+    definition: "La balance sur laquelle seront peses les actes de chaque personne au Jour du Jugement.",
+    origin: "Terme coranique (sourate Al-Anbiya, 21:47).",
+    explanation:
+      "Al-Mizan symbolise la justice parfaite du jugement divin, ou bonnes et mauvaises actions seront pesees avec exactitude - une image centrale de l'eschatologie islamique rappelant la responsabilite individuelle de chaque acte.",
+    relatedSlugs: ["qiyamah", "al-adl"],
+  },
+  {
+    term: "Al-Hawd (Le Bassin du Prophete)",
+    termArabic: "الحوض",
+    slug: "al-hawd",
+    definition: "Le bassin auquel le Prophete ﷺ abreuvera les croyants de sa communaute au Jour du Jugement.",
+    origin: "Rapporte dans plusieurs hadiths authentiques (Bukhari, Muslim).",
+    explanation:
+      "Boire a ce bassin, dont l'eau est decrite comme plus blanche que le lait et plus parfumee que le musc, marquerait selon la tradition une etape de soulagement avant la traversee finale vers le Paradis, reservee a ceux qui n'auront pas introduit d'innovations blamables dans la religion.",
+    relatedSlugs: ["sirat", "al-kawthar"],
+  },
+  {
+    term: "Al-A'raf (Les Hauteurs)",
+    termArabic: "الأعراف",
+    slug: "al-araf",
+    definition: "Un lieu intermediaire entre le Paradis et l'Enfer, mentionne dans le Coran.",
+    origin: "Terme coranique, donnant son nom a la sourate Al-A'raf.",
+    explanation:
+      "Le Coran (sourate Al-A'raf, 7:46-49) decrit une hauteur separant les gens du Paradis de ceux de l'Enfer, dont les occupants font l'objet de plusieurs interpretations chez les commentateurs classiques, sans consensus definitif sur leur identite precise.",
+    relatedSlugs: ["jannah", "jahannam"],
+  },
+  {
+    term: "Al-Kawthar (Le fleuve du Paradis)",
+    termArabic: "الكوثر",
+    slug: "al-kawthar",
+    definition: "Un fleuve ou bassin du Paradis accorde au Prophete ﷺ, mentionne dans une sourate du meme nom.",
+    origin: "Terme coranique, donnant son nom a la sourate Al-Kawthar (108).",
+    explanation:
+      "La sourate Al-Kawthar, la plus courte du Coran, promet au Prophete ﷺ l'abondance symbolisee par ce fleuve, generalement identifie par les commentateurs au meme bassin (Al-Hawd) dont il abreuvera sa communaute.",
+    relatedSlugs: ["al-hawd"],
+  },
+  {
+    term: "Ad-Dajjal (L'Antichrist)",
+    termArabic: "الدجال",
+    slug: "ad-dajjal",
+    definition: "Une figure trompeuse dont l'apparition, selon de nombreux hadiths, precedera la fin des temps.",
+    origin: "Racine arabe d-j-l, evoquant la tromperie, l'imposture.",
+    explanation:
+      "De nombreux hadiths decrivent Ad-Dajjal comme un imposteur aux pouvoirs trompeurs qui pretendra a la divinite avant d'etre vaincu, selon la tradition, par le retour de Jesus ('Isa) - une figure eschatologique majeure bien qu'absente du texte coranique lui-meme.",
+    relatedSlugs: ["nuzul-isa", "qiyamah"],
+  },
+  {
+    term: "Ya'juj wa Ma'juj (Gog et Magog)",
+    termArabic: "يأجوج ومأجوج",
+    slug: "yajuj-wa-majuj",
+    definition: "Deux peuples dont l'irruption, selon la tradition islamique, comptera parmi les signes annonciateurs de la fin des temps.",
+    origin: "Terme coranique (sourate Al-Kahf, 18:94, et sourate Al-Anbiya, 21:96).",
+    explanation:
+      "Le Coran mentionne Ya'juj wa Ma'juj comme un peuple retenu derriere une barriere construite par Dhul-Qarnayn, dont la liberation future est presentee comme l'un des grands signes precedant le Jour du Jugement.",
+    relatedSlugs: ["qiyamah"],
+  },
+  {
+    term: "Al-Mahdi (Le Bien-Guide attendu)",
+    termArabic: "المهدي",
+    slug: "al-mahdi",
+    definition: "Une figure eschatologique attendue, issue de la famille du Prophete, qui retablirait la justice avant la fin des temps.",
+    origin: "Rapporte dans plusieurs hadiths, notamment chez Abu Dawud.",
+    explanation:
+      "La croyance en l'apparition future d'Al-Mahdi est largement repandue dans la tradition sunnite comme chiite, bien que les details de son role et l'authenticite precise des rapports le concernant fassent l'objet de discussions parmi les specialistes du hadith.",
+    relatedSlugs: ["nuzul-isa", "ad-dajjal"],
+  },
+  {
+    term: "Nuzul 'Isa (Le retour de Jesus)",
+    termArabic: "نزول عيسى",
+    slug: "nuzul-isa",
+    definition: "Le retour attendu de Jesus ('Isa) a la fin des temps, selon la croyance islamique.",
+    origin: "Rapporte dans plusieurs hadiths, en lien avec la sourate An-Nisa (4:159).",
+    explanation:
+      "La tradition islamique affirme que Jesus n'est pas mort crucifie mais fut eleve aupres de Dieu, et qu'il reviendra avant la fin des temps pour vaincre Ad-Dajjal et retablir la justice - une croyance eschatologique largement partagee par les theologiens sunnites classiques.",
+    relatedSlugs: ["ad-dajjal", "al-mahdi"],
+  },
+  {
+    term: "Ilham (Inspiration)",
+    termArabic: "الإلهام",
+    slug: "ilham",
+    definition: "Une inspiration interieure accordee a une personne pieuse, distincte de la revelation prophetique.",
+    origin: "Racine arabe l-h-m, evoquant l'inspiration.",
+    explanation:
+      "A la difference de la wahy (revelation) reservee aux prophetes, l'ilham designe une forme d'inspiration ou d'intuition accordee a un croyant pieux, sans valeur normative contraignante et toujours soumise a la verification par le Coran et la Sunna.",
+    relatedSlugs: ["wahy", "karama"],
+  },
+  {
+    term: "Karama (Prodige accorde a un saint)",
+    termArabic: "الكرامة",
+    slug: "karama",
+    definition: "Un evenement extraordinaire accorde par Dieu a une personne pieuse, sans lien avec la mission prophetique.",
+    origin: "Racine arabe k-r-m, partagee avec Al-Karim.",
+    explanation:
+      "La karama se distingue de la mu'jiza (miracle prophetique) par l'absence de revendication de prophetie qui l'accompagne ; sa reconnaissance et ses limites font l'objet de debats theologiques, certains courants insistant sur la prudence face a des recits invérifiables.",
+    relatedSlugs: ["mujiza", "wali-allah"],
+  },
+  {
+    term: "Mu'jiza (Miracle prophetique)",
+    termArabic: "المعجزة",
+    slug: "mujiza",
+    definition: "Un evenement extraordinaire accorde par Dieu a un prophete pour authentifier sa mission.",
+    origin: "Racine arabe '-j-z, evoquant l'incapacite (a en produire l'equivalent).",
+    explanation:
+      "La mu'jiza defie les lois naturelles ordinaires et vise specifiquement a authentifier la mission prophetique face a un defi ou un doute exprime - le Coran lui-meme etant considere comme le miracle principal du Prophete Muhammad ﷺ (voir i'jaz al-Qur'an).",
+    relatedSlugs: ["ijaz-al-quran", "karama"],
+  },
+  {
+    term: "Sihr (Magie, sorcellerie)",
+    termArabic: "السحر",
+    slug: "sihr",
+    definition: "La pratique de la magie, categoriquement condamnee par le Coran et la Sunna.",
+    origin: "Racine arabe s-h-r, evoquant l'illusion et l'enchantement.",
+    explanation:
+      "Le Coran (sourate Al-Baqara, 2:102) et de nombreux hadiths classent le sihr parmi les peches majeurs, certains juristes le rangeant meme parmi les actes pouvant relever du kufr selon les modalites employees, en raison du recours frequent a des forces autres que Dieu qu'il implique.",
+    relatedSlugs: ["kahana", "shirk"],
+  },
+  {
+    term: "Kahana (Divination)",
+    termArabic: "الكهانة",
+    slug: "kahana",
+    definition: "La pretention a connaitre l'avenir ou l'invisible par des moyens autres que la revelation divine.",
+    origin: "Racine arabe k-h-n, evoquant la fonction du devin (kahin) de l'Arabie preislamique.",
+    explanation:
+      "La kahana est condamnee par un hadith de Muslim selon lequel la priere de quiconque consulte un devin n'est pas acceptee durant quarante jours, l'omniscience de l'invisible (ghayb) etant reservee a Dieu seul.",
+    relatedSlugs: ["ghayb", "sihr"],
+  },
+  {
+    term: "Ta'wil (Interpretation)",
+    termArabic: "التأويل",
+    slug: "tawil",
+    definition: "L'interpretation d'un texte au-dela de son sens le plus immediat et litteral.",
+    origin: "Racine arabe a-w-l, evoquant le retour a un sens premier ou cache.",
+    explanation:
+      "Le ta'wil designe une interpretation qui va au-dela du sens litteral d'un texte, une methode diversement acceptee selon les domaines et les courants theologiques - largement utilisee par les ash'arites au sujet des attributs divins, mais consideree avec beaucoup plus de reserve par les atharites.",
+    relatedSlugs: ["asma-wa-sifat", "asbab-al-nuzul"],
+  },
+  {
+    term: "Muhkam wa Mutashabih (Versets univoques et a sens multiples)",
+    termArabic: "المحكم والمتشابه",
+    slug: "muhkam-wa-mutashabih",
+    definition: "La distinction coranique entre versets au sens clair et univoque, et versets a la signification plus complexe.",
+    origin: "Terme coranique (sourate Al Imran, 3:7).",
+    explanation:
+      "Le Coran lui-meme (3:7) distingue des versets muhkam, au sens clair et fondement de la legislation, et des versets mutashabih, dont le sens precis appelle prudence interpretative - une distinction au coeur des debats classiques d'exegese, notamment au sujet des attributs divins.",
+    relatedSlugs: ["tawil", "asma-wa-sifat"],
+  },
+  {
+    term: "I'jaz al-Qur'an (Inimitabilite du Coran)",
+    termArabic: "إعجاز القرآن",
+    slug: "ijaz-al-quran",
+    definition: "La doctrine selon laquelle le Coran, par sa forme comme par son contenu, est impossible a imiter.",
+    origin: "Racine arabe '-j-z, partagee avec mu'jiza.",
+    explanation:
+      "Le Coran lance a plusieurs reprises un defi (tahaddi) a quiconque doute de son origine divine de produire l'equivalent, meme d'une seule sourate (sourate Al-Baqara, 2:23) - l'i'jaz constitue, selon la theologie sunnite classique, le miracle principal authentifiant la mission du Prophete ﷺ.",
+    relatedSlugs: ["mujiza", "wahy"],
+  },
+  {
+    term: "Qira'at (Lectures coraniques)",
+    termArabic: "القراءات",
+    slug: "qiraat",
+    definition: "Les variantes de recitation du Coran transmises et authentifiees depuis l'epoque du Prophete.",
+    origin: "Racine arabe q-r-', partagee avec le mot Qur'an lui-meme.",
+    explanation:
+      "Dix lectures principales (qira'at) sont reconnues comme authentiques par la tradition islamique, chacune remontant par une chaine de transmission continue jusqu'au Prophete ﷺ - des variations legeres de prononciation ou de vocalisation qui n'affectent pas le sens general du texte et refletent la richesse de sa transmission orale.",
+    relatedSlugs: ["wahy", "tajwid"],
+  },
+  {
+    term: "Tajwid (Regles de recitation coranique)",
+    termArabic: "التجويد",
+    slug: "tajwid",
+    definition: "L'ensemble des regles regissant la prononciation correcte et embellie du texte coranique.",
+    origin: "Racine arabe j-w-d, evoquant le fait d'ameliorer, de perfectionner.",
+    explanation:
+      "Le tajwid codifie la prononciation exacte de chaque lettre et les regles de liaison entre elles (noun sakinah, qalqalah, madd...), une discipline consideree comme une obligation collective visant a preserver la recitation coranique telle qu'elle fut transmise depuis le Prophete ﷺ.",
+    relatedSlugs: ["qiraat", "wahy"],
+  },
+  // --- Spiritualite et soufisme (tasawwuf) ---
+  {
+    term: "Shukr (Gratitude)",
+    termArabic: "الشكر",
+    slug: "shukr",
+    definition: "La reconnaissance active envers Dieu pour Ses bienfaits, par le coeur, la parole et les actes.",
+    origin: "Racine arabe sh-k-r, partagee avec Ash-Shakur.",
+    explanation:
+      "Le shukr est presente dans le Coran (sourate Ibrahim, 14:7) comme la condition d'un accroissement des bienfaits divins, complementaire du sabr (patience) face a l'epreuve - les deux etant traditionnellement decrits comme les deux etats fondamentaux du croyant.",
+    relatedSlugs: ["ash-shakur", "sabr"],
+  },
+  {
+    term: "Khawf (Crainte reverencielle)",
+    termArabic: "الخوف",
+    slug: "khawf",
+    definition: "La crainte reverencielle de Dieu, fondee sur la conscience de Sa majeste et de la responsabilite des actes.",
+    origin: "Racine arabe kh-w-f, evoquant la peur.",
+    explanation:
+      "Le khawf, equilibre par le raja' (espoir), constitue l'une des deux ailes classiques de la vie spirituelle du croyant selon les auteurs soufis : une crainte excessive menant au desespoir etant jugee tout aussi deficiente qu'un espoir sans discernement.",
+    relatedSlugs: ["raja", "taqwa"],
+  },
+  {
+    term: "Raja' (Espoir en Dieu)",
+    termArabic: "الرجاء",
+    slug: "raja",
+    definition: "L'espoir confiant en la misericorde et le pardon divins.",
+    origin: "Racine arabe r-j-w, evoquant l'esperance.",
+    explanation:
+      "Complement du khawf, le raja' maintient le croyant dans une confiance active en la misericorde divine, evitant aussi bien le desespoir que la presomption d'une securite acquise sans effort.",
+    relatedSlugs: ["khawf", "tawakkul"],
+  },
+  {
+    term: "Mahabba (Amour de Dieu)",
+    termArabic: "المحبة",
+    slug: "mahabba",
+    definition: "L'amour du croyant pour Dieu, considere par les auteurs soufis comme le sommet de la vie spirituelle.",
+    origin: "Racine arabe h-b-b, partagee avec Al-Wadud.",
+    explanation:
+      "La mahabba occupe une place centrale dans la litterature spirituelle islamique, notamment chez des auteurs comme Al-Ghazali, comme aboutissement de la crainte et de l'esperance plutot que leur simple depassement.",
+    relatedSlugs: ["al-wadud", "maarifa"],
+  },
+  {
+    term: "Ma'rifa (Connaissance intime de Dieu)",
+    termArabic: "المعرفة",
+    slug: "maarifa",
+    definition: "Une connaissance intime et experientielle de Dieu, distincte du savoir theorique.",
+    origin: "Racine arabe '-r-f, evoquant la connaissance directe.",
+    explanation:
+      "La ma'rifa designe, dans le vocabulaire soufi, une connaissance de Dieu acquise par l'experience spirituelle et la purification du coeur, complementaire du savoir doctrinal ('ilm) transmis par l'etude.",
+    relatedSlugs: ["mahabba", "tazkiyah"],
+  },
+  {
+    term: "Muraqaba (Vigilance spirituelle)",
+    termArabic: "المراقبة",
+    slug: "muraqaba",
+    definition: "La conscience constante d'etre sous le regard de Dieu.",
+    origin: "Racine arabe r-q-b, partagee avec Ar-Raqib.",
+    explanation:
+      "La muraqaba decoule directement de la definition de l'ihsan rapportee dans le hadith de Jibril : adorer Dieu comme si on Le voyait - une discipline interieure qui vise a maintenir cette conscience en toute circonstance, pas seulement durant l'adoration rituelle.",
+    relatedSlugs: ["ihsan", "ar-raqib"],
+  },
+  {
+    term: "Muhasaba (Examen de conscience)",
+    termArabic: "المحاسبة",
+    slug: "muhasaba",
+    definition: "L'examen regulier de ses propres actes, avant qu'ils ne soient examines au Jour du Jugement.",
+    origin: "Racine arabe h-s-b, partagee avec Al-Hasib.",
+    explanation:
+      "Attribuee notamment au calife Umar ibn al-Khattab (\"jugez-vous vous-memes avant d'etre juges\"), la muhasaba invite a un bilan regulier et honnete de ses actes, prealable considere necessaire a toute progression spirituelle sincere.",
+    relatedSlugs: ["al-hasib", "tazkiyah"],
+  },
+  {
+    term: "Riyada (Discipline spirituelle)",
+    termArabic: "الرياضة",
+    slug: "riyada",
+    definition: "L'entrainement progressif de l'ame vers la vertu, par la discipline et la pratique reguliere.",
+    origin: "Racine arabe r-w-d, evoquant l'entrainement, l'exercice.",
+    explanation:
+      "La riyada designe, dans la litterature spirituelle islamique, un entrainement progressif et methodique de l'ame - jeune surerogatoire, veille nocturne, retrait mesure du superflu - vise a affaiblir les penchants blamables plutot qu'a s'infliger une austerite excessive rejetee par la tradition prophetique.",
+    relatedSlugs: ["mujahada", "zuhd"],
+  },
+  {
+    term: "Mujahada (Effort contre soi-meme)",
+    termArabic: "المجاهدة",
+    slug: "mujahada",
+    definition: "L'effort soutenu pour discipliner ses penchants et ses passions.",
+    origin: "Racine arabe j-h-d, partagee avec jihad.",
+    explanation:
+      "La mujahada correspond directement a ce que la tradition designe comme le \"plus grand jihad\" (voir jihad) : la lutte interieure contre ses propres defauts, prealable considere indispensable a toute autre forme d'effort dans la voie de Dieu.",
+    relatedSlugs: ["jihad", "riyada"],
+  },
+  {
+    term: "Wara' (Scrupule religieux)",
+    termArabic: "الورع",
+    slug: "wara",
+    definition: "Le fait de s'abstenir, par precaution, de tout ce dont la licite n'est pas absolument certaine.",
+    origin: "Racine arabe w-r-', evoquant la retenue scrupuleuse.",
+    explanation:
+      "Le wara' va au-dela du simple respect du licite et de l'illicite en evitant meme les zones grises douteuses (shubuhat), une attitude fondee sur un hadith rapporte par Bukhari et Muslim invitant a s'ecarter de ce qui pourrait mener au haram.",
+    relatedSlugs: ["halal", "haram"],
+  },
+  {
+    term: "Qana'a (Contentement)",
+    termArabic: "القناعة",
+    slug: "qanaa",
+    definition: "Le contentement paisible de ce que l'on possede, sans convoitise excessive du superflu.",
+    origin: "Racine arabe q-n-', evoquant la satisfaction.",
+    explanation:
+      "La qana'a est presentee par plusieurs hadiths comme une richesse en elle-meme (\"la veritable richesse est celle du coeur\", Bukhari et Muslim), invitant a une relation apaisee aux biens materiels plutot qu'a leur rejet total.",
+    relatedSlugs: ["zuhd", "tawakkul"],
+  },
+  {
+    term: "Tariqa (Voie spirituelle, confrerie)",
+    termArabic: "الطريقة",
+    slug: "tariqa",
+    definition: "Une voie spirituelle structuree, generalement organisee autour de l'enseignement d'un maitre fondateur.",
+    origin: "Racine arabe t-r-q, evoquant le chemin, la voie.",
+    explanation:
+      "Les tariqas (Qadiriyya, Tijaniyya, Naqshbandiyya parmi les plus repandues) organisent la transmission d'un enseignement spirituel structure autour de pratiques specifiques (dhikr collectif, lien d'allegeance a un maitre), jouant historiquement un role majeur dans la diffusion de l'islam, notamment en Afrique de l'Ouest.",
+    relatedSlugs: ["abd-al-qadir-al-jilani"],
+  },
+  {
+    term: "Fana' (Aneantissement du moi)",
+    termArabic: "الفناء",
+    slug: "fana",
+    definition: "Un etat spirituel decrit par les auteurs soufis comme l'aneantissement de la conscience de soi dans l'adoration de Dieu.",
+    origin: "Racine arabe f-n-y, evoquant l'extinction, la disparition.",
+    explanation:
+      "Concept central mais theologiquement debattu de la litterature soufie, le fana' designe un etat ou la conscience du moi s'efface devant l'experience de la presence divine - une notion que certains theologiens ont accueillie avec prudence, craignant des formulations pretant a confusion avec une fusion litterale entre creature et Createur, rejetee par le tawhid.",
+    relatedSlugs: ["baqa", "tawhid"],
+  },
+  {
+    term: "Baqa' (Subsistance en Dieu)",
+    termArabic: "البقاء",
+    slug: "baqa",
+    definition: "L'etat spirituel de retour a la conscience ordinaire apres l'experience du fana', mais transforme par elle.",
+    origin: "Racine arabe b-q-y, partagee avec Al-Baqi.",
+    explanation:
+      "Le baqa' est decrit par les auteurs soufis comme complementaire du fana' : apres l'aneantissement de la conscience de soi, le serviteur \"subsiste\" a nouveau dans le monde, mais avec un rapport transforme a Dieu et a la creation.",
+    relatedSlugs: ["fana"],
+  },
+  // --- Institutions et vie communautaire ---
+  {
+    term: "Amr bil Ma'ruf wa Nahy 'an al-Munkar (Commander le convenable, interdire le blamable)",
+    termArabic: "الأمر بالمعروف والنهي عن المنكر",
+    slug: "amr-bil-maruf",
+    definition: "Le devoir collectif d'encourager le bien et de s'opposer au mal au sein de la communaute.",
+    origin: "Expression coranique frequente, notamment sourate Al Imran (3:104).",
+    explanation:
+      "Ce principe, souvent decrit comme un devoir collectif (fard kifaya) plutot qu'individuel absolu, structure une part importante de l'ethique sociale islamique, ses modalites concretes d'application (priorite a la parole douce, limites de l'intervention) etant precisees par de nombreux hadiths et debats juridiques.",
+    relatedSlugs: ["ukhuwwa", "umma"],
+  },
+  {
+    term: "Ukhuwwa (Fraternite islamique)",
+    termArabic: "الأخوة",
+    slug: "ukhuwwa",
+    definition: "Le lien de fraternite unissant les croyants au-dela de tout lien de sang ou d'origine.",
+    origin: "Racine arabe a-kh-w, evoquant la fraternite.",
+    explanation:
+      "Le Coran (sourate Al-Hujurat, 49:10) affirme que \"les croyants ne sont que des freres\", fondement d'une solidarite communautaire qui a historiquement structure l'entraide au sein de l'umma au-dela des appartenances tribales ou nationales.",
+    relatedSlugs: ["umma", "amr-bil-maruf"],
+  },
+  {
+    term: "Dhimmi (Statut de protection)",
+    termArabic: "الذمي",
+    slug: "dhimmi",
+    definition: "Le statut historique accorde aux non-musulmans, notamment gens du Livre, vivant sous autorite islamique.",
+    origin: "Racine arabe dh-m-m, evoquant la protection, le pacte de garantie.",
+    explanation:
+      "Le statut de dhimmi garantissait historiquement, moyennant le paiement de la jizya, la protection de la vie, des biens et de la pratique religieuse des non-musulmans au sein des territoires sous autorite islamique - un cadre juridique premoderne dont l'application concrete a varie considerablement selon les epoques et les regions.",
+    relatedSlugs: ["ahl-al-kitab", "jizya"],
+  },
+  {
+    term: "Ahl al-Kitab (Gens du Livre)",
+    termArabic: "أهل الكتاب",
+    slug: "ahl-al-kitab",
+    definition: "Les adherents des religions ayant recu, selon le Coran, une ecriture revelee anterieure - principalement juifs et chretiens.",
+    origin: "Expression coranique frequente.",
+    explanation:
+      "Le statut d'Ahl al-Kitab beneficie, en fiqh classique, de dispositions particulieres distinctes de celles appliquees aux autres non-musulmans, notamment concernant le mariage et la consommation alimentaire, en reconnaissance d'une origine scripturaire commune reconnue par le Coran.",
+    relatedSlugs: ["dhimmi", "nubuwwa"],
+  },
+  {
+    term: "Sharia (La Loi islamique)",
+    termArabic: "الشريعة",
+    slug: "sharia",
+    definition: "L'ensemble des principes et normes religieuses issus du Coran et de la Sunna, orientant la vie du croyant.",
+    origin: "Racine arabe sh-r-', evoquant le chemin qui mene a la source d'eau.",
+    explanation:
+      "La sharia designe la loi divine dans son principe ideal et global, tandis que le fiqh en constitue la comprehension et l'application humaine, necessairement faillible et diverse - une distinction importante frequemment brouillee dans les usages contemporains du terme.",
+    relatedSlugs: ["fiqh", "ijtihad"],
+  },
+  {
+    term: "Jizya (Capitation historique)",
+    termArabic: "الجزية",
+    slug: "jizya",
+    definition: "Un impot de capitation historiquement du par les non-musulmans places sous protection islamique.",
+    origin: "Terme coranique (sourate At-Tawba, 9:29).",
+    explanation:
+      "En echange de la jizya, les autorites musulmanes garantissaient historiquement la protection militaire et la liberte de culte des populations concernees, qui etaient par ailleurs exemptees du service militaire et de la zakat.",
+    relatedSlugs: ["dhimmi", "ahl-al-kitab"],
+  },
+  {
+    term: "Kharaj (Impot foncier historique)",
+    termArabic: "الخراج",
+    slug: "kharaj",
+    definition: "Un impot foncier historique preleve sur les terres agricoles, notamment celles des non-musulmans.",
+    origin: "Racine arabe kh-r-j, evoquant ce qui sort, le rendement.",
+    explanation:
+      "Le kharaj, dont Abu Yusuf redigea un traite de reference pour le calife Harun ar-Rashid, constituait une source majeure de revenus fiscaux dans l'administration des premiers siecles islamiques, distinct de l'ushr preleve sur les terres musulmanes.",
+    relatedSlugs: ["abu-yusuf", "ushr"],
+  },
+  {
+    term: "Ushr (Dime agricole)",
+    termArabic: "العشر",
+    slug: "ushr",
+    definition: "Une part fixe, generalement un dixieme, preleve sur les recoltes des terres musulmanes irriguees naturellement.",
+    origin: "Racine arabe '-sh-r, evoquant le dixieme.",
+    explanation:
+      "L'ushr constitue une forme specifique de zakat agricole, dont le taux varie selon le mode d'irrigation de la terre (voir le comparateur de fiqh sur la zakat des recoltes), distincte du kharaj preleve sur d'autres categories de terres.",
+    relatedSlugs: ["zakat", "kharaj"],
+  },
+  {
+    term: "Ghanima (Butin de guerre)",
+    termArabic: "الغنيمة",
+    slug: "ghanima",
+    definition: "Les biens acquis a l'issue d'un combat, dont la repartition est encadree par le Coran.",
+    origin: "Terme coranique, donnant son nom a la sourate Al-Anfal.",
+    explanation:
+      "Le Coran (sourate Al-Anfal, 8:41) fixe qu'un cinquieme de la ghanima revient a des categories precises (dont les besoins de la communaute), le reste etant reparti entre les combattants - une regle qui contraste avec les pratiques de pillage discretionnaire courantes dans l'Arabie preislamique.",
+    relatedSlugs: ["fay"],
+  },
+  {
+    term: "Fay' (Biens acquis sans combat)",
+    termArabic: "الفيء",
+    slug: "fay",
+    definition: "Les biens revenant a la communaute musulmane sans qu'un combat n'ait eu lieu pour les acquerir.",
+    origin: "Racine arabe f-y-', evoquant le retour, la restitution.",
+    explanation:
+      "A la difference de la ghanima, acquise par le combat, le fay' (terres cedees par traite, tributs...) est generalement destine a l'interet collectif de la communaute plutot que reparti entre les seuls combattants.",
+    relatedSlugs: ["ghanima", "bayt-al-mal"],
+  },
+  {
+    term: "Bayt al-Mal (Le Tresor public)",
+    termArabic: "بيت المال",
+    slug: "bayt-al-mal",
+    definition: "L'institution historique chargee de collecter et redistribuer les fonds publics de la communaute musulmane.",
+    origin: "Composition arabe de bayt (maison) et mal (bien, fortune).",
+    explanation:
+      "Institue durant le califat rashidun pour gerer les revenus croissants de la zakat, du kharaj et du butin, le Bayt al-Mal prefigure les tresors publics et administrations fiscales des Etats modernes, avec un souci deja affirme de justice dans la redistribution.",
+    relatedSlugs: ["zakat", "khilafa"],
+  },
+  {
+    term: "Hisba (Institution de controle du bien public)",
+    termArabic: "الحسبة",
+    slug: "hisba",
+    definition: "L'institution historique chargee de veiller au respect des normes morales et commerciales dans l'espace public.",
+    origin: "Racine arabe h-s-b, partagee avec Al-Hasib.",
+    explanation:
+      "La hisba, dirigee par un fonctionnaire appele muhtasib, controlait historiquement les marches (poids, mesures, qualite des produits) et certains aspects de la moralite publique, une institutionnalisation concrete du principe d'amr bil ma'ruf wa nahy 'an al-munkar.",
+    relatedSlugs: ["amr-bil-maruf"],
+  },
 ];
 
 export async function seedConcepts(db: Database): Promise<void> {
