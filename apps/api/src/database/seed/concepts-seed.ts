@@ -4749,6 +4749,108 @@ const CONCEPTS: ConceptSeed[] = [
       "Un hadith rapporte par Al-Bukhari et Muslim rapporte que le Prophete ﷺ presenta cette formule a un compagnon comme un tresor parmi les tresors du Paradis, exprimant la reconnaissance de la totale dependance du croyant envers Dieu pour toute force et toute capacite d'agir.",
     relatedSlugs: ["dhikr", "tawakkul"],
   },
+  // --- Confreries soufies historiques ---
+  {
+    term: "Qadiriyya",
+    termArabic: "القادرية",
+    slug: "qadiriyya",
+    definition: "L'une des plus anciennes confreries soufies, fondee par Abd al-Qadir al-Jilani.",
+    origin: "Nom derive de son fondateur, Abd al-Qadir al-Jilani (m. 561 AH / 1166).",
+    explanation:
+      "Fondee a Bagdad, la Qadiriyya s'est diffusee tres largement a travers le monde musulman, notamment en Afrique du Nord et de l'Ouest, en Asie du Sud et au Kurdistan, et figure parmi les confreries soufies les plus repandues et les plus anciennement etablies.",
+    relatedSlugs: ["tariqa", "wali-allah"],
+  },
+  {
+    term: "Naqshbandiyya",
+    termArabic: "النقشبندية",
+    slug: "naqshbandiyya",
+    definition: "Une confrerie soufie fondee par Baha' ad-Din Naqshband, connue notamment pour sa pratique du dhikr silencieux.",
+    origin: "Nom derive de son fondateur, Baha' ad-Din Naqshband (m. 791 AH / 1389), en Asie centrale.",
+    explanation:
+      "A la difference de plusieurs autres confreries privilegiant le dhikr recite a voix haute, la Naqshbandiyya insiste traditionnellement sur le dhikr silencieux (khafi) et sur un attachement particulier a la conformite stricte avec la sunna prophetique, et s'est largement diffusee en Asie centrale, en Turquie et dans le sous-continent indien.",
+    relatedSlugs: ["tariqa", "dhikr"],
+  },
+  {
+    term: "Shadhiliyya",
+    termArabic: "الشاذلية",
+    slug: "shadhiliyya",
+    definition: "Une confrerie soufie fondee par Abu al-Hasan ash-Shadhili, particulierement influente en Afrique du Nord.",
+    origin: "Nom derive de son fondateur, Abu al-Hasan ash-Shadhili (m. 656 AH / 1258).",
+    explanation:
+      "La Shadhiliyya se distingue par l'absence d'exigences vestimentaires ou de retrait social particuliers imposes a ses adeptes, encourageant l'exercice normal d'une activite professionnelle tout en cultivant la vie spirituelle interieure ; elle demeure aujourd'hui largement presente au Maghreb, en Egypte et au Levant.",
+    relatedSlugs: ["tariqa", "zuhd"],
+  },
+  {
+    term: "Tijaniyya",
+    termArabic: "التجانية",
+    slug: "tijaniyya",
+    definition: "Une confrerie soufie fondee par Ahmad at-Tijani, particulierement repandue en Afrique de l'Ouest et du Nord.",
+    origin: "Nom derive de son fondateur, Ahmad at-Tijani (m. 1230 AH / 1815).",
+    explanation:
+      "Fondee plus tardivement que la plupart des grandes confreries soufies historiques, la Tijaniyya s'est particulierement diffusee au Senegal, au Mali, au Nigeria et en Mauritanie, ou elle compte aujourd'hui parmi les confreries les plus suivies, structuree notamment autour d'un ensemble specifique de formules de dhikr quotidiennes (wird).",
+    relatedSlugs: ["tariqa", "wird"],
+  },
+  {
+    term: "Qutb (Pole spirituel)",
+    termArabic: "القطب",
+    slug: "qutb-sufi",
+    definition: "Dans la hierarchie spirituelle soufie, le rang le plus eleve attribue a un saint (wali) considere comme l'axe spirituel de son epoque.",
+    origin: "Racine arabe q-t-b, evoquant le pole, l'axe autour duquel tourne un ensemble.",
+    explanation:
+      "Le concept de qutb, developpe par la litterature soufie posterieure plutot que directement issu des textes scripturaires, designe une hierarchie spirituelle invisible presidee par une unique figure par generation, une doctrine qui demeure propre a la tradition soufie et n'est pas partagee par l'ensemble des courants sunnites.",
+    relatedSlugs: ["wali-allah", "tariqa"],
+  },
+  // --- Complements historiques et geographie sacree ---
+  {
+    term: "Dhul-Kifl",
+    termArabic: "ذو الكفل",
+    slug: "dhul-kifl",
+    definition: "Un prophete brievement mentionne dans le Coran, associe a la patience et a la droiture.",
+    origin: "Nom propre coranique, mentionne dans les sourates Al-Anbiya et Sad.",
+    explanation:
+      "Le Coran le mentionne brievement aux cotes d'Ismail et d'Idris parmi ceux qui furent patients, les qualifiant tous trois de \"gens de bien\" (sourate Al-Anbiya, 21:85-86), sans fournir de recit narratif detaille le concernant, contrairement a d'autres prophetes.",
+    relatedSlugs: ["nabi", "sabr"],
+  },
+  {
+    term: "Ahl al-Hall wal-Aqd (Les gens qui lient et delient)",
+    termArabic: "أهل الحل والعقد",
+    slug: "ahl-al-hall-wal-aqd",
+    definition: "Un concept de theorie politique islamique classique designant les personnalites influentes et competentes dont le consensus legitime la designation d'un dirigeant.",
+    origin: "Composition arabe litteralement \"les gens qui delient et lient\", evoquant leur capacite a conclure ou denouer l'allegeance politique.",
+    explanation:
+      "Developpe par les juristes classiques pour theoriser le processus de designation des califes apres l'epoque prophetique, ce concept renvoie a un cercle de personnalites reconnues (savants, notables, chefs de tribus) dont l'accord collectif est traditionnellement presente comme fondant la legitimite de la bay'a (allegeance) prêtee a un nouveau dirigeant.",
+    relatedSlugs: ["bayah", "shura"],
+  },
+  {
+    term: "Ahl as-Suffa (Les gens du banc)",
+    termArabic: "أهل الصفة",
+    slug: "ahl-as-suffa",
+    definition: "Un groupe de compagnons pauvres et sans attaches familiales a Medine, qui vivaient dans un espace attenant a la mosquee du Prophete pour se consacrer a l'apprentissage religieux.",
+    origin: "Terme derive de suffa, designant l'espace couvert attenant a la mosquee ou ils residaient.",
+    explanation:
+      "Depourvus de logement et de ressources propres, les gens de la Suffa consacraient l'essentiel de leur temps a l'ecoute et a la memorisation de l'enseignement du Prophete, beneficiant de la solidarite alimentaire des autres compagnons ; Abu Hurayra, celebre pour son role dans la transmission du hadith, est traditionnellement compte parmi eux.",
+    relatedSlugs: ["abu-hurayra", "sahaba"],
+  },
+  {
+    term: "Al-Haramayn (Les deux sanctuaires)",
+    termArabic: "الحرمين",
+    slug: "al-haramayn",
+    definition: "L'appellation designant conjointement les deux villes saintes de La Mecque et Medine.",
+    origin: "Composition arabe, duel de haram (lieu sacre, sanctuaire).",
+    explanation:
+      "L'appellation al-Haramayn souligne le statut sacre partage par ces deux villes, La Mecque abritant la Kaaba et Medine la mosquee et le tombeau du prophete Muhammad, toutes deux soumises a des regles specifiques de sacralite (interdiction de la chasse, protection de la vegetation) rapportees par plusieurs hadiths.",
+    relatedSlugs: ["kaaba", "hajj"],
+  },
+  {
+    term: "Al-Masjid al-Aqsa",
+    termArabic: "المسجد الأقصى",
+    slug: "al-masjid-al-aqsa",
+    definition: "La mosquee situee a Jerusalem, troisieme lieu saint de l'islam apres La Mecque et Medine.",
+    origin: "Terme coranique, litteralement \"la mosquee la plus eloignee\" (sourate Al-Isra, 17:1).",
+    explanation:
+      "Le Coran l'identifie comme le point de depart du voyage nocturne (isra) du prophete Muhammad depuis La Mecque, avant son ascension (mi'raj) vers les cieux (sourate Al-Isra, 17:1). Premiere direction de priere (qibla) des musulmans avant que celle-ci ne soit reorientee vers la Kaaba, elle demeure un lieu de pelerinage et de visite pieuse pour les musulmans du monde entier.",
+    relatedSlugs: ["qibla", "kaaba"],
+  },
 ];
 
 export async function seedConcepts(db: Database): Promise<void> {
