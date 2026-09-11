@@ -1798,6 +1798,45 @@ const FIQH_TOPICS: FiqhTopicSeed[] = [
     ],
     divergenceExplanation: "La divergence porte sur la portee du rapport concernant Al-Abbas, oncle du Prophete, autorise a verser sa zakat de maniere anticipee : trois ecoles y voient un precedent general admettant l'anticipation du versement comme une forme d'aumone volontaire suivie d'imputation sur l'obligation a venir, tandis que l'ecole malikite considere que la zakat, a la difference d'une aumone volontaire ordinaire, ne devient une obligation determinee qu'au moment precis ou le hawl est effectivement accompli, rendant tout versement anterieur juridiquement premature.",
   },
+  {
+    title: "Le sacrifice de naissance (aqiqa) varie-t-il selon le sexe du nouveau-ne ?",
+    slug: "aqiqa-nombre-animaux-selon-sexe",
+    category: "Croyance et actes (Aqida et 'Ibadat)",
+    description: "Si le nombre d'animaux a sacrifier lors de l'aqiqa, rite recommande accompagnant la naissance d'un enfant, differe selon que le nouveau-ne est un garcon ou une fille.",
+    positions: [
+      { schoolSlug: "malikite", text: "Un seul animal est recommande, que le nouveau-ne soit un garcon ou une fille, sans distinction de nombre selon le sexe." },
+      { schoolSlug: "hanafite", text: "La distinction de nombre selon le sexe (deux betes pour un garcon, une pour une fille) est rapportee et suivie, bien que l'ecole considere globalement l'aqiqa avec une insistance moindre que les trois autres ecoles, la rangeant plus proche du simplement permis (mubah) que du fortement recommande." },
+      { schoolSlug: "shafiite", text: "Deux animaux sont recommandes pour un garcon, un seul pour une fille, en application directe du hadith rapporte par At-Tirmidhi sur ce sujet." },
+      { schoolSlug: "hanbalite", text: "Position identique aux shafi'ites : deux animaux pour un garcon, un seul pour une fille." },
+    ],
+    divergenceExplanation: "La divergence porte sur la portee du hadith rapportant que le Prophete ﷺ recommandait deux betes similaires pour un garcon et une seule pour une fille : les ecoles hanafite, shafi'ite et hanbalite le retiennent comme regle explicite, tandis que l'ecole malikite s'appuie sur d'autres rapports evoquant un seul animal pour le Prophete ﷺ lui-meme lors de l'aqiqa de ses petits-fils Hassan et Hussein, sans distinction de sexe entre eux.",
+  },
+  {
+    title: "Une femme divorcee de maniere irrevocable (ba'in), sans etre enceinte, a-t-elle droit a une pension alimentaire durant sa periode d'attente (idda) ?",
+    slug: "nafaqa-idda-divorce-irrevocable",
+    category: "Mariage (Nikah)",
+    description: "Si une femme ayant recu un divorce irrevocable (par exemple apres un triple talaq), sans etre enceinte, conserve un droit a l'hebergement et a la pension alimentaire durant sa periode d'attente, ou seulement au premier de ces deux droits.",
+    positions: [
+      { schoolSlug: "malikite", text: "Elle a droit a l'hebergement durant sa periode d'attente, mais pas a la pension alimentaire, sauf si elle est enceinte." },
+      { schoolSlug: "hanafite", text: "Elle conserve un droit plein a l'hebergement et a la pension alimentaire durant toute sa periode d'attente, qu'elle soit enceinte ou non." },
+      { schoolSlug: "shafiite", text: "Position proche des malikites : seul l'hebergement est du, la pension alimentaire n'etant due qu'en cas de grossesse." },
+      { schoolSlug: "hanbalite", text: "Position identique aux malikites et shafi'ites : hebergement du sans pension alimentaire, sauf grossesse." },
+    ],
+    divergenceExplanation: "La divergence porte sur la portee du hadith rapportant le cas de Fatima bint Qays, a qui le Prophete ﷺ n'accorda, apres son divorce irrevocable, qu'un droit a l'hebergement sans pension alimentaire : les ecoles malikite, shafi'ite et hanbalite en tirent une regle generale limitant les droits de la femme non enceinte, tandis que l'ecole hanafite considere ce rapport comme une exception particuliere aux circonstances de ce cas precis, retenant plutot le principe general du droit a la pension durant toute periode d'attente.",
+  },
+  {
+    title: "L'emprunteur d'un objet (rapport de 'ariya, pret a usage) est-il responsable de sa perte en cas de force majeure, sans negligence de sa part ?",
+    slug: "dhaman-ariya-objet-emprunte",
+    category: "Commerce et transactions (Mu'amalat)",
+    description: "Si celui qui a emprunte un bien pour un usage temporaire et gratuit doit indemniser son proprietaire en cas de destruction ou de perte accidentelle de ce bien, meme en l'absence de toute negligence ou faute de sa part.",
+    positions: [
+      { schoolSlug: "malikite", text: "L'emprunteur n'est pas responsable de la perte accidentelle du bien emprunte, sauf negligence ou usage abusif de sa part, l'objet lui etant confie a titre de depot de confiance (amana)." },
+      { schoolSlug: "hanafite", text: "Position identique aux malikites : l'emprunteur n'est tenu responsable qu'en cas de negligence ou de depassement de l'usage convenu, non en cas de perte fortuite." },
+      { schoolSlug: "shafiite", text: "L'emprunteur est responsable de la perte du bien emprunte meme en l'absence de toute negligence, devant en indemniser le proprietaire, le pret a usage etant considere comme engageant intrinsequement sa responsabilite." },
+      { schoolSlug: "hanbalite", text: "Position identique aux shafi'ites : l'emprunteur demeure responsable de la perte accidentelle du bien, meme sans faute de sa part." },
+    ],
+    divergenceExplanation: "La divergence porte sur la nature juridique du pret a usage ('ariya) : les ecoles malikite et hanafite le traitent comme un depot de confiance (amana), n'engageant la responsabilite de son detenteur qu'en cas de faute averee, tandis que les ecoles shafi'ite et hanbalite le considerent comme engageant par nature la responsabilite de l'emprunteur, en s'appuyant sur un hadith rapportant que le Prophete ﷺ qualifia un pret d'objets de \"garanti et a restituer\" (mad'muna mu'addah) aupres des Banu Sa'd lors de la conquete de La Mecque.",
+  },
 ];
 
 export async function seedSchools(db: Database): Promise<void> {
