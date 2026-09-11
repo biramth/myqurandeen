@@ -1161,6 +1161,58 @@ const FIQH_TOPICS: FiqhTopicSeed[] = [
     ],
     divergenceExplanation: "Les quatre ecoles s'accordent sur le principe general - la maladie ou la crainte justifiee dispensent du jeune avec obligation de rattrapage - mais trois d'entre elles ajoutent une fidya (nourrir un pauvre) lorsque la rupture est motivee par la sante de l'enfant plutot que celle de la mere elle-meme, l'ecole hanafite ne retenant pour sa part que l'obligation generale de rattrapage (qada) sans distinction entre les deux motifs.",
   },
+  {
+    title: "Un jeune surerogatoire entame peut-il etre rompu sans excuse, sans compensation requise ?",
+    slug: "jeune-surerogatoire-rupture-sans-excuse",
+    category: "Jeûne (Sawm)",
+    description: "Si celui qui a entame un jeune volontaire (nafl) peut l'interrompre en cours de journee sans motif particulier, et s'il doit en ce cas rattraper le jour interrompu.",
+    positions: [
+      { schoolSlug: "malikite", text: "Le jeune surerogatoire peut etre rompu sans peche, mais son rattrapage (qada) est recommande par precaution plutot que strictement obligatoire." },
+      { schoolSlug: "hanafite", text: "Une fois entame, le jeune surerogatoire devient une obligation a mener a son terme (wujub al-itmam) ; l'interrompre sans excuse valable oblige a le rattraper." },
+      { schoolSlug: "shafiite", text: "Le jeune surerogatoire peut etre rompu librement sans peche et sans obligation de rattrapage, celui-ci restant simplement recommande." },
+      { schoolSlug: "hanbalite", text: "Position proche des shafi'ites : le jeune volontaire peut etre interrompu sans peche ni obligation stricte de rattrapage, bien que celui-ci demeure meritoire." },
+    ],
+    divergenceExplanation: "La divergence tient au principe general degage par l'ecole hanafite selon lequel le simple fait d'entamer un acte d'adoration volontaire cree une obligation de le mener a son terme, tandis que les trois autres ecoles s'appuient sur un hadith rapportant que le Prophete ﷺ rompit lui-meme un jeune surerogatoire sans en faire ensuite le rattrapage, y voyant la preuve que l'engagement volontaire initial ne cree pas d'obligation de completion.",
+  },
+  {
+    title: "Une femme peut-elle diriger la priere pour une assemblee composee uniquement de femmes ?",
+    slug: "imamat-feminin-priere-femmes",
+    category: "Prière (Salat)",
+    description: "Si une femme peut assumer la fonction d'imam pour diriger la priere collective d'une assemblee composee exclusivement de femmes.",
+    positions: [
+      { schoolSlug: "malikite", text: "L'imamat d'une femme n'est pas valide, y compris pour une assemblee composee uniquement de femmes ; seul un homme peut diriger la priere collective." },
+      { schoolSlug: "hanafite", text: "Une femme peut diriger la priere d'une assemblee de femmes, mais cette pratique est consideree comme deconseillee (makruh), bien que la priere ainsi accomplie reste valide." },
+      { schoolSlug: "shafiite", text: "Une femme peut valablement diriger la priere obligatoire ou surerogatoire d'une assemblee composee uniquement de femmes, en se plagant dans le meme rang qu'elles plutot que devant." },
+      { schoolSlug: "hanbalite", text: "Position identique aux shafi'ites : l'imamat d'une femme pour une assemblee de femmes est valide et recommande, l'imam se plagant au sein du rang plutot qu'en avant." },
+    ],
+    divergenceExplanation: "La divergence s'appuie sur des precedents rapportes de maniere contrastee : les ecoles shafi'ite et hanbalite retiennent le rapport selon lequel Umm Waraqa recut l'autorisation du Prophete ﷺ de diriger la priere des membres de sa maisonnee, l'etendant a toute assemblee feminine, tandis que l'ecole malikite considere l'aptitude a diriger la priere collective comme reservee aux hommes de maniere generale.",
+  },
+  {
+    title: "Est-il permis de jeuner volontairement le jour de doute (yawm ash-shakk) precedant Ramadan ?",
+    slug: "jeune-yawm-ash-shakk",
+    category: "Jeûne (Sawm)",
+    description: "Si l'on peut jeuner, a titre volontaire, le jour precedant potentiellement le debut de Ramadan lorsque le croissant lunaire n'a pas ete formellement confirme (yawm ash-shakk).",
+    positions: [
+      { schoolSlug: "malikite", text: "Il est deconseille de jeuner ce jour avec l'intention d'anticiper Ramadan, par prudence face au risque de faire coincider un jour hors-Ramadan avec l'obligation du mois." },
+      { schoolSlug: "hanafite", text: "Le jeune de ce jour est permis, notamment si l'on avait deja pour habitude de jeuner ce jour precis (comme un lundi ou jeudi habituel), sans intention d'anticiper Ramadan par precaution." },
+      { schoolSlug: "shafiite", text: "Le jeune de ce jour, avec l'intention d'anticiper Ramadan par precaution, est explicitement deconseille (makruh), en s'appuyant directement sur le hadith rapporte par Ammar ibn Yasir." },
+      { schoolSlug: "hanbalite", text: "Position proche des shafi'ites : il est interdit de jeuner ce jour avec l'intention d'anticiper Ramadan, sauf si ce jeune correspond a une habitude volontaire deja etablie independamment de Ramadan." },
+    ],
+    divergenceExplanation: "La divergence porte sur la portee du hadith rapporte par Ammar ibn Yasir (\"quiconque jeune le jour du doute a desobei a Abu al-Qasim\", rapporte par At-Tirmidhi) : les ecoles malikite, shafi'ite et hanbalite le retiennent comme une interdiction ferme visant l'intention d'anticiper Ramadan par simple precaution, tandis que l'ecole hanafite l'interprete plus etroitement, autorisant le jeune de ce jour lorsqu'il correspond a une pratique volontaire deja habituelle du jeuneur, independante de Ramadan.",
+  },
+  {
+    title: "Peut-on avancer le versement de la zakat al-fitr plusieurs jours avant l'Aid al-Fitr ?",
+    slug: "delai-versement-zakat-al-fitr",
+    category: "Zakat",
+    description: "Le delai a partir duquel il est permis de verser la zakat al-fitr, aumone obligatoire liee a la rupture du jeune de Ramadan, avant le jour de l'Aid al-Fitr lui-meme.",
+    positions: [
+      { schoolSlug: "malikite", text: "Le versement n'est permis qu'un ou deux jours avant l'Aid, non plus tot dans le mois de Ramadan." },
+      { schoolSlug: "hanafite", text: "Le versement est permis a tout moment de l'annee, y compris bien avant le debut de Ramadan, la zakat al-fitr n'etant pas strictement liee au mois lui-meme dans son moment de versement." },
+      { schoolSlug: "shafiite", text: "Le versement est permis des le premier jour de Ramadan, l'obligation etant liee au double motif du jeune accompli et de la rupture du jeune attendue." },
+      { schoolSlug: "hanbalite", text: "Position proche des malikites : le versement anticipe n'est permis qu'un ou deux jours avant l'Aid, non des le debut de Ramadan." },
+    ],
+    divergenceExplanation: "La divergence porte sur la cause (sabab) precise qui rend la zakat al-fitr exigible : les ecoles malikite et hanbalite la rattachent etroitement au coucher du soleil clôturant le dernier jour de Ramadan, limitant d'autant l'anticipation possible, l'ecole shafi'ite la rattache au mois de Ramadan pris dans son ensemble, tandis que l'ecole hanafite considere qu'elle peut, comme d'autres aumones, etre valablement anticipee bien au-dela de cette periode.",
+  },
 ];
 
 export async function seedSchools(db: Database): Promise<void> {
