@@ -4851,6 +4851,263 @@ const CONCEPTS: ConceptSeed[] = [
       "Le Coran l'identifie comme le point de depart du voyage nocturne (isra) du prophete Muhammad depuis La Mecque, avant son ascension (mi'raj) vers les cieux (sourate Al-Isra, 17:1). Premiere direction de priere (qibla) des musulmans avant que celle-ci ne soit reorientee vers la Kaaba, elle demeure un lieu de pelerinage et de visite pieuse pour les musulmans du monde entier.",
     relatedSlugs: ["qibla", "kaaba"],
   },
+  // --- Termes fondamentaux complementaires ---
+  {
+    term: "Aqida (Credo)",
+    termArabic: "العقيدة",
+    slug: "aqida",
+    definition: "L'ensemble structure des croyances fondamentales de l'islam, portant sur Dieu, les anges, les livres reveles, les prophetes, le Jour dernier et la predestination.",
+    origin: "Racine arabe '-q-d, evoquant le noeud, l'attachement ferme, ce qui est fermement tenu pour vrai.",
+    explanation:
+      "L'aqida constitue le socle doctrinal commun de la foi islamique, generalement resume dans la formule des six piliers de la foi (arkan al-iman) enoncee par le hadith de Jibril. Son etude constitue une discipline a part entiere ('ilm al-aqida ou 'ilm al-kalam selon les methodes), distincte du fiqh qui traite quant a lui des actes plutot que des croyances.",
+    relatedSlugs: ["iman", "tawhid"],
+  },
+  {
+    term: "Tafsir (Exegese coranique)",
+    termArabic: "التفسير",
+    slug: "tafsir",
+    definition: "La discipline consacree a l'explication et a l'interpretation du sens des versets coraniques.",
+    origin: "Racine arabe f-s-r, evoquant le fait de devoiler, d'expliciter.",
+    explanation:
+      "Le tafsir mobilise plusieurs methodes complementaires : l'explication du Coran par le Coran lui-meme, par la Sunna prophetique, par les circonstances de la revelation (asbab an-nuzul), par la langue arabe classique, et par le raisonnement des exegetes. Les grands recueils de tafsir, tels que ceux d'At-Tabari, d'Ibn Kathir ou d'Al-Qurtubi, demeurent des references majeures de cette discipline.",
+    relatedSlugs: ["tawil", "asbab-al-nuzul"],
+  },
+  {
+    term: "Usul al-Fiqh (Fondements de la jurisprudence)",
+    termArabic: "أصول الفقه",
+    slug: "usul-al-fiqh",
+    definition: "La discipline methodologique qui etablit les principes et procedes permettant de deduire les regles juridiques (fiqh) a partir des sources scripturaires.",
+    origin: "Composition arabe de usul (fondements, racines) et fiqh (comprehension juridique).",
+    explanation:
+      "Systematisee pour la premiere fois de maniere rigoureuse par l'imam Ash-Shafi'i dans son ouvrage Ar-Risala, cette discipline traite des sources du droit (Coran, Sunna, ijma', qiyas) et de leur hierarchie, des regles d'interpretation du langage juridique (general et particulier, absolu et restreint...), et des methodes de resolution des textes apparemment contradictoires.",
+    relatedSlugs: ["fiqh", "qiyas"],
+  },
+  {
+    term: "Ulama (Savants)",
+    termArabic: "العلماء",
+    slug: "ulama",
+    definition: "Le terme collectif designant les savants religieux musulmans, pluriel de 'alim.",
+    origin: "Racine arabe '-l-m, evoquant le savoir.",
+    explanation:
+      "Le Coran evoque le statut particulier des savants a plusieurs reprises, notamment en affirmant que seuls parmi les serviteurs de Dieu, ceux qui possedent le savoir Le craignent veritablement (sourate Fatir, 35:28). Le terme englobe traditionnellement les specialistes du fiqh, du hadith, du tafsir et de l'aqida, sans hierarchie institutionnelle unique reconnue par l'ensemble du monde musulman.",
+    relatedSlugs: ["ilm-nafi", "faqih"],
+  },
+  {
+    term: "Mufti",
+    termArabic: "المفتي",
+    slug: "mufti",
+    definition: "Un savant habilite a emettre des avis juridiques religieux (fatwa) en reponse a des questions posees par les croyants.",
+    origin: "Racine arabe f-t-y, meme racine que fatwa.",
+    explanation:
+      "A la difference du qadi, dont la fonction est de trancher un litige dans le cadre d'une procedure judiciaire formelle, le mufti repond a des questions individuelles sur ce qui est permis ou interdit sans exercer de pouvoir contraignant ; sa competence repose sur une maitrise reconnue du fiqh et de sa methodologie (usul al-fiqh).",
+    relatedSlugs: ["fatwa", "faqih"],
+  },
+  {
+    term: "Imam (Guide de priere)",
+    termArabic: "الإمام",
+    slug: "imam-priere",
+    definition: "La personne qui dirige la priere collective, devant laquelle se placent les fideles pour prier en congregation.",
+    origin: "Racine arabe '-m-m, evoquant ce qui est place devant, ce qui guide.",
+    explanation:
+      "Le terme imam est egalement employe plus largement pour designer une autorite religieuse ou intellectuelle reconnue (les quatre imams fondateurs des ecoles juridiques, par exemple), mais son usage le plus courant designe simplement la personne qui dirige une priere collective donnee, fonction qui ne requiert generalement aucune ordination formelle en islam sunnite.",
+    relatedSlugs: ["salah", "khatib"],
+  },
+  {
+    term: "Mu'adhin (Muezzin)",
+    termArabic: "المؤذن",
+    slug: "muadhin",
+    definition: "La personne chargee de lancer l'appel a la priere (adhan).",
+    origin: "Racine arabe '-dh-n, meme racine que adhan.",
+    explanation:
+      "Bilal ibn Rabah, affranchi choisi personnellement par le prophete Muhammad, est traditionnellement reconnu comme le tout premier muezzin de l'islam, une fonction traditionnellement exercee depuis le sommet de la manara avant l'usage de la sonorisation electrique.",
+    relatedSlugs: ["adhan", "bilal-ibn-rabah"],
+  },
+  {
+    term: "Khatib (Predicateur)",
+    termArabic: "الخطيب",
+    slug: "khatib",
+    definition: "La personne qui prononce le sermon (khutba) precedant la priere du vendredi ou d'autres occasions rituelles.",
+    origin: "Racine arabe kh-t-b, meme racine que khutbah.",
+    explanation:
+      "Le role de khatib exige generalement une maitrise suffisante de la langue arabe classique et des sciences religieuses de base pour delivrer un enseignement adapte a l'assemblee, cette fonction etant parfois cumulee avec celle d'imam au sein d'une meme mosquee, sans que cela soit systematique.",
+    relatedSlugs: ["khutbah", "minbar"],
+  },
+  {
+    term: "Hijab (Voile)",
+    termArabic: "الحجاب",
+    slug: "hijab",
+    definition: "Le terme generalement employe pour designer le voile couvrant la chevelure et le cou porte par les femmes musulmanes en application des prescriptions de pudeur vestimentaire (awra).",
+    origin: "Racine arabe h-j-b, evoquant ce qui separe, ce qui voile.",
+    explanation:
+      "Le terme hijab, employe dans le Coran dans un sens plus large de separation ou de voile (notamment sourate Al-Ahzab, 33:53, a propos des epouses du Prophete), a pris dans l'usage courant contemporain le sens plus specifique du voile couvrant la tete porte en public, dont l'obligation, l'etendue exacte et les modalites font l'objet de debats entre juristes contemporains, dans le prolongement des discussions classiques sur l'awra de la femme.",
+    relatedSlugs: ["awra", "hayaa"],
+    divergence:
+      "L'etendue exacte de l'awra feminine devant des hommes non mahram - notamment le statut du visage et des mains - fait l'objet de positions divergentes parmi les juristes classiques et contemporains, certains les considerant couverts par l'obligation generale, d'autres les excluant explicitement de cette obligation.",
+  },
+  {
+    term: "Zawiya (Loge soufie)",
+    termArabic: "الزاوية",
+    slug: "zawiya",
+    definition: "Un lieu de reunion et d'enseignement spirituel associe a une confrerie soufie, souvent construit autour du tombeau de son fondateur.",
+    origin: "Racine arabe z-w-y, evoquant le coin, l'espace retire.",
+    explanation:
+      "La zawiya sert traditionnellement de centre d'enseignement religieux, de lieu de reunion pour les seances collectives de dhikr des adeptes d'une confrerie (tariqa), et frequemment de lieu d'accueil pour les voyageurs et les necessiteux, jouant un role social important dans de nombreuses regions du monde musulman, notamment en Afrique du Nord et de l'Ouest.",
+    relatedSlugs: ["tariqa", "dhikr"],
+  },
+  {
+    term: "Ridwan (L'ange gardien du Paradis)",
+    termArabic: "رضوان",
+    slug: "ridwan",
+    definition: "L'ange traditionnellement identifie comme le gardien charge du Paradis, en parallele de Malik pour l'Enfer.",
+    origin: "Nom non coranique, etabli par la tradition posterieure plutot que directement nomme dans le texte revele.",
+    explanation:
+      "A la difference de Malik, gardien de l'Enfer explicitement nomme dans le Coran (sourate Az-Zukhruf, 43:77), le nom de Ridwan pour le gardien du Paradis provient de la tradition posterieure et de hadiths dont l'authenticite est diversement evaluee par les critiques du hadith, plutot que d'une mention coranique directe.",
+    relatedSlugs: ["malik-jahannam", "jannah"],
+  },
+  {
+    term: "Ummahat al-Mu'minin (Les Meres des croyants)",
+    termArabic: "أمهات المؤمنين",
+    slug: "ummahat-al-muminin",
+    definition: "Le titre honorifique coranique designant collectivement les epouses du prophete Muhammad.",
+    origin: "Terme coranique (sourate Al-Ahzab, 33:6).",
+    explanation:
+      "Le Coran affirme que les epouses du Prophete sont, a ce titre, les meres des croyants (sourate Al-Ahzab, 33:6), un statut honorifique impliquant notamment l'interdiction pour tout croyant de les epouser apres la mort du Prophete (sourate Al-Ahzab, 33:53). Khadija et Aisha, presentees separement sur cette plateforme, comptent parmi les plus connues d'entre elles.",
+    relatedSlugs: ["khadija", "aisha"],
+  },
+  {
+    term: "Sirah (Biographie prophetique)",
+    termArabic: "السيرة",
+    slug: "sirah",
+    definition: "La discipline consacree a l'etude de la vie du prophete Muhammad, de sa naissance a sa mort.",
+    origin: "Racine arabe s-y-r, evoquant le parcours, la maniere de se conduire.",
+    explanation:
+      "Distincte du hadith proprement dit (centre sur les paroles et actes isoles rapportes), la sirah retrace de maniere chronologique et narrative l'ensemble du parcours du Prophete, s'appuyant a la fois sur le Coran, les hadiths et des sources historiques complementaires ; l'ouvrage d'Ibn Ishaq, tel que transmis par Ibn Hisham, compte parmi les plus anciennes compilations du genre parvenues jusqu'a nous.",
+    relatedSlugs: ["nabi", "sahaba"],
+  },
+  // --- Vertus complementaires et transmission du savoir ---
+  {
+    term: "Muruwwa (Vertu chevaleresque)",
+    termArabic: "المروءة",
+    slug: "muruwwa",
+    definition: "Un ideal de droiture morale et de dignite personnelle, valorise dans la culture arabe preislamique et repris par l'ethique islamique.",
+    origin: "Racine arabe m-r-', evoquant la virilite morale au sens large, la droiture de caractere.",
+    explanation:
+      "La muruwwa englobe traditionnellement des qualites comme la generosite, le courage, la tenue de parole donnee et la retenue face a l'offense ; l'islam a repris cet ideal preexistant en l'articulant etroitement a la piete (taqwa), certains juristes en faisant meme une condition prise en compte dans l'evaluation de la fiabilite morale ('adala) d'un temoin ou d'un narrateur de hadith.",
+    relatedSlugs: ["adab", "hilm"],
+  },
+  {
+    term: "Futuwwa (Chevalerie spirituelle)",
+    termArabic: "الفتوة",
+    slug: "futuwwa",
+    definition: "Un ideal ethique de generosite, d'altruisme et de noblesse de caractere, particulierement developpe dans la litterature soufie et les corporations de metiers medievales.",
+    origin: "Racine arabe f-t-y, evoquant la jeunesse noble, la vaillance genereuse.",
+    explanation:
+      "Associee a la figure exemplaire du jeune Ibrahim dans le Coran pour son rejet courageux de l'idolatrie de son peuple, la futuwwa a structure historiquement des organisations de metiers artisanaux (notamment dans le monde turco-persan et arabe medieval) combinant ethique professionnelle, solidarite mutuelle et raffinement spirituel.",
+    relatedSlugs: ["muruwwa", "ibrahim"],
+  },
+  {
+    term: "Iffah (Chastete, retenue)",
+    termArabic: "العفة",
+    slug: "iffah",
+    definition: "La vertu de retenue et de maitrise de soi face aux desirs illicites, notamment dans le domaine sexuel et materiel.",
+    origin: "Racine arabe '-f-f, evoquant l'abstention volontaire, la retenue.",
+    explanation:
+      "Le Coran recommande l'iffah a celui qui ne trouve pas les moyens de se marier, l'invitant a la chastete en attendant que Dieu lui accorde par Sa grace de quoi subvenir a ses besoins (sourate An-Nur, 24:33), une vertu qui s'etend plus largement, dans la litterature ethique islamique, a la retenue face a la convoitise materielle d'autrui.",
+    relatedSlugs: ["hayaa", "wara"],
+  },
+  {
+    term: "Ijaza (Autorisation de transmission)",
+    termArabic: "الإجازة",
+    slug: "ijaza",
+    definition: "Un certificat traditionnel attestant qu'un etudiant a maitrise un texte ou une discipline aupres d'un maitre, et qu'il est a son tour autorise a l'enseigner ou a le transmettre.",
+    origin: "Racine arabe j-w-z, evoquant l'autorisation, le fait de permettre.",
+    explanation:
+      "Ce systeme, particulierement developpe dans la transmission du Coran (notamment pour les dix lectures canoniques) et du hadith, garantit une chaine ininterrompue et personnellement verifiee de maitres a eleves jusqu'a la source originelle, un principe methodologique partage avec celui de l'isnad dans les sciences du hadith.",
+    relatedSlugs: ["isnad", "qiraat"],
+  },
+  {
+    term: "Silsila (Chaine spirituelle)",
+    termArabic: "السلسلة",
+    slug: "silsila",
+    definition: "Dans le vocabulaire soufi, la chaine de maitres spirituels reliant un disciple a travers les generations jusqu'au prophete Muhammad.",
+    origin: "Terme arabe designant litteralement une chaine.",
+    explanation:
+      "Sur le modele methodologique de l'isnad des sciences du hadith, chaque confrerie soufie (tariqa) revendique une silsila propre, cense garantir la continuite ininterrompue de la transmission spirituelle et de l'autorisation (ijaza) de guider des disciples depuis le fondateur de la confrerie jusqu'au Prophete lui-meme.",
+    relatedSlugs: ["tariqa", "isnad"],
+  },
+  {
+    term: "Khalwa (Retraite spirituelle)",
+    termArabic: "الخلوة",
+    slug: "khalwa",
+    definition: "Une periode d'isolement volontaire consacree a l'adoration et a la reflexion spirituelle, pratique particulierement developpee dans la tradition soufie.",
+    origin: "Racine arabe kh-l-w, evoquant la solitude, le fait d'etre seul.",
+    explanation:
+      "A la difference de l'i'tikaf, retraite specifiquement liee a la mosquee et frequemment pratiquee durant les derniers jours de Ramadan, la khalwa soufie peut se derouler en tout lieu retire et sur une duree variable, generalement encadree par un maitre spirituel dans le cadre de la progression du disciple au sein d'une confrerie.",
+    relatedSlugs: ["itikaf", "tariqa"],
+  },
+  {
+    term: "Tawassul (Recherche d'intercession)",
+    termArabic: "التوسل",
+    slug: "tawassul",
+    definition: "Le fait de chercher a se rapprocher de Dieu dans l'invocation par un moyen intermediaire : Ses noms, une bonne action accomplie, ou l'invocation d'un tiers.",
+    origin: "Racine arabe w-s-l, evoquant le moyen, le lien d'approche.",
+    explanation:
+      "Le Coran invite explicitement les croyants a rechercher le moyen (wasila) de se rapprocher de Dieu (sourate Al-Ma'ida, 5:35), un principe general dont l'application concrete - notamment la question de l'invocation par l'intermediaire d'un prophete ou d'un saint decede - fait l'objet de positions contrastees parmi les savants.",
+    relatedSlugs: ["dua", "wali-allah"],
+    divergence:
+      "Le tawassul par les noms et attributs divins ou par une bonne action personnelle fait l'objet d'un large consensus. En revanche, le tawassul invoquant le statut ou le rang d'un prophete ou d'un saint decede divise les savants : certains, dont Ibn Taymiyyah, le considerent comme une innovation blamable, tandis que d'autres l'admettent en s'appuyant sur des precedents rapportes par la tradition.",
+  },
+  {
+    term: "Ahl al-Fatra (Les gens de l'intervalle)",
+    termArabic: "أهل الفترة",
+    slug: "ahl-al-fatra",
+    definition: "Un concept theologique designant les personnes decedees sans avoir recu le message d'un prophete ou d'une revelation authentique.",
+    origin: "Composition arabe de ahl (les gens de) et fatra (l'intervalle, la periode d'interruption entre deux missions prophetiques).",
+    explanation:
+      "La question du sort de ces personnes dans l'au-dela, n'ayant jamais eu acces a un message clair pour orienter leur choix, a fait l'objet de discussions theologiques approfondies chez les savants classiques, generalement fondees sur le principe coranique selon lequel Dieu ne chatie un peuple qu'apres lui avoir envoye un avertisseur (sourate Al-Isra, 17:15).",
+    relatedSlugs: ["nubuwwa", "adl"],
+  },
+  {
+    term: "Waswasa (Suggestion insidieuse)",
+    termArabic: "الوسوسة",
+    slug: "waswasa",
+    definition: "Les pensees intrusives, doutes ou suggestions insidieuses attribuees a l'influence de Satan, visant a detourner le croyant ou a le plonger dans l'angoisse religieuse.",
+    origin: "Racine arabe w-s-w-s, evoquant le chuchotement, la suggestion furtive.",
+    explanation:
+      "Le Coran evoque explicitement ce phenomene, notamment dans sa toute derniere sourate qui invite a chercher refuge aupres de Dieu contre \"le mal du chuchoteur furtif\" (sourate An-Nas, 114:4). La tradition prophetique rassure specifiquement les croyants tourmentes par des doutes intrusifs sur leur foi, rapportant que la simple presence de cette inquietude en constitue, en elle-meme, un signe de foi authentique plutot que de mecreance.",
+    relatedSlugs: ["shaytan", "taawwudh"],
+  },
+  // --- Les trois etats de l'ame selon le Coran ---
+  {
+    term: "An-Nafs al-Ammara (L'ame incitatrice au mal)",
+    termArabic: "النفس الأمارة بالسوء",
+    slug: "an-nafs-al-ammara",
+    definition: "Dans la terminologie coranique, l'etat de l'ame humaine qui incite spontanement vers le mal et les desirs illicites.",
+    origin: "Terme coranique (sourate Yusuf, 12:53).",
+    explanation:
+      "Ce terme apparait dans le recit de Yusuf, ou il reconnait que l'ame humaine incite naturellement au mal, sauf misericorde particuliere de Dieu (sourate Yusuf, 12:53) - un des trois etats de l'ame decrits par le Coran, considere comme le plus bas degre avant l'effort de purification spirituelle (tazkiyah).",
+    relatedSlugs: ["an-nafs-al-lawwama", "tazkiyah"],
+  },
+  {
+    term: "An-Nafs al-Lawwama (L'ame qui se reproche)",
+    termArabic: "النفس اللوامة",
+    slug: "an-nafs-al-lawwama",
+    definition: "Dans la terminologie coranique, l'etat intermediaire de l'ame qui se reproche elle-meme ses manquements et ses fautes.",
+    origin: "Terme coranique, auquel Dieu jure dans le Coran (sourate Al-Qiyama, 75:2).",
+    explanation:
+      "Le Coran jure par cette ame qui se blame elle-meme (sourate Al-Qiyama, 75:2), un serment traditionnellement interprete comme soulignant l'importance de cette conscience morale intermediaire : ni totalement livree au mal comme la nafs ammara, ni pleinement apaisee comme la nafs mutma'inna, mais engagee dans un combat interieur constant contre ses propres manquements.",
+    relatedSlugs: ["an-nafs-al-ammara", "an-nafs-al-mutmainna"],
+  },
+  {
+    term: "An-Nafs al-Mutma'inna (L'ame apaisee)",
+    termArabic: "النفس المطمئنة",
+    slug: "an-nafs-al-mutmainna",
+    definition: "Dans la terminologie coranique, l'etat le plus eleve de l'ame, parvenue a la pleine quietude par le rappel de Dieu.",
+    origin: "Terme coranique (sourate Al-Fajr, 89:27-28).",
+    explanation:
+      "Le Coran s'adresse directement a cette ame apaisee, l'invitant a retourner vers son Seigneur \"satisfaite et agreee\" (sourate Al-Fajr, 89:27-28), un etat traditionnellement presente comme l'aboutissement du cheminement spirituel, atteint notamment par le rappel constant de Dieu qui, selon un autre verset, apaise les coeurs (sourate Ar-Ra'd, 13:28).",
+    relatedSlugs: ["an-nafs-al-lawwama", "dhikr"],
+  },
 ];
 
 export async function seedConcepts(db: Database): Promise<void> {
