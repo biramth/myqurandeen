@@ -1005,6 +1005,58 @@ const FIQH_TOPICS: FiqhTopicSeed[] = [
     ],
     divergenceExplanation: "La divergence porte sur la portée à donner par analogie aux concessions déjà reconnues pour le voyage et la pluie : les écoles malikite et hanafite s'en tiennent strictement aux cas explicitement transmis par les textes, tandis que les écoles shafi'ite et surtout hanbalite (par la voix d'Ibn Taymiyyah) élargissent le principe sous-jacent - éviter une réelle difficulté (mashaqqa) - à d'autres circonstances comparables comme la maladie.",
   },
+  {
+    title: "Le contact peau à peau entre un homme et une femme rompt-il les petites ablutions ?",
+    slug: "mass-al-mara-et-wudu",
+    category: "Purification (Tahara)",
+    description: "Si le simple contact direct de la peau (mass al-mar'a) entre un homme et une femme non mahram, en dehors de tout rapport intime, annule les petites ablutions (wudu).",
+    positions: [
+      { schoolSlug: "malikite", text: "Le contact accompagné de désir (ladhdha) annule les ablutions ; un contact fortuit, sans recherche de plaisir, ne les annule pas." },
+      { schoolSlug: "hanafite", text: "Le simple contact peau à peau, avec ou sans désir, n'annule pas les ablutions ; seul ce qui sort effectivement des voies naturelles est considéré comme les rompant." },
+      { schoolSlug: "shafiite", text: "Tout contact direct de peau à peau entre un homme et une femme non mahram annule les ablutions, indépendamment de la présence ou non de désir." },
+      { schoolSlug: "hanbalite", text: "Position proche de l'école malikite : le contact accompagné de désir annule les ablutions, tandis qu'un contact sans désir ne les annule pas." },
+    ],
+    divergenceExplanation: "La divergence provient de deux lectures différentes du verset coranique évoquant celui qui \"a touché les femmes\" comme cause justifiant le tayammum à défaut d'eau (sourate An-Nisa, 4:43 ; Al-Ma'ida, 5:6) : l'école shafi'ite retient le sens littéral du terme \"toucher\", les écoles malikite et hanbalite le relient à la présence de désir, tandis que l'école hanafite comprend ce terme comme une évocation pudique du rapport intime lui-même, sans effet sur le simple contact.",
+  },
+  {
+    title: "Le passage d'un être devant le priant, sans repère (sutra), interrompt-il la prière ?",
+    slug: "passage-devant-priant-sans-sutra",
+    category: "Prière (Salat)",
+    description: "Si le fait qu'un chien, un âne ou une femme passe directement devant une personne en prière qui n'a pas placé de sutra invalide la prière de celle-ci.",
+    positions: [
+      { schoolSlug: "malikite", text: "Un tel passage ne rend pas la prière invalide ; il est seulement déconseillé de laisser un passage se produire aussi près du priant." },
+      { schoolSlug: "hanafite", text: "La prière n'est pas invalidée par ce passage, considéré comme simplement déconseillé (makruh) plutôt qu'annulant." },
+      { schoolSlug: "shafiite", text: "La prière n'est pas invalidée ; l'école s'appuie notamment sur le hadith rapportant qu'Aïcha se trouvait allongée devant le Prophète ﷺ pendant qu'il priait, sans que cela n'interrompe sa prière." },
+      { schoolSlug: "hanbalite", text: "En reprenant le sens littéral du hadith rapporté par Abu Dharr, la prière est effectivement interrompue et doit être reprise si un âne, un chien noir ou une femme adulte passe directement devant le priant sans sutra." },
+    ],
+    divergenceExplanation: "Le hadith rapporté par Abu Dharr (recueil de Muslim), affirmant que ce passage \"coupe\" la prière, entre en tension apparente avec d'autres hadiths, notamment celui d'Aïcha, décrivant une pratique du Prophète ﷺ semblant le contredire. Trois écoles considèrent que ce second hadith nuance ou l'emporte sur le premier, compris alors comme une simple diminution du mérite plutôt qu'une invalidation, tandis que l'école hanbalite retient le sens littéral direct du hadith d'Abu Dharr.",
+  },
+  {
+    title: "La femme doit-elle être accompagnée d'un mahram pour effectuer le hajj ?",
+    slug: "mahram-voyage-femme-hajj",
+    category: "Hajj et 'Umra",
+    description: "Si une femme peut entreprendre le voyage du pèlerinage sans être accompagnée d'un mahram (parent proche avec qui le mariage est interdit) ou de son époux.",
+    positions: [
+      { schoolSlug: "malikite", text: "Le mahram n'est pas une condition stricte de validité de l'obligation ; il suffit que la femme voyage en sécurité, notamment accompagnée d'un groupe de femmes ou de personnes de confiance." },
+      { schoolSlug: "hanafite", text: "Un mahram ou l'époux est une condition requise pour qu'une femme accomplisse le voyage du hajj au-delà d'une certaine distance, en s'appuyant sur les hadiths interdisant à une femme de voyager seule sur plusieurs jours sans mahram." },
+      { schoolSlug: "shafiite", text: "La présence d'un mahram n'est pas une condition stricte ; la sécurité du chemin, notamment en compagnie d'un groupe de femmes de confiance, peut y suppléer selon l'avis le plus suivi de l'école." },
+      { schoolSlug: "hanbalite", text: "Position proche de l'école hanafite : le mahram ou l'époux est requis, sauf conditions particulières de sécurité reconnue par certains juristes tardifs de l'école." },
+    ],
+    divergenceExplanation: "La divergence porte sur la portée à donner aux hadiths interdisant le voyage d'une femme seule sur une distance de plusieurs jours sans mahram : les écoles hanafite et hanbalite les appliquent strictement à tout voyage du hajj, tandis que les écoles malikite et shafi'ite considèrent que l'objectif visé par ces textes - la sécurité de la femme durant le trajet - peut être satisfait autrement, notamment par un groupe de compagnes de confiance.",
+  },
+  {
+    title: "Au-delà de combien de jours de séjour le voyageur perd-il le droit de raccourcir la prière ?",
+    slug: "duree-sejour-qasr",
+    category: "Prière (Salat)",
+    description: "La durée de séjour prévue dans une localité au-delà de laquelle un voyageur cesse d'être considéré comme tel et doit prier ses prières en entier plutôt que de les raccourcir.",
+    positions: [
+      { schoolSlug: "malikite", text: "Un séjour prévu de quatre jours ou plus (hors jours d'arrivée et de départ) met fin au droit de raccourcir la prière." },
+      { schoolSlug: "hanafite", text: "Le voyageur conserve le droit de raccourcir sa prière tant que son séjour prévu est inférieur à quinze jours ; au-delà, il est considéré comme résident et doit prier ses prières en entier." },
+      { schoolSlug: "shafiite", text: "Un séjour prévu de quatre jours (hors jours d'arrivée et de départ) met fin au droit de raccourcir la prière, position proche de celle des malikites." },
+      { schoolSlug: "hanbalite", text: "Position proche des écoles malikite et shafi'ite : un séjour prévu de quatre jours ou plus fait perdre le droit au raccourcissement de la prière." },
+    ],
+    divergenceExplanation: "Aucun texte ne fixe explicitement ce seuil : les trois écoles convergeant sur environ quatre jours s'appuient notamment sur la durée du séjour du Prophète ﷺ à La Mecque lors du pèlerinage d'adieu, tandis que l'école hanafite retient un seuil nettement plus large de quinze jours, en lien avec la durée minimale à partir de laquelle elle considère qu'un lieu peut être qualifié de résidence effective.",
+  },
 ];
 
 export async function seedSchools(db: Database): Promise<void> {
