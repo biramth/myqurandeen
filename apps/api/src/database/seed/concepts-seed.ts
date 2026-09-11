@@ -3863,6 +3863,291 @@ const CONCEPTS: ConceptSeed[] = [
       "Les theologiens ash'arites ont largement developpe cet argument (proche de ce que la philosophie occidentale designera plus tard comme l'argument cosmologique kalam) : puisque le monde a eu un commencement, il requiert necessairement une cause qui l'a fait advenir, cette cause etant Dieu Lui-meme, seul etre necessaire (wajib al-wujud).",
     relatedSlugs: ["wajib-al-wujud", "al-khaliq"],
   },
+  // --- Calendrier hijri (les douze mois lunaires) ---
+  {
+    term: "Muharram",
+    termArabic: "محرم",
+    slug: "muharram",
+    definition: "Le premier mois du calendrier hijri, l'un des quatre mois sacres.",
+    origin: "Racine arabe h-r-m, evoquant l'interdit, le sacre.",
+    explanation:
+      "Muharram ouvre l'annee hijrique et fait partie des ashhur al-hurum (mois sacres) pendant lesquels le combat est traditionnellement proscrit sauf defense. Son dixieme jour, Achoura, est marque par un jeune recommande rapporte dans plusieurs hadiths authentiques.",
+    relatedSlugs: ["ashhur-al-hurum", "ashura"],
+  },
+  {
+    term: "Safar",
+    termArabic: "صفر",
+    slug: "safar",
+    definition: "Le deuxieme mois du calendrier hijri.",
+    origin: "Terme arabe historiquement associe aux maisons desertees par leurs habitants partis en voyage ou en guerre.",
+    explanation:
+      "Safar ne fait pas partie des mois sacres. La tradition prophetique rejette explicitement les superstitions pre-islamiques qui lui attribuaient un caractere de mauvais augure (hadith rapporte par Al-Bukhari : \"pas de safar\", refutant cette croyance).",
+    relatedSlugs: ["muharram", "rabi-al-awwal"],
+  },
+  {
+    term: "Rabi' al-Awwal",
+    termArabic: "ربيع الأول",
+    slug: "rabi-al-awwal",
+    definition: "Le troisieme mois du calendrier hijri, mois traditionnellement associe a la naissance du prophete Muhammad.",
+    origin: "Composition arabe de rabi' (printemps) et awwal (premier).",
+    explanation:
+      "Rabi' al-Awwal est le mois auquel la tradition rattache la naissance du prophete Muhammad (mawlid), un evenement dont la commemoration fait l'objet de positions divergentes parmi les savants quant a sa legitimite en tant que pratique.",
+    relatedSlugs: ["safar", "rabi-ath-thani"],
+    divergence:
+      "La celebration du mawlid (anniversaire de la naissance du Prophete) au mois de Rabi' al-Awwal divise les savants : certains la considerent comme une innovation blamable (bid'a) absente de la pratique des trois premieres generations, d'autres comme une bonne innovation (bid'a hasana) permettant de raviver l'amour du Prophete.",
+  },
+  {
+    term: "Rabi' ath-Thani",
+    termArabic: "ربيع الثاني",
+    slug: "rabi-ath-thani",
+    definition: "Le quatrieme mois du calendrier hijri.",
+    origin: "Composition arabe de rabi' (printemps) et thani (second).",
+    explanation:
+      "Rabi' ath-Thani (aussi appele Rabi' al-Akhir) suit Rabi' al-Awwal dans le cycle des douze mois lunaires ; aucun rite ou evenement particulier ne lui est traditionnellement rattache.",
+    relatedSlugs: ["rabi-al-awwal", "jumada-al-ula"],
+  },
+  {
+    term: "Jumada al-Ula",
+    termArabic: "جمادى الأولى",
+    slug: "jumada-al-ula",
+    definition: "Le cinquieme mois du calendrier hijri.",
+    origin: "Racine arabe j-m-d, evoquant le gel, la periode ou ce nom fut fixe correspondant a une saison seche.",
+    explanation:
+      "Jumada al-Ula (litteralement \"la premiere Jumada\") est le cinquieme mois de l'annee lunaire islamique, precedant Jumada al-Akhira.",
+    relatedSlugs: ["rabi-ath-thani", "jumada-al-akhira"],
+  },
+  {
+    term: "Jumada al-Akhira",
+    termArabic: "جمادى الآخرة",
+    slug: "jumada-al-akhira",
+    definition: "Le sixieme mois du calendrier hijri.",
+    origin: "Racine arabe j-m-d, meme origine que Jumada al-Ula.",
+    explanation:
+      "Jumada al-Akhira (aussi appele Jumada ath-Thaniya) est le sixieme mois lunaire, precedant immediatement Rajab, l'un des quatre mois sacres.",
+    relatedSlugs: ["jumada-al-ula", "rajab"],
+  },
+  {
+    term: "Rajab",
+    termArabic: "رجب",
+    slug: "rajab",
+    definition: "Le septieme mois du calendrier hijri, l'un des quatre mois sacres.",
+    origin: "Racine arabe r-j-b, evoquant la veneration, le respect.",
+    explanation:
+      "Rajab fait partie des quatre mois sacres mentionnes dans le Coran (sourate At-Tawba, 9:36). La tradition musulmane y rattache le recit du voyage nocturne et de l'ascension du Prophete (isra wal mi'raj), bien que la date precise de cet evenement fasse l'objet de divergences historiques parmi les biographes.",
+    relatedSlugs: ["ashhur-al-hurum", "shaban"],
+  },
+  {
+    term: "Sha'ban",
+    termArabic: "شعبان",
+    slug: "shaban",
+    definition: "Le huitieme mois du calendrier hijri, precedant immediatement Ramadan.",
+    origin: "Racine arabe sh-'-b, evoquant la dispersion, historiquement associee aux tribus qui se dispersaient pour chercher l'eau a cette periode.",
+    explanation:
+      "Sha'ban est rapporte par plusieurs hadiths comme un mois pendant lequel le prophete Muhammad multipliait le jeune surerogatoire, en preparation du jeune obligatoire de Ramadan qui le suit directement.",
+    relatedSlugs: ["rajab", "sawm"],
+  },
+  {
+    term: "Ramadan",
+    termArabic: "رمضان",
+    slug: "ramadan",
+    definition: "Le neuvieme mois du calendrier hijri, pendant lequel le jeune (sawm) est obligatoire pour tout musulman pubere et capable.",
+    origin: "Racine arabe r-m-d, evoquant la chaleur intense, l'ardeur.",
+    explanation:
+      "Ramadan est le mois durant lequel, selon la croyance islamique, la revelation du Coran a debute (sourate Al-Baqara, 2:185). Le jeune y constitue le quatrieme pilier de l'islam, et la nuit du destin (laylat al-qadr), consideree comme la plus meritoire de l'annee, y est recherchee durant les dix derniers jours.",
+    relatedSlugs: ["sawm", "laylat-al-qadr"],
+  },
+  {
+    term: "Shawwal",
+    termArabic: "شوال",
+    slug: "shawwal",
+    definition: "Le dixieme mois du calendrier hijri, qui debute par la fete de la rupture du jeune (Aid al-Fitr).",
+    origin: "Racine arabe sh-w-l, evoquant le fait de lever, de porter haut.",
+    explanation:
+      "Le premier jour de Shawwal marque Aid al-Fitr, celebrant la fin du jeune de Ramadan. Le jeune de six jours surerogatoires durant ce mois est rapporte par un hadith comme equivalent, en recompense, au jeune d'une annee entiere.",
+    relatedSlugs: ["ramadan", "dhul-qida"],
+  },
+  {
+    term: "Dhul-Qi'da",
+    termArabic: "ذو القعدة",
+    slug: "dhul-qida",
+    definition: "Le onzieme mois du calendrier hijri, l'un des quatre mois sacres.",
+    origin: "Racine arabe q-'-d, evoquant le fait de s'asseoir, de rester en place - les tribus s'abstenant traditionnellement de partir en guerre durant ce mois.",
+    explanation:
+      "Dhul-Qi'da ouvre la sequence des trois mois sacres consecutifs qui cloturent l'annee hijrique, avec Dhul-Hijja et Muharram, periode traditionnellement associee a la treve et a la preparation du pelerinage.",
+    relatedSlugs: ["shawwal", "dhul-hijja"],
+  },
+  {
+    term: "Dhul-Hijja",
+    termArabic: "ذو الحجة",
+    slug: "dhul-hijja",
+    definition: "Le douzieme et dernier mois du calendrier hijri, durant lequel se deroule le pelerinage (hajj).",
+    origin: "Racine arabe h-j-j, meme racine que hajj.",
+    explanation:
+      "Les dix premiers jours de Dhul-Hijja sont decrits par un hadith comme les jours les plus aimes de Dieu pour y accomplir de bonnes actions. Le hajj s'y deroule entre le 8e et le 12e jour, et son dixieme jour correspond a Aid al-Adha, la fete du sacrifice.",
+    relatedSlugs: ["hajj", "dhul-qida"],
+  },
+  // --- Rites et lieux sacres du hajj ---
+  {
+    term: "Kaaba",
+    termArabic: "الكعبة",
+    slug: "kaaba",
+    definition: "L'edifice cubique situe au centre de la Grande Mosquee de La Mecque, direction de la priere (qibla) pour l'ensemble des musulmans.",
+    origin: "Racine arabe k-'-b, evoquant la forme cubique.",
+    explanation:
+      "Le Coran attribue la (re)construction de la Kaaba au prophete Abraham et a son fils Ismael (sourate Al-Baqara, 2:127), la designant comme la premiere maison etablie pour l'adoration de Dieu (sourate Al Imran, 3:96). Elle constitue le point central autour duquel s'effectue le tawaf durant le hajj et la umra.",
+    relatedSlugs: ["qibla", "tawaf"],
+  },
+  {
+    term: "Ihram",
+    termArabic: "الإحرام",
+    slug: "ihram",
+    definition: "L'etat de sacralisation rituelle dans lequel entre le pelerin avant d'accomplir le hajj ou la umra, ainsi que la tenue vestimentaire simple qui le caracterise.",
+    origin: "Racine arabe h-r-m, meme racine que haram, evoquant ce qui devient interdit.",
+    explanation:
+      "En entrant en ihram a des lieux fixes (miqat), le pelerin s'interdit un ensemble d'actes normalement permis (parfum, coupe de cheveux ou d'ongles, rapports conjugaux, chasse), symbolisant l'egalite entre pelerins par le port, pour les hommes, de deux pieces de tissu blanc non cousu.",
+    relatedSlugs: ["hajj", "tawaf"],
+  },
+  {
+    term: "Tawaf",
+    termArabic: "الطواف",
+    slug: "tawaf",
+    definition: "Le rite consistant a circumambuler sept fois autour de la Kaaba.",
+    origin: "Racine arabe t-w-f, evoquant le fait de circuler autour de quelque chose.",
+    explanation:
+      "Le tawaf s'effectue dans le sens antihoraire, la Kaaba etant maintenue a la gauche du pelerin, et constitue un rite central tant du hajj que de la umra, ainsi qu'un acte recommande pour tout visiteur de la Grande Mosquee de La Mecque.",
+    relatedSlugs: ["kaaba", "sai"],
+  },
+  {
+    term: "Sa'i",
+    termArabic: "السعي",
+    slug: "sai",
+    definition: "Le rite consistant a parcourir sept fois la distance entre les collines de Safa et Marwa, pres de la Kaaba.",
+    origin: "Racine arabe s-'-y, evoquant l'effort, la marche rapide.",
+    explanation:
+      "Le sa'i commemore, selon la tradition islamique, la course de Hajar (epouse d'Abraham) entre ces deux collines a la recherche d'eau pour son fils Ismael, episode auquel le Coran fait reference en designant Safa et Marwa comme des \"rites etablis par Dieu\" (sourate Al-Baqara, 2:158).",
+    relatedSlugs: ["tawaf", "zamzam"],
+  },
+  {
+    term: "Zamzam",
+    termArabic: "زمزم",
+    slug: "zamzam",
+    definition: "Le puits situe pres de la Kaaba, dont l'eau est traditionnellement bue par les pelerins.",
+    origin: "Terme arabe dont l'origine exacte est discutee, evoquant selon certains recits le bruit de l'eau jaillissante.",
+    explanation:
+      "Selon la tradition islamique, le puits de Zamzam aurait jailli miraculeusement pour desalterer Ismael et sa mere Hajar restes seuls dans la vallee desertique de La Mecque, avant de devenir une source majeure de la ville. Son eau demeure aujourd'hui rapportee par les pelerins du monde entier.",
+    relatedSlugs: ["sai", "kaaba"],
+  },
+  {
+    term: "Maqam Ibrahim",
+    termArabic: "مقام إبراهيم",
+    slug: "maqam-ibrahim",
+    definition: "La pierre situee pres de la Kaaba, sur laquelle le prophete Abraham se serait tenu debout durant la construction de l'edifice.",
+    origin: "Composition arabe de maqam (lieu ou l'on se tient) et Ibrahim (Abraham).",
+    explanation:
+      "Le Coran mentionne explicitement le maqam Ibrahim et recommande d'y accomplir une priere apres le tawaf (sourate Al-Baqara, 2:125), une pratique reprise dans le deroulement traditionnel du rite.",
+    relatedSlugs: ["kaaba", "tawaf"],
+  },
+  {
+    term: "Hajar al-Aswad (Pierre noire)",
+    termArabic: "الحجر الأسود",
+    slug: "hajar-al-aswad",
+    definition: "La pierre noire enchassee dans l'angle est de la Kaaba, que les pelerins touchent ou embrassent au debut de chaque tour du tawaf.",
+    origin: "Composition arabe de hajar (pierre) et aswad (noir).",
+    explanation:
+      "Un hadith rapporte que le calife Omar ibn al-Khattab, en embrassant la pierre noire, precisa publiquement qu'il savait qu'elle n'etait qu'une pierre sans pouvoir propre, mais qu'il agissait ainsi uniquement parce qu'il avait vu le Prophete le faire - ecartant explicitement toute interpretation d'adoration de l'objet lui-meme.",
+    relatedSlugs: ["kaaba", "tawaf"],
+  },
+  {
+    term: "Mina",
+    termArabic: "منى",
+    slug: "mina",
+    definition: "Une vallee proche de La Mecque ou les pelerins sejournent durant plusieurs jours du hajj et accomplissent le rite de la lapidation.",
+    origin: "Toponyme arabe traditionnel de cette vallee.",
+    explanation:
+      "Les pelerins passent la nuit a Mina avant et apres le jour de Arafa, et y accomplissent le rami al-jamarat (lapidation symbolique de trois steles) durant les jours dits at-tashriq qui suivent Aid al-Adha.",
+    relatedSlugs: ["arafat", "rami-al-jamarat"],
+  },
+  {
+    term: "Arafat",
+    termArabic: "عرفة",
+    slug: "arafat",
+    definition: "La plaine situee a l'est de La Mecque ou se deroule le stationnement (wuquf), rite central du hajj, le neuvieme jour de Dhul-Hijja.",
+    origin: "Toponyme arabe traditionnel de cette plaine.",
+    explanation:
+      "Un hadith celebre du Prophete affirme que \"le hajj, c'est Arafat\" : le stationnement sur cette plaine, du milieu de journee jusqu'au coucher du soleil, constitue le pilier sans lequel le pelerinage n'est pas valide, contrairement a la plupart des autres rites qui admettent des compensations en cas d'omission.",
+    relatedSlugs: ["hajj", "mina"],
+  },
+  {
+    term: "Muzdalifa",
+    termArabic: "مزدلفة",
+    slug: "muzdalifa",
+    definition: "Le lieu situe entre Arafat et Mina ou les pelerins passent la nuit apres le stationnement d'Arafat.",
+    origin: "Toponyme arabe traditionnel de ce lieu.",
+    explanation:
+      "A Muzdalifa, les pelerins regroupent les prieres du maghrib et de l'icha et ramassent traditionnellement les petits cailloux destines au rite de la lapidation accompli les jours suivants a Mina.",
+    relatedSlugs: ["arafat", "mina"],
+  },
+  {
+    term: "Rami al-Jamarat (Lapidation)",
+    termArabic: "رمي الجمرات",
+    slug: "rami-al-jamarat",
+    definition: "Le rite consistant a jeter des cailloux sur trois steles a Mina, durant et apres les jours de Aid al-Adha.",
+    origin: "Composition arabe de rami (le fait de jeter) et jamarat (pluriel de jamra, designant les steles).",
+    explanation:
+      "Ce rite commemore, selon la tradition islamique, le rejet par Abraham et sa famille des tentations de Satan qui tentait de les detourner de l'ordre divin du sacrifice d'Ismael, chaque stele marquant un lieu ou cette tentation aurait ete repoussee.",
+    relatedSlugs: ["mina", "ihram"],
+  },
+  // --- Anges nommes ---
+  {
+    term: "Jibril (Gabriel)",
+    termArabic: "جبريل",
+    slug: "jibril",
+    definition: "L'ange charge de transmettre la revelation divine aux prophetes, notamment le Coran au prophete Muhammad.",
+    origin: "Nom propre coranique, mentionne directement (sourate Al-Baqara, 2:97).",
+    explanation:
+      "Jibril est decrit dans le Coran comme \"l'Esprit fidele\" (ar-Ruh al-Amin, sourate Ash-Shu'ara, 26:193) ayant fait descendre la revelation sur le coeur du Prophete. La tradition islamique lui attribue egalement un role de messager aupres des prophetes anterieurs, dont Marie mere de Jesus (sourate Maryam, 19:17).",
+    relatedSlugs: ["wahy", "malaika"],
+  },
+  {
+    term: "Mikail (Michel)",
+    termArabic: "ميكائيل",
+    slug: "mikail",
+    definition: "L'ange traditionnellement associe a la subsistance, notamment a la pluie et a la croissance des plantes.",
+    origin: "Nom propre coranique, mentionne directement (sourate Al-Baqara, 2:98).",
+    explanation:
+      "Le Coran mentionne Mikail aux cotes de Jibril parmi les anges dont l'hostilite envers eux est presentee comme une hostilite envers Dieu Lui-meme (sourate Al-Baqara, 2:98) ; les commentateurs classiques lui attribuent traditionnellement un role lie a la subsistance des creatures.",
+    relatedSlugs: ["jibril", "malaika"],
+  },
+  {
+    term: "Israfil",
+    termArabic: "إسرافيل",
+    slug: "israfil",
+    definition: "L'ange charge, selon la tradition islamique, de souffler dans la trompe (sur) annoncant la fin du monde puis la resurrection.",
+    origin: "Nom propre non coranique, etabli par la tradition prophetique (hadith).",
+    explanation:
+      "Bien que non nomme explicitement dans le Coran (qui mentionne seulement le sur, la trompe, sourate Az-Zumar, 39:68), plusieurs hadiths identifient Israfil comme l'ange charge de ce souffle, dont le premier marquera l'aneantissement de la creation et le second la resurrection des morts.",
+    relatedSlugs: ["qiyamah", "sirat"],
+  },
+  {
+    term: "Malak al-Mawt (L'ange de la mort)",
+    termArabic: "ملك الموت",
+    slug: "malak-al-mawt",
+    definition: "L'ange charge de saisir les ames au moment de la mort.",
+    origin: "Terme coranique (sourate As-Sajda, 32:11), designant sa fonction plutot qu'un nom propre.",
+    explanation:
+      "Le Coran attribue explicitement cette fonction a un ange designe comme \"l'ange de la mort\" (sourate As-Sajda, 32:11) ; la tradition posterieure lui associe couramment le nom d'Azrail, bien que ce nom precis n'apparaisse pas dans le texte coranique lui-meme.",
+    relatedSlugs: ["barzakh", "akhira"],
+  },
+  {
+    term: "Malik (Gardien de l'Enfer)",
+    termArabic: "مالك",
+    slug: "malik-jahannam",
+    definition: "L'ange presente dans le Coran comme le gardien charge de l'Enfer.",
+    origin: "Nom propre coranique, mentionne directement (sourate Az-Zukhruf, 43:77).",
+    explanation:
+      "Le Coran rapporte un appel desespere des damnes a Malik, gardien de l'Enfer, lui demandant que leur Seigneur mette fin a leur existence, appel auquel il repond qu'ils demeureront (sourate Az-Zukhruf, 43:77) - passage souvent cite dans les descriptions coraniques du chatiment.",
+    relatedSlugs: ["jahannam", "malak-al-mawt"],
+  },
 ];
 
 export async function seedConcepts(db: Database): Promise<void> {
