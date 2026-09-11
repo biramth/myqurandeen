@@ -1213,6 +1213,58 @@ const FIQH_TOPICS: FiqhTopicSeed[] = [
     ],
     divergenceExplanation: "La divergence porte sur la cause (sabab) precise qui rend la zakat al-fitr exigible : les ecoles malikite et hanbalite la rattachent etroitement au coucher du soleil clôturant le dernier jour de Ramadan, limitant d'autant l'anticipation possible, l'ecole shafi'ite la rattache au mois de Ramadan pris dans son ensemble, tandis que l'ecole hanafite considere qu'elle peut, comme d'autres aumones, etre valablement anticipee bien au-dela de cette periode.",
   },
+  {
+    title: "Le divorce prononce trois fois en une seule formule compte-t-il pour un ou pour trois talaq ?",
+    slug: "talaq-trois-fois-meme-formule",
+    category: "Mariage (Nikah)",
+    description: "Si le fait de prononcer la formule de divorce trois fois consecutives en une seule fois (par exemple : \"tu es divorcee, divorcee, divorcee\") equivaut a un seul divorce revocable, ou a trois divorces rendant la separation definitive.",
+    positions: [
+      { schoolSlug: "malikite", text: "Un tel divorce compte pour trois talaq distincts et rend la separation definitive, bien que l'acte soit considere comme une innovation blamable (bid'a) sur le plan du comportement du mari." },
+      { schoolSlug: "hanafite", text: "Position identique : trois talaq prononces en une seule formule comptent effectivement pour trois, rendant le divorce irrevocable, meme si cette maniere de proceder est deconseillee." },
+      { schoolSlug: "shafiite", text: "Meme position que les malikites et hanafites : la formule compte pour trois talaq distincts et definitifs, la desapprobation portant sur la maniere de proceder plutot que sur son effet juridique." },
+      { schoolSlug: "hanbalite", text: "Position officielle de l'ecole identique aux trois autres : trois talaq comptent pour trois. Une position minoritaire, notamment defendue par Ibn Taymiyyah et son eleve Ibn Qayyim al-Jawziyya, considere toutefois qu'une telle formule ne compte que pour un seul talaq revocable." },
+    ],
+    divergenceExplanation: "Les quatre ecoles s'accordent, dans leur position officiellement retenue, sur le fait que trois talaq prononces en une seule formule produisent trois divorces effectifs, en s'appuyant notamment sur une pratique attribuee au calife Omar ibn al-Khattab. Ce sujet est neanmoins inclus pour sa tres frequente pertinence pratique et pour signaler l'existence d'une position minoritaire notable, issue de juristes hanbalites tardifs (Ibn Taymiyyah, Ibn Qayyim al-Jawziyya), selon laquelle une telle formule ne produirait qu'un seul talaq revocable - une lecture reprise depuis par certaines legislations familiales contemporaines sans constituer la position officielle d'aucune des quatre ecoles classiques.",
+  },
+  {
+    title: "Qui doit rattraper les jours de jeune qu'un defunt n'a pas pu compenser avant sa mort ?",
+    slug: "jeune-manque-defunt-rattrapage-heritiers",
+    category: "Jeûne (Sawm)",
+    description: "Si les heritiers ou proches d'une personne decedee alors qu'elle devait encore rattraper des jours de jeune manques doivent jeuner a sa place, ou seulement verser une compensation alimentaire (fidya) prelevee sur sa succession.",
+    positions: [
+      { schoolSlug: "malikite", text: "Aucun jeune ne peut etre accompli par autrui a la place du defunt ; ses heritiers doivent verser une fidya (nourrir un pauvre) pour chaque jour manque, prelevee sur sa succession." },
+      { schoolSlug: "hanafite", text: "Position proche des malikites : le jeune est un acte personnel qui ne peut etre accompli par procuration ; seule une fidya versee sur la succession, ou par recommandation testamentaire du defunt, est requise." },
+      { schoolSlug: "shafiite", text: "Les heritiers, ou tout proche volontaire, peuvent jeuner a la place du defunt en application litterale du hadith \"quiconque meurt en devant des jours de jeune, que son proche jeune a sa place\" (rapporte par Al-Bukhari et Muslim)." },
+      { schoolSlug: "hanbalite", text: "Position identique aux shafi'ites : le rattrapage par un proche du defunt est valide et recommande, en application directe du meme hadith." },
+    ],
+    divergenceExplanation: "La divergence porte sur la portee a donner au hadith rapportant que le rattrapage du jeune d'un defunt par un proche est possible : les ecoles shafi'ite et hanbalite le retiennent au sens litteral et general, tandis que les ecoles malikite et hanafite considerent le jeune comme un acte d'adoration physique strictement personnel, non transferable par nature, et limitent la portee de ce hadith a des cas tres particuliers, preferant en pratique le versement d'une fidya.",
+  },
+  {
+    title: "Peut-on transferer la zakat vers une autre region que celle ou elle a ete collectee ?",
+    slug: "transfert-zakat-hors-region-collecte",
+    category: "Zakat",
+    description: "Si la zakat doit imperativement etre distribuee aux necessiteux de la region ou elle a ete prelevee, ou si elle peut etre envoyee a des musulmans necessiteux situes ailleurs, y compris a l'etranger.",
+    positions: [
+      { schoolSlug: "malikite", text: "Le transfert est deconseille tant qu'il existe des beneficiaires eligibles dans la region de collecte, mais devient permis, voire preferable, en l'absence de tels beneficiaires locaux ou en cas de besoin plus grand ailleurs." },
+      { schoolSlug: "hanafite", text: "Le transfert est deconseille (makruh) mais valide, sauf lorsqu'il beneficie a des proches parents necessiteux ou a des personnes en plus grand besoin, auquel cas il est alors recommande sans reserve." },
+      { schoolSlug: "shafiite", text: "Le transfert au-dela d'une distance justifiant le raccourcissement de la priere (masafat al-qasr) n'est pas permis ; la zakat doit etre distribuee aux beneficiaires de la region de collecte." },
+      { schoolSlug: "hanbalite", text: "Position proche des shafi'ites : le transfert est deconseille voire interdit selon les juristes de l'ecole, sauf necessite reelle ou absence de beneficiaires eligibles sur place." },
+    ],
+    divergenceExplanation: "La divergence porte sur l'importance a accorder au lien entre la zakat et la communaute locale ou elle a ete prelevee : l'ecole shafi'ite y voit une condition stricte de validite de la distribution, tandis que les trois autres ecoles la considerent comme une preference plutot qu'une obligation absolue, pouvant ceder le pas devant un besoin plus grand ailleurs ou l'absence de beneficiaires locaux.",
+  },
+  {
+    title: "Peut-on verser la zakat sur les recoltes ou le betail en valeur monetaire plutot qu'en nature ?",
+    slug: "paiement-zakat-valeur-monetaire-nature",
+    category: "Zakat",
+    description: "Si la zakat due sur les recoltes ou le betail peut etre acquittee par le versement de sa contre-valeur en argent, plutot que par la remise effective des biens en nature designes par les textes.",
+    positions: [
+      { schoolSlug: "malikite", text: "Le versement doit se faire en nature (le bien lui-meme, grain ou betail), conformement a ce qu'ont designe les textes ; le versement en valeur n'est pas admis sauf necessite reelle." },
+      { schoolSlug: "hanafite", text: "Le versement de la contre-valeur monetaire est admis pour toutes les categories de zakat, y compris les recoltes et le betail, la valeur equivalente etant consideree comme satisfaisant pleinement l'obligation." },
+      { schoolSlug: "shafiite", text: "Le versement doit se faire strictement en nature, conformement au bien explicitement designe par les textes prophetiques pour chaque categorie de zakat." },
+      { schoolSlug: "hanbalite", text: "Position proche des malikites et shafi'ites : le versement en nature est requis, le versement en valeur n'etant admis qu'en cas de necessite ou d'interet manifeste." },
+    ],
+    divergenceExplanation: "La divergence porte sur la nature de l'obligation designee par les textes : les ecoles malikite, shafi'ite et hanbalite considerent que le Prophete ﷺ a explicitement designe le bien lui-meme (une quantite precise de grain, un type precis de betail) comme objet de l'obligation, tandis que l'ecole hanafite considere que la finalite recherchee - subvenir aux besoins des categories beneficiaires - peut etre satisfaite de maniere equivalente par la valeur monetaire correspondante.",
+  },
 ];
 
 export async function seedSchools(db: Database): Promise<void> {
