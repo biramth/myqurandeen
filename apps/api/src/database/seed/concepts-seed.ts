@@ -5452,6 +5452,118 @@ const CONCEPTS: ConceptSeed[] = [
       "Selon un hadith rapportant le recit du mi'raj, le Prophete ﷺ aurait vu cet edifice durant son ascension, informe que soixante-dix mille anges y entrent chaque jour pour l'adorer sans jamais y revenir une seconde fois, un nombre illustrant, selon les commentateurs, l'immensite du nombre des creatures angeliques.",
     relatedSlugs: ["isra-wal-miraj", "kaaba"],
   },
+  // --- Les grands recueils de hadith (complement a Sihah Sitta) ---
+  {
+    term: "Sahih al-Bukhari",
+    termArabic: "صحيح البخاري",
+    slug: "sahih-al-bukhari",
+    definition: "Le recueil de hadith compile par Al-Bukhari, unanimement considere comme le plus fiable apres le Coran dans la tradition sunnite.",
+    origin: "Compile par Muhammad ibn Ismail al-Bukhari (194-256 AH / 810-870) apres un travail de verification rigoureux mene durant environ seize ans.",
+    explanation:
+      "Selon la tradition, Al-Bukhari aurait selectionne environ 7275 hadiths (avec repetitions) parmi plus de 600 000 rapports examines, en appliquant des criteres de verification particulierement stricts concernant la continuite de la chaine de transmission et la fiabilite de chaque narrateur, faisant de son recueil la reference la plus haute de l'authenticite (sahih) dans les sciences du hadith.",
+    relatedSlugs: ["sihah-sitta", "sahih"],
+  },
+  {
+    term: "Sahih Muslim",
+    termArabic: "صحيح مسلم",
+    slug: "sahih-muslim",
+    definition: "Le recueil de hadith compile par Muslim ibn al-Hajjaj, considere avec celui d'Al-Bukhari comme l'un des deux plus fiables de la tradition sunnite.",
+    origin: "Compile par Muslim ibn al-Hajjaj an-Naysaburi (206-261 AH / 821-875), eleve d'Al-Bukhari.",
+    explanation:
+      "Reconnu pour l'organisation methodique et la presentation systematique de ses chaines de transmission, regroupant l'ensemble des variantes d'un meme hadith sous une entree unique, le recueil de Muslim est traditionnellement classe juste apres celui d'Al-Bukhari en termes de fiabilite globale, les deux ouvrages etant conjointement designes comme \"les deux Sahih\" (As-Sahihayn).",
+    relatedSlugs: ["sahih-al-bukhari", "sihah-sitta"],
+  },
+  {
+    term: "Sunan Abu Dawud",
+    termArabic: "سنن أبي داود",
+    slug: "sunan-abu-dawud",
+    definition: "Un recueil de hadith parmi les six references majeures (Sihah Sitta), particulierement oriente vers les questions de fiqh.",
+    origin: "Compile par Abu Dawud as-Sijistani (202-275 AH / 817-889).",
+    explanation:
+      "A la difference des recueils d'Al-Bukhari et de Muslim, limites aux hadiths les plus rigoureusement authentifies, Abu Dawud inclut egalement des hadiths de fiabilite moindre lorsqu'ils presentent un interet juridique, tout en signalant explicitement leurs faiblesses, ce qui en fait une reference particulierement prisee par les juristes (fuqaha).",
+    relatedSlugs: ["sihah-sitta", "fiqh"],
+  },
+  {
+    term: "Jami' at-Tirmidhi",
+    termArabic: "جامع الترمذي",
+    slug: "jami-at-tirmidhi",
+    definition: "Un recueil de hadith parmi les six references majeures, notable pour ses commentaires methodologiques accompagnant chaque hadith rapporte.",
+    origin: "Compile par Muhammad ibn Isa at-Tirmidhi (209-279 AH / 824-892), eleve d'Al-Bukhari.",
+    explanation:
+      "At-Tirmidhi accompagne systematiquement chaque hadith de precisions sur son degre d'authenticite (sahih, hasan ou daif) et signale les divergences de positions juridiques qui en decoulent parmi les ecoles, faisant de son recueil une reference particulierement utile pour l'etude comparee du fiqh.",
+    relatedSlugs: ["sihah-sitta", "hasan"],
+  },
+  {
+    term: "Sunan an-Nasa'i",
+    termArabic: "سنن النسائي",
+    slug: "sunan-an-nasai",
+    definition: "Un recueil de hadith parmi les six references majeures, reconnu pour la rigueur particuliere de ses criteres de selection.",
+    origin: "Compile par Ahmad ibn Shu'ayb an-Nasa'i (215-303 AH / 830-915).",
+    explanation:
+      "An-Nasa'i est reconnu par les specialistes des sciences du hadith pour avoir applique des criteres de critique des narrateurs particulierement severes, rapprochant par endroits son recueil, en termes de rigueur, de ceux d'Al-Bukhari et de Muslim, bien qu'il conserve un statut legerement inferieur dans le classement traditionnel des six recueils.",
+    relatedSlugs: ["sihah-sitta", "jarh-wa-tadil"],
+  },
+  {
+    term: "Sunan Ibn Majah",
+    termArabic: "سنن ابن ماجه",
+    slug: "sunan-ibn-majah",
+    definition: "Un recueil de hadith generalement compte comme le sixieme des references majeures (Sihah Sitta), bien que son statut ait varie selon les periodes.",
+    origin: "Compile par Muhammad ibn Yazid Ibn Majah (209-273 AH / 824-887).",
+    explanation:
+      "Certains savants classiques lui preferaient d'autres ouvrages, notamment le Muwatta de l'imam Malik, pour completer la liste des six references majeures ; Ibn Majah s'est neanmoins impose dans l'usage etabli, son recueil contenant par ailleurs un nombre notable de hadiths uniques (zawa'id) non rapportes par les cinq autres references.",
+    relatedSlugs: ["sihah-sitta", "muhaddith"],
+  },
+  {
+    term: "Al-Muwatta de l'imam Malik",
+    termArabic: "موطأ الإمام مالك",
+    slug: "muwatta-malik",
+    definition: "L'un des tout premiers recueils structures de hadith et de droit islamique, compile par l'imam Malik ibn Anas.",
+    origin: "Compile par Malik ibn Anas (93-179 AH / 711-795), fondateur de l'ecole malikite.",
+    explanation:
+      "Antérieur aux six grands recueils de hadith, le Muwatta combine hadiths prophetiques, avis rapportes des compagnons et positions juridiques personnelles de l'imam Malik, refletant notamment la pratique etablie des habitants de Medine ('amal ahl al-Madina), une source distinctive du fiqh malikite.",
+    relatedSlugs: ["malikite", "sihah-sitta"],
+  },
+  {
+    term: "Al-Arba'in an-Nawawiyya (Les quarante hadiths de An-Nawawi)",
+    termArabic: "الأربعون النووية",
+    slug: "arbain-nawawiyya",
+    definition: "Une compilation de quarante-deux hadiths fondamentaux, reunis par l'imam An-Nawawi, portant sur les principes essentiels de la religion.",
+    origin: "Compile par Yahya ibn Sharaf an-Nawawi (631-676 AH / 1233-1277), savant shafi'ite.",
+    explanation:
+      "Concue comme un recueil pedagogique reunissant des hadiths jugés particulierement fondamentaux et faciles a memoriser, couvrant l'ensemble des grands principes de la croyance, de l'adoration et de l'ethique islamique, cette compilation demeure aujourd'hui l'un des textes les plus largement etudies et memorises dans l'enseignement religieux de base a travers le monde musulman.",
+    relatedSlugs: ["hifz-al-quran", "sihah-sitta"],
+  },
+  // --- Vocabulaire ethique et social complementaire ---
+  {
+    term: "Ihtikar (Thesaurisation speculative)",
+    termArabic: "الاحتكار",
+    slug: "ihtikar",
+    definition: "L'accumulation deliberee de denrees essentielles dans le but de creer une penurie artificielle et de faire monter les prix.",
+    origin: "Racine arabe h-k-r, evoquant la retention, le monopole.",
+    explanation:
+      "Plusieurs hadiths condamnent fermement cette pratique, l'un d'eux affirmant que \"celui qui accapare [les denrees] est fautif\" ; elle est traditionnellement distinguee du simple stockage prive raisonnable, qui reste licite, l'element determinant etant l'intention de nuire au marche et a la communaute par une retention deliberee en periode de besoin.",
+    relatedSlugs: ["zulm", "gharar"],
+  },
+  {
+    term: "Rishwa (Corruption)",
+    termArabic: "الرشوة",
+    slug: "rishwa",
+    definition: "Le fait de verser ou de recevoir un paiement illicite destine a influencer indument une decision, notamment judiciaire ou administrative.",
+    origin: "Racine arabe r-sh-w, evoquant le pot-de-vin.",
+    explanation:
+      "Un hadith rapporte par At-Tirmidhi maudit a la fois celui qui offre et celui qui recoit un pot-de-vin, ainsi que l'intermediaire qui facilite la transaction, la corruption etant consideree comme une atteinte grave a la justice et a l'equite dans la gestion des affaires publiques et privees.",
+    relatedSlugs: ["zulm", "adl"],
+  },
+  {
+    term: "Sakina (Quietude, presence apaisante)",
+    termArabic: "السكينة",
+    slug: "sakina",
+    definition: "Un etat de serenite et de quietude que le Coran decrit comme descendant sur les croyants dans des moments d'epreuve ou de besoin particulier.",
+    origin: "Racine arabe s-k-n, evoquant le calme, la tranquillite.",
+    explanation:
+      "Le Coran evoque a plusieurs reprises la descente de la sakina sur le Prophete et les croyants, notamment durant la bataille de Hunayn (sourate At-Tawba, 9:26) et lors du sejour d'Abu Bakr et du Prophete dans la grotte durant l'hégire (sourate At-Tawba, 9:40), la presentant comme un secours divin apaisant l'angoisse face au danger.",
+    relatedSlugs: ["tawakkul", "khawf"],
+  },
 ];
 
 export async function seedConcepts(db: Database): Promise<void> {
