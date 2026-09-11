@@ -1265,6 +1265,58 @@ const FIQH_TOPICS: FiqhTopicSeed[] = [
     ],
     divergenceExplanation: "La divergence porte sur la nature de l'obligation designee par les textes : les ecoles malikite, shafi'ite et hanbalite considerent que le Prophete ﷺ a explicitement designe le bien lui-meme (une quantite precise de grain, un type precis de betail) comme objet de l'obligation, tandis que l'ecole hanafite considere que la finalite recherchee - subvenir aux besoins des categories beneficiaires - peut etre satisfaite de maniere equivalente par la valeur monetaire correspondante.",
   },
+  {
+    title: "Le sommeil annule-t-il systematiquement les petites ablutions ?",
+    slug: "sommeil-et-annulation-wudu",
+    category: "Purification (Tahara)",
+    description: "Si le fait de s'endormir, quelle que soit la position adoptee, annule les petites ablutions (wudu), ou si certaines positions de sommeil en sont exemptees.",
+    positions: [
+      { schoolSlug: "malikite", text: "Un sommeil leger et bref n'annule pas les ablutions ; un sommeil profond et prolonge les annule, la distinction reposant sur le degre de perte de conscience du dormeur." },
+      { schoolSlug: "hanafite", text: "Le sommeil n'annule les ablutions que s'il survient dans une position ou le corps n'est pas fermement stabilise (allonge, ou assis sans appui suffisant) ; un sommeil assis avec le bassin fermement pose au sol ne les annule pas." },
+      { schoolSlug: "shafiite", text: "Tout sommeil annule les ablutions, a l'exception de celui pris assis avec le bassin fermement fixe au sol, empechant toute emission imperceptible." },
+      { schoolSlug: "hanbalite", text: "Position proche des hanafites et shafi'ites : seul le sommeil leger pris en position assise stable, bassin fermement pose, n'annule pas les ablutions ; tout autre sommeil les annule." },
+    ],
+    divergenceExplanation: "La divergence porte sur la cause reelle de l'annulation : le sommeil n'invalide pas les ablutions en tant que tel, mais en tant qu'il rend possible une emission imperceptible des voies naturelles sans que le dormeur ne s'en rende compte. Les ecoles hanafite, shafi'ite et hanbalite en deduisent qu'une position assise stable, empechant physiquement une telle emission silencieuse, exempte de l'annulation, tandis que l'ecole malikite retient plutot le critere de la profondeur du sommeil lui-meme.",
+  },
+  {
+    title: "La consommation des animaux carnivores et des oiseaux de proie est-elle permise ?",
+    slug: "animaux-carnivores-oiseaux-de-proie",
+    category: "Alimentation (Hilal wa Haram)",
+    description: "Si la viande des animaux terrestres pourvus de crocs (dhawat al-anyab) et des oiseaux pourvus de serres (dhawat al-makhalib) est licite a la consommation.",
+    positions: [
+      { schoolSlug: "malikite", text: "Aucune categorie generale d'animaux n'est interdite du seul fait de posseder des crocs ou des serres ; seuls les animaux explicitement designes comme interdits par un texte precis le sont, la plupart des animaux carnivores etant consideres seulement deconseilles (makruh) plutot que strictement interdits." },
+      { schoolSlug: "hanafite", text: "Les animaux terrestres carnivores chassant avec leurs crocs et les oiseaux de proie chassant avec leurs serres sont interdits a la consommation." },
+      { schoolSlug: "shafiite", text: "Position identique aux hanafites : tout animal terrestre pourvu de crocs qu'il utilise pour se defendre ou chasser, et tout oiseau pourvu de serres qu'il utilise pour chasser, sont interdits." },
+      { schoolSlug: "hanbalite", text: "Position identique aux hanafites et shafi'ites : les animaux carnivores a crocs et les oiseaux de proie a serres sont interdits a la consommation." },
+    ],
+    divergenceExplanation: "La divergence porte sur la portee du hadith rapportant l'interdiction de \"tout animal sauvage pourvu de crocs\" et de \"tout oiseau pourvu de serres\" (rapporte par Muslim) : trois ecoles le retiennent comme une regle generale et contraignante, tandis que l'ecole malikite, s'appuyant sur d'autres textes et sur le principe general de licite de tout ce qui n'est pas explicitement interdit, restreint la portee de ce hadith a une simple recommandation plutot qu'une interdiction stricte.",
+  },
+  {
+    title: "Une dette envers autrui doit-elle etre deduite avant de calculer la zakat due sur ses propres biens ?",
+    slug: "dette-deduite-avant-calcul-zakat",
+    category: "Zakat",
+    description: "Si le montant d'une dette que l'on doit a un tiers doit etre soustrait de la valeur de son patrimoine avant de determiner si le seuil du nisab est atteint et le montant de la zakat exigible.",
+    positions: [
+      { schoolSlug: "malikite", text: "La dette est deduite pour les biens dits caches (numeraire, or, argent, marchandises de commerce), mais n'affecte pas la zakat due sur les biens dits apparents (recoltes, betail), due integralement independamment de tout endettement." },
+      { schoolSlug: "hanafite", text: "La dette est integralement deduite de l'ensemble du patrimoine avant de determiner si le nisab est atteint, pour toutes les categories de biens sans exception." },
+      { schoolSlug: "shafiite", text: "La dette n'est generalement pas deduite ; la zakat reste due sur la totalite du patrimoine atteignant le nisab, independamment des dettes que son proprietaire pourrait devoir a autrui." },
+      { schoolSlug: "hanbalite", text: "Position proche des hanafites : la dette est deduite avant le calcul du nisab, pour l'ensemble des categories de biens soumises a la zakat." },
+    ],
+    divergenceExplanation: "La divergence porte sur la nature meme de la propriete consideree par l'obligation de zakat : les ecoles hanafite et hanbalite considerent qu'une richesse deja due a un tiers n'est pas veritablement disponible pour son proprietaire et ne doit donc pas etre comptabilisee, l'ecole shafi'ite considere que la zakat est attachee au bien lui-meme independamment des obligations personnelles de son proprietaire, tandis que l'ecole malikite distingue selon que le bien concerne est immediatement visible (betail, recoltes) ou dissimule (numeraire, marchandises).",
+  },
+  {
+    title: "Le raccourcissement de la priere est-il permis lors d'un voyage entrepris a des fins illicites ?",
+    slug: "qasr-voyage-but-illicite",
+    category: "Prière (Salat)",
+    description: "Si un voyageur dont le deplacement est entrepris dans un but explicitement interdit par la religion (fuite apres un delit, par exemple) peut neanmoins beneficier des concessions accordees au voyageur, dont le raccourcissement de la priere.",
+    positions: [
+      { schoolSlug: "malikite", text: "Les concessions du voyage, dont le raccourcissement de la priere, ne sont pas accordees a celui dont le deplacement est motive par un but illicite." },
+      { schoolSlug: "hanafite", text: "Les concessions du voyage s'appliquent des lors que la condition objective du voyage (la distance parcourue) est remplie, independamment du but poursuivi par le voyageur, licite ou non." },
+      { schoolSlug: "shafiite", text: "Position proche des malikites : le raccourcissement de la priere est reserve au voyage entrepris a des fins licites ; il n'est pas accorde pour un deplacement motive par la desobeissance." },
+      { schoolSlug: "hanbalite", text: "Position identique aux malikites et shafi'ites : les concessions du voyage ne beneficient pas a celui dont le but du deplacement constitue en lui-meme une desobeissance." },
+    ],
+    divergenceExplanation: "La divergence porte sur le fondement meme de la concession accordee au voyageur : les ecoles malikite, shafi'ite et hanbalite la considerent comme une facilite (rukhsa) que Dieu n'accorde pas a celui qui L'a Lui-meme desobei par le motif de son deplacement, tandis que l'ecole hanafite rattache la concession a la realite objective et neutre du voyage (la distance parcourue), independamment de toute appreciation morale de son motif.",
+  },
 ];
 
 export async function seedSchools(db: Database): Promise<void> {
