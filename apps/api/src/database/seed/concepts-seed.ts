@@ -3128,6 +3128,221 @@ const CONCEPTS: ConceptSeed[] = [
       "La hisba, dirigee par un fonctionnaire appele muhtasib, controlait historiquement les marches (poids, mesures, qualite des produits) et certains aspects de la moralite publique, une institutionnalisation concrete du principe d'amr bil ma'ruf wa nahy 'an al-munkar.",
     relatedSlugs: ["amr-bil-maruf"],
   },
+  // --- Vocabulaire de base du Coran et de sa structure ---
+  {
+    term: "Ayah (Verset)",
+    termArabic: "الآية",
+    slug: "ayah",
+    definition: "Un verset du Coran, unite de base de sa division textuelle.",
+    origin: "Racine arabe a-y-y, evoquant le signe, la preuve.",
+    explanation:
+      "Le mot ayah signifie litteralement \"signe\", un choix lexical qui n'est pas neutre : chaque verset coranique est ainsi presente comme un signe de Dieu, au meme titre que les signes observables dans la creation elle-meme. Le Coran compte 6236 versets repartis en 114 sourates.",
+    relatedSlugs: ["surah", "wahy"],
+  },
+  {
+    term: "Surah (Sourate)",
+    termArabic: "السورة",
+    slug: "surah",
+    definition: "Un chapitre du Coran, unite de division majeure du texte, au nombre de 114.",
+    origin: "Racine arabe s-w-r, evoquant possiblement un rang, une enceinte elevee.",
+    explanation:
+      "Chaque sourate porte un nom generalement tire d'un mot ou theme marquant qu'elle contient, sans lien necessaire avec son sujet principal. Les sourates sont traditionnellement classees en mecquoises ou medinoises selon la periode de leur revelation, une distinction qui influence leur style et leurs themes dominants.",
+    relatedSlugs: ["ayah", "makki-madani"],
+  },
+  {
+    term: "Juz' (Partie du Coran)",
+    termArabic: "الجزء",
+    slug: "juz",
+    definition: "Chacune des trente parties de longueur approximativement egale divisant le texte du Coran.",
+    origin: "Racine arabe j-z-', evoquant la partie, la fraction.",
+    explanation:
+      "Le decoupage en trente juz', sans fondement dans le texte coranique lui-meme mais introduit pour faciliter sa lecture reguliere, permet notamment d'en achever la recitation complete en un mois lunaire, une pratique particulierement repandue durant le Ramadan.",
+    relatedSlugs: ["surah", "tarawih"],
+  },
+  {
+    term: "Hizb (Section du Coran)",
+    termArabic: "الحزب",
+    slug: "hizb",
+    definition: "Une subdivision du Coran, chaque juz' etant lui-meme partage en deux hizb.",
+    origin: "Racine arabe h-z-b, evoquant le groupe, la portion.",
+    explanation:
+      "Le hizb offre une unite de decoupage plus fine que le juz', utile pour repartir la recitation quotidienne sur des periodes plus courtes qu'un mois, une pratique frequente parmi les habitues de la recitation reguliere.",
+    relatedSlugs: ["juz"],
+  },
+  {
+    term: "Mushaf (Exemplaire du Coran)",
+    termArabic: "المصحف",
+    slug: "mushaf",
+    definition: "Un exemplaire physique et complet du texte coranique, relie sous forme de livre.",
+    origin: "Racine arabe s-h-f, evoquant la page, le feuillet.",
+    explanation:
+      "Le terme mushaf designe specifiquement le support materiel du texte coranique complet, par opposition au Qur'an qui designe le texte lui-meme en tant que parole divine ; sa forme actuelle standardisee remonte a la compilation officielle sous le calife Uthman.",
+    relatedSlugs: ["wahy"],
+  },
+  {
+    term: "Makki et Madani (Mecquois et Medinois)",
+    termArabic: "مكي ومدني",
+    slug: "makki-madani",
+    definition: "La classification des versets et sourates selon qu'ils furent reveles avant ou apres l'Hegire.",
+    origin: "Adjectifs derives de La Mecque (Makka) et Medine (Al-Madina).",
+    explanation:
+      "Les sourates mecquoises, generalement plus courtes et centrees sur les fondements de la foi (tawhid, au-dela), precedent l'Hegire ; les sourates medinoises, souvent plus longues, traitent davantage de legislation et d'organisation communautaire - une distinction qui aide les exegetes a contextualiser un verset et a identifier d'eventuels cas de naskh.",
+    relatedSlugs: ["surah", "naskh"],
+  },
+  // --- Nuances de classification du fiqh ---
+  {
+    term: "Fard 'Ayn (Obligation individuelle)",
+    termArabic: "فرض عين",
+    slug: "fard-ayn",
+    definition: "Une obligation religieuse incombant individuellement a chaque musulman, sans exception.",
+    origin: "Composition arabe de fard (obligatoire) et 'ayn (individuel, personnel).",
+    explanation:
+      "Les cinq prieres quotidiennes ou le jeune du Ramadan sont des exemples de fard 'ayn : leur accomplissement par certains membres de la communaute ne dispense en rien les autres de la meme obligation individuelle.",
+    relatedSlugs: ["ahkam-al-khamsa", "fard-kifaya"],
+  },
+  {
+    term: "Fard Kifaya (Obligation collective)",
+    termArabic: "فرض كفاية",
+    slug: "fard-kifaya",
+    definition: "Une obligation religieuse qui, une fois accomplie par un nombre suffisant de musulmans, dispense le reste de la communaute.",
+    origin: "Composition arabe de fard (obligatoire) et kifaya (suffisance).",
+    explanation:
+      "La priere funeraire (salat al-janaza) ou l'apprentissage collectif de certaines sciences religieuses sont des exemples classiques de fard kifaya : si personne dans la communaute ne s'en acquitte, tous en portent collectivement la responsabilite ; des qu'un nombre suffisant s'en charge, l'obligation est levee pour les autres.",
+    relatedSlugs: ["fard-ayn", "amr-bil-maruf"],
+  },
+  {
+    term: "Sunnah Mu'akkada (Sunna fortement confirmee)",
+    termArabic: "السنة المؤكدة",
+    slug: "sunnah-muakkada",
+    definition: "Une pratique recommandee que le Prophete ﷺ accomplissait de facon reguliere, sans jamais l'abandonner.",
+    origin: "Composition arabe de sunnah (voie suivie) et mu'akkada (confirmee, renforcee).",
+    explanation:
+      "La sunnah mu'akkada se distingue de la simple recommandation ponctuelle par sa regularite constante dans la pratique prophetique - son abandon habituel, sans excuse valable, est generalement considere comme fautif bien que n'invalidant aucun acte d'adoration.",
+    relatedSlugs: ["sunnah", "ahkam-al-khamsa"],
+  },
+  {
+    term: "Rukhsa (Concession legale)",
+    termArabic: "الرخصة",
+    slug: "rukhsa",
+    definition: "Un allegement legal accorde en raison d'une circonstance particuliere, comme le voyage ou la maladie.",
+    origin: "Racine arabe r-kh-s, evoquant la facilite, l'allegement.",
+    explanation:
+      "La rukhsa (raccourcissement de la priere en voyage, rupture du jeune pour un malade) s'oppose a la 'azima, la norme par defaut applicable en situation ordinaire - un mecanisme qui illustre le souci du fiqh d'articuler rigueur legale et attention aux circonstances reelles du croyant.",
+    relatedSlugs: ["azima", "qasr"],
+  },
+  {
+    term: "'Azima (Norme par defaut)",
+    termArabic: "العزيمة",
+    slug: "azima",
+    definition: "La regle legale de base, applicable en situation ordinaire, par opposition a la concession (rukhsa).",
+    origin: "Racine arabe '-z-m, evoquant la determination, la regle ferme.",
+    explanation:
+      "L''azima designe l'application standard d'une regle de fiqh, dont la rukhsa constitue une exception legitime face a une difficulte reelle - jeuner normalement etant l''azima, rompre le jeune en voyage etant la rukhsa correspondante.",
+    relatedSlugs: ["rukhsa"],
+  },
+  // --- Titres et fonctions savantes ---
+  {
+    term: "Faqih (Juriste)",
+    termArabic: "الفقيه",
+    slug: "faqih",
+    definition: "Un savant specialise dans l'etude et l'application du fiqh.",
+    origin: "Racine arabe f-q-h, partagee avec fiqh.",
+    explanation:
+      "Le faqih maitrise la methodologie juridique (usul al-fiqh) et son application aux questions pratiques de la vie du croyant, une expertise distincte de celle du muhaddith, davantage centre sur la transmission et l'authentification du hadith.",
+    relatedSlugs: ["fiqh", "mujtahid"],
+  },
+  {
+    term: "Muhaddith (Specialiste du hadith)",
+    termArabic: "المحدث",
+    slug: "muhaddith",
+    definition: "Un savant specialise dans la collecte, la transmission et l'authentification des hadiths.",
+    origin: "Racine arabe h-d-th, partagee avec hadith.",
+    explanation:
+      "Le muhaddith maitrise la science du jarh wa ta'dil et la classification des hadiths (sahih, hasan, da'if...), une discipline exigeant la memorisation de dizaines de milliers de traditions et de leurs chaines de transmission respectives.",
+    relatedSlugs: ["isnad", "jarh-wa-tadil"],
+  },
+  {
+    term: "Sihah Sitta (Les six authentiques)",
+    termArabic: "الصحاح الستة",
+    slug: "sihah-sitta",
+    definition: "Les six recueils de hadiths consideres comme les plus fiables et les plus etudies dans la tradition sunnite.",
+    origin: "Composition arabe de sihah (authentiques) et sitta (six).",
+    explanation:
+      "Les Sihah Sitta regroupent les recueils d'Al-Bukhari, Muslim, Abu Dawud, At-Tirmidhi, An-Nasa'i et Ibn Majah - une selection canonique progressivement etablie par consensus savant au fil des siecles plutot que fixee des l'origine.",
+    relatedSlugs: ["sahih", "isnad"],
+  },
+  // --- Compagnons et premieres generations ---
+  {
+    term: "Sahaba (Compagnons)",
+    termArabic: "الصحابة",
+    slug: "sahaba",
+    definition: "Les personnes ayant rencontre le Prophete ﷺ de son vivant en tant que croyant et etant mortes musulmanes.",
+    origin: "Racine arabe s-h-b, evoquant le compagnonnage.",
+    explanation:
+      "Le statut de Sahabi (singulier de Sahaba) confere une autorite particuliere en matiere de transmission du hadith et de comprehension du Coran, la generation des Compagnons etant unanimement consideree par la tradition sunnite comme la meilleure generation de croyants.",
+    relatedSlugs: ["salaf", "muhajirun"],
+  },
+  {
+    term: "Tabi'un (Successeurs)",
+    termArabic: "التابعون",
+    slug: "tabiun",
+    definition: "La generation ayant connu au moins un Compagnon du Prophete, sans avoir elle-meme rencontre le Prophete ﷺ.",
+    origin: "Racine arabe t-b-', evoquant le fait de suivre.",
+    explanation:
+      "Les Tabi'un forment la seconde des trois meilleures generations identifiees par la tradition (avec les Compagnons et leurs propres successeurs, les Tabi' at-Tabi'in), un maillon essentiel de la chaine de transmission du savoir religieux.",
+    relatedSlugs: ["sahaba", "salaf"],
+  },
+  {
+    term: "Muhajirun (Emigres)",
+    termArabic: "المهاجرون",
+    slug: "muhajirun",
+    definition: "Les premiers musulmans ayant emigre de La Mecque vers Medine pour fuir la persecution.",
+    origin: "Racine arabe h-j-r, partagee avec Hijra.",
+    explanation:
+      "Les Muhajirun, ayant quitte biens et famille pour preserver leur foi, sont associes dans le Coran aux Ansar (les Auxiliaires medinois qui les accueillirent) comme modele fondateur de solidarite communautaire (sourate Al-Hashr, 59:8-9).",
+    relatedSlugs: ["ansar", "sahaba"],
+  },
+  {
+    term: "Ansar (Auxiliaires)",
+    termArabic: "الأنصار",
+    slug: "ansar",
+    definition: "Les habitants de Medine ayant accueilli et soutenu le Prophete ﷺ et les musulmans emigres de La Mecque.",
+    origin: "Racine arabe n-s-r, evoquant le secours, le soutien.",
+    explanation:
+      "Les Ansar partagerent volontairement logements et biens avec les Muhajirun nouvellement arrives, un episode de solidarite fondateur frequemment cite comme modele d'ukhuwwa (fraternite islamique) concrete.",
+    relatedSlugs: ["muhajirun", "ukhuwwa"],
+  },
+  {
+    term: "Ahl al-Bayt (Les Gens de la Maison)",
+    termArabic: "أهل البيت",
+    slug: "ahl-al-bayt",
+    definition: "La famille proche du Prophete ﷺ, objet d'un respect et d'un statut particuliers dans la tradition islamique.",
+    origin: "Expression coranique (sourate Al-Ahzab, 33:33).",
+    explanation:
+      "La composition exacte des Ahl al-Bayt (epouses du Prophete, sa fille Fatima, son gendre Ali et leurs enfants, plus largement l'ensemble de ses descendants) et la nature precise du statut qui leur est du font l'objet d'appreciations differentes entre traditions sunnite et chiite, ce respect etant neanmoins partage par l'ensemble des courants islamiques.",
+    relatedSlugs: ["sahaba"],
+  },
+  // --- Spiritualite complementaire ---
+  {
+    term: "Dhawq (Gout spirituel)",
+    termArabic: "الذوق",
+    slug: "dhawq",
+    definition: "Une forme de connaissance spirituelle directe et experientielle, comparee au sens du gout.",
+    origin: "Racine arabe dh-w-q, evoquant litteralement le gout.",
+    explanation:
+      "Le dhawq designe, dans le vocabulaire soufi, une saisie intuitive et immediate d'une realite spirituelle, distincte du savoir acquis par le raisonnement discursif - une notion qui souligne la dimension experientielle revendiquee par cette tradition.",
+    relatedSlugs: ["maarifa"],
+  },
+  {
+    term: "Wird (Litanie quotidienne)",
+    termArabic: "الورد",
+    slug: "wird",
+    definition: "Un ensemble de formules d'invocation recitees regulierement selon un rythme fixe, souvent quotidien.",
+    origin: "Racine arabe w-r-d, evoquant ce qui revient regulierement.",
+    explanation:
+      "Le wird structure la pratique spirituelle individuelle par une regularite dans le dhikr, une discipline particulierement developpee au sein des confreries soufies (tariqa) ou chaque wird est souvent specifique a l'enseignement du maitre fondateur.",
+    relatedSlugs: ["dhikr", "tariqa"],
+  },
 ];
 
 export async function seedConcepts(db: Database): Promise<void> {
