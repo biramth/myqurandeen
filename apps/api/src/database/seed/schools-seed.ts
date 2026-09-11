@@ -1915,6 +1915,45 @@ const FIQH_TOPICS: FiqhTopicSeed[] = [
     ],
     divergenceExplanation: "La divergence porte sur la portee a donner a la pratique rapportee du Prophete ﷺ, qui rattrapa dans l'ordre plusieurs prieres manquees lors de la bataille du Fosse : les ecoles malikite, hanafite et hanbalite en tirent une obligation generale de respecter cet ordre tant que cela reste raisonnablement praticable, tandis que l'ecole shafi'ite considere cet episode comme une pratique particuliere plutot qu'une regle contraignante applicable a tous les cas de rattrapage.",
   },
+  {
+    title: "Peut-on tenir plusieurs prieres du vendredi (Jumu'a) simultanement dans une meme ville ?",
+    slug: "multiplicite-jumua-meme-ville",
+    category: "Prière (Salat)",
+    description: "Si plusieurs mosquees d'une meme ville peuvent valablement tenir chacune leur propre priere du vendredi le meme jour, ou si une seule congregation unique doit en principe reunir l'ensemble des fideles de la ville.",
+    positions: [
+      { schoolSlug: "malikite", text: "Une seule priere du vendredi doit en principe etre tenue par ville, reunissant l'ensemble des fideles ; la multiplication des lieux de priere du vendredi n'est admise qu'en cas de necessite reelle (distance, difficulte de deplacement)." },
+      { schoolSlug: "hanafite", text: "Plusieurs prieres du vendredi peuvent etre valablement tenues simultanement dans une meme ville, sans condition de necessite particuliere." },
+      { schoolSlug: "shafiite", text: "Position proche des malikites : une seule congregation est en principe requise par ville, la multiplication n'etant admise qu'en cas de difficulte reelle a reunir l'ensemble des fideles en un seul lieu." },
+      { schoolSlug: "hanbalite", text: "Position proche des malikites et shafi'ites : la multiplication des lieux de priere du vendredi dans une meme ville n'est admise qu'en cas de necessite averee." },
+    ],
+    divergenceExplanation: "La divergence porte sur la portee symbolique de l'unite de la communaute lors de la priere du vendredi : les ecoles malikite, shafi'ite et hanbalite y voient une valeur en elle-meme, justifiant de limiter la multiplication des congregations aux seuls cas de necessite pratique reelle, tandis que l'ecole hanafite considere que cette unite est suffisamment realisee par la simultaneite de la priere a travers la ville, sans exiger un lieu unique - une position devenue dominante en pratique avec la croissance des villes modernes.",
+  },
+  {
+    title: "La zakat doit-elle etre repartie entre l'ensemble des huit categories de beneficiaires mentionnees dans le Coran ?",
+    slug: "zakat-repartition-categories-beneficiaires",
+    category: "Zakat",
+    description: "Si le donateur de la zakat doit repartir proportionnellement son don entre les huit categories de beneficiaires mentionnees par le Coran (sourate At-Tawba, 9:60), ou s'il peut la verser integralement a une seule categorie, voire a un seul beneficiaire.",
+    positions: [
+      { schoolSlug: "malikite", text: "La zakat peut etre versee integralement a une seule des huit categories, voire a un seul beneficiaire eligible, sans obligation de repartition entre plusieurs categories." },
+      { schoolSlug: "hanafite", text: "Position identique aux malikites : le versement integral a une seule categorie ou a un seul beneficiaire est valide, l'enumeration coranique indiquant les beneficiaires possibles sans imposer de repartition proportionnelle." },
+      { schoolSlug: "shafiite", text: "La zakat doit en principe etre repartie entre l'ensemble des categories presentes localement, chacune devant recevoir une part, sauf impossibilite pratique reelle." },
+      { schoolSlug: "hanbalite", text: "Position proche des malikites et hanafites : le versement a une seule categorie est valide, sans obligation stricte de repartition entre l'ensemble des huit categories mentionnees." },
+    ],
+    divergenceExplanation: "La divergence porte sur la portee grammaticale et juridique du verset enumerant les huit categories de beneficiaires (sourate At-Tawba, 9:60) : l'ecole shafi'ite y lit une obligation de partage proportionnel entre categories effectivement presentes, tandis que les trois autres ecoles considerent que cette enumeration indique seulement l'eventail des destinataires possibles et legitimes, sans imposer de cle de repartition contraignante entre eux.",
+  },
+  {
+    title: "Dans une societe commerciale (sharika), les benefices doivent-ils etre repartis proportionnellement au capital investi par chaque associe ?",
+    slug: "sharika-repartition-profits-proportionnelle-capital",
+    category: "Commerce et transactions (Mu'amalat)",
+    description: "Si les associes d'une societe commerciale ayant investi des capitaux inegaux peuvent librement convenir d'un partage des benefices different de la proportion de leurs apports respectifs, ou si ce partage doit necessairement suivre la proportion du capital investi par chacun.",
+    positions: [
+      { schoolSlug: "malikite", text: "Le partage des benefices doit correspondre a la proportion du capital investi par chaque associe ; toute clause prevoyant un partage different est invalide." },
+      { schoolSlug: "hanafite", text: "Les associes peuvent librement convenir d'une repartition des benefices differente de la proportion de leurs apports en capital, notamment pour valoriser le travail ou la competence de l'un d'entre eux." },
+      { schoolSlug: "shafiite", text: "Position identique aux malikites : le partage des benefices doit strictement suivre la proportion du capital investi par chaque associe, toute autre repartition etant nulle." },
+      { schoolSlug: "hanbalite", text: "Position identique aux hanafites : les associes peuvent librement convenir d'un partage des benefices independant de la proportion de leur capital respectif." },
+    ],
+    divergenceExplanation: "La divergence porte sur la nature du benefice genere par la societe : les ecoles malikite et shafi'ite considerent que le benefice provient necessairement du capital investi et doit donc etre reparti a due proportion de celui-ci, tandis que les ecoles hanafite et hanbalite admettent que le benefice puisse egalement recompenser d'autres apports que le seul capital (le travail, l'expertise ou la gestion d'un associe), justifiant une repartition librement convenue entre les parties.",
+  },
 ];
 
 export async function seedSchools(db: Database): Promise<void> {
