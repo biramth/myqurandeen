@@ -3597,6 +3597,108 @@ const CONCEPTS: ConceptSeed[] = [
       "La shahada, formule la plus courte et la plus fondamentale de la foi islamique, en constitue a la fois la porte d'entree (sa prononciation sincere suffisant a faire d'une personne musulmane) et le rappel constant, integree a l'adhan, a l'iqama et au tashahhud recite dans chaque priere.",
     relatedSlugs: ["tawhid", "nubuwwa", "tahlil"],
   },
+  // --- Temps sacres du calendrier islamique ---
+  {
+    term: "Laylat al-Qadr (La Nuit du Destin)",
+    termArabic: "ليلة القدر",
+    slug: "laylat-al-qadr",
+    definition: "Une nuit du dernier tiers du Ramadan, durant laquelle debuta la revelation du Coran, meilleure qu'mille mois.",
+    origin: "Terme coranique, donnant son nom a la sourate Al-Qadr (97).",
+    explanation:
+      "Le Coran (sourate Al-Qadr, 97:3) affirme que cette nuit vaut mieux que mille mois d'adoration ordinaire ; sa date precise reste volontairement incertaine selon la tradition, bien que largement recherchee parmi les nuits impaires des dix derniers jours du Ramadan, notamment la vingt-septieme, encourageant une adoration soutenue durant toute cette periode plutot que concentree sur une seule nuit.",
+    relatedSlugs: ["sawm", "wahy", "itikaf"],
+  },
+  {
+    term: "'Itikaf (Retraite spirituelle)",
+    termArabic: "الاعتكاف",
+    slug: "itikaf",
+    definition: "Une retraite spirituelle a la mosquee, consacree exclusivement a l'adoration, generalement durant les dix derniers jours du Ramadan.",
+    origin: "Racine arabe '-k-f, evoquant le fait de se consacrer, de s'attacher a un lieu.",
+    explanation:
+      "Durant l'i'tikaf, pratique reguliere du Prophete ﷺ durant les dix derniers jours du Ramadan selon plusieurs hadiths, la personne se retire du monde exterieur pour se consacrer entierement a la priere, au dhikr et a la recherche de Laylat al-Qadr.",
+    relatedSlugs: ["laylat-al-qadr", "sawm"],
+  },
+  {
+    term: "Ashura (Le dixieme jour de Muharram)",
+    termArabic: "عاشوراء",
+    slug: "ashura",
+    definition: "Le dixieme jour du mois de Muharram, journee de jeune recommande dans la tradition sunnite.",
+    origin: "Racine arabe '-sh-r, evoquant le dixieme.",
+    explanation:
+      "Le jeune d'Ashura, anterieur a l'institution du Ramadan et maintenu ensuite comme recommandation, commemore selon un hadith de Bukhari le sauvetage de Moise et des Israelites de Pharaon ; ce jour revet par ailleurs une signification specifique et distincte dans la tradition chiite, liee au souvenir du massacre de Kerbala.",
+    relatedSlugs: ["sawm", "ashhur-al-hurum"],
+  },
+  {
+    term: "Ashhur al-Hurum (Les mois sacres)",
+    termArabic: "الأشهر الحرم",
+    slug: "ashhur-al-hurum",
+    definition: "Quatre mois du calendrier lunaire islamique durant lesquels le combat etait traditionnellement proscrit.",
+    origin: "Terme coranique (sourate At-Tawba, 9:36).",
+    explanation:
+      "Ces quatre mois - Dhul-Qa'da, Dhul-Hijja, Muharram et Rajab - etaient deja consideres sacres avant l'islam, qui en confirma le statut particulier ; la tradition invite a une vigilance morale accrue durant ces periodes, sans qu'elles ne comportent d'obligations rituelles specifiques distinctes du reste de l'annee.",
+    relatedSlugs: ["ashura", "hajj"],
+  },
+  // --- Vocabulaire juridique de base (usul et concepts transversaux) ---
+  {
+    term: "'Aqd (Contrat)",
+    termArabic: "العقد",
+    slug: "aqd",
+    definition: "L'accord de volontes entre deux parties, formant la base de toute transaction reconnue par le fiqh.",
+    origin: "Racine arabe '-q-d, evoquant le lien, le noeud.",
+    explanation:
+      "Le fiqh des transactions (mu'amalat) analyse chaque type d'echange - vente, location, mariage, societe - comme une variante particuliere de la notion generale de 'aqd, chacune assortie de ses propres conditions de validite (parties capables, objet licite, consentement libre).",
+    relatedSlugs: ["bay", "gharar"],
+  },
+  {
+    term: "Dhimma (Capacite juridique, responsabilite)",
+    termArabic: "الذمة",
+    slug: "dhimma",
+    definition: "La capacite juridique et morale d'une personne a etre tenue d'obligations et titulaire de droits.",
+    origin: "Racine arabe dh-m-m, partagee avec dhimmi.",
+    explanation:
+      "La dhimma designe, en fiqh classique, la capacite abstraite d'une personne a contracter des dettes, assumer des responsabilites et detenir des droits - un concept juridique fondamental dont derive notamment le terme dhimmi, applique historiquement au statut des non-musulmans places sous cette meme logique de protection contractuelle.",
+    relatedSlugs: ["ahliyya", "dhimmi"],
+  },
+  {
+    term: "Ahliyya (Capacite d'exercice)",
+    termArabic: "الأهلية",
+    slug: "ahliyya",
+    definition: "L'aptitude concrete d'une personne a exercer ses droits et assumer ses obligations religieuses et legales.",
+    origin: "Racine arabe a-h-l, evoquant l'aptitude, la qualification.",
+    explanation:
+      "Le fiqh distingue l'ahliyyat al-wujub (capacite de jouissance, presente des la naissance) de l'ahliyyat al-ada' (capacite d'exercice effective, generalement liee a la puberte et a la raison), une distinction qui explique par exemple pourquoi un mineur peut heriter (jouissance) sans pouvoir conclure seul un contrat de vente (exercice).",
+    relatedSlugs: ["dhimma"],
+  },
+  {
+    term: "Milk (Propriete)",
+    termArabic: "الملك",
+    slug: "milk",
+    definition: "Le droit exclusif de disposer d'un bien, reconnu et protege par le fiqh.",
+    origin: "Racine arabe m-l-k, partagee avec Al-Malik.",
+    explanation:
+      "Le fiqh islamique reconnait et protege fermement la propriete privee (milk), tout en la subordonnant theologiquement a une propriete divine ultime et absolue - une tension feconde qui fonde a la fois le respect strict des biens d'autrui (interdiction du vol, du ghasb) et les mecanismes de redistribution comme la zakat.",
+    relatedSlugs: ["al-malik", "aqd"],
+  },
+  {
+    term: "Mal (Bien, richesse)",
+    termArabic: "المال",
+    slug: "mal",
+    definition: "Tout bien materiel ayant une valeur reconnue et pouvant faire l'objet d'une appropriation licite.",
+    origin: "Racine arabe m-w-l, evoquant le bien, la fortune.",
+    explanation:
+      "Le fiqh definit precisement ce qui constitue un mal valablement echangeable - excluant par exemple le vin ou le porc, sans valeur licite pour un musulman - une categorisation prealable a toute analyse d'un contrat de vente ou d'une obligation de zakat.",
+    relatedSlugs: ["milk", "zakat"],
+  },
+  {
+    term: "Hawala (Transfert de creance)",
+    termArabic: "الحوالة",
+    slug: "hawala",
+    definition: "Le transfert d'une dette ou d'une creance d'une personne a une autre, qui en devient juridiquement responsable.",
+    origin: "Racine arabe h-w-l, evoquant le transfert, le changement.",
+    explanation:
+      "La hawala permet a un debiteur de transferer son obligation de paiement vers un tiers qui accepte de s'en charger, un mecanisme qui a historiquement facilite le commerce a longue distance et dont le nom demeure aujourd'hui associe a des reseaux informels de transfert d'argent dans plusieurs regions du monde musulman.",
+    relatedSlugs: ["aqd", "kafala"],
+  },
 ];
 
 export async function seedConcepts(db: Database): Promise<void> {
