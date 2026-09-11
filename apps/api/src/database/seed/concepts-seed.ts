@@ -4647,6 +4647,108 @@ const CONCEPTS: ConceptSeed[] = [
       "Le Coran le decrit comme ayant recu \"la sagesse et la tendresse\" des l'enfance, ainsi qu'une purete de coeur particuliere (sourate Maryam, 19:12-14), en faisant l'un des rares personnages coraniques explicitement loues pour sa piete des le plus jeune age.",
     relatedSlugs: ["zakariyya", "nabi"],
   },
+  // --- Eschatologie complementaire ---
+  {
+    term: "As-Sa'a (L'Heure)",
+    termArabic: "الساعة",
+    slug: "as-saa",
+    definition: "Le terme coranique le plus frequemment employe pour designer le moment de la fin du monde et du debut de la resurrection.",
+    origin: "Terme coranique, employe dans un tres grand nombre de versets.",
+    explanation:
+      "Le Coran affirme a plusieurs reprises que la connaissance du moment precis de l'Heure appartient exclusivement a Dieu (sourate Al-A'raf, 7:187), tout en mentionnant, via de nombreux hadiths complementaires, une serie de signes annonciateurs mineurs et majeurs precedant sa survenue.",
+    relatedSlugs: ["qiyamah", "israfil"],
+  },
+  {
+    term: "Hisab (La Reddition des comptes)",
+    termArabic: "الحساب",
+    slug: "hisab",
+    definition: "Le jugement individuel de chaque etre humain sur l'ensemble de ses actes, croyances et intentions, apres la resurrection.",
+    origin: "Racine arabe h-s-b, evoquant le calcul, le compte.",
+    explanation:
+      "Le Coran decrit le hisab comme un examen minutieux ou chaque acte, aussi infime soit-il, sera presente (sourate Az-Zalzala, 99:7-8), les registres des actes (sahifat al-a'mal) etant alors remis dans la main droite pour les uns, dans la main gauche ou derriere le dos pour les autres (sourate Al-Haqqa, 69:19-25), signe avant-coureur du jugement final.",
+    relatedSlugs: ["sahifat-al-amal", "al-mizan"],
+  },
+  {
+    term: "Yawm al-Hashr (Le Jour du Rassemblement)",
+    termArabic: "يوم الحشر",
+    slug: "yawm-al-hashr",
+    definition: "Le jour ou l'ensemble de l'humanite, depuis Adam jusqu'au dernier etre humain, sera rassemblee pour faire face au jugement divin.",
+    origin: "Racine arabe h-sh-r, evoquant le rassemblement, la convocation collective.",
+    explanation:
+      "Le Coran decrit ce rassemblement comme total et sans exception (sourate Al-Kahf, 18:47), les etres humains se presentant selon la tradition prophetique nus, non circoncis et depourvus de tout bien materiel, dans un etat d'egalite totale devant le jugement a venir.",
+    relatedSlugs: ["qiyamah", "hisab"],
+  },
+  {
+    term: "Sahifat al-A'mal (Registre des actes)",
+    termArabic: "صحيفة الأعمال",
+    slug: "sahifat-al-amal",
+    definition: "Le registre individuel consignant l'ensemble des actes d'une personne durant sa vie terrestre, remis a chacun le Jour du Jugement.",
+    origin: "Composition arabe de sahifa (feuillet, registre) et a'mal (pluriel de amal, action).",
+    explanation:
+      "Le Coran affirme que ce registre est tenu par des anges scribes (kiraman katibin, sourate Al-Infitar, 82:10-12) consignant chaque acte sans exception, et qu'il sera remis dans la main droite de celui dont le bilan est favorable, ou dans la main gauche ou derriere le dos pour celui dont le bilan est defavorable (sourate Al-Inshiqaq, 84:7-12).",
+    relatedSlugs: ["hisab", "al-mizan"],
+  },
+  // --- Vocabulaire complementaire du culte ---
+  {
+    term: "Tahajjud (Priere nocturne surerogatoire)",
+    termArabic: "التهجد",
+    slug: "tahajjud",
+    definition: "La priere surerogatoire accomplie durant la nuit, generalement apres un temps de sommeil.",
+    origin: "Racine arabe h-j-d, evoquant le fait de veiller, de rester eveille.",
+    explanation:
+      "Le Coran s'adresse directement au prophete Muhammad en lui recommandant le tahajjud comme une priere surerogatoire susceptible de l'elever a une position louee (sourate Al-Isra, 17:79), une pratique restee fortement valorisee dans la tradition spirituelle musulmane pour l'ensemble des croyants.",
+    relatedSlugs: ["qiyam-al-layl", "witr"],
+  },
+  {
+    term: "Qiyam al-Layl (Priere de la nuit)",
+    termArabic: "قيام الليل",
+    slug: "qiyam-al-layl",
+    definition: "Le terme general designant toute priere surerogatoire accomplie durant la nuit, incluant le tahajjud et les prieres du mois de Ramadan.",
+    origin: "Composition arabe de qiyam (le fait de se tenir debout, ici pour prier) et layl (la nuit).",
+    explanation:
+      "Terme plus large que le tahajjud (qui suppose specifiquement un reveil apres sommeil), le qiyam al-layl englobe toute priere nocturne surerogatoire, y compris celle accomplie avant le coucher, et connait un regain de pratique collective particulier durant le mois de Ramadan sous la forme des tarawih.",
+    relatedSlugs: ["tahajjud", "tarawih"],
+  },
+  {
+    term: "Ayyam al-Bid (Les jours blancs)",
+    termArabic: "الأيام البيض",
+    slug: "ayyam-al-bid",
+    definition: "Les treizieme, quatorzieme et quinzieme jours de chaque mois du calendrier hijri, durant lesquels le jeune surerogatoire est particulierement recommande.",
+    origin: "Composition arabe de ayyam (jours) et bid (blancs), en reference a la pleine lune illuminant ces nuits.",
+    explanation:
+      "Plusieurs hadiths rapportent que le prophete Muhammad recommandait et pratiquait lui-meme le jeune de ces trois jours chaque mois lunaire, une pratique rapportee comme equivalente, en recompense, au jeune permanent selon un hadith de Sahih Muslim.",
+    relatedSlugs: ["sawm", "ramadan"],
+  },
+  {
+    term: "Zakat al-Fitr",
+    termArabic: "زكاة الفطر",
+    slug: "zakat-al-fitr",
+    definition: "Une aumone obligatoire, distincte de la zakat annuelle sur les biens, versee par chaque musulman a l'occasion de la rupture du jeune de Ramadan.",
+    origin: "Composition arabe de zakat (purification, aumone) et fitr (rupture du jeune).",
+    explanation:
+      "A la difference de la zakat annuelle calculee sur un patrimoine atteignant le nisab, la zakat al-fitr est due par chaque musulman, quel que soit son age ou sa richesse, generalement a la charge du chef de famille pour l'ensemble de son foyer, avec pour fonction rapportee de purifier le jeuneur d'eventuels manquements et de permettre aux plus demunis de celebrer l'Aid.",
+    relatedSlugs: ["zakat", "ramadan"],
+  },
+  {
+    term: "Sujud ash-Shukr (Prosternation de gratitude)",
+    termArabic: "سجود الشكر",
+    slug: "sujud-ash-shukr",
+    definition: "Une prosternation isolee, hors du cadre de la priere rituelle, accomplie en signe de reconnaissance envers Dieu a l'occasion d'un bienfait ou d'un evenement heureux.",
+    origin: "Composition arabe de sujud (prosternation) et shukr (gratitude).",
+    explanation:
+      "Plusieurs hadiths rapportent que le prophete Muhammad se prosternait spontanement en recevant une bonne nouvelle ou en etant delivre d'une epreuve, une pratique reprise par la tradition comme expression concrete de la gratitude (shukr) envers Dieu en dehors du cadre des cinq prieres quotidiennes.",
+    relatedSlugs: ["shukr", "salah"],
+  },
+  {
+    term: "Hawqala",
+    termArabic: "الحوقلة",
+    slug: "hawqala",
+    definition: "La formule d'invocation \"la hawla wa la quwwata illa billah\" (il n'y a de force ni de puissance qu'en Dieu), reconnue comme un tresor parmi les tresors du Paradis.",
+    origin: "Terme construit a partir des premieres lettres de la formule elle-meme, sur le modele d'autres formules abregees comme la basmala ou la hamdala.",
+    explanation:
+      "Un hadith rapporte par Al-Bukhari et Muslim rapporte que le Prophete ﷺ presenta cette formule a un compagnon comme un tresor parmi les tresors du Paradis, exprimant la reconnaissance de la totale dependance du croyant envers Dieu pour toute force et toute capacite d'agir.",
+    relatedSlugs: ["dhikr", "tawakkul"],
+  },
 ];
 
 export async function seedConcepts(db: Database): Promise<void> {
