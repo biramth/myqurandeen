@@ -1980,6 +1980,45 @@ const FIQH_TOPICS: FiqhTopicSeed[] = [
     ],
     divergenceExplanation: "La divergence porte sur la portee du hadith rapportant que le Prophete ﷺ s'adressa aux Banu Abd Manaf en leur demandant de ne jamais empecher quiconque d'accomplir le tawaf et sa priere \"a n'importe quelle heure du jour ou de la nuit\" : les ecoles shafi'ite et hanbalite y voient une exception textuelle explicite couvrant a la fois le tawaf et sa priere, tandis que les ecoles malikite et hanafite considerent que cette exception ne concerne que le tawaf lui-meme, la priere qui l'accompagne demeurant soumise aux restrictions horaires generales.",
   },
+  {
+    title: "Le jeune de trois jours en expiation d'un serment rompu doit-il etre accompli de maniere consecutive ?",
+    slug: "kaffara-yamin-jeune-consecutif-ou-non",
+    category: "Serments et vœux (Ayman)",
+    description: "Si les trois jours de jeune prevus par le Coran comme l'une des formes d'expiation (kaffara) d'un serment rompu doivent etre accomplis consecutivement, ou peuvent etre repartis sur des jours non-consecutifs.",
+    positions: [
+      { schoolSlug: "malikite", text: "Les trois jours de jeune peuvent etre accomplis consecutivement ou non, le texte coranique ne precisant aucune condition de continuite." },
+      { schoolSlug: "hanafite", text: "Les trois jours de jeune doivent etre accomplis de maniere consecutive, en s'appuyant sur une lecture (qira'a) rapportant explicitement le terme \"consecutifs\" (mutatabi'at) a cet endroit du verset." },
+      { schoolSlug: "shafiite", text: "Position identique aux malikites : les trois jours peuvent etre repartis librement, sans obligation de continuite entre eux." },
+      { schoolSlug: "hanbalite", text: "Position identique aux malikites et shafi'ites : aucune continuite n'est requise entre les trois jours de jeune." },
+    ],
+    divergenceExplanation: "La divergence porte sur le statut juridique d'une lecture coranique (qira'a) non retenue dans le texte uthmanien standard mais rapportee par certains compagnons, incluant le terme \"consecutifs\" a cet endroit precis : l'ecole hanafite lui accorde une valeur explicative engageante pour la comprehension du verset, tandis que les trois autres ecoles limitent la portee juridique contraignante au texte du mushaf uthmanien tel qu'etabli et transmis de maniere unanime, sans y ajouter de condition non retenue dans ce texte de reference.",
+  },
+  {
+    title: "Le pelerin peut-il se parfumer le corps avant d'entrer en ihram, meme si le parfum persiste durant l'ihram lui-meme ?",
+    slug: "parfum-avant-ihram-persistance",
+    category: "Hajj et 'Umra",
+    description: "Si un pelerin peut valablement appliquer du parfum sur son corps avant d'entrer en etat de sacralisation (ihram), sans consequence si l'odeur persiste apres son entree effective en ihram.",
+    positions: [
+      { schoolSlug: "malikite", text: "Le parfum applique avant l'entree en ihram est permis, meme si son odeur persiste par la suite, sans qu'aucune compensation ne soit due." },
+      { schoolSlug: "hanafite", text: "Si l'odeur du parfum applique avant l'ihram demeure perceptible une fois l'ihram entame, une compensation (fidya) devient due, le maintien de l'odeur etant traite comme une violation continue de l'interdiction." },
+      { schoolSlug: "shafiite", text: "Position identique aux malikites : le parfum applique avant l'ihram est sans consequence, meme si son odeur subsiste durant l'ihram." },
+      { schoolSlug: "hanbalite", text: "Position identique aux malikites et shafi'ites : aucune compensation n'est due pour la persistance d'un parfum applique avant l'entree en ihram." },
+    ],
+    divergenceExplanation: "La divergence porte sur la portee du hadith rapporte par Aisha, selon lequel elle parfumait elle-meme le Prophete ﷺ avant qu'il n'entre en ihram : les ecoles malikite, shafi'ite et hanbalite y voient la preuve que seul le fait d'appliquer du parfum apres l'entree en ihram est interdit, sans consequence pour un parfum anterieur meme persistant, tandis que l'ecole hanafite considere que l'interdiction porte sur la persistance meme de l'odeur durant l'ihram, independamment du moment ou le parfum a ete applique.",
+  },
+  {
+    title: "La reprise d'une epouse durant un divorce revocable (raj'a) requiert-elle une declaration verbale explicite ?",
+    slug: "reprise-talaq-revocable-parole-ou-acte",
+    category: "Mariage (Nikah)",
+    description: "Si un mari souhaitant reprendre son epouse durant la periode d'attente (idda) suivant un divorce revocable doit necessairement le faire par une declaration verbale explicite, ou si la reprise des relations conjugales avec intention suffit egalement.",
+    positions: [
+      { schoolSlug: "malikite", text: "La reprise peut etre effectuee soit par une declaration verbale explicite, soit par un acte intime accompli avec l'intention claire de reprendre l'epouse." },
+      { schoolSlug: "hanafite", text: "Position identique aux malikites : la reprise est valablement effectuee par la parole ou par un acte accompli avec l'intention de reprendre l'epouse." },
+      { schoolSlug: "shafiite", text: "La reprise requiert une declaration verbale explicite ; la simple reprise de relations intimes, sans parole, ne constitue pas une reprise valide au sens juridique." },
+      { schoolSlug: "hanbalite", text: "Position proche des malikites et hanafites : la reprise peut etre effectuee par la parole ou par un acte manifestant clairement l'intention de reprendre l'epouse." },
+    ],
+    divergenceExplanation: "La divergence porte sur la nature juridique de la raj'a (reprise) : les ecoles malikite, hanafite et hanbalite la traitent comme un acte juridique pouvant se manifester aussi bien par la parole que par un comportement univoque exprimant clairement l'intention de reprendre l'union, tandis que l'ecole shafi'ite exige une declaration verbale explicite, a l'image de la conclusion initiale du mariage lui-meme, qui ne peut se faire par un acte seul sans parole.",
+  },
 ];
 
 export async function seedSchools(db: Database): Promise<void> {
