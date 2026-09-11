@@ -4342,6 +4342,97 @@ const CONCEPTS: ConceptSeed[] = [
       "Un narrateur qualifie de thiqa reunit les deux conditions requises par les critiques du hadith : l'integrite morale ('adala) et l'exactitude de la memorisation (dabt) ; l'absence de l'une ou l'autre de ces qualites conduit a des classifications degressives jusqu'au daif.",
     relatedSlugs: ["rawi", "jarh-wa-tadil"],
   },
+  // --- Califes bien-guides et compagnons majeurs ---
+  {
+    term: "Al-Khulafa ar-Rashidun (Les califes bien-guides)",
+    termArabic: "الخلفاء الراشدون",
+    slug: "khulafa-ar-rashidun",
+    definition: "Les quatre premiers dirigeants de la communaute musulmane apres la mort du prophete Muhammad, reconnus par la tradition sunnite comme des modeles de gouvernance juste.",
+    origin: "Composition arabe de khulafa (pluriel de calife, successeur) et rashidun (bien-guides, sur la voie droite).",
+    explanation:
+      "La periode des califes bien-guides (Abu Bakr, Omar, Uthman et Ali, 11-40 AH / 632-661) est traditionnellement presentee dans la tradition sunnite comme un age de reference pour la gouvernance islamique, un hadith rapportant l'exhortation du Prophete a s'attacher fermement a sa sunna et a celle de ces califes bien-guides apres lui.",
+    relatedSlugs: ["khilafa", "sahaba"],
+  },
+  {
+    term: "Abu Bakr as-Siddiq",
+    termArabic: "أبو بكر الصديق",
+    slug: "abu-bakr-as-siddiq",
+    definition: "Le plus proche compagnon du prophete Muhammad, premier calife bien-guide de la communaute musulmane.",
+    origin: "Surnomme as-Siddiq (le veridique) pour avoir immediatement cru au recit du voyage nocturne du Prophete sans hesitation.",
+    explanation:
+      "Compagnon des tout premiers jours de la revelation, il accompagna le Prophete lors de l'emigration (hijra) vers Medine et fut designe pour diriger la priere durant la maladie du Prophete peu avant sa mort - un fait rapporte comme ayant pese dans son election comme premier calife. Son bref califat (11-13 AH / 632-634) fut notamment marque par les guerres dites de la Ridda contre les tribus ayant rejete l'autorite centrale apres la mort du Prophete.",
+    relatedSlugs: ["khulafa-ar-rashidun", "sahaba"],
+  },
+  {
+    term: "Umar ibn al-Khattab",
+    termArabic: "عمر بن الخطاب",
+    slug: "umar-ibn-al-khattab",
+    definition: "Le deuxieme calife bien-guide, connu pour l'expansion territoriale et l'organisation administrative de l'Etat musulman naissant sous son mandat.",
+    origin: "Surnomme al-Faruq (celui qui distingue le vrai du faux) par la tradition.",
+    explanation:
+      "Sa conversion, initialement oppose farouche de l'islam naissant, est rapportee comme un tournant majeur dans l'affermissement public de la communaute musulmane a La Mecque. Son califat (13-23 AH / 634-644) vit d'importantes conquetes territoriales ainsi que la mise en place d'institutions administratives durables, dont le calendrier hijri lui-meme, adopte sous son autorite.",
+    relatedSlugs: ["khulafa-ar-rashidun", "bayt-al-mal"],
+  },
+  {
+    term: "Uthman ibn Affan",
+    termArabic: "عثمان بن عفان",
+    slug: "uthman-ibn-affan",
+    definition: "Le troisieme calife bien-guide, connu pour avoir supervise la compilation et la standardisation officielle du texte coranique.",
+    origin: "Surnomme Dhu an-Nurayn (celui aux deux lumieres) pour avoir epouse successivement deux filles du Prophete.",
+    explanation:
+      "Sous son califat (23-35 AH / 644-656), face a la diversification des lectures coraniques dans les territoires en pleine expansion, une commission fut chargee d'etablir une version ecrite de reference du Coran, envoyee aux principales garnisons de l'empire - un evenement fondateur souvent designe comme la compilation uthmanienne (mushaf uthmani).",
+    relatedSlugs: ["khulafa-ar-rashidun", "mushaf"],
+  },
+  {
+    term: "Ali ibn Abi Talib",
+    termArabic: "علي بن أبي طالب",
+    slug: "ali-ibn-abi-talib",
+    definition: "Le quatrieme calife bien-guide, cousin et gendre du prophete Muhammad, epoux de sa fille Fatima.",
+    origin: "Compte, selon plusieurs recits, parmi les tout premiers a avoir embrasse l'islam.",
+    explanation:
+      "Son califat (35-40 AH / 656-661) fut marque par une periode de troubles internes majeurs (fitna) au sein de la jeune communaute musulmane, incluant les batailles du Chameau et de Siffin. Il occupe une place particulierement centrale dans la tradition chiite, qui le considere comme le premier imam legitime, tandis que la tradition sunnite le reconnait comme le quatrieme des califes bien-guides.",
+    relatedSlugs: ["khulafa-ar-rashidun", "ahl-al-bayt"],
+  },
+  {
+    term: "Khadija bint Khuwaylid",
+    termArabic: "خديجة بنت خويلد",
+    slug: "khadija",
+    definition: "La premiere epouse du prophete Muhammad et, selon la tradition islamique, la toute premiere personne a avoir cru en son message.",
+    origin: "Commercante mecquoise respectee, elle employa Muhammad avant de lui proposer le mariage.",
+    explanation:
+      "Khadija soutint moralement et materiellement le Prophete des les tout premiers moments de la revelation, un episode rapporte notamment dans le recueil de Al-Bukhari ou elle le rassure face a son trouble apres sa premiere rencontre avec l'ange Jibril. Le Prophete resta monogame avec elle jusqu'a sa mort, evoquant par la suite son souvenir avec une affection particuliere.",
+    relatedSlugs: ["wahy", "sahaba"],
+  },
+  {
+    term: "Aisha bint Abi Bakr",
+    termArabic: "عائشة بنت أبي بكر",
+    slug: "aisha",
+    definition: "Une epouse du prophete Muhammad, fille du calife Abu Bakr, reconnue comme l'une des plus importantes narratrices de hadith de l'histoire islamique.",
+    origin: "Fille du premier calife Abu Bakr as-Siddiq.",
+    explanation:
+      "Aisha est rapportee comme la source d'un tres grand nombre de hadiths, notamment sur des questions relatives a la vie privee et familiale du Prophete auxquelles peu d'autres compagnons avaient acces direct, en faisant une reference incontournable des sciences du hadith et une autorite juridique consultee par de nombreux compagnons apres la mort du Prophete.",
+    relatedSlugs: ["sahaba", "isnad"],
+  },
+  {
+    term: "Bilal ibn Rabah",
+    termArabic: "بلال بن رباح",
+    slug: "bilal-ibn-rabah",
+    definition: "Un compagnon d'origine ethiopienne affranchi de l'esclavage, reconnu comme le tout premier muezzin de l'islam.",
+    origin: "Ancien esclave affranchi par Abu Bakr apres avoir subi des tortures pour son refus de renier sa foi.",
+    explanation:
+      "Sa fermete durant les persecutions subies a La Mecque en raison de sa conversion precoce est frequemment citee comme exemple de resilience et de foi. Sa voix fut choisie par le Prophete pour lancer l'appel a la priere (adhan) apres l'instauration de cette pratique, fonction qu'il assuma durant une grande partie de sa vie.",
+    relatedSlugs: ["adhan", "sahaba"],
+  },
+  {
+    term: "Abu Hurayra",
+    termArabic: "أبو هريرة",
+    slug: "abu-hurayra",
+    definition: "Un compagnon reconnu comme le narrateur ayant transmis le plus grand nombre de hadiths dans la tradition sunnite.",
+    origin: "Surnomme litteralement \"le pere du petit chat\" en raison de son affection pour les chats.",
+    explanation:
+      "Converti tardivement, environ trois ans avant la mort du Prophete, il consacra une grande partie de son temps a accompagner celui-ci et a memoriser ses paroles, ce qui explique le tres grand nombre de hadiths (plusieurs milliers) qui lui sont attribues dans les grands recueils, dont Sahih al-Bukhari et Sahih Muslim.",
+    relatedSlugs: ["sahaba", "isnad"],
+  },
 ];
 
 export async function seedConcepts(db: Database): Promise<void> {
