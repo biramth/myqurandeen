@@ -1057,6 +1057,58 @@ const FIQH_TOPICS: FiqhTopicSeed[] = [
     ],
     divergenceExplanation: "Aucun texte ne fixe explicitement ce seuil : les trois écoles convergeant sur environ quatre jours s'appuient notamment sur la durée du séjour du Prophète ﷺ à La Mecque lors du pèlerinage d'adieu, tandis que l'école hanafite retient un seuil nettement plus large de quinze jours, en lien avec la durée minimale à partir de laquelle elle considère qu'un lieu peut être qualifié de résidence effective.",
   },
+  {
+    title: "La Basmala fait-elle partie de la sourate Al-Fatiha ?",
+    slug: "basmala-partie-de-fatiha",
+    category: "Prière (Salat)",
+    description: "Si la formule \"Bismillah ar-Rahman ar-Rahim\" constitue un verset a part entiere de la sourate Al-Fatiha, dont la recitation serait donc requise pour la validite de la priere.",
+    positions: [
+      { schoolSlug: "malikite", text: "La Basmala n'est un verset ni de la Fatiha ni d'aucune autre sourate ; elle n'est donc pas recitee au debut de la Fatiha durant la priere obligatoire." },
+      { schoolSlug: "hanafite", text: "La Basmala constitue un verset independant place au debut de chaque sourate pour marquer sa separation, mais n'est un verset d'aucune sourate en particulier, y compris la Fatiha." },
+      { schoolSlug: "shafiite", text: "La Basmala est un verset a part entiere de la Fatiha, et de chaque sourate a l'exception de la sourate At-Tawba ; sa recitation est donc requise a chaque fois que la Fatiha est recitee en priere." },
+      { schoolSlug: "hanbalite", text: "Position proche de celle des hanafites : la Basmala est un verset separateur place au debut des sourates, mais n'appartient pas au texte de la Fatiha elle-meme." },
+    ],
+    divergenceExplanation: "La divergence porte sur le statut de la Basmala telle qu'elle figure dans le mushaf au debut de chaque sourate (sauf At-Tawba) : l'ecole shafi'ite y voit un verset a part entiere de chaque sourate qu'elle introduit, tandis que les trois autres ecoles la considerent comme une formule de demarcation entre sourates, sans appartenir au texte verse par verset de celles-ci.",
+  },
+  {
+    title: "Une femme en periode de menstrues (hayd) peut-elle reciter le Coran ?",
+    slug: "recitation-coran-femme-hayd",
+    category: "Purification (Tahara)",
+    description: "Si une femme en etat de menstrues peut reciter des versets du Coran de memoire, sans toucher le mushaf.",
+    positions: [
+      { schoolSlug: "malikite", text: "La recitation est permise, notamment pour une enseignante ou une eleve, ou par crainte d'oubli du texte memorise." },
+      { schoolSlug: "hanafite", text: "La recitation complete de versets est interdite durant les menstrues, position s'appuyant sur l'analogie avec l'etat de grande impurete rituelle (janaba)." },
+      { schoolSlug: "shafiite", text: "La recitation est interdite durant les menstrues, assimilees a la janaba sur ce point precis." },
+      { schoolSlug: "hanbalite", text: "Position generalement alignee sur l'interdiction, bien que des juristes tardifs de l'ecole, dont Ibn Taymiyyah, aient defendu une autorisation en cas de besoin reel, notamment pour l'enseignement." },
+    ],
+    divergenceExplanation: "La divergence tient a la portee donnee aux hadiths rapportant que le Prophete ﷺ recommandait a Aïcha, menstruee durant le hajj, d'accomplir tous les rites sauf le tawaf : les ecoles hanafite et shafi'ite y voient une interdiction generale de la recitation par analogie avec la janaba, tandis que l'ecole malikite, rejointe par une partie de l'ecole hanbalite, distingue la simple recitation orale - jugee permise - du contact avec le mushaf lui-meme.",
+  },
+  {
+    title: "La 'umra est-elle obligatoire au meme titre que le hajj, ou seulement recommandee ?",
+    slug: "umra-obligatoire-ou-recommandee",
+    category: "Hajj et 'Umra",
+    description: "Si le petit pelerinage ('umra) constitue, comme le hajj, une obligation a accomplir au moins une fois dans la vie pour qui en a les moyens, ou s'il s'agit d'un acte seulement recommande.",
+    positions: [
+      { schoolSlug: "malikite", text: "La 'umra est un acte fortement recommande (sunna mu'akkada), non obligatoire." },
+      { schoolSlug: "hanafite", text: "Position identique aux malikites : la 'umra est une sunna mu'akkada et non une obligation stricte, a la difference du hajj." },
+      { schoolSlug: "shafiite", text: "La 'umra est obligatoire une fois dans la vie pour qui en a les moyens, au meme titre que le hajj, s'appuyant sur une lecture du verset coranique associant les deux termes (sourate Al-Baqara, 2:196)." },
+      { schoolSlug: "hanbalite", text: "Position identique a celle des shafi'ites : la 'umra est obligatoire une fois dans la vie, au meme titre que le hajj." },
+    ],
+    divergenceExplanation: "La divergence provient de deux lectures differentes du verset \"Accomplissez le hajj et la 'umra pour Dieu\" (sourate Al-Baqara, 2:196) : les ecoles shafi'ite et hanbalite y lisent un ordre conjoint impliquant l'obligation des deux rites, tandis que les ecoles malikite et hanafite considerent que ce verset regle seulement la maniere de les accomplir une fois entrepris, sans en etablir l'obligation initiale pour la 'umra.",
+  },
+  {
+    title: "Le contact direct avec ses propres organes genitaux annule-t-il les petites ablutions ?",
+    slug: "contact-organes-genitaux-et-wudu",
+    category: "Purification (Tahara)",
+    description: "Si le fait de toucher directement, sans barriere, ses propres organes genitaux annule les petites ablutions (wudu), independamment de tout autre facteur.",
+    positions: [
+      { schoolSlug: "malikite", text: "Le contact direct annule les ablutions uniquement s'il est accompagne de desir (ladhdha) ; un contact fortuit, sans recherche de plaisir, ne les annule pas." },
+      { schoolSlug: "hanafite", text: "Le contact direct avec ses propres organes genitaux n'annule pas les ablutions, quelle que soit la maniere dont il survient." },
+      { schoolSlug: "shafiite", text: "Le contact direct avec la paume de la main annule les ablutions, independamment de tout desir, en application litterale du hadith rapportant \"quiconque a touche son sexe doit refaire ses ablutions\"." },
+      { schoolSlug: "hanbalite", text: "Position proche de l'ecole shafi'ite : le contact direct de la main annule les ablutions, sans condition de desir." },
+    ],
+    divergenceExplanation: "La divergence porte sur l'interpretation du hadith \"man massa dhakarahu falyatawadda\" (quiconque a touche son sexe doit refaire ses ablutions) : les ecoles shafi'ite et hanbalite en retiennent le sens litteral et general, l'ecole malikite le rapproche par analogie du cas du contact avec une femme (conditionne au desir), tandis que l'ecole hanafite le comprend comme une simple recommandation de purete plutot qu'une annulation effective des ablutions.",
+  },
 ];
 
 export async function seedSchools(db: Database): Promise<void> {
