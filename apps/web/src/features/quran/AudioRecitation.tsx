@@ -277,12 +277,12 @@ export function AudioRecitation({
       {onNavigate && !offline && active && (
         <div className="mt-3 border-t pt-3">
           {audioDownload.downloaded ? (
-            <div className="flex items-center justify-between gap-2 text-sm">
+            <div className="flex flex-col gap-2 text-sm sm:flex-row sm:items-center sm:justify-between">
               <span className="flex items-center gap-1.5 text-emerald-600 dark:text-emerald-400">
-                <Check className="h-4 w-4" aria-hidden="true" />
+                <Check className="h-4 w-4 shrink-0" aria-hidden="true" />
                 {t("quran.audioDownloadedOffline")}
               </span>
-              <Button type="button" variant="outline" size="sm" onClick={() => void audioDownload.remove()}>
+              <Button type="button" variant="outline" size="sm" className="w-full shrink-0 sm:w-auto" onClick={() => void audioDownload.remove()}>
                 <Trash2 className="h-4 w-4" aria-hidden="true" />
                 {t("offline.remove")}
               </Button>
