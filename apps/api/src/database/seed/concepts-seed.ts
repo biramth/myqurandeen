@@ -4526,6 +4526,127 @@ const CONCEPTS: ConceptSeed[] = [
       "A la difference du maqam, degre stable atteint par l'effort, le hal est traditionnellement decrit comme un don passager (une paix profonde, un ravissement) que le cheminant ne maitrise ni ne provoque a volonte, et qui peut se retirer aussi soudainement qu'il est survenu.",
     relatedSlugs: ["maqam-sufi", "dhawq"],
   },
+  // --- Prophetes coraniques complementaires ---
+  {
+    term: "Ismail (Ismael)",
+    termArabic: "إسماعيل",
+    slug: "ismail",
+    definition: "Un prophete, fils aine d'Ibrahim, associe a la construction de la Kaaba et au recit du sacrifice.",
+    origin: "Nom propre coranique, mentionne dans plusieurs sourates.",
+    explanation:
+      "Le Coran rapporte qu'Ibrahim, sur ordre divin recu en songe, se prepara a sacrifier son fils avant qu'un belier ne soit substitue en dernier lieu (sourate As-Saffat, 37:100-107), un episode dont la tradition islamique fait le fondement du sacrifice de l'Aid al-Adha. Ismail participa ensuite avec son pere a la (re)construction de la Kaaba (sourate Al-Baqara, 2:127) et est considere comme l'ancetre des tribus arabes du Hijaz.",
+    relatedSlugs: ["ibrahim", "kaaba"],
+  },
+  {
+    term: "Ishaq (Isaac)",
+    termArabic: "إسحاق",
+    slug: "ishaq",
+    definition: "Un prophete, second fils d'Ibrahim, pere de Yaqub.",
+    origin: "Nom propre coranique, mentionne dans plusieurs sourates.",
+    explanation:
+      "Le Coran annonce sa naissance a Ibrahim et a son epouse Sarah, alors ages, comme une bonne nouvelle apportee par des anges (sourate Hud, 11:71-72), et le presente, avec son fils Yaqub, comme faisant partie de la lignee prophetique issue d'Ibrahim.",
+    relatedSlugs: ["ibrahim", "yaqub"],
+  },
+  {
+    term: "Yaqub (Jacob)",
+    termArabic: "يعقوب",
+    slug: "yaqub",
+    definition: "Un prophete, fils d'Ishaq et pere de Yusuf et de ses onze freres.",
+    origin: "Nom propre coranique, egalement designe comme Isra'il dans le Coran.",
+    explanation:
+      "Le Coran evoque sa douleur immense face a la disparition de son fils Yusuf, vendu en esclavage par ses freres, et la perte de sa vue causee par le chagrin, avant de recouvrer la vue au contact de la chemise de Yusuf (sourate Yusuf, 12:84-96) - un recit soulignant la patience (sabr) face a l'epreuve.",
+    relatedSlugs: ["yusuf", "ishaq"],
+  },
+  {
+    term: "Yunus (Jonas)",
+    termArabic: "يونس",
+    slug: "yunus",
+    definition: "Un prophete envoye a son peuple, connu pour avoir ete avale par un grand poisson apres avoir quitte sa mission sans autorisation divine.",
+    origin: "Nom propre coranique ; une sourate (10) porte son nom.",
+    explanation:
+      "Ayant quitte son peuple par decouragement sans attendre l'ordre divin, Yunus fut jete a la mer puis avale par un grand poisson, ou il implora Dieu par l'invocation \"il n'y a de divinite que Toi, gloire a Toi, j'ai ete du nombre des injustes\" (sourate Al-Anbiya, 21:87), avant d'etre secouru. Son peuple, seul exemple coranique d'une communaute ayant cru en masse a temps pour eviter le chatiment, echappa au sort reserve aux peuples ayant rejete leur prophete (sourate Yunus, 10:98).",
+    relatedSlugs: ["tawba", "nabi"],
+  },
+  {
+    term: "Ayyub (Job)",
+    termArabic: "أيوب",
+    slug: "ayyub",
+    definition: "Un prophete devenu, dans la tradition islamique, le modele par excellence de la patience face a l'epreuve et a la maladie.",
+    origin: "Nom propre coranique, mentionne notamment dans les sourates Al-Anbiya et Sad.",
+    explanation:
+      "Eprouve par une longue maladie et la perte de ses biens sans jamais cesser d'invoquer Dieu avec patience, Ayyub finit par implorer le soulagement de son mal avec une humilite exemplaire (sourate Al-Anbiya, 21:83-84), Dieu le gueris ensuite et lui restitua, selon le recit coranique, le double de ce qu'il avait perdu.",
+    relatedSlugs: ["sabr", "nabi"],
+  },
+  {
+    term: "Idris (Enoch)",
+    termArabic: "إدريس",
+    slug: "idris",
+    definition: "Un prophete decrit dans le Coran comme eleve a un haut rang, dont la biographie precise reste peu detaillee par le texte coranique.",
+    origin: "Nom propre coranique (sourate Maryam, 19:56-57 ; sourate Al-Anbiya, 21:85).",
+    explanation:
+      "Le Coran le decrit brievement comme \"veridique et prophete\", eleve par Dieu \"a un haut rang\" (sourate Maryam, 19:56-57), sans autre detail narratif ; la tradition posterieure l'a parfois identifie a des figures d'autres traditions, sans que cette identification ne fasse l'objet d'un consensus etabli.",
+    relatedSlugs: ["nubuwwa", "nabi"],
+  },
+  {
+    term: "Hud",
+    termArabic: "هود",
+    slug: "hud",
+    definition: "Un prophete envoye au peuple de 'Ad, qui rejeta son message et fut anti par un vent destructeur.",
+    origin: "Nom propre coranique ; une sourate (11) porte son nom.",
+    explanation:
+      "Le Coran rapporte que Hud appela le peuple de 'Ad, connu pour sa puissance et ses constructions imposantes, a abandonner l'idolatrie ; leur rejet obstine du message entraina leur aneantissement par un vent violent et prolonge (sourate Al-Haqqa, 69:6-7), episode frequemment cite parmi les recits coraniques de peuples anciens chaties pour avoir rejete leur prophete.",
+    relatedSlugs: ["salih", "nabi"],
+  },
+  {
+    term: "Salih",
+    termArabic: "صالح",
+    slug: "salih",
+    definition: "Un prophete envoye au peuple de Thamud, associe au signe miraculeux d'une chamelle.",
+    origin: "Nom propre coranique, mentionne dans plusieurs sourates.",
+    explanation:
+      "Le Coran rapporte que Salih presenta a son peuple une chamelle comme signe miraculeux de l'authenticite de sa mission, leur demandant de la laisser paitre librement sans lui nuire ; son abattage par une partie du peuple entraina leur aneantissement (sourate Ash-Shams, 91:11-14), un recit souvent cite comme exemple de rejet d'un signe divin explicite.",
+    relatedSlugs: ["hud", "nabi"],
+  },
+  {
+    term: "Lut (Loth)",
+    termArabic: "لوط",
+    slug: "lut",
+    definition: "Un prophete, neveu d'Ibrahim, envoye a un peuple pratiquant des actes que le Coran condamne severement.",
+    origin: "Nom propre coranique, mentionne dans plusieurs sourates.",
+    explanation:
+      "Le Coran rapporte que Lut avertit vainement son peuple, avant que celui-ci ne soit aneanti a l'exception de Lut et de sa famille - a l'exclusion de son epouse, restee parmi les mecreants et comptee, avec la femme de Nuh, parmi les exemples coraniques de proches de prophetes n'ayant pas cru (sourate At-Tahrim, 66:10).",
+    relatedSlugs: ["ibrahim", "nabi"],
+  },
+  {
+    term: "Shu'ayb",
+    termArabic: "شعيب",
+    slug: "shuayb",
+    definition: "Un prophete envoye au peuple de Madyan, associe dans le recit coranique a l'honnetete dans les transactions commerciales.",
+    origin: "Nom propre coranique, mentionne dans plusieurs sourates.",
+    explanation:
+      "Le Coran rapporte que Shu'ayb reprocha a son peuple la fraude dans les mesures et les poids lors des echanges commerciaux, en plus de l'idolatrie (sourate Al-A'raf, 7:85), faisant de son recit une reference frequemment citee sur l'importance de l'honnetete dans le commerce.",
+    relatedSlugs: ["nabi", "gharar"],
+  },
+  {
+    term: "Zakariyya (Zacharie)",
+    termArabic: "زكريا",
+    slug: "zakariyya",
+    definition: "Un prophete, gardien de Maryam au Temple, qui implora Dieu de lui accorder une descendance malgre son grand age.",
+    origin: "Nom propre coranique, mentionne notamment dans la sourate Maryam.",
+    explanation:
+      "Le Coran rapporte que Zakariyya, devant la piete manifestee par Maryam dont il avait la charge, implora a son tour Dieu de lui accorder un enfant malgre son age avance et la sterilite de son epouse ; sa priere fut exaucee par la naissance de Yahya (sourate Maryam, 19:2-7).",
+    relatedSlugs: ["yahya", "nabi"],
+  },
+  {
+    term: "Yahya (Jean)",
+    termArabic: "يحيى",
+    slug: "yahya",
+    definition: "Un prophete, fils de Zakariyya, decrit par le Coran comme ayant reçu la sagesse des son enfance.",
+    origin: "Nom propre coranique, mentionne notamment dans la sourate Maryam.",
+    explanation:
+      "Le Coran le decrit comme ayant recu \"la sagesse et la tendresse\" des l'enfance, ainsi qu'une purete de coeur particuliere (sourate Maryam, 19:12-14), en faisant l'un des rares personnages coraniques explicitement loues pour sa piete des le plus jeune age.",
+    relatedSlugs: ["zakariyya", "nabi"],
+  },
 ];
 
 export async function seedConcepts(db: Database): Promise<void> {
