@@ -1512,6 +1512,58 @@ const FIQH_TOPICS: FiqhTopicSeed[] = [
     ],
     divergenceExplanation: "La divergence porte sur la portee du principe de l'istihala (la transformation substantielle d'une matiere en une autre de nature differente) comme cause de purification : l'ecole hanafite l'applique pleinement des lors que la nature du vinaigre est effectivement etablie, quelle qu'en soit l'origine, tandis que les trois autres ecoles distinguent selon que cette transformation est intervenue independamment de toute volonte humaine ou qu'elle a ete deliberement recherchee, ce second cas restant selon elles entache de l'origine illicite du produit.",
   },
+  {
+    title: "Une femme peut-elle exercer la fonction de qadi (juge) ?",
+    slug: "femme-qadi",
+    category: "Droit et societe (Ahkam Ijtimaiyya)",
+    description: "Si une femme peut valablement etre designee juge (qadi), habilitee a trancher des litiges, ou si cette fonction est reservee aux hommes.",
+    positions: [
+      { schoolSlug: "malikite", text: "La fonction de qadi est reservee aux hommes ; la nomination d'une femme a cette fonction n'est pas valide." },
+      { schoolSlug: "hanafite", text: "Une femme peut valablement exercer la fonction de qadi dans les affaires civiles et commerciales ou son temoignage est recevable, mais pas dans les affaires penales relevant des peines legales (hudud) ou du talion (qisas)." },
+      { schoolSlug: "shafiite", text: "Position identique aux malikites : la fonction de qadi, quel que soit le domaine, est reservee aux hommes." },
+      { schoolSlug: "hanbalite", text: "Position identique aux malikites et shafi'ites : une femme ne peut valablement exercer la fonction de qadi." },
+    ],
+    divergenceExplanation: "La divergence porte sur la portee a donner au hadith \"un peuple qui confie ses affaires a une femme ne reussira pas\" (rapporte par Al-Bukhari, au sujet de la designation d'un chef d'Etat) : les ecoles malikite, shafi'ite et hanbalite l'etendent par analogie a la fonction de juge, tandis que l'ecole hanafite distingue la direction politique generale, effectivement reservee aux hommes selon elle, de la fonction de juge dans les seules affaires ou le temoignage d'une femme est par ailleurs juridiquement recevable.",
+  },
+  {
+    title: "Le temoignage d'une seule femme suffit-il pour etablir des faits relevant typiquement de la sphere feminine ?",
+    slug: "temoignage-femme-seule-domaine-feminin",
+    category: "Droit et societe (Ahkam Ijtimaiyya)",
+    description: "Si le temoignage d'une seule femme digne de confiance, sans corroboration masculine, suffit a etablir juridiquement des faits generalement observes uniquement par des femmes (accouchement, defauts corporels, allaitement).",
+    positions: [
+      { schoolSlug: "malikite", text: "Le temoignage d'une seule femme digne de confiance suffit pour ce type de faits, notamment l'accouchement, en raison de l'impossibilite pratique d'exiger une pluralite de temoins dans ce domaine." },
+      { schoolSlug: "hanafite", text: "Position proche des malikites : le temoignage d'une seule femme est recevable pour ces faits specifiques, l'exigence habituelle de pluralite de temoins etant assouplie par necessite pratique." },
+      { schoolSlug: "shafiite", text: "Le temoignage d'au moins quatre femmes, ou a defaut deux, est requis pour ces faits, l'ecole appliquant une exigence de pluralite superieure a celle des autres ecoles meme dans ce domaine specifique." },
+      { schoolSlug: "hanbalite", text: "Position proche des malikites et hanafites : le temoignage d'une seule femme digne de confiance suffit pour etablir ces faits, par necessite pratique." },
+    ],
+    divergenceExplanation: "La divergence porte sur le degre d'assouplissement a accorder a la regle generale de pluralite des temoins face a l'impossibilite pratique, dans ce domaine specifique, de reunir plusieurs temoins masculins ou meme feminins : trois ecoles retiennent une seule femme digne de confiance comme suffisante par pure necessite, tandis que l'ecole shafi'ite maintient une exigence de pluralite feminine, meme reduite par rapport a la regle generale.",
+  },
+  {
+    title: "La zakat sur un betail detenu en copropriete (khulta) est-elle calculee comme un patrimoine unique ou separement pour chaque associe ?",
+    slug: "zakat-khulta-biens-indivis",
+    category: "Zakat",
+    description: "Si le betail detenu conjointement par plusieurs associes, partageant paturage, point d'eau et lieu de traite, est considere comme un seul patrimoine pour le calcul de la zakat due, plutot que la part individuelle de chaque associe consideree separement.",
+    positions: [
+      { schoolSlug: "malikite", text: "Le betail en copropriete reunissant les conditions de la khulta (paturage, point d'eau et reproducteur communs) est traite comme un patrimoine unique pour le calcul de la zakat due." },
+      { schoolSlug: "hanafite", text: "Chaque associe est impose separement selon sa part individuelle de propriete, sans traiter le betail copropriete comme un patrimoine unique." },
+      { schoolSlug: "shafiite", text: "Position proche des malikites : le betail reunissant les conditions de la khulta est traite comme un patrimoine unique, en application litterale du hadith prophetique sur ce sujet." },
+      { schoolSlug: "hanbalite", text: "Position identique aux malikites et shafi'ites : le betail en copropriete remplissant les conditions requises est considere comme un seul patrimoine pour le calcul de la zakat." },
+    ],
+    divergenceExplanation: "La divergence porte sur la portee du hadith rapportant que \"l'on ne doit ni separer ce qui est reuni, ni reunir ce qui est separe, par crainte de la zakat\" (rapporte par Al-Bukhari) : trois ecoles le retiennent comme instituant un traitement fiscal unifie du betail associe remplissant certaines conditions materielles precises, tandis que l'ecole hanafite considere que la zakat demeure attachee a la propriete individuelle de chaque associe, independamment des modalites pratiques de leur association.",
+  },
+  {
+    title: "L'urine d'un nourrisson exclusivement allaite beneficie-t-elle d'une regle de purification allegee ?",
+    slug: "urine-nourrisson-purification",
+    category: "Purification (Tahara)",
+    description: "Si l'urine d'un nourrisson qui ne consomme encore aucun aliment solide, uniquement le lait maternel, peut etre purifiee par simple aspersion d'eau plutot que par un lavage complet, et si cette regle distingue selon le sexe de l'enfant.",
+    positions: [
+      { schoolSlug: "malikite", text: "L'urine du nourrisson, garcon ou fille, exclusivement allaite requiert un lavage effectif comme toute autre impurete, sans regle allegee particuliere selon le sexe." },
+      { schoolSlug: "hanafite", text: "Position proche des malikites : un lavage effectif reste requis pour l'urine du nourrisson, garcon comme fille, la simple aspersion n'etant pas consideree suffisante." },
+      { schoolSlug: "shafiite", text: "L'urine du nourrisson garcon exclusivement allaite, n'ayant pas encore consomme d'aliment solide, peut etre purifiee par simple aspersion d'eau ; celle de la fille requiert un lavage effectif comme pour un adulte." },
+      { schoolSlug: "hanbalite", text: "Position identique aux shafi'ites : simple aspersion suffisante pour l'urine du nourrisson garcon exclusivement allaite, lavage effectif requis pour celle de la fille." },
+    ],
+    divergenceExplanation: "La divergence porte sur la portee du hadith rapporte par Umm Qays, selon lequel le Prophete ﷺ se contenta d'asperger d'eau le vetement souille par l'urine de son petit-fils encore allaite, sans le laver effectivement : les ecoles shafi'ite et hanbalite en tirent une regle specifique distinguant le nourrisson garcon exclusivement allaite, tandis que les ecoles malikite et hanafite considerent que ce hadith decrit un cas particulier sans en degager une regle generale distincte de purification selon le sexe de l'enfant.",
+  },
 ];
 
 export async function seedSchools(db: Database): Promise<void> {
