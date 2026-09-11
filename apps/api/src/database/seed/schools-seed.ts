@@ -1616,6 +1616,58 @@ const FIQH_TOPICS: FiqhTopicSeed[] = [
     ],
     divergenceExplanation: "La divergence s'appuie sur la portee donnee au hadith interdisant de tuer la grenouille (rapporte par Abu Dawud, au sujet d'un medecin ayant demande l'avis du Prophete ﷺ sur son usage en remede) : trois ecoles en deduisent une interdiction de la consommer, la classant parmi les especes repugnantes qu'un texte general du Coran (sourate Al-A'raf, 7:157) interdit egalement, tandis que l'ecole malikite considere que l'interdiction de tuer ne s'etend pas necessairement a une interdiction de consommer, maintenant le principe general de licite en l'absence de texte explicite sur ce point precis.",
   },
+  {
+    title: "Le vomissement annule-t-il les petites ablutions ?",
+    slug: "vomissement-annule-wudu",
+    category: "Purification (Tahara)",
+    description: "Si le fait de vomir abondamment annule les petites ablutions (wudu), au meme titre que ce qui sort des voies naturelles inferieures.",
+    positions: [
+      { schoolSlug: "malikite", text: "Le vomissement n'annule pas les ablutions, seul ce qui sort des voies naturelles inferieures (avant et arriere) etant considere comme les rompant." },
+      { schoolSlug: "hanafite", text: "Le vomissement annule les ablutions lorsqu'il remplit la bouche (plein gosier) ; un vomissement leger et limite ne les annule pas." },
+      { schoolSlug: "shafiite", text: "Position identique aux malikites : le vomissement, quelle qu'en soit l'abondance, n'a pas d'effet sur la validite des ablutions." },
+      { schoolSlug: "hanbalite", text: "Position proche des hanafites : un vomissement abondant annule les ablutions, un vomissement leger et occasionnel ne les annule pas." },
+    ],
+    divergenceExplanation: "La divergence porte sur la portee a donner par analogie a l'annulation des ablutions causee par ce qui sort des voies naturelles inferieures : les ecoles hanafite et hanbalite l'etendent par analogie au vomissement abondant, considere comme une impurete sortant du corps de maniere comparable, tandis que les ecoles malikite et shafi'ite limitent strictement les causes d'annulation des ablutions a celles explicitement etablies par les textes, sans les etendre par analogie au vomissement.",
+  },
+  {
+    title: "Peut-on reciter la sourate Al-Fatiha en traduction, dans une langue autre que l'arabe, pendant la priere ?",
+    slug: "recitation-fatiha-langue-non-arabe",
+    category: "Prière (Salat)",
+    description: "Si une personne incapable de reciter l'arabe peut valablement reciter la traduction de la Fatiha dans sa propre langue pendant la priere, ou doit imperativement s'efforcer d'apprendre le texte arabe original.",
+    positions: [
+      { schoolSlug: "malikite", text: "La priere requiert la recitation du texte arabe original ; une traduction ne peut s'y substituer, quelle que soit la difficulte a apprendre l'arabe." },
+      { schoolSlug: "hanafite", text: "La recitation en traduction est admise pour celui qui est reellement incapable d'apprendre le texte arabe, meme apres un effort raisonnable ; une opinion attribuee a Abu Hanifa lui-meme l'admettait plus largement encore, position ensuite restreinte par ses deux principaux disciples a ce seul cas d'incapacite." },
+      { schoolSlug: "shafiite", text: "Position identique aux malikites : le texte arabe est requis ; celui qui ne le maitrise pas encore doit s'efforcer de l'apprendre et, en attendant, reciter d'autres formules de rappel (dhikr) plutot qu'une traduction de la Fatiha elle-meme." },
+      { schoolSlug: "hanbalite", text: "Position identique aux malikites et shafi'ites : la traduction ne peut remplacer le texte arabe, meme pour celui qui ne le maitrise pas encore." },
+    ],
+    divergenceExplanation: "La divergence porte sur la nature meme du Coran recite en priere : les ecoles malikite, shafi'ite et hanbalite considerent que seul le texte arabe original constitue le Coran au sens ou l'exige la priere, une traduction n'en etant qu'une explication de sens et non le texte revele lui-meme, tandis que l'ecole hanafite, par souci d'accessibilite pour celui qui ne peut reellement pas apprendre l'arabe, admet a titre d'exception que le sens transmis par une traduction puisse satisfaire l'obligation de recitation.",
+  },
+  {
+    title: "Une vente conclue apres l'appel a la priere du vendredi, pendant l'heure reservee a la priere, est-elle valide ?",
+    slug: "vente-pendant-appel-priere-vendredi",
+    category: "Commerce et transactions (Mu'amalat)",
+    description: "Si un contrat de vente conclu apres que l'appel a la priere du vendredi a retenti, alors que le Coran ordonne de laisser le commerce pour se rendre a la priere, demeure juridiquement valide malgre le peche commis en le concluant a ce moment.",
+    positions: [
+      { schoolSlug: "malikite", text: "La vente conclue a ce moment est valide sur le plan contractuel, bien que sa conclusion constitue un acte fortement deconseille voire interdit." },
+      { schoolSlug: "hanafite", text: "Position identique aux malikites : la vente demeure valide malgre le peche commis en la concluant a un moment reserve a la priere." },
+      { schoolSlug: "shafiite", text: "Position identique : le contrat reste juridiquement valide, le peche affectant la conduite du contractant sans invalider la transaction elle-meme." },
+      { schoolSlug: "hanbalite", text: "La vente conclue a ce moment precis est nulle et non avenue, l'interdiction coranique explicite du commerce a cette heure etant comprise comme affectant la validite meme du contrat." },
+    ],
+    divergenceExplanation: "Ce sujet illustre un principe general de methodologie juridique (usul al-fiqh) : une interdiction (nahy) portant sur un acte implique-t-elle necessairement la nullite de cet acte, ou seulement le peche de celui qui l'accomplit ? Les ecoles malikite, hanafite et shafi'ite distinguent l'interdiction morale du commerce a cette heure precise (sourate Al-Jumu'a, 62:9) de la validite technique du contrat conclu, tandis que l'ecole hanbalite considere que l'interdiction coranique explicite, portant directement sur l'acte commercial lui-meme, entraine sa nullite.",
+  },
+  {
+    title: "Le divorce (talaq) prononce pendant les menstrues de l'epouse est-il valide malgre son caractere interdit ?",
+    slug: "talaq-pendant-menstrues",
+    category: "Mariage (Nikah)",
+    description: "Si un divorce prononce alors que l'epouse est en periode de menstrues (talaq bid'i, contraire a la maniere sunnite de divorcer) produit neanmoins ses effets juridiques normaux, malgre l'interdiction de le prononcer a ce moment.",
+    positions: [
+      { schoolSlug: "malikite", text: "Ce divorce est interdit a prononcer mais demeure juridiquement effectif ; le mari doit neanmoins reprendre son epouse puis attendre la fin de ses menstrues avant de pouvoir, s'il le souhaite, la divorcer valablement selon la maniere sunnite." },
+      { schoolSlug: "hanafite", text: "Position identique : ce divorce est peche mais produit pleinement ses effets juridiques des sa prononciation." },
+      { schoolSlug: "shafiite", text: "Position identique aux malikites et hanafites : le divorce est effectif malgre l'interdiction, le peche portant sur la maniere de proceder plutot que sur la validite de l'acte lui-meme." },
+      { schoolSlug: "hanbalite", text: "Position officielle de l'ecole identique aux trois autres : le divorce est effectif malgre son caractere interdit. Une position minoritaire, notamment defendue par Ibn Taymiyyah et Ibn Qayyim al-Jawziyya, considere neanmoins qu'un tel divorce est nul et sans effet." },
+    ],
+    divergenceExplanation: "Les quatre ecoles s'accordent, dans leur position officiellement retenue, sur le fait qu'un divorce prononce pendant les menstrues, bien que constituant un peche et une desobeissance a l'ordre prophetique de le reprendre (rapporte par Al-Bukhari au sujet du divorce d'Ibn Omar), demeure neanmoins juridiquement effectif. Ce sujet est inclus, comme celui du triple talaq prononce en une seule formule, pour sa frequente pertinence pratique et pour signaler l'existence d'une position minoritaire notable de juristes hanbalites tardifs (Ibn Taymiyyah, Ibn Qayyim al-Jawziyya) considerant un tel divorce nul, sans constituer la position officielle d'aucune des quatre ecoles classiques.",
+  },
 ];
 
 export async function seedSchools(db: Database): Promise<void> {
