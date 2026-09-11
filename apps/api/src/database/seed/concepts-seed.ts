@@ -1929,6 +1929,692 @@ const CONCEPTS: ConceptSeed[] = [
       "As-Sabur, proche d'Al-Halim, souligne une patience divine qui laisse aux creatures un temps considerable pour se corriger avant toute consequence, un modele indirect pour la patience humaine (sabr).",
     relatedSlugs: ["sabr", "al-halim"],
   },
+  // --- Terminologie du fiqh : transactions (mu'amalat) ---
+  {
+    term: "Bay' (Contrat de vente)",
+    termArabic: "البيع",
+    slug: "bay",
+    definition: "Le contrat par lequel un bien est echange contre un prix determine.",
+    origin: "Racine arabe b-y-', terme generique du fiqh des transactions.",
+    explanation:
+      "Le bay' designe le contrat de vente au sens large, forme de base a partir de laquelle le fiqh des transactions (mu'amalat) developpe des variantes specialisees (salam, istisna', ijara...) repondant a des besoins economiques particuliers, chacune soumise a ses propres conditions de validite.",
+    relatedSlugs: ["riba", "gharar"],
+  },
+  {
+    term: "Ijara (Location, bail)",
+    termArabic: "الإجارة",
+    slug: "ijara",
+    definition: "Le contrat par lequel l'usage d'un bien ou d'un service est loue pour une duree determinee.",
+    origin: "Racine arabe a-j-r, evoquant la retribution d'un service ou d'un usage.",
+    explanation:
+      "L'ijara couvre aussi bien la location de biens (immobilier, materiel) que la retribution d'un travail ou d'un service, et sert aujourd'hui de base a plusieurs produits de finance islamique visant a structurer un financement sans recourir a un pret interet-porteur.",
+    relatedSlugs: ["bay", "riba"],
+  },
+  {
+    term: "Mudaraba (Commandite, partenariat capital-travail)",
+    termArabic: "المضاربة",
+    slug: "mudaraba",
+    definition: "Un partenariat ou l'un apporte le capital et l'autre le travail, les pertes financieres incombant au seul bailleur de fonds.",
+    origin: "Racine arabe d-r-b, evoquant le fait de parcourir (la terre) pour le commerce.",
+    explanation:
+      "Dans la mudaraba, le profit est partage selon une proportion convenue a l'avance, tandis qu'une perte financiere est supportee par le seul apporteur de capital - le gerant n'ayant perdu que son travail, sauf negligence ou faute de sa part.",
+    relatedSlugs: ["musharaka", "riba"],
+  },
+  {
+    term: "Musharaka (Partenariat, coentreprise)",
+    termArabic: "المشاركة",
+    slug: "musharaka",
+    definition: "Un partenariat ou plusieurs parties apportent conjointement capital et parfois travail, partageant profits et pertes.",
+    origin: "Racine arabe sh-r-k, evoquant l'association.",
+    explanation:
+      "A la difference de la mudaraba, ou seul un partenaire apporte le capital, la musharaka implique un apport en capital par plusieurs parties, les pertes etant alors partagees au prorata de la mise de chacune.",
+    relatedSlugs: ["mudaraba"],
+  },
+  {
+    term: "Wakala (Mandat, procuration)",
+    termArabic: "الوكالة",
+    slug: "wakala",
+    definition: "Le contrat par lequel une personne charge une autre d'agir en son nom dans une affaire determinee.",
+    origin: "Racine arabe w-k-l, partagee avec le Nom divin Al-Wakil.",
+    explanation:
+      "La wakala organise juridiquement la delegation d'une action a un mandataire, un mecanisme largement utilise en droit islamique classique aussi bien pour le commerce que pour la representation dans un contrat de mariage.",
+    relatedSlugs: ["al-wakil"],
+  },
+  {
+    term: "Kafala (Caution, garantie)",
+    termArabic: "الكفالة",
+    slug: "kafala",
+    definition: "L'engagement par lequel une personne se porte garante d'une dette ou d'une obligation d'autrui.",
+    origin: "Racine arabe k-f-l, evoquant la prise en charge.",
+    explanation:
+      "La kafala designe, en fiqh classique des transactions, le fait de se porter garant du remboursement d'une dette ou de la comparution d'une personne - un sens distinct de son usage contemporain pour designer la prise en charge d'un enfant.",
+    relatedSlugs: ["rahn"],
+  },
+  {
+    term: "Rahn (Gage, nantissement)",
+    termArabic: "الرهن",
+    slug: "rahn",
+    definition: "Un bien remis en garantie du remboursement d'une dette.",
+    origin: "Racine arabe r-h-n, evoquant la retention en garantie.",
+    explanation:
+      "Le rahn permet au creancier de retenir un bien du debiteur en garantie, avec des regles precises sur sa conservation et son eventuelle vente en cas de defaut de paiement, sans que le creancier ne puisse en tirer un usage constituant un interet dissimule.",
+    relatedSlugs: ["kafala", "riba"],
+  },
+  {
+    term: "Hiba (Donation)",
+    termArabic: "الهبة",
+    slug: "hiba",
+    definition: "Le transfert volontaire et gratuit de la propriete d'un bien, sans contrepartie.",
+    origin: "Racine arabe h-b-b, evoquant le don.",
+    explanation:
+      "La hiba se distingue de la sadaqah par l'absence de visee explicitement caritative et de la wasiyya par sa prise d'effet immediate plutot qu'apres le deces du donateur - le fiqh classique en detaille les conditions de validite et de revocation.",
+    relatedSlugs: ["sadaqah", "wasiyya"],
+  },
+  {
+    term: "Waqf (Fondation pieuse)",
+    termArabic: "الوقف",
+    slug: "waqf",
+    definition: "Un bien immobilise de facon permanente au profit d'une oeuvre charitable ou d'usage public.",
+    origin: "Racine arabe w-q-f, evoquant l'arret, l'immobilisation.",
+    explanation:
+      "Le waqf consiste a retirer definitivement un bien du commerce (il ne peut plus etre vendu ni herite) pour en affecter durablement les revenus a une cause pieuse - mosquee, ecole, puits, soutien aux pauvres. Ce mecanisme a historiquement finance une grande partie des institutions educatives et sociales du monde musulman.",
+    relatedSlugs: ["sadaqah"],
+  },
+  {
+    term: "Wasiyya (Testament)",
+    termArabic: "الوصية",
+    slug: "wasiyya",
+    definition: "Une disposition volontaire prenant effet apres le deces, limitee au tiers du patrimoine pour un non-heritier.",
+    origin: "Racine arabe w-s-y, evoquant la recommandation.",
+    explanation:
+      "Le fiqh classique limite la wasiyya au tiers maximum du patrimoine au profit d'une personne qui n'est pas deja heritier legal, afin de ne pas contourner les parts fixes attribuees par les regles successorales (fara'id).",
+    relatedSlugs: ["mirath", "hiba"],
+  },
+  {
+    term: "Salam (Vente a terme)",
+    termArabic: "بيع السلم",
+    slug: "salam",
+    definition: "Une vente ou le prix est paye immediatement pour une livraison differee du bien, precisement decrit.",
+    origin: "Terme technique du fiqh des transactions.",
+    explanation:
+      "Le salam inverse l'ordre habituel d'un contrat a terme (livraison immediate, paiement differe) : ici le paiement est immediat, la livraison future, une exception encadree a l'interdiction generale de vendre ce qu'on ne possede pas encore, utile notamment pour financer les producteurs agricoles.",
+    relatedSlugs: ["bay", "istisna"],
+  },
+  {
+    term: "Istisna' (Contrat de fabrication)",
+    termArabic: "الاستصناع",
+    slug: "istisna",
+    definition: "Un contrat de commande d'un bien a fabriquer selon des specifications determinees.",
+    origin: "Racine arabe s-n-', evoquant la fabrication.",
+    explanation:
+      "L'istisna' permet de commander un bien manufacture (construction, equipement) avant sa fabrication, le paiement pouvant etre echelonne - un mecanisme aujourd'hui repris dans le financement islamique de projets industriels et immobiliers.",
+    relatedSlugs: ["salam"],
+  },
+  {
+    term: "Gharar (Incertitude excessive)",
+    termArabic: "الغرر",
+    slug: "gharar",
+    definition: "Une incertitude excessive sur l'objet ou les termes d'un contrat, rendant la transaction illicite.",
+    origin: "Racine arabe gh-r-r, evoquant le risque et la tromperie.",
+    explanation:
+      "Le gharar designe une ambiguite ou un alea qui pourrait exposer l'une des parties a une perte imprevisible - vendre un bien non encore existant ou non identifiable precisement, par exemple - et constitue, avec le riba, l'un des deux grands interdits structurant le fiqh des transactions.",
+    relatedSlugs: ["riba", "maysir"],
+  },
+  {
+    term: "Maysir (Jeu de hasard)",
+    termArabic: "الميسر",
+    slug: "maysir",
+    definition: "Tout jeu ou pari fonde sur le hasard, ou le gain de l'un implique necessairement la perte de l'autre.",
+    origin: "Terme coranique (sourate Al-Baqara, 2:219), evoquant le jeu de hasard preislamique.",
+    explanation:
+      "Le Coran interdit explicitement le maysir aux cotes du vin, y voyant une source de discorde sociale plus grande que son benefice apparent. Le principe s'etend en fiqh contemporain a toute transaction financiere structuree comme un pari a somme nulle.",
+    relatedSlugs: ["gharar", "riba"],
+  },
+  {
+    term: "Shuf'a (Droit de preemption)",
+    termArabic: "الشفعة",
+    slug: "shufa",
+    definition: "Le droit d'un copropriétaire ou d'un voisin a se substituer a l'acheteur d'un bien immobilier indivis.",
+    origin: "Racine arabe sh-f-', evoquant le fait de joindre, d'ajouter.",
+    explanation:
+      "La shuf'a permet au copropriétaire d'un bien indivis, ou dans certaines ecoles au voisin immediat, de racheter la part vendue a un tiers au meme prix, afin de limiter les conflits lies au morcellement de la propriete.",
+    relatedSlugs: ["bay"],
+  },
+  {
+    term: "Qard Hasan (Pret sans interet)",
+    termArabic: "القرض الحسن",
+    slug: "qard-hasan",
+    definition: "Un pret accorde par bienveillance, remboursable a l'identique sans aucun interet.",
+    origin: "Composition arabe de qard (pret) et hasan (bon, beau).",
+    explanation:
+      "Le qard hasan est presente dans le Coran (sourate Al-Baqara, 2:245) comme un acte de generosite assimile a un pret fait a Dieu Lui-meme, fondement religieux direct de l'interdiction du riba dans les transactions entre particuliers.",
+    relatedSlugs: ["riba", "sadaqah"],
+  },
+  // --- Terminologie du fiqh : famille (munakahat) et heritage ---
+  {
+    term: "Talaq (Repudiation, divorce)",
+    termArabic: "الطلاق",
+    slug: "talaq",
+    definition: "La dissolution du mariage a l'initiative de l'epoux, selon une procedure encadree par le fiqh.",
+    origin: "Racine arabe t-l-q, evoquant la liberation, le relachement.",
+    explanation:
+      "Bien que permis, le talaq est decrit dans un hadith rapporte par Abu Dawud comme \"l'acte licite le plus deteste d'Allah\", et son exercice est strictement encadre (delai de reflexion, tentatives de reconciliation, limite a trois repudiations) pour en dissuader un usage impulsif.",
+    relatedSlugs: ["idda", "khula"],
+  },
+  {
+    term: "Khul' (Divorce a l'initiative de la femme)",
+    termArabic: "الخلع",
+    slug: "khula",
+    definition: "La dissolution du mariage demandee par l'epouse, generalement moyennant une compensation financiere.",
+    origin: "Racine arabe kh-l-', evoquant le fait de se defaire, d'ôter.",
+    explanation:
+      "Le khul' permet a une epouse de mettre fin au mariage, le plus souvent en restituant tout ou partie du mahr recu, un mecanisme dont la validite est directement attestee dans le Coran (sourate Al-Baqara, 2:229) et le hadith.",
+    relatedSlugs: ["talaq"],
+  },
+  {
+    term: "Idda (Delai de viduite)",
+    termArabic: "العدة",
+    slug: "idda",
+    definition: "La periode d'attente qu'une femme divorcee ou veuve doit observer avant de pouvoir se remarier.",
+    origin: "Racine arabe '-d-d, evoquant le decompte.",
+    explanation:
+      "L'idda, dont la duree varie selon la situation (divorce, veuvage, grossesse), vise a etablir avec certitude une eventuelle grossesse en cours avant tout remariage, tout en menageant un temps de reflexion apres un divorce.",
+    relatedSlugs: ["talaq"],
+  },
+  {
+    term: "Nafaqa (Pension, entretien obligatoire)",
+    termArabic: "النفقة",
+    slug: "nafaqa",
+    definition: "L'obligation d'entretien materiel due par un mari a son epouse, ou par un parent a ses enfants.",
+    origin: "Racine arabe n-f-q, evoquant la depense.",
+    explanation:
+      "La nafaqa couvre le logement, la nourriture et les besoins essentiels dus par l'epoux a son epouse durant le mariage - et souvent durant l'idda - ainsi que l'obligation d'entretien des parents envers leurs enfants mineurs.",
+    relatedSlugs: ["hadana"],
+  },
+  {
+    term: "Hadana (Garde des enfants)",
+    termArabic: "الحضانة",
+    slug: "hadana",
+    definition: "Le droit et le devoir de prendre en charge un enfant au quotidien apres une separation des parents.",
+    origin: "Racine arabe h-d-n, evoquant le fait de porter contre soi, de proteger.",
+    explanation:
+      "Les criteres d'attribution de la hadana (age de l'enfant, priorite generalement donnee a la mere pour le jeune age dans la plupart des ecoles) varient selon les madhabs, tout en placant systematiquement l'interet de l'enfant au coeur de la decision.",
+    relatedSlugs: ["nafaqa"],
+  },
+  {
+    term: "Radaa (Parente de lait)",
+    termArabic: "الرضاعة",
+    slug: "radaa",
+    definition: "Le lien de parente cree par l'allaitement d'un nourrisson par une femme autre que sa mere.",
+    origin: "Racine arabe r-d-', evoquant l'allaitement.",
+    explanation:
+      "La radaa cree, selon des conditions de nombre et de duree qui divergent entre ecoles (voir le comparateur de fiqh), un empechement au mariage comparable a la parente par le sang - fondement du statut de mahram par allaitement.",
+    relatedSlugs: ["mahram", "nikah"],
+  },
+  {
+    term: "Mirath (Heritage, droit successoral)",
+    termArabic: "الميراث",
+    slug: "mirath",
+    definition: "L'ensemble des regles fixant la repartition du patrimoine d'un defunt entre ses heritiers legaux.",
+    origin: "Racine arabe w-r-th, partagee avec le Nom divin Al-Warith.",
+    explanation:
+      "Le droit successoral islamique (aussi appele 'ilm al-fara'id, la science des parts fixes) fixe des parts precises pour chaque categorie d'heritiers directement enoncees dans le Coran (sourate An-Nisa, 4:11-12), l'un des domaines du fiqh les plus detailles et les plus mathematiquement codifies.",
+    relatedSlugs: ["al-warith", "wasiyya"],
+  },
+  // --- Terminologie du fiqh : droit penal (hudud, qisas, ta'zir) ---
+  {
+    term: "Hudud (Peines fixees par les textes)",
+    termArabic: "الحدود",
+    slug: "hudud",
+    definition: "Les peines dont la nature est fixee directement par le Coran ou la Sunna, pour un nombre limite d'infractions graves.",
+    origin: "Racine arabe h-d-d, evoquant la limite fixee, la frontiere.",
+    explanation:
+      "Les hudud concernent un nombre restreint d'infractions (vol qualifie, brigandage, calomnie d'adultere, certaines formes de zina) et se caracterisent par des conditions de preuve exceptionnellement strictes en fiqh classique, rendant leur application effective rare - les juristes insistant traditionnellement sur le principe qu'un doute suffit a ecarter la peine.",
+    relatedSlugs: ["qisas", "tazir"],
+  },
+  {
+    term: "Qisas (Loi du talion)",
+    termArabic: "القصاص",
+    slug: "qisas",
+    definition: "Le droit de la victime ou de ses ayants droit a une sanction equivalente au prejudice subi, ou d'y renoncer contre compensation.",
+    origin: "Racine arabe q-s-s, evoquant le fait de suivre, d'egaler.",
+    explanation:
+      "Le qisas, encadre par le Coran (sourate Al-Baqara, 2:178), ouvre explicitement la voie au pardon ou a une compensation financiere (diyya) comme alternative preferable a l'application stricte de la peine, la victime ou sa famille conservant le dernier mot.",
+    relatedSlugs: ["diyya", "hudud"],
+  },
+  {
+    term: "Diyya (Prix du sang, compensation)",
+    termArabic: "الدية",
+    slug: "diyya",
+    definition: "La compensation financiere versee a la victime ou a sa famille en cas d'homicide ou de blessure, alternative au qisas.",
+    origin: "Racine arabe w-d-y, evoquant le paiement d'une compensation.",
+    explanation:
+      "La diyya offre une alternative pacifique au talion, son montant etant precisement fixe par le fiqh classique selon la nature du prejudice - un mecanisme qui a historiquement contribue a limiter les cycles de vengeance tribale.",
+    relatedSlugs: ["qisas"],
+  },
+  {
+    term: "Ta'zir (Peine discretionnaire)",
+    termArabic: "التعزير",
+    slug: "tazir",
+    definition: "Une sanction laissee a l'appreciation du juge pour les infractions non couvertes par les hudud ou le qisas.",
+    origin: "Racine arabe '-z-r, evoquant la correction, la dissuasion.",
+    explanation:
+      "Le ta'zir couvre la grande majorite des infractions en droit penal islamique classique, sa nature et son intensite etant laissees a l'appreciation du qadi en fonction des circonstances, contrairement aux hudud dont la peine est fixee par les textes.",
+    relatedSlugs: ["hudud", "qadi"],
+  },
+  // --- Methodologie du fiqh (usul al-fiqh), au-dela des sources deja traitees ---
+  {
+    term: "Madhab (Ecole juridique)",
+    termArabic: "المذهب",
+    slug: "madhab",
+    definition: "Une ecole de pensee juridique organisee autour de la methodologie d'un juriste fondateur et de ses successeurs.",
+    origin: "Racine arabe dh-h-b, evoquant la voie suivie.",
+    explanation:
+      "Les quatre madhabs sunnites survivants (hanafite, malikite, shafi'ite, hanbalite, voir le comparateur de fiqh) partagent les memes sources fondamentales mais divergent dans leur methodologie d'interpretation et le poids relatif accorde a chacune.",
+    relatedSlugs: ["fiqh", "ijtihad"],
+  },
+  {
+    term: "Istihsan (Preference juridique)",
+    termArabic: "الاستحسان",
+    slug: "istihsan",
+    definition: "Le fait de s'ecarter d'une analogie stricte lorsqu'elle mene a un resultat juge inequitable, au profit d'une solution plus adaptee.",
+    origin: "Racine arabe h-s-n, evoquant ce qui est juge bon, prefere.",
+    explanation:
+      "L'istihsan, particulierement developpe par l'ecole hanafite, permet au juriste de privilegier une solution qui sert mieux l'esprit general de la loi lorsque l'application litterale d'une analogie (qiyas) produirait un resultat contraire au bon sens ou a l'equite.",
+    relatedSlugs: ["qiyas", "maslaha"],
+  },
+  {
+    term: "Istishab (Presomption de continuite)",
+    termArabic: "الاستصحاب",
+    slug: "istishab",
+    definition: "Le principe selon lequel un etat de fait ou de droit etabli est presume perdurer tant que le contraire n'est pas prouve.",
+    origin: "Racine arabe s-h-b, evoquant l'accompagnement, la continuite.",
+    explanation:
+      "L'istishab sert par exemple a presumer la validite d'un mariage ou d'un etat de purete rituelle tant qu'aucune preuve contraire n'est etablie, principe methodologique proche de la presomption d'innocence en droit contemporain.",
+    relatedSlugs: ["qiyas"],
+  },
+  {
+    term: "'Urf (Coutume)",
+    termArabic: "العرف",
+    slug: "urf",
+    definition: "La coutume etablie d'une societe, reconnue comme source secondaire du droit dans les domaines non regles par un texte explicite.",
+    origin: "Racine arabe '-r-f, evoquant ce qui est connu, reconnu.",
+    explanation:
+      "L''urf permet au fiqh de s'adapter a la diversite des contextes culturels dans lesquels l'islam s'est repandu, a condition de ne jamais contredire un texte explicite du Coran ou de la Sunna - un principe methodologique qui explique une part des divergences regionales de pratique.",
+    relatedSlugs: ["maslaha", "ijtihad"],
+  },
+  {
+    term: "Sadd adh-Dhara'i (Blocage des moyens menant a un mal)",
+    termArabic: "سد الذرائع",
+    slug: "sadd-adh-dharai",
+    definition: "Le principe consistant a interdire un acte licite en soi lorsqu'il sert de moyen detourne vers un resultat illicite.",
+    origin: "Composition arabe de sadd (blocage) et dhara'i (moyens, pretextes).",
+    explanation:
+      "Particulierement developpe par les ecoles malikite et hanbalite, ce principe methodologique vise a preserver l'esprit d'une interdiction (comme celle du riba) plutot que sa seule lettre, en bloquant les montages qui y parviendraient par une voie detournee.",
+    relatedSlugs: ["riba", "maslaha"],
+  },
+  {
+    term: "Mujtahid (Celui qui exerce l'effort d'interpretation)",
+    termArabic: "المجتهد",
+    slug: "mujtahid",
+    definition: "Un juriste qualifie pour exercer l'ijtihad, l'effort personnel d'interpretation des textes.",
+    origin: "Racine arabe j-h-d, partagee avec ijtihad et jihad.",
+    explanation:
+      "Le statut de mujtahid, reconnu aux fondateurs des grandes ecoles juridiques et a leurs pairs les plus qualifies, suppose une maitrise approfondie du Coran, du hadith, de la langue arabe et des positions deja etablies par le consensus (ijma') des generations precedentes.",
+    relatedSlugs: ["ijtihad", "taqlid"],
+  },
+  // --- Sciences du hadith, au-dela de l'isnad deja traite ---
+  {
+    term: "Sahih (Authentique)",
+    termArabic: "صحيح",
+    slug: "sahih",
+    definition: "Le plus haut degre d'authenticite d'un hadith, dont la chaine de transmission remplit toutes les conditions de rigueur.",
+    origin: "Terme technique de mustalah al-hadith (science de la classification du hadith).",
+    explanation:
+      "Un hadith est qualifie de sahih lorsque sa chaine de transmission (isnad) est continue, chaque transmetteur fiable et rigoureux dans sa memorisation, et son contenu (matn) exempt de toute anomalie (shadh) ou defaut cache ('illa) detecte par les specialistes.",
+    relatedSlugs: ["isnad", "hasan"],
+  },
+  {
+    term: "Hasan (Bon)",
+    termArabic: "حسن",
+    slug: "hasan",
+    definition: "Un degre d'authenticite juste en dessous du sahih, generalement du a une memorisation legerement moins rigoureuse d'un transmetteur.",
+    origin: "Terme technique de mustalah al-hadith.",
+    explanation:
+      "Un hadith hasan reunit les memes conditions qu'un hadith sahih, a l'exception d'un transmetteur dont la precision de memorisation est jugee legerement inferieure sans etre disqualifiante - il reste utilisable comme argument juridique et religieux.",
+    relatedSlugs: ["sahih", "daif"],
+  },
+  {
+    term: "Da'if (Faible)",
+    termArabic: "ضعيف",
+    slug: "daif",
+    definition: "Un hadith dont la chaine de transmission ou le contenu presente une faiblesse ne remplissant pas les conditions du sahih ou du hasan.",
+    origin: "Terme technique de mustalah al-hadith.",
+    explanation:
+      "Un hadith da'if peut resulter d'une rupture dans la chaine de transmission ou d'un transmetteur juge peu fiable ; son usage reste debattu parmi les savants, certains l'acceptant pour l'incitation a la vertu (targhib) mais jamais pour etablir une regle juridique ou un point de croyance.",
+    relatedSlugs: ["hasan", "mawdu"],
+  },
+  {
+    term: "Mawdu' (Fabrique, apocryphe)",
+    termArabic: "موضوع",
+    slug: "mawdu",
+    definition: "Un propos faussement attribue au Prophete ﷺ, sans aucune authenticite.",
+    origin: "Racine arabe w-d-', evoquant le fait de poser, d'inventer.",
+    explanation:
+      "L'identification des hadiths mawdu' constitue l'un des grands travaux historiques des specialistes du hadith, motives par la necessite de proteger la Sunna de fabrications motivees par des raisons theologiques, politiques ou sectaires diverses.",
+    relatedSlugs: ["daif", "isnad"],
+  },
+  {
+    term: "Mutawatir (Rapporte par une multitude continue)",
+    termArabic: "متواتر",
+    slug: "mutawatir",
+    definition: "Un hadith rapporte a chaque generation par un nombre de transmetteurs si important qu'une collusion mensongere est jugee impossible.",
+    origin: "Racine arabe w-t-r, evoquant la succession continue.",
+    explanation:
+      "Le hadith mutawatir, tres rare en pratique, procure une certitude comparable a celle du Coran lui-meme, par opposition au hadith ahad, transmis par un nombre plus restreint de chaines a chaque generation.",
+    relatedSlugs: ["ahad-hadith"],
+  },
+  {
+    term: "Ahad (Rapporte par un nombre limite de chaines)",
+    termArabic: "آحاد",
+    slug: "ahad-hadith",
+    definition: "Un hadith qui ne reunit pas les conditions du mutawatir, transmis par un nombre plus restreint de chaines.",
+    origin: "Racine arabe a-h-d, evoquant l'unite, le nombre limite.",
+    explanation:
+      "La grande majorite des hadiths du corpus islamique, y compris ceux consideres comme sahih, relevent de la categorie ahad ; leur statut epistemologique (certitude ou forte probabilite) a fait l'objet de debats classiques entre theologiens et juristes.",
+    relatedSlugs: ["mutawatir", "sahih"],
+  },
+  {
+    term: "Marfu' (Attribue directement au Prophete)",
+    termArabic: "مرفوع",
+    slug: "marfu",
+    definition: "Un hadith dont le contenu est explicitement attribue a une parole, un acte ou une approbation du Prophete ﷺ.",
+    origin: "Racine arabe r-f-', evoquant l'elevation (jusqu'au Prophete).",
+    explanation:
+      "Le marfu' se distingue du mawquf (attribue seulement a un Compagnon) et du maqtu' (attribue a un successeur), une distinction essentielle pour evaluer la portee normative d'un rapport dans le fiqh et la theologie.",
+    relatedSlugs: ["mawquf", "maqtu"],
+  },
+  {
+    term: "Mawquf (Attribue a un Compagnon)",
+    termArabic: "موقوف",
+    slug: "mawquf",
+    definition: "Un propos ou un acte rapporte d'un Compagnon du Prophete, sans l'attribuer directement a ce dernier.",
+    origin: "Racine arabe w-q-f, evoquant l'arret (a un Compagnon).",
+    explanation:
+      "Un rapport mawquf conserve une valeur importante pour comprendre la pratique de la premiere generation, sans avoir la meme portee normative directe qu'un hadith explicitement remonte jusqu'au Prophete ﷺ (marfu').",
+    relatedSlugs: ["marfu"],
+  },
+  {
+    term: "Maqtu' (Attribue a un successeur)",
+    termArabic: "مقطوع",
+    slug: "maqtu",
+    definition: "Un propos ou un acte rapporte d'un successeur (tabi'i), sans remonter jusqu'a un Compagnon ou au Prophete.",
+    origin: "Racine arabe q-t-', evoquant l'interruption (avant le Compagnon).",
+    explanation:
+      "Le maqtu' occupe le degre normatif le plus limite parmi ces trois categories, utile surtout pour documenter la comprehension et la pratique des generations qui ont directement succede aux Compagnons.",
+    relatedSlugs: ["mawquf", "salaf"],
+  },
+  {
+    term: "Munkar (Rejete)",
+    termArabic: "منكر",
+    slug: "munkar",
+    definition: "Un hadith rapporte par un transmetteur faible et qui contredit un rapport plus fiable sur le meme sujet.",
+    origin: "Racine arabe n-k-r, evoquant ce qui est meconnu, rejete.",
+    explanation:
+      "Le hadith munkar se distingue du shadh par la faiblesse du transmetteur en cause : un rapporteur peu fiable contredisant une version plus solidement etablie par des chaines plus fiables.",
+    relatedSlugs: ["shadh", "daif"],
+  },
+  {
+    term: "Shadh (Anormal, isole)",
+    termArabic: "شاذ",
+    slug: "shadh",
+    definition: "Un hadith rapporte par un transmetteur par ailleurs fiable, mais qui contredit un rapport plus fiable encore.",
+    origin: "Racine arabe sh-dh-dh, evoquant ce qui s'ecarte de la norme.",
+    explanation:
+      "A la difference du munkar, le shadh implique un transmetteur globalement digne de confiance, dont la version isolee s'ecarte neanmoins de celle, mieux etablie, rapportee par des chaines plus nombreuses ou plus solides.",
+    relatedSlugs: ["munkar"],
+  },
+  {
+    term: "Jarh wa Ta'dil (Critique et validation des transmetteurs)",
+    termArabic: "الجرح والتعديل",
+    slug: "jarh-wa-tadil",
+    definition: "La discipline consacree a l'evaluation critique de la fiabilite de chaque transmetteur de hadith.",
+    origin: "Composition arabe de jarh (invalidation) et ta'dil (validation).",
+    explanation:
+      "Cette discipline a donne naissance a d'immenses dictionnaires biographiques evaluant, transmetteur par transmetteur, la fiabilite et la precision de memorisation de plusieurs dizaines de milliers de rapporteurs a travers les generations, fondement meme de la methode d'authentification du hadith.",
+    relatedSlugs: ["isnad", "salaf"],
+  },
+  {
+    term: "Musnad (Recueil organise par rapporteur)",
+    termArabic: "المسند",
+    slug: "musnad",
+    definition: "Un type de recueil de hadiths organise selon le Compagnon qui les a rapportes, plutot que par sujet.",
+    origin: "Racine arabe s-n-d, partagee avec isnad.",
+    explanation:
+      "Le plus celebre exemple est le Musnad de l'imam Ahmad ibn Hanbal, qui regroupe environ trente mille traditions classees par Compagnon rapporteur plutot que par theme juridique - une structure qui facilite la verification d'une chaine mais rend la recherche par sujet plus laborieuse.",
+    relatedSlugs: ["isnad", "musannaf"],
+  },
+  {
+    term: "Musannaf (Recueil organise par sujet)",
+    termArabic: "المصنف",
+    slug: "musannaf",
+    definition: "Un type de recueil de hadiths organise par theme ou chapitre de fiqh, plutot que par rapporteur.",
+    origin: "Racine arabe s-n-f, evoquant le classement par categorie.",
+    explanation:
+      "Contrairement au musnad, le musannaf regroupe les hadiths par sujet (purification, priere, jeune...), une organisation plus directement utile a la pratique du fiqh, adoptee notamment par les Sahih de Bukhari et Muslim.",
+    relatedSlugs: ["musnad", "sahih"],
+  },
+  {
+    term: "Hadith Qudsi (Parole divine rapportee par le Prophete)",
+    termArabic: "الحديث القدسي",
+    slug: "hadith-qudsi",
+    definition: "Une parole attribuee a Dieu, rapportee par le Prophete ﷺ en dehors du texte coranique lui-meme.",
+    origin: "Racine arabe q-d-s, evoquant la saintete.",
+    explanation:
+      "A la difference du Coran, recite mot pour mot comme revelation directe et inimitable, le hadith qudsi transmet un sens attribue a Dieu mais formule dans les propres termes du Prophete ﷺ - une distinction theologique fine mais importante entre les deux types de revelation.",
+    relatedSlugs: ["wahy", "sahih"],
+  },
+  // --- Termes de l'adoration (ibadat), au-dela de ce qui est deja traite ---
+  {
+    term: "Niyyah (Intention)",
+    termArabic: "النية",
+    slug: "niyyah",
+    definition: "L'intention interieure qui conditionne la validite et la valeur religieuse de tout acte d'adoration.",
+    origin: "Racine arabe n-w-y, evoquant le dessein, le projet.",
+    explanation:
+      "Le hadith d'ouverture du recueil de Bukhari (\"les actes ne valent que par leurs intentions\") place la niyyah au fondement meme du droit et de la spiritualite islamiques : un meme acte exterieur peut avoir une valeur religieuse radicalement differente selon l'intention qui l'anime.",
+    relatedSlugs: ["ikhlas", "riya"],
+  },
+  {
+    term: "Jama'a (Priere en groupe)",
+    termArabic: "الجماعة",
+    slug: "jamaa",
+    definition: "La priere accomplie collectivement derriere un imam, plutot qu'individuellement.",
+    origin: "Racine arabe j-m-', evoquant le rassemblement.",
+    explanation:
+      "La priere en jama'a, particulierement encouragee pour les hommes a la mosquee, est rapportee par un hadith de Bukhari et Muslim comme recompensee vingt-sept fois plus que la priere individuelle, et renforce la dimension communautaire de l'islam au-dela du seul acte rituel.",
+    relatedSlugs: ["salah", "jumua"],
+  },
+  {
+    term: "Jumu'a (Vendredi, priere du vendredi)",
+    termArabic: "الجمعة",
+    slug: "jumua",
+    definition: "La priere collective obligatoire du vendredi midi, remplacant le dhuhr, precedee de deux sermons.",
+    origin: "Racine arabe j-m-', partagee avec jama'a - donne son nom au vendredi.",
+    explanation:
+      "La jumu'a rassemble la communaute locale une fois par semaine autour d'un sermon (khutbah) souvent consacre a des questions d'actualite ou d'enseignement pratique, une institution sociale autant que rituelle.",
+    relatedSlugs: ["khutbah", "jamaa"],
+  },
+  {
+    term: "Witr (Priere impaire de cloture nocturne)",
+    termArabic: "الوتر",
+    slug: "witr",
+    definition: "Une priere accomplie apres le 'Isha jusqu'a l'aube, composee d'un nombre impair d'unites.",
+    origin: "Racine arabe w-t-r, evoquant l'imparite.",
+    explanation:
+      "Le witr cloture traditionnellement les prieres nocturnes, son statut juridique (obligatoire ou fortement recommande) faisant l'objet d'une divergence entre ecoles (voir le comparateur de fiqh).",
+    relatedSlugs: ["salah", "tarawih"],
+  },
+  {
+    term: "Tarawih (Prieres nocturnes de Ramadan)",
+    termArabic: "التراويح",
+    slug: "tarawih",
+    definition: "Des prieres surerogatoires accomplies collectivement chaque nuit du mois de Ramadan, apres le 'Isha.",
+    origin: "Racine arabe r-w-h, evoquant le repos pris entre chaque serie d'unites.",
+    explanation:
+      "Instituees dans leur forme collective regulariere par le calife Umar ibn al-Khattab, les tarawih donnent souvent lieu a la recitation complete du Coran reparti sur le mois, un moment fort de la vie spirituelle communautaire du Ramadan.",
+    relatedSlugs: ["sawm", "witr"],
+  },
+  {
+    term: "Takbir (Formule \"Allahu akbar\")",
+    termArabic: "التكبير",
+    slug: "takbir",
+    definition: "La formule \"Allahu akbar\" (Dieu est plus grand), prononcee a de nombreux moments rituels.",
+    origin: "Racine arabe k-b-r, partagee avec Al-Kabir.",
+    explanation:
+      "Le takbir ouvre la priere (takbirat al-ihram), rythme ses transitions, et est recite en de nombreuses autres occasions (Aid, appel a la priere, sacrifice) comme rappel constant de la grandeur divine face a toute preoccupation mondaine.",
+    relatedSlugs: ["al-kabir", "salah"],
+  },
+  {
+    term: "Tasbih (Formule de glorification)",
+    termArabic: "التسبيح",
+    slug: "tasbih",
+    definition: "La formule \"Subhan Allah\" (Gloire a Dieu), affirmant Sa transcendance au-dela de toute imperfection.",
+    origin: "Racine arabe s-b-h, evoquant la glorification.",
+    explanation:
+      "Le tasbih, souvent repete a l'aide d'un chapelet (sibha), exprime l'exclusion de toute imperfection concevable de la nature divine, formule recitee notamment lors de l'inclinaison et de la prosternation de la priere.",
+    relatedSlugs: ["dhikr", "al-quddus"],
+  },
+  {
+    term: "Tahmid (Formule de louange)",
+    termArabic: "التحميد",
+    slug: "tahmid",
+    definition: "La formule \"Al-hamdu lillah\" (Louange a Dieu), exprimant la reconnaissance envers Dieu.",
+    origin: "Racine arabe h-m-d, partagee avec Al-Hamid.",
+    explanation:
+      "Le tahmid accompagne aussi bien les moments de joie que d'epreuve dans la pratique islamique quotidienne, rappelant que toute louange authentique revient en definitive a Dieu seul.",
+    relatedSlugs: ["al-hamid", "dhikr"],
+  },
+  {
+    term: "Tahlil (Formule \"La ilaha illallah\")",
+    termArabic: "التهليل",
+    slug: "tahlil",
+    definition: "La formule \"La ilaha illallah\" (Il n'y a de divinite digne d'adoration qu'Allah), premiere partie de la shahada.",
+    origin: "Racine arabe h-l-l, evoquant la proclamation.",
+    explanation:
+      "Le tahlil constitue l'affirmation la plus directe du tawhid, repetee frequemment dans le dhikr quotidien et considere par de nombreux savants comme la formule d'invocation la plus meritoire.",
+    relatedSlugs: ["tawhid", "dhikr"],
+  },
+  {
+    term: "Ta'awwudh (Formule de refuge)",
+    termArabic: "التعوذ",
+    slug: "taawwudh",
+    definition: "La formule \"A'udhu billahi min ash-shaytani r-rajim\" (Je cherche refuge aupres de Dieu contre Satan le maudit).",
+    origin: "Racine arabe '-w-dh, evoquant la recherche de refuge.",
+    explanation:
+      "Le ta'awwudh est recite avant toute lecture du Coran, conformement a l'instruction coranique elle-meme (sourate An-Nahl, 16:98), comme protection contre les suggestions de Shaytan durant la recitation.",
+    relatedSlugs: ["shaytan", "dua"],
+  },
+  {
+    term: "Nisab (Seuil de richesse imposable)",
+    termArabic: "النصاب",
+    slug: "nisab",
+    definition: "Le seuil minimal de richesse a partir duquel la zakat devient obligatoire.",
+    origin: "Racine arabe n-s-b, evoquant le seuil, la part fixee.",
+    explanation:
+      "Le nisab, generalement calcule par reference a une quantite d'or ou d'argent, determine qui est effectivement redevable de la zakat ; en dessous de ce seuil, aucune zakat n'est due sur les biens concernes.",
+    relatedSlugs: ["zakat", "hawl"],
+  },
+  {
+    term: "Hawl (Annee lunaire de possession)",
+    termArabic: "الحول",
+    slug: "hawl",
+    definition: "La duree d'une annee lunaire complete durant laquelle un bien doit etre conserve pour etre soumis a la zakat.",
+    origin: "Racine arabe h-w-l, evoquant le cycle annuel.",
+    explanation:
+      "La condition du hawl, applicable notamment a l'or, l'argent et aux avoirs commerciaux, exclut de la zakat les biens acquis puis rapidement depenses au cours de l'annee, ciblant l'epargne durable plutot que les flux ponctuels.",
+    relatedSlugs: ["nisab", "zakat"],
+  },
+  {
+    term: "Udhiyya (Sacrifice de l'Aid al-Adha)",
+    termArabic: "الأضحية",
+    slug: "udhiyya",
+    definition: "Le sacrifice rituel d'un animal accompli lors de l'Aid al-Adha, en commemoration du sacrifice d'Ibrahim.",
+    origin: "Racine arabe d-h-y, evoquant le moment du sacrifice.",
+    explanation:
+      "L'udhiyya commemore la soumission d'Ibrahim pret a sacrifier son fils sur ordre divin, finalement remplace par un belier - la viande du sacrifice etant traditionnellement partagee entre la famille, les proches et les necessiteux.",
+    relatedSlugs: ["hajj"],
+  },
+  {
+    term: "Aqiqa (Sacrifice de naissance)",
+    termArabic: "العقيقة",
+    slug: "aqiqa",
+    definition: "Le sacrifice recommande a l'occasion de la naissance d'un enfant, generalement au septieme jour.",
+    origin: "Racine arabe '-q-q, evoquant a l'origine les cheveux du nouveau-ne rases a cette occasion.",
+    explanation:
+      "L'aqiqa, accompagnee traditionnellement du rasage des cheveux du nouveau-ne et du choix de son prenom, exprime la gratitude envers Dieu pour la naissance et s'accompagne, comme l'udhiyya, d'un partage de la viande.",
+    relatedSlugs: ["udhiyya"],
+  },
+  {
+    term: "Istinja (Purification apres les besoins naturels)",
+    termArabic: "الاستنجاء",
+    slug: "istinja",
+    definition: "La purification requise apres avoir satisfait ses besoins naturels, prealable a la validite du wudu.",
+    origin: "Racine arabe n-j-w, evoquant le fait de se degager, de se purifier.",
+    explanation:
+      "L'istinja, a l'eau ou par des methodes alternatives encadrees par le fiqh, constitue un prealable a l'etat de purete rituelle requis pour la priere, illustrant l'attention minutieuse du fiqh de la purification (tahara) aux questions d'hygiene.",
+    relatedSlugs: ["wudu"],
+  },
+  {
+    term: "Janaba (Etat d'impurete majeure)",
+    termArabic: "الجنابة",
+    slug: "janaba",
+    definition: "L'etat d'impurete rituelle majeure suivant un rapport intime ou une emission seminale, necessitant le ghusl.",
+    origin: "Racine arabe j-n-b, evoquant l'eloignement, la mise a l'ecart.",
+    explanation:
+      "L'etat de janaba requiert le ghusl (grande ablution) avant de pouvoir accomplir la priere ou toucher le Coran, une purification plus complete que le simple wudu requis apres les impuretes mineures.",
+    relatedSlugs: ["ghusl", "wudu"],
+  },
+  {
+    term: "Hayd (Menstrues)",
+    termArabic: "الحيض",
+    slug: "hayd",
+    definition: "Le cycle menstruel, periode durant laquelle certains actes d'adoration sont suspendus.",
+    origin: "Racine arabe h-y-d, evoquant l'ecoulement menstruel.",
+    explanation:
+      "Durant le hayd, la priere et le jeune sont suspendus (les jours de jeune manques etant rattrapes ulterieurement), une concession legale reconnue par le fiqh plutot qu'une exclusion punitive, le Coran (sourate Al-Baqara, 2:222) invitant a la bienveillance sur ce sujet.",
+    relatedSlugs: ["ghusl", "nifas"],
+  },
+  {
+    term: "Nifas (Lochies post-partum)",
+    termArabic: "النفاس",
+    slug: "nifas",
+    definition: "Le saignement suivant l'accouchement, durant lequel s'appliquent des regles similaires a celles du hayd.",
+    origin: "Racine arabe n-f-s, evoquant l'accouchement.",
+    explanation:
+      "Le nifas suit les memes principes juridiques que le hayd (suspension de la priere et du jeune, rattrapage du jeune) pour une duree generalement plus longue, jusqu'a l'arret effectif du saignement.",
+    relatedSlugs: ["hayd", "ghusl"],
+  },
+  {
+    term: "Qibla (Direction de la priere)",
+    termArabic: "القبلة",
+    slug: "qibla",
+    definition: "La direction de la Kaaba a La Mecque, vers laquelle chaque priere doit etre orientee.",
+    origin: "Racine arabe q-b-l, evoquant ce qui fait face.",
+    explanation:
+      "Le changement de qibla, de Jerusalem vers La Mecque durant la periode medinoise (sourate Al-Baqara, 2:144), marque un tournant symbolique dans l'affirmation d'une identite rituelle propre a la communaute musulmane naissante.",
+    relatedSlugs: ["salah", "hajj"],
+  },
+  {
+    term: "Iqama (Second appel a la priere)",
+    termArabic: "الإقامة",
+    slug: "iqama",
+    definition: "L'appel bref prononce juste avant le debut de la priere en groupe, annoncant qu'elle va commencer.",
+    origin: "Racine arabe q-w-m, evoquant le fait de se lever, de se tenir debout.",
+    explanation:
+      "L'iqama reprend une forme condensee de l'adhan, prononcee au sein meme de la mosquee juste avant que l'imam ne debute la priere, signalant aux fideles presents de se mettre en rang.",
+    relatedSlugs: ["adhan", "salah"],
+  },
 ];
 
 export async function seedConcepts(db: Database): Promise<void> {
