@@ -1759,6 +1759,45 @@ const FIQH_TOPICS: FiqhTopicSeed[] = [
     ],
     divergenceExplanation: "La divergence porte sur la nature juridique du contrat de location : l'ecole hanafite le rattache a la categorie des droits personnels lies a la capacite juridique des parties elles-memes, s'eteignant avec leur deces, tandis que les trois autres ecoles le traitent comme un droit financier ordinaire, transmissible aux heritiers a l'instar d'une dette ou d'un bien, sans lien necessaire avec la personne meme du contractant initial.",
   },
+  {
+    title: "Le debut du Ramadan doit-il etre determine selon l'observation locale de la lune, ou vaut-il pour l'ensemble des musulmans du monde ?",
+    slug: "ikhtilaf-al-matali-debut-ramadan",
+    category: "Jeûne (Sawm)",
+    description: "Si l'observation valide du croissant lunaire marquant le debut de Ramadan dans une region du monde oblige l'ensemble des musulmans, y compris ceux situes dans des regions eloignees ou le croissant n'est pas encore visible, a commencer le jeune le meme jour.",
+    positions: [
+      { schoolSlug: "malikite", text: "L'observation vaut pour les regions partageant un horizon lunaire suffisamment proche (matla' commun) ; des regions tres eloignees, aux horizons distincts, peuvent valablement commencer le jeune a des dates differentes." },
+      { schoolSlug: "hanafite", text: "Position proche des malikites : les regions dont l'horizon lunaire differe significativement ne sont pas tenues de suivre l'observation d'une region eloignee." },
+      { schoolSlug: "shafiite", text: "L'ecole codifie explicitement le principe de la difference des horizons lunaires (ikhtilaf al-matali') : chaque region suit l'observation propre a son horizon, sans obligation de suivre celle d'une region eloignee." },
+      { schoolSlug: "hanbalite", text: "Une observation valide du croissant, rapportee de maniere fiable depuis n'importe quel point du monde musulman, oblige l'ensemble des croyants a commencer le jeune le meme jour, sans distinction d'horizon lunaire." },
+    ],
+    divergenceExplanation: "La divergence porte sur la portee du hadith \"jeunez a sa vue [du croissant]\" (sumu li-ru'yatihi, rapporte par Al-Bukhari et Muslim) : l'ecole hanbalite le comprend comme une obligation generale s'appliquant a l'ensemble de la communaute des lors qu'une observation fiable est rapportee ou que ce soit, tandis que les trois autres ecoles considerent que l'obligation ne concerne que les regions partageant un horizon lunaire suffisamment proche pour que le croissant y soit potentiellement visible, expliquant pourquoi le debut du Ramadan differe aujourd'hui encore selon les pays.",
+  },
+  {
+    title: "Le tannage (dibagh) purifie-t-il la peau d'un animal mort sans egorgement rituel (maytah) ?",
+    slug: "dibagh-tannage-peau-animal-mort",
+    category: "Purification (Tahara)",
+    description: "Si le fait de tanner la peau d'un animal mort sans avoir ete egorge rituellement (maytah), rendant cette peau impropre a la consommation, la purifie neanmoins pour un usage comme cuir.",
+    positions: [
+      { schoolSlug: "malikite", text: "Le tannage purifie la peau de tout animal mort sans egorgement, a l'exception de celle du porc et du chien, permettant son usage comme cuir." },
+      { schoolSlug: "hanafite", text: "Le tannage purifie la peau de tout animal mort sans exception, y compris celle du porc, rendant son usage licite une fois tannee." },
+      { schoolSlug: "shafiite", text: "Position proche des malikites : le tannage purifie la peau de tout animal mort a l'exception du porc et du chien, dont la nature reste impure meme apres tannage." },
+      { schoolSlug: "hanbalite", text: "Le tannage ne purifie pas veritablement la peau d'un animal mort sans egorgement rituel ; celle-ci demeure impure et son usage reste soumis a des restrictions importantes, meme apres tannage." },
+    ],
+    divergenceExplanation: "La divergence porte sur la portee du hadith \"tout cuir tanne devient pur\" (rapporte par Muslim) : les ecoles malikite, hanafite et shafi'ite le retiennent comme instituant une regle generale de purification par transformation (istihala), avec des nuances sur le porc et le chien selon les ecoles, tandis que l'ecole hanbalite considere que ce hadith concerne la purete suffisante pour un usage limite plutot qu'une purification complete assimilant la peau tannee a un cuir d'animal licitement egorge.",
+  },
+  {
+    title: "Peut-on verser la zakat plusieurs annees a l'avance, avant que le hawl ne soit accompli ?",
+    slug: "avance-versement-zakat-annuelle",
+    category: "Zakat",
+    description: "Si un musulman peut valablement s'acquitter de sa zakat annuelle par anticipation, avant que l'annee lunaire de possession du bien (hawl) ne soit effectivement completee.",
+    positions: [
+      { schoolSlug: "malikite", text: "Le versement anticipe de la zakat, avant l'achevement du hawl, n'est pas admis ; l'obligation ne devient exigible qu'une fois le hawl effectivement accompli." },
+      { schoolSlug: "hanafite", text: "Le versement anticipe de la zakat est admis, y compris plusieurs annees a l'avance, en s'appuyant sur le rapport selon lequel le Prophete ﷺ autorisa Al-Abbas a verser par avance la zakat de deux annees." },
+      { schoolSlug: "shafiite", text: "Position identique aux hanafites : le versement anticipe est admis des lors que le nisab est deja atteint au moment du versement." },
+      { schoolSlug: "hanbalite", text: "Position identique aux hanafites et shafi'ites : le versement anticipe de la zakat, y compris pour plusieurs annees, est admis." },
+    ],
+    divergenceExplanation: "La divergence porte sur la portee du rapport concernant Al-Abbas, oncle du Prophete, autorise a verser sa zakat de maniere anticipee : trois ecoles y voient un precedent general admettant l'anticipation du versement comme une forme d'aumone volontaire suivie d'imputation sur l'obligation a venir, tandis que l'ecole malikite considere que la zakat, a la difference d'une aumone volontaire ordinaire, ne devient une obligation determinee qu'au moment precis ou le hawl est effectivement accompli, rendant tout versement anterieur juridiquement premature.",
+  },
 ];
 
 export async function seedSchools(db: Database): Promise<void> {
