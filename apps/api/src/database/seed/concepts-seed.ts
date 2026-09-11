@@ -951,6 +951,984 @@ const CONCEPTS: ConceptSeed[] = [
       "L'adhan est l'appel rituel, composé de formules fixes proclamant la grandeur de Dieu et invitant à la prière et à la réussite, lancé publiquement à l'entrée de chacune des cinq heures de prière quotidiennes. Son institution est traditionnellement rattachée à un rêve rapporté par un Compagnon, Abdullah ibn Zayd, validé ensuite par le Prophète ﷺ qui choisit Bilal ibn Rabah, à la voix particulièrement portante, comme premier muezzin de l'histoire islamique.\n\nSa formulation exacte connaît de légères variantes entre écoles sunnites (répétition de certaines formules) et davantage entre sunnisme et chiisme, mais sa fonction essentielle - annoncer publiquement l'entrée du temps de la prière - fait l'objet d'un large consensus depuis l'époque prophétique.",
     relatedSlugs: ["salah"],
   },
+  // --- Les Noms d'Allah (Al-Asma al-Husna) ---
+  // Le hadith rapporte par At-Tirmidhi evoque "quatre-vingt-dix-neuf noms,
+  // cent moins un" sans en fixer une liste unique et definitive : les
+  // enumerations transmises par les commentateurs varient legerement d'une
+  // compilation a l'autre. Les noms ci-dessous font tous partie des
+  // enumerations les plus largement rapportees et sont directement attestes
+  // dans le Coran ; ils sont presentes individuellement plutot que numerotes,
+  // pour ne pas trancher entre des listes concurrentes.
+  {
+    term: "Ar-Rahman (Le Tout Misericordieux)",
+    termArabic: "الرحمن",
+    slug: "ar-rahman",
+    definition: "Le Tout Misericordieux, dont la misericorde embrasse l'ensemble de la creation.",
+    origin: "L'un des Noms d'Allah, ouvrant la Basmala et la sourate Ar-Rahman.",
+    explanation:
+      "Ar-Rahman exprime une misericorde universelle, etendue a toute la creation sans distinction de croyance, tandis qu'Ar-Rahim est generalement comprise comme plus specifiquement tournee vers les croyants. Les deux noms, associes des l'ouverture de chaque sourate (a l'exception d'At-Tawba) par la Basmala, soulignent la centralite de cet attribut dans la theologie islamique.",
+    relatedSlugs: ["ar-rahim", "asma-wa-sifat"],
+  },
+  {
+    term: "Ar-Rahim (Le Tres Misericordieux)",
+    termArabic: "الرحيم",
+    slug: "ar-rahim",
+    definition: "Le Tres Misericordieux, dont la misericorde est particulierement tournee vers les croyants.",
+    origin: "L'un des Noms d'Allah, associe a Ar-Rahman dans la Basmala.",
+    explanation:
+      "Contrairement a Ar-Rahman, dont la misericorde embrasse toute la creation, Ar-Rahim est traditionnellement comprise comme la misericorde specifique reservee aux croyants, notamment dans l'au-dela. Le Coran (sourate Al-Ahzab, 33:43) emploie ce nom precisement dans ce sens envers les croyants.",
+    relatedSlugs: ["ar-rahman", "asma-wa-sifat"],
+  },
+  {
+    term: "Al-Malik (Le Souverain)",
+    termArabic: "الملك",
+    slug: "al-malik",
+    definition: "Le Souverain absolu, maitre de toute chose sans partage ni limite.",
+    origin: "L'un des Noms d'Allah, cite notamment en ouverture de la sourate Al-Fatiha.",
+    explanation:
+      "Al-Malik designe une souverainete totale et sans partage sur l'ensemble de la creation, distincte de toute royaute humaine necessairement limitee dans le temps et l'espace. Le Coran l'associe frequemment au Jour du Jugement (sourate Al-Fatiha, 1:4), moment ou toute autorite terrestre s'efface.",
+    relatedSlugs: ["asma-wa-sifat", "qiyamah"],
+  },
+  {
+    term: "Al-Quddus (Le Pur, Le Saint)",
+    termArabic: "القدوس",
+    slug: "al-quddus",
+    definition: "Celui qui est exempt de toute imperfection, de tout defaut et de toute ressemblance avec la creation.",
+    origin: "Racine arabe q-d-s, evoquant la purete et la saintete.",
+    explanation:
+      "Al-Quddus affirme la transcendance absolue de Dieu, au-dela de toute imperfection concevable par l'esprit humain - y compris celles que d'autres attributs divins pourraient, mal compris, laisser supposer. Le nom apparait au debut de la sourate Al-Jumu'a (62:1).",
+    relatedSlugs: ["asma-wa-sifat", "tawhid"],
+  },
+  {
+    term: "As-Salam (La Paix)",
+    termArabic: "السلام",
+    slug: "as-salam",
+    definition: "La Source de toute paix et de toute securite, exempte de tout defaut.",
+    origin: "Racine arabe s-l-m, partagee avec le mot Islam.",
+    explanation:
+      "As-Salam designe Dieu comme la source ultime de la paix et de l'integrite, celui dont la nature meme exclut tout mal ou toute imperfection. Ce nom relie etymologiquement la conception du divin a celle de la salutation islamique (as-salamu 'alaykum) et au nom du paradis (Dar as-Salam, sourate Yunus, 10:25).",
+    relatedSlugs: ["asma-wa-sifat", "jannah"],
+  },
+  {
+    term: "Al-Mu'min (Celui qui donne la securite)",
+    termArabic: "المؤمن",
+    slug: "al-mumin",
+    definition: "Celui qui accorde la securite et confirme la verite de Ses promesses.",
+    origin: "Racine arabe a-m-n, partagee avec iman (la foi).",
+    explanation:
+      "Al-Mu'min designe Dieu comme source de securite pour Ses creatures et comme garant de la verite de Ses messages et de Ses promesses. Le nom partage sa racine avec iman (la foi) et amn (la securite), soulignant le lien entre confiance en Dieu et paix interieure.",
+    relatedSlugs: ["iman", "asma-wa-sifat"],
+  },
+  {
+    term: "Al-Muhaymin (Le Protecteur, le Dominateur)",
+    termArabic: "المهيمن",
+    slug: "al-muhaymin",
+    definition: "Celui qui veille sur toute chose et en garantit la preservation.",
+    origin: "Racine arabe liee a la surveillance et a la garde vigilante.",
+    explanation:
+      "Al-Muhaymin exprime une vigilance et une autorite constantes sur l'ensemble de la creation, rien n'echappant a Sa connaissance ni a Son controle. Le nom apparait aux cotes d'Al-Mu'min dans la sourate Al-Hashr (59:23).",
+    relatedSlugs: ["asma-wa-sifat"],
+  },
+  {
+    term: "Al-Aziz (Le Puissant)",
+    termArabic: "العزيز",
+    slug: "al-aziz",
+    definition: "Le Tout-Puissant, dont l'autorite ne peut etre ni vaincue ni contestee.",
+    origin: "Racine arabe '-z-z, evoquant la force et l'invincibilite.",
+    explanation:
+      "Al-Aziz affirme une puissance absolue et invincible, frequemment associee dans le Coran a Al-Hakim (Le Sage) pour souligner que cette puissance s'exerce toujours avec sagesse, jamais de maniere arbitraire.",
+    relatedSlugs: ["al-hakim", "asma-wa-sifat"],
+  },
+  {
+    term: "Al-Jabbar (Le Contraignant, l'Irresistible)",
+    termArabic: "الجبار",
+    slug: "al-jabbar",
+    definition: "Celui dont la volonte s'impose irresistiblement et qui repare ce qui est brise.",
+    origin: "Racine arabe j-b-r, evoquant a la fois la contrainte et la reparation.",
+    explanation:
+      "Al-Jabbar combine deux nuances de sa racine : la capacite a imposer Sa volonte de maniere irresistible, et celle a reparer ou consoler ce qui est brise - une dimension parfois soulignee par les commentateurs a cote de la seule idee de domination.",
+    relatedSlugs: ["asma-wa-sifat"],
+  },
+  {
+    term: "Al-Mutakabbir (Le Superbe)",
+    termArabic: "المتكبر",
+    slug: "al-mutakabbir",
+    definition: "Celui a qui seul revient le droit a la grandeur et a la superiorite absolues.",
+    origin: "Racine arabe k-b-r, evoquant la grandeur.",
+    explanation:
+      "Al-Mutakabbir affirme que la grandeur absolue n'appartient qu'a Dieu seul - un attribut que l'orgueil humain (kibr), lui, est explicitement condamne dans la tradition islamique comme une usurpation illegitime de ce qui revient exclusivement au Createur.",
+    relatedSlugs: ["kibr", "asma-wa-sifat"],
+  },
+  {
+    term: "Al-Khaliq (Le Createur)",
+    termArabic: "الخالق",
+    slug: "al-khaliq",
+    definition: "Celui qui fait exister toute chose a partir du neant, selon une mesure precise.",
+    origin: "Racine arabe kh-l-q, evoquant la creation et la mesure.",
+    explanation:
+      "Al-Khaliq designe l'acte createur dans son ensemble, souvent associe dans le Coran (sourate Al-Hashr, 59:24) a Al-Bari' et Al-Musawwir, qui en detaillent respectivement l'origination sans modele preexistant et le fait de donner forme.",
+    relatedSlugs: ["al-bari", "al-musawwir", "asma-wa-sifat"],
+  },
+  {
+    term: "Al-Bari' (Celui qui donne un commencement)",
+    termArabic: "البارئ",
+    slug: "al-bari",
+    definition: "Celui qui fait passer la creation de l'inexistence a l'existence, sans modele prealable.",
+    origin: "Racine arabe b-r-', evoquant l'origination libre de toute contrainte.",
+    explanation:
+      "Al-Bari' souligne que la creation divine n'imite ni ne suit aucun modele preexistant, contrairement a toute production humaine qui s'inspire toujours de quelque chose de deja connu. Cite aux cotes d'Al-Khaliq et Al-Musawwir (sourate Al-Hashr, 59:24).",
+    relatedSlugs: ["al-khaliq", "al-musawwir"],
+  },
+  {
+    term: "Al-Musawwir (Le Formateur)",
+    termArabic: "المصور",
+    slug: "al-musawwir",
+    definition: "Celui qui donne a chaque creature sa forme propre et distinctive.",
+    origin: "Racine arabe s-w-r, evoquant la forme et l'image.",
+    explanation:
+      "Al-Musawwir designe l'acte de donner a chaque creature une forme unique parmi l'infinie diversite du vivant, dernier des trois noms crea­teurs cites ensemble (sourate Al-Hashr, 59:24) apres Al-Khaliq et Al-Bari'.",
+    relatedSlugs: ["al-khaliq", "al-bari"],
+  },
+  {
+    term: "Al-Ghaffar (Le Grand Pardonneur)",
+    termArabic: "الغفار",
+    slug: "al-ghaffar",
+    definition: "Celui dont le pardon se renouvelle sans cesse, couvrant les fautes repetees.",
+    origin: "Racine arabe gh-f-r, evoquant le fait de couvrir, de dissimuler.",
+    explanation:
+      "La forme intensive d'Al-Ghaffar souligne la repetition du pardon divin, accorde a chaque retour sincere du serviteur malgre la recidive - une misericorde qui ne se lasse jamais, a la difference du pardon humain souvent limite.",
+    relatedSlugs: ["tawba", "istighfar"],
+  },
+  {
+    term: "Al-Qahhar (Le Dominateur Supreme)",
+    termArabic: "القهار",
+    slug: "al-qahhar",
+    definition: "Celui dont l'autorite s'impose absolument a toute chose, sans exception possible.",
+    origin: "Racine arabe q-h-r, evoquant la domination et la contrainte irresistible.",
+    explanation:
+      "Al-Qahhar affirme une domination totale sur l'ensemble de la creation, souvent associee dans le Coran a l'unicite divine (sourate Ar-Ra'd, 13:16) : nul autre qu'Allah ne detient un tel pouvoir absolu.",
+    relatedSlugs: ["tawhid", "asma-wa-sifat"],
+  },
+  {
+    term: "Al-Wahhab (Le Grand Donateur)",
+    termArabic: "الوهاب",
+    slug: "al-wahhab",
+    definition: "Celui qui donne en abondance, sans attendre aucune contrepartie.",
+    origin: "Racine arabe w-h-b, evoquant le don gratuit.",
+    explanation:
+      "Al-Wahhab souligne le caractere gratuit et inconditionnel des dons divins, accordes par pure generosite plutot qu'en echange d'un merite prealable - une nuance qui le distingue d'Ar-Razzaq, davantage associe a la subsistance regulierement pourvue.",
+    relatedSlugs: ["ar-razzaq", "barakah"],
+  },
+  {
+    term: "Ar-Razzaq (Le Grand Pourvoyeur)",
+    termArabic: "الرزاق",
+    slug: "ar-razzaq",
+    definition: "Celui qui pourvoit a la subsistance de toute creature vivante.",
+    origin: "Racine arabe r-z-q, evoquant la subsistance et la provision.",
+    explanation:
+      "Ar-Razzaq affirme que la subsistance de toute creature, humaine comme animale, depend entierement de la providence divine, un theme recurrent du Coran (sourate Adh-Dhariyat, 51:58) invite a la confiance (tawakkul) plutot qu'a l'anxiete excessive.",
+    relatedSlugs: ["tawakkul", "al-wahhab"],
+  },
+  {
+    term: "Al-Fattah (Celui qui tranche, qui ouvre)",
+    termArabic: "الفتاح",
+    slug: "al-fattah",
+    definition: "Celui qui ouvre les portes closes et tranche entre le vrai et le faux.",
+    origin: "Racine arabe f-t-h, evoquant l'ouverture et la victoire.",
+    explanation:
+      "Al-Fattah recouvre a la fois l'idee d'ouvrir ce qui etait ferme (portes de la misericorde, de la subsistance, de la comprehension) et celle de trancher un differend avec justice, comme dans la supplique de la sourate Saba (34:26).",
+    relatedSlugs: ["asma-wa-sifat"],
+  },
+  {
+    term: "Al-'Alim (L'Omniscient)",
+    termArabic: "العليم",
+    slug: "al-alim",
+    definition: "Celui dont la connaissance embrasse toute chose, visible ou cachee.",
+    origin: "Racine arabe '-l-m, evoquant le savoir.",
+    explanation:
+      "Al-'Alim affirme une connaissance divine totale, incluant l'invisible (ghayb) comme le visible, les pensees les plus intimes comme les evenements les plus vastes - un des attributs les plus frequemment repetes dans le Coran.",
+    relatedSlugs: ["ghayb", "asma-wa-sifat"],
+  },
+  {
+    term: "Al-Qabid (Celui qui restreint)",
+    termArabic: "القابض",
+    slug: "al-qabid",
+    definition: "Celui qui restreint la subsistance ou resserre ce qu'Il veut selon Sa sagesse.",
+    origin: "Racine arabe q-b-d, evoquant le fait de saisir, de resserrer.",
+    explanation:
+      "Al-Qabid et Al-Basit forment une paire complementaire (sourate Al-Baqara, 2:245) : Dieu resserre ou etend la subsistance et les circonstances de Ses creatures selon une sagesse qui echappe souvent a la comprehension humaine immediate.",
+    relatedSlugs: ["al-basit", "qadar"],
+  },
+  {
+    term: "Al-Basit (Celui qui etend)",
+    termArabic: "الباسط",
+    slug: "al-basit",
+    definition: "Celui qui etend et elargit la subsistance ou les circonstances selon Sa sagesse.",
+    origin: "Racine arabe b-s-t, evoquant l'extension, l'elargissement.",
+    explanation:
+      "Complement d'Al-Qabid, Al-Basit designe l'elargissement de la subsistance ou de toute autre grace accordee a la creation, rappelant que ni la restriction ni l'abondance ne dependent du seul merite apparent d'une personne.",
+    relatedSlugs: ["al-qabid"],
+  },
+  {
+    term: "Al-Khafid (Celui qui abaisse)",
+    termArabic: "الخافض",
+    slug: "al-khafid",
+    definition: "Celui qui abaisse qui Il veut, en rang ou en condition.",
+    origin: "Racine arabe kh-f-d, evoquant l'abaissement.",
+    explanation:
+      "Al-Khafid et Ar-Rafi' forment une paire complementaire qui rappelle que l'elevation et l'abaissement en ce monde et dans l'au-dela relevent entierement de la decision divine, non des seuls efforts ou statuts humains.",
+    relatedSlugs: ["ar-rafi"],
+  },
+  {
+    term: "Ar-Rafi' (Celui qui eleve)",
+    termArabic: "الرافع",
+    slug: "ar-rafi",
+    definition: "Celui qui eleve qui Il veut, en rang, en dignite ou en degre spirituel.",
+    origin: "Racine arabe r-f-', evoquant l'elevation.",
+    explanation:
+      "Complement d'Al-Khafid, Ar-Rafi' designe l'elevation accordee par Dieu - elevation de rang dans ce monde, mais aussi elevation spirituelle et, pour certains prophetes comme Jesus selon la tradition islamique, elevation physique aupres de Lui.",
+    relatedSlugs: ["al-khafid"],
+  },
+  {
+    term: "Al-Mu'izz (Celui qui donne l'honneur)",
+    termArabic: "المعز",
+    slug: "al-muizz",
+    definition: "Celui qui accorde puissance et honneur a qui Il veut.",
+    origin: "Racine arabe '-z-z, partagee avec Al-Aziz.",
+    explanation:
+      "Al-Mu'izz et Al-Mudhill forment une paire (sourate Al Imran, 3:26) rappelant que l'honneur comme l'humiliation, a l'echelle des individus comme des nations, dependent en definitive de la volonte divine plutot que des seuls rapports de force apparents.",
+    relatedSlugs: ["al-mudhill"],
+  },
+  {
+    term: "Al-Mudhill (Celui qui humilie)",
+    termArabic: "المذل",
+    slug: "al-mudhill",
+    definition: "Celui qui abaisse et humilie qui Il veut.",
+    origin: "Racine arabe dh-l-l, evoquant l'humiliation, la bassesse.",
+    explanation:
+      "Complement d'Al-Mu'izz, ce nom rappelle que la chute en dignite ou en puissance, comme l'elevation, echappe en definitive au seul controle humain et releve de la sagesse divine.",
+    relatedSlugs: ["al-muizz"],
+  },
+  {
+    term: "As-Sami' (Celui qui entend tout)",
+    termArabic: "السميع",
+    slug: "as-sami",
+    definition: "Celui qui entend toute chose, y compris ce qui reste inexprime.",
+    origin: "Racine arabe s-m-', evoquant l'ouie.",
+    explanation:
+      "As-Sami' affirme une audition divine qui n'est limitee ni par la distance ni par le volume, s'etendant jusqu'aux pensees et invocations les plus discretes - une source de reconfort central dans la pratique du du'a.",
+    relatedSlugs: ["dua", "asma-wa-sifat"],
+  },
+  {
+    term: "Al-Basir (Celui qui voit tout)",
+    termArabic: "البصير",
+    slug: "al-basir",
+    definition: "Celui qui voit toute chose, dans ses moindres details.",
+    origin: "Racine arabe b-s-r, evoquant la vue.",
+    explanation:
+      "Al-Basir, frequemment associe a As-Sami' dans le Coran, affirme une vision divine totale, y compris de ce qui echappe totalement a la perception humaine - un rappel constant de la surveillance divine sur les actes.",
+    relatedSlugs: ["as-sami"],
+  },
+  {
+    term: "Al-Hakam (L'Arbitre, le Juge)",
+    termArabic: "الحكم",
+    slug: "al-hakam",
+    definition: "Celui dont le jugement final tranche tout differend avec une justice parfaite.",
+    origin: "Racine arabe h-k-m, partagee avec hikmah (sagesse) et hukm (jugement).",
+    explanation:
+      "Al-Hakam designe Dieu comme l'arbitre ultime, dont le jugement au Jour dernier tranchera tous les differends humains avec une justice parfaite, echappant a toute erreur ou partialite possible chez un juge humain.",
+    relatedSlugs: ["qadi", "al-adl"],
+  },
+  {
+    term: "Al-'Adl (Le Juste)",
+    termArabic: "العدل",
+    slug: "al-adl",
+    definition: "Celui dont chaque decision est parfaitement equitable, sans la moindre injustice.",
+    origin: "Racine arabe '-d-l, evoquant l'equite.",
+    explanation:
+      "Al-'Adl affirme une justice divine absolue, un principe theologique central rappele par le Coran (sourate Fussilat, 41:46) : Dieu ne fait de tort a personne, chaque consequence subie decoulant en definitive des actes propres de chacun.",
+    relatedSlugs: ["adl", "zulm"],
+  },
+  {
+    term: "Al-Latif (Le Subtil, le Bienveillant)",
+    termArabic: "اللطيف",
+    slug: "al-latif",
+    definition: "Celui dont la bienveillance atteint Ses creatures par des voies subtiles, souvent imperceptibles.",
+    origin: "Racine arabe l-t-f, evoquant la finesse et la delicatesse.",
+    explanation:
+      "Al-Latif combine deux nuances : une connaissance divine des details les plus subtils de la creation, et une bienveillance qui s'exerce souvent de maniere discrete, sans que le serviteur en percoive immediatement l'origine.",
+    relatedSlugs: ["al-khabir"],
+  },
+  {
+    term: "Al-Khabir (Celui qui est parfaitement informe)",
+    termArabic: "الخبير",
+    slug: "al-khabir",
+    definition: "Celui dont la connaissance atteint les realites les plus profondes et cachees.",
+    origin: "Racine arabe kh-b-r, evoquant l'information precise et verifiee.",
+    explanation:
+      "Al-Khabir, souvent associe a Al-Latif, souligne une connaissance divine qui ne se limite pas aux apparences mais penetre la realite profonde de chaque chose et de chaque intention.",
+    relatedSlugs: ["al-latif"],
+  },
+  {
+    term: "Al-Halim (Le Longanime, le Clement)",
+    termArabic: "الحليم",
+    slug: "al-halim",
+    definition: "Celui qui differe le chatiment malgre la desobeissance, laissant le temps au repentir.",
+    origin: "Racine arabe h-l-m, evoquant la patience et la maitrise de soi.",
+    explanation:
+      "Al-Halim designe la clemence divine qui s'abstient de punir immediatement la faute, laissant au serviteur le temps de se reprendre - une qualite que la tradition invite egalement a cultiver entre humains (voir hilm).",
+    relatedSlugs: ["hilm", "al-ghafur"],
+  },
+  {
+    term: "Al-'Azim (L'Immense)",
+    termArabic: "العظيم",
+    slug: "al-azim",
+    definition: "Celui dont la grandeur depasse toute mesure et toute comparaison concevable.",
+    origin: "Racine arabe '-z-m, evoquant l'immensite.",
+    explanation:
+      "Al-'Azim affirme une grandeur absolue, hors de toute echelle de comparaison avec la creation - un attribut particulierement invoque dans le tasbih rituel (\"Subhan Allahi al-'Azim\") apres l'inclinaison de la priere.",
+    relatedSlugs: ["salah", "asma-wa-sifat"],
+  },
+  {
+    term: "Al-Ghafur (Le Grand Pardonneur, l'Indulgent)",
+    termArabic: "الغفور",
+    slug: "al-ghafur",
+    definition: "Celui dont le pardon est vaste et frequent envers Ses creatures repentantes.",
+    origin: "Racine arabe gh-f-r, partagee avec Al-Ghaffar.",
+    explanation:
+      "Proche d'Al-Ghaffar, Al-Ghafur est l'un des noms divins les plus repetes du Coran, souvent associe a Ar-Rahim pour souligner l'etendue du pardon offert a quiconque se repent sincerement.",
+    relatedSlugs: ["al-ghaffar", "tawba"],
+  },
+  {
+    term: "Ash-Shakur (Le Reconnaissant)",
+    termArabic: "الشكور",
+    slug: "ash-shakur",
+    definition: "Celui qui recompense genereusement le moindre effort accompli pour Son agrement.",
+    origin: "Racine arabe sh-k-r, evoquant la gratitude.",
+    explanation:
+      "Ash-Shakur designe la generosite divine dans la recompense : meme un acte minime accompli sincerement peut etre demesurement recompense, un encouragement constant a la reconnaissance (shukr) envers Dieu.",
+    relatedSlugs: ["asma-wa-sifat"],
+  },
+  {
+    term: "Al-'Aliyy (Le Tres-Haut)",
+    termArabic: "العلي",
+    slug: "al-aliyy",
+    definition: "Celui dont l'elevation, en rang comme en essence, depasse toute conception.",
+    origin: "Racine arabe '-l-w, evoquant l'elevation.",
+    explanation:
+      "Al-'Aliyy affirme une transcendance absolue de Dieu par rapport a la creation, un attribut central de la theologie sunnite classique rappelant qu'aucune limite spatiale ne peut Lui etre attribuee au sens litteral humain.",
+    relatedSlugs: ["al-muta-ali", "asma-wa-sifat"],
+  },
+  {
+    term: "Al-Kabir (Le Grand)",
+    termArabic: "الكبير",
+    slug: "al-kabir",
+    definition: "Celui dont la grandeur surpasse celle de toute chose creee.",
+    origin: "Racine arabe k-b-r, partagee avec Al-Mutakabbir et takbir.",
+    explanation:
+      "Al-Kabir affirme une grandeur absolue et incomparable, rappelee a chaque takbir (\"Allahu akbar\", Dieu est plus grand) prononce dans la priere et en de nombreuses autres occasions rituelles.",
+    relatedSlugs: ["salah", "al-azim"],
+  },
+  {
+    term: "Al-Hafiz (Le Preservateur, le Gardien)",
+    termArabic: "الحفيظ",
+    slug: "al-hafiz",
+    definition: "Celui qui preserve toute chose de la disparition et de l'alteration.",
+    origin: "Racine arabe h-f-z, evoquant la preservation et la memorisation.",
+    explanation:
+      "Al-Hafiz designe la protection divine exercee sur la creation entiere, notamment invoquee au sujet de la preservation du Coran lui-meme (sourate Al-Hijr, 15:9), garanti contre toute alteration selon la croyance islamique.",
+    relatedSlugs: ["asma-wa-sifat"],
+  },
+  {
+    term: "Al-Muqit (Celui qui nourrit, qui soutient)",
+    termArabic: "المقيت",
+    slug: "al-muqit",
+    definition: "Celui qui pourvoit a la subsistance necessaire a chaque creature, dans la mesure exacte.",
+    origin: "Racine arabe q-w-t, evoquant la nourriture necessaire a la subsistance.",
+    explanation:
+      "Al-Muqit souligne une providence divine precise, ajustee aux besoins exacts de chaque creature plutot qu'une simple abondance generale, complement du sens plus large d'Ar-Razzaq.",
+    relatedSlugs: ["ar-razzaq"],
+  },
+  {
+    term: "Al-Hasib (Celui qui suffit, qui compte tout)",
+    termArabic: "الحسيب",
+    slug: "al-hasib",
+    definition: "Celui qui suffit a Ses serviteurs et tient le compte exact de tous leurs actes.",
+    origin: "Racine arabe h-s-b, evoquant le calcul et le compte.",
+    explanation:
+      "Al-Hasib combine deux idees : Dieu suffit a quiconque place en Lui sa confiance (sourate At-Talaq, 65:3), et Il tient un compte exact et exhaustif de chaque acte, en vue du jugement dernier.",
+    relatedSlugs: ["tawakkul", "qiyamah"],
+  },
+  {
+    term: "Al-Jalil (Le Majestueux)",
+    termArabic: "الجليل",
+    slug: "al-jalil",
+    definition: "Celui dont la majeste inspire une veneration absolue.",
+    origin: "Racine arabe j-l-l, evoquant la majeste et la grandeur imposante.",
+    explanation:
+      "Al-Jalil affirme une majeste divine qui commande le respect et la crainte reverencielle, une dimension complementaire de la proximite exprimee par d'autres noms comme Al-Wadud.",
+    relatedSlugs: ["dhul-jalali-wal-ikram"],
+  },
+  {
+    term: "Al-Karim (Le Genereux)",
+    termArabic: "الكريم",
+    slug: "al-karim",
+    definition: "Celui dont la generosite est illimitee, accordee sans mesure ni calcul.",
+    origin: "Racine arabe k-r-m, evoquant la noblesse et la generosite.",
+    explanation:
+      "Al-Karim designe une generosite divine qui depasse tout merite humain, un attribut egalement associe au Coran lui-meme, qualifie a plusieurs reprises de \"Qur'an Karim\" (Coran noble et genereux).",
+    relatedSlugs: ["al-wahhab"],
+  },
+  {
+    term: "Ar-Raqib (Celui qui observe)",
+    termArabic: "الرقيب",
+    slug: "ar-raqib",
+    definition: "Celui qui observe et surveille chaque acte, en tout temps et en tout lieu.",
+    origin: "Racine arabe r-q-b, evoquant la surveillance vigilante.",
+    explanation:
+      "Ar-Raqib rappelle une observation divine constante et ininterrompue, fondement de la conscience morale islamique (muraqaba) qui invite le croyant a agir comme s'il etait toujours sous le regard de Dieu.",
+    relatedSlugs: ["ihsan", "khushu"],
+  },
+  {
+    term: "Al-Mujib (Celui qui repond)",
+    termArabic: "المجيب",
+    slug: "al-mujib",
+    definition: "Celui qui repond aux invocations de Ses serviteurs.",
+    origin: "Racine arabe j-w-b, evoquant la reponse.",
+    explanation:
+      "Al-Mujib affirme que Dieu repond aux invocations sincères, meme si la reponse peut prendre une forme differente de celle attendue, ou n'apparaitre que dans l'au-dela - une nuance frequemment rappelee au sujet de la du'a.",
+    relatedSlugs: ["dua"],
+  },
+  {
+    term: "Al-Wasi' (Le Vaste)",
+    termArabic: "الواسع",
+    slug: "al-wasi",
+    definition: "Celui dont la connaissance, la misericorde et la generosite sont sans limites.",
+    origin: "Racine arabe w-s-', evoquant l'ampleur et la vastitude.",
+    explanation:
+      "Al-Wasi' est employe dans le Coran a propos de la connaissance, de la misericorde et de la capacite divines, soulignant qu'aucune dimension de l'attribut divin ne peut etre bornee par une limite concevable.",
+    relatedSlugs: ["asma-wa-sifat"],
+  },
+  {
+    term: "Al-Hakim (Le Sage)",
+    termArabic: "الحكيم",
+    slug: "al-hakim",
+    definition: "Celui dont chaque decision et chaque creation repondent a une sagesse parfaite.",
+    origin: "Racine arabe h-k-m, partagee avec hikmah.",
+    explanation:
+      "Al-Hakim affirme que rien dans la creation ni dans la legislation divine n'est arbitraire : chaque element repond a une sagesse, meme lorsque celle-ci echappe a la comprehension humaine immediate.",
+    relatedSlugs: ["hikmah", "al-aziz"],
+  },
+  {
+    term: "Al-Wadud (Le Tout-Aimant)",
+    termArabic: "الودود",
+    slug: "al-wadud",
+    definition: "Celui qui aime Ses serviteurs pieux et se fait aimer d'eux.",
+    origin: "Racine arabe w-d-d, evoquant l'affection profonde.",
+    explanation:
+      "Al-Wadud exprime une dimension d'affection reciproque entre Dieu et Ses serviteurs sinceres, nuance qui contrebalance dans la theologie islamique l'accent parfois porte uniquement sur la crainte reverencielle.",
+    relatedSlugs: ["rahma"],
+  },
+  {
+    term: "Al-Majid (Le Glorieux)",
+    termArabic: "المجيد",
+    slug: "al-majid",
+    definition: "Celui dont la gloire et la noblesse sont infinies.",
+    origin: "Racine arabe m-j-d, evoquant la gloire et l'honneur eleve.",
+    explanation:
+      "Al-Majid combine grandeur et generosite dans une meme glorification, un nom egalement applique au Trone divin (Al-'Arsh al-Majid, sourate Al-Buruj, 85:15).",
+    relatedSlugs: ["al-karim", "al-jalil"],
+  },
+  {
+    term: "Al-Ba'ith (Celui qui ressuscite)",
+    termArabic: "الباعث",
+    slug: "al-baith",
+    definition: "Celui qui ressuscitera toute la creation le Jour du Jugement.",
+    origin: "Racine arabe b-'-th, evoquant l'envoi et le rappel a la vie.",
+    explanation:
+      "Al-Ba'ith affirme la capacite divine a redonner vie a l'ensemble de la creation lors de la resurrection, un pilier central de l'eschatologie islamique (voir qiyamah).",
+    relatedSlugs: ["qiyamah", "al-muhyi"],
+  },
+  {
+    term: "Ash-Shahid (Le Temoin)",
+    termArabic: "الشهيد",
+    slug: "ash-shahid",
+    definition: "Celui qui est temoin de toute chose, sans qu'aucun acte ne Lui echappe.",
+    origin: "Racine arabe sh-h-d, partagee avec shahada.",
+    explanation:
+      "Ash-Shahid affirme un temoignage divin permanent sur les actes de chaque creature, temoignage qui sera rappele lors du jugement final - un theme frequemment associe a As-Sami' et Al-Basir.",
+    relatedSlugs: ["qiyamah"],
+  },
+  {
+    term: "Al-Haqq (La Verite)",
+    termArabic: "الحق",
+    slug: "al-haqq",
+    definition: "Celui dont l'existence et les paroles constituent la verite absolue et immuable.",
+    origin: "Racine arabe h-q-q, evoquant la verite et la realite certaine.",
+    explanation:
+      "Al-Haqq designe Dieu comme la seule realite absolument certaine, par opposition a la nature transitoire du monde creel - un attribut au fondement de la distinction islamique entre verite (haqq) et illusion (batil).",
+    relatedSlugs: ["asma-wa-sifat"],
+  },
+  {
+    term: "Al-Wakil (Le Garant)",
+    termArabic: "الوكيل",
+    slug: "al-wakil",
+    definition: "Celui a qui l'on peut confier entierement ses affaires, avec une confiance absolue.",
+    origin: "Racine arabe w-k-l, evoquant la delegation de confiance.",
+    explanation:
+      "Al-Wakil designe Dieu comme le garant supreme des affaires de qui place en Lui sa confiance, fondement theologique direct du concept de tawakkul (l'abandon confiant a Dieu).",
+    relatedSlugs: ["tawakkul"],
+  },
+  {
+    term: "Al-Qawiyy (Le Fort)",
+    termArabic: "القوي",
+    slug: "al-qawiyy",
+    definition: "Celui dont la force est absolue et jamais sujette a l'epuisement.",
+    origin: "Racine arabe q-w-y, evoquant la force.",
+    explanation:
+      "Al-Qawiyy, souvent associe a Al-'Aziz, affirme une puissance qui ne connait ni fatigue ni diminution, a la difference de toute force creee necessairement limitee.",
+    relatedSlugs: ["al-matin"],
+  },
+  {
+    term: "Al-Matin (L'Inebranlable)",
+    termArabic: "المتين",
+    slug: "al-matin",
+    definition: "Celui dont la force est d'une fermete et d'une solidite absolues.",
+    origin: "Racine arabe m-t-n, evoquant la solidite et la fermete.",
+    explanation:
+      "Al-Matin complete Al-Qawiyy en soulignant la fermete inebranlable de la puissance divine, jamais sujette a la moindre faille ou hesitation.",
+    relatedSlugs: ["al-qawiyy"],
+  },
+  {
+    term: "Al-Waliyy (Le Protecteur, l'Allie)",
+    termArabic: "الولي",
+    slug: "al-waliyy",
+    definition: "Celui qui protege et prend en charge les affaires de Ses serviteurs croyants.",
+    origin: "Racine arabe w-l-y, partagee avec wali (allie de Dieu).",
+    explanation:
+      "Al-Waliyy designe Dieu comme le protecteur et l'allie veritable des croyants, fondement du concept de wilaya developpe dans la spiritualite islamique - a distinguer du sens juridique de wali (tuteur matrimonial).",
+    relatedSlugs: ["wali-allah"],
+  },
+  {
+    term: "Al-Hamid (Le Digne de louange)",
+    termArabic: "الحميد",
+    slug: "al-hamid",
+    definition: "Celui qui merite toute louange, en Lui-meme, independamment de toute creature.",
+    origin: "Racine arabe h-m-d, partagee avec Al-Hamdu lillah.",
+    explanation:
+      "Al-Hamid affirme que Dieu est digne de louange par Son essence meme, independamment du fait que Ses creatures Le louent ou non - fondement de la formule quotidienne al-hamdu lillah.",
+    relatedSlugs: ["asma-wa-sifat"],
+  },
+  {
+    term: "Al-Muhsi (Celui qui denombre tout)",
+    termArabic: "المحصي",
+    slug: "al-muhsi",
+    definition: "Celui qui denombre et consigne avec exactitude chaque chose, sans exception.",
+    origin: "Racine arabe h-s-y, evoquant le denombrement precis.",
+    explanation:
+      "Al-Muhsi souligne une connaissance divine si precise qu'elle denombre jusqu'au moindre detail de la creation et des actes de chacun, en vue du jugement final.",
+    relatedSlugs: ["al-hasib"],
+  },
+  {
+    term: "Al-Mubdi' (Celui qui commence la creation)",
+    termArabic: "المبدئ",
+    slug: "al-mubdi",
+    definition: "Celui qui a initie la creation a partir du neant, sans modele prealable.",
+    origin: "Racine arabe b-d-', partagee avec Al-Bari'.",
+    explanation:
+      "Al-Mubdi' et Al-Mu'id forment une paire (sourate Al-Buruj, 85:13) qui affirme la meme puissance divine a l'oeuvre au commencement de la creation et lors de la resurrection future.",
+    relatedSlugs: ["al-muid"],
+  },
+  {
+    term: "Al-Mu'id (Celui qui refait, qui ressuscite)",
+    termArabic: "المعيد",
+    slug: "al-muid",
+    definition: "Celui qui refera la creation apres sa disparition, lors de la resurrection.",
+    origin: "Racine arabe '-w-d, evoquant le retour, le recommencement.",
+    explanation:
+      "Complement d'Al-Mubdi', Al-Mu'id affirme que la puissance qui a initie la creation est la meme qui la fera renaitre lors de la resurrection, un argument theologique frequemment avance dans le Coran contre le doute sur l'au-dela.",
+    relatedSlugs: ["al-mubdi", "qiyamah"],
+  },
+  {
+    term: "Al-Muhyi (Celui qui donne la vie)",
+    termArabic: "المحيي",
+    slug: "al-muhyi",
+    definition: "Celui qui donne la vie a toute chose, du neant comme apres la mort.",
+    origin: "Racine arabe h-y-y, partagee avec Al-Hayy.",
+    explanation:
+      "Al-Muhyi et Al-Mumit forment une paire soulignant que la vie comme la mort, souvent percues comme des forces autonomes, relevent entierement de la decision divine.",
+    relatedSlugs: ["al-mumit", "al-hayy"],
+  },
+  {
+    term: "Al-Mumit (Celui qui fait mourir)",
+    termArabic: "المميت",
+    slug: "al-mumit",
+    definition: "Celui qui met fin a la vie de toute creature au moment qu'Il determine.",
+    origin: "Racine arabe m-w-t, evoquant la mort.",
+    explanation:
+      "Complement d'Al-Muhyi, Al-Mumit rappelle que la mort, loin d'etre un hasard ou une simple loi naturelle impersonnelle, survient selon un terme fixe par la volonte divine.",
+    relatedSlugs: ["al-muhyi"],
+  },
+  {
+    term: "Al-Hayy (Le Vivant)",
+    termArabic: "الحي",
+    slug: "al-hayy",
+    definition: "Celui dont la vie est eternelle, sans commencement ni fin possible.",
+    origin: "Racine arabe h-y-y, evoquant la vie.",
+    explanation:
+      "Al-Hayy, souvent associe a Al-Qayyum dans le Coran (notamment le Verset du Trone, Ayat al-Kursi, sourate Al-Baqara, 2:255), affirme une vie divine absolue et independante de toute condition exterieure.",
+    relatedSlugs: ["al-qayyum"],
+  },
+  {
+    term: "Al-Qayyum (Celui qui subsiste par Lui-meme)",
+    termArabic: "القيوم",
+    slug: "al-qayyum",
+    definition: "Celui qui subsiste par Lui-meme et par qui subsiste toute autre chose.",
+    origin: "Racine arabe q-w-m, evoquant le maintien et la subsistance.",
+    explanation:
+      "Al-Qayyum, associe a Al-Hayy dans le celebre Verset du Trone (Ayat al-Kursi), affirme que Dieu n'a besoin d'aucun soutien exterieur tandis que l'existence de toute autre chose depend entierement de Lui.",
+    relatedSlugs: ["al-hayy"],
+  },
+  {
+    term: "Al-Wajid (Celui qui trouve, qui dispose de tout)",
+    termArabic: "الواجد",
+    slug: "al-wajid",
+    definition: "Celui qui ne manque de rien et trouve toujours ce qu'Il veut sans effort.",
+    origin: "Racine arabe w-j-d, evoquant le fait de trouver, de disposer.",
+    explanation:
+      "Al-Wajid affirme une autosuffisance parfaite : rien ne fait defaut a Dieu, et rien ne saurait echapper a Sa disposition ou a Sa volonte.",
+    relatedSlugs: ["al-ghaniyy"],
+  },
+  {
+    term: "Al-Wahid (L'Unique)",
+    termArabic: "الواحد",
+    slug: "al-wahid",
+    definition: "Celui qui est unique dans Son essence, sans egal ni semblable.",
+    origin: "Racine arabe w-h-d, evoquant l'unicite numerique.",
+    explanation:
+      "Al-Wahid affirme l'unicite numerique de Dieu, frequemment associe a Al-Ahad pour souligner qu'aucune pluralite ni association ne peut Lui etre attribuee, fondement direct du tawhid.",
+    relatedSlugs: ["al-ahad", "tawhid"],
+  },
+  {
+    term: "Al-Ahad (L'Unique, l'Un)",
+    termArabic: "الأحد",
+    slug: "al-ahad",
+    definition: "Celui qui est absolument un, sans composition ni division possible.",
+    origin: "Racine arabe a-h-d, evoquant l'unicite absolue - ouvre la sourate Al-Ikhlas.",
+    explanation:
+      "Al-Ahad, qui ouvre la sourate Al-Ikhlas (\"Dis : Il est Allah, Unique\"), affirme une unicite d'essence excluant toute composition interne, distincte de la simple unicite numerique exprimee par Al-Wahid.",
+    relatedSlugs: ["al-wahid", "tawhid"],
+  },
+  {
+    term: "As-Samad (Celui dont tout depend, l'Auto-suffisant)",
+    termArabic: "الصمد",
+    slug: "as-samad",
+    definition: "Celui dont toute creature depend absolument, alors que Lui ne depend de rien ni personne.",
+    origin: "Racine arabe s-m-d, cite dans la sourate Al-Ikhlas (112:2).",
+    explanation:
+      "As-Samad, second nom de la sourate Al-Ikhlas, exprime une autosuffisance absolue conjuguee au fait d'etre la reference ultime vers laquelle toute creature se tourne dans le besoin.",
+    relatedSlugs: ["al-ahad", "tawhid"],
+  },
+  {
+    term: "Al-Qadir (Le Capable)",
+    termArabic: "القادر",
+    slug: "al-qadir",
+    definition: "Celui qui a le pouvoir d'accomplir toute chose selon Sa seule volonte.",
+    origin: "Racine arabe q-d-r, partagee avec qadar (le decret).",
+    explanation:
+      "Al-Qadir affirme une capacite divine absolue, sans limite ni effort, fondement theologique direct de la croyance au qadar (le decret divin).",
+    relatedSlugs: ["qadar", "al-muqtadir"],
+  },
+  {
+    term: "Al-Muqtadir (Le Tout-Puissant, forme intensive)",
+    termArabic: "المقتدر",
+    slug: "al-muqtadir",
+    definition: "Celui dont la puissance s'exerce de maniere absolue et sans opposition possible.",
+    origin: "Racine arabe q-d-r, forme intensive d'Al-Qadir.",
+    explanation:
+      "Al-Muqtadir intensifie le sens d'Al-Qadir, soulignant que nulle resistance ne peut jamais s'opposer efficacement a la puissance divine.",
+    relatedSlugs: ["al-qadir"],
+  },
+  {
+    term: "Al-Muqaddim (Celui qui avance)",
+    termArabic: "المقدم",
+    slug: "al-muqaddim",
+    definition: "Celui qui avance qui Il veut, en rang comme dans le temps.",
+    origin: "Racine arabe q-d-m, evoquant ce qui precede.",
+    explanation:
+      "Al-Muqaddim et Al-Mu'akhkhir forment une paire rappelant que l'ordre des choses - qui progresse, qui est retarde - depend entierement de la sagesse divine.",
+    relatedSlugs: ["al-muakhkhir"],
+  },
+  {
+    term: "Al-Mu'akhkhir (Celui qui retarde)",
+    termArabic: "المؤخر",
+    slug: "al-muakhkhir",
+    definition: "Celui qui retarde qui Il veut, en rang comme dans le temps.",
+    origin: "Racine arabe '-kh-r, evoquant ce qui suit, ce qui est retarde.",
+    explanation:
+      "Complement d'Al-Muqaddim, ce nom rappelle que meme le report ou le delai apparent dans les affaires humaines s'inscrit dans une sagesse et une decision divines.",
+    relatedSlugs: ["al-muqaddim"],
+  },
+  {
+    term: "Al-Awwal (Le Premier)",
+    termArabic: "الأول",
+    slug: "al-awwal",
+    definition: "Celui qui existe avant toute chose, sans commencement.",
+    origin: "Racine arabe a-w-l, evoquant ce qui precede tout.",
+    explanation:
+      "Al-Awwal, associe dans le Coran (sourate Al-Hadid, 57:3) a Al-Akhir, Az-Zahir et Al-Batin, affirme que Dieu precede l'existence de toute chose creee, sans lui-meme avoir de commencement.",
+    relatedSlugs: ["al-akhir", "az-zahir", "al-batin"],
+  },
+  {
+    term: "Al-Akhir (Le Dernier)",
+    termArabic: "الآخر",
+    slug: "al-akhir",
+    definition: "Celui qui demeure apres la disparition de toute chose creee.",
+    origin: "Racine arabe a-kh-r, evoquant ce qui vient apres tout.",
+    explanation:
+      "Al-Akhir complete Al-Awwal : Dieu subsistera apres la fin de toute creation, sans Lui-meme connaitre de fin - les quatre noms cites ensemble (57:3) forment une affirmation compacte de la transcendance divine du temps et de l'espace.",
+    relatedSlugs: ["al-awwal"],
+  },
+  {
+    term: "Az-Zahir (L'Apparent, l'Evident)",
+    termArabic: "الظاهر",
+    slug: "az-zahir",
+    definition: "Celui dont l'existence est manifeste par d'innombrables signes dans la creation.",
+    origin: "Racine arabe z-h-r, evoquant ce qui est visible, manifeste.",
+    explanation:
+      "Az-Zahir, associe a Al-Batin (sourate Al-Hadid, 57:3), designe une manifestation de Dieu a travers les signes de la creation, tout en excluant toute visibilite physique directe telle que la concoivent les theologiens sunnites classiques.",
+    relatedSlugs: ["al-batin"],
+  },
+  {
+    term: "Al-Batin (Le Cache, l'Immanent)",
+    termArabic: "الباطن",
+    slug: "al-batin",
+    definition: "Celui dont l'essence reste inaccessible a toute perception directe.",
+    origin: "Racine arabe b-t-n, evoquant ce qui est cache, interieur.",
+    explanation:
+      "Complement d'Az-Zahir, Al-Batin affirme que l'essence divine demeure au-dela de toute perception sensorielle ou intellectuelle directe, meme si Ses effets sont partout manifestes.",
+    relatedSlugs: ["az-zahir", "ghayb"],
+  },
+  {
+    term: "Al-Muta'ali (Le Tres-Eleve, le Transcendant)",
+    termArabic: "المتعالي",
+    slug: "al-muta-ali",
+    definition: "Celui dont la transcendance depasse toute conception humaine possible.",
+    origin: "Racine arabe '-l-w, forme intensive proche d'Al-'Aliyy.",
+    explanation:
+      "Al-Muta'ali renforce Al-'Aliyy en insistant sur une transcendance qui echappe absolument a toute tentative de comparaison ou d'imagination humaine.",
+    relatedSlugs: ["al-aliyy"],
+  },
+  {
+    term: "Al-Barr (Le Bienfaisant)",
+    termArabic: "البر",
+    slug: "al-barr",
+    definition: "Celui dont la bienveillance et la bonte envers Ses creatures sont immenses.",
+    origin: "Racine arabe b-r-r, partagee avec birr (la piete filiale et la bonte).",
+    explanation:
+      "Al-Barr designe une bonte divine active et genereuse, dont la racine est egalement celle du birr (bienfaisance, notamment envers les parents), reliant la bonte divine et la bonte humaine attendue en retour.",
+    relatedSlugs: ["rahma"],
+  },
+  {
+    term: "At-Tawwab (Celui qui accueille le repentir)",
+    termArabic: "التواب",
+    slug: "at-tawwab",
+    definition: "Celui qui accueille sans cesse le repentir sincere de Ses serviteurs.",
+    origin: "Racine arabe t-w-b, partagee avec tawba.",
+    explanation:
+      "At-Tawwab affirme que Dieu accueille le repentir de facon repetee, autant de fois que le serviteur revient sincerement vers Lui apres une faute - fondement theologique direct du concept de tawba.",
+    relatedSlugs: ["tawba", "istighfar"],
+  },
+  {
+    term: "Al-Muntaqim (Celui qui chatie les injustes)",
+    termArabic: "المنتقم",
+    slug: "al-muntaqim",
+    definition: "Celui qui chatie avec justice les oppresseurs et les injustes obstines.",
+    origin: "Racine arabe n-q-m, evoquant la retribution.",
+    explanation:
+      "Al-Muntaqim s'exerce toujours conjointement avec la justice (Al-'Adl) et le pardon (Al-Ghafur) : la tradition insiste sur le fait que ce nom s'applique specifiquement a l'injustice obstinee et non repentie, jamais de maniere arbitraire.",
+    relatedSlugs: ["al-adl", "zulm"],
+  },
+  {
+    term: "Al-'Afuww (Celui qui efface les fautes)",
+    termArabic: "العفو",
+    slug: "al-afuww",
+    definition: "Celui qui efface entierement la faute, au-dela du simple pardon.",
+    origin: "Racine arabe '-f-w, evoquant l'effacement total.",
+    explanation:
+      "Al-'Afuww va au-dela d'Al-Ghafur (qui couvre la faute) en designant son effacement complet, comme si elle n'avait jamais existe - une nuance rappelee dans une invocation celebre du mois de Ramadan.",
+    relatedSlugs: ["al-ghafur", "istighfar"],
+  },
+  {
+    term: "Ar-Ra'uf (Le Tres Bienveillant)",
+    termArabic: "الرؤوف",
+    slug: "ar-rauf",
+    definition: "Celui dont la bienveillance et la douceur envers les croyants sont particulierement intenses.",
+    origin: "Racine arabe r-'-f, evoquant une douceur et une tendresse profondes.",
+    explanation:
+      "Ar-Ra'uf, souvent associe a Ar-Rahim, exprime une nuance de douceur et de tendresse particulierement intense, notamment rappelee au sujet du comportement du Prophete ﷺ envers les croyants (sourate At-Tawba, 9:128).",
+    relatedSlugs: ["ar-rahim"],
+  },
+  {
+    term: "Malik al-Mulk (Le Maitre de la Royaute)",
+    termArabic: "مالك الملك",
+    slug: "malik-al-mulk",
+    definition: "Celui qui accorde et retire la royaute et l'autorite a qui Il veut.",
+    origin: "Expression coranique (sourate Al Imran, 3:26).",
+    explanation:
+      "Malik al-Mulk rappelle que toute autorite politique ou royaute terrestre, aussi puissante paraisse-t-elle, demeure entierement soumise a la decision divine, qui peut l'accorder ou la retirer selon Sa sagesse.",
+    relatedSlugs: ["al-malik", "khilafa"],
+  },
+  {
+    term: "Dhul-Jalali wal-Ikram (Le Maitre de la Majeste et de la Generosite)",
+    termArabic: "ذو الجلال والإكرام",
+    slug: "dhul-jalali-wal-ikram",
+    definition: "Celui qui reunit en Lui-meme une majeste absolue et une generosite infinie.",
+    origin: "Expression coranique, notamment sourate Ar-Rahman (55:27, 55:78).",
+    explanation:
+      "Cette expression, qui clot la sourate Ar-Rahman, associe deux dimensions apparemment opposees de la nature divine - la majeste qui impose le respect et la generosite qui rapproche - sans que l'une n'exclue l'autre.",
+    relatedSlugs: ["al-jalil", "al-karim"],
+  },
+  {
+    term: "Al-Muqsit (L'Equitable)",
+    termArabic: "المقسط",
+    slug: "al-muqsit",
+    definition: "Celui qui etablit l'equite parfaite entre toutes Ses creatures.",
+    origin: "Racine arabe q-s-t, evoquant l'equite et la juste repartition.",
+    explanation:
+      "Al-Muqsit souligne particulierement la dimension de juste repartition entre les creatures, complement d'Al-'Adl qui insiste davantage sur la rectitude du jugement lui-meme.",
+    relatedSlugs: ["al-adl"],
+  },
+  {
+    term: "Al-Jami' (Celui qui rassemble)",
+    termArabic: "الجامع",
+    slug: "al-jami",
+    definition: "Celui qui rassemblera toute l'humanite au Jour du Jugement.",
+    origin: "Racine arabe j-m-', evoquant le rassemblement.",
+    explanation:
+      "Al-Jami' est notamment invoque dans le Coran (sourate Al Imran, 3:9) au sujet du rassemblement de toute l'humanite en un jour dont nul ne doute, moment central de l'eschatologie islamique.",
+    relatedSlugs: ["qiyamah"],
+  },
+  {
+    term: "Al-Ghaniyy (Celui qui se suffit a Lui-meme)",
+    termArabic: "الغني",
+    slug: "al-ghaniyy",
+    definition: "Celui qui n'a absolument besoin de rien ni de personne.",
+    origin: "Racine arabe gh-n-y, evoquant la richesse et l'autosuffisance.",
+    explanation:
+      "Al-Ghaniyy affirme une autosuffisance absolue : contrairement a toute richesse creee, toujours relative et dependante, rien ne manque jamais a Dieu et Il n'a besoin d'aucune de Ses creatures.",
+    relatedSlugs: ["al-wajid", "al-mughni"],
+  },
+  {
+    term: "Al-Mughni (Celui qui enrichit)",
+    termArabic: "المغني",
+    slug: "al-mughni",
+    definition: "Celui qui enrichit qui Il veut, materiellement ou spirituellement.",
+    origin: "Racine arabe gh-n-y, forme causative d'Al-Ghaniyy.",
+    explanation:
+      "Al-Mughni complete Al-Ghaniyy : Dieu, Lui-meme totalement independant, est aussi la source de toute richesse et suffisance accordee a Ses creatures.",
+    relatedSlugs: ["al-ghaniyy"],
+  },
+  {
+    term: "Al-Mani' (Celui qui empeche)",
+    termArabic: "المانع",
+    slug: "al-mani",
+    definition: "Celui qui protege et empeche le mal d'atteindre qui Il veut.",
+    origin: "Racine arabe m-n-', evoquant l'empechement, la protection.",
+    explanation:
+      "Al-Mani' designe la capacite divine a ecarter une epreuve, une perte ou un mal de la vie de Ses serviteurs, complement des noms lies au don et a la generosite.",
+    relatedSlugs: ["al-hafiz"],
+  },
+  {
+    term: "Ad-Darr (Celui qui peut nuire)",
+    termArabic: "الضار",
+    slug: "ad-darr",
+    definition: "Celui qui permet, selon Sa sagesse, que survienne une epreuve ou un tort.",
+    origin: "Racine arabe d-r-r, evoquant le dommage.",
+    explanation:
+      "Toujours associe a An-Nafi' dans la tradition, ce nom rappelle que meme l'epreuve ou l'adversite s'inscrit dans la volonte et la sagesse divines, jamais dans le hasard pur.",
+    relatedSlugs: ["an-nafi", "qadar"],
+  },
+  {
+    term: "An-Nafi' (Celui qui est utile, qui beneficie)",
+    termArabic: "النافع",
+    slug: "an-nafi",
+    definition: "Celui qui accorde le bien et le benefice a qui Il veut.",
+    origin: "Racine arabe n-f-', evoquant l'utilite et le benefice.",
+    explanation:
+      "An-Nafi' et Ad-Darr forment une paire rappelant que le bien comme l'epreuve proviennent en definitive de la meme source divine, invitant a la patience (sabr) dans l'adversite comme a la gratitude dans l'aisance.",
+    relatedSlugs: ["ad-darr", "sabr"],
+  },
+  {
+    term: "An-Nur (La Lumiere)",
+    termArabic: "النور",
+    slug: "an-nur",
+    definition: "Celui qui illumine les cieux et la terre, au sens propre comme au sens spirituel.",
+    origin: "Racine arabe n-w-r, evoquant la lumiere - cite en sourate An-Nur (24:35).",
+    explanation:
+      "An-Nur, dans le celebre \"Verset de la Lumiere\" (sourate An-Nur, 24:35), est generalement compris par les theologiens sunnites classiques comme celui qui guide et illumine, plutot qu'au sens litteral d'une lumiere physique.",
+    relatedSlugs: ["al-hadi"],
+  },
+  {
+    term: "Al-Hadi (Le Guide)",
+    termArabic: "الهادي",
+    slug: "al-hadi",
+    definition: "Celui qui guide vers la verite qui Il veut parmi Ses creatures.",
+    origin: "Racine arabe h-d-y, partagee avec huda (la guidance).",
+    explanation:
+      "Al-Hadi designe la guidance divine comme une grace accordee, rappelee cinq fois par jour dans la demande de la sourate Al-Fatiha (\"guide-nous sur le droit chemin\", 1:6).",
+    relatedSlugs: ["salah"],
+  },
+  {
+    term: "Al-Badi' (L'Inventeur incomparable)",
+    termArabic: "البديع",
+    slug: "al-badi",
+    definition: "Celui qui cree de maniere absolument originale, sans modele ni precedent.",
+    origin: "Racine arabe b-d-', evoquant l'invention sans precedent.",
+    explanation:
+      "Al-Badi' souligne le caractere radicalement original de la creation divine, cite dans le Coran (sourate Al-Baqara, 2:117) a propos de la creation des cieux et de la terre sans aucun modele prealable.",
+    relatedSlugs: ["al-khaliq"],
+  },
+  {
+    term: "Al-Baqi (Le Subsistant, l'Eternel)",
+    termArabic: "الباقي",
+    slug: "al-baqi",
+    definition: "Celui dont l'existence demeure eternellement, sans fin possible.",
+    origin: "Racine arabe b-q-y, evoquant la permanence.",
+    explanation:
+      "Al-Baqi affirme une permanence absolue, par opposition a la nature perissable de toute creation, un theme rappele dans le Coran (sourate Ar-Rahman, 55:26-27) : toute chose sur terre disparaitra, seule demeurera la face de Dieu.",
+    relatedSlugs: ["al-akhir"],
+  },
+  {
+    term: "Al-Warith (L'Heritier)",
+    termArabic: "الوارث",
+    slug: "al-warith",
+    definition: "Celui a qui reviendra en definitive toute chose apres la disparition de Ses creatures.",
+    origin: "Racine arabe w-r-th, partagee avec mirath (l'heritage).",
+    explanation:
+      "Al-Warith rappelle que toute possession humaine n'est que temporaire : au terme de toute existence creee, seule la possession divine originelle et eternelle demeure.",
+    relatedSlugs: ["al-baqi"],
+  },
+  {
+    term: "Ar-Rashid (Celui qui guide vers la droiture)",
+    termArabic: "الرشيد",
+    slug: "ar-rashid",
+    definition: "Celui dont la conduite de toute chose vers sa fin est parfaitement droite et sage.",
+    origin: "Racine arabe r-sh-d, evoquant la droiture et la maturite de jugement.",
+    explanation:
+      "Ar-Rashid designe une direction divine parfaitement droite de toute chose vers sa finalite propre, sans jamais d'egarement ni d'erreur possible.",
+    relatedSlugs: ["al-hadi"],
+  },
+  {
+    term: "As-Sabur (Le Tres Patient)",
+    termArabic: "الصبور",
+    slug: "as-sabur",
+    definition: "Celui qui differe le chatiment avec une patience infinie face a la desobeissance.",
+    origin: "Racine arabe s-b-r, partagee avec sabr.",
+    explanation:
+      "As-Sabur, proche d'Al-Halim, souligne une patience divine qui laisse aux creatures un temps considerable pour se corriger avant toute consequence, un modele indirect pour la patience humaine (sabr).",
+    relatedSlugs: ["sabr", "al-halim"],
+  },
 ];
 
 export async function seedConcepts(db: Database): Promise<void> {
