@@ -2032,6 +2032,19 @@ const FIQH_TOPICS: FiqhTopicSeed[] = [
     ],
     divergenceExplanation: "La divergence porte sur la conciliation de plusieurs hadiths decrivant le tayammum du Prophete ﷺ tantot avec une seule frappe, tantot avec deux : les ecoles malikite et shafi'ite retiennent la version la plus simple a une frappe comme suffisante, tandis que les ecoles hanafite et hanbalite retiennent par prudence la version a deux frappes, etendant par analogie au tayammum l'idee que les mains, comme dans le wudu, doivent etre traitees separement du visage jusqu'aux coudes.",
   },
+  {
+    title: "En cas de doute recurrent sur le nombre de rak'at deja accomplies, doit-on se baser sur la certitude ou sur l'impression dominante ?",
+    slug: "doute-nombre-rakat-priere",
+    category: "Prière (Salat)",
+    description: "Si celui qui doute, en cours de priere, du nombre de rak'at deja accomplies doit systematiquement se baser sur le nombre le plus faible dont il est certain, ou peut se fier a son impression dominante (ghalabat adh-dhann) lorsque ce doute est frequent.",
+    positions: [
+      { schoolSlug: "malikite", text: "Il se base toujours sur la certitude, c'est-a-dire le nombre le plus faible, quelle que soit la frequence de ses doutes, puis accomplit la prosternation de l'oubli." },
+      { schoolSlug: "hanafite", text: "Celui dont les doutes sont frequents et habituels (proches du waswasa) se base sur son impression dominante plutot que sur la certitude systematique, evitant ainsi de perturber excessivement sa priere ; celui dont le doute reste occasionnel se base sur la certitude." },
+      { schoolSlug: "shafiite", text: "Position identique aux malikites : la certitude (le nombre le plus faible) doit toujours prevaloir, independamment de la frequence des doutes ressentis." },
+      { schoolSlug: "hanbalite", text: "Position identique aux malikites et shafi'ites : le nombre le plus faible, seul certain, doit systematiquement etre retenu en cas de doute." },
+    ],
+    divergenceExplanation: "La divergence porte sur la portee du principe general \"la certitude n'est pas ecartee par le doute\" applique a la priere : les ecoles malikite, shafi'ite et hanbalite l'appliquent de maniere constante quelle que soit la situation du priant, tandis que l'ecole hanafite introduit une exception pratique pour la personne sujette a des doutes frequents et habituels, pour qui s'en tenir systematiquement a la certitude reviendrait a perturber excessivement l'accomplissement normal de la priere.",
+  },
 ];
 
 export async function seedSchools(db: Database): Promise<void> {
