@@ -5306,6 +5306,80 @@ const CONCEPTS: ConceptSeed[] = [
       "Institue face a l'expansion rapide du territoire musulman et a l'afflux de nouvelles ressources, le diwan permit d'organiser une distribution reguliere des revenus publics selon des criteres tels que l'anciennete dans l'islam et les liens avec le Prophete, posant les bases d'une administration financiere structuree qui influenca durablement l'organisation des Etats musulmans posterieurs.",
     relatedSlugs: ["umar-ibn-al-khattab", "bayt-al-mal"],
   },
+  // --- Courants theologiques historiques ---
+  {
+    term: "Khawarij (Kharijites)",
+    termArabic: "الخوارج",
+    slug: "khawarij",
+    definition: "Un courant apparu au Ier siecle de l'hegire, issu d'un groupe ayant rejete l'arbitrage accepte par Ali ibn Abi Talib lors de la bataille de Siffin.",
+    origin: "Terme derive de la racine kh-r-j (sortir), en reference a leur sortie de l'armee d'Ali en signe de desaccord.",
+    explanation:
+      "Estimant que \"le jugement n'appartient qu'a Dieu\" (la hukma illa lillah) et rejetant tout arbitrage humain dans le conflit politique de l'epoque, ce groupe se distingua par une position doctrinale extreme considerant l'auteur d'un grand peche comme sorti de l'islam, et par le recours a la violence contre les musulmans en desaccord avec eux, y compris l'assassinat d'Ali lui-meme. Ce courant, rapidement combattu et marginalise par l'ensemble des autres courants sunnites et chiites, demeure etudie dans l'histoire islamique comme un exemple precoce d'extremisme doctrinal condamne par le consensus des savants classiques.",
+    relatedSlugs: ["ali-ibn-abi-talib", "kufr"],
+  },
+  {
+    term: "Murji'a (Murjites)",
+    termArabic: "المرجئة",
+    slug: "murjia",
+    definition: "Un courant theologique historique affirmant que la foi (iman) reside uniquement dans la croyance du coeur, sans lien avec les actes.",
+    origin: "Racine arabe r-j-', evoquant le fait de differer, de repousser (le jugement des actes a Dieu seul).",
+    explanation:
+      "En reaction a la position opposee des Kharijites (qui excluaient de la foi l'auteur d'un grand peche), les murjites soutenaient qu'aucun peche, quelle que soit sa gravite, n'affecte la foi interieure d'un croyant, differant tout jugement sur ses actes au seul jugement divin dans l'au-dela. Cette position fut rejetee par le courant sunnite majoritaire, qui retient une definition de la foi englobant a la fois la croyance du coeur, la profession verbale et la mise en pratique par les actes.",
+    relatedSlugs: ["iman", "khawarij"],
+  },
+  {
+    term: "Jabriyya (Deterministes)",
+    termArabic: "الجبرية",
+    slug: "jabriyya",
+    definition: "Un courant theologique historique affirmant que l'etre humain n'a aucune capacite d'action reelle, tous ses actes etant entierement determines par Dieu.",
+    origin: "Racine arabe j-b-r, evoquant la contrainte, le determinisme.",
+    explanation:
+      "Poussant a l'extreme la croyance en la predestination divine (qadar), ce courant niait toute capacite d'action reelle (kasb) a l'etre humain, le considerant comme totalement contraint dans chacun de ses actes, position rejetee par le courant sunnite majoritaire qui affirme, tout en maintenant la predestination divine absolue, une capacite d'action reelle de l'humain le rendant moralement responsable de ses choix.",
+    relatedSlugs: ["qadar", "qadariyya"],
+  },
+  {
+    term: "Qadariyya",
+    termArabic: "القدرية",
+    slug: "qadariyya",
+    definition: "Un courant theologique historique niant, a l'oppose des jabrites, la predestination divine absolue et affirmant la totale liberte de l'action humaine.",
+    origin: "Racine arabe q-d-r, meme racine que qadar, ici employee pour designer ceux qui en nient la portee absolue.",
+    explanation:
+      "A l'oppose exact de la Jabriyya, ce courant soutenait que l'etre humain cree entierement ses propres actes de maniere independante de la volonte divine, une position que plusieurs hadiths qualifient de deviation grave (rapportes comme condamnant \"les mages de cette communaute\"), et que le courant sunnite majoritaire rejette au meme titre que le determinisme absolu, retenant une position intermediaire entre les deux extremes.",
+    relatedSlugs: ["jabriyya", "qadar"],
+  },
+  {
+    term: "Wahdat al-Wujud (Unicite de l'existence)",
+    termArabic: "وحدة الوجود",
+    slug: "wahdat-al-wujud",
+    definition: "Une doctrine metaphysique soufie, notamment associee a Ibn Arabi, selon laquelle toute existence procederait d'une seule et unique realite divine.",
+    origin: "Composition arabe litteralement \"l'unicite de l'existence\", doctrine developpee principalement par le soufi andalou Ibn Arabi (m. 638 AH / 1240).",
+    explanation:
+      "Cette doctrine, dont l'interpretation exacte fait elle-meme l'objet de debats parmi ses commentateurs, est frequemment comprise comme affirmant que la creation ne possede pas d'existence veritablement distincte de celle de Dieu, mais n'en constitue qu'une manifestation ou une expression.",
+    relatedSlugs: ["tawhid", "tariqa"],
+    divergence:
+      "La wahdat al-wujud fait l'objet d'un rejet marque de la part de nombreux savants classiques, dont Ibn Taymiyyah, qui y voient une confusion dangereuse entre le Createur et Sa creation contraire au tawhid, tandis que certains soufis et leurs commentateurs la defendent comme une experience mystique de l'unicite divine ne remettant pas en cause, selon eux, la distinction ontologique fondamentale entre Dieu et Ses creatures.",
+  },
+  // --- Grandes periodes de l'histoire islamique ---
+  {
+    term: "Dawla Umayyade (Califat omeyyade)",
+    termArabic: "الدولة الأموية",
+    slug: "dawla-umayyade",
+    definition: "Le premier califat hereditaire de l'histoire islamique, fonde par Mu'awiya ibn Abi Sufyan et base a Damas.",
+    origin: "Nom derive du clan mecquois des Banu Umayya, auquel appartenait son fondateur.",
+    explanation:
+      "Etabli apres la periode des califes bien-guides (61-132 AH / 661-750), ce califat transforma la succession politique en un systeme hereditaire au sein d'une meme famille, etendit considerablement les frontieres du monde musulman jusqu'en Andalousie a l'ouest et aux confins de l'Asie centrale et de l'Inde a l'est, avant d'etre renverse par la revolution abbasside.",
+    relatedSlugs: ["khilafa", "dawla-abbasside"],
+  },
+  {
+    term: "Dawla Abbasside (Califat abbasside)",
+    termArabic: "الدولة العباسية",
+    slug: "dawla-abbasside",
+    definition: "Le califat ayant succede aux Omeyyades en 132 AH / 750, base a Bagdad, associe a un age d'or intellectuel et scientifique du monde musulman.",
+    origin: "Nom derive d'Al-Abbas, oncle paternel du prophete Muhammad, dont la lignee revendiquait la legitimite califale.",
+    explanation:
+      "Marque notamment par le regne d'Harun ar-Rashid et la fondation de la Maison de la Sagesse (Bayt al-Hikma) a Bagdad, centre majeur de traduction et de production scientifique, philosophique et medicale, ce califat vit progressivement son autorite politique effective se fragmenter au profit de dynasties locales, tout en conservant une autorite religieuse largement symbolique jusqu'a la destruction de Bagdad par les Mongols en 656 AH / 1258.",
+    relatedSlugs: ["dawla-umayyade", "khilafa"],
+  },
 ];
 
 export async function seedConcepts(db: Database): Promise<void> {
