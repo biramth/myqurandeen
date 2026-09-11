@@ -5809,6 +5809,57 @@ const CONCEPTS: ConceptSeed[] = [
       "Le Coran evoque \"le jour ou le ciel apportera une fumee visible\" (sourate Ad-Dukhan, 44:10), un verset dont l'interpretation a varie parmi les commentateurs entre un signe eschatologique futur et un evenement historique deja survenu du vivant du Prophete, sans consensus definitif etabli sur ce point.",
     relatedSlugs: ["ad-dabba", "qiyamah"],
   },
+  // --- Vocabulaire fondamental complementaire ---
+  {
+    term: "Hijra (Emigration)",
+    termArabic: "الهجرة",
+    slug: "hijra",
+    definition: "L'emigration du prophete Muhammad et de ses compagnons de La Mecque vers Medine en 622, evenement fondateur du calendrier musulman.",
+    origin: "Racine arabe h-j-r, evoquant la separation, le fait de quitter un lieu.",
+    explanation:
+      "Face a la persecution croissante subie a La Mecque, le Prophete et ses compagnons emigrerent vers Yathrib, rebaptisee par la suite Medine, ou fut fondee la premiere communaute politique musulmane organisee. Le calife Omar ibn al-Khattab instaura plus tard cet evenement comme point de depart du calendrier hijri, plutot que la naissance du Prophete ou le debut de la revelation.",
+    relatedSlugs: ["muhajirun", "ansar"],
+  },
+  {
+    term: "Khatt (Calligraphie arabe)",
+    termArabic: "الخط",
+    slug: "khatt",
+    definition: "L'art de l'ecriture arabe soignee, developpe en une discipline artistique majeure de la civilisation islamique, notamment pour la transcription du Coran.",
+    origin: "Racine arabe kh-t-t, evoquant la ligne, le trait.",
+    explanation:
+      "Face a la reticence traditionnelle envers la representation figurative dans l'art religieux, la calligraphie s'est developpee comme une expression artistique privilegiee du monde musulman, donnant naissance a plusieurs styles distincts (coufique, naskh, thuluth, diwani...) employes aussi bien pour la copie du Coran que pour la decoration architecturale des mosquees.",
+    relatedSlugs: ["mushaf", "al-muqattaat"],
+  },
+  {
+    term: "Ilm al-Fara'id (Science des successions)",
+    termArabic: "علم الفرائض",
+    slug: "ilm-al-faraid",
+    definition: "La discipline juridique consacree au calcul precis des parts d'heritage revenant a chaque heritier selon les regles coraniques.",
+    origin: "Racine arabe f-r-d, evoquant la part fixee, obligatoire.",
+    explanation:
+      "Fondee sur les versets detailles du Coran fixant les parts d'heritage de chaque categorie d'heritiers (sourate An-Nisa, 4:11-12, 4:176), cette discipline a developpe au fil des siecles un systeme de calcul mathematique complexe permettant de repartir un heritage entre de multiples heritiers aux parts parfois fractionnaires et interdependantes, un domaine que le Prophete aurait lui-meme recommande d'etudier et d'enseigner en priorite.",
+    relatedSlugs: ["mirath", "wasiyya"],
+  },
+  {
+    term: "Miqat",
+    termArabic: "الميقات",
+    slug: "miqat",
+    definition: "Les points geographiques designes au-dela desquels un pelerin se rendant a La Mecque doit avoir revetu l'etat de sacralisation (ihram).",
+    origin: "Racine arabe w-q-t, evoquant le moment, le point fixe.",
+    explanation:
+      "Le calife Omar ibn al-Khattab et, selon d'autres rapports, le Prophete lui-meme fixerent plusieurs points precis autour de La Mecque, correspondant aux principaux axes de provenance des pelerins, au-dela desquels il n'est plus permis de poursuivre son chemin sans etre entre en ihram, ces limites geographiques etant aujourd'hui adaptees aux voyageurs arrivant par avion via les zones aeriennes correspondantes.",
+    relatedSlugs: ["ihram", "hajj"],
+  },
+  {
+    term: "Talbiyah",
+    termArabic: "التلبية",
+    slug: "talbiyah",
+    definition: "La formule invocatoire recitee par le pelerin des son entree en ihram et repetee tout au long du hajj ou de la umra.",
+    origin: "Racine arabe l-b-y, evoquant la reponse a un appel.",
+    explanation:
+      "La formule (\"Me voici, o Dieu, me voici ; Me voici, Tu n'as point d'associe, me voici...\") exprime la reponse du pelerin a l'appel d'Abraham a accomplir le pelerinage, rapporte par la tradition coranique et prophetique, et est traditionnellement recitee a voix haute par les hommes des l'entree en ihram jusqu'au debut des rites a Mina.",
+    relatedSlugs: ["ihram", "ibrahim"],
+  },
 ];
 
 export async function seedConcepts(db: Database): Promise<void> {
