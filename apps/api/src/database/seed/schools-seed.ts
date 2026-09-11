@@ -1707,6 +1707,58 @@ const FIQH_TOPICS: FiqhTopicSeed[] = [
     ],
     divergenceExplanation: "La divergence porte sur la portee du hadith rendant licites \"deux charognes\" - celle du poisson et celle de la sauterelle (rapporte par Ibn Majah) : trois ecoles l'appliquent sans restriction a tout poisson mort quelle qu'en soit la cause, tandis que l'ecole hanafite retient par prudence une reserve specifique pour le poisson trouve flottant sans cause identifiable, par crainte qu'il ne soit mort d'une cause nuisible a la sante du consommateur.",
   },
+  {
+    title: "La priere funeraire pour un defunt absent (salat al-gha'ib) est-elle valide ?",
+    slug: "salat-al-gaib-priere-funeraire-absent",
+    category: "Prière (Salat)",
+    description: "Si la priere funeraire peut etre valablement accomplie pour une personne decedee dans une autre region, sans que son corps ne soit physiquement present.",
+    positions: [
+      { schoolSlug: "malikite", text: "La priere funeraire pour un absent n'est pas valide ; la presence du corps, ou a tout le moins sur les lieux ou il se trouve, est une condition de sa validite." },
+      { schoolSlug: "hanafite", text: "Position identique aux malikites : la priere funeraire requiert la presence du corps, l'episode du Negus etant considere comme une particularite propre au Prophete ﷺ." },
+      { schoolSlug: "shafiite", text: "La priere funeraire pour un absent est valide, en application du hadith rapportant que le Prophete ﷺ accomplit la priere funeraire pour le Negus d'Abyssinie, decede loin de Medine." },
+      { schoolSlug: "hanbalite", text: "Position identique aux shafi'ites : la priere funeraire pour un absent est valide, sans que la presence du corps ne soit requise." },
+    ],
+    divergenceExplanation: "La divergence porte sur la portee du hadith rapportant que le Prophete ﷺ pria pour le Negus d'Abyssinie, decede loin de Medine sans que son corps ne soit present : les ecoles shafi'ite et hanbalite en tirent une regle generale applicable a tout defunt absent, tandis que les ecoles malikite et hanafite considerent cet episode comme une particularite liee au statut singulier du Negus ou du Prophete lui-meme, non generalisable a l'ensemble des croyants.",
+  },
+  {
+    title: "Les grandes ablutions (ghusl) avant la priere du vendredi sont-elles obligatoires ?",
+    slug: "ghusl-vendredi-obligatoire",
+    category: "Purification (Tahara)",
+    description: "Si l'accomplissement des grandes ablutions avant de se rendre a la priere du vendredi constitue une obligation stricte pour tout homme y assistant, ou seulement une recommandation fortement appuyee.",
+    positions: [
+      { schoolSlug: "malikite", text: "Le ghusl du vendredi est une sunna fortement recommandee, non obligatoire." },
+      { schoolSlug: "hanafite", text: "Position identique aux malikites : le ghusl du vendredi est recommande sans etre une obligation stricte." },
+      { schoolSlug: "shafiite", text: "Position identique : le ghusl du vendredi est une sunna mu'akkada, dont l'omission n'entraine aucun peche ni invalidite de la priere." },
+      { schoolSlug: "hanbalite", text: "Le ghusl du vendredi est obligatoire (wajib) pour tout homme adulte qui assiste a la priere collective." },
+    ],
+    divergenceExplanation: "L'ecole hanbalite s'appuie sur le sens litteral du hadith rapportant que \"le ghusl du vendredi est obligatoire pour tout homme pubere\" (rapporte par Al-Bukhari et Muslim), tandis que les trois autres ecoles considerent que ce terme d'obligation est employe ici au sens d'une forte insistance plutot que d'une obligation juridique stricte, s'appuyant notamment sur d'autres hadiths presentant le ghusl et le simple lavage comme deux options equivalentes.",
+  },
+  {
+    title: "La viande d'un animal egorge sans prononcer intentionnellement le nom de Dieu (basmala) est-elle licite ?",
+    slug: "basmala-abattage-omission",
+    category: "Alimentation (Hilal wa Haram)",
+    description: "Si la viande d'un animal egorge par un musulman ayant volontairement omis de prononcer le nom de Dieu au moment de l'abattage demeure licite a la consommation.",
+    positions: [
+      { schoolSlug: "malikite", text: "La prononciation du nom de Dieu est une condition de licite de l'abattage ; son omission volontaire rend la viande illicite, contrairement a une omission par simple oubli." },
+      { schoolSlug: "hanafite", text: "Position identique aux malikites : l'omission volontaire de la basmala rend l'abattage illicite, tandis que l'oubli n'a pas cet effet." },
+      { schoolSlug: "shafiite", text: "La prononciation du nom de Dieu au moment de l'abattage est une recommandation, non une condition de validite ; la viande demeure licite meme en cas d'omission volontaire, des lors que l'abattage est accompli par un musulman ou un membre des gens du Livre." },
+      { schoolSlug: "hanbalite", text: "Position identique aux malikites et hanafites : l'omission volontaire de la basmala rend la viande illicite." },
+    ],
+    divergenceExplanation: "La divergence porte sur la portee du verset coranique interdisant de consommer ce sur quoi le nom de Dieu n'a pas ete prononce (sourate Al-An'am, 6:121) : les ecoles malikite, hanafite et hanbalite y voient une condition stricte dont seul l'oubli est excuse, tandis que l'ecole shafi'ite considere que ce verset vise specifiquement les betes immolees au nom d'idoles plutot qu'une simple omission verbale par ailleurs sans consequence sur l'intention et le geste rituel de l'abattage lui-meme.",
+  },
+  {
+    title: "Le contrat de location (ijara) prend-il automatiquement fin au deces de l'une des parties ?",
+    slug: "ijara-fin-au-deces",
+    category: "Commerce et transactions (Mu'amalat)",
+    description: "Si un contrat de location en cours prend automatiquement fin lorsque le bailleur ou le locataire decede avant le terme convenu, ou si les droits et obligations du contrat se transmettent aux heritiers jusqu'a son terme.",
+    positions: [
+      { schoolSlug: "malikite", text: "Le contrat se poursuit jusqu'a son terme convenu ; les droits et obligations qui en decoulent se transmettent aux heritiers de la partie decedee." },
+      { schoolSlug: "hanafite", text: "Le contrat de location prend automatiquement fin au deces de l'une ou l'autre des parties, meme avant le terme convenu." },
+      { schoolSlug: "shafiite", text: "Position identique aux malikites : le contrat se poursuit normalement jusqu'a son terme, sans etre affecte par le deces d'une des parties." },
+      { schoolSlug: "hanbalite", text: "Position identique aux malikites et shafi'ites : le deces d'une partie ne met pas fin au contrat, qui se poursuit jusqu'a son terme convenu avec les heritiers." },
+    ],
+    divergenceExplanation: "La divergence porte sur la nature juridique du contrat de location : l'ecole hanafite le rattache a la categorie des droits personnels lies a la capacite juridique des parties elles-memes, s'eteignant avec leur deces, tandis que les trois autres ecoles le traitent comme un droit financier ordinaire, transmissible aux heritiers a l'instar d'une dette ou d'un bien, sans lien necessaire avec la personne meme du contractant initial.",
+  },
 ];
 
 export async function seedSchools(db: Database): Promise<void> {
