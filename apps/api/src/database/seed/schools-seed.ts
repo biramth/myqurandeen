@@ -1954,6 +1954,32 @@ const FIQH_TOPICS: FiqhTopicSeed[] = [
     ],
     divergenceExplanation: "La divergence porte sur la nature du benefice genere par la societe : les ecoles malikite et shafi'ite considerent que le benefice provient necessairement du capital investi et doit donc etre reparti a due proportion de celui-ci, tandis que les ecoles hanafite et hanbalite admettent que le benefice puisse egalement recompenser d'autres apports que le seul capital (le travail, l'expertise ou la gestion d'un associe), justifiant une repartition librement convenue entre les parties.",
   },
+  {
+    title: "Peut-on vendre les fruits d'un arbre avant que leur maturite ne soit clairement apparente ?",
+    slug: "bay-ath-thimar-avant-maturite",
+    category: "Commerce et transactions (Mu'amalat)",
+    description: "Si la vente des fruits encore sur l'arbre, avant que leur bonne maturation ne soit clairement visible, est valide, ou si elle est entachee d'une incertitude (gharar) excessive liee au risque qu'ils n'arrivent finalement pas a maturite.",
+    positions: [
+      { schoolSlug: "malikite", text: "La vente avant maturite apparente n'est pas valide, en raison du risque important que la recolte n'aboutisse finalement pas." },
+      { schoolSlug: "hanafite", text: "La vente avant maturite apparente est valide, mais l'acheteur dispose d'un droit de retractation (khiyar) si les fruits n'arrivent finalement pas a bonne maturation." },
+      { schoolSlug: "shafiite", text: "Position identique aux malikites : la vente avant que la maturite ne soit clairement apparente n'est pas valide." },
+      { schoolSlug: "hanbalite", text: "Position identique aux malikites et shafi'ites : une telle vente est invalide avant l'apparition claire de la maturite des fruits." },
+    ],
+    divergenceExplanation: "La divergence porte sur la portee du hadith interdisant la vente des fruits \"avant que leur bonne maturation ne soit apparente\" (rapporte par Al-Bukhari et Muslim) : les ecoles malikite, shafi'ite et hanbalite le retiennent comme instituant une condition stricte de validite du contrat lui-meme, tandis que l'ecole hanafite considere que l'incertitude visee par ce hadith peut etre corrigee a posteriori par un droit de retractation accorde a l'acheteur, plutot que par la nullite pure et simple du contrat.",
+  },
+  {
+    title: "Le tawaf peut-il etre accompli durant les heures ou la priere est generalement deconseillee ?",
+    slug: "tawaf-heures-prieres-deconseillees",
+    category: "Hajj et 'Umra",
+    description: "Si la circumambulation de la Kaaba (tawaf), ainsi que les deux rak'at qui l'accompagnent habituellement, peuvent etre accomplis durant les creneaux horaires ou la priere surerogatoire est generalement deconseillee (juste apres l'aube, juste apres l'asr).",
+    positions: [
+      { schoolSlug: "malikite", text: "Le tawaf lui-meme peut etre accompli a tout moment, mais les deux rak'at qui l'accompagnent doivent etre retardees jusqu'a un moment ou la priere n'est plus deconseillee." },
+      { schoolSlug: "hanafite", text: "Position identique aux malikites : le tawaf est permis a tout moment, la priere qui l'accompagne devant en revanche etre differee durant les creneaux deconseilles." },
+      { schoolSlug: "shafiite", text: "Le tawaf et la priere qui l'accompagne peuvent tous deux etre accomplis a tout moment, y compris durant les creneaux generalement deconseilles, en vertu d'une exception textuelle specifique a La Mecque." },
+      { schoolSlug: "hanbalite", text: "Position identique aux shafi'ites : ni le tawaf ni sa priere ne sont soumis aux restrictions horaires generalement applicables aux autres prieres surerogatoires." },
+    ],
+    divergenceExplanation: "La divergence porte sur la portee du hadith rapportant que le Prophete ﷺ s'adressa aux Banu Abd Manaf en leur demandant de ne jamais empecher quiconque d'accomplir le tawaf et sa priere \"a n'importe quelle heure du jour ou de la nuit\" : les ecoles shafi'ite et hanbalite y voient une exception textuelle explicite couvrant a la fois le tawaf et sa priere, tandis que les ecoles malikite et hanafite considerent que cette exception ne concerne que le tawaf lui-meme, la priere qui l'accompagne demeurant soumise aux restrictions horaires generales.",
+  },
 ];
 
 export async function seedSchools(db: Database): Promise<void> {
