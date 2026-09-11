@@ -3699,6 +3699,170 @@ const CONCEPTS: ConceptSeed[] = [
       "La hawala permet a un debiteur de transferer son obligation de paiement vers un tiers qui accepte de s'en charger, un mecanisme qui a historiquement facilite le commerce a longue distance et dont le nom demeure aujourd'hui associe a des reseaux informels de transfert d'argent dans plusieurs regions du monde musulman.",
     relatedSlugs: ["aqd", "kafala"],
   },
+  // --- Methodologie du fiqh (usul al-fiqh), notions complementaires ---
+  {
+    term: "Maqasid ash-Shari'a (Les finalites superieures de la loi)",
+    termArabic: "مقاصد الشريعة",
+    slug: "maqasid-ash-sharia",
+    definition: "Les objectifs generaux poursuivis par la legislation islamique, au-dela de la lettre de chaque regle particuliere.",
+    origin: "Composition arabe de maqasid (finalites) et sharia (la loi).",
+    explanation:
+      "Systematisee notamment par le juriste andalou Ash-Shatibi, la theorie des maqasid identifie cinq necessites fondamentales que la sharia vise a preserver (dharuriyyat) : la religion, la vie, la raison, la lignee et les biens - un cadre de lecture qui permet aux juristes d'articuler les regles particulieres a leur finalite d'ensemble plutot qu'a leur seule application litterale.",
+    relatedSlugs: ["dharuriyyat-al-khams", "maslaha"],
+  },
+  {
+    term: "Ad-Daruriyyat al-Khams (Les cinq necessites fondamentales)",
+    termArabic: "الضروريات الخمس",
+    slug: "dharuriyyat-al-khams",
+    definition: "Les cinq biens fondamentaux - religion, vie, raison, lignee, biens - que la legislation islamique vise a preserver en priorite.",
+    origin: "Composition arabe de daruriyyat (necessites) et khams (cinq).",
+    explanation:
+      "Ces cinq necessites servent de grille de lecture aux juristes pour comprendre la logique d'ensemble de regles en apparence disparates : l'interdiction du vin preserve la raison, celle du meurtre preserve la vie, les regles de heritage et de mariage preservent la lignee, l'interdiction du vol preserve les biens, et l'apostasie touche a la preservation de la religion.",
+    relatedSlugs: ["maqasid-ash-sharia"],
+  },
+  {
+    term: "'Amm wa Khass (General et particulier)",
+    termArabic: "العام والخاص",
+    slug: "amm-wa-khass",
+    definition: "La distinction methodologique entre un texte de portee generale et un texte qui en restreint le champ d'application.",
+    origin: "Termes arabes '-m-m (general) et kh-s-s (particulier), vocabulaire d'usul al-fiqh.",
+    explanation:
+      "Un texte 'amm (general) peut voir sa portee restreinte par un texte khass (particulier) traitant du meme sujet de maniere plus specifique - un outil methodologique essentiel pour concilier des versets ou hadiths apparemment contradictoires sans recourir a l'abrogation (naskh).",
+    relatedSlugs: ["naskh", "mutlaq-wa-muqayyad"],
+  },
+  {
+    term: "Mutlaq wa Muqayyad (Absolu et restreint)",
+    termArabic: "المطلق والمقيد",
+    slug: "mutlaq-wa-muqayyad",
+    definition: "La distinction methodologique entre un terme employe sans condition et le meme terme employe avec une condition restrictive ailleurs dans les textes.",
+    origin: "Termes arabes t-l-q (absolu, libere) et q-y-d (restreint, conditionne).",
+    explanation:
+      "Lorsqu'un meme terme apparait tantot sans condition (mutlaq) tantot avec une condition precise (muqayyad) dans des textes differents traitant du meme sujet, les juristes examinent si la version restreinte doit s'appliquer a la version absolue - une operation d'harmonisation distincte du 'amm wa khass bien que methodologiquement proche.",
+    relatedSlugs: ["amm-wa-khass"],
+  },
+  {
+    term: "Dalil (Preuve, argument juridique)",
+    termArabic: "الدليل",
+    slug: "dalil",
+    definition: "Toute source ou argument sur lequel un juriste s'appuie pour etablir une regle de fiqh.",
+    origin: "Racine arabe d-l-l, evoquant l'indication, la preuve.",
+    explanation:
+      "Le terme dalil englobe l'ensemble des sources reconnues du droit islamique (Coran, Sunna, ijma', qiyas, et selon les ecoles istihsan, maslaha, 'urf...), la hierarchie et le poids relatif accorde a chacune constituant precisement l'objet d'etude d'usul al-fiqh.",
+    relatedSlugs: ["ijma", "qiyas"],
+  },
+  {
+    term: "Talfiq (Combinaison de positions d'ecoles differentes)",
+    termArabic: "التلفيق",
+    slug: "talfiq",
+    definition: "Le fait de suivre, pour differents aspects d'une meme question, les positions de plusieurs ecoles juridiques distinctes.",
+    origin: "Racine arabe l-f-q, evoquant l'assemblage, la couture de pieces distinctes.",
+    explanation:
+      "La licite du talfiq fait l'objet de debats parmi les juristes contemporains : certains l'autorisent largement au nom de la recherche de la facilite legitime, d'autres le limitent strictement pour eviter qu'un croyant ne compose, question par question, une position sur mesure qu'aucune ecole n'aurait reconnue dans son ensemble.",
+    relatedSlugs: ["madhab", "taqlid"],
+  },
+  // --- Sciences coraniques complementaires ---
+  {
+    term: "Asbab al-Wurud (Circonstances d'enonciation d'un hadith)",
+    termArabic: "أسباب الورود",
+    slug: "asbab-al-wurud",
+    definition: "Les circonstances historiques ayant entoure la formulation d'un hadith par le Prophete ﷺ.",
+    origin: "Composition arabe de asbab (causes) et wurud (arrivee, enonciation).",
+    explanation:
+      "Parallele a la discipline des asbab an-nuzul pour le Coran, l'etude des asbab al-wurud permet de mieux cerner la portee d'un hadith - generale ou liee a un contexte particulier - un outil essentiel pour eviter une application decontextualisee de certains propos prophetiques.",
+    relatedSlugs: ["asbab-al-nuzul", "isnad"],
+  },
+  {
+    term: "Gharib al-Qur'an (Termes rares du Coran)",
+    termArabic: "غريب القرآن",
+    slug: "gharib-al-quran",
+    definition: "La discipline consacree a l'explication des termes coraniques rares ou d'un usage linguistique peu courant.",
+    origin: "Racine arabe gh-r-b, evoquant l'etrangete, la rarete.",
+    explanation:
+      "Cette discipline philologique, developpee des les premiers siecles de l'islam, s'appuie largement sur la poesie preislamique et les dialectes arabes anciens pour eclaircir des termes coraniques dont le sens n'etait deja plus evident pour certains lecteurs quelques generations apres la revelation.",
+    relatedSlugs: ["tawil"],
+  },
+  {
+    term: "Munasabat (Correspondances thematiques du Coran)",
+    termArabic: "المناسبات",
+    slug: "munasabat",
+    definition: "L'etude des liens thematiques et structurels entre versets et sourates successifs du Coran.",
+    origin: "Racine arabe n-s-b, evoquant le lien, la correspondance.",
+    explanation:
+      "Cette discipline exegetique s'attache a montrer la coherence interne de l'agencement du texte coranique, souvent percu par un lecteur non averti comme discontinu, en mettant en lumiere des liens thematiques ou rhetoriques entre des passages en apparence disparates.",
+    relatedSlugs: ["tafsir"],
+  },
+  {
+    term: "Tilawa (Recitation du Coran)",
+    termArabic: "التلاوة",
+    slug: "tilawa",
+    definition: "La recitation du texte coranique, dans un cadre rituel ou d'etude personnelle.",
+    origin: "Racine arabe t-l-w, evoquant le fait de suivre, de reciter a la suite.",
+    explanation:
+      "La tilawa designe l'acte de recitation en general, distinct du tajwid qui en regit les regles de prononciation precise et des qira'at qui en designent les variantes authentifiees - sa pratique reguliere est fortement recommandee independamment de tout contexte de priere.",
+    relatedSlugs: ["tajwid", "hifz-al-quran"],
+  },
+  {
+    term: "Hifz al-Qur'an (Memorisation du Coran)",
+    termArabic: "حفظ القرآن",
+    slug: "hifz-al-quran",
+    definition: "La memorisation complete ou partielle du texte coranique.",
+    origin: "Racine arabe h-f-z, partagee avec Al-Hafiz.",
+    explanation:
+      "La memorisation complete du Coran (celui qui l'accomplit etant appele hafiz) a historiquement joue un role central dans la preservation du texte a travers les generations, complementaire de sa transmission ecrite, et demeure une pratique educative valorisee dans le monde musulman contemporain.",
+    relatedSlugs: ["tilawa", "al-hafiz"],
+  },
+  {
+    term: "Sutra (Repere de priere)",
+    termArabic: "السترة",
+    slug: "sutra",
+    definition: "Un objet place devant soi pendant la priere pour delimiter l'espace de prosternation.",
+    origin: "Racine arabe s-t-r, evoquant ce qui protege, ce qui delimite.",
+    explanation:
+      "La sutra (mur, colonne, ou simple objet pose au sol) permet a celui qui prie de delimiter un espace protege devant lui, recommande notamment pour eviter qu'une personne ne passe directement devant le fidele en priere, une gene rapportee comme severement deconseillee par plusieurs hadiths.",
+    relatedSlugs: ["salah", "qibla"],
+  },
+  // --- Ethique sociale complementaire ---
+  {
+    term: "Ta'aruf (Connaissance mutuelle entre les peuples)",
+    termArabic: "التعارف",
+    slug: "taaruf",
+    definition: "Le principe coranique selon lequel la diversite des peuples et des tribus est ordonnee a la connaissance mutuelle.",
+    origin: "Terme coranique (sourate Al-Hujurat, 49:13).",
+    explanation:
+      "Le Coran (49:13) affirme que Dieu a cree l'humanite en peuples et tribus distincts \"afin que vous vous connaissiez mutuellement\" (ta'aruf), precisant immediatement que la seule superiorite reconnue entre les hommes est celle de la piete (taqwa) - un fondement scripturaire souvent cite contre toute hierarchie fondee sur l'origine ethnique.",
+    relatedSlugs: ["umma", "karama-insaniyya"],
+  },
+  {
+    term: "Karama Insaniyya (Dignite humaine)",
+    termArabic: "الكرامة الإنسانية",
+    slug: "karama-insaniyya",
+    definition: "Le statut d'honneur et de dignite accorde par Dieu a l'ensemble des etres humains, independamment de leur foi.",
+    origin: "Terme coranique (sourate Al-Isra, 17:70).",
+    explanation:
+      "Le Coran (17:70) affirme avoir \"honore les fils d'Adam\" de maniere generale, un fondement scripturaire central invoque pour affirmer une dignite humaine universelle, anterieure et independante de toute appartenance religieuse particuliere.",
+    relatedSlugs: ["taaruf", "adl"],
+  },
+  // --- Theologie speculative (kalam) ---
+  {
+    term: "Wajib al-Wujud (La Necessite d'existence)",
+    termArabic: "واجب الوجود",
+    slug: "wajib-al-wujud",
+    definition: "Un concept de theologie speculative designant Dieu comme le seul etre dont l'existence est necessaire par Lui-meme.",
+    origin: "Terminologie de kalam, largement developpee par Ibn Sina puis reprise par des theologiens comme Al-Ghazali.",
+    explanation:
+      "A la difference de toute chose creee, dont l'existence est seulement possible (mumkin al-wujud) et depend d'une cause exterieure, Dieu est decrit comme wajib al-wujud : Son existence ne depend d'aucune cause et ne peut etre autrement qu'elle n'est - un argument philosophique repris par plusieurs theologiens sunnites pour demontrer rationnellement l'existence divine.",
+    relatedSlugs: ["tawhid", "huduth-al-alam"],
+  },
+  {
+    term: "Huduth al-'Alam (Le caractere cree du monde)",
+    termArabic: "حدوث العالم",
+    slug: "huduth-al-alam",
+    definition: "La doctrine selon laquelle l'univers a eu un commencement dans le temps, argument classique en faveur de l'existence d'un Createur.",
+    origin: "Composition arabe de huduth (le fait d'advenir, de commencer) et 'alam (le monde, l'univers).",
+    explanation:
+      "Les theologiens ash'arites ont largement developpe cet argument (proche de ce que la philosophie occidentale designera plus tard comme l'argument cosmologique kalam) : puisque le monde a eu un commencement, il requiert necessairement une cause qui l'a fait advenir, cette cause etant Dieu Lui-meme, seul etre necessaire (wajib al-wujud).",
+    relatedSlugs: ["wajib-al-wujud", "al-khaliq"],
+  },
 ];
 
 export async function seedConcepts(db: Database): Promise<void> {
