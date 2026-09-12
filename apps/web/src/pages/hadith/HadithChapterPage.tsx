@@ -11,6 +11,7 @@ import { Breadcrumbs } from "@/components/shared/Breadcrumbs";
 import { hadithApi } from "@/features/hadith/api";
 import { arabicFontSizeStyle } from "@/components/shared/arabic-font-size-provider";
 import { useAppearance } from "@/components/shared/appearance-provider";
+import { DecorativeCorners } from "@/components/shared/DecorativeCorners";
 import { PageMeta } from "@/components/shared/PageMeta";
 import { cn } from "@/lib/utils";
 
@@ -83,6 +84,7 @@ export function HadithChapterPage() {
               decorativeBorders && "decorative-frame",
             )}
           >
+            {decorativeBorders && <DecorativeCorners />}
             {data.hadiths.map((hadith, i) => (
               <React.Fragment key={hadith.id}>
                 {i > 0 && <Separator className="opacity-50" />}

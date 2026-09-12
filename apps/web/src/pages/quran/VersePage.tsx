@@ -15,6 +15,7 @@ import { TajweedText } from "@/features/quran/TajweedText";
 import { useTajweedToggle } from "@/features/quran/useTajweedToggle";
 import { arabicFontSizeStyle } from "@/components/shared/arabic-font-size-provider";
 import { useAppearance } from "@/components/shared/appearance-provider";
+import { DecorativeCorners } from "@/components/shared/DecorativeCorners";
 import { useOffline } from "@/features/offline/OfflineContext";
 import { useStreakPing } from "@/features/streaks/useStreak";
 import { useGamificationEvent } from "@/features/gamification/useGamification";
@@ -140,6 +141,7 @@ export function VersePage() {
               decorativeBorders && "decorative-frame",
             )}
           >
+            {decorativeBorders && <DecorativeCorners />}
             {basmala && (
               <p
                 dir="rtl"

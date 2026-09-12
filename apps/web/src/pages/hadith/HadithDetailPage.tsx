@@ -9,6 +9,7 @@ import { ContentUserActions } from "@/components/shared/ContentUserActions";
 import { hadithApi } from "@/features/hadith/api";
 import { arabicFontSizeStyle } from "@/components/shared/arabic-font-size-provider";
 import { useAppearance } from "@/components/shared/appearance-provider";
+import { DecorativeCorners } from "@/components/shared/DecorativeCorners";
 import { useStreakPing } from "@/features/streaks/useStreak";
 import { useGamificationEvent } from "@/features/gamification/useGamification";
 import { useRecordLastRead } from "@/features/user-data/useRecordLastRead";
@@ -101,7 +102,7 @@ export function HadithDetailPage() {
           </h1>
 
           {data.hadith.textArabic && (
-            <p
+            <div
               dir="rtl"
               lang="ar"
               className={cn(
@@ -111,7 +112,8 @@ export function HadithDetailPage() {
               style={arabicFontSizeStyle(1.25)}
             >
               {data.hadith.textArabic}
-            </p>
+              {decorativeBorders && <DecorativeCorners />}
+            </div>
           )}
 
           <p className="rounded-lg border p-5 text-sm leading-relaxed">{data.hadith.textTranslation}</p>

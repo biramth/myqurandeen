@@ -11,6 +11,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { ArabicFontSizeControl } from "@/components/shared/ArabicFontSizeControl";
 import { arabicFontSizeStyle } from "@/components/shared/arabic-font-size-provider";
 import { useAppearance } from "@/components/shared/appearance-provider";
+import { DecorativeCorners } from "@/components/shared/DecorativeCorners";
 import { quranApi } from "@/features/quran/api";
 import { TajweedControl } from "@/features/quran/TajweedControl";
 import { TajweedText } from "@/features/quran/TajweedText";
@@ -257,6 +258,7 @@ export function SurahDetailPage() {
               decorativeBorders && "decorative-frame",
             )}
           >
+            {decorativeBorders && <DecorativeCorners />}
             {surah.verses.map((verse, i) => {
               const { basmala, text: verseArabic } = splitBasmala(surah.number, verse.numberInSurah, verse.textArabic);
               return (

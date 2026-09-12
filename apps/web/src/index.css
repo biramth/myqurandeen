@@ -181,19 +181,29 @@
   }
 
   /* Cadre decoratif optionnel (personnalisation, voir PersonalizationMenu) :
-     double liseret evoquant l'enluminure des marges de manuscrits coraniques
-     classiques, applique sur les blocs de lecture (verset, hadith). Un
-     ::before en retrait plutot qu'un simple border : garde le border existant
-     du bloc intact et n'affecte pas sa mise en page (position absolute). */
+     double filet evoquant l'enluminure des marges de manuscrits coraniques
+     classiques (page encadree d'un trait large puis d'un trait fin, avec un
+     fleuron a chaque angle - voir DecorativeCorners.tsx pour ce dernier),
+     applique sur les blocs de lecture (verset, hadith). ::before/::after en
+     retrait plutot que des border directs : laisse le border existant du
+     bloc intact et n'affecte pas sa mise en page (position absolute). */
   .decorative-frame {
     position: relative;
   }
   .decorative-frame::before {
     content: "";
     position: absolute;
-    inset: 5px;
-    border: 1px solid hsl(var(--primary) / 0.35);
-    border-radius: calc(var(--radius) - 3px);
+    inset: 6px;
+    border: 1.5px solid hsl(var(--primary) / 0.45);
+    border-radius: calc(var(--radius) - 2px);
+    pointer-events: none;
+  }
+  .decorative-frame::after {
+    content: "";
+    position: absolute;
+    inset: 10px;
+    border: 1px solid hsl(var(--primary) / 0.25);
+    border-radius: calc(var(--radius) - 4px);
     pointer-events: none;
   }
 }
